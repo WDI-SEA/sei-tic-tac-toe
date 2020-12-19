@@ -56,7 +56,7 @@ div.title-div {
 }
 
 div.dialogue-div {
-    height: 100px;
+    height: 50px;
 }
 
 div.button-div {
@@ -68,10 +68,17 @@ div.button-div {
     font-weight: bold;
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
+    border-style: none;
     width: 400px;
     height: 50px;
+    transition: background-color 1s, color 1s;
 }
 
+#clear:hover {
+    background-color:  #4E7AA8;
+    color: white;
+}
+    
 #main{
     grid-area: main;
     display: flex;
@@ -96,10 +103,18 @@ div.button-div {
     margin: 0;
 }
 
+div.game-square{
+    background-color: #1B2631;
+    transition: background-color 1s;
+}
+
+div.game-square:hover {
+    background-color: #4E7AA8;
+}
+
 #top-right{
     width: 33%;
     height: 33%;
-    background-color: #1B2631;
     background-size: cover;
     object-position: center;
 }
@@ -107,14 +122,12 @@ div.button-div {
 #top-middle{
     width: 34%;
     height: 33%;
-    background-color: #34495E;
     background-size: cover;
     object-position: center;
 }
 #top-left{
     width: 33%;
     height: 33%;
-    background-color: #1B2631;
     background-size: cover;
     object-position: center;
 }
@@ -122,7 +135,6 @@ div.button-div {
 #middle-left{
     width: 33%;
     height: 34%;
-    background-color: #34495E;
     background-size: cover;
     object-position: center;
 }
@@ -130,7 +142,6 @@ div.button-div {
 #middle-middle{
     width: 34%;
     height: 34%;
-    background-color: #1B2631;
     background-size: cover;
     object-position: center;
 }
@@ -138,7 +149,6 @@ div.button-div {
 #middle-right{
     width: 33%;
     height: 34%;
-    background-color: #34495E;
     background-size: cover;
     object-position: center;
 }
@@ -146,7 +156,6 @@ div.button-div {
 #bottom-left{
     width: 33%;
     height: 33%;
-    background-color: #1B2631;
     background-size: cover;
     object-position: center;
 }
@@ -154,7 +163,6 @@ div.button-div {
 #bottom-middle{
     width: 34%;
     height: 33%;
-    background-color: #34495E;
     background-size: cover;
     object-position: center;
 }
@@ -162,7 +170,6 @@ div.button-div {
 #bottom-right{
     width: 33%;
     height: 33%;
-    background-color: #1B2631;
     background-size: cover;
     object-position: center;
 }

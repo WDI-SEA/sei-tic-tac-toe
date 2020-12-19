@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const victoryDialogue = ['Yesss. Your soul is mine',
                              'You have lost',
-                             'Death and defeat are both inevitable']
+                             'Death and defeat are both inevitable',
+                             'Congrats on losing']
     
     const defeatDialogue = ['Well. Your soul had bad vibes anyway.',
                             'Hrmm. I appear to have lost',
@@ -138,8 +139,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const popIn = (imageUrl, elementId) => {
         let element = document.getElementById(elementId)
         element.style.backgroundImage = 'url('+imageUrl+')';
+        
         setTimeout(()=>{
-            element.style.backgroundImage = 'none';
+            element.style.backgroundImage = 'none'
         }, 20)
         setTimeout(()=>{
             element.style.backgroundImage = 'url('+imageUrl+')';
@@ -341,5 +343,3 @@ document.addEventListener('DOMContentLoaded', () => {
         checkSquare(compMove.id)
     }
 })
-
-// There is a grid of nine squares, made up of three columns X three rows. There are two sets of "pieces," X's and O's, and two players, each with their own respective set of pieces (Player one has X's, player two has 0's) They alternate placing their pieces on the grid, and the first player to place three of their pieces in a straight line (Which canbe achieved by covering one complete column, one complete row, or making a diagonal through the cneter) they win. If the game board is filled, and none of the colums or rows contain only one set of pieces, or create a diagonal line through the center, it is a draw.

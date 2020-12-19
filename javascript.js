@@ -17,13 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize helper function to take clicked square and compare to 2D array
     const checkArray = (rowId, colId, elementId) => {
         if (gameBoard[colId][rowId] === 0) {
-            gameBoard[colId][rowId] = 1;
+            turnCount++;
+            console.log(elementId)
             if (calcTurn(turnCount) === 0) {
-                elementId.style.backgroundColor = "red";
+                gameBoard[colId][rowId] = 1;
+                document.getElementById(elementId).style.backgroundColor = "red";
+                console.log('X')
             } else {
-                elementId.style.backgroundColor = "yellow";
+                gameBoard[colId][rowId] = -1;
+                document.getElementById(elementId).style.backgroundColor = "yellow";
+                console.log('O')
             }
-            console.log("Changed")
         } 
     }
     
@@ -35,35 +39,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
                 
             case "top-middle":
-                checkArray(0,1)
+                checkArray(0,1, checkedId)
                 break;
                 
             case "top-right":
-                checkArray(0,2)
+                checkArray(0,2, checkedId)
                 break;
             
             case "middle-left":
-                checkArray(1,0)
+                checkArray(1,0, checkedId)
                 break;
             
             case "middle-middle":
-                checkArray(1,1)
+                checkArray(1,1, checkedId)
                 break;
                 
             case "middle-right":
-                checkArray(1,2)
+                checkArray(1,2, checkedId)
                 break;
             
             case "bottom-left":
-                checkArray(2,0)            
+                checkArray(2,0, checkedId)            
                 break;
                 
             case "bottom-middle":
-                checkArray(2,1)
+                checkArray(2,1, checkedId)
                 break;
                 
             case "bottom-right":
-                checkArray(2,2)
+                checkArray(2,2, checkedId)
                 break;
         }
         console.log(checkedId);

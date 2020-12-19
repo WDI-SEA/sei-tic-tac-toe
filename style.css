@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: 100px 600fr 100px;
+    grid-template-columns: 1fr 600px 1fr;
+    grid-template-areas:    "header         header      header"
+                            "left-side       main        right-side"
+                            "footer         footer      footer"
+}
+
+#header{
+    grid-area: header;
+    background-color: black;
+}
+
+#left{
+    grid-area: left-side;
+    background-color: white;
+}
+
+#main{
+    grid-area: main;
+    background-color: gray;
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+
+#right{
+    grid-area: right-side;
+    background-color: white;
+}
+
+#footer{
+    grid-area: footer;
+    background-color: black;
+}
+
+#top-right{
+    background-color: blue;
+    border: 2px solid black;
+    width: 32%;
+    height: 33%;
+}
+
+#top-middle{
+    background-color: blue;
+    border: 2px solid black;
+    width: 33%;
+    height: 33%;
+}
+#top-left{
+    background-color: blue;
+    border: 2px solid black;
+    width: 33%;
+    height: 33%;
+}
+
+#middle-left{
+    background-color: blue;
+    border: 2px solid black;
+    width: 33%;
+    height: 33%;
+}
+
+#middle-middle{
+    background-color: blue;
+    border: 2px solid black;
+    width: 33%;
+    height: 33%;
+}
+
+#middle-right{
+    background-color: blue;
+    border: 2px solid black;
+    width: 32%;
+    height: 33%;
+}
+
+#bottom-left{
+    background-color: blue;
+    border: 2px solid black;
+    width: 33%;
+    height: 33%;
+}
+
+#bottom-middle{
+    background-color: blue;
+    border: 2px solid black;
+    width: 33%;
+    height: 33%;
+}
+
+#bottom-right{
+    background-color: blue;
+    border: 2px solid black;
+    width: 32%;
+    height: 33%;
+}

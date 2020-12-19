@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Young's Tic Tac Toe</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript" src="js/app.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">  
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Tic Tac Toe</h1>
+  </header>
+  <!-- game console box -->
+  <div class="container">
+    <!-- tic tac toe console -->
+    <div class="containerleft">
+      <main>
+        <div id="box1" class="box" onclick="move()" data-value=1></div>
+        <div id="box2" class="box" onclick="move()" data-value=2></div>
+        <div id="box3" class="box" onclick="move()" data-value=3></div>
+        <div id="box4" class="box" onclick="move()" data-value=4></div>
+        <div id="box5" class="box" onclick="move()" data-value=5></div>
+        <div id="box6" class="box" onclick="move()" data-value=6></div>
+        <div id="box7" class="box" onclick="move()" data-value=7></div>
+        <div id="box8" class="box" onclick="move()" data-value=8></div>
+        <div id="box9" class="box" onclick="move()" data-value=9></div>
+      </main>
+    </div>
+    <!-- communication side -->
+    <form class="containerright">
+      <p id="message">Select your game</p>
+      <!-- selection part -->
+      <div class="selection">
+        <p id="inputhelper">select game...</p>
+        <input type="radio" id="human" name="radio" value="vsHuman">
+        <label for="aaa"><span id="selec">VS Human</span></label><br>
+        <input type="radio" id="ai" name="radio" value="vsComp">
+        <label for="bbb"><span id="selec">VS Computer</span></label>
+        <p id="inputhelper">Start with...</p>
+        <input type="radio" id="StartO" name="radioO" value="startO">
+        <label for="ddd"><span id="selec">O (starts first)</span></label><br>
+        <input type="radio" id="StartX" name="radioO" value="startX">
+        <label for="eee"><span id="selec">X (starts second)</span></label>
+      </div>
+      <!-- button part -->
+      <div class="buttons">
+        <button type="submit" id="clickA" value="Challenge" class="startbtn">Challenge!</button>
+        <button type="submit" id="clickB" value="clear" class="restartbtn">Restart!</button>
+      </div>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+    </form>
+  </div>  
+</body>
+</html>

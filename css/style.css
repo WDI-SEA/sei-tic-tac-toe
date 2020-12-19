@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  background-color:rgb(255, 255, 255);
+  font-family: 'Quicksand', sans-serif;
+}
+
+header {
+  padding-top: 45px;
+}
+
+body {
+  padding-bottom: 60px;
+}
+
+h1 {
+  color: #0071bc;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.container {
+  width: 900px;
+  margin: 50px auto;
+  display: flex;
+  border-top: 0.5px solid #C1272D;
+  border-bottom: 0.5px solid #C1272D;
+
+}
+
+/* Starts console design */
+
+.containerleft {
+  width: 540px;
+  padding-top: 45px;
+}
+
+main {
+  margin: 0 auto;
+  display: grid;
+  width: 384px;
+  grid-template-columns: 120px 120px 120px;
+  grid-template-rows: 120px 120px 120px;
+  column-gap: 12px;
+  row-gap: 12px;
+}
+
+#box1 {
+  display: inline-block;
+  background-image: url(../img/button1.png);
+}
+
+#box2 {
+  display: inline-block;
+  background-image: url(../img/button1.png);
+}
+
+#box3 {
+  display: inline-block;
+  background-image: url(../img/button1.png);
+}
+
+#box4 {
+  display: inline-block;
+  background-image: url(../img/button1.png);
+}
+
+#box5 {
+  display: inline-block;
+  background-image: url(../img/button1.png);
+}
+
+#box6 {
+  display: inline-block;
+  background-image: url(../img/button1.png);
+}
+
+#box7 {
+  display: inline-block;
+  background-image: url(../img/button1.png);
+}
+
+#box8 {
+  display: inline-block;
+  background-image: url(../img/button1.png);
+}
+
+#box9 {
+  display: inline-block;
+  background-image: url(../img/button1.png);
+}
+
+/* starts communication design */
+
+.containerright {
+  width: 540px;
+  padding-bottom: 30px;
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+#message {
+  font-size: 35px;
+  color: #C1272D;
+  line-height: 50px;
+}
+
+#inputhelper {
+  color: #2d2d2d;
+  font-style: oblique;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+#selec {
+  line-height: 25px;
+  color: #2d2d2d;
+}
+
+.buttons {
+  margin-top: 50px;
+}
+
+#clickA {
+  width: 125px;
+  height: 50px;
+  border-radius: 15px;
+  margin-right: 20px;
+  border: none;
+  background-color: salmon;
+  color: white;
+}
+
+#clickB {
+  width: 125px;
+  height: 50px;
+  border-radius: 15px;
+  margin-right: 20px;
+  border: none;
+  background-color: salmon;
+  color: white;
+}

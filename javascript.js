@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize turn counter
     let turnCount = 0;
     
-    // Initialize 2D array
+    // Initialize 2D array simulating gameboard. Array moves left to right, processing each value in one row before continuing to the next
     let gameBoard = [[0, 0, 0],
                      [0, 0, 0],
                      [0, 0, 0]];
@@ -16,23 +16,23 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize helper function to take clicked square and compare to 2D array
     const checkArray = (rowId, colId, elementId) => {
-        if (gameBoard[colId][rowId] === 0) {
+        if (gameBoard[rowId][colId] === 0) {
             turnCount++;
-            console.log(elementId)
             if (calcTurn(turnCount) === 0) {
-                gameBoard[colId][rowId] = 1;
+                gameBoard[rowId][colId] = 1;
                 document.getElementById(elementId).style.backgroundColor = "red";
-                console.log('X')
             } else {
-                gameBoard[colId][rowId] = -1;
+                gameBoard[rowId][colId] = -1;
                 document.getElementById(elementId).style.backgroundColor = "yellow";
-                console.log('O')
             }
+            
+            winCondition();
         } 
     }
     
     // Initialize helper function to determine the clicked grid-square's status (If it has an X, O, or is empty)
     const checkSquare = (checkedId) => {
+        
         switch(checkedId) {
             case "top-left":
                 checkArray(0,0, checkedId)
@@ -102,10 +102,41 @@ document.addEventListener('DOMContentLoaded', () => {
         checkSquare('bottom-right')
     })
     
-    //Initialize gameboard grid, a 2D array of variables: -1 is X, 0 is empty, 1 is O
-
-    //Initialize js variables
-    //Initialize turn counter
+    const winCondition = () => {
+        // Initialize variable to keep track of "score" from the gameboard
+        let scoreRow = 0;
+        let scoreColumn = 0;
+        let scoreDiagonalDown = 0;
+        let scoreDiagonalUp = 0;
+        
+        for (let i = 0; i < gameBoard.length; i++) {
+            for (let j = 0; j < gameBoard[i].length; j++) {
+                scoreRow = scoreRow + gameBoard[i][j]
+            }
+            
+            for (let k = 0; k < gameBoard[i].length; k++) {
+                scoreColumn = scoreColumn + gameBoard[k][i]
+            }
+            
+            scoreDiagonalDown = gameBoard[0][0] + gameBoard[1][1] + gameBoard[2][2]
+            
+            scoreDiagonalUp = gameBoard[0][2] + gameBoard[1][1] + gameBoard[2][0]
+            
+            if (scoreRow === 3 || scoreRow === -3 || scoreColumn === 3 || scoreColumn === -3) {
+                console.log('Victory!')
+            } else {
+                scoreRow = 0
+                scoreColumn = 0
+            }
+            
+            if (scoreDiagonalDown === 3 || scoreDiagonalDown === -3 || scoreDiagonalUp === 3 || scoreDiagonalUp === -3) {
+                console.log('Victory!')
+            } else {
+                scoreDiagonalDown = 0
+                scoreDiagonalUp = 0
+            }
+        }
+    }
     
     //Initialize event listens to listen for click on gameboard
     

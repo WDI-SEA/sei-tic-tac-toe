@@ -1,37 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Initialize Death's dialogue
-    let dialogueIndex = 0
-    let dialogueFinished = false
-    const dialogue = ["Hello. I am Death.",
-                      "Play a game with me.",
-                      "A Tic Tac Toe game.",
-                      "For your soul.",
-                      "This is..."
-    ]
-
-    const deathSpeaks = () =>{
-        header.innerHTML = dialogue[dialogueIndex]
-        dialogueIndex++;
-        console.log(dialogueIndex)
-
-        if (dialogueIndex === dialogue.length) {
-          clearInterval(dialogueTimer)
-          dialogueFinished = true;
-        }
-    }
-    
-    const dialogueTimer = setInterval(deathSpeaks, 2000)
-    
-    // Trigger "interrupt" dialogue if player moves before dialogue finishes
-    const wowRude = () => {
-        if (dialogueFinished === false) {
-            clearInterval(dialogueTimer)
-            header.innerText = "Wow, okay. Rude."
-            dialogueFinished = true;
-        }
-    }
-    
     // Initialize variable to contain the header element, for ease of alteration
     let header = document.getElementById('header')
     
@@ -87,24 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return turnCount % 2
     }
     
-    // Function to make the pictures quickly blink in
-    const popIn = (imageUrl, elementId) => {
-        console.log(imageUrl)
-        document.getElementById(elementId).style.backgroundImage = 'url('+imageUrl+')';
-        setTimeout(()=>{
-            document.getElementById(elementId).style.backgroundImage = 'none';
-        }, 20)
-        setTimeout(()=>{
-            document.getElementById(elementId).style.backgroundImage = 'url('+imageUrl+')';
-        }, 60)
-        setTimeout(()=>{
-            document.getElementById(elementId).style.backgroundImage = 'none';
-        }, 120)
-        setTimeout(()=>{
-            document.getElementById(elementId).style.backgroundImage = 'url('+imageUrl+')';
-        }, 180)
-    }
-    
     // Initialize helper function to determine the clicked grid-square's status (If it has an X, O, or is empty)
     const checkSquare = (checkedId) => {
         
@@ -153,10 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
             turnCount++;
             if (calcTurn(turnCount) === 0) {
                 gameBoard[rowId][colId].space = -1;
-                popIn("images/o.png", elementId);
+                document.getElementById(elementId).style.backgroundColor = "red";
             } else {
                 gameBoard[rowId][colId].space = 1;
-                popIn("images/x.png", elementId);
+                document.getElementById(elementId).style.backgroundColor = "yellow";
             }
         } 
         
@@ -238,39 +188,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const letCompGo = () => {
         if (calcTurn(turnCount) === 1) {
             header.innerText = 'The computer is going'
-            wowRude()
-            setTimeout(compTurn, 1500)
+            setTimeout(compTurn, 1000)
         } else {
             // Returns header text to usual state
             header.innerText = 'It is your turn'
         }
     }
     
-    // Function which filters the gameboard, creating an array containing only empty spaces
-    function filterGameboard() {
+    // This function simulates the AI. It reads the gameboard, passing the objects of any empty spaces to an
+    // array, and then it randomly selects a space from the list to play on
+    function compTurn () {
         let openSpaces = []
+        
         for (let i = 0; i < gameBoard.length; i++) {
                 for (let j = 0; j < gameBoard[i].length; j++) {
+                    
+                    
                     if (gameBoard[i][j].space === 0) {
                         openSpaces.push(gameBoard[i][j])
                     }
                 }
             }
-        
-        return openSpaces;
-        }
-    
-    // This function simulates the AI. It reads the gameboard, passing the objects of any empty spaces to an
-    // array, and then it randomly selects a space from the list to play on
-    function compTurn () {
-        let openSpaces = filterGameboard();
     
         let compMove = openSpaces[Math.floor(Math.random() * openSpaces.length)]
         
         // This is the same function (And ensuing function chain) used for the player
         checkSquare(compMove.id)
     }
-    
     //Initialize "Death" and their dialogue
 })
 

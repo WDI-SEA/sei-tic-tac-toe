@@ -13,7 +13,7 @@ We will be making a Tic Tac Toe game using all of these concepts.
 
 ## Getting Started
 
-* Before you even start working with JavaScript, construct the gameboard. The gameboard page should include the 3x3 grid (of divs), and at minimum a reset button. Using `id` and `class` on clickable elements will help you wire this up in JavaScript afterwards.
+* Before you even start working with JavaScript, construct the gameboard. The gameboard page should include the 3x3 grid (of divs), and at minimum a reset button. Using `id` and/or `class` on clickable elements will help you wire this up in JavaScript afterwards.
 * The JavaScript portion will be next
   * Select elements and attach functions via event listeners
   * You will also need a variable to keep track of moves. This will be used to indicate whether or not to draw an `X` or an `O`
@@ -21,7 +21,7 @@ We will be making a Tic Tac Toe game using all of these concepts.
 ## Requirements
 * A user should be able to click on different squares to make a move.
 * Every click will alternate between marking an `X` and `O`
-* Upon marking of an individual cell, use JavaScript to add a class to each cell to display the separate players.
+* Upon marking of an individual cell, use JavaScript to add an `X` or `O` to the cell, according to whose turn it is.
 * A cell should not be able to be replayed once marked.
 * You should not be able to click remaining empty cells after the game is over.
 * Add a reset button that will clear the contents of the board.

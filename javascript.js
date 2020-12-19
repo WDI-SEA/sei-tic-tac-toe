@@ -7,36 +7,66 @@ document.addEventListener('DOMContentLoaded', () => {
                       "Play a game with me.",
                       "A Tic Tac Toe game.",
                       "For your soul.",
-                      "This is..."
+                      "This is...",
+                      "It is your move, mortal..."
     ]
+    
+    const yourMoveDialogue = ['It is your move',
+                              'Your turn, now',
+                              'You may take your turn',
+                              'Make your move']
+    
+    const compMoveDialogue = ['Hmm...',
+                              'Ah...',
+                              'I shall go...',
+                              'It is my turn, now']
+    
+    const victoryDialogue = ['Yesss. Your soul is mine',
+                             'You have lost',
+                             'Death and defeat are both inevitable']
+    
+    const defeatDialogue = ['Well. Your soul had bad vibes anyway.',
+                            'Hrmm. I appear to have lost',
+                            'You elude me. For now.']
 
     const deathSpeaks = () =>{
-        header.innerHTML = dialogue[dialogueIndex]
+        gameText.innerHTML = dialogue[dialogueIndex]
         dialogueIndex++;
-        console.log(dialogueIndex)
 
         if (dialogueIndex === dialogue.length) {
-          clearInterval(dialogueTimer)
-          dialogueFinished = true;
+            clearInterval(dialogueTimer)
+            titleDrop()
         }
     }
     
+    const selectRandomLine = (textArray) => {
+        return textArray[Math.floor(Math.random() * textArray.length)]
+    }
+    
     const dialogueTimer = setInterval(deathSpeaks, 2000)
+    
+    //Function to make title visible after dialogue has finished
+    const titleDrop = () => {
+           popInText('intro-title')
+           popInText('clear')
+            dialogueFinished = true;
+         }
     
     // Trigger "interrupt" dialogue if player moves before dialogue finishes
     const wowRude = () => {
         if (dialogueFinished === false) {
             clearInterval(dialogueTimer)
-            header.innerText = "Wow, okay. Rude."
+            gameText.innerText = "Wow, okay. Rude."
+            titleDrop()
             dialogueFinished = true;
         }
     }
     
-    // Initialize variable to contain the header element, for ease of alteration
-    let header = document.getElementById('header')
-    
     // Initialize turn counter
     let turnCount = 0;
+    
+    // Initialize victory boolean
+    let victory = false;
     
     // Initialize 2D array simulating gameboard. Array moves left to right, processing each value in one row before continuing to the next
     let gameBoard = [[{space: 0, id: 'top-left'}, 
@@ -81,6 +111,23 @@ document.addEventListener('DOMContentLoaded', () => {
         checkSquare('bottom-right')
     })
     
+    // Initialize event listener for the reset button
+    document.getElementById('clear').addEventListener('click', ()=> {
+        console.log('Clearing gameboard')
+        for (let i = 0; i < gameBoard.length; i++) {
+            for (let j = 0; j < gameBoard[i].length; j++) {
+                let element = document.getElementById(gameBoard[i][j].id)
+                gameBoard[i][j].space = 0;
+                console.log(element)
+                element.setAttribute('style', 'background-image: none')
+            }
+        }
+        
+        turnCount = 0;
+        victory = false;
+        gameText.innerText = 'Another round, then?'
+    })
+    
     // Initialize modular function to take turn counter and determine current player's turn.
     // Returns a 0 or a 1. 0 is for Player 1. 1 is for Player 2
     function calcTurn (turnCount) {
@@ -89,19 +136,39 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Function to make the pictures quickly blink in
     const popIn = (imageUrl, elementId) => {
-        console.log(imageUrl)
-        document.getElementById(elementId).style.backgroundImage = 'url('+imageUrl+')';
+        let element = document.getElementById(elementId)
+        element.style.backgroundImage = 'url('+imageUrl+')';
         setTimeout(()=>{
-            document.getElementById(elementId).style.backgroundImage = 'none';
+            element.style.backgroundImage = 'none';
         }, 20)
         setTimeout(()=>{
-            document.getElementById(elementId).style.backgroundImage = 'url('+imageUrl+')';
+            element.style.backgroundImage = 'url('+imageUrl+')';
         }, 60)
         setTimeout(()=>{
-            document.getElementById(elementId).style.backgroundImage = 'none';
+            element.style.backgroundImage = 'none';
         }, 120)
         setTimeout(()=>{
-            document.getElementById(elementId).style.backgroundImage = 'url('+imageUrl+')';
+            element.style.backgroundImage = 'url('+imageUrl+')';
+        }, 180)
+    }
+    
+    // Honestly, this function does the exact same thing as the one above
+    // but more generic. I should refactor anything that uses the above function
+    // to use the below one instead, but I'm lazy
+    const popInText = (elementId) => {
+        let element = document.getElementById(elementId)
+        element.style.visibility = 'visible';
+        setTimeout(()=>{
+            element.style.visibility = 'hidden';
+        }, 20)
+        setTimeout(()=>{
+            element.style.visibility = 'visible';
+        }, 60)
+        setTimeout(()=>{
+            element.style.visibility = 'hidden';
+        }, 120)
+        setTimeout(()=>{
+            element.style.visibility = 'visible';
         }, 180)
     }
     
@@ -149,7 +216,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize helper function to take clicked square and compare to 2D array
     const checkArray = (rowId, colId, elementId) => {
-        if (gameBoard[rowId][colId].space === 0) {
+        if (victory) {
+           gameText.innerText = 'The game is finished, human' 
+        } else {
+            if (gameBoard[rowId][colId].space === 0) {
             turnCount++;
             if (calcTurn(turnCount) === 0) {
                 gameBoard[rowId][colId].space = -1;
@@ -162,6 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Call function to check if the board is in a winning configuration
         winCondition();
+        }
     }
     
     const winCondition = () => {
@@ -170,7 +241,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let scoreColumn = 0;
         let scoreDiagonalDown = 0;
         let scoreDiagonalUp = 0;
-        let victory = false;
         
         // Initialize nested for loops that systematically check the gameboard, calculating a "score" for each
         // row, column, and diagonal. Since X tokens are stored in the gameboard array as -1, and O tokens are
@@ -197,10 +267,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // This is just the if statement that checks if any of the above loop iterations
             // met the win condition
             if (scoreRow === 3 || scoreColumn === 3) {
-                header.innerText = 'You win'
+                gameText.innerText = selectRandomLine(defeatDialogue)
                 victory = true;
             } else if (scoreRow === -3 || scoreColumn === -3) {
-                header.innerText = 'You lose'
+                gameText.innerText = selectRandomLine(victoryDialogue)
                 victory = true;
             } else {
                 scoreRow = 0
@@ -215,10 +285,10 @@ document.addEventListener('DOMContentLoaded', () => {
         scoreDiagonalUp = gameBoard[0][2].space + gameBoard[1][1].space + gameBoard[2][0].space
         
         if (scoreDiagonalDown === 3 || scoreDiagonalUp === 3) {
-                header.innerText = 'You win'
+                gameText.innerText = selectRandomLine(defeatDialogue)
                 victory = true;
             } else if (scoreDiagonalDown === -3 || scoreDiagonalUp === -3) {
-                header.innerText = 'You lose'
+                gameText.innerText = selectRandomLine(victoryDialogue)
                 victory = true;
             } else {
                 scoreDiagonalDown = 0
@@ -230,19 +300,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (victory === false && turnCount < 9) {
             letCompGo()
         } else if (victory === false && turnCount === 9) {
-            header.innerText = 'It is a tie'
+            gameText.innerText = 'It is a tie'
         }
     }
     
     // Function to check if it is the computer's turn, and set a timeout on it's move to fake a thought process
     const letCompGo = () => {
         if (calcTurn(turnCount) === 1) {
-            header.innerText = 'The computer is going'
+            gameText.innerText = selectRandomLine(compMoveDialogue)
             wowRude()
             setTimeout(compTurn, 1500)
         } else {
             // Returns header text to usual state
-            header.innerText = 'It is your turn'
+            gameText.innerText = selectRandomLine(yourMoveDialogue)
         }
     }
     
@@ -270,8 +340,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // This is the same function (And ensuing function chain) used for the player
         checkSquare(compMove.id)
     }
-    
-    //Initialize "Death" and their dialogue
 })
 
 // There is a grid of nine squares, made up of three columns X three rows. There are two sets of "pieces," X's and O's, and two players, each with their own respective set of pieces (Player one has X's, player two has 0's) They alternate placing their pieces on the grid, and the first player to place three of their pieces in a straight line (Which canbe achieved by covering one complete column, one complete row, or making a diagonal through the cneter) they win. If the game board is filled, and none of the colums or rows contain only one set of pieces, or create a diagonal line through the center, it is a draw.

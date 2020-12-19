@@ -13,6 +13,8 @@ body {
 #header{
     grid-area: header;
     background-color: black;
+    color: white;
+    text-align: center;
 }
 
 #left{

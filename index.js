@@ -1,3 +1,6 @@
+
+document.addEventListener('DOMContentLoaded', (e)=> {
+
 var playerMove = 0,
     playerOne = "narwhal",
     playerTwo = "unicorn",
@@ -58,7 +61,7 @@ function addingEventListeners(){
     }
 }
 
-addingEventListeners();
+
 
 function determineWin(){
     //123 - row 1
@@ -86,7 +89,6 @@ function determineWin(){
     p1Win8 = b6.contains(playerOne) && d6.contains(playerOne) && f6.contains(playerOne);
     p2Win8 = b6.contains(playerTwo) && d6.contains(playerTwo) && f6.contains(playerTwo); 
 
-    console.log(b2.contains(playerOne));
     if(p1Win1 || p1Win2 || p1Win3 || p1Win4 || p1Win5 || p1Win6 ||p1Win7 || p1Win8 ){
         document.getElementsByClassName("winner")[0].innerText = "Narwhal wins! #Evolution";
         document.getElementsByClassName("winner")[0].style.display = "block";
@@ -126,8 +128,17 @@ the classList had been removed. Then it kept calling that the class list had bee
 therefore after the first play through the game would never determineWin because it couldn't tell that playerOne/playerTwo was attached to a square.
  */
 
-resetButton.addEventListener("click", refresh);
+
     
 function refresh(){
     window.location.href=window.location.href;
 }
+
+
+
+addingEventListeners();
+
+
+resetButton.addEventListener("click", refresh);
+
+});

@@ -1,0 +1,42 @@
+body {
+  background-color: gray;
+  display: grid;
+  text-align: center;
+}
+.gameBoard {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+  grid-template-areas: "";
+}
+.Odd {
+  background-color: black;
+  color: white;
+}
+.Even {
+  background-color: white;
+  color: black;
+}
+.gameSquare {
+  height: 100%;
+  width: 100%;
+}
+.gameResults {
+  display: grid;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  grid-template-columns: 100px ;
+  grid-template-rows: 100px 100px ;
+  grid-template-areas: "result resultDisplay";
+}
+.result {
+  background-color: black;
+  color: white;
+}
+.resultDisplay {
+  background-color: black;
+  margin: 200px 50px 200px 50px;
+  color: white;
+}

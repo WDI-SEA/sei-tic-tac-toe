@@ -1,5 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // Initialize function to check for win condition, and play dialogue if met
+    const winCondition = () => {
+            if (checkWin(gameBoard, 'x')) {
+                gameText.innerText = selectRandom(defeatDialogue)
+                victory = true;
+            } else if (checkWin(gameBoard, 'o')) {
+                gameText.innerText = selectRandom(victoryDialogue)
+                victory = true;
+            } 
+        
+            if (victory === false && turnCount < 9) {
+                letCompGo()
+            } else if (victory === false && turnCount === 9) {
+                gameText.innerText = 'It is a tie'
+            }
+    }
+    
+    function checkWin (board, player) {
+        if ((board[0][0].space === player && board[0][1].space === player && board[0][2].space === player) ||
+            (board[1][0].space === player && board[1][1].space === player && board[1][2].space === player) ||
+            (board[2][0].space === player && board[2][1].space === player && board[2][2].space === player) ||
+            (board[0][0].space === player && board[1][0].space === player && board[2][0].space === player) ||
+            (board[0][1].space === player && board[1][1].space === player && board[2][1].space === player) ||
+            (board[0][2].space === player && board[1][2].space === player && board[2][2].space === player) ||
+            (board[0][0].space === player && board[1][1].space === player && board[2][2].space === player) ||
+            (board[2][0].space === player && board[1][1].space === player && board[0][2].space === player) )
+            {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     // Initialize Death's dialogue
     let dialogueIndex = 0
     let dialogueFinished = false
@@ -66,6 +99,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize turn counter
     let turnCount = 0;
     
+    
+    // Initialize modular function to take turn counter and determine current player's turn.
+    // Returns a 0 or a 1. 0 is for Player 1. 1 is for Player 2
+    function calcTurn (turnCount) {
+        return turnCount % 2
+    }
+    
     // Initialize victory boolean
     let victory = false;
     
@@ -81,59 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
                      [{space: 0, id: 'bottom-left', xcoord: 0, ycoord: 2}, 
                       {space: 0, id: 'bottom-middle', xcoord: 1, ycoord: 2}, 
                       {space: 0, id: 'bottom-right', xcoord: 2, ycoord: 2}]];
-    
-     
-    // Initialize event listeners
-    document.getElementById('top-left').addEventListener('click', ()=> {
-        checkSquare('top-left')
-    })
-    document.getElementById('top-middle').addEventListener('click', ()=> {
-        checkSquare('top-middle')
-    })
-    document.getElementById('top-right').addEventListener('click', ()=> {
-        checkSquare('top-right')
-    })
-    document.getElementById('middle-left').addEventListener('click', ()=> {
-        checkSquare('middle-left')
-    })
-    document.getElementById('middle-middle').addEventListener('click', ()=> {
-        checkSquare('middle-middle')
-    })
-    document.getElementById('middle-right').addEventListener('click', ()=> {
-        checkSquare('middle-right')
-    })
-    document.getElementById('bottom-left').addEventListener('click', ()=> {
-        checkSquare('bottom-left')
-    })
-    document.getElementById('bottom-middle').addEventListener('click', ()=> {
-        checkSquare('bottom-middle')
-    })
-    document.getElementById('bottom-right').addEventListener('click', ()=> {
-        checkSquare('bottom-right')
-    })
-    
-    // Initialize event listener for the reset button
-    document.getElementById('clear').addEventListener('click', ()=> {
-        console.log('Clearing gameboard')
-        for (let i = 0; i < gameBoard.length; i++) {
-            for (let j = 0; j < gameBoard[i].length; j++) {
-                let element = document.getElementById(gameBoard[i][j].id)
-                gameBoard[i][j].space = 0;
-                console.log(element)
-                element.setAttribute('style', 'background-image: none')
-            }
-        }
-        
-        turnCount = 0;
-        victory = false;
-        gameText.innerText = 'Another round, then?'
-    })
-    
-    // Initialize modular function to take turn counter and determine current player's turn.
-    // Returns a 0 or a 1. 0 is for Player 1. 1 is for Player 2
-    function calcTurn (turnCount) {
-        return turnCount % 2
-    }
     
     // Function to make the pictures quickly blink in
     const popIn = (imageUrl, elementId) => {
@@ -172,6 +159,28 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(()=>{
             element.style.visibility = 'visible';
         }, 180)
+    }
+    
+    
+    // Initialize helper function to take clicked square and compare to 2D array
+    const checkArray = (rowId, colId, elementId) => {
+        if (victory) {
+           gameText.innerText = 'The game is finished, human' 
+        } else {
+            if (gameBoard[rowId][colId].space === 0) {
+            turnCount++;
+            if (calcTurn(turnCount) === 0) {
+                gameBoard[rowId][colId].space = 'o';
+                popIn("images/o.png", elementId);
+            } else {
+                gameBoard[rowId][colId].space = 'x';
+                popIn("images/x.png", elementId);
+            }
+        } 
+        
+        // Call function to check if the board is in a winning configuration
+        winCondition();
+        }
     }
     
     // Initialize helper function to determine the clicked grid-square's status (If it has an X, O, or is empty)
@@ -213,29 +222,53 @@ document.addEventListener('DOMContentLoaded', () => {
             case "bottom-right":
                 checkArray(2,2, checkedId)
                 break;
-        }
+        } minimax(gameBoard, 'o')
     }
+     
+    // Initialize event listeners
+    document.getElementById('top-left').addEventListener('click', ()=> {
+        checkSquare('top-left')
+    })
+    document.getElementById('top-middle').addEventListener('click', ()=> {
+        checkSquare('top-middle')
+    })
+    document.getElementById('top-right').addEventListener('click', ()=> {
+        checkSquare('top-right')
+    })
+    document.getElementById('middle-left').addEventListener('click', ()=> {
+        checkSquare('middle-left')
+    })
+    document.getElementById('middle-middle').addEventListener('click', ()=> {
+        checkSquare('middle-middle')
+    })
+    document.getElementById('middle-right').addEventListener('click', ()=> {
+        checkSquare('middle-right')
+    })
+    document.getElementById('bottom-left').addEventListener('click', ()=> {
+        checkSquare('bottom-left')
+    })
+    document.getElementById('bottom-middle').addEventListener('click', ()=> {
+        checkSquare('bottom-middle')
+    })
+    document.getElementById('bottom-right').addEventListener('click', ()=> {
+        checkSquare('bottom-right')
+    })
     
-    // Initialize helper function to take clicked square and compare to 2D array
-    const checkArray = (rowId, colId, elementId) => {
-        if (victory) {
-           gameText.innerText = 'The game is finished, human' 
-        } else {
-            if (gameBoard[rowId][colId].space === 0) {
-            turnCount++;
-            if (calcTurn(turnCount) === 0) {
-                gameBoard[rowId][colId].space = 'o';
-                popIn("images/o.png", elementId);
-            } else {
-                gameBoard[rowId][colId].space = 'x';
-                popIn("images/x.png", elementId);
+    // Initialize event listener for the reset button
+    document.getElementById('clear').addEventListener('click', ()=> {
+        console.log('Clearing gameboard')
+        for (let i = 0; i < gameBoard.length; i++) {
+            for (let j = 0; j < gameBoard[i].length; j++) {
+                let element = document.getElementById(gameBoard[i][j].id)
+                gameBoard[i][j].space = 0;
+                element.setAttribute('style', 'background-image: none')
             }
-        } 
-        
-        // Call function to check if the board is in a winning configuration
-        winCondition();
         }
-    }
+        
+        turnCount = 0;
+        victory = false;
+        gameText.innerText = 'Another round, then?'
+    })
     
     // Function to check if it is the computer's turn, and set a timeout on it's move to fake a thought process
     const letCompGo = () => {
@@ -268,42 +301,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function compTurn () {
         let openSpaces = filterGameboard();
         let compMove = null;
-        
-        compMove = selectRandom(openSpaces)
+    
+           compMove = minimax(gameBoard, 'x') 
         
         // This is the same function (And ensuing function chain) used for the player
         checkSquare(compMove.id)
         }
     
-    const winCondition = () => {
-            if (checkWin(gameBoard, 'x')) {
-                gameText.innerText = selectRandom(defeatDialogue)
-                victory = true;
-            } else if (checkWin(gameBoard, 'o')) {
-                gameText.innerText = selectRandom(victoryDialogue)
-                victory = true;
-            } 
+    function minimax (board, player) {
         
-            if (victory === false && turnCount < 9) {
-                letCompGo()
-            } else if (victory === false && turnCount === 9) {
-                gameText.innerText = 'It is a tie'
-            }
-    }
-    
-    function checkWin (board, player) {
-        if ((board[0][0].space === player && board[0][1].space === player && board[0][2].space === player) ||
-            (board[1][0].space === player && board[1][1].space === player && board[1][2].space === player) ||
-            (board[2][0].space === player && board[2][1].space === player && board[2][2].space === player) ||
-            (board[0][0].space === player && board[1][0].space === player && board[2][0].space === player) ||
-            (board[0][1].space === player && board[1][1].space === player && board[2][1].space === player) ||
-            (board[0][2].space === player && board[1][2].space === player && board[2][2].space === player) ||
-            (board[0][0].space === player && board[1][1].space === player && board[2][2].space === player) ||
-            (board[2][0].space === player && board[1][1].space === player && board[0][2].space === player) )
-            {
-            return true
-        } else {
-            return false
-        }
+        return selectRandom(openSpaces)
     }
 })

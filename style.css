@@ -14,13 +14,19 @@ To do: (in no particular order)
 .black{
     background-color: black;
   }
+
+.b2:hover, .b4:hover, .b6:hover,
+.d2:hover, .d4:hover, .d6:hover, 
+.f2:hover, .f4:hover, .f6:hover{
+    cursor: pointer;
+}
   
 .grid-container {
     margin: 0 auto;
     width: 540px;
     display: grid;
-    grid-template-columns: 20px 150px 20px 150px 20px 150px 20px;
-    grid-template-rows: 20px 150px 20px 150px 20px 150px 20px;
+    grid-template-columns: 20px 150px 10px 150px 10px 150px 20px;
+    grid-template-rows: 20px 150px 10px 150px 10px 150px 20px;
     gap: 0px 0px;
     grid-template-areas:
       "a1 a1 a3 a4 a5 a6 a6"
@@ -89,3 +95,13 @@ To do: (in no particular order)
 .g4 { grid-area: g4; }
   
 .g6 { grid-area: g6; }
+
+.narwhal{
+    background-image: url("./narwhal.jpeg");
+    background-size: contain;
+}
+
+.unicorn{
+    background-image: url("./unicorn.jpg");
+    background-size: contain;
+}

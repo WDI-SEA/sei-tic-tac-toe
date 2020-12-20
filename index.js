@@ -10,6 +10,8 @@ let d6 = document.getElementById("d6").classList;
 let f2 = document.getElementById("f2").classList;
 let f4 = document.getElementById("f4").classList;
 let f6 = document.getElementById("f6").classList;
+let button = document.querySelector("button");
+let onClick;
 
 function determineWin(){
     //123 - row 1
@@ -38,16 +40,19 @@ function determineWin(){
     let p2Win8 = b6.contains(playerTwo) && d6.contains(playerTwo) && f6.contains(playerTwo); 
 
     if(p1Win1 || p1Win2 || p1Win3 || p1Win4 || p1Win5 || p1Win6 ||p1Win7 || p1Win8 ){
-        console.log("player one wins!")
+        document.getElementsByClassName("winner")[0].innerText = "Narwhal wins!";
+        document.getElementsByClassName("winner")[0].style.display = "block";
+        gameOver();
     } else if (p2Win1 || p2Win2 || p2Win3 || p2Win4 || p2Win5 || p2Win6 ||p2Win7 || p2Win8){
-        console.log("player two wins!")
+        document.getElementsByClassName("winner")[0].innerText = "Unicorn wins!";
+        document.getElementsByClassName("winner")[0].style.display = "block";
+        gameOver();
     } else if (playerMove === 9){
-        console.log("it's a tie!")
+        document.getElementsByClassName("winner")[0].innerText = "It's a tie!";
+        document.getElementsByClassName("winner")[0].style.display = "block";
+        gameOver();
     }
 }
-
-
-
 
 function determineWhichPlayer() {
     if (playerMove % 2 === 0){
@@ -74,3 +79,41 @@ function addingEventListeners(){
 }
 
 addingEventListeners();
+
+button.addEventListener("click", (e) =>{
+    let cells = document.getElementsByTagName("div");
+    let length = cells.length;
+    for(let i = 0; i < length; i++){
+        if(cells[i].id != "" && cells[i].classList.contains(playerOne) || 
+        cells[i].id != "" && cells[i].classList.contains(playerTwo)){
+
+            cells[i].classList.remove(playerOne);
+            cells[i].classList.remove(playerTwo);
+            playerMove = 0;
+            cells[i].addEventListener("click", (e) =>{
+                let picture = determineWhichPlayer();
+                cells[i].classList.add(picture);
+                cells[i].style.cursor = "auto";
+                playerMove++;
+                determineWin();
+            }, {once: true});
+        } 
+    }
+});
+
+
+function gameOver(){
+    let cells = document.getElementsByTagName("div");
+    let length = cells.length;
+    for(let i = 0; i < length; i++){
+        if(cells[i].id != ""){
+            cells[i].removeEventListener("click", (e) =>{
+                let picture = determineWhichPlayer();
+                cells[i].classList.add(picture);
+                cells[i].style.cursor = "auto";
+                playerMove++;
+                determineWin();
+            });
+        }
+    }
+}

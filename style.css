@@ -31,11 +31,12 @@ h1{
     margin: 32px;
 }
 
-h3{
+button{
+    display: block;
     text-align: center;
     background-color: #55d99e;
+    font-size: 22px;
     border: 1px outset black;
-    width: 75px;
     padding: 1rem;
     margin: 32px auto;
     border-radius: 10px;
@@ -43,7 +44,7 @@ h3{
     transition-property: background-color;
 }
 
-h3:hover{
+button:hover{
     cursor: pointer;
     background-color: #d95590;
     transition-duration: 500ms;

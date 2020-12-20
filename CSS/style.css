@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #D64163;
+  display: flex;
+  font-family: "Limelight" cursive;
+  justify-content: center;
+}
+
+.container {
+  background: #68A0B4;
+  margin: 50px;
+  padding: 50px;
+  border-radius: 25px;
+}
+
+.title {
+  text-align: center;
+}
+
+.gameStatus {
+  display: flex;
+  margin-top: 25px;
+  font-size: 25px;
+  justify-content: space-around;
+}
+
+.Reset {
+  /* want players to know it's a button */
+  cursor: pointer;
+}
+
+.Reset:hover {
+  color: #F4EBCE;
+}
+
+.Gameboard {
+  background-color: #D64163;
+  display: grid;
+  /* need 3 columns repeated equal available spaces */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 15px;
+  margin-top: 50px;
+}
+
+.gCell{
+  background: #68A0B4;
+  /* same idea with reset, want players to know spaces can be clicked on */
+  cursor: pointer;
+  height: 200px;
+  width: 200px;
+}

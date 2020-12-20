@@ -12,18 +12,22 @@ function choosePlayer() {
 }
 // const gameSquare = document.getElementsByClassName(".gameSquare")
 
-document.querySelectorAll(".gameSquare").addEventListener("click", function(e){
+function markSquare(){
   console.log("working?")
-  if(playerTurn === 0){
-    e.target.innerText("X");
-    console.log("Blue")
-  } else{
-    e.target.innerText("O");
-    console.log("Red")
-  }
-  e.target.disabled = true;
-  choosePlayer()
-})
+    if(playerTurn === 0){
+      document.querySelector(".gameSquare").innerText = "X";
+      console.log("Blue")
+    } else{
+      document.querySelector(".gameSquare").innerText = "O";
+      console.log("Red")
+    }
+    choosePlayer()
+}
+console.log(playerTurn)
+choosePlayer()
+console.log(playerTurn)
+
+document.getElementsByClassName("gameSquare").addEventListener("click", markSquare)
 
 // function winCheck(value) {
 //   if(typeof value === "X") {

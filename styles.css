@@ -1,0 +1,86 @@
+body {
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 150px 150px 150px 150px;
+    grid-template-columns: 150px 150px 150px;
+    grid-template-areas:     
+    "header header playerTurn "
+    "a1      a2       a3"
+    "b4       b5      b6"
+    "c7       c8      c9"
+    "win      win     reset";    
+    background-image: url(images/waterfive.gif);
+    background-size: cover;
+}
+.title {
+    grid-area: header;
+    font-size: 45px;
+    font-weight: 700;
+    background-color: rgba(100, 100, 100, .8)
+    /* border: 1px solid black; */
+
+}
+.playerTurn {
+    grid-area: playerTurn;
+     background-color: rgba(100, 100, 100, .5)
+}
+
+.a1 {
+    grid-area: a1;
+    border: black 2px;
+    border: 5px solid black;
+     background-color: rgba(100, 100, 100, .5)
+}
+.a2 {
+    grid-area: a2;
+    border: 5px solid black;
+     background-color: rgba(100, 100, 100, .5)
+}
+.a3 {
+    grid-area: a3;
+    border: 5px solid black;
+     background-color: rgba(100, 100, 100, .5)
+}
+.b4 {
+    grid-area: b4;
+    border: 5px solid black;
+     background-color: rgba(100, 100, 100, .5)
+}
+.b5 {
+    grid-area: b5;
+    border: 5px solid black;
+     background-color: rgba(100, 100, 100, .5)
+}
+.b6 {
+    grid-area: b6;
+    border: 5px solid black;
+     background-color: rgba(100, 100, 100, .5)
+}
+.c7 {
+    grid-area: c7;
+    border: 5px solid black;
+     background-color: rgba(100, 100, 100, .5)
+}
+.c8 {
+    grid-area: c8;
+    border: 5px solid black;
+     background-color: rgba(100, 100, 100, .5)
+}
+.c9 {
+    grid-area: c9;
+    border: 5px solid black;
+    background-color: rgba(100, 100, 100, .5)
+}
+.winSpot {
+    grid-area: win;
+    border: 5px solid black;
+    background-color: rgba(100, 100, 100, .5)
+}
+.reset {
+    grid-area: reset;
+    border: 5px solid black;
+    background-color: rgba(100, 100, 100, .5)
+}
+section {
+  
+}

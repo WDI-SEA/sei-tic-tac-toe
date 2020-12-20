@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1f 1fr;
+    grid-template-columns: 250px 1fr 1fr 1fr 1fr;
+    grid-template-areas:    "TB TB TB TB TB"
+                            "PB A1 A2 A3 RB"
+                            "PB B1 B2 B3 RB"
+                            "LB C1 C2 C3 RB"
+                            "BB BB BB BB BB"
+}
+
+#A1 {
+  grid-area: A1;
+  background-size: 50px;
+  border: 5px solid black;
+}
+
+#A2 {
+  grid-area: A2;
+  background-size: 50px;
+  border: 5px solid black;
+}
+
+#A3 {
+  grid-area: A3;
+  background-size: 50px;
+  border: 5px solid black;
+}
+
+#B1 {
+  grid-area: B1;
+  background-size: 50px;
+  border: 5px solid black;
+}
+
+#B2 {
+  grid-area: B2;
+  background-size: 50px;
+  border: 5px solid black;
+}
+
+#B3 {
+  grid-area: B3;
+  background-size: 50px;
+  border: 5px solid black;
+}
+
+#C1 {
+  grid-area: C1;
+  background-size: 50px;
+  border: 5px solid black;
+}
+
+#C2 {
+  grid-area: C2;
+  background-size: 50px;
+  border: 5px solid black;
+}
+
+#C3 {
+  grid-area: C3;
+  background-size: 50px;
+  border: 5px solid black;
+}
+
+#topBar {
+  grid-area: TB;
+}
+
+#leftBar {
+  font-family: monospace;
+  grid-area: LB;
+}
+
+#rightBar {
+  grid-area: RB;
+}
+
+#bottomBar {
+  grid-area: BB;
+}
+
+#picBox {
+  grid-area: PB;
+  background-image: url("JPG/Happy_6.jpg");
+  border: 5px solid black;
+  background-size: cover;
+}
+
+div {
+  text-align: center;
+}
+
+.general {
+  margin-top: 10%;
+}
+
+input {
+  margin-top: 2%;
+  font-size: 20px;
+}
+
+#titleText {
+  font-family: monospace;
+  font-size: 40px;
+  margin-top: 5%;
+}
+
+body {
+  background-color: green;
+}
+
+#turnText {
+  font-family: monospace;
+}

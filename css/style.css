@@ -1,0 +1,73 @@
+*{
+    box-sizing: border-box;
+}
+html,body{
+    margin: 0;
+    padding: 0;
+    
+}
+
+header{ 
+    text-align: center;
+}
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.gameboard {
+    display: grid;
+    width: 500px;
+    height: 500px;
+    border: 1px solid red;
+    grid-template-areas: "aSq bSq cSq"
+                        "dSq eSq fSq"
+                        "gSq hSq iSq";
+    /* grid-template-areas: "div.aSq div.bSq div.cSq"
+                         "div.dSq div.eSq div.fSq"
+                         "div.gSq div.hSq div.iSq"; */
+
+}
+.aSq {
+  background-color: aquamarine;
+    border: 1px solid black;
+    
+} 
+.bSq {
+  background-color: aquamarine;
+    border: 1px solid black;
+} 
+.cSq {
+  background-color: aquamarine;
+    border: 1px solid black;
+} 
+.dSq {
+  background-color: aquamarine;
+    border: 1px solid black;
+   
+} 
+.eSq {
+  background-color: aquamarine;
+    border: 1px solid black;
+    
+} 
+.fSq {
+  background-color: aquamarine;
+    border: 1px solid black;
+    
+} 
+.gSq {
+  background-color: aquamarine;
+    border: 1px solid black;
+    
+} 
+.hSq {
+  background-color: aquamarine;
+    border: 1px solid black;
+  
+} 
+.iSq {
+  background-color: aquamarine;
+    border: 1px solid black;
+   
+} 

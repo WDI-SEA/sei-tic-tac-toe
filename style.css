@@ -1,0 +1,72 @@
+.container {
+    width: 320px;
+    height: 320px;
+    margin: auto;
+    margin-top: 100px;
+  }
+  
+h2 {
+    color: darkgreen;
+    text-align: center;
+    font-size: 50px;
+  }
+ 
+p {
+    color: black;
+    text-align: center;
+    font-size: 25px;
+}
+.row {
+    height: 100px;
+  }
+  
+  
+.column {
+    height: 100px;
+    width: 100px;
+    float: left;
+    font-size: 100px;
+    text-align: center;
+    line-height: 100px;
+   }
+
+.column:hover {
+    background-color: lightgrey;
+}
+
+.border-bottom {
+    border-bottom: 10px solid darkgreen;
+  }
+
+.border-right {
+    border-right: 10px solid darkgreen;
+}
+
+button {
+    text-align: center;
+    width: 100px;
+}
+
+/* .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 610px;
+    height: 610px;
+    background-color: black;
+}
+
+.grid div {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+.playerX {
+    background-image: url('rebel-alliance.png')
+}
+
+playerO {
+    background-image: url(galacticempire.png)
+} */

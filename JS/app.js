@@ -16,7 +16,7 @@ let xIsNext = true;
 const letterToSymbol = (letter) => letter === 'x' ? xSymbol : oSymbol;
 
 const checkForWin = (letter) => {
-  gameHasStarted = false;
+  gameIsLive = false;
   if (letter === 'x') {
     uActionDiv.innerHTML = `${letterToSymbol(letter)} has won!`;
   } else {
@@ -77,7 +77,7 @@ const checkGameStatus = () => {
     cellDivs[4].classList.add('won');
     cellDivs[6].classList.add('won');
   } else if (topLeft && topMiddle && topRight && middleLeft && middleMiddle && middleRight && bottomLeft && bottomMiddle && bottomRight) {
-    gameHasStarted = false;
+    gameIsLive = false;
     uActionDiv.innerHTML = 'Tie Game!';
   } else {
     xIsNext = !xIsNext;

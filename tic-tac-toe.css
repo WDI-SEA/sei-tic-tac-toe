@@ -154,10 +154,10 @@ button {
     left: 415px;
 }
 
-div[clicked-o="true"] {
+div[clickedO="true"] {
     visibility: visible;
 }
 
-div[clicked-g="true"] {
+div[clickedG="true"] {
     visibility: visible;
 }

@@ -43,7 +43,6 @@ let player = selectOrcas;
 function startGame() {
     const squaresArray = Array.from(squares);
     const index = squaresArray.indexOf(e.target)
-    console.log(index)
 
     for (let i = 0; i < squares.length ; i++) {
         document.getElementById(squares[i]).addEventListener("click", clickSquare)
@@ -98,6 +97,9 @@ let counter = 1;
 
 // function clickSquare () { if (counter % 2) {} else {} counter++}
 //document.getEelementById("square1").addEventListener("click,clicksquare"); checkVictory () heck victory or checkTie() tie
+var clickedO = "false";
+var clickeG = "false";
+
 function clickSquare() {
     if (this.getAttribute("clicked") === "true") {
         return;
@@ -110,30 +112,32 @@ function clickSquare() {
     }   {
         this.setAttribute("clicked-g", "true");
     }
-        for (let i = 0; i < orcas.length; i) {
-            onclick=document.getElementById("o1").style.visibility = "visible";
-            onclick=document.getElementById("o2").style.visibility = "visible";
-            onclick=document.getElementById("o3").style.visibility = "visible";
-            onclick=document.getElementById("o4").style.visibility = "visible";
-            onclick=document.getElementById("o5").style.visibility = "visible";
-            onclick=document.getElementById("o6").style.visibility = "visible";
-            onclick=document.getElementById("o7").style.visibility = "visible";
-            onclick=document.getElementById("o8").style.visibility = "visible";
-            onclick=document.getElementById("o9").style.visibility = "visible";
-        }
-    // for (let i = 0; i < orcas.length; i) {
+
+    // if (clickedO == "true") {
+        
+    // onclick=document.getElementById("o1").style.visibility = "visible";
+    // onclick=document.getElementById("o2").style.visibility = "visible";
+    // onclick=document.getElementById("o3").style.visibility = "visible";
+    // onclick=document.getElementById("o4").style.visibility = "visible";
+    // onclick=document.getElementById("o5").style.visibility = "visible";
+    // onclick=document.getElementById("o6").style.visibility = "visible";
+    // onclick=document.getElementById("o7").style.visibility = "visible";
+    // onclick=document.getElementById("o8").style.visibility = "visible";
+    // onclick=document.getElementById("o9").style.visibility = "visible";
+    // }
+
+    // for (let i = 0; i < orcas.length; i++) {
     //     onclick=document.getElementById(orcas[i]).style.visibility="visible";
     // }
     // for (let i = 0; i<gators.length; i++) {
     //     onclick=document.getElementById(gators[i]).style.visibility="visible";
-    }
+    // }
 
     counter += 1;
-
     function test2 () {
         console.log(n)
     }
-
+}
 
 //player 1 clicks on a div which turns their picture's visibility from hidden to visible 
 // the click also turns off the div for the other player disallowing it from being clicked again, counter goes up

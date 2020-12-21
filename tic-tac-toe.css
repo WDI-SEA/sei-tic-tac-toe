@@ -1,0 +1,163 @@
+* {
+    border: 1px solid black;
+}
+body {
+    border: 1px solid black;
+    background-image: url('https://i.imgur.com/W62xVz8.jpeg');
+    background-size: cover;
+
+}
+
+header {
+    width: 100%;
+    font-size: 50px;
+    margin: 0 auto;
+    text-align: center;
+    color: #c8cfe3;
+}
+
+span {
+    height: 100px;
+    width: 100px;
+    margin: 0px 25px 0px 25px;
+    font-size: 25px;
+    padding: 0px 10px 0px 10px;
+    text-align: center;
+    background-color: #1b2657;
+    color: #c8cfe3;
+    position: relative;
+}
+h1 {
+    display: inline;
+    color: #c8cfe3;
+}
+
+h2 {
+    text-align: center;
+    color: #c8cfe3;
+}
+
+h3 {
+    text-align: center;
+    color: #c8cfe3;
+}
+
+p {
+    text-align: center;
+    color: #c8cfe3;
+}
+.gameboard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    background-color: #42a1f5;
+    opacity: .5;
+}
+
+.square {
+    border: 5px solid black;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+}
+
+#reset {
+
+}
+
+#awin {
+    background-color: #ad1744;
+}
+
+#owin {
+    background-color: #17ad1c;
+}
+
+#tie {
+
+}
+img {
+    visibility: hidden;
+}
+
+#start {
+    height: 50px;
+    width: 100px;
+}
+
+#reset {
+    height: 50px;
+    width: 100px;
+}
+
+button {
+    display: inline-block;
+}
+
+#a1 {
+    position:absolute;
+    top: 230px;
+    left: 150px;
+}
+
+#a2 {
+    position:absolute;
+    top: 230px;
+    left: 281px;
+}
+
+#a3 {
+    position:absolute;
+    top: 230px;
+    left: 415px;
+}
+
+#a4 {
+    position:absolute;
+    top: 365px;
+    left: 150px;
+}
+
+
+#a5 {
+    position:absolute;
+    top: 365px;
+    left: 281px;
+}
+
+#a6 {
+    position:absolute;
+    top: 365px;
+    left: 415px;
+}
+
+#a7 {
+    position:absolute;
+    top: 495px;
+    left: 150px;
+}
+
+#a8 {
+    position:absolute;
+    top: 495px;
+    left: 281px;
+}
+
+#a9 {
+    position:absolute;
+    top: 495px;
+    left: 415px;
+}
+
+div[clicked-o="true"] {
+    visibility: visible;
+}
+
+div[clicked-g="true"] {
+    visibility: visible;
+}

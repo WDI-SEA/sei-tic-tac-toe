@@ -15,59 +15,64 @@ main{
     flex-direction: row;
     justify-content: space-around;
 }
+img{
+    width: 100%;
+}
 .gameboard {
     display: grid;
-    width: 500px;
-    height: 500px;
-    border: 1px solid red;
+    width: 600px;
+    height: 600px;
+    border: 4px solid red;
     grid-template-areas: "aSq bSq cSq"
                         "dSq eSq fSq"
                         "gSq hSq iSq";
-    /* grid-template-areas: "div.aSq div.bSq div.cSq"
-                         "div.dSq div.eSq div.fSq"
-                         "div.gSq div.hSq div.iSq"; */
-
+    
 }
+#square {
+    display: grid;
+    grid-template-areas: "imgb";
+}
+
 .aSq {
   background-color: aquamarine;
-    border: 1px solid black;
+    border: 1px solid red;
     
 } 
 .bSq {
   background-color: aquamarine;
-    border: 1px solid black;
+    border: 1px solid red;
 } 
 .cSq {
   background-color: aquamarine;
-    border: 1px solid black;
+    border: 1px solid red;
 } 
 .dSq {
   background-color: aquamarine;
-    border: 1px solid black;
+    border: 1px solid red;
    
 } 
 .eSq {
   background-color: aquamarine;
-    border: 1px solid black;
+    border: 1px solid red;
     
 } 
 .fSq {
   background-color: aquamarine;
-    border: 1px solid black;
+    border: 1px solid red;
     
 } 
 .gSq {
   background-color: aquamarine;
-    border: 1px solid black;
+    border: 1px solid red;
     
 } 
 .hSq {
   background-color: aquamarine;
-    border: 1px solid black;
+    border: 1px solid red;
   
 } 
 .iSq {
   background-color: aquamarine;
-    border: 1px solid black;
+    border: 1px solid red;
    
 } 

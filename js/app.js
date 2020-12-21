@@ -10,46 +10,40 @@ const blankImg="./assets/blank.png";
 
 
     // variables for square states
-let aSqSt;
-let bSqSt;
-let cSqSt;
-let dSqSt;
-let eSqSt;
-let fSqSt;
-let gSqSt;
-let hSqSt;
-let iSqSt;
+// let aSqSt;
+// let bSqSt;
+// let cSqSt;
+// let dSqSt;
+// let eSqSt;
+// let fSqSt;
+// let gSqSt;
+// let hSqSt;
+// let iSqSt;
 
 //variables for square's images src
-let aSqImg;
-let bSqImg;
-let cSqImg;
-let dSqImg;
-let eSqImg;
-let fSqImg;
-let gSqImg;
-let hSqImg;
-let iSqImg;
-let initState;
+// let aSqImg;
+// let bSqImg;
+// let cSqImg;
+// let dSqImg;
+// let eSqImg;
+// let fSqImg;
+// let gSqImg;
+// let hSqImg;
+// let iSqImg;
+// let initState;
 // game variables
     // is the game open for play declaration
 
+let gameGoing = true;
 let cornNext = true;
-let earNext;
+let winner = null;
 
 //Create a query selector for all game squares calling 
     //from game square class and data-square
 
 const gameLogs = document.querySelectorAll('.gameSquare');
-const aSqImg = document.querySelector("imgb.aSqI");
-const bSqImg = document.querySelector("imgb.bSqI");
-const cSqImg = document.querySelector("imgb.cSqI");
-const dSqImg = document.querySelector("imgb.dSqI");
-const eSqImg = document.querySelector("imgb.eSqI");
-const fSqImg = document.querySelector("imgb.fSqI");
-const gSqImg = document.querySelector("imgb.gSqI");
-const hSqImg = document.querySelector("imgb.hSqI");
-const iSqImg = document.querySelector("imgb.iSqI");
+const gameStatusLog = document.querySelector('.gameStatus');
+const gameSquareImg = document.querySelectorAll('.imbg');
 
 const checkGameState = () => {
     const aSq = gameLogs[0].classList[2];
@@ -63,33 +57,38 @@ const checkGameState = () => {
     const iSq = gameLogs[8].classList[2];
     console.log(aSq, bSq, cSq, dSq, eSq, fSq, gSq, hSq, iSq);
  //checking for winner states
-    if (aSq && aSq === bSq && aSq === cSq){
-        
+    if (aSq && aSq === bSq && aSq === cSq) {
+        gameGoing = false;
+        winner = aSq;
+        gameStatusLog.innerHTML = `${aSq} has won!`;
     }
 
 };
 
 
 const gameSquareClick = (e) => {
+
     console.log(e.target.classList);
     const classList = e.target.classList;
     const whereClicked = classList[1];
     console.log("whereClicked", whereClicked);
-    if (classList [2]=== 'corn'){
-        document
-    }
+    // if (classList[2] === 'corn'){
+    //     aSqImg.src = cornImg;
+    // }else (classList[2] ==='ear'){
+    //     aSqImg.src = earImg;
+    // }
     if (classList[2] === 'corn' || classList[2] === 'ear'){
         return;
     }
     if (cornNext) {
         classList.add('corn');
-        
-        // checkGameState();
+        gameSquareImg.src = cornImg;
+        checkGameState();
         cornNext = !cornNext;
     } else {
         classList.add('ear');
-        
-        // checkGameState();
+        gameSquareImg.src = earImg;  
+        checkGameState();
         cornNext = !cornNext;
         
     } 

@@ -37,45 +37,83 @@ img{
 }
 
 .gameSquare.aSq {
-  background-color: aquamarine;
+    background-color: aquamarine;
+    background: url(assets/blank.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
     border: 1px solid red;
     
 } 
- .gameSquare.bSq { 
-  background-color: aquamarine;
-    border: 1px solid red;
+    .gameSquare.aSq.corn {
+        background-color: yellow;
+        border: 1px solid red;
+        background: url(assets/corn.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    
 } 
-.gameSquare.cSq {
-  background-color: green;
-    border: 1px solid red;
+    .gameSquare.aSq.ear {
+        background-color: blue;
+        border: 1px solid red;
+        background: url(assets/ear.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    
 } 
-.gameSquare.dSq {
-  background-color: aquamarine;
-    border: 1px solid red;
-   
-} 
-.gameSquare.eSq {
-  background-color: aquamarine;
+.gameSquare.bSq {
+    background-color: aquamarine;
+    background: url(assets/blank.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
     border: 1px solid red;
     
 } 
-.gameSquare.fSq {
-  background-color: aquamarine;
+    .gameSquare.bSq.corn {
+        background-color: yellow;
+        border: 1px solid red;
+        background: url(assets/corn.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    
+} 
+    .gameSquare.aSq.ear {
+        background-color: blue;
+        border: 1px solid red;
+        background: url(assets/ear.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    
+} 
+.gameSquare.aSq {
+    background-color: aquamarine;
+    background: url(assets/blank.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
     border: 1px solid red;
     
 } 
-.gameSquare.gSq {
-  background-color: aquamarine;
-    border: 1px solid red;
+    .gameSquare.aSq.corn {
+        background-color: yellow;
+        border: 1px solid red;
+        background: url(assets/corn.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
     
 } 
-.gameSquare.hSq {
-  background-color: aquamarine;
-    border: 1px solid red;
-  
+    .gameSquare.aSq.ear {
+        background-color: blue;
+        border: 1px solid red;
+        background: url(assets/ear.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    
 } 
-.gameSquare.iSq {
-  background-color: aquamarine;
-    border: 1px solid red;
-   
-}  

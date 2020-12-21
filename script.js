@@ -22,8 +22,6 @@ function clearBoard() {
   hasWon = false;
   choosePlayer();
 }
-
-
 function winConditionX(){
   if((one.innerText == "X" && two.innerText == "X" && three.innerText == "X") || (four.innerText == "X" && five.innerText == "X" && six.innerText == "X") || 
   (seven.innerText == "X" && eight.innerText == "X" && nine.innerText == "X") || (one.innerText == "X" && five.innerText == "X" && nine.innerText == "X") ||
@@ -33,14 +31,13 @@ function winConditionX(){
     document.getElementById("player").innerText = "Player One has won!";
   }
 }
-
 function winConditionO(){
   if((one.innerText == "O" && two.innerText == "O" && three.innerText == "O") || (four.innerText == "O" && five.innerText == "O" && six.innerText == "O") || 
   (seven.innerText == "O" && eight.innerText == "O" && nine.innerText == "O") || (one.innerText == "O" && five.innerText == "O" && nine.innerText == "O") ||
   (three.innerText == "O" && five.innerText == "O" && seven.innerText == "O") || (one.innerText == "O" && four.innerText == "O" && seven.innerText == "O") ||
   (two.innerText == "O" && five.innerText == "O" && eight.innerText == "O") || (three.innerText == "O" && six.innerText == "O" && nine.innerText == "O")) {
     document.getElementById("player").innerText = "Player Two has won!";
-    hasWon = true
+    hasWon = true;
   }
 }
 function choosePlayer() {
@@ -69,23 +66,5 @@ function markSquare(e){
       choosePlayer();
   }
 }
-
 document.getElementById("playSpace").addEventListener("click", markSquare);
-
-// function winConditionX(){
-//   if((one.innerText === "X" && two.innerText === "X" && three.innerText === "X") || (four.innerText === "X" && five.innerText === "X" && six.innerText === "X") || 
-//   (seven.innerText === "X" && eight.innerText === "X" && nine.innerText === "X") || (one.innerText === "X" && five.innerText === "X" && nine.innerText === "X") ||
-//   (three.innerText === "X" && five.innerText === "X" && seven.innerText === "X") || (one.innerText === "X" && four.innerText === "X" && seven.innerText === "X") ||
-//   (two.innerText === "X" && five.innerText === "X" && eight.innerText === "X") || (three.innerText === "X" && six.innerText === "X" && nine.innerText === "X")) {
-//     document.getElementById("player").innerText = "Player One has won!";
-//   }
-// }
-// function winConditionO(){
-//   if((one.innerText === "O" && two.innerText === "O" && three.innerText === "O") || (four.innerText === "O" && five.innerText === "O" && six.innerText === "O") || 
-//   (seven.innerText === "O" && eight.innerText === "O" && nine.innerText === "O") || (one.innerText === "O" && five.innerText === "O" && nine.innerText === "O") ||
-//   (three.innerText === "O" && five.innerText === "O" && seven.innerText === "O") || (one.innerText === "O" && four.innerText === "O" && seven.innerText === "O") ||
-//   (two.innerText === "O" && five.innerText === "O" && eight.innerText === "O") || (three.innerText === "O" && six.innerText === "O" && nine.innerText === "O")) {
-//     document.getElementById("player").innerText = "Player Two has won!";
-//   }
-// }
 

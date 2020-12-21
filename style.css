@@ -1,5 +1,5 @@
 body {
-  background-color: gray;
+  background-color: violet;
   display: grid;
   text-align: center;
 }
@@ -13,27 +13,16 @@ body {
 .Odd {
   background-color: black;
   color: white;
+  text-align: center;
 }
 .Even {
   background-color: white;
   color: black;
+  text-align: center;
 }
 .gameSquare {
   height: 100px;
   width: 100px;
-}
-.gameResults {
-  display: grid;
-  justify-content: center;
-  background-color: black;
-  color: white;
-  grid-template-columns: 100px ;
-  grid-template-rows: 100px 100px ;
-  grid-template-areas: "result resultDisplay";
-}
-.result {
-  background-color: black;
-  color: white;
 }
 .resultDisplay {
   background-color: black;

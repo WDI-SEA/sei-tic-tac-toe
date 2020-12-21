@@ -1,0 +1,183 @@
+
+body {
+    background-image: url("https://st.depositphotos.com/2071605/3534/i/600/depositphotos_35345585-stock-photo-aged-dark-wood-texture.jpg");
+    background-color: #cccccc;
+    background-size: cover;
+    }
+
+
+header {
+    font-size: 3em;
+    text-align: center;
+    color: whitesmoke;
+    font-family: 'Indie Flower', cursive;
+}
+
+#playerTurn {
+    display: grid;
+    width: 650px;
+    height: 50px;
+    justify-content: center;
+    margin: 10px auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "playerOne playerTwo";
+}
+
+#playerOne {
+    grid-area: playerOne;
+    background: transparent;
+    border: 2px solid black;
+    font-family: 'Indie Flower', cursive;
+    font-size: 2em;
+    text-align: center;
+    color: whitesmoke
+}
+
+#playerTwo {
+    grid-area: playerTwo;
+    background: transparent;
+    border: 2px solid black;
+    font-family: 'Indie Flower', cursive;
+    font-size: 2em;
+    text-align: center;
+    color: whitesmoke;
+}
+
+
+.grid-container {
+
+    margin: 10px auto;
+    padding: 200px 0px;
+    display: grid;
+    width: 500px;
+    height: 500px;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "one two three"
+                         "four five six"
+                         "seven eight nine";
+}
+
+#grid1{
+    background-color: transparent;
+    grid-area: one;
+    border-right: 15px solid black;
+    border-bottom: 15px solid black;
+}
+
+#grid2{
+    background-color: transparent;
+    grid-area: two;
+    border-left: 15px solid black;
+    border-bottom: 15px solid black;
+    border-right: 15px solid black;
+}
+
+#grid3{
+    background-color: transparent;
+    grid-area: three;
+    border-left: 15px solid black;
+    border-bottom: 15px solid black;;
+}
+
+#grid4{
+    background-color: transparent;
+    grid-area: four;
+    border-right: 15px solid black;
+    border-bottom: 15px solid black;;
+    border-top: 15px solid black
+}
+
+#grid5{
+    background-color: transparent;
+    grid-area: five;
+    border: 15px solid black;
+}
+
+#grid6{
+    background-color: transparent;
+    grid-area: six;
+    border-left: 15px solid black;
+    border-bottom: 15px solid black;
+    border-top: 15px solid black;
+}
+
+#grid7{
+    background-color: transparent;
+    grid-area: seven;
+    border-top: 15px solid black;
+    border-right: 15px solid black;
+}
+
+#grid8{
+    background-color: transparent;
+    grid-area: eight;
+    border-top: 15px solid black;
+    border-left: 15px solid black;
+    border-right: 15px solid black;
+}
+
+#grid9{
+    background-color: transparent;
+    grid-area: nine;
+    border-left: 15px solid black;
+    border-top: 15px solid black;
+}
+
+footer {
+   display: grid;
+   width: 700px;
+   height: 50px;
+   justify-content: center;
+   margin: 10px auto;
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-template-areas: "mode onePlayer twoPlayer";
+   grid-template-rows: auto;
+   color: whitesmoke
+}
+
+#mode {
+    grid-area: mode;
+    background: transparent;
+    border: 2px solid black;
+    font-family: 'Indie Flower', cursive;
+    font-size: 2em;
+    text-align: center;
+}
+    
+#onePlayer {
+    grid-area: onePlayer;
+    background: transparent;
+    border: 2px solid black;
+    font-family: 'Indie Flower', cursive;
+    font-size: 2em;
+    text-align: center;
+    color: whitesmoke;
+}
+
+#twoPlayer {
+   grid-area: twoPlayer;
+   background: transparent;
+   border: 2px solid black;
+   font-family: 'Indie Flower', cursive;
+   font-size: 2em;
+   text-align: center;
+   color: whitesmoke;
+}
+
+button #buttonReset {
+        
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reset {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+/*https://www.perfectstix.com/tool/admin/image/thumbnail/1504866045.png image for sticks */

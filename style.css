@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+  }
+
+body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: 150px 150px 150px 150px 150px;
+    grid-template-columns: 100% 150px 150px 150px 150px;
+    grid-template-areas:    "header header header header"
+                            "left box1 box2 box3 right" 
+                            "left box4 box5 box6 right"
+                            "left box7 box8 box9 right"
+                            "footer footer footer footer"
+}
+#left {
+    grid-area: left;
+    border: 5px solid black;
+}
+ 
+#right {
+    grid-area: right;
+    background-color: black;
+    border: 10px solid black;
+    
+}
+
+footer {
+    grid-area: footer;
+    background-color: black;
+    border: 5px solid black;
+}
+
+header {
+    grid-area: h1;
+    text-align: center;
+    background-color: orange;
+    border: 5px solid black;
+   }
+
+aside {
+    grid-area: aside;
+    border: 5px solid black;
+    display: flex; 
+    justify-content: center; 
+    flex-direction: row; 
+    flex-wrap: wrap;
+    background-color: red;
+}
+
+
+
+#topLeft {
+    text-align: center;
+    height: 150px;
+    width: 150px;
+    grid-area: box1;
+    border: 5px solid black;
+    align-items: flex-start;
+   }
+
+#middleLeft {
+    text-align: center;
+    height: 150px;
+    width: 150px;
+    grid-area: box2;
+    border: 5px solid black;
+   }
+   
+#bottomLeft {
+    text-align: center;
+    height: 150px;
+    width: 150px;
+    grid-area: box3;
+    border: 5px solid black;
+   }
+   
+#topMiddle {
+    text-align: center;
+    height: 150px;
+    width: 150px;
+    grid-area: box4;
+    border: 5px solid black;
+   }
+   
+#middle {
+    text-align: center;
+    height: 150px;
+    width: 150px;
+    grid-area: box5;
+    border: 5px solid black;
+   }
+#bottomMiddle {
+    text-align: center;
+    height: 150px;
+    width: 150px;
+    grid-area: box6;
+    border: 5px solid black;
+   }
+   
+#topRight {
+    text-align: center;
+    height: 150px;
+    width: 150px;
+    grid-area: box7;
+    border: 5px solid black;
+   }
+
+#middleRight {
+    text-align: center;
+    text-align: center;
+    height: 150px;
+    width: 150px;
+    grid-area: box8;
+    border: 5px solid black;
+   }
+
+#bottomRight {
+    text-align: center;
+    height: 150px;
+    width: 150px;
+    grid-area: box9;
+    border: 5px solid black;
+   }

@@ -28,12 +28,12 @@ body {
 }
 
 .xMove {
-background-image: url("/home/jj/Desktop/general_assembly/unit_one/homeworks/tictacoldtownroad/sei-tic-tac-toe/sei-tic-tac-toe/images/lilx.gif");
-background-position: center;
-background-size: 250px;
+    background-position: center;
+    background-size: 250px;
+    background-image: url("/home/jj/Desktop/general_assembly/unit_one/homeworks/tictacoldtownroad/sei-tic-tac-toe/sei-tic-tac-toe/images/lilx.gif");
 }
 .oMove{
-background-image: url("/home/jj/Desktop/general_assembly/unit_one/homeworks/tictacoldtownroad/sei-tic-tac-toe/sei-tic-tac-toe/images/chrishead.jpg");
+    background-image: url("/home/jj/Desktop/general_assembly/unit_one/homeworks/tictacoldtownroad/sei-tic-tac-toe/sei-tic-tac-toe/images/chrishead.jpg");
 background-size: 100%;
 }
 

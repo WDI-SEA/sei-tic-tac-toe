@@ -17,12 +17,12 @@ let count = 0
 let playerX = []
 let playerO = []
 const tie  ="/home/jj/Desktop/general_assembly/unit_one/homeworks/tictacoldtownroad/sei-tic-tac-toe/sei-tic-tac-toe/images/tie.gif";
-const xImg ="/home/jj/Desktop/general_assembly/unit_one/homeworks/tictacoldtownroad/sei-tic-tac-toe/sei-tic-tac-toe/images/lilx.gif";
 const oImg ="/home/jj/Desktop/general_assembly/unit_one/homeworks/tictacoldtownroad/sei-tic-tac-toe/sei-tic-tac-toe/images/sheriff.jpeg";
+const xImg ="/home/jj/Desktop/general_assembly/unit_one/homeworks/tictacoldtownroad/sei-tic-tac-toe/sei-tic-tac-toe/images/lilx.gif";
 const oWin ="/home/jj/Desktop/general_assembly/unit_one/homeworks/tictacoldtownroad/sei-tic-tac-toe/sei-tic-tac-toe/images/xwins.jpg";
 const xWin ="/home/jj/Desktop/general_assembly/unit_one/homeworks/tictacoldtownroad/sei-tic-tac-toe/sei-tic-tac-toe/images/owins.jpg";
-const playerTurnRock ="/home/jj/Desktop/general_assembly/unit_one/homeworks/tictacoldtownroad/sei-tic-tac-toe/sei-tic-tac-toe/images/smallchead.jpg";
 const playerTurnX ="/home/jj/Desktop/general_assembly/unit_one/homeworks/tictacoldtownroad/sei-tic-tac-toe/sei-tic-tac-toe/images/xhead.jpg";
+const playerTurnRock ="/home/jj/Desktop/general_assembly/unit_one/homeworks/tictacoldtownroad/sei-tic-tac-toe/sei-tic-tac-toe/images/smallchead.jpg";
 let playerPic = document.querySelector(".whoTurn")
 function takeTurn (target) {
     count++
@@ -33,7 +33,7 @@ function takeTurn (target) {
         console.log(playerX)
         checkWin (playerX)
         
-        playerPic.src = playerTurnRock; 
+        playerPic.src = playerTurnX; 
 
                
 
@@ -44,7 +44,7 @@ function takeTurn (target) {
         target.classList.add("oMove")
         console.log(playerO)
         checkWin (playerO)
-        playerPic.src = playerTurnX;
+        playerPic.src = playerTurnRock;
 
     } 
 

@@ -15,31 +15,35 @@ body {
   background: #68A0B4;
   margin: 50px;
   padding: 50px;
-  border-radius: 25px;
 }
 
 .title {
   text-align: center;
 }
 
-.gameStatus {
+.nextUpStatus {
   display: flex;
   margin-top: 25px;
   font-size: 25px;
   justify-content: space-around;
+  height: 30px;
 }
 
-.Reset {
-  /* want players to know it's a button */
+.userAction span {
+  color: #F2EBD3;
+}
+
+.reset {
+   /* want players to know it's a button */
   cursor: pointer;
 }
 
-.Reset:hover {
-  color: #F4EBCE;
+.reset:hover {
+  color: #F2EBD3;
 }
 
-.Gameboard {
-  background-color: #D64163;
+.gameBoard {
+  background: #D64163;
   display: grid;
   /* need 3 columns repeated equal available spaces */
   grid-template-columns: repeat(3, 1fr);
@@ -48,10 +52,35 @@ body {
   margin-top: 50px;
 }
 
-.gCell{
+.gCell {
   background: #68A0B4;
+  display: flex;
+  /* need to center vertically and horizontally */
+  justify-content: center;
+  align-items: center;
   /* same idea with reset, want players to know spaces can be clicked on */
   cursor: pointer;
   height: 200px;
   width: 200px;
+}
+
+.x,.o {
+  cursor: default;
+  /* after x or o clicked go to default cursor to show can't be clicked again */
+}
+
+.x::after {
+  /* googled x symbol to look better, same with o symbol, both represented in html */
+  content: '×';
+  font-size: 200px;
+}
+
+.o::after {
+  content: '○';
+  color: #F2EBD3;
+  font-size: 225px;
+}
+
+.won::after {
+  color: #85bb65;
 }

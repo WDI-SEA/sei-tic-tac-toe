@@ -35,7 +35,7 @@
     text-decoration:underline;
   }
 
-  .button {
+  .reset {
     text-align:center;
     width:200px;
     background-color:brown;
@@ -44,10 +44,10 @@
     font-weight: 600;
     text-indent:auto;
     letter-spacing: 5px;
-}
+  }
 
 #Center {
-    display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 200px;

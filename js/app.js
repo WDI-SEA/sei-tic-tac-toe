@@ -136,13 +136,11 @@ const gameSquareClick = (e) => {
         // gameSquareImg.src = cornImg;
         checkGameState();
         cornNext = !cornNext;
-        gameStatusLog.innerHTML = "Ear is up next!";
     } else {
         classList.add('ear');
         // gameSquareImg.src = earImg;  
         checkGameState();
         cornNext = !cornNext;
-        gameStatusLog.innerHTML = "Corn is up next!";
         
     } 
 }

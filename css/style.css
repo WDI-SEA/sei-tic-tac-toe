@@ -4,6 +4,7 @@
 html,body{
     margin: 0;
     padding: 0;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
     
 }
 
@@ -17,6 +18,11 @@ main{
 }
 img{
     width: 100%;
+}
+button{
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    text-align: center;
+    font-size: 40px;
 }
 .gameboard {
     display: grid;

@@ -45,7 +45,7 @@ function startGame() {
     const index = squaresArray.indexOf(e.target)
 
     for (let i = 0; i < squares.length ; i++) {
-        document.getElementById(squares[i]).addEventListener("click", clickSquare)
+        document.getElementById(squares[i]).addEventListener("click", clickSquare())
         
     }}
 
@@ -53,11 +53,11 @@ function startGame() {
         console.log('nw')
     }
     
-function removeClicks() {
-    for (let i = 0; i < squares.length; i++) {
-        document.getElementById(squares[i].removeEventListener("click", click));
-    }
-}
+// function removeClicks() {
+//     for (let i = 0; i < squares.length; i++) {
+//         document.getElementById(squares[i].removeEventListener("click", click));
+//     }
+// }
 //     if (Orcas && turnOnSquares) {
 //         //initiate images so that player is orcas
 //         for (let i = 0; i < pics.length; i++)
@@ -101,17 +101,17 @@ var clickedO = "false";
 var clickeG = "false";
 
 function clickSquare() {
-    if (this.getAttribute("clicked") === "true") {
-        return;
-    }
+//     if (this.getAttribute("clicked") === "true") {
+//         return;
+//     }
 
-    this.setAttribute("clicked", "true");
+//     this.setAttribute("clicked", "true");
 
-    if (counter % 2 === 0) {
-        this.setAttribute("clicked-o", "true");
-    }   {
-        this.setAttribute("clicked-g", "true");
-    }
+//     if (counter % 2 === 0) {
+//         this.setAttribute("clickedO", "true");
+//     }   {
+//         this.setAttribute("clickedG", "true");
+//     }
 
     // if (clickedO == "true") {
         
@@ -133,11 +133,19 @@ function clickSquare() {
     //     onclick=document.getElementById(gators[i]).style.visibility="visible";
     // }
 
-    counter += 1;
-    function test2 () {
-        console.log(n)
+    // counter += 1;
+    // function test2 () {
+        console.log('it works')
     }
-}
+    //click event works; grab the square that I have selected and then
+    //then 1. if player is alligator then grab the id for the alligator image of that square
+    //  set that image to visible .style.visibility = "visible"
+    //  else do that for orca
+
+    //grab id of the selections and .push them into an array
+
+    //compare array to win options
+// }
 
 //player 1 clicks on a div which turns their picture's visibility from hidden to visible 
 // the click also turns off the div for the other player disallowing it from being clicked again, counter goes up

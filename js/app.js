@@ -38,12 +38,16 @@ let gameGoing = true;
 let cornNext = true;
 let winner = null;
 
+//constants for the game
+const cornIs = 'Corn';
+const earIs = 'Ear';
 //Create a query selector for all game squares calling 
     //from game square class and data-square
 
 const gameLogs = document.querySelectorAll('.gameSquare');
 const gameStatusLog = document.querySelector('.gameStatus');
 const gameSquareImg = document.querySelectorAll('.imbg');
+const gameReset = document.querySelector('.js-reset');
 
 const checkGameState = () => {
     const aSq = gameLogs[0].classList[2];
@@ -61,9 +65,56 @@ const checkGameState = () => {
         gameGoing = false;
         winner = aSq;
         gameStatusLog.innerHTML = `${aSq} has won!`;
+    } else if (dSq && dSq === eSq && dSq === fSq){
+        gameGoing = false;
+        winner = dSq;
+        gameStatusLog.innerHTML = `${dSq} has won!`;
+
+    }else if (gSq && gSq === hSq && gSq === iSq){
+        gameGoing = false;
+        winner = gSq;
+        gameStatusLog.innerHTML = `${gSq} has won!`;
+
+    }else if (aSq && aSq === dSq && aSq === gSq){
+        gameGoing = false;
+        winner = aSq;
+        gameStatusLog.innerHTML = `${aSq} has won!`;
+ 
+    }else if (bSq && bSq === eSq && bSq === hSq){
+        gameGoing = false;
+        winner = aSq;
+        gameStatusLog.innerHTML = `${bSq} has won!`;
+ 
+    }else if (cSq && cSq === fSq && cSq === iSq){
+        gameGoing = false;
+        winner = aSq;
+        gameStatusLog.innerHTML = `${cSq} has won!`;
+ 
+
+    }else if (aSq && aSq === eSq && aSq === iSq){
+        gameGoing = false;
+        winner = aSq;
+        gameStatusLog.innerHTML = `${aSq} has won!`;
+ 
+    
+    }else if (cSq && cSq === eSq && cSq === gSq){
+        gameGoing = false;
+        winner = aSq;
+        gameStatusLog.innerHTML = `${cSq} has won!`;
+ 
+    } else if (aSq && bSq && cSq && dSq && eSq && fSq && gSq && hSq && iSq){
+        gameGoing = false;
+        gameStatusLog.innerHTML = 'Game is Tied!';
+    // } else {
+    //     cornNext=!cornNext;
+    //     if(cornNext){
+    //         gameStatusLog.innerHTML = `Corn is next!`
+    //     }
     }
 
-};
+    }
+
+
 
 
 const gameSquareClick = (e) => {
@@ -82,17 +133,32 @@ const gameSquareClick = (e) => {
     }
     if (cornNext) {
         classList.add('corn');
-        gameSquareImg.src = cornImg;
+        // gameSquareImg.src = cornImg;
         checkGameState();
         cornNext = !cornNext;
+        gameStatusLog.innerHTML = "Ear is up next!";
     } else {
         classList.add('ear');
-        gameSquareImg.src = earImg;  
+        // gameSquareImg.src = earImg;  
         checkGameState();
         cornNext = !cornNext;
+        gameStatusLog.innerHTML = "Corn is up next!";
         
     } 
 }
+
+const executeReset = () =>{
+    cornNext = true;
+    gameStatusLog.innerHTML = `Corn is next`;
+    for (const gameLog of gameLogs){
+        gameLog.classList.remove('corn');
+        gameLog.classList.remove('ear');
+    }
+    gameGoing = true;
+}
+
+//event listener for reset
+gameReset.addEventListener('click', executeReset);
 
 //Event listener for if game square is clicked
 for (const gameLog of gameLogs ){

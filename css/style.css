@@ -35,7 +35,7 @@ img{
     display: grid;
     grid-template-areas: "imgb";
 }
-
+/* a square states */
 .gameSquare.aSq {
     background-color: aquamarine;
     background: url(assets/blank.png);
@@ -63,6 +63,7 @@ img{
         background-size: auto;
     
 } 
+/* b square states */
 .gameSquare.bSq {
     background-color: aquamarine;
     background: url(assets/blank.png);
@@ -81,7 +82,7 @@ img{
         background-size: auto;
     
 } 
-    .gameSquare.aSq.ear {
+    .gameSquare.bSq.ear {
         background-color: blue;
         border: 1px solid red;
         background: url(assets/ear.png);
@@ -90,7 +91,8 @@ img{
         background-size: auto;
     
 } 
-.gameSquare.aSq {
+/* c square states */
+.gameSquare.cSq {
     background-color: aquamarine;
     background: url(assets/blank.png);
     background-repeat: no-repeat;
@@ -99,7 +101,7 @@ img{
     border: 1px solid red;
     
 } 
-    .gameSquare.aSq.corn {
+    .gameSquare.cSq.corn {
         background-color: yellow;
         border: 1px solid red;
         background: url(assets/corn.png);
@@ -108,7 +110,7 @@ img{
         background-size: auto;
     
 } 
-    .gameSquare.aSq.ear {
+    .gameSquare.cSq.ear {
         background-color: blue;
         border: 1px solid red;
         background: url(assets/ear.png);
@@ -117,3 +119,173 @@ img{
         background-size: auto;
     
 } 
+/* d square states */
+.gameSquare.dSq {
+    background-color: aquamarine;
+    background: url(assets/blank.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    border: 1px solid red;
+    
+} 
+    .gameSquare.dSq.corn {
+        background-color: yellow;
+        border: 1px solid red;
+        background: url(assets/corn.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    
+} 
+    .gameSquare.dSq.ear {
+        background-color: blue;
+        border: 1px solid red;
+        background: url(assets/ear.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    
+} 
+/* e square states */
+.gameSquare.eSq {
+    background-color: aquamarine;
+    background: url(assets/blank.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    border: 1px solid red;
+    
+} 
+    .gameSquare.eSq.corn {
+        background-color: yellow;
+        border: 1px solid red;
+        background: url(assets/corn.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    
+} 
+    .gameSquare.eSq.ear {
+        background-color: blue;
+        border: 1px solid red;
+        background: url(assets/ear.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    
+} 
+/* f square states */
+.gameSquare.fSq {
+    background-color: aquamarine;
+    background: url(assets/blank.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    border: 1px solid red;
+    
+} 
+    .gameSquare.fSq.corn {
+        background-color: yellow;
+        border: 1px solid red;
+        background: url(assets/corn.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    
+} 
+    .gameSquare.fSq.ear {
+        background-color: blue;
+        border: 1px solid red;
+        background: url(assets/ear.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    
+} 
+/* g square states */
+.gameSquare.gSq {
+    background-color: aquamarine;
+    background: url(assets/blank.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    border: 1px solid red;
+    
+} 
+    .gameSquare.gSq.corn {
+        background-color: yellow;
+        border: 1px solid red;
+        background: url(assets/corn.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    
+} 
+    .gameSquare.gSq.ear {
+        background-color: blue;
+        border: 1px solid red;
+        background: url(assets/ear.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    
+} 
+/* h square states */
+.gameSquare.hSq {
+    background-color: aquamarine;
+    background: url(assets/blank.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    border: 1px solid red;
+    
+} 
+    .gameSquare.hSq.corn {
+        background-color: yellow;
+        border: 1px solid red;
+        background: url(assets/corn.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    
+} 
+    .gameSquare.hSq.ear {
+        background-color: blue;
+        border: 1px solid red;
+        background: url(assets/ear.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    
+} 
+/* i square states */
+.gameSquare.iSq {
+    background-color: aquamarine;
+    background: url(assets/blank.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    border: 1px solid red;
+    
+} 
+    .gameSquare.iSq.corn {
+        background-color: yellow;
+        border: 1px solid red;
+        background: url(assets/corn.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    
+} 
+    .gameSquare.iSq.ear {
+        background-color: blue;
+        border: 1px solid red;
+        background: url(assets/ear.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    
+} 
+
+

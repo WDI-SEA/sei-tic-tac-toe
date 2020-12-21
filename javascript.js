@@ -1,5 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // Initialize function to check for win condition, and play dialogue if met
+    const winCondition = () => {
+            if (checkWin(gameBoard, 'x')) {
+                gameText.innerText = selectRandom(defeatDialogue)
+                victory = true;
+            } else if (checkWin(gameBoard, 'o')) {
+                gameText.innerText = selectRandom(victoryDialogue)
+                victory = true;
+            } 
+        
+            if (victory === false && turnCount < 9) {
+                letCompGo()
+            } else if (victory === false && turnCount === 9) {
+                gameText.innerText = 'It is a tie'
+            }
+    }
+    
+    function checkWin (board, player) {
+        if ((board[0].space === player && board[1].space === player && board[2].space === player) ||
+            (board[3].space === player && board[4].space === player && board[5].space === player) ||
+            (board[6].space === player && board[7].space === player && board[8].space === player) ||
+            (board[0].space === player && board[3].space === player && board[6].space === player) ||
+            (board[1].space === player && board[4].space === player && board[7].space === player) ||
+            (board[2].space === player && board[5].space === player && board[8].space === player) ||
+            (board[0].space === player && board[4].space === player && board[8].space === player) ||
+            (board[6].space === player && board[4].space === player && board[2].space === player) ) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     // Initialize Death's dialogue
     let dialogueIndex = 0
     let dialogueFinished = false
@@ -66,74 +98,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize turn counter
     let turnCount = 0;
     
-    // Initialize victory boolean
-    let victory = false;
-    
-    // Initialize 2D array simulating gameboard. Array moves left to right, processing each value in one row before continuing to the next
-    let gameBoard = [[{space: 0, id: 'top-left', xcoord: 0, ycoord: 0}, 
-                      {space: 0, id: 'top-middle', xcoord: 1, ycoord: 0}, 
-                      {space: 0, id: 'top-right', xcoord: 2, ycoord: 0},],
-
-                     [{space: 0, id: 'middle-left', xcoord: 0, ycoord: 1}, 
-                      {space: 0, id: 'middle-middle', xcoord: 1, ycoord: 1},
-                      {space: 0, id: 'middle-right', xcoord: 2, ycoord: 1}],
-
-                     [{space: 0, id: 'bottom-left', xcoord: 0, ycoord: 2}, 
-                      {space: 0, id: 'bottom-middle', xcoord: 1, ycoord: 2}, 
-                      {space: 0, id: 'bottom-right', xcoord: 2, ycoord: 2}]];
-    
-     
-    // Initialize event listeners
-    document.getElementById('top-left').addEventListener('click', ()=> {
-        checkSquare('top-left')
-    })
-    document.getElementById('top-middle').addEventListener('click', ()=> {
-        checkSquare('top-middle')
-    })
-    document.getElementById('top-right').addEventListener('click', ()=> {
-        checkSquare('top-right')
-    })
-    document.getElementById('middle-left').addEventListener('click', ()=> {
-        checkSquare('middle-left')
-    })
-    document.getElementById('middle-middle').addEventListener('click', ()=> {
-        checkSquare('middle-middle')
-    })
-    document.getElementById('middle-right').addEventListener('click', ()=> {
-        checkSquare('middle-right')
-    })
-    document.getElementById('bottom-left').addEventListener('click', ()=> {
-        checkSquare('bottom-left')
-    })
-    document.getElementById('bottom-middle').addEventListener('click', ()=> {
-        checkSquare('bottom-middle')
-    })
-    document.getElementById('bottom-right').addEventListener('click', ()=> {
-        checkSquare('bottom-right')
-    })
-    
-    // Initialize event listener for the reset button
-    document.getElementById('clear').addEventListener('click', ()=> {
-        console.log('Clearing gameboard')
-        for (let i = 0; i < gameBoard.length; i++) {
-            for (let j = 0; j < gameBoard[i].length; j++) {
-                let element = document.getElementById(gameBoard[i][j].id)
-                gameBoard[i][j].space = 0;
-                console.log(element)
-                element.setAttribute('style', 'background-image: none')
-            }
-        }
-        
-        turnCount = 0;
-        victory = false;
-        gameText.innerText = 'Another round, then?'
-    })
     
     // Initialize modular function to take turn counter and determine current player's turn.
     // Returns a 0 or a 1. 0 is for Player 1. 1 is for Player 2
     function calcTurn (turnCount) {
         return turnCount % 2
     }
+    
+    // Initialize victory boolean
+    let victory = false;
+    
+    // Initialize 2D array simulating gameboard. Array moves left to right, processing each value in one row before continuing to the next
+    let gameBoard = [{space: 0, id: 'top-left', pos: 0},    {space: 0, id: 'top-middle', pos: 1},       {space: 0, id: 'top-right', pos: 2},
+                     {space: 0, id: 'middle-left', pos: 3}, {space: 0, id: 'middle-middle', pos: 4},    {space: 0, id: 'middle-right', pos: 5},
+                     {space: 0, id: 'bottom-left', pos: 6}, {space: 0, id: 'bottom-middle', pos: 7},    {space: 0, id: 'bottom-right', pos: 8}]
     
     // Function to make the pictures quickly blink in
     const popIn = (imageUrl, elementId) => {
@@ -174,60 +152,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 180)
     }
     
-    // Initialize helper function to determine the clicked grid-square's status (If it has an X, O, or is empty)
-    const checkSquare = (checkedId) => {
-        
-        switch(checkedId) {
-            case "top-left":
-                checkArray(0,0, checkedId)
-                break;
-                
-            case "top-middle":
-                checkArray(0,1, checkedId)
-                break;
-                
-            case "top-right":
-                checkArray(0,2, checkedId)
-                break;
-            
-            case "middle-left":
-                checkArray(1,0, checkedId)
-                break;
-            
-            case "middle-middle":
-                checkArray(1,1, checkedId)
-                break;
-                
-            case "middle-right":
-                checkArray(1,2, checkedId)
-                break;
-            
-            case "bottom-left":
-                checkArray(2,0, checkedId)            
-                break;
-                
-            case "bottom-middle":
-                checkArray(2,1, checkedId)
-                break;
-                
-            case "bottom-right":
-                checkArray(2,2, checkedId)
-                break;
-        }
-    }
     
     // Initialize helper function to take clicked square and compare to 2D array
-    const checkArray = (rowId, colId, elementId) => {
+    const checkArray = (gridId, elementId) => {
         if (victory) {
            gameText.innerText = 'The game is finished, human' 
         } else {
-            if (gameBoard[rowId][colId].space === 0) {
+            if (gameBoard[gridId].space === 0) {
             turnCount++;
             if (calcTurn(turnCount) === 0) {
-                gameBoard[rowId][colId].space = 'o';
+                gameBoard[gridId].space = 'o';
                 popIn("images/o.png", elementId);
             } else {
-                gameBoard[rowId][colId].space = 'x';
+                gameBoard[gridId].space = 'x';
                 popIn("images/x.png", elementId);
             }
         } 
@@ -236,6 +173,91 @@ document.addEventListener('DOMContentLoaded', () => {
         winCondition();
         }
     }
+    
+    // Initialize helper function to determine the clicked grid-square's status (If it has an X, O, or is empty)
+    const checkSquare = (checkedId) => {
+        
+        switch(checkedId) {
+            case "top-left":
+                checkArray(0, checkedId)
+                break;
+                
+            case "top-middle":
+                checkArray(1, checkedId)
+                break;
+                
+            case "top-right":
+                checkArray(2, checkedId)
+                break;
+            
+            case "middle-left":
+                checkArray(3, checkedId)
+                break;
+            
+            case "middle-middle":
+                checkArray(4, checkedId)
+                break;
+                
+            case "middle-right":
+                checkArray(5, checkedId)
+                break;
+            
+            case "bottom-left":
+                checkArray(6, checkedId)            
+                break;
+                
+            case "bottom-middle":
+                checkArray(7, checkedId)
+                break;
+                
+            case "bottom-right":
+                checkArray(8, checkedId)
+                break;
+        } 
+    }
+     
+    // Initialize event listeners
+    document.getElementById('top-left').addEventListener('click', ()=> {
+        checkSquare('top-left')
+    })
+    document.getElementById('top-middle').addEventListener('click', ()=> {
+        checkSquare('top-middle')
+    })
+    document.getElementById('top-right').addEventListener('click', ()=> {
+        checkSquare('top-right')
+    })
+    document.getElementById('middle-left').addEventListener('click', ()=> {
+        checkSquare('middle-left')
+    })
+    document.getElementById('middle-middle').addEventListener('click', ()=> {
+        checkSquare('middle-middle')
+    })
+    document.getElementById('middle-right').addEventListener('click', ()=> {
+        checkSquare('middle-right')
+    })
+    document.getElementById('bottom-left').addEventListener('click', ()=> {
+        checkSquare('bottom-left')
+    })
+    document.getElementById('bottom-middle').addEventListener('click', ()=> {
+        checkSquare('bottom-middle')
+    })
+    document.getElementById('bottom-right').addEventListener('click', ()=> {
+        checkSquare('bottom-right')
+    })
+    
+    // Initialize event listener for the reset button
+    document.getElementById('clear').addEventListener('click', ()=> {
+        console.log('Clearing gameboard')
+        for (let i = 0; i < gameBoard.length; i++) {
+            let element = document.getElementById(gameBoard[i].id)
+            gameBoard[i].space = 0;
+            element.setAttribute('style', 'background-image: none')
+        }
+        
+        turnCount = 0;
+        victory = false;
+        gameText.innerText = 'Another round, then?'
+    })
     
     // Function to check if it is the computer's turn, and set a timeout on it's move to fake a thought process
     const letCompGo = () => {
@@ -253,12 +275,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function filterGameboard() {
         let openSpaces = []
         for (let i = 0; i < gameBoard.length; i++) {
-                for (let j = 0; j < gameBoard[i].length; j++) {
-                    if (gameBoard[i][j].space === 0) {
-                        openSpaces.push(gameBoard[i][j])
-                    }
-                }
+            if (gameBoard[i].space === 0) {
+                    openSpaces.push(gameBoard[i])
             }
+        }
         
         return openSpaces;
         }
@@ -267,43 +287,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // array, and then it randomly selects a space from the list to play on
     function compTurn () {
         let openSpaces = filterGameboard();
-        let compMove = null;
         
         compMove = selectRandom(openSpaces)
         
-        // This is the same function (And ensuing function chain) used for the player
         checkSquare(compMove.id)
-        }
-    
-    const winCondition = () => {
-            if (checkWin(gameBoard, 'x')) {
-                gameText.innerText = selectRandom(defeatDialogue)
-                victory = true;
-            } else if (checkWin(gameBoard, 'o')) {
-                gameText.innerText = selectRandom(victoryDialogue)
-                victory = true;
-            } 
-        
-            if (victory === false && turnCount < 9) {
-                letCompGo()
-            } else if (victory === false && turnCount === 9) {
-                gameText.innerText = 'It is a tie'
-            }
-    }
-    
-    function checkWin (board, player) {
-        if ((board[0][0].space === player && board[0][1].space === player && board[0][2].space === player) ||
-            (board[1][0].space === player && board[1][1].space === player && board[1][2].space === player) ||
-            (board[2][0].space === player && board[2][1].space === player && board[2][2].space === player) ||
-            (board[0][0].space === player && board[1][0].space === player && board[2][0].space === player) ||
-            (board[0][1].space === player && board[1][1].space === player && board[2][1].space === player) ||
-            (board[0][2].space === player && board[1][2].space === player && board[2][2].space === player) ||
-            (board[0][0].space === player && board[1][1].space === player && board[2][2].space === player) ||
-            (board[2][0].space === player && board[1][1].space === player && board[0][2].space === player) )
-            {
-            return true
-        } else {
-            return false
-        }
     }
 })

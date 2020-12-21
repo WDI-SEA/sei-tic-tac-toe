@@ -1,45 +1,64 @@
 body {
     display: grid;
     justify-content: center;
-    grid-template-rows: 150px 150px 150px 150px;
-    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 200px 150px 150px 150px;
+    grid-template-columns: 200px 150px 150px 150px;
     grid-template-areas:     
-    "header header playerTurn "
-    "a1      a2       a3"
-    "b4       b5      b6"
-    "c7       c8      c9"
-    "win      win     reset";    
-    background-image: url(images/waterfive.gif);
-    background-size: cover;
+    "header   header header playerTurn "
+    "win    a1       a2      a3"
+    "win    b4       b5      b6"
+    "win    c7       c8      c9"
+    "win    reset reset   reset";    
+    background-image: url(/home/jj/Desktop/general_assembly/unit_one/homeworks/tictacoldtownroad/sei-tic-tac-toe/sei-tic-tac-toe/images/field.gif);
+   
+    background-size: 2000px;
 }
 .title {
     grid-area: header;
     font-size: 45px;
     font-weight: 700;
-    background-color: rgba(100, 100, 100, .8)
+    /* background-color: rgba(100, 100, 100, .8); */
+    /* border-radius: 10% */
     /* border: 1px solid black; */
 
 }
 .playerTurn {
     grid-area: playerTurn;
-     background-color: rgba(100, 100, 100, .5)
+     /* background-color: rgba(100, 100, 100, .5); */
 }
 
+.xMove {
+background-image: url("/home/jj/Desktop/general_assembly/unit_one/homeworks/tictacoldtownroad/sei-tic-tac-toe/sei-tic-tac-toe/images/lilx.gif");
+background-position: center;
+background-size: 250px;
+}
+.oMove{
+background-image: url("/home/jj/Desktop/general_assembly/unit_one/homeworks/tictacoldtownroad/sei-tic-tac-toe/sei-tic-tac-toe/images/chrishead.jpg");
+background-size: 100%;
+}
+
+.xWins {
+    background-image: url("/home/jj/Desktop/general_assembly/unit_one/homeworks/tictacoldtownroad/sei-tic-tac-toe/sei-tic-tac-toe/images/xwins.jpg");
+}
+.oWins {
+
+}
 .a1 {
     grid-area: a1;
     border: black 2px;
     border: 5px solid black;
-     background-color: rgba(100, 100, 100, .5)
+    background-color: rgba(100, 100, 100, .5)
 }
 .a2 {
     grid-area: a2;
     border: 5px solid black;
-     background-color: rgba(100, 100, 100, .5)
+    background-color: rgba(100, 100, 100, .5)
 }
 .a3 {
     grid-area: a3;
     border: 5px solid black;
-     background-color: rgba(100, 100, 100, .5)
+    background-color: rgba(100, 100, 100, .5)
+    
 }
 .b4 {
     grid-area: b4;
@@ -73,13 +92,13 @@ body {
 }
 .winSpot {
     grid-area: win;
-    border: 5px solid black;
-    background-color: rgba(100, 100, 100, .5)
+    /* border: 5px solid black; */
+    /* background-color: rgba(100, 100, 100, .5) */
 }
 .reset {
     grid-area: reset;
-    border: 5px solid black;
-    background-color: rgba(100, 100, 100, .5)
+    /* border: 5px solid black; */
+    /* background-color: rgba(100, 100, 100, .5) */
 }
 section {
   

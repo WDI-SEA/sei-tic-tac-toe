@@ -3,20 +3,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize victory boolean
     let victory = false;
     
-    // Initialize turn counter
-    let turnCount = 0;
+    // Initialze player
+    let xMaxi = 'x'
+    let aiPlayer = 'o'
+    let huPlayer = 'x'
     
-    // Initialize modular function to take turn counter and determine current player's turn.
-    // Returns a 0 or a 1. 0 is for Player 1. 1 is for Player 2
-    function calcTurn (turnCount) {
-        return turnCount % 2
+    // Initialize Death
+    let oMini = 'o'
+    
+    // Define win conditions
+    function checkWin (board, player) {
+        if ((board[0] === player && board[1] === player && board[2] === player) ||
+            (board[3] === player && board[4] === player && board[5] === player) ||
+            (board[6] === player && board[7] === player && board[8] === player) ||
+            (board[0] === player && board[3] === player && board[6] === player) ||
+            (board[1] === player && board[4] === player && board[7] === player) ||
+            (board[2] === player && board[5] === player && board[8] === player) ||
+            (board[0] === player && board[4] === player && board[8] === player) ||
+            (board[6] === player && board[4] === player && board[2] === player) ) {
+            return true
+        } else {
+            return false
+        }
     }
-    
-    // Initialize 2D array simulating gameboard. Array moves left to right, processing each value in one row before continuing to the next
-    let gameBoard = [{space: 0, id: 'top-left', pos: 0},    {space: 0, id: 'top-middle', pos: 1},       {space: 0, id: 'top-right', pos: 2},
-                     {space: 0, id: 'middle-left', pos: 3}, {space: 0, id: 'middle-middle', pos: 4},    {space: 0, id: 'middle-right', pos: 5},
-                     {space: 0, id: 'bottom-left', pos: 6}, {space: 0, id: 'bottom-middle', pos: 7},    {space: 0, id: 'bottom-right', pos: 8}]
-    
     
     // Initialize function to check for win condition, and play dialogue if met
     const winCondition = () => {
@@ -35,19 +44,55 @@ document.addEventListener('DOMContentLoaded', () => {
             }
     }
     
-    function checkWin (board, player) {
-        if ((board[0].space === player && board[1].space === player && board[2].space === player) ||
-            (board[3].space === player && board[4].space === player && board[5].space === player) ||
-            (board[6].space === player && board[7].space === player && board[8].space === player) ||
-            (board[0].space === player && board[3].space === player && board[6].space === player) ||
-            (board[1].space === player && board[4].space === player && board[7].space === player) ||
-            (board[2].space === player && board[5].space === player && board[8].space === player) ||
-            (board[0].space === player && board[4].space === player && board[8].space === player) ||
-            (board[6].space === player && board[4].space === player && board[2].space === player) ) {
-            return true
-        } else {
-            return false
-        }
+    // Function that accepts an array and returns an element from it at random
+    const selectRandom = (randomArray) => {
+        return randomArray[Math.floor(Math.random() * randomArray.length)]
+    } 
+    
+    // Initialize modular function to take turn counter and determine current player's turn.
+    // Returns a 0 or a 1. 0 is for Player 1. 1 is for Player 2
+    function calcTurn (turnCount) {
+        return turnCount % 2
+    }
+    
+    function getId(boardPos) {
+        switch(boardPos) {
+            case 0:
+                return 'top-left'
+                break;
+                
+            case 1:
+                return 'top-middle'
+                break;
+                
+            case 2:
+                return 'top-right'
+                break;
+            
+            case 3:
+                return 'middle-left'
+                break;
+            
+            case 4:
+                return 'middle-middle'
+                break;
+                
+            case 5:
+                return 'middle-right'
+                break;
+            
+            case 6:
+                return 'bottom-left'           
+                break;
+                
+            case 7:
+                return 'bottom-middle'
+                break;
+                
+            case 8:
+                return 'bottom-right'
+                break;
+        } 
     }
     
     // Initialize Death's dialogue
@@ -86,11 +131,13 @@ document.addEventListener('DOMContentLoaded', () => {
                              'Congrats on losing']
     
     const defeatDialogue = ['Well. Your soul had bad vibes anyway.',
-                            'Fine. Keep your grody soul.',
                             'Hrmm. I appear to have lost',
                             'That one doesn\'t count. I had souls in my eye.',
                             'You elude me. For now.']
-
+    
+    // Create function to update on-screen text with Death's dialogue,
+    // progress the dialogue index, and, when the end is reached,
+    // clear the interval time and play title animation
     const deathSpeaks = () =>{
         gameText.innerHTML = dialogue[dialogueIndex]
         dialogueIndex++;
@@ -101,10 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    const selectRandom = (randomArray) => {
-        return randomArray[Math.floor(Math.random() * randomArray.length)]
-    }
-    
+    // Start timer on Death's dialogue
     const dialogueTimer = setInterval(deathSpeaks, 2000)
     
     //Function to make title visible after dialogue has finished
@@ -169,13 +213,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (victory) {
            gameText.innerText = 'The game is finished, human' 
         } else {
-            if (gameBoard[gridId].space === 0) {
+            if (gameBoard[gridId] !== 'x' && gameBoard[gridId] !== 'o') {
             turnCount++;
             if (calcTurn(turnCount) === 0) {
-                gameBoard[gridId].space = 'o';
+                gameBoard[gridId] = 'o';
                 popIn("images/o.png", elementId);
             } else {
-                gameBoard[gridId].space = 'x';
+                gameBoard[gridId] = 'x';
                 popIn("images/x.png", elementId);
             }
         } 
@@ -258,10 +302,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize event listener for the reset button
     document.getElementById('clear').addEventListener('click', ()=> {
-        console.log('Clearing gameboard')
+        
         for (let i = 0; i < gameBoard.length; i++) {
-            let element = document.getElementById(gameBoard[i].id)
-            gameBoard[i].space = 0;
+            let element = document.getElementById(getId(i))
+            gameBoard[i] = i;
             element.setAttribute('style', 'background-image: none')
         }
         
@@ -269,7 +313,6 @@ document.addEventListener('DOMContentLoaded', () => {
         victory = false;
         gameText.innerText = 'Another round, then?'
     })
-    
     // Function to check if it is the computer's turn, and set a timeout on it's move to fake a thought process
     const letCompGo = () => {
         if (calcTurn(turnCount) === 1) {
@@ -296,11 +339,92 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // This function simulates the AI. It reads the gameboard, passing the objects of any empty spaces to an
     // array, and then it randomly selects a space from the list to play on
+    let calls = 0;
     function compTurn () {
+        //let compMove = minimax(gameBoard, oMini)
         let openSpaces = filterGameboard()
+        calls++
         
-        compMove = selectRandom(openSpaces)
+        let compMove = selectRandom(openSpaces)
+        let compMoveID = ''
         
-        checkSquare(compMove.id)
+        if (compMove.pos === 0) {
+            compMoveID = 'top-left'
+        } else if (compMove.pos === 1) {
+            compMoveID = 'top-middle'
+        } else if (compMove.pos === 2) {
+            compMoveID = 'top-right'
+        } else if (compMove.pos === 3) {
+           compMoveID = 'middle-left'
+        } else if (compMove.pos === 4) {
+           compMoveID = 'middle-middle'
+        } else if (compMove.pos === 5) {
+            compMoveID = 'middle-right'
+        } else if (compMove.pos === 6) {
+           compMoveID = 'bottom-left'
+        } else if (compMove.pos === 7) {
+            compMoveID = 'bottom-middle'
+        } else if (compMove.pos === 8) {
+           compMoveID = 'bottom-right'
+        }
+        
+        console.log(calls)
+        console.log('Hello ' +compMoveID)
+        
+        checkSquare(compMove)
+    }
+    
+    function minimax(board, player) {
+           let openSpaces = filterGameboard(board);
+
+            if (checkWin(board, oMini)) {
+                return {score: -10}
+            } else if (checkWin(board, xMaxi)) {
+                return {score: 10} 
+            } else if (openSpaces.length === 0) {
+                return {score: 0}
+            }
+
+            let moves = []
+
+            for (let i = 0; i < openSpaces.length; i++) {
+                let move = {}
+                move.pos = openSpaces[i].pos
+                board[openSpaces[i].pos] = player
+
+                if (player == oMini) {
+                    let result = minimax(board, xMaxi)
+                    move.score = result.score
+                } else {
+                    let result = minimax(board, oMini)
+                    move.score = result.score
+                }
+
+            board[openSpaces[i].pos] = 0
+
+            moves.push(move);
+        }
+
+        let bestMove = selectRandom(openSpaces)
+
+        if (player === xMaxi) {
+            let bestScore = -10000
+            for (let i = 0; i < moves.length; i++) {
+                if (moves[i].score > bestScore) {
+                    bestScore = moves[i].score;
+                    bestMove = i;
+                }
+            }
+
+        } else {
+            let bestScore = 10000;
+            for(let i = 0; i < moves.length; i++) {
+                if (moves[i].score < bestScore) {
+                    bestScore = moves[i].score;
+                    bestMove = i;
+                }
+            }
+        }
+        return moves[bestMove];
     }
 })

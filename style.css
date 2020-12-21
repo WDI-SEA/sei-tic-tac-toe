@@ -22,7 +22,7 @@ body {
 }
 
 #intro-title{
-    font-family: 'UnifrakturCook', cursive;
+    font-family: 'Staatliches', cursive;
     font-size: 80px;
     margin: 0;
     visibility: hidden;
@@ -104,6 +104,15 @@ div.button-div {
 }
 
 div.game-square{
+    transition: background-color 1s;
+}
+
+div.game-square-light{
+    background-color: #2C3E50;
+    transition: background-color 1s;
+}
+
+div.game-square-dark{
     background-color: #1B2631;
     transition: background-color 1s;
 }

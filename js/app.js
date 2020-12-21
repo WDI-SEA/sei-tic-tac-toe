@@ -134,20 +134,22 @@ const gameSquareClick = (e) => {
     if (cornNext) {
         classList.add('corn');
         // gameSquareImg.src = cornImg;
-        checkGameState();
         cornNext = !cornNext;
+        gameStatusLog.innerHTML = `Ear is next!`;
+        checkGameState();
     } else {
         classList.add('ear');
         // gameSquareImg.src = earImg;  
-        checkGameState();
         cornNext = !cornNext;
+        gameStatusLog.innerHTML = `Corn is next!`;
+        checkGameState();
         
     } 
-}
+    }
 
 const executeReset = () =>{
     cornNext = true;
-    gameStatusLog.innerHTML = `Corn is next`;
+    gameStatusLog.innerHTML = `Corn is next!`;
     for (const gameLog of gameLogs){
         gameLog.classList.remove('corn');
         gameLog.classList.remove('ear');
@@ -164,6 +166,11 @@ for (const gameLog of gameLogs ){
    
         
     }
+//Need to make a game state for loop in wich the event listener is removed? 
+//How do i stop the game from continuing after a win condition?????
+    // for (gameGoing && gameGoing === false;){
+    //     gameLog.removeEventListener('click', gameSquareClick);
+    // }
 
 
 

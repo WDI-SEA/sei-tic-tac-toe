@@ -1,0 +1,73 @@
+
+
+#container{
+    display:grid;
+    width: 800px;
+    margin:20%;
+    position: absolute;
+   min-height: 100%;
+    grid-template-columns: 100px 100px 100px ;
+    grid-template-rows: 100px 100px 100px ;
+    
+    grid-template-areas: "box11 box12 box13"
+                            "box21 box22 box23"
+                            "box31 box32 box33";
+
+}
+#parentdiv{
+    position: relative;
+    width: 100%;
+}
+#box11{
+    grid-area: box11;
+    border: 1px solid white;
+    background-color: red;
+}
+#box12{
+    grid-area: box12;
+    border: 1px solid white;
+    background-color: red;
+}
+#box13{
+    grid-area: box13;
+    border: 1px solid white;
+    background-color: red;
+}
+#box21{
+    grid-area:box21;
+    border: 1px solid white;
+    background-color: red;
+}
+#box22{
+    grid-area: box22;
+    border: 1px solid white;
+    background-color: red;
+}
+#box23{
+    grid-area: box23;
+    border: 1px solid white;
+    background-color: red;
+}
+#box31{
+    grid-area: box31;
+    border: 1px solid white;
+    background-color: red;
+}
+#box32{
+    grid-area: box32;
+    border: 1px solid white;
+    background-color: red;
+}
+#box33{
+    grid-area: box33;
+    border: 1px solid white;
+    background-color: red;
+}
+p{
+    display: inline-block;
+    size: 10px;
+}
+#submit{
+    margin:50px 50px 50px 50px;
+}
+

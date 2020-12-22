@@ -1,7 +1,7 @@
 
 body {
     background-image: url("https://d39l2hkdp2esp1.cloudfront.net/img/photo/138816/138816_00_2x.jpg?20180117033855");
-    background-color: #cccccc;
+    background-color: #634217;
     background-size: cover;
     }
 
@@ -9,8 +9,9 @@ body {
 header {
     font-size: 3em;
     text-align: center;
-    color: whitesmoke;
+    color: #634217;
     font-family: 'Indie Flower', cursive;
+    -webkit-text-stroke: 2px black;
 }
 
 #playerTurn {
@@ -21,26 +22,29 @@ header {
     margin: 10px auto;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "playerOne playerTwo";
+    stroke: black 2px;
 }
 
 #playerOne {
     grid-area: playerOne;
     background: transparent;
-    border: 2px solid black;
+    border: 2px solid #634217;
     font-family: 'Indie Flower', cursive;
+    -webkit-text-stroke: 2px black;
     font-size: 2em;
     text-align: center;
-    color: whitesmoke
+    color: #634217;
 }
 
 #playerTwo {
     grid-area: playerTwo;
     background: transparent;
-    border: 2px solid black;
+    border: 2px solid #634217;
     font-family: 'Indie Flower', cursive;
+    -webkit-text-stroke: 2px black;
     font-size: 2em;
     text-align: center;
-    color: whitesmoke;
+    color: #634217;
 }
 
 
@@ -74,9 +78,9 @@ header {
     grid-area: two;
     background-size: contain;
     background-repeat: no-repeat;
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
+    border-left: 1px solid #634217;
+    border-bottom: 1px solid #634217;
+    border-right: 1px solid #634217;
 }
 
 #grid3{
@@ -85,7 +89,7 @@ header {
     background-size: contain;
     background-repeat: no-repeat;
     border-left: 1px solid black;
-    border-bottom: 1px solid black;;
+    border-bottom: 1px solid black;
 }
 
 #grid4{
@@ -93,9 +97,9 @@ header {
     grid-area: four;
     background-size: contain;
     background-repeat: no-repeat;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;;
-    border-top: 1px solid black
+    border-right: 1px solid #634217;
+    border-bottom: 1px solid #634217;
+    border-top: 1px solid #634217;
 }
 
 #grid5{
@@ -111,9 +115,9 @@ header {
     grid-area: six;
     background-size: contain;
     background-repeat: no-repeat;
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
+    border-left: 1px solid #634217;
+    border-bottom: 1px solid #634217;
+    border-top: 1px solid #634217;
 }
 
 #grid7{
@@ -130,9 +134,9 @@ header {
     grid-area: eight;
     background-size: contain;
     background-repeat: no-repeat;
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    border-top: 1px solid #634217;
+    border-left: 1px solid #634217;
+    border-right: 1px solid #634217;
 }
 
 #grid9{
@@ -153,14 +157,15 @@ footer {
    grid-template-columns: 1fr 1fr 1fr;
    grid-template-areas: "mode onePlayer twoPlayer";
    grid-template-rows: auto;
-   color: whitesmoke
+   color: #634217
 }
 
 #mode {
     grid-area: mode;
     background: transparent;
-    border: 2px solid black;
+    border: 2px solid #634217;
     font-family: 'Indie Flower', cursive;
+    -webkit-text-stroke: 2px black;
     font-size: 2em;
     text-align: center;
 }
@@ -170,9 +175,10 @@ footer {
     background: transparent;
     border: 2px solid black;
     font-family: 'Indie Flower', cursive;
+    -webkit-text-stroke: 2px black;
     font-size: 2em;
     text-align: center;
-    color: whitesmoke;
+    color: #634217
 }
 
 #twoPlayer {
@@ -180,9 +186,10 @@ footer {
    background: transparent;
    border: 2px solid black;
    font-family: 'Indie Flower', cursive;
+   -webkit-text-stroke: 2px black;
    font-size: 2em;
    text-align: center;
-   color: whitesmoke;
+   color: #634217;
 }
 
 button #buttonReset {
@@ -202,11 +209,11 @@ output {
     font-family: 'Indie Flower', cursive;
 }
 .output {
-  display: inline-flex;
-  margin: 10px 375px 10px;
+  
+  margin: 10px AUTO;
   height: 100px;
   width: 800px;
-  background-color: transparent;
+  background-color: rgba(255,255,255,0.5);
 }
 
 

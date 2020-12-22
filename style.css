@@ -1,6 +1,6 @@
 
 body {
-    background-image: url("https://st.depositphotos.com/2071605/3534/i/600/depositphotos_35345585-stock-photo-aged-dark-wood-texture.jpg");
+    background-image: url("https://d39l2hkdp2esp1.cloudfront.net/img/photo/138816/138816_00_2x.jpg?20180117033855");
     background-color: #cccccc;
     background-size: cover;
     }
@@ -47,7 +47,7 @@ header {
 .grid-container {
 
     margin: 10px auto;
-    padding: 200px 0px;
+    padding: 50px 0px;
     display: grid;
     width: 500px;
     height: 500px;
@@ -59,70 +59,89 @@ header {
                          "seven eight nine";
 }
 
+
 #grid1{
     background-color: transparent;
     grid-area: one;
-    border-right: 15px solid black;
-    border-bottom: 15px solid black;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 #grid2{
     background-color: transparent;
     grid-area: two;
-    border-left: 15px solid black;
-    border-bottom: 15px solid black;
-    border-right: 15px solid black;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
 }
 
 #grid3{
     background-color: transparent;
     grid-area: three;
-    border-left: 15px solid black;
-    border-bottom: 15px solid black;;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;;
 }
 
 #grid4{
     background-color: transparent;
     grid-area: four;
-    border-right: 15px solid black;
-    border-bottom: 15px solid black;;
-    border-top: 15px solid black
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;;
+    border-top: 1px solid black
 }
 
 #grid5{
     background-color: transparent;
     grid-area: five;
-    border: 15px solid black;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 1px solid black;
 }
 
 #grid6{
     background-color: transparent;
     grid-area: six;
-    border-left: 15px solid black;
-    border-bottom: 15px solid black;
-    border-top: 15px solid black;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
 }
 
 #grid7{
     background-color: transparent;
     grid-area: seven;
-    border-top: 15px solid black;
-    border-right: 15px solid black;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
 }
 
 #grid8{
     background-color: transparent;
     grid-area: eight;
-    border-top: 15px solid black;
-    border-left: 15px solid black;
-    border-right: 15px solid black;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
 
 #grid9{
     background-color: transparent;
     grid-area: nine;
-    border-left: 15px solid black;
-    border-top: 15px solid black;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
 }
 
 footer {
@@ -177,6 +196,18 @@ button #buttonReset {
     justify-content: center;
 }
 
+output {
+    text-align: center;
+    color: white;
+    font-family: 'Indie Flower', cursive;
+}
+.output {
+  display: inline-flex;
+  margin: 10px 375px 10px;
+  height: 100px;
+  width: 800px;
+  background-color: transparent;
+}
 
 
 

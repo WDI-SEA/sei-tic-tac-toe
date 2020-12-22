@@ -15,6 +15,7 @@
 
 }
 #parentdiv{
+
     position: relative;
     width: 100%;
 }
@@ -22,46 +23,65 @@
     grid-area: box11;
     border: 1px solid white;
     background-color: red;
+    /*background: transparent;*/
+    font-size: 5em;
+    text-align: center;
 }
 #box12{
     grid-area: box12;
     border: 1px solid white;
     background-color: red;
+    font-size: 5em;
+    text-align: center;
 }
 #box13{
     grid-area: box13;
     border: 1px solid white;
     background-color: red;
+    font-size: 5em;
+    text-align: center;
 }
 #box21{
     grid-area:box21;
     border: 1px solid white;
     background-color: red;
+    font-size: 5em;
+    text-align: center;
 }
 #box22{
     grid-area: box22;
     border: 1px solid white;
     background-color: red;
+    font-size: 5em;
+    text-align: center;
 }
 #box23{
     grid-area: box23;
     border: 1px solid white;
     background-color: red;
+    font-size: 5em;
+    text-align: center;
 }
 #box31{
     grid-area: box31;
     border: 1px solid white;
     background-color: red;
+    font-size: 5em;
+    text-align: center;
 }
 #box32{
     grid-area: box32;
     border: 1px solid white;
     background-color: red;
+    font-size: 5em;
+    text-align: center;
 }
 #box33{
     grid-area: box33;
     border: 1px solid white;
     background-color: red;
+    font-size: 5em;
+    text-align: center;
 }
 p{
     display: inline-block;

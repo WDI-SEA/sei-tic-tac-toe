@@ -792,19 +792,36 @@ container.addEventListener('click',e=>{
            if(checkBox(idDiv)){
                 updatePage(idDiv,playerLetter)
                 addClass(idDiv,"player")
-               computerTurn()
+                if(round >=2){
+                    winner=chooseWinner()
+                    console.log("winner"+winner)
+                    if(winner!="none"){
+                        updateWin(winner)
+                        playerTurn=false
+                        computerTurn=false
+                    }
+                }
+                if(computerTurn){
+
+                    computerTurn()
+                }
+               if(round >=2){
+                winner=chooseWinner()
+                console.log("winner"+winner)
+                if(winner!="none"){
+                    updateWin(winner)
+                    playerTurn=false
+                }
+            }
                round++
+           }
+           console.log("round:"+round)
+           if(round==5&& winner=="none"){
+               console.log("Draw")
            }
     
         }
-        if(round >=2){
-            winner=chooseWinner()
-            console.log("winner"+winner)
-            if(winner!="none"){
-                updateWin(winner)
-                playerTurn=false
-            }
-        }
+       
 
     }
     //when game pass third round which is round=2 should check the winner

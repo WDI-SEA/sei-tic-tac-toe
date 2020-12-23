@@ -13,6 +13,15 @@ let hasWon = false
 
 const clear = document.getElementById("clear").addEventListener("click", clearBoard);
 
+function draw() {
+  if(one.innerText !== "" && two.innerText !== "" && three.innerText !== "" && 
+  four.innerText !== "" && five.innerText !== "" && six.innerText !== "" && 
+  seven.innerText !== "" && eight.innerText !== "" && nine.innerText !== "" && hasWon === false) {
+    document.getElementById("player").innerText = "DRAW!!!";
+    hasWon = true;
+  }
+}
+
 function clearBoard() {
   let squares = document.querySelectorAll(".gameSquare");
   for(let i = 0; i < squares.length; i++){
@@ -63,6 +72,7 @@ function markSquare(e){
         e.target.innerText = "O";
       }
       winCondition();
+      draw();
       choosePlayer();
   }
 }

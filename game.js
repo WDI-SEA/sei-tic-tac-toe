@@ -390,33 +390,39 @@ let letterArr=["x","o"]
 let randNum=Math.floor(Math.random()*letterArr.length)
 let comLetter=letterArr[randNum] 
 let playerLetter=""
+let playerTurn=false
+let comTurn=false
+let playerWinNum=0
+let comWinNum=0
 if(randNum==1){
     playerLetter=letterArr[0] 
 }else{
     playerLetter=letterArr[1] 
 }
+console.log("playerLetter: "+playerLetter)
+
 let chooseRandom=(newArr)=>{
     let idDiv=newArr[Math.floor(Math.random()*newArr.length)]
-    console.log(idDiv)
     return idDiv
 }
 let updatePage =(id,letter)=>{
-    console.log("id:"+id+"letter: "+letter)
+    console.log("id:"+id+"letter:"+letter)
     document.getElementById(id).innerText=letter
 
 }
 let addClass=(divId,currentPlayer)=>{
-    console.log("addclass: "+currentPlayer)
     document.getElementById(divId).classList.add(currentPlayer)
-
-    console.log(document.getElementById(divId).classList)
-    console.log("ocument.getElementById(divId).classList"+document.getElementById(divId).classList)
 }
 if(currentPlayer=="computer"){
     
     let idDiv=chooseRandom(arrayDivIds)
     updatePage(idDiv,comLetter)
     addClass(idDiv,"computer")
+    round++
+    playerTurn=true
+}
+else{
+    playerTurn=true
 }
 //check the box is empty or not
 let checkBox=(divId)=>{
@@ -433,7 +439,7 @@ let findArr=(obj)=>{
             column:newString[1].split('')[1]
         }
     }
-let chooseWinner=()=>{}
+
 //to find all the id of computer choice
 let fillComputerIds=()=>{
     let divComputer=document.getElementsByClassName('computer')
@@ -453,8 +459,96 @@ let fillPlayersIds=()=>{
     playerIds=playerArr.map(findArr)
 
 }
-let beatPlayer=()=>{
+let beatPlayer=(Arr)=>{
+    let newArr=Arr
+    let idDiv=""
+    let firstColumn=""
+    let firstRow=""
+    let secondColumn=""
+    let secondRow=""
+    let finalArr=[]
+    for (let i=0;i<newArr.length;i++){
+        firstColumn=newArr[i]["column"]
+        firstRow=newArr[i]["row"]
+        for (let j=i+1; j<newArr.length;j++){
+            secondRow=newArr[j]["row"]
+            secondColumn=newArr[j]["column"]
+                if(firstColumn==secondColumn){
+                    if(newArr[j]['row']!=3){
+                         idDiv="box"+3+""+firstColumn
+                        }
+                        else if (newArr[i]['row']!=1){
+                            idDiv="box"+1+""+firstColumn
+                        }
+                        else{
+                            idDiv="box"+2+""+firstColumn                            
+                        }
+                }
+                else if(firstRow==secondRow){
+                    if(newArr[j]['column']!=3){
+                        idDiv="box"+firstRow+""+3
+                    }
+                    else if (newArr[i]['column']!=1){
+                        idDiv="box"+firstRow+""+1                            
+                    }
+                    else{
+                        idDiv="box"+firstRow+""+2                        
+                    }
+                }   
+                else if(secondRow==secondColumn){
+                    if(firstRow==firstColumn){
+                        if(newArr[j]['column']!=3){
+                             idDiv="box"+3+""+3
+                        }
+                        else if(newArr[i]['column']!=1){
+                             idDiv="box"+1+""+1
+                        }
+                        else if((secondRow==2&&secondColumn==2)){
+                            if(((firstRow==1&&firstColumn==3))){
+                                idDiv="box31"
+                            }
+                            else{
+                                idDiv="box13"
+                            }                           
+                        }else{
+                            idDiv="box"+2+""+2
+                        }
+                        
+                    }
+                }
+                    else if(firstColumn==3&&firstRow==1){
+                            if(secondRow==2&&secondColumn==2){
+                                 idDiv="box13"
+                            }
+                            else{
+                                idDiv="box22"
+                            }
+                        }
+                        else if(secondColumn==3&&secondRow==1){
+                            if(firstRow==2&&firstColumn==2){
+                                 idDiv="box13"
+                            }
+                            else if(firstRow==3&&firstColumn==1){
+                                idDiv="box31"
+                            }
+                            else{
+                                idDiv="box22"
+                            }
+                        }
+                        else{
+                            return finalArr
+                        }
 
+
+                    
+                                 
+        }
+        if(idDiv!=""){
+
+            finalArr.push(idDiv)
+        }
+    }
+    return finalArr
 }
 //find the posibility of the each cell
 let randomCell=()=>{
@@ -498,14 +592,8 @@ let randomCell=()=>{
     }
     for(let i=0;i<newCellCom.length;i++){
         idDiv="box"+newCellCom[i]["row"]+""+newCellCom[i]["column"]
-        console.log("playIds")
-        console.log(playerIds)
-        console.log("necellCom")
-        console.log(newCellCom)
         if(checkBox(idDiv)){
             for(let j=0;j<playerIds.length;j++){
-                console.log("j:")
-                console.log(j)
                 if(newCellCom[i]["row"]!=newCellCom[i]["column"] ){
                     if(newCellCom[i]["row"]!=playerIds[j]["row"] && newCellCom[i]["column"]!=playerIds[j]["column"]){
                         finalCom.push(idDiv)
@@ -520,11 +608,19 @@ let randomCell=()=>{
 
 }
 let computerTurn=()=>{
+    console.log("computerTurn")
     fillComputerIds()
     fillPlayersIds()
+    let idDivPlays=[]
     let idDiv=0
     let cellFinded=false
+    let fianlComArr=[]
+    console.log("computerIds")
+    console.log(computerIds)
+    console.log("playerIds")
+    console.log(playerIds)
     if(computerIds.length==0){
+        console.log("resetcomputerTurn")
         let check=true
         do{
             idDiv=chooseRandom(arrayDivIds)
@@ -532,53 +628,187 @@ let computerTurn=()=>{
         }while(!check)
         cellFinded=true
     }else{
-        if(playerIds.length>1){
-            // do{
-            //     idDiv=beatPlayer()
-            //     check=checkBox(idDiv) 
-            // }while(!check)
-            
-            idDiv="box33"
+        if(computerIds.length>1){
+            idDivPlays=beatPlayer(computerIds)
+            if(idDivPlays.length>=1){
+
+                for(let i=0;i<idDivPlays.length;i++){
+                    if(checkBox(idDivPlays[i]) ){
+                        idDiv=idDivPlays[i]
+                        cellFinded=true
+    
+                    }
+                }
+            }
+         
+        }
+        if(!cellFinded){
+
+            if(playerIds.length>1){
+                idDivPlays=beatPlayer(playerIds)
+                if(idDivPlays.length>=1){
+    
+                    for(let i=0;i<idDivPlays.length;i++){
+                        if(checkBox(idDivPlays[i]) ){
+                            idDiv=idDivPlays[i]
+                            cellFinded=true
+        
+                        }
+                    }
+                }
+            }
+            if(!cellFinded){
+                
+              
+                    idDiv=chooseRandom(randomCell())
+                
+            }
         }
         
-    }
-    if(!cellFinded){
-        idDiv=chooseRandom(randomCell())
     }
     updatePage(idDiv,comLetter)
     addClass(idDiv,"computer")
 }
 let freshPage=()=>{
-    console.log("fresh")
+    round=0
     let idDiv=""
     for(let i=1;i<=3;i++){
         for(let j=1;j<=3;j++){
             idDiv="box"+i+""+j
-            document.getElementById(idDiv).classList.remove
+            console.log("idDiv:"+idDiv)
+            console.log("idDiv.classList:"+document.getElementById(idDiv).classList)
+            if( document.getElementById(idDiv).classList=="player"){
+                document.getElementById(idDiv).classList.remove("player")
+            }else if(document.getElementById(idDiv).classList=="computer"){
+                document.getElementById(idDiv).classList.remove("computer")
+
+            }
             document.getElementById(idDiv).innerText=""
         }
-        console.log(document.getElementById(idDiv).classList)
+    }
+    playerIds=[]
+    computerIds=[]
+    console.log("playerIds in refreshpage")
+    console.log(playerIds)
+    console.log("computerIds in refreshpage")
+    console.log(computerIds)
+
+    if(comWinNum>playerWinNum){
+        computerTurn()
+        round++
+        playerTurn=true
+    }else{
+        playerTurn=true
+    }
+}
+let updateWin=(winner)=>{
+    if(winner=="player"){
+        playerWinNum++
+        let playerP=document.getElementById('PlayerNumber').innerText=playerWinNum
+    }
+    else{
+        comWinNum++
+        let playerP=document.getElementById('cpmputerNumber').innerText=comWinNum
+
     }
 }
 
+let winFunction=(testObj)=>{
+    let count=0
+console.log("inside winfunction")
+console.log("testObj")
+console.log(testObj)
+    for(let i=0;i<testObj.length;i++){
+
+        for(let j=i+1;j<testObj.length;j++){
+            if(testObj[i]['column']==testObj[j]['column']){
+                console.log(`testObj[i]['column']==testObj[j]['column']:${testObj[i]['column']==testObj[j]['column']}`)
+                count++
+            }
+        }
+
+    }
+    console.log("count;"+count)
+    if(count!=3){
+        count=0
+        for(let i=0;i<testObj.length;i++){
+    
+            for(let j=i+1;j<testObj.length;j++){
+                if(testObj[i]['row']==testObj[j]['row']){
+                    console.log(`ttestObj[i]['row']==testObj[j]['row']:${testObj[i]['row']==testObj[j]['row']}`)
+
+                    count++
+                }
+            }
+        }
+    }
+    console.log("count;"+count)
+    if(count!=3){
+        count=0
+        for(let i=0;i<testObj.length;i++){
+            if(testObj[i]['column']==testObj[i]['row']){
+                count++
+            }
+        }
+    }
+    if(count==3){
+        return true
+    }else{
+        return false
+    }
+}
+let chooseWinner=()=>{
+    fillComputerIds()
+    fillPlayersIds()
+
+    if(playerIds.length>=3){
+        console.log("playerIds")
+        if(winFunction(playerIds))   {
+            return "player"
+        }    
+    }
+    if(computerIds.length>=3){
+        console.log("computerIds")
+        if(winFunction(computerIds)){
+            console.log("winfunction(comIds)"+winFunction(computerIds))
+            return "computer"
+        }
+    }
+    return "none"
+}
 container.addEventListener('click',e=>{
     //It doesn't go thorough if user click in another place
-    let idDiv=e.target.id
-    if(arrayDivIds.includes(idDiv)){
+   
+  
+    let winner=""
+    if(playerTurn==true){      
+        console.log("playerturn:"+playerTurn)
+       
+        let idDiv=e.target.id
+        console.log("idDiv in addListner:"+idDiv)
+        if(arrayDivIds.includes(idDiv)){
+            console.log("inside:"+checkBox(idDiv))
+            
+           if(checkBox(idDiv)){
+                updatePage(idDiv,playerLetter)
+                addClass(idDiv,"player")
+               computerTurn()
+               round++
+           }
+    
+        }
+        if(round >=2){
+            winner=chooseWinner()
+            console.log("winner"+winner)
+            if(winner!="none"){
+                updateWin(winner)
+                playerTurn=false
+            }
+        }
 
-       if(checkBox(idDiv)){
-            updatePage(idDiv,playerLetter)
-            addClass(idDiv,"player")
-           computerTurn()
-           round++
-       }
     }
     //when game pass third round which is round=2 should check the winner
-    if(round >=2){
-        chooseWinner()
-    }
 })
 
 
 submit.addEventListener('click',freshPage)
-

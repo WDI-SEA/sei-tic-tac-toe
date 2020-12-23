@@ -1,0 +1,32 @@
+body {
+    background-color: slateblue;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+section {
+    text-align: center;
+}
+.gameBox360 {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 300px;
+    margin: 50px auto;
+}
+.box {
+    font-family: "Permanent Marker", cursive;
+    width: 98px;
+    height: 98px;
+    border: 2px dashed black;
+line-height: 95px;
+    font-size: 70px;
+}
+
+.xMoves {
+background-image: url("./X.png");
+color: white;
+
+}
+
+.oMoves {
+background-image: url("./O.jpg");
+
+}

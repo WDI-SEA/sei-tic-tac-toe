@@ -35,6 +35,10 @@ h1 {
   padding-top: 45px;
 }
 
+button {
+  border: none;
+}
+
 main {
   margin: 0 auto;
   display: grid;
@@ -45,49 +49,51 @@ main {
   row-gap: 12px;
 }
 
+.cell {
+  border: none;
+  outline: none;
+  background-image: url(../img/button1.png);
+}
+
+.celltext{
+  color: rgba(0, 255, 255, 1);
+  background-color:  rgba(255, 255, 255, 0);
+}
+
 #box1 {
   display: inline-block;
-  background-image: url(../img/button1.png);
 }
 
 #box2 {
   display: inline-block;
-  background-image: url(../img/button1.png);
 }
 
 #box3 {
   display: inline-block;
-  background-image: url(../img/button1.png);
 }
 
 #box4 {
   display: inline-block;
-  background-image: url(../img/button1.png);
 }
 
 #box5 {
   display: inline-block;
-  background-image: url(../img/button1.png);
 }
 
 #box6 {
   display: inline-block;
-  background-image: url(../img/button1.png);
 }
 
 #box7 {
   display: inline-block;
-  background-image: url(../img/button1.png);
 }
 
 #box8 {
   display: inline-block;
-  background-image: url(../img/button1.png);
 }
 
 #box9 {
   display: inline-block;
-  background-image: url(../img/button1.png);
 }
 
 /* starts communication design */

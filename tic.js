@@ -20,28 +20,18 @@
 //                 [0,0,0]
 //                     ];
 
-let a1;
-let a2;
-let a3;
-let b1;
-let b2;
-let b3;
-let c1;
-let c2;
-let c3;
-let a1_event;
-let a2_event;
-let a3_event;
-let b1_event;
-let b2_event;
-let b3_event;
-let c1_event;
-let c2_event;
-let c3_event;
-let player = 0
+
+let player = 1
 
 let displayX = "X"
 let displayO = "O"
+
+let playeronescore = 0
+let playertwoscore = 0
+
+let endgame = false
+
+
 
 // function markX(e){
 //     if (player === 0) {
@@ -53,17 +43,22 @@ let displayO = "O"
 // document.getElementById("grid").addEventListener("click", markX)
 
 function markO(e){
-    if (player === 0) {
-        console.log("test")
-        e.target.innerText = "X"
+    if (!e.target.innerText && !endgame) {
+        if (player === 1) {
+            console.log("test")
+            e.target.innerText = "X" 
+            determineWinner("X")
+            player = 2
+            }
+        else {
+        e.target.innerText = "O"
+        determineWinner("O")
         player = 1
         }
-    else {
-    e.target.innerText = "O"
-    player = 0
     }
 }
-document.getElementById("grid").addEventListener("click", markO)
+let grid = document.getElementById("grid")
+grid.addEventListener("click", markO)
 
 // function displayWinner(e){
 //     if (player1 === winningCombos) {
@@ -106,13 +101,42 @@ document.getElementById("grid").addEventListener("click", markO)
 // }
 // }
 
-function determineWinner(){
+let determineWinner = (mark) => {
     if (
-        (a1.innerHTML === "X" && a2.innerHTML === "X" && a3.innerHTML === "X") || (b1.innerHTML === "X" && b2.innerHTML === "X" && b3.innerHTML === "X") || (c1.innerHTML === "X" && c2.innerHTML === "X" && c3.innerHTML === "X") || (a1.innerHTML === "X" && b1.innerHTML === "X" && c1.innerHTML === "X") || (a2.innerHTML === "X" && b2.innerHTML === "X" && c2.innerHTML === "X") || (a3.innerHTML === "X" && b3.innerHTML === "X" && c3.innerHTML === "X") || (a1.innerHTML === "X" && b2.innerHTML === "X" && c3.innerHTML === "X") || (a3.innerHTML === "X" && b2.innerHTML === "X" && c1.innerHTML === "X")
+        (a1.innerText === mark && a2.innerText === mark && a3.innerText === mark) ||
+         (b1.innerHTML === mark && b2.innerHTML === mark && b3.innerHTML === mark) || (c1.innerHTML === mark && c2.innerHTML === mark && c3.innerHTML === mark) || (a1.innerHTML === mark && b1.innerHTML === mark && c1.innerHTML === mark) || (a2.innerHTML === mark && b2.innerHTML === mark && c2.innerHTML === mark) || (a3.innerHTML === mark && b3.innerHTML === mark && c3.innerHTML === mark) || (a1.innerHTML === mark && b2.innerHTML === mark && c3.innerHTML === mark) || (a3.innerHTML === mark && b2.innerHTML === mark && c1.innerHTML === mark)
         ){
-            result("Player 1 is the winner!")
+            document.getElementById('winner').innerText = `Player ${player} is the winner!`
+            endgame = true
+            if (player === 1) {
+                playeronescore++
+                document.getElementById('playerone').innerText = `Player 1 - ${playeronescore}`
+
+            } else {
+                playertwoscore++
+                document.getElementById('playertwo').innerText = `Player 2 - ${playertwoscore}`
+            }
         }
+} 
+
+let reset = document.getElementById('reset')
+reset.addEventListener('click', resetGame)
+
+function resetGame() {
+    let children = Array.from(grid.children)
+    console.log(children)
+    children.forEach(element => {
+        element.innerText = ''
+    });
+    document.getElementById('winner').innerText = ''
+    player = 1
+    endgame = false
 }
+
+document.getElementById('playerone').innerText = `Player 1 - ${playeronescore}`
+document.getElementById('playertwo').innerText = `Player 2 - ${playertwoscore}`
+
+
 
 // ["a1", "a2", "a3"],
 //                 ["b1", "b2", "b3"],

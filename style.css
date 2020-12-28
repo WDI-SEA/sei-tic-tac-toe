@@ -8,59 +8,59 @@
                             "c1 c2 c3"
 }
 
-.a1 {
+#a1 {
     background-color: aqua;
     grid-area: a1;
     border: solid black 2px;
     
 }
 
-.a2 {
+#a2 {
     background-color: aqua;
     grid-area: a2;
     border: solid black 2px;
     
 }
 
-.a3 {
+#a3 {
     background-color: aqua;
     grid-area: a3;
     border: solid black 2px;
 
 }
 
-.b1 {
+#b1 {
     background-color: aqua;
     grid-area: b1;
     border: solid black 2px;
     
 }
 
-.b2 {
+#b2 {
     background-color: aqua;
     grid-area: b2;
     border: solid black 2px;
 }
 
-.b3 {
+#b3 {
     background-color: aqua;
     grid-area: b3;
     border: solid black 2px;
 }
 
-.c1 {
+#c1 {
     background-color: aqua;
     grid-area: c1;
     border: solid black 2px;
 }
 
-.c2 {
+#c2 {
     background-color: aqua;
     grid-area: c2;
     border: solid black 2px;
 }
 
-.c3 {
+#c3 {
     background-color: aqua;
     grid-area: c3;
     border: solid black 2px;

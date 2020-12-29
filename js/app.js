@@ -27,16 +27,13 @@ const box9 = document.getElementById("box9");
 
 // game options
 function gameSelector() {
-    if (document.getElementById("human").checked && document.getElementById("StartO").checked) {
+    if (document.getElementById("StartO").checked) {
         gamePlay1();
     }
-    else if (document.getElementById("human").checked && document.getElementById("StartX").checked) {
+    else if (document.getElementById("StartX").checked) {
         let gameActive = true;
         let currentPlayer = "X";
         gamePlay2();
-    }
-    else {
-        messageOut.innerHTML = "Going First or Second?"
     }
 };
 
@@ -121,8 +118,6 @@ function checkWin() {
         }
 }
 
-
-
 function disableGame() {
     for (let i = 0; i < cells.length; i++) {
         cells[i].onclick = function() {
@@ -130,7 +125,6 @@ function disableGame() {
         }
     }
 }
-
 
 document.getElementById("clickA").addEventListener("click", (event) => {
     event.preventDefault();

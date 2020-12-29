@@ -50,50 +50,55 @@ main {
 }
 
 .cell {
+  color: rgba(255, 255, 255, 0);
   border: none;
   outline: none;
-  background-image: url(../img/button1.png);
-}
-
-.celltext{
-  color: rgba(0, 255, 255, 1);
-  background-color:  rgba(255, 255, 255, 0);
 }
 
 #box1 {
   display: inline-block;
+  background-image: url(../img/button1.png);
+
 }
 
 #box2 {
   display: inline-block;
+  background-image: url(../img/button1.png);
 }
 
 #box3 {
   display: inline-block;
+  background-image: url(../img/button1.png);
 }
 
 #box4 {
   display: inline-block;
+  background-image: url(../img/button1.png);
 }
 
 #box5 {
   display: inline-block;
+  background-image: url(../img/button1.png);
 }
 
 #box6 {
   display: inline-block;
+  background-image: url(../img/button1.png);
 }
 
 #box7 {
   display: inline-block;
+  background-image: url(../img/button1.png);
 }
 
 #box8 {
   display: inline-block;
+  background-image: url(../img/button1.png);
 }
 
 #box9 {
   display: inline-block;
+  background-image: url(../img/button1.png);
 }
 
 /* starts communication design */
@@ -109,12 +114,13 @@ main {
   font-size: 35px;
   color: #C1272D;
   line-height: 50px;
+  margin-top: 30px;
 }
 
 #inputhelper {
   color: #2d2d2d;
   font-style: oblique;
-  margin-top: 30px;
+  margin-top: 50px;
   margin-bottom: 15px;
 }
 
@@ -125,6 +131,7 @@ main {
 
 .buttons {
   margin-top: 50px;
+  margin-bottom: 60px;
 }
 
 #clickA {

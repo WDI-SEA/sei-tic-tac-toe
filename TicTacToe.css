@@ -1,20 +1,39 @@
-
+h1 {
+  margin: 0 auto;
+}
 
 #container {
+  top: 50;
   width: 650px;
   height: 650px;
-  flex-wrap: wrap;
   border: 1px solid rgb(255, 5, 5);
+  margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
-  align-items:center;
+  align-items: center;
+
+  
 }
 
 .box {
   width: 200px;
   height: 200px;
-  border: 1px solid black;
+  border: 1px solid cornflowerblue;
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 200px;
+} 
+
+div {
+  text-align: center;
 }
 
-
+body {
+  background-color:blueviolet;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}

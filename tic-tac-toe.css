@@ -82,7 +82,8 @@ p {
 
 }
 img {
-    visibility: hidden;
+    height: 100px;
+    width: 100px;
 }
 
 #start {
@@ -99,66 +100,57 @@ button {
     display: inline-block;
 }
 
-#a1 {
+#nw {
     position:absolute;
     top: 230px;
     left: 150px;
 }
 
-#a2 {
+#n {
     position:absolute;
     top: 230px;
     left: 281px;
 }
 
-#a3 {
+#ne {
     position:absolute;
     top: 230px;
     left: 415px;
 }
 
-#a4 {
+#w {
     position:absolute;
     top: 365px;
     left: 150px;
 }
 
 
-#a5 {
+#c {
     position:absolute;
     top: 365px;
     left: 281px;
 }
 
-#a6 {
+#e {
     position:absolute;
     top: 365px;
     left: 415px;
 }
 
-#a7 {
+#sw {
     position:absolute;
     top: 495px;
     left: 150px;
 }
 
-#a8 {
+#s {
     position:absolute;
     top: 495px;
     left: 281px;
 }
 
-#a9 {
+#se {
     position:absolute;
     top: 495px;
     left: 415px;
-}
-
-
-div[clickedO="true"] {
-    visibility: visible;
-}
-
-div[clickedG="true"] {
-    visibility: visible;
 }

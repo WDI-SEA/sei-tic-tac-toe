@@ -17,39 +17,23 @@
             <h3>It depends on you!</h3>
             <h2 id="playerDisplay"></h2>
             <div class="gameboard">
-                <div id="nw" class="square" >
-                    <img src="https://i.imgur.com/BOaH87V.jpeg"  alt="orca1" id="o1" class="Orcas" style="width:100px;height:100px;"/>
+                <div id="nw" class="square">
                 </div>
                 <div id="n"  class="square">
-                    <img src="" alt="orca2" id="o2" style="width:100px;height:100px;"/>
-
                 </div>
                 <div id="ne" class="square">
-                    <img src="" alt="orca3" id="o3" style="width:100px;height:100px;"/>
-
                  </div>
                  <div id="w" class="square">
-                    <img src="" alt="orca4" id="o4" style="width:100px;height:100px;"/>
-
                 </div>
                 <div id="c" class="square">
-                    <img src="" alt="orca5" id="o5" style="width:100px;height:100px;"/>
-
                  </div>
                  <div id="e" class="square">
-                    <img src="" alt="orca6" id="o6" style="width:100px;height:100px;"/>
-
                 </div>
                 <div id="sw" class="square">
-                    <img src="" alt="orca7" id="o7" style="width:100px;height:100px;"/>
-
                 </div>
                 <div id="s"  class="square">
-                    <img src="" alt="orca8" id="o8" style="width:100px;height:100px;"/>
-
                 </div>
-                <div id="se" class="square">
-                    <img src="" alt="orca9" id="o9" style="width:100px;height:100px;"/>
+                <div id="se" class="square" >
 
                 </div>
             </div>
@@ -62,8 +46,8 @@
         
     </br>
     <p>       
-        <button type="button" id="start">Start</button>
-        <input type="reset" id="reset" >
+        <button type="button" id="start" onclick="gameLoop()">Start</button>
+        <input type="reset" id="reset" onclick="window.location.reload()">
     </p>
         <script src="tic-tac-toe.js"></script>
 </body>

@@ -6,16 +6,15 @@
 </head>
 <body>
         <header>Tic Tac Toe</header>
-        <span>
-                Who will win?
-        </span>
-        <span>
-                Who will lose?
-        </span>
-    </br>
+    <div class="container">
+        <span>Who will win?</span>
+        <span>Who will lose?</span>
+    </div>
+    <div id="container2">
             <h2>Alligators or Orcas?</h2>
             <h3>It depends on you!</h3>
-            <h2 id="playerDisplay"></h2>
+    
+            <!-- <h2 id="playerDisplay"></h2> -->
             <div class="gameboard">
                 <div id="nw" class="square">
                 </div>
@@ -34,21 +33,18 @@
                 <div id="s"  class="square">
                 </div>
                 <div id="se" class="square" >
-
                 </div>
             </div>
-    </br>
-    </br>  
-        <span id="awin" style="visibility: hidden;">Alligators WIN!!!</span>
-        <span id="tie" style="visibility: hidden;">MUTUALLY ASSURED DESTRUCTION</span>
-        <span id="owin" style="visibility: hidden;">Orcas WIN!!!</span>
-        
-        
-    </br>
+        <div id="container3">
+            <span id="awin" style="visibility: hidden;">Alligators WIN!!!</span>
+            <span id="tie" style="visibility: hidden;">MUTUALLY ASSURED DESTRUCTION</span>
+            <span id="owin" style="visibility: hidden;">Orcas WIN!!!</span>   
+        </div> 
     <p>       
         <button type="button" id="start" onclick="gameLoop()">Start</button>
         <input type="reset" id="reset" onclick="window.location.reload()">
     </p>
+</div>
         <script src="tic-tac-toe.js"></script>
 </body>
 </html>

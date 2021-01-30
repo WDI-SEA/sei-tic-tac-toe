@@ -103,7 +103,21 @@ body {
             background-color: grey;
         }
 
-        .winner-message {
+        .win-message {
+            position: absolute;
+            border: solid black;
+            padding: 2em;
+            top: 30%;
+            bottom: 30%;
+            left: 30%;
+            right: 30%;
+            text-align: center;
+            background-color:rgb(221, 130, 26);
+            font-size: 40px;
+            margin: auto;
+        }
+
+        .tie-message {
             position: fixed;
             border: solid black;
             padding: 2em;
@@ -114,11 +128,13 @@ body {
             text-align: center;
             background-color:rgb(221, 130, 26);
             font-size: 50px;
-
-
-        .tie-message {
-            position: absolute;
-            border: solid black;
             margin: auto;
-            text-align: center;
+        }
+        
+        .win-hidden {
+            display: none;
+        }
+
+        .tie-hidden {
+            display: none;
         }

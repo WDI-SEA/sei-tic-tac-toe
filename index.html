@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Tic Tac Toe</title>
+        <link rel="stylesheet" href="./stylesheet.css">
+    </head>
+    <body>
+         <div class="heading">
+             <h1 id="gameTitle">Tic Tac Toe</h1>
+             <h3 id="gameInstructions">Let's play a game of Tic Tac Toe! Click and drag your game piece (X's or O's) into a square.
+                 The obejective is to get three of the same game pieces in a row, column or diagonally.
+             </h3>
+         </div>
+
+         <div class="playerOps">
+             <h2 id="p1Title">Player 1</h2>
+             <div class="p1Pieces">
+                 <p id="p1Pieces1"></p>
+                 <p id="p1Pieces2"></p>
+                 <p id="p1Pieces3"></p>
+                 <p id="p1Pieces4"></p>
+                 <p id="p1Pieces5"></p>
+                 <p id="p1Pieces6"></p>
+             </div>
+         </div>
+
+         <div id="gameBoard">
+         </div>
+
+         <div class="playerOps2">
+            <div class="p2Pieces">
+                <p id="p2Pieces1"></p>
+                <p id="p2Pieces2"></p>
+                <p id="p2Pieces3"></p>
+                <p id="p2Pieces4"></p>
+                <p id="p2Pieces5"></p>
+                <p id="p2Pieces6"></p>
+            </div>
+         </div>
+
+        <div>
+            <button id="reset"type="button">Reset</button>
+        </div>
+
+        <div class="results">
+            <h1 id="displayWinner"></h1>
+            <p id="displayOps"></p>
+            <button id="resultsReset"type="button">Reset</button>
+        </div>
+        
+        <script src="./functionality.js" defer></script>
+    </body>
+</html>

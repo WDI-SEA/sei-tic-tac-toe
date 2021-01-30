@@ -11,7 +11,7 @@
 </head>
 <body>
     <h1>Doughnuts & Sausages</h1>
-    <h3>The virtual game of Doughnuts vs. Sausages!</h3>
+    <h3>The virtual tic-tac-toe game with doughnuts & sausages!</h3>
     <p>Click on a plate to start the game!</p>
 
     <main class = game-plate> 
@@ -36,6 +36,10 @@
 
         <div class = middle-row>
 
+            <div class = game-result-message>
+                <h1 class = winner-message> Winner Winner Chicken Dinner!</h1>
+                <!-- <h1 class = tie-message>Its a TIE! Play again!</h1> -->
+            </div>
             
             <div class = MLdiv>
                 <img class = "MLimg imgsize" src = "imgs/plate.png"  alt = "image not found"/>
@@ -67,6 +71,7 @@
             </div>
             
         </div>
+        
         <button id = restart-button>Restart Game!</button>
         
     </main>
@@ -75,7 +80,6 @@
     <script src="java.js"></script>
 </body>
 
-<div>Winner Winner Chicken Dinner!</div>
 
 </div>
 </html>

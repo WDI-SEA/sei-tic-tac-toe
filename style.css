@@ -13,6 +13,7 @@ body {
     padding: 20px;
     font-size: large;
     font-family: 'Potta One', cursive;
+    background-color: rgb(221, 130, 26);
 }
 .game-plate {
     margin-left: 25%;
@@ -100,6 +101,24 @@ body {
             border-left: 5px solid black;
             display: inline-block;
             background-color: grey;
-
         }
 
+        .winner-message {
+            position: fixed;
+            border: solid black;
+            padding: 2em;
+            top: 30%;
+            bottom: 30%;
+            left: 30%;
+            right: 30%;
+            text-align: center;
+            background-color:rgb(221, 130, 26);
+            font-size: 50px;
+
+
+        .tie-message {
+            position: absolute;
+            border: solid black;
+            margin: auto;
+            text-align: center;
+        }

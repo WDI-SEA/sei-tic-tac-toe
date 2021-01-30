@@ -1,0 +1,105 @@
+
+body {
+    text-align: center;
+    background-color: pink;
+    margin: auto;
+    font-family: 'Luckiest Guy' , cursive; 
+}
+
+
+
+#restart-button {
+    margin-top: 30px;
+    padding: 20px;
+    font-size: large;
+    font-family: 'Potta One', cursive;
+}
+.game-plate {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 5%;
+    
+}
+
+.imgsize {
+    width: 85%;
+    height: auto;
+
+
+}
+    .upper-row {
+        border-bottom: 5px solid black;
+        display:flex;
+        justify-content: space-evenly;
+
+    }
+
+
+        .ULdiv {
+            display: inline-block;
+            background-color: grey;
+            border-right: 5px solid black
+            
+        }
+
+        .UMdiv {
+            display: inline-block;
+            background-color: grey;
+
+        }
+        .URdiv {
+            border-left: 5px solid black;
+            display: inline-block;
+            background-color: grey;
+
+        }
+    .middle-row {
+        display:flex;
+        justify-content: space-evenly;
+        border-bottom: 5px solid black;
+    }
+
+        .MLdiv {
+            background-color: grey;
+            border-right: 5px solid black;
+            
+        }
+
+        .MMdiv {
+            display: inline-block;
+            background-color: grey;
+
+        }
+        .MRdiv {
+            border-left: 5px solid black;
+            display: inline-block;
+            background-color: grey;
+
+        }
+
+    .lower-row {
+        display:flex;
+        justify-content: space-evenly;
+    }
+
+        .LLdiv {
+            display: inline-block;
+            background-color: grey;
+            border-right: 5px solid black;
+         
+        
+        }
+
+        .LMdiv {
+            
+            display: inline-block;
+            background-color: grey;
+
+        }
+        .LRdiv {
+            border-left: 5px solid black;
+            display: inline-block;
+            background-color: grey;
+
+        }
+

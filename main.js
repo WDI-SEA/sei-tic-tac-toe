@@ -1,4 +1,4 @@
-console.log("hey");
+console.log("Are you ready for some Tic Tac Toe");
 ///// Boxes tied to DOM ID's ---------------------
 let box1 = document.getElementById("1");
 let box2 = document.getElementById("2");
@@ -45,19 +45,18 @@ function startState() {
   box7.value = " ";
   box8.value = " ";
   box9.value = " ";
-  playWin.value = " ";
+  playWin.innerText = " ";
   // Turn State
   turnKeeper = true;
   // playText.innerText = "let's play";
   play = true;
 }
-restartButton.addEventListener("click", reStart);
 
 ///// restart Function -----------------------
-
-function reStart() {
+restartButton.addEventListener("click", function reStart() {
   startState();
-}
+});
+
 ///// onTap function --------------------------
 function onTap(event) {
   // console.log(box1.value);
@@ -68,10 +67,12 @@ function onTap(event) {
     a.value = "x";
     a.innerText = "X";
     turnKeeper = false;
+    playWin.innerText = "O it's your turn";
   } else {
     a.value = "o";
     a.innerText = "O";
     turnKeeper = true;
+    playWin.innerText = "X it's your turn";
   }
 
   checkForWin();

@@ -1,5 +1,5 @@
 :root {
-  --teal: rgb(64, 142, 142);
+  --teal: rgb(56, 106, 106);
 }
 
 body {
@@ -8,6 +8,7 @@ body {
   color: var(--teal);
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+  background-color: darkcyan;
 }
 
 * {
@@ -44,9 +45,10 @@ h1 {
   justify-content: center;
   align-items: center;
   color: var(--teal);
-  background-color: rgb(244, 244, 244);
+  background-color: rgb(147, 187, 199);
   border: 2px;
   border-color: black;
+  border-radius: 50px;
 }
 
 button {
@@ -54,9 +56,10 @@ button {
   border: none;
   border-radius: 10px;
   background-color: var(--teal);
-  color: rgb(244, 244, 244);
-  border-color: var(--teal);
-  font-size: 18px;
+  color: rgb(147, 187, 199);
+
+  font-size: 24px;
+
   /* transition: 1000ms transform; */
 }
 

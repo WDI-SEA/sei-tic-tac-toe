@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    display: flex;
+    justify-content: center;
+}
+.container {
+    background: cornflowerblue;
+    padding: 50px;
+    margin: 50px;
+    border-radius: 20px;
+
+}
+.header {
+    color: cyan;
+    text-align: center;
+    background-color: rgb(85, 109, 153);
+    border-radius: 10px;
+    font-family: 'Hachi Maru Pop', cursive;
+}
+.display {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    font-family: 'Hachi Maru Pop', cursive;
+    color: rgb(119, 247, 247);
+}
+.grid {
+    background: rgb(16, 19, 24);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    margin-top: 50px;
+    margin-bottom: 10px;
+    grid-gap: 8px;
+    
+}
+.box {
+    display: flex;
+    justify-content: center;
+    background: sandybrown;
+    height: 150px;
+    width: 150px;
+    background: cornflowerblue;
+}
+.button {
+    font-family: 'Hachi Maru Pop', cursive; 
+    color: white;
+    background: rgb(172, 116, 116);
+    border-radius: 10px;
+    height: 50px;
+    width: 80px;
+}
+

@@ -1,0 +1,67 @@
+:root {
+  --teal: rgb(64, 142, 142);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--teal);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 54px;
+}
+
+.container {
+  padding: 40px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#gameboard {
+  width: 450px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px;
+  border: 2px;
+  border-color: black;
+}
+
+.box {
+  height: 150px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--teal);
+  background-color: rgb(244, 244, 244);
+  border: 2px;
+  border-color: black;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--teal);
+  color: rgb(244, 244, 244);
+  border-color: var(--teal);
+  font-size: 18px;
+  transition: 1000ms transform;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale3d(2.5, 1.2, 0.3);
+  /* transform: scale(4, 0.4); */
+  /* transform: translateY(-10px); */
+}

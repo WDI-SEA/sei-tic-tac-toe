@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+
+}
+
+h1{
+    color: red;
+    outline:black;
+    outline-style: solid;
+}
+
+.container{
+    border-color: purple;
+    border-style: solid;
+    height: 50%;
+    width: 50%;
+}

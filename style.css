@@ -1,0 +1,10 @@
+body {}
+
+#boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-template-rows: repeat(3, 30%);
+    border: 3px solid palevioletred;
+}
+
+#box-one {}

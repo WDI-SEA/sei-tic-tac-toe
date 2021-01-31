@@ -17,8 +17,8 @@ const restartButton = document.getElementById("restartButton");
 
 let play = true;
 
-// player 1 = 1
-// player 2 = 2
+// player 1 value = 1
+// player 2 value = 2
 
 ///// TurnKeeper -------------------------------
 let turnKeeper = true;
@@ -205,3 +205,63 @@ function checkCat() {
 }
 
 console.log(playText.innerText);
+
+/// AI Feature -------------------------------------
+function aiGuy() {
+  let space = Math.floor(Math.random(1 - 9) * 10);
+  if (space == 1) {
+    if (box1.innerText == "O" || box1.innerText == "X") {
+      console.log("alreadey filled");
+    } else {
+    }
+    box1.innerText = "O";
+  } else if (space == 2) {
+    if (box2.innerText == "O" || box2.innerText == "X") {
+      console.log("alreadey filled");
+    } else {
+    }
+    box2.innerText = "O";
+  } else if (space == 3) {
+    if (box3.innerText == "O" || box3.innerText == "X") {
+      console.log("alreadey filled");
+    } else {
+    }
+    box3.innerText = "O";
+  } else if (space == 4) {
+    if (box4.innerText == "O" || box4.innerText == "X") {
+      console.log("alreadey filled");
+    } else {
+    }
+    box4.innerText = "O";
+  } else if (space == 5) {
+    if (box5.innerText == "O" || box5.innerText == "X") {
+      console.log("alreadey filled");
+    } else {
+    }
+    box5.innerText = "O";
+  } else if (space == 6) {
+    if (box6.innerText == "O" || box6.innerText == "X") {
+      console.log("alreadey filled");
+    } else {
+    }
+    box6.innerText = "O";
+  } else if (space == 7) {
+    if (box7.innerText == "O" || box7.innerText == "X") {
+      console.log("alreadey filled");
+    } else {
+    }
+    box7.innerText = "O";
+  } else if (space == 8) {
+    if (box8.innerText == "O" || box8.innerText == "X") {
+      console.log("alreadey filled");
+    } else {
+    }
+    box8.innerText = "O";
+  } else if (space == 9) {
+    if (box9.innerText == "O" || box9.innerText == "X") {
+      console.log("alreadey filled");
+    } else {
+    }
+    box9.innerText = "O";
+  }
+}

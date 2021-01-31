@@ -86,6 +86,7 @@ function onTap(event) {
         playWin.innerText = "X it's your turn";
       }
       checkForWin();
+      checkCat();
     }
   }
 }
@@ -112,7 +113,7 @@ function checkForWin() {
     (box4.innerText == "X" && box5.innerText == "X" && box6.innerText == "X")
   ) {
     console.log("win");
-    playWin.innerText = "wow you won!";
+    playWin.innerText = "wow X you won!";
     play = false;
   } else if (
     (box4.innerText == "O" && box5.innerText == "O" && box6.innerText == "O") ||
@@ -124,7 +125,7 @@ function checkForWin() {
     (box3.innerText == "O" && box5.innerText == "O" && box7.innerText == "O")
   ) {
     console.log("win");
-    playWin.innerText = "wow you won!";
+    playWin.innerText = "wow O you won!";
     play = false;
   }
 }
@@ -132,7 +133,18 @@ function checkForWin() {
 ///// Check for Cats game ----------------------
 
 function checkCat() {
-  if (box3.innerText == "O" || box3.innerText == "X") {
+  if (
+    (box1.innerText == "X" || box1.innerText == "O") &&
+    (box2.innerText == "X" || box2.innerText == "O") &&
+    (box3.innerText == "X" || box3.innerText == "O") &&
+    (box5.innerText == "X" || box5.innerText == "O") &&
+    (box6.innerText == "X" || box6.innerText == "O") &&
+    (box7.innerText == "X" || box8.innerText == "O") &&
+    (box9.innerText == "X" || box9.innerText == "O")
+  ) {
+    playWin.innerText = "cats game";
+
+    play = false;
   }
 }
 

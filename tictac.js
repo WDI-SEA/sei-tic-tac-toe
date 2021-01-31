@@ -13,8 +13,8 @@ const givePanel = () => {
         }
     });
 };
-
 // givePanel();
+
 const addPlayerMove = e => {
     if (gamePanel[e] == "") {
         gamePanel[e] = player;
@@ -22,3 +22,12 @@ const addPlayerMove = e => {
         addComputerMove();
     }
 }
+const addComputerMove = e => {
+    do {
+        selected = Math.floor(Math.random() * 9);
+    } while (gamePanel[selected] != "");
+    play_board[selected] = computer;
+    givePanel();
+};
+
+

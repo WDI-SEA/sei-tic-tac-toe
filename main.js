@@ -134,6 +134,7 @@ function checkForWin() {
 
 function checkCat() {
   if (
+    play == false &&
     (box1.innerText == "X" || box1.innerText == "O") &&
     (box2.innerText == "X" || box2.innerText == "O") &&
     (box3.innerText == "X" || box3.innerText == "O") &&
@@ -152,9 +153,15 @@ function checkCat() {
 
 console.log(playText.innerText);
 
+function random() {
+  return Math.floor(Math.random(1 - 9) * 10);
+}
+
+let space = random();
+
 /// AI Feature -------------------------------------
 function aiGuy() {
-  let space = Math.floor(Math.random(1 - 9) * 10);
+  space = random();
   if (space == 1) {
     if (box1.innerText == "O" || box1.innerText == "X") {
       console.log("alreadey filled");
@@ -216,31 +223,32 @@ function aiGuy() {
 function onTapAIB(event) {
   // console.log(box1.value);
   let a = document.getElementById(event.target.id);
-  console.log(a);
-  if (play == false) {
-    console.log("game over");
-    startState();
+  if (a == aiButton) {
+    console.log(a);
   } else {
-    if (a.innerText == "X" || a.innerText == "O") {
-      console.log(a.innerText);
+    console.log(a);
+    if (play == false) {
+      console.log("game over");
+      startState();
     } else {
-      if (turnKeeper == true) {
-        a.value = 1;
-        a.innerText = "X";
-        turnKeeper = false;
-        playWin.innerText = "O it's your turn";
+      if (a.innerText == "X" || a.innerText == "O") {
+        console.log(a.innerText);
       } else {
-        aiGuy();
-        a.innerText = "O";
-        turnKeeper = true;
-        playWin.innerText = "X it's your turn";
+        if (turnKeeper == true) {
+          a.value = 1;
+          a.innerText = "X";
+          turnKeeper = false;
+          playWin.innerText = "O it's your turn";
+        } else {
+          aiGuy();
+          checkForWin();
+        }
       }
-      checkForWin();
     }
   }
 }
 
-aiButton.addEventListener("click", function () {});
+//aiButton.addEventListener("click", onTapAIB);
 
 //// smart ai -------------
 

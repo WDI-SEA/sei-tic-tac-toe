@@ -4,12 +4,14 @@ body {
     text-align: center;
 }
 main {
-    width: 100vw;
-    height: 100vh;
+    width: 800px;
+    height: 400px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    align-items: center;
+    border-style: solid;
 
 
 
@@ -23,7 +25,94 @@ h1{
 
 .container{
     border-color: purple;
-    border-style: solid;
-    height: 50%;
-    width: 50%;
+    border-style: none;
+    height: 240px;
+    width: 240px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
 }
+
+
+#top_left {
+    background-color: red;
+    height: 80px;
+    width: 80px;
+
+}
+#top_center {
+    background-color: white;
+    height: 80px;
+    width: 80px;
+
+
+}
+#top_right {
+    background-color: red;
+    height: 80px;
+    width: 80px;
+
+
+
+}
+#middle_left {
+    background-color: white;
+    height: 80px;
+    width: 80px;
+
+
+}
+#middle_center {
+    background-color: red;
+    height: 80px;
+    width: 80px;
+
+
+}
+#middle_right {
+    background-color: white;
+    height: 80px;
+    width: 80px;
+   
+
+}
+#bottom_left {
+    background-color: red;
+    height: 80px;
+    width: 80px;
+
+
+}
+#bottom_center {
+    background-color: white;
+    height: 80px;
+    width: 80px;
+
+
+}
+
+#bottom_right {
+    background-color: red;
+    height: 80px;
+    width: 80px;
+
+
+}
+
+
+
+
+
+
+/*!--id's used so far
+container
+top_left
+top_center
+top_right
+middle_left
+middle_center
+middle_right
+bottom_left
+bottom_center
+bottom_right

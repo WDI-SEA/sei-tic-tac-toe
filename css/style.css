@@ -1,0 +1,37 @@
+body {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 320px;
+    height: 320px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+}
+.rows {
+    height: 100px;
+    width: 320px;
+}
+.columns {
+    height: 100px;
+    width: 100px;
+    float: left;
+    font-size: 100px;
+    text-align: center;
+    line-height: 100px;
+}
+.h-line{
+    border-bottom: 10px solid black;
+}
+.v-line{
+    border-right: 10px solid black;
+}
+.square {
+
+}

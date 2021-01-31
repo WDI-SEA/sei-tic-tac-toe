@@ -3,52 +3,53 @@
     <head>
         <meta charset="utf-8">
         <title>Tic Tac Toe</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Abel&family=Oswald&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./stylesheet.css">
     </head>
     <body>
-         <div class="heading">
+        <div class="container">
+            <div class="heading">
              <h1 id="gameTitle">Tic Tac Toe</h1>
-             <h3 id="gameInstructions">Let's play a game of Tic Tac Toe! Click and drag your game piece (X's or O's) into a square.
+             <p id="gameInstructions">Let's play a game of Tic Tac Toe! Click and drag your game piece (X's or O's) into a square.
                  The obejective is to get three of the same game pieces in a row, column or diagonally.
-             </h3>
-         </div>
-
-         <div class="playerOps">
-             <h2 id="p1Title">Player 1</h2>
-             <div class="p1Pieces">
-                 <p id="p1Pieces1"></p>
-                 <p id="p1Pieces2"></p>
-                 <p id="p1Pieces3"></p>
-                 <p id="p1Pieces4"></p>
-                 <p id="p1Pieces5"></p>
-                 <p id="p1Pieces6"></p>
-             </div>
-         </div>
-
-         <div id="gameBoard">
-         </div>
-
-         <div class="playerOps2">
-            <div class="p2Pieces">
-                <p id="p2Pieces1"></p>
-                <p id="p2Pieces2"></p>
-                <p id="p2Pieces3"></p>
-                <p id="p2Pieces4"></p>
-                <p id="p2Pieces5"></p>
-                <p id="p2Pieces6"></p>
+             </p>
             </div>
-         </div>
 
-        <div>
+            <div class="playerOps">
+                <h2 id="p1Title">Player 1</h2>
+                <div class="p1Piece"></div>
+            </div>
+
+            <div class="gameboard">
+                <h2>Gameboard</h2>
+                <div class="empty"></div>
+                <div class="empty"></div>
+                <div class="empty"></div>
+                <div class="empty"></div>
+                <div class="empty"></div>
+                <div class="empty"></div>
+                <div class="empty"></div>
+                <div class="empty"></div>
+                <div class="empty"></div>
+            </div>
+
+            <div class="playerOps2">
+                <h2 id="p2Title">Player 2</h2>
+                <div class="p2Piece"></div>
+            </div>
+
+            <div>
             <button id="reset"type="button">Reset</button>
-        </div>
+            </div>
 
-        <div class="results">
-            <h1 id="displayWinner"></h1>
+            <div class="results">
+            <h1 id="displayWinner">Winner
+            or Loser</h1>
             <p id="displayOps"></p>
-            <button id="resultsReset"type="button">Reset</button>
+            </div>
         </div>
-        
         <script src="./functionality.js" defer></script>
     </body>
 </html>

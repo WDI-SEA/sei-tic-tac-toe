@@ -1,0 +1,68 @@
+body{
+    font-family: 'Abel', sans-serif;
+}
+
+p {
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(4,25%);
+    grid-template-rows: repeat(4,25%);
+}
+
+.heading{
+    color: salmon;
+    grid-column: 1 / 6;
+    grid-row: 1 / 1;
+}
+#gameTitle{
+    text-align: center;
+}
+
+.playerOps{
+    color: rgb(255, 208, 127);
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+    text-align: center;
+
+}
+
+.gameboard{
+    color: rgb(0, 0, 0);
+    grid-column: 2 / 4;
+    grid-row: 2 / 4;
+    text-align: center;
+}
+
+.playerOps2{
+    color: rgb(171, 99, 44);
+    grid-column: 4 / 6;
+    grid-row: 2 / 4;
+    text-align: center;
+}
+
+#reset{
+    grid-column: 1 / 1;
+    grid-row: 5 / 5;
+
+}
+
+.results{
+    color: darkorange;
+    text-align: center;
+    grid-column: 1 / -1;
+    grid-row: 4 / 5;
+
+}
+
+
+.p1Piece{
+    
+}
+.p2Piece{
+
+}

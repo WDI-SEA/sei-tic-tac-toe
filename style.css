@@ -1,96 +1,94 @@
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Berkshire Swash', cursive;
-    font-size: large;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Berkshire Swash", cursive;
+  font-size: large;
 }
 .container {
-    min-height: 100vh;
-    /* //FLEX */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: rgb(125, 233, 190);
+  min-height: 100vh;
+  /* //FLEX */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(125, 233, 190);
 }
 button {
-    outline: none;
-    border: 4px solid rgb(23, 109, 79);
-    padding: 10px 20px;
-    border-radius: 50%;
-    font-size: 20px;
-    font-weight: bold;
-    background: none;
-    transition: all .2s ease-in-out;
-    font-family: 'Berkshire Swash', cursive;
+  outline: none;
+  border: 4px solid rgb(23, 109, 79);
+  padding: 10px 20px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  background: none;
+  transition: all 0.2s ease-in-out;
+  font-family: "Berkshire Swash", cursive;
 }
 button:hover {
-    cursor: pointer;
-    background: rgb(158, 252, 219);
-    color: rgb(177, 234, 219);
+  cursor: pointer;
+  background: rgb(158, 252, 219);
+  color: rgb(177, 234, 219);
 }
 .gridArea {
-    display: grid;
-    width: 390px;
-    height: 390px;
-    grid-template-columns: auto auto auto;
+  display: grid;
+  width: 390px;
+  height: 390px;
+  grid-template-columns: auto auto auto;
 }
 .square {
-    display: flex;
-    width: 130px;
-    height: 130px;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    font-weight: bold;
-    border: 3px solid black;
-    transition: background .2s ease-in-out;
+  display: flex;
+  width: 130px;
+  height: 130px;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  border: 3px solid black;
+  transition: background 0.2s ease-in-out;
 }
-/* .block:hover {
-    background:rgb(218, 19, 69)
-}
-.occupied:hover {
-    background:rgb(218, 19, 69);
-} */
 .square {
-    background-color: rgb(125, 233, 190);
-    text-align: center;
-    font-size: 120px;
-    font-family: 'Berkshire Swash', cursive;
+  background-color: rgb(125, 233, 190);
+  text-align: center;
+  font-size: 120px;
+  font-family: "Berkshire Swash", cursive;
+  text-transform: uppercase;
 }
 #sqOne {
-    border-top: none;
-    border-left: none;
+  border-top: none;
+  border-left: none;
 }
 #sqTwo {
-    border-top: none;
+  border-top: none;
 }
 #sqThree {
-    border-top: none;
-    border-right: none;
+  border-top: none;
+  border-right: none;
 }
 #sqFour {
- border-left: none;
+  border-left: none;
 }
 #sqFive {
-
 }
 #sqSix {
-    border-right: none;
+  border-right: none;
 }
 #sqSeven {
-    border-left: none;
-    border-bottom: none;
+  border-left: none;
+  border-bottom: none;
 }
 #sqEight {
-    border-bottom: none;
+  border-bottom: none;
 }
 #sqNine {
-    border-right: none;
-    border-bottom: none;
+  border-right: none;
+  border-bottom: none;
 }
+
 h2 {
-    color: red;
-    font-size: 55px;
+  font-size: 25px;
+  border: solid rgba(255, 0, 0, 0.386) 4px;
+  border-radius: 12px;
+  padding: 2px;
+  background: pink;
 }

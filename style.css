@@ -53,10 +53,6 @@ button:hover {
 .occupied:hover {
     background:rgb(218, 19, 69);
 } */
-input {
-    border: none;
-    outline-style: none;
-}
 .square {
     background-color: rgb(125, 233, 190);
     text-align: center;

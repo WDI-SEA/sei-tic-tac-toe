@@ -67,22 +67,26 @@ function onTap(event) {
   // console.log(box1.value);
   let a = document.getElementById(event.target.id);
   console.log(a);
-
-  if (a.innerText == "X" || a.innerText == "O") {
-    console.log(a.innerText);
+  if (play == false) {
+    console.log("game over");
+    startState();
   } else {
-    if (turnKeeper == true) {
-      a.value = 1;
-      a.innerText = "X";
-      turnKeeper = false;
-      playWin.innerText = "O it's your turn";
+    if (a.innerText == "X" || a.innerText == "O") {
+      console.log(a.innerText);
     } else {
-      a.value = 2;
-      a.innerText = "O";
-      turnKeeper = true;
-      playWin.innerText = "X it's your turn";
+      if (turnKeeper == true) {
+        a.value = 1;
+        a.innerText = "X";
+        turnKeeper = false;
+        playWin.innerText = "O it's your turn";
+      } else {
+        a.value = 2;
+        a.innerText = "O";
+        turnKeeper = true;
+        playWin.innerText = "X it's your turn";
+      }
+      checkForWin();
     }
-    checkForWin();
   }
 }
 

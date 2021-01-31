@@ -139,8 +139,10 @@ function checkCat() {
     (box3.innerText == "X" || box3.innerText == "O") &&
     (box5.innerText == "X" || box5.innerText == "O") &&
     (box6.innerText == "X" || box6.innerText == "O") &&
-    (box7.innerText == "X" || box8.innerText == "O") &&
-    (box9.innerText == "X" || box9.innerText == "O")
+    (box7.innerText == "X" || box7.innerText == "O") &&
+    (box8.innerText == "X" || box8.innerText == "O") &&
+    (box9.innerText == "X" || box9.innerText == "O") &&
+    (box4.innerText == "X" || box4.innerText == "O")
   ) {
     playWin.innerText = "cats game";
 
@@ -210,7 +212,7 @@ function aiGuy() {
   }
 }
 
-///// onTap function --------------------------
+///// AI onTap function --------------------------
 function onTapAIB(event) {
   // console.log(box1.value);
   let a = document.getElementById(event.target.id);

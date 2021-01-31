@@ -69,3 +69,31 @@ button:hover {
   /* transform: scale(4, 0.4); */
   /* transform: translateY(-10px); */
 }
+
+/* #turnBox {
+  background-color: rgb(147, 187, 199);
+  height: 150px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  align-self: flex-end;
+  justify-content: center;
+  flex-direction: column;
+}
+h3 {
+  color: rgb(147, 187, 199);
+  font-size: 20px;
+}
+#turn {
+  background-color: black;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  text-align: center;
+  color: rgb(147, 187, 199);
+  font-size: 50px;
+  align-items: center;
+  justify-self: center;
+} */

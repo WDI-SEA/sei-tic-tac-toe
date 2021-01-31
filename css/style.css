@@ -7,46 +7,64 @@ body {
   align-items: center;
 }
 h1 {
-  font-size: 50px;
+  font-size: 47px;
   color: purple;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 0px;
 }
 .box {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   background-color: rgb(173, 255, 47, 1);
-  height: 300px;
-  width: 300px;
+  height: 312px;
+  width: 308px;
   border-style: solid;
   border-color: black;
-}
-.pick {
-  width: 150px;
-  margin-bottom: 20px;
-  font-size: 20px;
-}
-#exes {
-  background-color: rgb(255, 173, 51, 1);
-}
-#ohhh {
-  background-color: rgb(255, 173, 51, 1);
+  border-width: 5px;
 }
 .space {
   display: flex;
   align-self: center;
   justify-self: center;
-  align-items: center;
-  justify-content: center;
-  width: 85px;
-  height: 85px;
+  /* align-items: center;
+  justify-content: center; */
+  width: 100px;
+  height: 100px;
   border-style: solid;
   border-color: black;
   font-size: 60px;
+}
+#box1 {
+  border-top-style: none;
+  border-left-style: none;
+}
+#box2 {
+  border-top-style: none;
+}
+#box3 {
+  border-top-style: none;
+  border-right-style: none;
+}
+#box4 {
+  border-left-style: none;
+}
+#box6 {
+  border-right-style: none;
+}
+#box7 {
+  border-left-style: none;
+  border-bottom-style: none;
+}
+#box8 {
+  border-bottom-style: none;
+}
+#box9 {
+  border-right-style: none;
+  border-bottom-style: none;
 }
 #reset {
   width: 300px;
   margin-top: 20px;
   font-size: 20px;
+  border-radius: 20px;
 }

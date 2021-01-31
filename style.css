@@ -1,0 +1,28 @@
+h1{ 
+    text-align: center;
+}
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.gameboard {
+    display: grid;
+    width: 500px;
+    height: 500px;
+    border: 1px solid red;
+    grid-template-areas: "block0 block1 block"
+                        "block3 block4 block5"
+                        "block6 block7 block8";
+
+}
+.block0, .block1, .block2, .block3, .block4, .block5, .block6, .block7, .block8 {
+  background-color: rgb(255, 127, 197);
+    border: 1px solid black;
+} 
+
+#reset {
+    text-align: center;
+    display: center;
+    margin: auto;
+}

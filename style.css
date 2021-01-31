@@ -40,7 +40,7 @@ body {
     grid-gap: 8px;
     
 }
-.box {
+.cell {
     display: flex;
     justify-content: center;
     background: sandybrown;
@@ -48,7 +48,7 @@ body {
     width: 150px;
     background: cornflowerblue;
 }
-#button {
+.button {
     font-family: 'Hachi Maru Pop', cursive; 
     color: rgb(119, 247, 247);
     background: rgb(172, 116, 116);

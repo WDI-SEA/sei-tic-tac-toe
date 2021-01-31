@@ -9,9 +9,9 @@ body {
 
 
 
-#restart-button {
+#restart {
     margin-top: 30px;
-    padding: 20px;
+    padding: 10px;
     font-size: large;
     font-family: 'Potta One', cursive;
     background-color: rgb(221, 130, 26);
@@ -37,19 +37,19 @@ body {
     }
 
 
-        .ULdiv {
+        #ULdiv {
             display: inline-block;
             background-color: grey;
             border-right: 5px solid black
             
         }
 
-        .UMdiv {
+        #UMdiv {
             display: inline-block;
             background-color: grey;
 
         }
-        .URdiv {
+        #URdiv {
             border-left: 5px solid black;
             display: inline-block;
             background-color: grey;
@@ -61,18 +61,18 @@ body {
         border-bottom: 5px solid black;
     }
 
-        .MLdiv {
+        #MLdiv {
             background-color: grey;
             border-right: 5px solid black;
             
         }
 
-        .MMdiv {
+        #MMdiv {
             display: inline-block;
             background-color: grey;
 
         }
-        .MRdiv {
+        #MRdiv {
             border-left: 5px solid black;
             display: inline-block;
             background-color: grey;
@@ -84,21 +84,21 @@ body {
         justify-content: space-evenly;
     }
 
-        .LLdiv {
+        #LLdiv {
             display: inline-block;
             background-color: grey;
             border-right: 5px solid black;
          
-        
         }
 
-        .LMdiv {
+        #LMdiv {
             
             display: inline-block;
             background-color: grey;
 
         }
-        .LRdiv {
+        
+        #LRdiv {
             border-left: 5px solid black;
             display: inline-block;
             background-color: grey;

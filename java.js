@@ -1,9 +1,14 @@
+
+
 console.log("I'M LINKED!!!")
 
 // Game Logic Variables 
 let sausagePlayer = null;
 let doughnutPlayer = null;
 let gameClickCount = 1;
+let sausageArr = [];
+let doughnutArr = [];
+let winningCombos = [["ULdiv","UMdiv","URdiv"], ["MLdiv","MMdiv","MRdiv"]];
 
 //boolean for game over
 let gameOver = false
@@ -15,8 +20,13 @@ let tieGameMsg = document.querySelector(".tie-message");
 let sausagePicEl = null;
 let doughnutPicEl = null;
 let platePicEl = null;
-let gamePlate = document.querySelector(".game-plate")
+let gameTiles = []
 let restartButtonEl = null;
+let upperDiv = null;
+let middleDiv = null;
+let lowerDiv = null;
+let gameBoard = null;
+
 //game state 
 
 let tileState = {
@@ -51,112 +61,128 @@ let LRBox = document.getElementById("LRimg");
 //Conditionals for player one vs player two
 
 
-          gamePlate.onclick = function(){
-          gameClickCount++;
-            
-            
-            if (gameClickCount % 2 === 0) {
-            document.addEventListener('click', function() {
-            event.target.src = "imgs/sausage.png";
-            document.querySelector(".game-status").innerHTML = "Its Sausage TIME!  Doughnut is next!"
+    // doughnutPlayer = 'Doughnut'
+    // console.log("I'm the second player")
 
 
-        })
-                
-                // sausagePlayer = 'Sausages'
-                // console.log("Im the first player")
-            
-            }else {
-            document.addEventListener('click', function() {
-            event.target.src = "imgs/doughnut.png";
-            document.querySelector(".game-status").innerHTML = "DOooooo for a Doughhhhnut!  Sausage is next!"
-        })
-                // doughnutPlayer = 'Doughnut'
-                // console.log("I'm the second player")
-            }
-
-
-
-           //Conditional for tie game linked to number total number of clicks
-            if(gameClickCount === 10){
-               tieGameMsg.classList.remove("tie-hidden")
-                console.log("TIE GAME!")
-            }
-        }
-
-//Game over function to reset the game
-
-
-function restartGame () {
-    console.log("reset game function working!")
+//Conditional for tie game linked to number total number of clicks
+if(gameClickCount === 10){
+    tieGameMsg.classList.remove("tie-hidden")
+    console.log("TIE GAME!")
 }
 
 
 
-// let winGameMsg = document.addEventListener('click', function() {
-// let winnerMsg = document.querySelector(".win-message");
-//         winnerMsg.classList.remove("win-hidden")});
 
+//Function to assign image
+function imgReplace(event){
+    console.log("image replace called.");
+    if (gameClickCount % 2 === 0) {
+        gameClickCount++;
+        // console.log(gameClickCount);
+        event.target.src = "imgs/sausage.png";
+        document.querySelector(".game-status").innerHTML = "Its Sausage TIME!  Doughnut is next!"
+        sausageArr.push(event.target.parentNode.id);
+                console.log(sausageArr);
+                // console.log(event.target.parentNode);
+                
+    }else {
+        gameClickCount++;
+        // console.log(gameClickCount);
+        event.target.src = "imgs/doughnut.png";
+        document.querySelector(".game-status").innerHTML = "DOooooo for a Doughhhhnut!  Sausage is next!"
+        doughnutArr.push(event.target.parentNode.id);
+        
+            // console.log(doughnutArr);
+            // console.log(event.target.parentNode);
+    }
+    checkWin();
+}
 
-document.addEventListener('DOMContentloaded', function(){
-    console.log('loaded!');
-    restartButtonEl = document.querySelector("#restart")
-    restartButtonEl.addEventListener('click', restartGame)
+//Game over function to reset the game
+function restartGame() {
+    console.log("reset game function working!")
+}
 
-    // document.addEventListener('click', function() {
-    //     if(event.target === ULBox)  {
-    //         ULBox.src = "imgs/doughnut.png";
-    //     }
-    // })
+//to select the tiles for the game
+function selectTile(event) {
+    console.log('select tile called');
+    // console.log(event.target.src);
+    if(event.target.src !== "file:///Users/thedavezone/Desktop/Coding-School/wk1/weekend/sei-tic-tac-toe/imgs/sausage.png" && event.target.src !== "file:///Users/thedavezone/Desktop/Coding-School/wk1/weekend/sei-tic-tac-toe/imgs/doughnut.png") {
+        imgReplace(event);
+    }else{
+        alert('this square is already taken');
+    }
 
-    // document.addEventListener('click', function() {
-    //     if(event.target === UMBox)  {
-    //         UMBox.src = "imgs/sausage.png";
+        // runs to set up the game state
+            //console.log('begin the game')
+}
+// handle winner or tie
+
+function checkWin() {
+    
+
+        //loop needs go first happen
+
+        for(let i=0; i <= winningCombos.length - 1; i++){
+            let sausageMatches = 0 
+            for(let j=0; j <= winningCombos[i].length - 1; j++){
+                
+                //conditional statements occur for determining a sausage win or doughnut win
+                
+                if(sausageArr.includes(winningCombos[i][j])){
+                    sausageMatches++; 
+                    console.log("We have a match!", sausageMatches);
+                }
             
-    //     }
-    // })
+            if(sausageMatches === 3){
+                alert('sausage won!')
+            }
 
-    // document.addEventListener('click', function() {
-    //     if(event.target === URBox)  {
-    //         URBox.src = "imgs/doughnut.png";
-    //     }
-    // })
 
-    // document.addEventListener('click', function() {
-    //     if(event.target === MLBox)  {
-    //         MLBox.src = "imgs/sausage.png";
-            
-    //     }
-    // })
+        }
+    }
 
-    // document.addEventListener('click', function() {
-    //     if(event.target === MMBox)  {
-    //         MMBox.src = "imgs/doughnut.png";
-    //     }
-    // })
+}
 
-    // document.addEventListener('click', function() {
-    //     if(event.target === MRBox)  {
-    //         MRBox.src = "imgs/sausage.png";
-            
-    //     }
-    // })
 
-    // document.addEventListener('click', function() {
-    //     if(event.target === LLBox)  {
-    //         LLBox.src = "imgs/doughnut.png";
-    //     }
-    // })
+    
 
-    // document.addEventListener('click', function() {
-    //     if(event.target === LMBox)  {
-    //        LMBox.src = "imgs/sausage.png";
-            
-    //     }
-    // })
 
-    // document.addEventListener('click', function() {
-    //     if(event.target === LRBox)  {
-    //         LRBox.src = "imgs/sausage.png";
-            
-    //     }
+
+////  EVENT LISTENERS ///
+document.addEventListener('DOMContentLoaded', function(){
+    //console.log('loaded!');
+    //To reset the game
+    restartButtonEl = document.querySelector("#restart");
+    restartButtonEl.addEventListener('click', restartGame);
+    
+    //div event listeners and click event listener
+    gameBoard = document.querySelector(".game-plate");
+    gameBoard.addEventListener('click', selectTile);
+    //console.dir(gamePlate.children);
+    
+    //winning game comparison function
+    
+    //tie or win 
+
+    winGameMsg = document.querySelector(".win-message");
+    tieGameMsg = document.querySelector(".tie-message");
+    
+})
+
+// upperDiv = document.querySelector(".upper-row")
+
+
+
+// testing
+
+let testMaster = [['dog', 'cat', 'mouse'], ['bird', 'horse', 'cow', 'snake'], ['pig']]
+    
+
+// for(let i=0; i <= testMaster.length -1; i++){
+//     console.log(testMaster[i]);
+//     for(let j=0; j <= testMaster[i].length -1; j++){
+//         console.log(testMaster[i][j]);
+//     }
+// }

@@ -3,6 +3,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Berkshire Swash', cursive;
+    font-size: large;
 }
 .container {
     min-height: 100vh;
@@ -46,11 +47,21 @@ button:hover {
     border: 3px solid black;
     transition: background .2s ease-in-out;
 }
-.block:hover {
+/* .block:hover {
     background:rgb(218, 19, 69)
 }
 .occupied:hover {
     background:rgb(218, 19, 69);
+} */
+input {
+    border: none;
+    outline-style: none;
+}
+.square {
+    background-color: rgb(125, 233, 190);
+    text-align: center;
+    font-size: 120px;
+    font-family: 'Berkshire Swash', cursive;
 }
 #sqOne {
     border-top: none;
@@ -82,4 +93,8 @@ button:hover {
 #sqNine {
     border-right: none;
     border-bottom: none;
+}
+h2 {
+    color: red;
+    font-size: 55px;
 }

@@ -1,7 +1,6 @@
-let player = "X";
-let player = "O";
+let player = null;
 
-
+function myFunction() {
 // Setting DOM to squares
 let sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9;
 sq1 = document.querySelector("#sqOne").nodeValue;
@@ -13,8 +12,6 @@ sq6 = document.querySelector("#sqSix").nodeValue;
 sq7 = document.querySelector("#sqSeven").nodeValue;
 sq8 = document.querySelector("#sqEight").nodeValue;
 sq9 = document.querySelector("#sqNine").nodeValue;
-
-
 // Checking if X wins or not. Then stopping anymore game play.
 //Horizontal X Wins
 if ((sq1 == "x"|| sq1 == "X") && (sq2 == "x" || sq2 == "X") && (sq3 == "x" || sq3 == "X")) {
@@ -182,4 +179,34 @@ else if ((sq3 == "o"|| sq3 == "O") && (sq5 == "o" || sq5 == "O") && (sq7 == "o" 
     document.querySelector("#sqNine").disabled = true;
     console.log("Player O wins!");
 } 
-    
+// Checking to see if it is a Tie.
+else if ((sq1 == 'X' || sq1 == 'O') && (sq2 == 'X' 
+        || sq2 == 'O') && (sq3 == 'X' || sq3 == 'O') &&  
+        (sq4 == 'X' || sq4 == 'O') && (sq5 == 'X' ||  
+        sq5 == 'O') && (sq6 == 'O' || sq6 == 'O') &&  
+        (sq7 == 'X' || sq7 == 'O') && (sq8 == 'X' ||  
+        b8 == 'O') && (sq9 == 'X' || sq9 == 'O')) { 
+            document.getElementById('#winner').innerHTML = "It's a wash."; 
+            console.log("It's a wash."); 
+    } 
+else {
+    if (flag === 1) {
+        document.querySelector("#winner").innerText = "Player X's turn.";
+    } else {
+        document.querySelector("#winner").innerText = "Player 0's turn.";
+        }
+    }
+}
+//Function to reset Game
+function myFunction_2() {
+    location.reload();
+    document.querySelector("#sq1").value = "";
+    document.querySelector("#sq2").value = "";
+    document.querySelector("#sq3").value = "";
+    document.querySelector("#sq4").value = "";
+    document.querySelector("#sq5").value = "";
+    document.querySelector("#sq6").value = "";
+    document.querySelector("#sq7").value = "";
+    document.querySelector("#sq8").value = "";
+    document.querySelector("#sq9").value = "";
+}

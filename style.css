@@ -4,6 +4,8 @@
     margin: 0;
 }
 body {
+
+    background: rgb(187, 199, 221);
     display: flex;
     justify-content: center;
 }
@@ -12,7 +14,7 @@ body {
     padding: 50px;
     margin: 50px;
     border-radius: 20px;
-
+    
 }
 .header {
     color: cyan;
@@ -28,7 +30,7 @@ body {
     font-family: 'Hachi Maru Pop', cursive;
     color: rgb(119, 247, 247);
 }
-.grid {
+#grid {
     background: rgb(16, 19, 24);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -46,9 +48,9 @@ body {
     width: 150px;
     background: cornflowerblue;
 }
-.button {
+#button {
     font-family: 'Hachi Maru Pop', cursive; 
-    color: white;
+    color: rgb(119, 247, 247);
     background: rgb(172, 116, 116);
     border-radius: 10px;
     height: 50px;

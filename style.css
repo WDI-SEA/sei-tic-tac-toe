@@ -62,10 +62,27 @@ button {
 
   /* transition: 1000ms transform; */
 }
+
+#aiBox {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+}
 #aiButton {
   margin-top: 10px;
+  align-self: center;
 }
 
+#playText {
+  margin: 0;
+}
+
+p {
+  margin-top: 9px;
+}
+#tictactoe {
+  margin: 0;
+}
 button:hover {
   cursor: pointer;
   /* transform: scale3d(2.5, 1.2, 0.3); */

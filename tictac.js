@@ -210,3 +210,15 @@ function myFunction_2() {
     document.querySelector("#sq8").value = "";
     document.querySelector("#sq9").value = "";
 }
+flag = 1; 
+function myFunction_3() { 
+    if (flag === 1) { 
+        document.getElementById("sq1").value = "X"; 
+        document.getElementById("sq1").disabled = true; 
+        flag = 0; 
+    } else { 
+        document.getElementById("sq1").value = "0"; 
+        document.getElementById("sq1").disabled = true; 
+        flag = 1; 
+    } 
+}

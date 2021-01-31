@@ -1,17 +1,17 @@
 console.log("Are you ready for some Tic Tac Toe");
 ///// Boxes tied to DOM ID's ---------------------
-let box1 = document.getElementById("1");
-let box2 = document.getElementById("2");
-let box3 = document.getElementById("3");
-let box4 = document.getElementById("4");
-let box5 = document.getElementById("5");
-let box6 = document.getElementById("6");
-let box7 = document.getElementById("7");
-let box8 = document.getElementById("8");
-let box9 = document.getElementById("9");
+const box1 = document.getElementById("1");
+const box2 = document.getElementById("2");
+const box3 = document.getElementById("3");
+const box4 = document.getElementById("4");
+const box5 = document.getElementById("5");
+const box6 = document.getElementById("6");
+const box7 = document.getElementById("7");
+const box8 = document.getElementById("8");
+const box9 = document.getElementById("9");
 
 ///// Restart Button  --------------------------------
-let restartButton = document.getElementById("restartButton");
+const restartButton = document.getElementById("restartButton");
 
 //// play ---------------------------------------
 
@@ -25,9 +25,9 @@ let turnKeeper = true;
 
 //// Main Text -------------------------------
 
-let playText = document.getElementById("playText");
-let playWin = document.getElementById("playWin");
-let pTurn = document.getElementById("turn");
+const playText = document.getElementById("playText");
+const playWin = document.getElementById("playWin");
+const pTurn = document.getElementById("turn");
 //// Start ------------------------------------
 
 function startState() {

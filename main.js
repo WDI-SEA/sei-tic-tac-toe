@@ -16,7 +16,7 @@ const restartButton = document.getElementById("restartButton");
 //// play ---------------------------------------
 
 let play = true;
-
+let aiButton = document.getElementById("aiButton");
 // player 1 value = 1
 // player 2 value = 2
 
@@ -265,3 +265,33 @@ function aiGuy() {
     box9.innerText = "O";
   }
 }
+
+///// onTap function --------------------------
+function onTapAIB(event) {
+  // console.log(box1.value);
+  let a = document.getElementById(event.target.id);
+  console.log(a);
+  if (play == false) {
+    console.log("game over");
+    startState();
+  } else {
+    if (a.innerText == "X" || a.innerText == "O") {
+      console.log(a.innerText);
+    } else {
+      if (turnKeeper == true) {
+        a.value = 1;
+        a.innerText = "X";
+        turnKeeper = false;
+        playWin.innerText = "O it's your turn";
+      } else {
+        aiGuy();
+        a.innerText = "O";
+        turnKeeper = true;
+        playWin.innerText = "X it's your turn";
+      }
+      checkForWin();
+    }
+  }
+}
+
+aiButton.addEventListener("click", function () {});

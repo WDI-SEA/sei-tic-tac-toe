@@ -52,7 +52,7 @@ h1 {
 }
 
 button {
-  padding: 10px 20px;
+  padding: 10px 10px;
   border: none;
   border-radius: 10px;
   background-color: var(--teal);
@@ -61,6 +61,9 @@ button {
   font-size: 24px;
 
   /* transition: 1000ms transform; */
+}
+#aiButton {
+  margin-top: 10px;
 }
 
 button:hover {

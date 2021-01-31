@@ -2,7 +2,7 @@ let squaresArr = ["", "", "", "", "", "", "", "", ""];
 let playerX = true;
 const allSquares = document.querySelectorAll(".square");
 const textDisplay = document.querySelector("#winner");
-textDisplay.innerText = `Player X's turn.`;
+textDisplay.innerText = `Player X's turn`;
 
 //LOOPING THROUGH squaresArr. Make's allSquare's innerText = currentSquare
 const matchSquares = () => {
@@ -22,11 +22,24 @@ for (let i = 0; i < allSquares.length; i++) {
     if (playerX === true) {
       squaresArr[i] = "X";
       playerX = false;
-      textDisplay.innerText = `Player O's turn.`;
+      textDisplay.innerText = `Player O's turn`;
     } else {
       squaresArr[i] = "O";
       playerX = true;
-      textDisplay.innerText = `Player X's turn.`;
+      textDisplay.innerText = `Player X's turn`;
+    }
+    if (
+      Boolean(squaresArr[0]) &&
+      Boolean(squaresArr[1]) &&
+      Boolean(squaresArr[2]) &&
+      Boolean(squaresArr[3]) &&
+      Boolean(squaresArr[4]) &&
+      Boolean(squaresArr[5]) &&
+      Boolean(squaresArr[6]) &&
+      Boolean(squaresArr[7]) &&
+      Boolean(squaresArr[8])
+    ) {
+      textDisplay.innerText = `It's a wash!`;
     }
     if (
       //X Wins Vertically
@@ -86,10 +99,6 @@ for (let i = 0; i < allSquares.length; i++) {
     ) {
       textDisplay.innerText = `Player O wins!`;
     }
-    // if (
-    //     //WASH
-
-    // )
     matchSquares();
   });
 }

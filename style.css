@@ -16,19 +16,20 @@ body {
 }
 button {
   outline: none;
-  border: 4px solid rgb(23, 109, 79);
+  border: 4px solid rgba(16, 150, 103);
   padding: 10px 20px;
   border-radius: 50%;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
-  background: none;
+  background: rgba(16, 150, 103, 0.701);
   transition: all 0.2s ease-in-out;
   font-family: "Berkshire Swash", cursive;
+  cursor: pointer;
 }
 button:hover {
-  cursor: pointer;
   background: rgb(158, 252, 219);
   color: rgb(177, 234, 219);
+  border-color: rgb(158, 252, 219);
 }
 .gridArea {
   display: grid;
@@ -45,14 +46,11 @@ button:hover {
   font-size: 3rem;
   font-weight: bold;
   border: 3px solid black;
-  transition: background 0.2s ease-in-out;
-}
-.square {
   background-color: rgb(125, 233, 190);
   text-align: center;
   font-size: 120px;
   font-family: "Berkshire Swash", cursive;
-  text-transform: uppercase;
+  cursor: pointer;
 }
 #sqOne {
   border-top: none;
@@ -86,9 +84,13 @@ button:hover {
 }
 
 h2 {
-  font-size: 25px;
-  border: solid rgba(255, 0, 0, 0.386) 4px;
-  border-radius: 12px;
+  font-size: 30px;
   padding: 2px;
-  background: pink;
+  height: 46px;
+  width: 200px;
+  background: url("Images/opaque-pink-brush-stroke-png-file-23.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
 }

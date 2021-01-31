@@ -52,7 +52,7 @@ h1 {
 }
 
 button {
-  padding: 10px 10px;
+  padding: 10px 20px;
   border: none;
   border-radius: 10px;
   background-color: var(--teal);

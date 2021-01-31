@@ -295,3 +295,9 @@ function onTapAIB(event) {
 }
 
 aiButton.addEventListener("click", function () {});
+
+//// smart ai -------------
+
+// if this than this
+
+//

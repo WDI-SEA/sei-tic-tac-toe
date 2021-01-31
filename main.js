@@ -58,9 +58,10 @@ function startState() {
 }
 
 ///// restart Function -----------------------
-restartButton.addEventListener("click", function reStart() {
-  startState();
-});
+// restartButton.addEventListener("click", function reStart() {
+//   startState();
+// });
+restartButton.addEventListener("click", () => startState());
 
 ///// onTap function --------------------------
 function onTap(event) {

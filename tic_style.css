@@ -1,0 +1,50 @@
+body {
+    background-image: url('wp2561082.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Potta One', cursive;
+}
+main {
+    text-align: center;
+}
+
+.game-name{
+    margin: 25px;
+    padding: 25px;
+    color: darkslateblue;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 306px;
+    margin: 50px auto;
+}
+.cell {
+    font-family: "Permanent Marker", cursive;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 0 1px darkslateblue;
+    border: 1px solid darkslateblue;
+    cursor: pointer;
+    line-height: 100px; 
+    font-size: 60px;
+}
+
+.reset{
+    color: darkslateblue;
+    font-family: 'Potta One', cursive;
+    padding: 20px;
+    width: 310px;
+    margin: 60px;
+}
+button:hover{
+    background-color: rgba(255,255,255,0.7);
+    color: black;
+}
+
+.cell:hover{
+    background-color: rgba(255,255,255,0.7);
+}

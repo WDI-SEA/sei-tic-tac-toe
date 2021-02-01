@@ -1,26 +1,26 @@
 const statusDisplay = document.querySelector('.gameStatus');
 
-let gameActive = true;
+let gamePlay = true;
 
-let currentPlayer = "X";
+let player = "X";
 
-let gameState = ["", "", "", "", "", "", "", "", ""];
+let  moves = ["", "", "", "", "", "", "", "", ""];
 
-const win = () => `Player ${currentPlayer} has won!`;
-const catsGame = () => `Game ended in a draw!`;
-const activePlayer = () => `It's ${currentPlayer}'s turn`;
+const win = () => `${player} has won!`;
+const catsGame = () => `Cats game!`;
+const activePlayer = () => player + ' it is your turn'
 
-function handleCellPlayed(clickedCell, clickedCellIndex) {
-    gameState[clickedCellIndex] = currentPlayer;
-    clickedCell.innerHTML = currentPlayer;
+function whichCellClicked(clickedCell, indexClickedCell) {
+    moves[indexClickedCell] = player;
+    clickedCell.innerHTML = player;
 }
 
-function handlePlayerChange() {
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
+function whosTurn() {
+    player = player === "X" ? "O" : "X";
     statusDisplay.innerHTML = activePlayer();
 }
 
-const winningConditions = [
+const waysToWin = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -31,13 +31,13 @@ const winningConditions = [
     [2, 4, 6]
 ];
 
-function handleResultValidation() {
+function checkResult() {
     let roundWon = false;
     for (let i = 0; i <= 7; i++) {
-        const winCondition = winningConditions[i];
-        let a = gameState[winCondition[0]];
-        let b = gameState[winCondition[1]];
-        let c = gameState[winCondition[2]];
+        const win = waysToWin[i];
+        let a = moves[win[0]];
+        let b = moves[win[1]];
+        let c = moves[win[2]];
         if (a === '' || b === '' || c === '') {
             continue;
         }
@@ -48,35 +48,35 @@ function handleResultValidation() {
     }
 if (roundWon) {
         statusDisplay.innerHTML = win();
-        gameActive = false;
+        gamePlay = false;
     }
 }
 
 function handleCellClick(clickedCellEvent) {
         const clickedCell = clickedCellEvent.target;
-        const clickedCellIndex = parseInt(
+        const indexClickedCell = parseInt(
           clickedCell.getAttribute('data-cell-index')
         );
-        if (gameState[clickedCellIndex] !== "" || !gameActive) {
+        if (moves[indexClickedCell] !== "" || !gamePlay) {
             return;
         }   
-        handleCellPlayed(clickedCell, clickedCellIndex);
-        handleResultValidation();
+        whichCellClicked(clickedCell, indexClickedCell);
+        checkResult();
     }
-        let roundDraw = !gameState.includes("");
-        if (roundDraw) {
-            statusDisplay.innerHTML = drawMessage()
-            gameActive = false
+        let tie = !moves.includes("");
+        if (tie) {
+            statusDisplay.innerHTML = catsGame()
+            gamePlay = false
         }
 
-function handleRestartGame() {
-    gameActive = true;
-    currentPlayer = "X";
-    gameState = ["", "", "", "", "", "", "", "", ""];
+function restart() {
+    gamePlay = true;
+    player = "X";
+    moves = ["", "", "", "", "", "", "", "", ""];
     statusDisplay.innerHTML = activePlayer();
     document.querySelectorAll('.cell')
                .forEach(cell => cell.innerHTML = "");
 }
 
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
-document.querySelector('.gameRestart').addEventListener('click', handleRestartGame);
+document.querySelector('.gameRestart').addEventListener('click', restart);

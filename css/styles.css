@@ -1,0 +1,30 @@
+body{
+    background-color: #ccc;
+    margin: 0;
+    padding: 0;
+}
+
+.tactic{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top:250px;
+}
+.blockme{
+    width: 200px;
+    height: 200px;
+    border: 14px solid #A9ACB2;
+    border-left: none;
+    border-top: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boright{
+    border-right: none;
+}
+.bobutt{
+    border-bottom: none;
+}

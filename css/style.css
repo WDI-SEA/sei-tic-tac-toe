@@ -1,0 +1,101 @@
+body {
+    text-align: center;
+    background: tomato;
+    background-image: none;
+    background-size: cover;
+}
+
+#header {
+    border: 2px solid black;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 0px 30px;
+    margin: 0 auto;
+    background: rgb(200, 255, 200);
+}
+
+#game-grid {
+    margin: 10px auto;
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+    width: fit-content;
+    border: 2px solid black;
+    background: rgb(100, 200, 100);
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    margin: 10px;
+    background: rgb(200, 255, 200);
+    background-position: center;
+}
+
+#message-box {
+    border: 2px solid black;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 10px 30px;
+    margin: 0 auto;
+    font-size: 2em;
+    background: rgb(200, 255, 200);
+}
+
+#reset-button {
+    margin: 10px;
+}
+
+#box1 {
+    background-image: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#box2 {
+    background-image: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#box3 {
+    background-image: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#box4 {
+    background-image: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#box5 {
+    background-image: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#box6 {
+    background-image: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#box7 {
+    background-image: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#box8 {
+    background-image: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#box9 {
+    background-image: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+}

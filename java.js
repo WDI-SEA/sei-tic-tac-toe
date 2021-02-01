@@ -4,6 +4,7 @@
 // Game Logic Variables 
 let sausagePlayerWin = false;
 let doughnutPlayerWin = false;
+let imgPath = null;
 let gameClickCount = 0;
 let sausageArr = [];
 let doughnutArr = [];
@@ -93,11 +94,14 @@ function restartGame() {
 
 //Function to select game tiles 
 function selectTile(event) {
-    if(event.target.src !== "file:///Users/thedavezone/Desktop/Coding-School/wk1/weekend/sei-tic-tac-toe/imgs/sausage.png" && event.target.src !== "file:///Users/thedavezone/Desktop/Coding-School/wk1/weekend/sei-tic-tac-toe/imgs/doughnut.png") {
-        imgReplace(event);
+    
+    imgPath = event.target.src;
+    
+    if(imgPath.match(/plate/g)){
+      imgReplace(event);
     }else{
-        alert('this square is already taken');
-    }
+       alert('this square is already taken');
+   }
 }
 
 

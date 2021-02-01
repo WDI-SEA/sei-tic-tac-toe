@@ -3,20 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script defer src="js/main.js"></script>
 </head>
 <body>
-    <div id="boxcontainer">
-        <div class="box" id="box1">1</div>
-        <div class="box" id="box2">2</div>
-        <div class="box" id="box3">3</div>
-        <div class="box" id="box4">4</div>
-        <div class="box" id="box5">5</div>
-        <div class="box" id="box6">6</div>
+    <div id="gamecontainer">
+        <div id="gridcontainer">
+            <div id="box1" class="box"></div>
+            <div id="box2" class="box"></div>
+            <div id="box3" class="box"></div>
+            <div id="box4" class="box"></div>
+            <div id="box5" class="box"></div>
+            <div id="box6" class="box"></div>
+            <div id="box7" class="box"></div>
+            <div id="box8" class="box"></div>
+            <div id="box9" class="box"></div>
+        </div>
     </div>
-    <div id="buttoncontainer">
+    <div id="turncounter">
+        <p>Player 1</p>
+    </div>
+    <div id="resetcontainer">
         <button id="reset">Reset</button>
     </div>
 </body>

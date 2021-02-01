@@ -1,12 +1,29 @@
-#boxcontainer {
+#gamecontainer {
+    display: flex;
+    align-content: center;
+}
+
+#gridcontainer {
     display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 33% 33% 33%;
-    height: 301px;
-    width: 301px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 
 .box {
     height: 100px;
     width: 100px;
+    border: 1px solid black;
+    display: flex;
+}
+
+#resetcontainer {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    margin-top: 10px;
+}
+
+#turncounter {
+    text-align: center;
+    width: 300px;
 }

@@ -1,5 +1,4 @@
 
-console.log('hello')
 
 // A user should be able to click on different squares to make a move.
 // Every click will alternate between marking an X and O
@@ -12,20 +11,71 @@ console.log('hello')
 // Detect winner: Stop game and declare the winner if one player ends up getting three in a row.
 // Hint: Determine a set of winning combinations. Check those combinations on the board contents after every move.
 
-/*----- app's state (variables) -----*/
-
-/*----- cached element references -----*/
+/*----- constants -----*/
 //boolean for game over
 let gameOver = false
 
 //keeps track of boxes that already have contents
-let wireState = {
+let boxState = {
     box1: false,
     box2: false,
     box3: false,
     box4: false,
     box5: false,
-    box6: false
+    box6: false,
+    box7: false,
+    box8: false,
+    box9: false
 }
 
+// reset button
+let resetButtonEl = null
+
+
+
+/*----- app's state (variables) -----*/
+
+
+
+/*----- cached element references -----*/
+function resetGame() {
+    console.log('reset game')
+    // Update the gameOver state variable
+    gameOver = false;
+
+    //clear boxes
+
+    // invoke initializeGame()
+    initializeGame();
+}
+
+function initializeGame() {
+    gameOver = false
+    boxState = {
+        box1: false,
+        box2: false,
+        box3: false,
+        box4: false,
+        box5: false,
+        box6: false,
+        box7: false,
+        box8: false,
+        box9: false
+    }
+    //set player 1
+}
+
+
 /*----- event listeners -----*/
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('loaded!');
+    // reset button to reset the game
+    resetButtonEl = document.querySelector('#reset')
+    resetButtonEl.addEventListener('click', resetGame)
+    // wirebox and click event listener
+
+    // each wire element in an array
+    wires = wireboxEl.children
+    // init the game
+    initializeGame()
+})

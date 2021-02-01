@@ -15,9 +15,9 @@ body{
 .playaplaya{
     width: 10%;
     height:50px;
-    margin-right: 25px;
     font-size:2rem;
     display: inline-flex;
+    justify-content: center;
 }
 
 .playerbutton{

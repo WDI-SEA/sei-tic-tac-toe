@@ -9,10 +9,10 @@
             text-align: center;
         }
         
-        .board {
+        .gameBoard {
             display: grid;
-            height: 50vh;
-            width: 50vw;
+            height: 375px;
+            width: 400px;
             grid-template-columns: repeat(3, 33.3%);
             grid-template-rows: repeat(3, 33.3%);
             text-align: center;
@@ -44,4 +44,14 @@
         #box-seven {
             border-left: 7px solid palevioletred;
             border-right: 7px solid palevioletred;
+        }
+        
+        .turnx {
+            background-image: url(./img/Ex.jpg);
+            background-size: cover;
+        }
+        
+        .turno {
+            background-image: url(./img/Oh.jpg);
+            background-size: cover;
         }

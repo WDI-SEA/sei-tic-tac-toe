@@ -1,3 +1,8 @@
+html,body {
+  background-image: url('https://www.researchgate.net/publication/262672371/figure/fig1/AS:393455625883662@1470818539933/Game-tree-for-Tic-Tac-Toe-game-using-MiniMax-algorithm_Q640.jpg')
+}
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -12,10 +17,11 @@
   }
   
   .container {
-    background:pink;
-    margin: 50px;
-    padding: 50px;
+    
+    margin: 100px;
+    padding: 100px;
     border-radius: 25px;
+    background-color:blanchedalmond;
   }
   
   .title {
@@ -23,7 +29,8 @@
   }
   
   .title span {
-    color: #F2EBD3;
+    color: black;
+    background-color:aqua;
   }
   
   .status-action {
@@ -52,7 +59,7 @@
   align-items: center;
   height: 200px;
   border: 3px solid green;
-  background-color:#ffbf00 ;
+  background-color:lightblue ;
 }
 
 
@@ -70,7 +77,7 @@
   }
   
   .game-grid {
-    background: #0DA192;
+    background:black;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -79,7 +86,7 @@
   }
   
   .game-cell {
-    background: #14BDAC;
+    background:pink;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,62 +95,111 @@
     width: 200px;
   }
   
+
+  .splash {
+    position:fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    height:100vh;
+    background:black;
+    color:yellowgreen;
+    text-align:center;
+    line-height: 90vh;
+    }
+  
+  .splash.display-none {
+    position:fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    height:100vh;
+    z-index:-10;
+    text-align:center;
+    line-height: 100vh;
+    transition: all;
+  }
+
+  @keyframes fadeIn {
+    to{
+      opacity: 1;
+    }
+  }
+
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 5s ease-in forwards ;
+      font-size:300% ;
+    
+
+  }
+
   .x,
-  .o {
-    cursor: default;
+.o {
+  cursor: default;
+}
+
+.x::after {
+  content: '×';
+  font-size: 200px;
+}
+
+.o::after {
+  content: '○';
+  color: #F2EBD3;
+  font-size: 225px;
+}
+
+.won::after {
+  color: #BD022F;
+}
+
+@media only screen and (max-width: 1024px) {
+  .game-grid {
+    margin-top: 25px;
+    grid-gap: 10px;
   }
-  
+
+  .game-cell {
+    height: 150px;
+    width: 150px;
+  }
+
   .x::after {
-    content: '×';
-    font-size: 200px;
+    font-size: 150px;
   }
-  
+
   .o::after {
-    content: '○';
-    color: #F2EBD3;
-    font-size: 225px;
+    font-size: 175px;
   }
-  
-  .won::after {
-    color: #BD022F;
+}
+
+@media only screen and (max-width: 540px) {
+  .container {
+    margin: 25px;
+    padding: 25px;
   }
-  
-  @media only screen and (max-width: 1024px) {
-    .game-grid {
-      margin-top: 25px;
-      grid-gap: 10px;
-    }
-  
-    .game-cell {
-      height: 150px;
-      width: 150px;
-    }
-  
-    .x::after {
-      font-size: 150px;
-    }
-  
-    .o::after {
-      font-size: 175px;
-    }
+
+  .game-cell {
+    height: 100px;
+    width: 100px;
   }
-  
-  @media only screen and (max-width: 540px) {
-    .container {
-      margin: 25px;
-      padding: 25px;
-    }
-  
-    .game-cell {
-      height: 100px;
-      width: 100px;
-    }
-  
-    .x::after {
-      font-size: 100px;
-    }
-  
-    .o::after {
-      font-size: 125px;
-    }
+
+  .x::after {
+    font-size: 100px;
   }
+
+  .o::after {
+    font-size: 125px;
+  }
+
+
+} 
+
+
+
+
+
+
+
+

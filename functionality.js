@@ -1,3 +1,4 @@
+//Generating player's turn randomly
 let value = Math.floor(Math.random()*2)+1;
 if(value === 1){
     document.getElementById('playerTurn').innerText = "Player 1 Starts"
@@ -30,9 +31,7 @@ let divARR = document.getElementsByClassName('empty');
 for(let i =0; i<divARR.length; i++){
     divARR[i].addEventListener("click", myFunction);
 }
-//012
-//345
-//678
+
 let fill = false;
 function myFunction(){
     window.onclick = e => {
@@ -47,7 +46,6 @@ function myFunction(){
                 fill = false;
                 break;
             } 
-            /**/ 
         }
         if(fill === true)
         {
@@ -61,7 +59,8 @@ function myFunction(){
         document.getElementById(e.target.id).innerText = turn;
         } 
         if(gameOver!=true)
-        {
+        {   //this is where we are creating the winning logic 
+            //first index number will be what will go below 
             if(divARR[0].innerText === divARR[1].innerText && divARR[2].innerText === divARR[0].innerText)
             {
                 if(divARR[0].innerText === "x"){
@@ -81,8 +80,7 @@ function myFunction(){
                     document.getElementById("displayWinner").innerText += "\nplayer 2 wins";
                     gameOver = true;
                 }
-            }//this is where we are creating the winning logic 
-            //first index number will be what will go below 
+            }
             else if(divARR[6].innerText === divARR[7].innerText && divARR[8].innerText === divARR[6].innerText)
             {
                 if(divARR[6].innerText === "x"){
@@ -147,9 +145,7 @@ function myFunction(){
         
     }
 }
-let firstArray = [0,1,2];
-let secondArray = [3,4,5];
-let thirdArray = [6,7,8];
+
 function clearBoard(){
     for(let i =0; i<divARR.length; i++){
         divARR[i].innerText = "";

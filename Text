@@ -1,0 +1,25 @@
+if(divARR[0].innerText === divARR[1].innerText && divARR[2].innerText === divARR[0].innerText)
+        {
+            if(divARR[0].innerText === "x"){
+                document.getElementById("displayWinner").innerText += "\nplayer 1 wins";
+            } else if(divARR[0].innerText === "o"){
+                document.getElementById("displayWinner").innerText += "\nplayer 2 wins";
+            }
+        }
+        else if(divARR[3].innerText === divARR[4].innerText && divARR[5].innerText === divARR[3].innerText)
+        {
+            if(divARR[3].innerText === "x"){
+                document.getElementById("displayWinner").innerText += "\nplayer 1 wins";
+            } else if(divARR[3].innerText === "o"){
+                document.getElementById("displayWinner").innerText += "\nplayer 2 wins";
+            }
+        }//this is where we are creating the winning logic 
+        //first index number will be what will go below 
+        else if(divARR[3].innerText === divARR[4].innerText && divARR[5].innerText === divARR[3].innerText)
+        {
+            if(divARR[3].innerText === "x"){
+                document.getElementById("displayWinner").innerText += "\nplayer 1 wins";
+            } else if(divARR[3].innerText === "o"){
+                document.getElementById("displayWinner").innerText += "\nplayer 2 wins";
+            }
+        }

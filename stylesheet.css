@@ -24,30 +24,31 @@ p {
 }
 
 .playerOps{
-    color: rgb(255, 208, 127);
+    color: rgb(0, 0, 0);
     grid-column: 1 / 2;
-    grid-row: 2 / 4;
+    grid-row: 2 / 2;
     text-align: center;
 
 }
 
 .gameboard{
-    color: rgb(0, 0, 0);
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
     grid-column: 2 / 4;
     grid-row: 2 / 4;
     text-align: center;
 }
 
 .playerOps2{
-    color: rgb(171, 99, 44);
+    color: rgb(0, 0, 0);
     grid-column: 4 / 6;
-    grid-row: 2 / 4;
+    grid-row: 2 / 2;
     text-align: center;
 }
 
 #reset{
     grid-column: 1 / 1;
-    grid-row: 5 / 5;
+    grid-row: 6 / 6;
 
 }
 
@@ -56,13 +57,98 @@ p {
     text-align: center;
     grid-column: 1 / -1;
     grid-row: 4 / 5;
+    
 
 }
 
 
 .p1Piece{
-    
+    background-image: url('./img/charx.png');
+    position: relative;
+    height: 25px;
+    width: 25px;
+    top: 5px;
+    left: 5px;
 }
 .p2Piece{
-
+    background-image: url('./img/charo.png');
+    position: relative;
+    height: 25px;
+    width: 25px;
+    top: 5px;
+    left: 5px;
 }
+
+.gameboard{
+    display: grid;
+    grid-template-columns: repeat(3,33%);
+    grid-template-rows: repeat(3,33%);
+}
+
+.empty{
+    display: inline-block;
+    height: auto;
+    width: auto;
+    border: 2px salmon solid;
+    background-color: white;
+}
+
+/* 
+.hold{
+    border: solid #ccc 4px;
+}
+
+.hovered {
+    background: #f4f4f4;
+    border-style: dashed;
+}
+.invisible{
+    display: none;
+} */
+
+#box1{
+    border-top: none;
+    border-left: none;
+}
+#box2{
+    border-top: none;
+}
+#box3 {
+    border-top: none;
+    border-right: none;
+}
+#box4{
+    border-left: none;
+}
+#box6 {
+    border-right: none;
+}
+#box7{
+    border-left: none;
+    border-bottom: none;
+}
+#box8{
+    border-bottom: none;
+}
+#box9{
+    border-bottom: none;
+    border-right: none;
+}
+
+#center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25px;
+}
+
+#p1Title{
+    margin-bottom: 25%;
+}
+#p2Title{
+    margin-bottom: 25%;
+}
+
+/* .hasChild{
+    border: 10px solid black;
+} */

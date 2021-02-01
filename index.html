@@ -15,38 +15,37 @@
              <p id="gameInstructions">Let's play a game of Tic Tac Toe! Click and drag your game piece (X's or O's) into a square.
                  The obejective is to get three of the same game pieces in a row, column or diagonally.
              </p>
+             <p id="playerTurn"></p>
             </div>
 
             <div class="playerOps">
                 <h2 id="p1Title">Player 1</h2>
-                <div class="p1Piece"></div>
+                <div class="p1Piece" id="center"></div>
             </div>
 
             <div class="gameboard">
-                <h2>Gameboard</h2>
-                <div class="empty"></div>
-                <div class="empty"></div>
-                <div class="empty"></div>
-                <div class="empty"></div>
-                <div class="empty"></div>
-                <div class="empty"></div>
-                <div class="empty"></div>
-                <div class="empty"></div>
-                <div class="empty"></div>
+                <div id="box1" class="empty"></div>
+                <div id="box2"class="empty"></div>
+                <div id="box3"class="empty"></div>
+                <div id="box4"class="empty"></div>
+                <div id="box5"class="empty"></div>
+                <div id="box6"class="empty"></div>
+                <div id="box7"class="empty"></div>
+                <div id="box8"class="empty"></div>
+                <div id="box9"class="empty"></div>
             </div>
 
             <div class="playerOps2">
                 <h2 id="p2Title">Player 2</h2>
-                <div class="p2Piece"></div>
+                <div class="p2Piece"  id="center"></div>
             </div>
 
             <div>
-            <button id="reset"type="button">Reset</button>
+            <button id="reset"type="button" onclick="clearBoard()">Reset</button>
             </div>
 
             <div class="results">
-            <h1 id="displayWinner">Winner
-            or Loser</h1>
+            <h1 id="displayWinner">Who's going to win?</h1>
             <p id="displayOps"></p>
             </div>
         </div>

@@ -1,4 +1,4 @@
-let message = "";
+let message = null;
 let gameOver = false;
 let gameState = {
   box1: false,
@@ -11,7 +11,6 @@ let gameState = {
   box8: false,
   box9: false,
 };
-
 let playerOne = [];
 let playerTwo = [];
 let picks = [playerOne, playerTwo];
@@ -48,7 +47,11 @@ function resetGame() {
   initializeGame();
 }
 function initializeGame() {
-  //message = "Your turn X";
+  message = document.createElement("p");
+  let parent = document.getElementById("#message");
+  message.innerText = "Your turn X!";
+  console.log(message);
+  //parent.append(message);
   gameOver = false;
   gameState = {
     box1: false,
@@ -71,7 +74,6 @@ function initializeGame() {
 function pickSpace(event) {
   let spacePicked = event.target.id;
   spaceMarked = document.querySelector(`#${spacePicked}`);
-  message = document.querySelector(".message");
   console.log(event.target.id);
   function countClicks() {
     if (!gameOver) {
@@ -95,13 +97,12 @@ function pickSpace(event) {
   for (combo of winningCombos) {
     if (playerOne.sort().toString() === combo.sort().toString()) {
       console.log("X won");
-    }
-    if (playerTwo.sort().toString() === combo.sort().toString()) {
+    } else if (playerTwo.sort().toString() === combo.sort().toString()) {
       console.log("O won");
     }
-  }
-  if (count === 9) {
-    console.log("cat's game!");
+    // else if (count === 9) {
+    //   console.log("cat's game!");
+    // }
   }
   // console.log(count);
 }

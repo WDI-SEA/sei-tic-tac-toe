@@ -151,7 +151,7 @@ html,body {
 }
 
 .won::after {
-  color: #BD022F;
+  color: green;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -173,7 +173,7 @@ html,body {
     font-size: 175px;
   }
 }
-
+/* size less than 1000px */
 @media only screen and (max-width: 540px) {
   .container {
     margin: 25px;

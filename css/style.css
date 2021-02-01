@@ -2,35 +2,54 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+    background: rgb(23, 110, 168);
 }
 .container {
+    background: #047;
     width: 320px;
-    height: 320px;
+    height: 460px;
     margin: auto;
     margin-top: 100px;
+    box-shadow: inset 0 0 10px rgb(0, 0, 0);
+    border: 5px solid #000;
+    border-radius: 20px;
 }
 
 h1 {
+    font-family: chalkboard;
     text-align: center;
     font-size: 50px;
+    color: rgb(72, 165, 211);
+    text-shadow: 1px 1px 15px #000;
 }
 .rows {
+    background: rgba(255, 255, 255, 0.638);
     height: 100px;
     width: 320px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 1);
 }
 .columns {
+    font-family: chalkduster;
     height: 100px;
     width: 100px;
+    
     float: left;
+    color: rgba(233,23,23,0.7);
     font-size: 100px;
+    text-shadow: 1px 1px 1px #000, 0 0 9px #640000;
     text-align: center;
     line-height: 100px;
+    box-shadow: inset 0 0 10px rgba(7, 0, 0, 1);
+}
+.columns:hover {
+    background-color: rgba(255, 238, 0, 0.426);
 }
 .h-line{
-    border-bottom: 10px solid black;
+    border-bottom: 10px solid rgb(247, 246, 246);
+    
 }
 .v-line{
-    border-right: 10px solid black;
+    border-right: 10px solid  rgb(255, 255, 255);
 }
 .square {
 

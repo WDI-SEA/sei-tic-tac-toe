@@ -52,7 +52,7 @@ if (roundWon) {
     }
 }
 
-function handleCellClick(clickedCellEvent) {
+function cellClick(clickedCellEvent) {
         const clickedCell = clickedCellEvent.target;
         const indexClickedCell = parseInt(
           clickedCell.getAttribute('data-cell-index')
@@ -78,5 +78,5 @@ function restart() {
                .forEach(cell => cell.innerHTML = "");
 }
 
-document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
+document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', cellClick));
 document.querySelector('.gameRestart').addEventListener('click', restart);

@@ -16,7 +16,7 @@ const restartButton = document.getElementById("restartButton");
 //// play ---------------------------------------
 
 let play = true;
-let aiButton = document.getElementById("aiButton");
+const aiButton = document.getElementById("aiButton");
 // player 1 value = 1
 // player 2 value = 2
 
@@ -153,7 +153,7 @@ function checkCat() {
 }
 
 console.log(playText.innerText);
-
+///// Random Number Generator -----------------------------------------
 function random() {
   return Math.floor(Math.random(1 - 9) * 10);
 }

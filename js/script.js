@@ -113,3 +113,10 @@ document.addEventListener("DOMContentLoaded", function () {
   boxEl.addEventListener("click", pickSpace);
   initializeGame();
 });
+
+//TO DO:
+//clear the contents of the board upon refresh
+//Display a message to indicate which turn is about to be played.
+//Display Draw
+//Display winner
+//disable boxes after WIN

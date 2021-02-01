@@ -10,6 +10,8 @@
 // Detect draw conditions (ties/cat's game)
 // Detect winner: Stop game and declare the winner if one player ends up getting three in a row.
 // Hint: Determine a set of winning combinations. Check those combinations on the board contents after every move.
+/*----- constants -----*/
+
 /*----- app's state (variables) -----*/
 //boolean for game over
 let gameOver = false
@@ -31,8 +33,7 @@ let boxState = {
 let resetButtonEl = null
 
 // box input
-
-let boxNumberEl = null
+let boxStateEl = null
 
 
 
@@ -64,6 +65,30 @@ function initializeGame() {
     //set player 1
 }
 
+function fillBox(event) {
+    let boxEntry = event.target.id;
+
+
+    // if it is a good cut, update state, if it is a bad cut, you lose the game
+    if(!gameOver && wireState[boxEntry] === false) {
+        // Update the state variable w/ the wire that we cut
+        wireState[boxEntry] = true;
+        
+        // Did we cut a good wire or a bad wire?
+        if(wiresToCut.includes(boxEntry)) {
+            // that was the correct wire!
+            // remove the wire from the wiresToCut
+            wiresToCut.splice(wiresToCut.indexOf(boxEntry, 1)
+            if(wiresToCut.length === 0) {
+                //no more wires to cut! We win the game
+                endGame(true);
+            }
+        } else {
+            // that was the wrong wire - end the game
+            endGame(false);
+        }
+}
+
 
 /*----- event listeners -----*/
 document.addEventListener('DOMContentLoaded', function () {
@@ -72,7 +97,8 @@ document.addEventListener('DOMContentLoaded', function () {
     resetButtonEl = document.querySelector('#reset')
     resetButtonEl.addEventListener('click', resetGame)
     // box click event listener
-
+    boxStateEl = document.querySelector('#gridcontainer')
+    boxStateEl.addEventListener('click', fillBox)
     // init the game
     initializeGame()
 })

@@ -11,34 +11,44 @@ let gameState = {
   box8: false,
   box9: false,
 };
-let picks = {
-  playerOne: [],
-  playerTwo: [],
-};
-let winningCombos = {
-  combo1: ["box1", "box2", "box3"],
-  combo2: ["box4", "box5", "box6"],
-  combo3: ["box7", "box8", "box9"],
-  combo4: ["box1", "box4", "box7"],
-  combo5: ["box2", "box5", "box8"],
-  combo6: ["box3", "box6", "box9"],
-  combo7: ["box1", "box5", "box9"],
-  combo8: ["box3", "box5", "box7"],
-};
-let box = [];
+
+let playerOne = [];
+let playerTwo = [];
+let picks = [playerOne, playerTwo];
+const combo1 = ["box1", "box2", "box3"];
+const combo2 = ["box4", "box5", "box6"];
+const combo3 = ["box7", "box8", "box9"];
+const combo4 = ["box1", "box4", "box7"];
+const combo5 = ["box2", "box5", "box8"];
+const combo6 = ["box3", "box6", "box9"];
+const combo7 = ["box1", "box5", "box9"];
+const combo8 = ["box3", "box5", "box7"];
+
+let winningCombos = [
+  combo1,
+  combo2,
+  combo3,
+  combo4,
+  combo5,
+  combo6,
+  combo7,
+  combo8,
+];
+
 let resetBtnEl = null;
 let boxEl = null;
-let spaces = null;
+let spacePicked = null;
+let spaceMarked = null;
+let count = 0;
+let space = "";
+
 function resetGame() {
   gameOver = false;
-  for (space of box) {
-    space.innerText = "";
-  }
+  console.log("this is working");
   initializeGame();
-  //console.log("this is working");
 }
 function initializeGame() {
-  message = "Your turn X";
+  //message = "Your turn X";
   gameOver = false;
   gameState = {
     box1: false,
@@ -51,22 +61,55 @@ function initializeGame() {
     box8: false,
     box9: false,
   };
+  playerOne = [];
+  playerTwo = [];
+  boxEl = null;
+  space = "";
   //console.log("this is working");
 }
+
 function pickSpace(event) {
-  if (event.target === boxEl) {
+  let spacePicked = event.target.id;
+  spaceMarked = document.querySelector(`#${spacePicked}`);
+  message = document.querySelector(".message");
+  console.log(event.target.id);
+  function countClicks() {
+    if (!gameOver) {
+      ++count;
+    }
   }
+  if (count % 2 === 0 && gameState[spacePicked] === false) {
+    playerOne.push(`${spacePicked}`);
+    gameState[spacePicked] = true;
+    spaceMarked.innerText = "X";
+    console.log(playerOne);
+    countClicks();
+  }
+  if (count % 2 !== 0 && gameState[spacePicked] === false) {
+    playerTwo.push(`${spacePicked}`);
+    gameState[spacePicked] = true;
+    spaceMarked.innerText = "O";
+    console.log(playerTwo);
+    countClicks();
+  }
+  for (combo of winningCombos) {
+    if (playerOne.sort().toString() === combo.sort().toString()) {
+      console.log("X won");
+    }
+    if (playerTwo.sort().toString() === combo.sort().toString()) {
+      console.log("O won");
+    }
+  }
+  if (count === 9) {
+    console.log("cat's game!");
+  }
+  // console.log(count);
 }
 document.addEventListener("DOMContentLoaded", function () {
   resetBtnEl = document.querySelector("#reset");
   boxEl = document.querySelector(".box");
-  spaces = boxEl.children;
+  space = document.querySelectorAll(".space").value;
   resetBtnEl.addEventListener("click", resetGame);
   boxEl.addEventListener("click", pickSpace);
   initializeGame();
 });
-// two event listeners logging every other click
-// on click display X or O depending on even or odd number
-//store picks in array, and check to see if they arrays match
-// if, on click, while looping the array of picks it
-// any of the comobs, console log "x won"

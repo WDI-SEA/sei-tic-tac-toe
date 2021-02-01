@@ -60,8 +60,10 @@ function selectBox(event){
     if(!gameOver && boardState[boxLocation] === null){
         if(counter %2 === 0){
         event.target.innerText = 'X'
+        document.querySelector('#result').innerText= "It is O's turn!" 
         }else{
         event.target.innerText = "O"
+        document.querySelector('#result').innerText= "It is X's turn!" 
         }
         boardState[boxLocation] = event.target.innerText
         counter++;
@@ -73,7 +75,7 @@ function selectBox(event){
     if(counter %2 === 0){
     document.querySelector('#result').innerText= 'Game is over! O won the game!' 
     } else{
-        document.querySelector('#result').innerText= 'Game is over! X Won the Game'
+        document.querySelector('#result').innerText= 'Game is over! X won the game!'
     }}else if(boardState.top_left !== null && boardState.top_left === boardState.middle_left && boardState.bottom_left === boardState.top_left){
 
         gameOver = true
@@ -81,7 +83,7 @@ function selectBox(event){
         if(counter %2 === 0){
         document.querySelector('#result').innerText= 'Game is over! O won the game!' 
         } else{
-            document.querySelector('#result').innerText= 'Game is over! X Won the Game'
+            document.querySelector('#result').innerText= 'Game is over! X won the game!'
     }}else if(boardState.top_left !== null && boardState.top_left === boardState.middle_center && boardState.bottom_right === boardState.top_left){
 
         gameOver = true
@@ -89,7 +91,7 @@ function selectBox(event){
         if(counter %2 === 0){
         document.querySelector('#result').innerText= 'Game is over! O won the game!' 
         } else{
-            document.querySelector('#result').innerText= 'Game is over! X Won the Game'
+            document.querySelector('#result').innerText= 'Game is over! X won the game!'
     }}else if(boardState.top_center !== null && boardState.top_center === boardState.middle_center && boardState.bottom_center === boardState.top_center){
 
         gameOver = true
@@ -97,7 +99,7 @@ function selectBox(event){
         if(counter %2 === 0){
         document.querySelector('#result').innerText= 'Game is over! O won the game!' 
         } else{
-            document.querySelector('#result').innerText= 'Game is over! X Won the Game'
+            document.querySelector('#result').innerText= 'Game is over! X won the game!'
     }}else if(boardState.top_right !== null && boardState.top_right === boardState.middle_right && boardState.bottom_right === boardState.top_right){
 
         gameOver = true
@@ -105,7 +107,7 @@ function selectBox(event){
         if(counter %2 === 0){
         document.querySelector('#result').innerText= 'Game is over! O won the game!' 
         } else{
-            document.querySelector('#result').innerText= 'Game is over! X Won the Game'
+            document.querySelector('#result').innerText= 'Game is over! X won the game!'
     }}else if(boardState.top_center !== null && boardState.top_center === boardState.middle_center && boardState.bottom_center === boardState.top_center){
 
         gameOver = true
@@ -113,7 +115,7 @@ function selectBox(event){
         if(counter %2 === 0){
         document.querySelector('#result').innerText= 'Game is over! O won the game!' 
         } else{
-            document.querySelector('#result').innerText= 'Game is over! X Won the Game'
+            document.querySelector('#result').innerText= 'Game is over! X won the game'
     }}else if(boardState.bottom_left !== null && boardState.bottom_left === boardState.bottom_center && boardState.bottom_right === boardState.bottom_left){
 
         gameOver = true
@@ -121,7 +123,7 @@ function selectBox(event){
         if(counter %2 === 0){
         document.querySelector('#result').innerText= 'Game is over! O won the game!' 
         } else{
-            document.querySelector('#result').innerText= 'Game is over! X Won the Game'
+            document.querySelector('#result').innerText= 'Game is over! X won the game'
     }}else if(boardState.middle_left !== null && boardState.middle_left === boardState.middle_center && boardState.middle_right === boardState.middle_left){
 
         gameOver = true
@@ -129,7 +131,7 @@ function selectBox(event){
         if(counter %2 === 0){
         document.querySelector('#result').innerText= 'Game is over! O won the game!' 
         } else{
-            document.querySelector('#result').innerText= 'Game is over! X Won the Game'
+            document.querySelector('#result').innerText= 'Game is over! X won the game!'
     }}else if(boardState.top_right !== null && boardState.top_right === boardState.middle_center && boardState.bottom_left === boardState.top_right){
 
         gameOver = true
@@ -137,10 +139,11 @@ function selectBox(event){
         if(counter %2 === 0){
         document.querySelector('#result').innerText= 'Game is over! O won the game!' 
         } else{
-            document.querySelector('#result').innerText= 'Game is over! X Won the Game'
+            document.querySelector('#result').innerText= 'Game is over! X won the game!'
     }}else if (counter === 9) {
         document.querySelector('#result').innerText = "The game ends in a tie!"
     }
+
     
     
 }

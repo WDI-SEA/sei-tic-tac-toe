@@ -1,9 +1,9 @@
 main {
-    width: 700px;
-    height: 400px;
+    width: 800px;
+    height: 500px;
     display: flex;
     background-color: white;
-    border-style: solid;
+    border-style: none;
     display: flex;
     justify-content: start;
     flex-flow: column;
@@ -14,8 +14,14 @@ main {
 }
 
 #title {
-    border-style: solid;
+    border-style: none;
     border-color: black;
+    height: 100px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
 }
 
 .container{
@@ -26,9 +32,32 @@ main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    font-size: 50px;
+
+}
+#bottomPage{
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    align-items: center;
 
 }
 
+#reset {
+    height: 30px;
+    width: 100px;
+    margin-top: 25px;
+
+}
+#result {
+    border-style: none;
+    border-color: none;
+    height: 50px;
+    width: 300px;
+    margin-top: 25px;
+    text-align: center;
+    font-size: 25px;
+}
 
 #top_left {
     background-color: red;

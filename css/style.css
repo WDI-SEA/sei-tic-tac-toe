@@ -7,12 +7,19 @@
     --mark-size: calc(var(--grid-size) * .9)
 }
 
-h1 {
-    color: green;
+h1, p{
+    color: tomato;
+    text-align: center;
+    font-family: verdana;
 }
 
 body {
     margin: 0;
+    position: center;
+}
+
+.heading {
+    padding: 70px; 
 }
 
 .board {
@@ -102,4 +109,11 @@ transform: rotate(-45deg);
 .grid.x,
 .grid.circle {
     cursor: not-allowed;
+}
+
+/* need to fix spacing */
+.winning-msg {
+    color: tomato;
+    text-align: center;
+    font-family: verdana;
 }

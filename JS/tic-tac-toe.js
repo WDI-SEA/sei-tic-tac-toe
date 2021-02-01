@@ -1,19 +1,24 @@
 console.log("hello");
 
-console.dir(Object);
-
 gameOver = false
 
+selectionEl = null
+
+let spotsToFill= []
+
+let counter= 0;
+
+
 let boardState={
-    topLeft: '',
-    topCenter: '',
-    topRight: '', 
-    middleLeft: '',
-    middleCenter: '',
-    middleRight: '', 
-    bottomLeft: '',
-    bottomCenter: '',
-    bottomRight: '', 
+    top_left: false,
+    top_center: false,
+    top_right: false, 
+    middle_left: false,
+    middle_center: false,
+    middle_right: false, 
+    bottom_left: false,
+    bottom_center: false,
+    bottom_right: false, 
 
 }
 
@@ -28,42 +33,76 @@ let bottomCenter = document.querySelector('#bottom_center');
 let bottomRight = document.querySelector('#bottom_right');
 
 
-topLeft.addEventListener('click', function(){
-    topLeft.innerHTML = 'X'
+
+
+
+
+
+
+
+function initializeGame() {
+    gameOver = false
+    spotsToFill= []
+    boardState= {
+        top_left: false,
+        top_center: false,
+        top_right: false, 
+        middle_left: false,
+        middle_center: false,
+        middle_right: false, 
+        bottom_left: false,
+        bottom_center: false,
+        bottom_right: false, 
+    }
+    counter = 0
+
+}
+
+
+
+
+function selectBox(event){
+    let boxLocation = event.target.id;
+    if(!gameOver && boardState[boxLocation] === false){
+        if(counter %2 === 0){
+        event.target.innerText = 'X'
+        }else{
+        event.target.innerText = "O"
+        }
+        boardState[boxLocation] = true;
+        counter++;
+    }
     
+}
+
+function resetGame(){
+
+}
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('loaded!');
+    backgroundEl = document.querySelector("main")
+    resetButtonEl = document.querySelector("#reset")
+
+    resetButtonEl.addEventListener('click', resetGame)
+
+
+    selectionEl= document.querySelector(".container")
+    selectionEl.addEventListener("click", selectBox)
+
+
+    boxes= selectionEl.children
+    console.log(initializeGame);
+    initializeGame()
+
+
+
 })
-topCenter.addEventListener('click', function(){
-    topCenter.innerHTML = 'X'
-    
-})
-topRight.addEventListener('click', function(){
-    topRight.innerHTML = 'X'
-    
-})
-middleLeft.addEventListener('click', function(){
-    middleLeft.innerHTML = 'X'
-    
-})
-middleCenter.addEventListener('click', function(){
-    middleCenter.innerHTML = 'X'
-    
-})
-middleRight.addEventListener('click', function(){
-    middleRight.innerHTML = 'X'
-    
-})
-bottomLeft.addEventListener('click', function(){
-    bottomLeft.innerHTML = 'X'
-    
-})
-bottomCenter.addEventListener('click', function(){
-    bottomCenter.innerHTML = 'X'
-    
-})
-bottomRight.addEventListener('click', function(){
-    bottomRight.innerHTML = 'X'
-    
-})
+
+
 
 
 
@@ -79,3 +118,7 @@ bottomRight.addEventListener('click', function(){
 
 
 // if( orderSelected ==== )
+
+//if list of spots to fill is blank, the place x in there
+// if spots to fill is x, then make it an o
+// if there is a click inside of div then

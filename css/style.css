@@ -1,0 +1,105 @@
+ *, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --grid-size: 100px;
+    --mark-size: calc(var(--grid-size) * .9)
+}
+
+h1 {
+    color: green;
+}
+
+body {
+    margin: 0;
+}
+
+.board {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.grid {
+    width: var(--grid-size);
+    height: var(--grid-size);
+    border: 2.5px solid lightskyblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Border */
+
+.grid:first-child,
+.grid:nth-child(2),
+.grid:nth-child(3) {
+    border-top: none;
+}
+
+.grid:nth-child(3n + 1) {
+    border-left: none;
+}
+
+.grid:nth-child(3n + 3) {
+    border-right: none;
+}
+
+.grid:last-child,
+.grid:nth-child(8),
+.grid:nth-child(7) {
+    border-bottom: none;
+}
+
+
+/* X */
+.grid.x::before,
+.grid.x::after {
+    position: absolute;
+    content: '';
+    width: calc(var(--mark-size) * .15);
+    height: var(--mark-size);
+    background-color: tomato;
+}
+
+.grid.x::before {
+    transform: rotate(45deg);
+}
+
+.grid.x::after {
+transform: rotate(-45deg);
+}
+
+/* circle */
+.grid.circle::before,
+.grid.circle::after {
+    position: absolute;
+    content: '';
+    border-radius: 60%;
+}
+
+.grid.circle::before {
+    width: var(--mark-size);
+    height: var(--mark-size);
+    background-color: tomato;
+}
+
+.grid.circle::after {
+    width: calc(var(--mark-size) * .7);
+    height: calc(var(--mark-size)* .7);
+    background-color: tomato;
+}
+
+/* cursor */
+.grid.x,
+.grid.circle {
+    cursor: not-allowed;
+}

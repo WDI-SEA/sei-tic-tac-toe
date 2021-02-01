@@ -4,13 +4,25 @@ body{
     padding: 0;
 }
 
-.tactic{
+.tactic, playerbutton{
     display:flex;
     justify-content: center;
     align-items: center;
     position: relative;
     top:250px;
 }
+
+.playaplaya{
+    width: 100%;
+    height:50px;
+    margin-right: 25px;
+    font-size:2rem;
+}
+
+#playerone{
+    margin: 10px 0;
+}
+
 .blockme{
     width: 200px;
     height: 200px;

@@ -1,29 +1,44 @@
-#gamecontainer {
-    display: flex;
-    align-content: center;
+body {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
 }
 
 #gridcontainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .box {
-    height: 100px;
-    width: 100px;
-    border: 1px solid black;
-    display: flex;
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  display: flex;
 }
 
 #resetcontainer {
-    display: flex;
-    justify-content: center;
-    width: 300px;
-    margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  margin-top: 10px;
 }
 
-#turncounter {
-    text-align: center;
-    width: 300px;
+#title {
+  width: 300px;
+}
+
+h1,
+p {
+  text-align: center;
+}
+
+.x::after {
+  content: "X";
+}
+
+.o::after {
+  content: "O";
 }

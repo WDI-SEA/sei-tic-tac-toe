@@ -1,46 +1,31 @@
 
 
-console.log("I'M LINKED!!!")
 
 // Game Logic Variables 
-let sausagePlayer = null;
-let doughnutPlayer = null;
-let gameClickCount = 1;
+let sausagePlayerWin = false;
+let doughnutPlayerWin = false;
+let gameClickCount = 0;
 let sausageArr = [];
 let doughnutArr = [];
-let winningCombos = [["ULdiv","UMdiv","URdiv"], ["MLdiv","MMdiv","MRdiv"]];
+let winningCombos = [
+    ["ULdiv","UMdiv","URdiv"], 
+    ["MLdiv","MMdiv","MRdiv"], 
+    ["LLdiv", "LMdiv", "LRdiv"], 
+    ["ULdiv", "MMdiv", "LRdiv"], 
+    ["URdiv", "MMdiv", "LLdiv"], 
+    ["URdiv", "MRdiv", "LRdiv"], 
+    ["ULdiv", "MLdiv", "LLdiv"], 
+    ["UMdiv", "MMdiv", "LMdiv"],
 
-//boolean for game over
-let gameOver = false
+];
 
 // DOM variables & references
-
-let winGameMsg = document.querySelector(".win-message");
-let tieGameMsg = document.querySelector(".tie-message");
-let sausagePicEl = null;
-let doughnutPicEl = null;
-let platePicEl = null;
-let gameTiles = []
+let playerTurnMsg = null;
+let sausageWinGameMsg = null;
+let doughnutWinGameMsg = null;
+let tieGameMsg = null;
 let restartButtonEl = null;
-let upperDiv = null;
-let middleDiv = null;
-let lowerDiv = null;
 let gameBoard = null;
-
-//game state 
-
-let tileState = {
-    UPLeft: false,
-    UPmid: false,
-    UPrt: false,
-    MDLeft: false,
-    MDmid: false,
-    MDrt: false,
-    LLeft: false,
-    LMid: false,
-    LLeft: false,
-}
-
 
 
 // Each Cellbox element IDs & display message Class
@@ -56,117 +41,135 @@ let LMBox = document.getElementById("LMimg");
 let LRBox = document.getElementById("LRimg");
 
 
-
-
-//Conditionals for player one vs player two
-
-
-    // doughnutPlayer = 'Doughnut'
-    // console.log("I'm the second player")
-
-
-//Conditional for tie game linked to number total number of clicks
-if(gameClickCount === 10){
-    tieGameMsg.classList.remove("tie-hidden")
-    console.log("TIE GAME!")
-}
-
-
-
+//GAME RUNNING FUNCTIONS 
 
 //Function to assign image
+
 function imgReplace(event){
-    console.log("image replace called.");
+    // console.log("image replace called.");
     if (gameClickCount % 2 === 0) {
         gameClickCount++;
-        // console.log(gameClickCount);
         event.target.src = "imgs/sausage.png";
-        document.querySelector(".game-status").innerHTML = "Its Sausage TIME!  Doughnut is next!"
+        playerTurnMsg.innerHTML = "Its Sausage TIME!  Doughnut is next!"
         sausageArr.push(event.target.parentNode.id);
-                console.log(sausageArr);
-                // console.log(event.target.parentNode);
-                
+        // console.log(sausageArr);
+        // console.log(event.target.parentNode);
+        
     }else {
         gameClickCount++;
         // console.log(gameClickCount);
         event.target.src = "imgs/doughnut.png";
-        document.querySelector(".game-status").innerHTML = "DOooooo for a Doughhhhnut!  Sausage is next!"
+        playerTurnMsg.innerHTML = "DOooooo for a Doughhhhnut!  Sausage is next!"
         doughnutArr.push(event.target.parentNode.id);
         
-            // console.log(doughnutArr);
-            // console.log(event.target.parentNode);
+        // console.log(doughnutArr);
+        // console.log(event.target.parentNode);
     }
+    // console.log(gameClickCount);
     checkWin();
 }
 
 //Game over function to reset the game
 function restartGame() {
-    console.log("reset game function working!")
+    playerTurnMsg.innerHTML = "Click on a plate to start the game!"
+    sausageMatches = 0;
+    doughnutMatches = 0;
+    gameClickCount= 0;
+    sausageArr = [];
+    doughnutArr = [];
+    ULBox.src = "imgs/plate.png";
+    UMBox.src = "imgs/plate.png";
+    URBox.src = "imgs/plate.png";
+    MLBox.src = "imgs/plate.png";
+    MMBox.src = "imgs/plate.png";
+    MRBox.src = "imgs/plate.png";
+    LLBox.src = "imgs/plate.png";
+    LMBox.src = "imgs/plate.png";
+    LRBox.src = "imgs/plate.png";
+    sausageWinGameMsg.setAttribute("class", "sausage-message sausage-hidden");
+    doughnutWinGameMsg.setAttribute("class", "doughnut-message doughnut-hidden");
+    tieGameMsg.setAttribute("class", "tie-message tie-hidden");
 }
 
-//to select the tiles for the game
+//Function to select game tiles 
 function selectTile(event) {
-    console.log('select tile called');
-    // console.log(event.target.src);
     if(event.target.src !== "file:///Users/thedavezone/Desktop/Coding-School/wk1/weekend/sei-tic-tac-toe/imgs/sausage.png" && event.target.src !== "file:///Users/thedavezone/Desktop/Coding-School/wk1/weekend/sei-tic-tac-toe/imgs/doughnut.png") {
         imgReplace(event);
     }else{
         alert('this square is already taken');
     }
-
-        // runs to set up the game state
-            //console.log('begin the game')
 }
-// handle winner or tie
+
+
+// Function to determine winner or tie.
 
 function checkWin() {
     
-
         //loop needs go first happen
 
         for(let i=0; i <= winningCombos.length - 1; i++){
-            let sausageMatches = 0 
+            let sausageMatches = 0;
+            let doughnutMatches = 0;
             for(let j=0; j <= winningCombos[i].length - 1; j++){
                 
-                //conditional statements occur for determining a sausage win or doughnut win
+                //conditional statements occur for determining a sausage win 
                 
-                if(sausageArr.includes(winningCombos[i][j])){
-                    sausageMatches++; 
-                    console.log("We have a match!", sausageMatches);
-                }
-            
-            if(sausageMatches === 3){
-                alert('sausage won!')
-            }
+                        if(sausageArr.includes(winningCombos[i][j])){
+                            sausageMatches++; 
+                        
+                        }
+                    
+                            if(sausageMatches === 3){
+                                sausageWinGameMsg.classList.remove("sausage-hidden");
+                                setTimeout(function(){restartGame();}, 3000);
+                                
+                            }
+                        
+                            //conditional statements for determining a doughnut win
 
+                        if(doughnutArr.includes(winningCombos[i][j])){
+                            doughnutMatches++;
+                            
+                        }
+                        
+                            if(doughnutMatches === 3){
+                                doughnutWinGameMsg.classList.remove("doughnut-hidden");
+                                setTimeout(function(){restartGame();}, 3000);
+                                
+                            }
+
+                    // conditional statement if there is a tie
+                if(gameClickCount === 9 && doughnutMatches !== 3 && sausageMatches !== 3) {
+                    tieGameMsg.classList.remove("tie-hidden");
+                    setTimeout(function(){restartGame();}, 3000);
+                }
 
         }
+
     }
 
 }
-
-
     
 
 
 
 ////  EVENT LISTENERS ///
 document.addEventListener('DOMContentLoaded', function(){
-    //console.log('loaded!');
+    
+    //Game Beginning event listeners and click event listeners
+    playerTurnMsg = document.querySelector(".game-status");
+    gameBoard = document.querySelector(".game-plate");
+    gameBoard.addEventListener('click', selectTile);
+    
+    
     //To reset the game
     restartButtonEl = document.querySelector("#restart");
     restartButtonEl.addEventListener('click', restartGame);
-    
-    //div event listeners and click event listener
-    gameBoard = document.querySelector(".game-plate");
-    gameBoard.addEventListener('click', selectTile);
-    //console.dir(gamePlate.children);
-    
-    //winning game comparison function
-    
-    //tie or win 
 
-    winGameMsg = document.querySelector(".win-message");
+
+    //tie or win 
+    sausageWinGameMsg = document.querySelector(".sausage-message");
+    doughnutWinGameMsg = document.querySelector(".doughnut-message");
     tieGameMsg = document.querySelector(".tie-message");
     
 })
@@ -177,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 // testing
 
-let testMaster = [['dog', 'cat', 'mouse'], ['bird', 'horse', 'cow', 'snake'], ['pig']]
+// let testMaster = [['dog', 'cat', 'mouse'], ['bird', 'horse', 'cow', 'snake'], ['pig']]
     
 
 // for(let i=0; i <= testMaster.length -1; i++){

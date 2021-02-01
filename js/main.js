@@ -99,11 +99,11 @@ const whoWon = function(xOrO) {
 // /*----- event listeners -----*/
     const resetGame = function() {
         xIsNext = true;
-        statusDiv.innerHTML = `O's turn`;
-        for (const boxInputEl of boxInputEls) {
-            boxInputEl.classList.remove('x');
-            boxInputEl.classList.remove('o');
-            boxInputEl.classList.remove('won');
+        whoseTurnEl.innerHTML = `O's turn`;
+        for (const boxInput of boxInputEl) {
+            boxInput.classList.remove('x');
+            boxInput.classList.remove('o');
+            boxInput.classList.remove('won');
         }
         gameIsLive = true;
     };

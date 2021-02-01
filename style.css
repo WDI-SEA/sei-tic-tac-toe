@@ -43,6 +43,10 @@ body {
 .cell {
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: white;
+    font-family: 'Hachi Maru Pop', cursive; 
     background: sandybrown;
     height: 150px;
     width: 150px;

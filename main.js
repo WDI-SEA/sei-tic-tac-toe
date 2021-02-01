@@ -6,7 +6,7 @@
 
 let currentPlayer = 'X'
 
-let gameBoard = ['','','','','','','','','']
+const gameBoard = ['','','','','','','','','']
 let winnerCombo = [
     [0,1,2],
     [3,4,5],
@@ -17,24 +17,36 @@ let winnerCombo = [
     [1,4,7],
     [2,5,8]]
     
-    const gridElements = document.querySelectorAll('[Data-cell')
-    gridElements.forEach(cell=> {
+    const gridElements = document.querySelectorAll('[Data-cell]')
+    gridElements.forEach((cell, index)=> {
+        cell.setAttribute('value', index)
         cell.addEventListener('click', handleClick, {once: true})
+        index.value = gameBoard[index]
     })
     // if statment current player is user, e.target.innerHTML = "x"
     //else e.target.innerHTML = 'o'
     
     function handleClick (e){
-        if (currentPlayer === 'X') {
-            e.target.innerHTML = 'X'
-            currentPlayer = 'O'
+        let square = e.target
+        if (square.innerHTML === ''){
+            const gameBoardArr = parseInt(square.id)
+            square.innerHTML = currentPlayer
+            gameBoard[gameBoardArr] = currentPlayer
             winCombo()
+            if (currentPlayer === 'X') {
+                //e.target.innerHTML = 'X'
+                currentPlayer = 'O'
+              
+            }
+            else {
+               // e.target.innerHTML = 'O'
+                currentPlayer = 'X'
+            }
+
         }
-        else {
-            e.target.innerHTML = 'O'
-            currentPlayer = 'X'
-            winCombo()
-        }
+
+       //gameBoard[e.target.value] = currentPlayer
+        //console.log(e.target.value)
     }
     function winCombo(){
        
@@ -45,15 +57,23 @@ let winnerCombo = [
             const two = winOptions[2]
             // if zero = one and zero is = two and they are not '' and current player = 'x'
             // then will declare a winner.
+            if(gameBoard[zero] === '' || gameBoard[one] === '' || gameBoard[two] === '') {
+                continue
+            }
+            
             // seprate if for player o
-            if(gameBoard[zero] === gameBoard[one] && gameBoard[zero] === gameBoard[two] && currentPlayer === 'X') {
+            if(gameBoard[zero] === gameBoard[one] && gameBoard[zero] === gameBoard[two] && 'X' === gameBoard[zero]) {
+              //  wonGame()
+                console.log('x won')
                 wonGame()
-                
             }
-            if(gameBoard[zero] === gameBoard[one] && gameBoard[zero] === gameBoard[two] && currentPlayer === 'O') {
-                wonGame()
-                
+            
+            if(gameBoard[zero] === gameBoard[one] && gameBoard[zero] === gameBoard[two] && 'O' === gameBoard[zero]) {
+              //  wonGame()
+              console.log('o won')
+              wonGame()
             }
+            
             
         }
     }

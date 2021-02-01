@@ -5,7 +5,10 @@
 
 
 let currentPlayer = 'X'
-
+const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
+const winningMessageElement = document.getElementById('winningMessage')
+const restartButton = document.getElementById('restartButton')
+//winningMessageElement.classList.remove('show')
 const gameBoard = ['','','','','','','','','']
 let winnerCombo = [
     [0,1,2],
@@ -25,7 +28,7 @@ let winnerCombo = [
     })
     // if statment current player is user, e.target.innerHTML = "x"
     //else e.target.innerHTML = 'o'
-    
+    //restartButton.addEventListener('click', handleClick ())
     function handleClick (e){
         let square = e.target
         if (square.innerHTML === ''){
@@ -77,21 +80,25 @@ let winnerCombo = [
             
         }
     }
-    let wonGame = function(){
+    function wonGame (draw){
+        if (draw) {
+            winningMessageTextElement.innerText = 'Draw!'
+           } else {
+            winningMessageTextElement.innerText = `Game Over ${currentPlayer} Won the Game`
+          }
+          winningMessageElement.classList.add('show')
+        
         console.log(`Game Over ${currentPlayer} Won the Game`)
     }
 winCombo()
 function checkTie(){
 
 }
+console.log(currentPlayer)
  // instantiate gamebord in js (array)
  //diclare the win combo
  //create function chekes win combo againest player.innerHTML
  // create function to check for tie
 
 
-
-
-
-
- // button on click sets data cell to an "".
+ // button on click sets data cell to an ""

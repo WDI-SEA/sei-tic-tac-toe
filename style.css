@@ -61,3 +61,33 @@ body {
     width: 80px;
 }
 
+.winning-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .9);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Hachi Maru Pop', cursive;
+    font-size: 50px;
+    flex-direction: column;
+    
+  }
+  
+  .winning-message button {
+    font-family: 'Hachi Maru Pop', cursive;
+    font-size: 30px;
+    background-color: white;
+    border: 1px solid black;
+    padding: .25em .5em;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .winning-message.show {
+    display: flex;
+  }

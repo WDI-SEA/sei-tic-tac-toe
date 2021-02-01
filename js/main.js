@@ -10,8 +10,7 @@
 // Detect draw conditions (ties/cat's game)
 // Detect winner: Stop game and declare the winner if one player ends up getting three in a row.
 // Hint: Determine a set of winning combinations. Check those combinations on the board contents after every move.
-
-/*----- constants -----*/
+/*----- app's state (variables) -----*/
 //boolean for game over
 let gameOver = false
 
@@ -31,9 +30,9 @@ let boxState = {
 // reset button
 let resetButtonEl = null
 
+// box input
 
-
-/*----- app's state (variables) -----*/
+let boxNumberEl = null
 
 
 
@@ -72,10 +71,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // reset button to reset the game
     resetButtonEl = document.querySelector('#reset')
     resetButtonEl.addEventListener('click', resetGame)
-    // wirebox and click event listener
+    // box click event listener
 
-    // each wire element in an array
-    wires = wireboxEl.children
     // init the game
     initializeGame()
 })

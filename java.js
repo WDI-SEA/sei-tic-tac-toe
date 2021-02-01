@@ -121,7 +121,7 @@ function checkWin() {
                     
                             if(sausageMatches === 3){
                                 sausageWinGameMsg.classList.remove("sausage-hidden");
-                                setTimeout(function(){restartGame();}, 3000);
+                                setTimeout(function(){restartGame();}, 2000);
                                 
                             }
                         
@@ -134,14 +134,14 @@ function checkWin() {
                         
                             if(doughnutMatches === 3){
                                 doughnutWinGameMsg.classList.remove("doughnut-hidden");
-                                setTimeout(function(){restartGame();}, 3000);
+                                setTimeout(function(){restartGame();}, 2000);
                                 
                             }
 
                     // conditional statement if there is a tie
                 if(gameClickCount === 9 && doughnutMatches !== 3 && sausageMatches !== 3) {
                     tieGameMsg.classList.remove("tie-hidden");
-                    setTimeout(function(){restartGame();}, 3000);
+                    setTimeout(function(){restartGame();}, 2000);
                 }
 
         }

@@ -1,7 +1,8 @@
-let message = document.querySelector("#message");
+// cannot clear contents of board & cannot set message..
+//let message = document.querySelector("#message");
 let resetBtnEl = document.querySelector("#reset");
 let boxEl = document.querySelector(".box");
-let space = document.querySelectorAll(".space").value;
+// let space = document.querySelectorAll(".space");
 let gameOver = false;
 let gameState = {
   box1: false,
@@ -15,7 +16,6 @@ let gameState = {
   box9: false,
 };
 let count = 0;
-space = "";
 let playerOne = [];
 let playerTwo = [];
 let picks = [playerOne, playerTwo];
@@ -57,11 +57,12 @@ function resetGame() {
   };
   playerOne = [];
   playerTwo = [];
-  space = "";
+  // clear contents of ALL div w class "space" see line 4
   console.log("this is working");
 }
 
 function pickSpace(event) {
+  //let message = document.querySelector("#message");
   let spacePicked = event.target.id;
   spaceMarked = document.querySelector(`#${spacePicked}`);
   console.log(event.target.id);
@@ -74,6 +75,7 @@ function pickSpace(event) {
     playerOne.push(`${spacePicked}`);
     gameState[spacePicked] = true;
     spaceMarked.innerText = "X";
+    //message.innerText = "Your turn O";
     console.log(playerOne);
     countClicks();
   }
@@ -81,6 +83,7 @@ function pickSpace(event) {
     playerTwo.push(`${spacePicked}`);
     gameState[spacePicked] = true;
     spaceMarked.innerText = "O";
+    //message.innerText = "Your turn X";
     console.log(playerTwo);
     countClicks();
   }

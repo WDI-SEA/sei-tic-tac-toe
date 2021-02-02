@@ -84,4 +84,53 @@ const checkGameStatus = () => {
     cellDivs[2].classList.add('won');
     cellDivs[4].classList.add('won');
     cellDivs[6].classList.add('won');
-  
+  } else if (topLeft && topMiddle && topRight && middleLeft && middleMiddle && middleRight && bottomLeft && bottomMiddle && bottomRight) {
+    gameIsLive = false;
+    statusDiv.innerHTML = 'Game is tied!';
+  } else {
+    xIsNext = !xIsNext;
+    if (xIsNext) {
+      statusDiv.innerHTML = `${xSymbol} is next`;
+    } else {
+      statusDiv.innerHTML = `${oSymbol} is next</span>`;
+    }
+  }
+};
+
+
+// event Handlers
+const handleReset = () => {
+  xIsNext = true;
+  statusDiv.innerHTML = `${xSymbol} is next`;
+  for (const cellDiv of cellDivs) {
+    cellDiv.classList.remove('x');
+    cellDiv.classList.remove('o');
+    cellDiv.classList.remove('won');
+  }
+  gameIsLive = true;
+};
+
+const handleCellClick = (e) => {
+  const classList = e.target.classList;
+
+  if (!gameIsLive || classList[1] === 'x' || classList[1] === 'o') {
+    return;
+  }
+
+  if (xIsNext) {
+    classList.add('x');
+    checkGameStatus();
+  } else {
+    classList.add('o');
+    checkGameStatus();
+  }
+};
+
+
+// event listeners
+resetDiv.addEventListener('click', handleReset);
+
+for (const cellDiv of cellDivs) {
+  cellDiv.addEventListener('click', handleCellClick)
+}
+

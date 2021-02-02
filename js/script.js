@@ -3,6 +3,7 @@
 let player1 = document.querySelector("#playerone"),
     board = document.querySelector("#board"), currentPlayer, player2 = document.querySelector("#playertwo");
 let reset = document.querySelector("#reset");
+let game = document.querySelector("#tictac");
 
 // Event Listener
 
@@ -33,3 +34,11 @@ function selectPlayer() {
 }
 
 selectPlayer();
+
+
+//GamePlay
+
+function gamePlay(){
+    //currentPlayer ===
+}
+gamePlay();

@@ -18,12 +18,12 @@ function selectPlayer() {
             console.log(e.target)
             player1.classList.add("buttoncolor");
             document.querySelector("#selectplayer").textContent = `You are Player "X"`;
-            // document.getElementById("#playertwo").disabled = true;
+            document.querySelector("#playertwo").disabled = true;
         } else if (e.target.id === "playertwo") {
             console.log(e.target)
             player2.classList.add("buttoncolor");
             document.querySelector("#selectplayer").textContent = `You are Player "O"`;
-            // document.getElementById("#playerone").disabled = true;
+            document.querySelector("#playerone").disabled = true;
     }
 })
 }

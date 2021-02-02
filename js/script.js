@@ -1,18 +1,29 @@
+//Selecting DOM elements
+
+let player1 = document.querySelector("#playerone"),
+    board = document.querySelector("#board"), currentPlayer, player2 = document.querySelector("#playertwo");
+let reset = document.querySelector("#resetmenot");
+
+// Event Listener
+
+reset.addEventListener("click",()=> location.reload());
+
+
 
 // Select players.
 
-let player1 = document.querySelector("#playerone"), currentPlayer, player2 = document.querySelector("#playertwo");
-
 function selectPlayer() {
-    player1.addEventListener("click", function(e) {
+    board.addEventListener("click", function(e) {
         if (e.target.id === "playerone") {
             console.log(e.target)
             player1.classList.add("buttoncolor");
-            document.querySelector("#selectplayer").textContent = `You have selected "X"`;
-        } else if (e.target.id === "playerone") {
+            document.querySelector("#selectplayer").textContent = `You are Player "X"`;
+            // document.getElementById("#playertwo").disabled = true;
+        } else if (e.target.id === "playertwo") {
             console.log(e.target)
-            player1.classList.add("buttoncolor");
-            document.querySelector("#selectplayer").textContent = `You have selected "O"`;
+            player2.classList.add("buttoncolor");
+            document.querySelector("#selectplayer").textContent = `You are Player "O"`;
+            // document.getElementById("#playerone").disabled = true;
     }
 })
 }

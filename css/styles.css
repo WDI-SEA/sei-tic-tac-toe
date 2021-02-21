@@ -1,66 +1,87 @@
-body{
-    background-color: #ccc;
-    margin: 0;
-    padding: 0;
-    z-index: -2;
+
+h1#selectplayer {
+    margin: auto;
+    font-size: 4rem;
 }
 
-.tactic{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    top:114px;
-    z-index: -1;
-}
 
-.playaplaya{
-    width: 10%;
-    height:50px;
-    font-size:2rem;
-    display: inline-flex;
-    justify-content: center;
-}
-
-.playerbutton{
+#tictac {
+    width: 500px;
+    height: 500px;
+    font-family: sans-serif;
+    font-weight: bold;
     display: flex;
-    justify-content:center;
-    align-items:center;
+    flex-direction: column;
+    margin: auto;
     position: relative;
-    top: 100px;
+    top: 200px;
 }
 
-
-#playerone{
-    margin: 10px 10px;
-}
-
-.blockme{
-    width: 200px;
-    height: 200px;
-    border: 14px solid #A9ACB2;
-    border-left: none;
-    border-top: none;
+.header {
     display: flex;
-    justify-content: center;
     align-items: center;
+    background: #E94435;
+    position: relative;
+    top: 507px;
+    height: 61px;
+    border-radius: 10px;
 }
 
-.boright{
-    border-right: none;
-}
-.bobutt{
-    border-bottom: none;
-}
-#reset{
-    width:100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-left: 20px;
-    z-index: 2;
+.header > * {
+    color: #eeeeee;
 }
 
-.buttoncolor{
-    border-bottom: 4px dashed green;
+.gameheader {
+    padding: 12px;
+    font-size: 1.3em;
 }
 
+.statusdiv {
+    padding: 12px;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 2em;
+}
+
+.reset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    background-color: black;
+    font-size: 1.2em;
+    border-radius: 2px;
+    padding: 4px;
+    margin-right: 4px;
+}
+
+.board {
+    display: grid;
+    background: #cccccc;
+    gap: 10px;
+    flex-grow: 1;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.gametime {
+    background: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    font-family: cursive;
+    color: #222222;
+}
+
+.gametime:hover {
+    background: #eeeeee;
+}
+
+.gamewinner {
+    color: #212929;
+}

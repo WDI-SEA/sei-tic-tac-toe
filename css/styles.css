@@ -1,0 +1,58 @@
+.game-grid-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tic-tac-box {
+    background-color: slategray;
+    height: 200px;
+    width: 200px;
+}
+
+#game-grid {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2px;
+    height: 700px;
+    width: 700px;
+}
+
+.tic-tac-box {
+    background-color: slategray;
+    height: 200px;
+    width: 200px;
+}
+
+body {
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-wrapper {
+    width: 80%;
+    
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 100px;
+}
+
+#reset-button {
+    padding: 30px;
+    font-size: 20px;
+}
+
+#start-game {
+    padding: 30px;
+    font-size: 20px;
+}

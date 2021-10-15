@@ -14,9 +14,26 @@ We will be making a Tic Tac Toe game using all of these concepts.
 ## Getting Started
 
 * Before you even start working with JavaScript, construct the gameboard. The gameboard page should include the 3x3 grid (of divs), and at minimum a reset button. Using `id` and/or `class` on clickable elements will help you wire this up in JavaScript afterwards.
+  - Construct a Grid in CSS-GRID
+  - Construct a Reset Button
+  - Create a Grid Class
+  - Create an ID for the button
+
 * The JavaScript portion will be next
   * Select elements and attach functions via event listeners
   * You will also need a variable to keep track of moves. This will be used to indicate whether or not to draw an `X` or an `O`
+
+  - it may need to refresh for state.
+  - make a for loop and attach an event listener it to each square - it should also check the logic upon attaching event handlers whether or not a grid item has been clicked.
+  - Need a Variable to keep track of moves...array? This 
+
+ArrayFrom Methods
+- WRITE ALL POSSIBLE WIN STATES
+- IF THE BOARD IS NOT IN WIN STATE TIES ARE MADE
+CHECK FOR WINNER BEFORE EVERY TURN
+
+
+
 
 ## Requirements
 * A user should be able to click on different squares to make a move.
@@ -34,7 +51,7 @@ We will be making a Tic Tac Toe game using all of these concepts.
 
 ## Bonuses
 
-* Implement your reset button without refreshing the whole page
+* Implement your reset button without refreshing the whole page // COLOR PICKER EVENT LOGIC
 * Track player's wins over time
 * Add a simple AI to support one player vs computer mode. In this case, "simple" just means having the computer pick a random empty square.
 * Make your computer seem more human by adding a short time delay between your turn and the computer's turn.

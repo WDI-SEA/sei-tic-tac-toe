@@ -1,0 +1,20 @@
+body {
+    text-align: center;
+}
+
+.game {
+    width: 75%;
+    height: 100%;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+    justify-content: center;
+}
+
+.square {
+    background-color: aquamarine;
+    margin: 5px;
+}

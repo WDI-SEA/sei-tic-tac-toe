@@ -8,7 +8,9 @@ for (let i = 0; i < 9; i++) {
 function addChoices () {
     if (square.innerText == false) {
         square.innerText = 'X'
-    } else {
+    } else if (square.innerText == 'X') {
         square.innerText = 'O'
+    } else {
+        square.innerText = " "
     }
 }

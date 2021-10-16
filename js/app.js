@@ -15,9 +15,9 @@ const winStates = [
 ]
 const playedMoves = []
 
-let playerOneMoves = [0,1,3]
+let playerOneMoves = []
 let playerTwoMoves = []
-let turnCounter = 1
+let turnCounter = 0
 
 
 let playerOne = 0
@@ -30,30 +30,38 @@ let playerTwoIcon = "Ⓞ"
 const createGrid = () => {
     console.log('clicked')
     for (i = 0; i < 9; i++) {
-        gridList[i].addEventListener('click', cellSelect)
+        gridList[i].addEventListener('click', selectCell)
         gridList[i].setAttribute("data-value", i+1)
-        
-        
+          
         // console.log(gridList[i].getAttribute("data-value"))
-
     }
 }
 
 // Will determine whether someone is selecting, or cannot select because
-const cellSelect = (event) => {
+const selectCell = (event) => {
     console.log(event.target.getAttribute('data-value'))
     const currentPlayer = whoseTurn();
     if (currentPlayer == playerOne) {
         event.target.innerText =  playerOneIcon
+        playerOneMoves.push(event.target.getAttribute('data-value'))
+        event.target.style.pointerEvents = 'none';
     }
     else {
         event.target.innerText = playerTwoIcon
+        playerTwoMoves.push(event.target.getAttribute('data-value'))
+        event.target.style.pointerEvents = 'none';
     } 
+    isWinner();
+    
 
+// [1]
+// [4]
 
+// [1, 2]
+// [4, 5]
 
-
-}
+// [1, 2, 3]
+}   
 
 const displayMove = () => {
 
@@ -71,35 +79,42 @@ const displayMove = () => {
 // Note: This Logic Might Actually be backwards because it does not display until the first user clicks.
 const whoseTurn = () => {
     const modulusVariable = turnCounter % 2
+
     switch(modulusVariable) {
         case 0:
             console.log("Mod: 0") //Player Two is Case One
             headerDisplay.innerText = "It's player One turn."
-            isWinner();
-            return 0
             break;
     
         case 1:
             console.log("Mod: 1")
             headerDisplay.textContent = "It's player Two turn."
-            isWinner();
-            return 1
             break;
     }
+
+    return modulusVariable
 }
 
 const isWinner = () => {
-    let winCount = 0
+    let p1winCount = 0
+    let p2winCount = 0
+    playerOneMoves.sort((function(a, b){return a-b}))
+    playerTwoMoves.sort((function(a, b){return a-b}))
     for (i = 0; i < winStates.length; i++) {
         for (j = 0; j < 3; j++) {
             if (playerOneMoves[j] == winStates[i][j]) {
-                winCount++;
+                p1winCount++;
                 console.log(playerOneMoves[j] + "|" + winStates[i][j])
+            } else if (playerTwoMoves[j] == winStates[i][j]) {
+                p2winCount++;
+                console.log(playerTwoMoves[j] + "|" + winStates[i][j])
             }
         }
     }
-    if (winCount >= 3) {
-        console.log("User is a winner!")
+    if (p1winCount >= 3) {
+        console.log("Player One is a winner!")
+    } else if (p1winCount >= 3) {
+        console.log("Player Two is a winner!")
     }
 }
 

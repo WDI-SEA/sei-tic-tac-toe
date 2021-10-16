@@ -2,9 +2,23 @@ body {
     margin: 0;
     text-align: center;
     font-family: helvetica;
+    background-color: whitesmoke;
+    display:grid;
+    justify-items: center; 
 }
 
 section {
     display: grid;
-    
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 300px;
+    height: 300px;
+    gap: 10px;
+}
+
+.square {
+    background-color: gray;
+    display: grid;
+    justify-items: center;
+    align-items: center;
 }

@@ -13,7 +13,8 @@ function gameStart () {
             if (clickedDiv.innerText == false) {
                 clickedDiv.innerText = 'X'
             } else if (clickedDiv.innerText == 'X') {
-                clickedDiv.innerText = 'O'
+                switchToPlayerTwo()
+                // clickedDiv.innerText = 'O'
             } else {
                 clickedDiv.innerText = " "
             }        
@@ -23,8 +24,10 @@ function gameStart () {
     rulesO.innerHTML = `Player Two is O`
 }
 
-// div should not be able to be clicked again if already clicked
-// 
+function switchToPlayerTwo() {
+    
+}
+
 
 
 

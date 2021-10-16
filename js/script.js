@@ -28,6 +28,7 @@ function playerOne() {
     }          
 }
 
+
     function swithToPlayerTwo() {
         for (let i = 0; i < 9; i++) {
             div[i].addEventListener('click', (event) => {

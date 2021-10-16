@@ -6,31 +6,39 @@ const resetButton = document.getElementById('reset')
 
 // identify which square was clicked
 function gameStart () {
-    for (let i = 0; i < 9; i++) {
-        div[i].addEventListener('click', (event) => {
-            const clickedDiv = event.target
-// make the divs become a button and toggle between X and O
-            if (clickedDiv.innerText == false) {
-                clickedDiv.innerText = 'X'
-            } else if (clickedDiv.innerText == 'X') {
-                switchToPlayerTwo()
-                // clickedDiv.innerText = 'O'
-            } else {
-                clickedDiv.innerText = " "
-            }        
-        })
-    }    
+    playerOne()
     rulesX.innerHTML = `Player One Starts with X`
     rulesO.innerHTML = `Player Two is O`
 }
 
-function switchToPlayerTwo() {
-    
+function playerOne() {
+    for (let i = 0; i < 9; i++) {
+        div[i].addEventListener('click', (event) => {
+            const clickedDiv = event.target
+    // make the divs become a button and toggle between X and O
+            if (clickedDiv.innerText == false) {
+                clickedDiv.innerText = 'X'
+                swithToPlayerTwo()
+            } else if (clickedDiv.innerText == 'X') {
+                    alert('THIS SQUARE IS ALREADY CLICKED')
+            } else {
+                clickedDiv.innerText = " "
+             }
+        })
+    }          
 }
 
-
-
-
+    function swithToPlayerTwo() {
+        for (let i = 0; i < 9; i++) {
+            div[i].addEventListener('click', (event) => {
+                const clickedDiv = event.target
+            if (clickedDiv.innerText == 'X') {
+                clickedDiv.innerText = 'O'
+                playerOne()
+            } 
+        })
+    }
+}
 
 // reset game
 function gameReset () { 
@@ -41,6 +49,3 @@ function gameReset () {
 startButton.addEventListener('click', gameStart)
 // press button to reset game
 resetButton.addEventListener('click', gameReset)
-
-
-

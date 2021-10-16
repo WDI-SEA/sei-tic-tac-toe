@@ -3,22 +3,11 @@ const resetButton = document.querySelector('#reset-button')
 const gameGrid = document.querySelector('.game-grid-container')
 const startButton = document.querySelector('#start-game')
 const gridList = document.querySelectorAll('.tic-tac-box')
-const winStates = [
-    [1,2,3],
-    [1,5,9],
-    [1,4,7],
-    [2,5,8],
-    [3,5,7],
-    [3,6,9],
-    [4,5,6],
-    [7,8,9],
-]
 const playedMoves = []
 
 let playerOneMoves = []
 let playerTwoMoves = []
 let turnCounter = 0
-
 
 let playerOne = 0
 let playerOneIcon = "✘"
@@ -31,6 +20,7 @@ const createGrid = () => {
     console.log('clicked')
     for (i = 0; i < 9; i++) {
         gridList[i].addEventListener('click', selectCell)
+        gridList[i].addEventListener('click', incrementCounter)
         gridList[i].setAttribute("data-value", i+1)
           
         // console.log(gridList[i].getAttribute("data-value"))
@@ -45,34 +35,28 @@ const selectCell = (event) => {
         event.target.innerText =  playerOneIcon
         playerOneMoves.push(event.target.getAttribute('data-value'))
         event.target.style.pointerEvents = 'none';
-    }
-    else {
+    } else if (currentPlayer == playerTwo) {
         event.target.innerText = playerTwoIcon
         playerTwoMoves.push(event.target.getAttribute('data-value'))
         event.target.style.pointerEvents = 'none';
     } 
-    isWinner();
-    
-
-// [1]
-// [4]
-
-// [1, 2]
-// [4, 5]
-
-// [1, 2, 3]
+    if (turnCounter >= 5) {
+        isWinner();
+    }
 }   
 
 const displayMove = () => {
 
 }
-// I need move validation logic
-// instead of storing 0 or 1 and the coordinate of the move,
-// [0,5],[1,1],[0,4][1,7]
-// {{1: move: null         }}
-//
-// playerObj: { moves: [ ]}
-// each turn append to mov?
+/* 
+    I need move validation logic
+    instead of storing 0 or 1 and the coordinate of the move,
+    [0,5],[1,1],[0,4][1,7]
+    {{1: move: null         }}
+
+    playerObj: { moves: [ ]}
+    each turn append to mov?
+*/
 
 
 // we can use modulus to determine whos turn it is, because players are essentiall 0 or 1.
@@ -82,12 +66,10 @@ const whoseTurn = () => {
 
     switch(modulusVariable) {
         case 0:
-            console.log("Mod: 0") //Player Two is Case One
             headerDisplay.innerText = "It's player One turn."
             break;
     
         case 1:
-            console.log("Mod: 1")
             headerDisplay.textContent = "It's player Two turn."
             break;
     }
@@ -95,35 +77,52 @@ const whoseTurn = () => {
     return modulusVariable
 }
 
+const winStates = [
+    [1,2,3],
+    [1,5,9], 
+    [1,4,7],
+    [2,5,8],
+    [3,5,7],
+    [3,6,9],
+    [4,5,6],
+    [7,8,9],
+]
+
 const isWinner = () => {
-    let p1winCount = 0
-    let p2winCount = 0
+    console.log("Testing isWinner()")
     playerOneMoves.sort((function(a, b){return a-b}))
     playerTwoMoves.sort((function(a, b){return a-b}))
-    for (i = 0; i < winStates.length; i++) {
+
+    for (let i = 0; i < winStates.length; i++) {        
+        let p1winCount = 0
+        let p2winCount = 0
         for (j = 0; j < 3; j++) {
-            if (playerOneMoves[j] == winStates[i][j]) {
+            // console.log("[i][j]: " + i + "/" + j)
+            if (playerOneMoves[j] === winStates[i][j]) {
                 p1winCount++;
-                console.log(playerOneMoves[j] + "|" + winStates[i][j])
-            } else if (playerTwoMoves[j] == winStates[i][j]) {
-                p2winCount++;
-                console.log(playerTwoMoves[j] + "|" + winStates[i][j])
+            }
+            else if (playerTwoMoves[j] == winStates[i][j]) {
+                p2winCount++
             }
         }
-    }
-    if (p1winCount >= 3) {
-        console.log("Player One is a winner!")
-    } else if (p1winCount >= 3) {
-        console.log("Player Two is a winner!")
+        // console.log("winState[" + i + "] ... p1 matches: " + p1winCount)
+
+        if (p1winCount === 3) {
+            return "Player One wins."
+        } else if (p2winCount ===3 ) {
+            return "Player Two Wins"
+        }
+
     }
 }
 
 const incrementCounter = () => {
     turnCounter++;
+    console.log("incrementCounter() " + turnCounter)
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     startButton.addEventListener('click', createGrid)
-    gameGrid.addEventListener('click', incrementCounter)
+    // gameGrid.addEventListener('click', incrementCounter)
 
 })

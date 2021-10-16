@@ -1,0 +1,65 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgb(126, 123, 123);
+}
+
+h1 {
+    color: white;
+    margin-bottom: 50px;
+    font-family: "Reenie Beanie", sans-serif;
+    font-size: 100px;
+} 
+    
+#btn {
+    /* color: white;
+    border: none;
+    border-radius: 50% 50%;
+    padding: 15px 30px;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Reenie Beanie", sans-serif;
+    background-color: black;
+    margin-top: 30px; */
+    border: 0;
+    line-height: 2.5;
+    padding: 0 10px;
+    font-family: "Reenie Beanie", sans-serif;
+    font-size: 25px;
+    text-align: center;
+    color: #fff;
+    border-radius: 50px;
+    background-color: rgb(0, 0, 0);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+    
+}
+
+#board {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1vw;
+}
+.square {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    font-size: medium;
+    font-weight: bold;
+    border: 5px solid black;
+
+}
+
+#p {
+
+}

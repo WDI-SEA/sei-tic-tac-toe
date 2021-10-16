@@ -1,4 +1,4 @@
-//define winning combination array
+//define winning combinations array
 const winConditions = [
     ['a1', 'a2', 'a3'],
     ['b1', 'b2', 'b3'],
@@ -14,17 +14,19 @@ let turnCount = 1
 let currentSelections = []
 const playerOne = {
     isTurn: true,
-    choices: []
+    choices: [],
+    wins: 0
 }
 
 const playerTwo = {
     isTurn: false,
-    choices: []
+    choices: [],
+    wins: 0
 }
 
 //define the square
 const square = document.getElementsByClassName('square')
-
+//clears clicked squares
 const resetGame = () => {
     for (i = 0; i < square.length; i++){
         square[i].innerText = ''
@@ -32,7 +34,6 @@ const resetGame = () => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    
     //listen for click on square
     for (i = 0; i < 9; i++) {
         square[i].addEventListener('click', (event) => {

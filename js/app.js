@@ -42,6 +42,9 @@ const selectCell = (event) => {
         event.target.style.pointerEvents = 'none';
     } 
     isWinner()
+    if (turnCounter >= 8) {
+        declareWinnerArea.innerText = "This game is a draw."
+    }
 }   
 
 const displayMove = () => {

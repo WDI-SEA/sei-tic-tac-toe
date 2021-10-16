@@ -1,0 +1,28 @@
+body {
+    background-color: darkslategray;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+#board {
+    margin:25%;
+    background-color: green;
+    min-height: 310px;
+    min-width: 310px;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows:100px 100px 100px;
+    justify-items: stretch;
+    grid-gap: 5px;
+}
+
+.tile {
+    background-color: orange;
+    display: grid;
+    align-items:center;
+    justify-items: center;
+    font-size: 90px;
+}
+
+
+

@@ -3,6 +3,7 @@ const resetButton = document.querySelector('#reset-button')
 const gameGrid = document.querySelector('.game-grid-container')
 const startButton = document.querySelector('#start-game')
 const gridList = document.querySelectorAll('.tic-tac-box')
+const declareWinnerArea = document.querySelector('#declare-winner')
 const playedMoves = []
 
 let playerOneMoves = []
@@ -40,9 +41,7 @@ const selectCell = (event) => {
         playerTwoMoves.push(event.target.getAttribute('data-value'))
         event.target.style.pointerEvents = 'none';
     } 
-    if (turnCounter >= 5) {
-        isWinner();
-    }
+    isWinner()
 }   
 
 const displayMove = () => {
@@ -66,11 +65,11 @@ const whoseTurn = () => {
 
     switch(modulusVariable) {
         case 0:
-            headerDisplay.innerText = "It's player One turn."
+            headerDisplay.innerText = "It's player Two's turn."
             break;
     
         case 1:
-            headerDisplay.textContent = "It's player Two turn."
+            headerDisplay.textContent = "It's player One's turn."
             break;
     }
 
@@ -96,29 +95,42 @@ const isWinner = () => {
     for (let i = 0; i < winStates.length; i++) {        
         let p1winCount = 0
         let p2winCount = 0
-        for (j = 0; j < 3; j++) {
+        for (let j = 0; j < playerOneMoves.length; j++) {
             // console.log("[i][j]: " + i + "/" + j)
-            if (playerOneMoves[j] === winStates[i][j]) {
+            if (playerOneMoves[j] == winStates[i][j]) {
                 p1winCount++;
+
             }
             else if (playerTwoMoves[j] == winStates[i][j]) {
-                p2winCount++
+                p2winCount++;
             }
+            // console.log("\tp1win : p2win => " + p1winCount + " : " + p2winCount)
         }
-        // console.log("winState[" + i + "] ... p1 matches: " + p1winCount)
+
+        // console.log("Player 1: " + p1winCount)
 
         if (p1winCount === 3) {
-            return "Player One wins."
-        } else if (p2winCount ===3 ) {
+            declareWinnerArea.innerText = "Player One wins."
+            gameGrid.style.pointerEvents = 'none';
+            return "Player One Wins"
+        } else if (p2winCount === 3) {
+            declareWinnerArea.innerText = "Player Two wins."
+            gameGrid.style.pointerEvents = 'none';
             return "Player Two Wins"
         }
 
     }
+
+    return "TEST"
+}
+
+const gameOver = () => {
+
 }
 
 const incrementCounter = () => {
     turnCounter++;
-    console.log("incrementCounter() " + turnCounter)
+    // console.log("incrementCounter() " + turnCounter)
 }
 
 document.addEventListener('DOMContentLoaded', () => {

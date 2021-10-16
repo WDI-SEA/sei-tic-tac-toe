@@ -50,20 +50,23 @@ body {
 
 .button-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     margin: 100px;
+
 }
 
 
 
 #reset-button {
+    width: 300px;
     padding: 30px;
     font-size: 20px;
 }
 
 #start-game {
+    width: 300px;
     padding: 30px;
     font-size: 20px;
 }
@@ -77,4 +80,11 @@ body {
 
 #display-text {
     font-size: 4rem;
+}
+
+#declare-winner {
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -36,14 +36,14 @@ CHECK FOR WINNER BEFORE EVERY TURN
 
 
 ## Requirements
-* A user should be able to click on different squares to make a move. x
-* Every click will alternate between marking an `X` and `O` x
-* Upon marking of an individual cell, use JavaScript to add an `X` or `O` to the cell, according to whose turn it is. x
-* A cell should not be able to be replayed once marked. x
-* You should not be able to click remaining empty cells after the game is over. 
+* A user should be able to click on different squares to make a move. DONE
+* Every click will alternate between marking an `X` and `O` DONE
+* Upon marking of an individual cell, use JavaScript to add an `X` or `O` to the cell, according to whose turn it is. DONE
+* A cell should not be able to be replayed once marked. DONE
+* You should not be able to click remaining empty cells after the game is over. TOD O
 * Add a reset button that will clear the contents of the board.
-* Display a message to indicate which turn is about to be played.
-* Detect draw conditions (ties/cat's game) 
+* Display a message to indicate which turn is about to be played. TO FIX
+* Detect draw conditions (ties/cat's game) TO FIX
 * Detect winner: Stop game and declare the winner if one player ends up getting three in a row. 
  * Hint: Determine a set of winning combinations. Check those combinations on the board contents after every move. 
 

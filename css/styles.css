@@ -24,6 +24,15 @@
     background-color: slategray;
     height: 200px;
     width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 6em;
+}
+
+.xo-box {
+    font-size: 6em;
 }
 
 body {
@@ -47,6 +56,8 @@ body {
     margin: 100px;
 }
 
+
+
 #reset-button {
     padding: 30px;
     font-size: 20px;
@@ -55,4 +66,15 @@ body {
 #start-game {
     padding: 30px;
     font-size: 20px;
+}
+
+.display-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#display-text {
+    font-size: 4rem;
 }

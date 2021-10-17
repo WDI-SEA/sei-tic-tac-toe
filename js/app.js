@@ -4,6 +4,8 @@ const gameGrid = document.querySelector('.game-grid-container')
 const startButton = document.querySelector('#start-game')
 const gridList = document.querySelectorAll('.tic-tac-box')
 const declareWinnerArea = document.querySelector('#declare-winner')
+const p1winCountSpan = document.querySelector('#p1-win-counter') 
+const p2winCountSpan = document.querySelector('#p2-win-counter')
 const playedMoves = []
 
 let playerOneMoves = []
@@ -15,6 +17,9 @@ let playerOneIcon = "✘"
 
 let playerTwo = 1
 let playerTwoIcon = "Ⓞ"
+
+let playerOneWinCount = 0
+let playerTwoWinCount = 0
 
 // EventHandler Function to assign all grid items an event handler.
 const createGrid = () => {
@@ -43,6 +48,8 @@ const selectCell = (event) => {
     isWinner()
     if (turnCounter >= 8) {
         declareWinnerArea.innerText = "This game is a draw."
+
+
     }
 }   
 
@@ -110,10 +117,14 @@ const isWinner = () => {
         if (p1winCount === 3) {
             declareWinnerArea.innerText = "Player One wins."
             gameGrid.style.pointerEvents = 'none';
+            playerOneWinCount++
+            p1winCountSpan.innerText = playerOneWinCount
             return "Player One Wins"
         } else if (p2winCount === 3) {
             declareWinnerArea.innerText = "Player Two wins."
             gameGrid.style.pointerEvents = 'none';
+            playerTwoWinCount++
+            p2winCountSpan.innerText = playerTwoWinCount
             return "Player Two Wins"
         }
 

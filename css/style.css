@@ -5,7 +5,7 @@ body {
     justify-items: center;
 }
 #board {
-    margin:25%;
+    margin:25% 25% 5% 25%;
     background-color: green;
     min-height: 310px;
     min-width: 310px;

@@ -22,6 +22,8 @@ let playerTwoIcon = "Ⓞ"
 let playerOneWinCount = 0
 let playerTwoWinCount = 0
 
+let gameCount = 1;
+
 // EventHandler Function to assign all grid items an event handler.
 const createGrid = () => {
     console.log('clicked')
@@ -51,6 +53,7 @@ const selectCell = (event) => {
     isWinner()
     if (turnCounter >= 8) {
         declareWinnerArea.innerText = "This game is a draw."
+        gameGrid.style.pointerEvents = 'none';
 
 
     }
@@ -92,7 +95,7 @@ const winStates = [
     [3,5,7],
     [3,6,9],
     [4,5,6],
-    [7,8,9],
+    [7,8,9]
 ]
 
 const isWinner = () => {
@@ -117,25 +120,34 @@ const isWinner = () => {
 
         // console.log("Player 1: " + p1winCount)
 
-        if (p1winCount === 3) {
+        if (p1winCount == 3) {
             declareWinnerArea.innerText = "Player One wins."
             gameGrid.style.pointerEvents = 'none';
             playerOneWinCount++
             p1winCountSpan.innerText = playerOneWinCount
             const historyItem = document.createElement('li')
-            historyItem.innerText = ` Played Moves: [${playedMoves}] Winner: Player One `
+            historyItem.innerHTML = `[Game ${gameCount}]
+            <br> <strong>Played Moves:</strong> [${playedMoves}]
+            <br> Player One Moves: ${playerOneMoves}
+            <br> Player Two Moves: ${playerTwoMoves}
+            <br> <strong>Winner:</strong> Player One `
             gameHistory.appendChild(historyItem)
+            gameCount++;
 
             return "Player One Wins"
-        } else if (p2winCount === 3) {
+        } else if (p2winCount == 3) {
             declareWinnerArea.innerText = "Player Two wins."
             gameGrid.style.pointerEvents = 'none';
             playerTwoWinCount++
             p2winCountSpan.innerText = playerTwoWinCount
             const historyItem = document.createElement('li')
-            historyItem.innerText = ` Played Moves: [${playedMoves}] Winner: Player Two `
+            historyItem.innerHTML = `[Game ${gameCount}]
+            <br> <strong>Played Moves:</strong> [${playedMoves}]
+            <br> Player One Moves: ${playerOneMoves}
+            <br> Player Two Moves: ${playerTwoMoves}
+            <br> <strong>Winner:</strong> Player Two `
             gameHistory.appendChild(historyItem)
-
+            gameCount++;
             return "Player Two Wins"
         }
 

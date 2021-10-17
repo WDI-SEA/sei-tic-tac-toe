@@ -3,6 +3,15 @@ body {
     justify-items: center;
 }
 
+button {
+    margin-top: 30px;
+}
+
+p {
+    /*make background color same size as the containing div*/
+    margin: 0px;
+}
+
 .parent {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -10,13 +19,12 @@ body {
     grid-column-gap: 3px;
     grid-row-gap: 3px;
     width: 500px;
-    height: 500px;
+    height: 600px;
 }
 
 .title { 
     grid-area: 1 / 1 / 2 / 4; 
     text-align: center;
-    margin-bottom: 10px;
 }
 
 /* CSS GRID */
@@ -32,9 +40,9 @@ body {
 
 .div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8, .div9 {
     box-sizing: border-box;
-    border: 1px solid black;
+    background: #EDEBE3;
     /* set up vertical alignment for X and O text (parent) */
-    display: inline-grid;
+    display: grid;
 }
 
 #message1, #message2, #message3, #message4, #message5, #message6, #message7, #message8, #message9 {
@@ -42,5 +50,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     
 }
+

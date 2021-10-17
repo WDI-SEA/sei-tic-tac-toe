@@ -39,6 +39,7 @@ section {
     width: 650px;
     border: 3px solid gray;
     padding: 0;
+    margin-bottom: 50px;
     background-color: #1E5128;
     display: grid;
     grid-template-rows: repeat(3, 1fr);

@@ -2,16 +2,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('the dom has loaded')
 })
-// create clickable squares 1-9
-const square1 = document.getElementById('div-1')
-const square2 = document.getElementById('div-2')
-const square3 = document.getElementById('div-3')
-const square4 = document.getElementById('div-4')
-const square5 = document.getElementById('div-5')
-const square6 = document.getElementById('div-6')
-const square7 = document.getElementById('div-7')
-const square8 = document.getElementById('div-8')
-const square9 = document.getElementById('div-9')
 
 // open turn counter
 turn = 0
@@ -29,6 +19,10 @@ const wins = [
 // make array for x and o entries
 const xMoves = []
 const oMoves = []
+
+// make wins
+let xWins = false
+let oWins = false
 
 // function triggered by click on square
 const playerAction = (event) => {
@@ -51,27 +45,43 @@ const playerAction = (event) => {
             oMoves.push(chosenSquareId)
         }
         document.getElementById(chosenSquareId).appendChild(newMark)
+        
         // function to check whether anyone has won
         const isWinner = (winArray, playerArray) => {
             return winArray.every( (element) => {
                 return playerArray.includes(element)
             })
         }
+        
         // check whether x won
         for (i = 0; i < wins.length; i++) {
             if(isWinner(wins[i], xMoves)) {
                 console.log('x wins')
+                xWins = true
                 break
             }
         }
+        
         // check whether o won
         for (i = 0; i < wins.length; i++) {
             if(isWinner(wins[i], oMoves)) {
                 console.log('o wins')
+                oWins = true
                 break
             }
         }        
         // check whether the board is full
+        if (xWins) {
+            const xAnnounce = document.createElement('p')
+            xAnnounce.innerText = 'X wins!'
+            resultField.innerHTML = ''
+            resultField.appendChild(xAnnounce)
+        } else if (oWins) {
+            const oAnnounce = document.createElement('p')
+            oAnnounce.innerText = 'O wins!'
+            resultField.innerHTML = ''
+            resultField.appendChild(oAnnounce)
+        }
         console.log('x Moves:', xMoves)
         console.log('o Moves:', oMoves)
         if (turn === 8) {
@@ -82,6 +92,19 @@ const playerAction = (event) => {
         turn++
     }
 }   
+
+// create clickable squares 1-9
+const square1 = document.getElementById('div-1')
+const square2 = document.getElementById('div-2')
+const square3 = document.getElementById('div-3')
+const square4 = document.getElementById('div-4')
+const square5 = document.getElementById('div-5')
+const square6 = document.getElementById('div-6')
+const square7 = document.getElementById('div-7')
+const square8 = document.getElementById('div-8')
+const square9 = document.getElementById('div-9')
+
+const resultField = document.getElementById('results')
 
 // listen for a click
 square1.addEventListener('click',playerAction)

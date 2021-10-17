@@ -30,10 +30,10 @@ let oWins = false
 // function triggered by click on square
 const playerAction = (event) => {
     // check whether the square already has been used
-    if (event.target.firstChild) {
+    if (xWins || oWins) {
+    console.log('the game is over')
+    } else if (event.target.firstChild) {
         console.log('invalid move')
-    } else if (xWins || oWins) {
-        console.log('the game is over')
     } else {
         // if the square hasn't been used, id the square
         const chosenSquareId = event.target.id

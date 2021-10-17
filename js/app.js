@@ -1,10 +1,5 @@
 // register that the page has been opened
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('the dom has loaded')
-})
-
-// create turn counter
-const turnCounter = document.getElementById('turn-counter')
+document.addEventListener('DOMContentLoaded', () => {})
 
 // open turn counter
 turn = 0
@@ -23,93 +18,102 @@ const wins = [
 let xMoves = []
 let oMoves = []
 
-// make wins
+// make win indicators
 let xWins = false
 let oWins = false
 
+// function to update turn announcer at the top of the page
+const announceTurn = () => {
+    if (turn % 2 === 0) {
+        const xTurnMessage = document.createElement('p')
+        xTurnMessage.innerText = 'It is X\'s turn.'
+        turnCounter.innerHTML = ''
+        turnCounter.appendChild(xTurnMessage)
+    } else if (turn % 2 === 1) {
+        const oTurnMessage = document.createElement('p')
+        oTurnMessage.innerText = 'It is O\'s turn.'
+        turnCounter.innerHTML = ''
+        turnCounter.appendChild(oTurnMessage)
+    }
+}
+
+
 // function triggered by click on square
 const playerAction = (event) => {
-    // check whether the square already has been used
+    // check whether the game has already been won
     if (xWins || oWins) {
-    console.log('the game is over')
+        console.log('the game is over')
+    // check whether the square has already been used
     } else if (event.target.firstChild) {
         console.log('invalid move')
     } else {
         // if the square hasn't been used, id the square
         const chosenSquareId = event.target.id
-        console.log('player chose:', chosenSquareId)
         // create a mark to go in
         const newMark = document.createElement('p')
         newMark.classList.add('mark')
         //if else statement based on turn that assigns x or o
         if (turn % 2 === 0) {
             newMark.innerText = 'x'
+            // record move to x player array
             xMoves.push(chosenSquareId)
         } else {
             newMark.innerText = 'o'
+            // record move to o player array
             oMoves.push(chosenSquareId)
         }
+        // add new mark to the square
         document.getElementById(chosenSquareId).appendChild(newMark)
-        
-        // function to check whether anyone has won
-        const isWinner = (winArray, playerArray) => {
-            return winArray.every( (element) => {
-                return playerArray.includes(element)
-            })
-        }
         
         // check whether x won
         for (i = 0; i < wins.length; i++) {
             if(isWinner(wins[i], xMoves)) {
-                console.log('x wins')
                 xWins = true
-                break
             }
         }
         
         // check whether o won
         for (i = 0; i < wins.length; i++) {
             if(isWinner(wins[i], oMoves)) {
-                console.log('o wins')
                 oWins = true
-                break
             }
         }        
         // next turn
         turn++
-        console.log(turn)
-        if (turn % 2 === 0) {
-            const xTurnMessage = document.createElement('p')
-            xTurnMessage.innerText = 'It is x\'s turn'
-            turnCounter.innerHTML = ''
-            turnCounter.appendChild(xTurnMessage)
-        } else if (turn % 2 === 1) {
-            const oTurnMessage = document.createElement('p')
-            oTurnMessage.innerText = 'It is o\'s turn'
-            turnCounter.innerHTML = ''
-            turnCounter.appendChild(oTurnMessage)
-        }
-        // check whether the board is full
-        if (xWins) {
-            const xAnnounce = document.createElement('p')
-            xAnnounce.innerText = 'X wins!'
-            turnCounter.innerHTML = ''
-            turnCounter.appendChild(xAnnounce)
-        } else if (oWins) {
-            const oAnnounce = document.createElement('p')
-            oAnnounce.innerText = 'O wins!'
-            turnCounter.innerHTML = ''
-            turnCounter.appendChild(oAnnounce)
-        } else if (turn === 9) {
-            const tieAnnounce = document.createElement('p')
-            tieAnnounce.innerText = 'Cat\'s game! Try again.'
-            turnCounter.innerHTML = ''
-            turnCounter.appendChild(tieAnnounce)
-            const horns = new Audio('sounds/the-price-is-right-losing-horn.mp3')
-            horns.play()
-        }
+        announceTurn()
+        checkGameOver()
     }
 }   
+
+// function to check whether a player array contains a winning array
+const isWinner = (winArray, playerArray) => {
+    return winArray.every( (element) => {
+        return playerArray.includes(element)
+    })
+}
+
+// function to check whether the game has ended
+const checkGameOver = () => {
+    if (xWins) {
+        const xAnnounce = document.createElement('p')
+        xAnnounce.innerText = 'X wins!'
+        turnCounter.innerHTML = ''
+        turnCounter.appendChild(xAnnounce)
+    } else if (oWins) {
+        const oAnnounce = document.createElement('p')
+        oAnnounce.innerText = 'O wins!'
+        turnCounter.innerHTML = ''
+        turnCounter.appendChild(oAnnounce)
+        // if no one wins, check whether the game board is full
+    } else if (turn === 9) {
+        const tieAnnounce = document.createElement('p')
+        tieAnnounce.innerText = 'Cat\'s game! Try again.'
+        turnCounter.innerHTML = ''
+        turnCounter.appendChild(tieAnnounce)
+        const horns = new Audio('sounds/the-price-is-right-losing-horn.mp3')
+        horns.play()
+    }
+}
 
 // reset function
 const reset = () => {
@@ -130,6 +134,8 @@ const reset = () => {
     turnCounter.innerHTML = '<p>X goes first. Select a square.</p>'
 }
 
+// create onscreen turn counter
+const turnCounter = document.getElementById('turn-counter')
 
 // create clickable squares 1-9
 const square1 = document.getElementById('div-1')
@@ -142,9 +148,10 @@ const square7 = document.getElementById('div-7')
 const square8 = document.getElementById('div-8')
 const square9 = document.getElementById('div-9')
 
+// create clickable reset button
 const resetButton = document.getElementById('reset')
 
-// listen for a click
+// listen for a click on squares
 square1.addEventListener('click',playerAction)
 square2.addEventListener('click',playerAction)
 square3.addEventListener('click',playerAction)
@@ -155,4 +162,5 @@ square7.addEventListener('click',playerAction)
 square8.addEventListener('click',playerAction)
 square9.addEventListener('click',playerAction)
 
+// listen for click on reset button
 resetButton.addEventListener('click',reset)

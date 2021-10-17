@@ -38,11 +38,11 @@ p {
     justify-items: center;
     align-items: center;
     cursor: pointer;
-    filter: drop-shadow(6px 6px 1px black)
+    filter: drop-shadow(6px 6px 1px black);
 }
 
 .mark {
-    font-size: 100px;
+    font-size: 120px;
     color: #DBAFC2;
     filter: drop-shadow(2px 2px 1px black)
 }

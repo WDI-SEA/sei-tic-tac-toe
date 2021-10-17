@@ -1,40 +1,41 @@
 const move = document.querySelectorAll(".square")
 const turn = document.querySelector("#turn")
 const message = document.querySelector("#message")
-const playerX = move.innerText = "X"
-const playerO = move.innerText = "O"
-const sq1 = document.getElementById("#button-1")
-const sq2 = document.getElementById("#button-2")
-const sq3 = document.getElementById("#button-3")
-const sq4 = document.getElementById("#button-4")
-const sq5 = document.getElementById("#button-5")
-const sq6 = document.getElementById("#button-6")
-const sq7 = document.getElementById("#button-7")
-const sq8 = document.getElementById("#button-8")
-const sq9 = document.getElementById("#button-9")
+// const playerX = move.innerText = "X"
+// const playerO = move.innerText = "O"
 let playerXTurn = true
 const reset = document.querySelector("#reset")
 
 // const clearMessage = () => {
-//     if (message.innerText) {
-//         message.removeInnerText(message.innerText)
-//     }
-// }
-const tiedGame = for (i = 0; i < move.length; i++){
-    if (move.innerText >= 8)
-}
-
+    //     while (message.firstChild) {
+        //         message.removeChild(message.firstChild)
+        //     }
+        //     break;
+        // }
+        
 const checkForWinner = () => {
-    if (sq1 === "X" && sq2 === "X" && sq3 === "X" ||
-    sq4 === "X" && sq5 === "X" && sq6 === "X" ||
-    sq7 === "X" && sq8 === "X" && sq9 === "X" ||
-    sq1 === "X" && sq5 === "X" && sq9 === "X" ||
-    sq3 === "X" && sq5 === "X" && sq7 === "X" ||
-    sq1 === "X" && sq4 === "X" && sq7 === "X" ||
-    sq2 === "X" && sq5 === "X" && sq8 === "X" ||
-    sq3 === "X" && sq6 === "X" && sq9 === "X") {
+    const tiedGame = []
+    tiedGame.push("XO")
+    const sq1 = document.getElementById("#button-1")
+    const sq2 = document.getElementById("#button-2")
+    const sq3 = document.getElementById("#button-3")
+    const sq4 = document.getElementById("#button-4")
+    const sq5 = document.getElementById("#button-5")
+    const sq6 = document.getElementById("#button-6")
+    const sq7 = document.getElementById("#button-7")
+    const sq8 = document.getElementById("#button-8")
+    const sq9 = document.getElementById("#button-9")
+    if (sq1.innerHTML === "X" && sq2.innerHTML === "X" && sq3.innerHTML === "X" ||
+    sq4.innerHTML === "X" && sq5.innerHTML === "X" && sq6.innerHTML === "X" ||
+    sq7.innerHTML === "X" && sq8.innerHTML === "X" && sq9.innerHTML === "X" ||
+    sq1.innerHTML === "X" && sq5.innerHTML === "X" && sq9.innerHTML === "X" ||
+    sq3.innerHTML === "X" && sq5.innerHTML === "X" && sq7.innerHTML === "X" ||
+    sq1.innerHTML === "X" && sq4.innerHTML === "X" && sq7.innerHTML === "X" ||
+    sq2.innerHTML === "X" && sq5.innerHTML === "X" && sq8.innerHTML === "X" ||
+    sq3.innerHTML === "X" && sq6.innerHTML === "X" && sq9.innerHTML === "X") {
         message.innerText = "Player X wins!"
-    } else if (sq1 === "O" && sq2 === "O" && sq3 === "O" ||
+    } 
+    else if (sq1 === "O" && sq2 === "O" && sq3 === "O" ||
     sq4 === "O" && sq5 === "O" && sq6 === "O" ||
     sq7 === "O" && sq8 === "O" && sq9 === "O" ||
     sq1 === "O" && sq5 === "O" && sq9 === "O" ||
@@ -42,53 +43,49 @@ const checkForWinner = () => {
     sq1 === "O" && sq4 === "O" && sq7 === "O" ||
     sq2 === "O" && sq5 === "O" && sq8 === "O" ||
     sq3 === "O" && sq6 === "O" && sq9 === "O") {
-        message.innerText = "Player O wins!"
-    // } else if (playerXTurn) {
-        
-        
-    // } else if (playerXTurn == false) {
-        
-        
+        message.innerText = "Player O wins!"   
     } 
-    else if (tiedGame()){
-            message.innerText = "Cat's game!"
+    else if (tiedGame.length >= 7){
+        message.innerText = "Cat's game!"
     }
      else {
-
+        playGame()
      }
-    playGame()
-    
 }
 //click on any square on the board (event listener)
 const playerMoveX = () => {
-        for (const square of move) {
-            square.addEventListener("click", function(event){
-                event.preventDefault
-                if (playerXTurn == true && !square.innerText) {
-                    square.innerText = "X"
-                } 
-                else if (square.innerText) {
-                    message.innerText = "Why would you choose a square that's already filled?"
-                }
-                checkForWinner()
-                playerXTurn = false
-                turn.innerText = "Time for Player O to make a choice."
+    for (const square of move) {
+        square.addEventListener("click", function(event){
+                // event.preventDefault
+            const clickedSquare = event.target
+                // clearMessage()
+            if (playerXTurn === true && !clickedSquare.innerText) {
+                clickedSquare.innerText = "X"
+            } 
+                // else if (square.innerText) {
+                 // return message.innerText = "Why would you choose a square that's already filled?"
+                // }
+            playerXTurn = false
+            turn.innerText = "Time for Player O to make a choice."
+            checkForWinner()
             })
         }
     }
 const playerMoveO = () => {
     for (const square of move)
         square.addEventListener("click", function(event){
-            event.preventDefault
-            if (playerXTurn == false && !square.innerText) {
-                square.innerText = "O"
+            // event.preventDefault
+            const clickedSquare = event.target
+            // clearMessage()
+            if (playerXTurn === false && !clickedSquare.innerText) {
+                clickedSquare.innerText = "O"
             } 
-            else if (square.innerText) {
-                message.innerText = "Why would you choose a square that's already filled?"
-            }
-            checkForWinner() 
+            // else if (square.innerText) {
+            //     return message.innerText = "Why would you choose a square that's already filled?"
+            // }
             playerXTurn = true
             turn.innerText = "Time for Player X to make a choice"
+            checkForWinner()
         })
     //     event.preventDefault
     //     event.target.innerText = "X"

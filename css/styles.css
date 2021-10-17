@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&display=swap');
 
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
 .game-grid-container {
     display: flex;
     flex-direction: column;
@@ -44,6 +51,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: inconsolata;
 }
 
 .page-wrapper {
@@ -86,6 +94,7 @@ body {
 
 #display-text {
     font-size: 3rem;
+    margin: 20px;
 }
 
 #declare-winner {
@@ -93,19 +102,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
 }
 
 .win-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
+    justify-content: space-evenly;
+    font-size: 2rem;
     
 }
 
+.player-one-win .player-two-win {
+    margin: 20px;
+}
+
 span {
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 #game-board-history {
@@ -120,4 +133,10 @@ li {
     list-style: none;
     margin: 10px;
     font-size: 1.3rem;
+    border: 1px dotted black;
+    padding: 5px;
+}
+
+li:hover {
+    background-color:tomato;
 }

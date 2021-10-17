@@ -52,7 +52,7 @@ const selectCell = (event) => {
     } 
     isWinner()
     if (turnCounter >= 8) {
-        declareWinnerArea.innerText = "This game is a draw."
+        declareWinnerArea.innerText = "THIS GAME IS A DRAW"
         gameGrid.style.pointerEvents = 'none';
 
 
@@ -76,11 +76,11 @@ const whoseTurn = () => {
 
     switch(modulusVariable) {
         case 0:
-            headerDisplay.innerText = "It's player Two's turn."
+            headerDisplay.innerText = "PLAYER TWO'S TURN"
             break;
     
         case 1:
-            headerDisplay.textContent = "It's player One's turn."
+            headerDisplay.textContent = "PLAYER ONE'S TURN"
             break;
     }
 
@@ -121,7 +121,7 @@ const isWinner = () => {
         // console.log("Player 1: " + p1winCount)
 
         if (p1winCount == 3) {
-            declareWinnerArea.innerText = "Player One wins."
+            declareWinnerArea.innerText = "PLAYER ONE WINS!"
             gameGrid.style.pointerEvents = 'none';
             playerOneWinCount++
             p1winCountSpan.innerText = playerOneWinCount
@@ -136,7 +136,7 @@ const isWinner = () => {
 
             return "Player One Wins"
         } else if (p2winCount == 3) {
-            declareWinnerArea.innerText = "Player Two wins."
+            declareWinnerArea.innerText = "PLAYER TWO WINS!"
             gameGrid.style.pointerEvents = 'none';
             playerTwoWinCount++
             p2winCountSpan.innerText = playerTwoWinCount
@@ -168,11 +168,11 @@ const resetBoard = () => {
     playerOneMoves = []
     playerTwoMoves = []
     playedMoves = []
-    gameGrid.style.pointerEvents = "auto"
-    headerDisplay.innerText = "It's Player One's Turn."
+    gameGrid.style.pointerEvents = "auto" // reset pointer block
+    headerDisplay.innerText = "PLAYER ONE TURN"
     for (i = 0; i < 9; i++) {
         gridList[i].innerText = "";
-        gridList[i].style.pointerEvents = "auto"    
+        gridList[i].style.pointerEvents = "auto" // rest pointer block
     }
 }
 

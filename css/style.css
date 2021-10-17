@@ -1,8 +1,8 @@
 body {
     margin: 0;
     text-align: center;
-    font-family: helvetica;
-    background-color: gray;
+    font-family: 'Hi Melody', cursive;
+    background-color: #DBAFC2;
     display:grid;
     justify-items: center; 
 }
@@ -11,19 +11,52 @@ section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    width: 300px;
-    height: 300px;
-    gap: 10px;
+    width: 500px;
+    height: 500px;
+    gap: 15px;
+}
+
+h1 {
+    font-size: 80px;
+    font-weight: 700;
+    margin: 30px 0 0 0;
+    padding: 0;
+    color: #314C52;
+}
+
+p {
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+    color: black;
 }
 
 .square {
-    background-color: whitesmoke;
-    color: gray;
+    background-color: #6F969E;
+    color: #314C52;
     display: grid;
     justify-items: center;
     align-items: center;
+    cursor: pointer;
+    filter: drop-shadow(6px 6px 1px black)
 }
 
 .mark {
-    font-size: 20px
+    font-size: 100px;
+    color: #DBAFC2;
+    filter: drop-shadow(2px 2px 1px black)
+}
+
+#turn-counter {
+    margin-bottom: 10px;
+}
+
+#reset {
+    background-color: #9E985F;
+    padding: 10px 30px;
+    cursor: pointer;
+    font-size: 30px;
+    filter: drop-shadow(3px 3px 1px black);
+    margin: 30px;
+    color: black;
 }

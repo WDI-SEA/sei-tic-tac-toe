@@ -6,7 +6,8 @@ const gridList = document.querySelectorAll('.tic-tac-box')
 const declareWinnerArea = document.querySelector('#declare-winner')
 const p1winCountSpan = document.querySelector('#p1-win-counter') 
 const p2winCountSpan = document.querySelector('#p2-win-counter')
-const playedMoves = []
+const gameHistory = document.querySelector('#game-board-history')
+let playedMoves = []
 
 let playerOneMoves = []
 let playerTwoMoves = []
@@ -40,10 +41,12 @@ const selectCell = (event) => {
         event.target.innerText =  playerOneIcon
         playerOneMoves.push(event.target.getAttribute('data-value'))
         event.target.style.pointerEvents = 'none';
+        playedMoves.push([playerOne, event.target.getAttribute(('data-value'))])
     } else if (currentPlayer == playerTwo) {
         event.target.innerText = playerTwoIcon
         playerTwoMoves.push(event.target.getAttribute('data-value'))
         event.target.style.pointerEvents = 'none';
+        playedMoves.push([playerTwo, event.target.getAttribute(('data-value'))])
     } 
     isWinner()
     if (turnCounter >= 8) {
@@ -119,22 +122,26 @@ const isWinner = () => {
             gameGrid.style.pointerEvents = 'none';
             playerOneWinCount++
             p1winCountSpan.innerText = playerOneWinCount
+            const historyItem = document.createElement('li')
+            historyItem.innerText = ` Played Moves: [${playedMoves}] Winner: Player One `
+            gameHistory.appendChild(historyItem)
+
             return "Player One Wins"
         } else if (p2winCount === 3) {
             declareWinnerArea.innerText = "Player Two wins."
             gameGrid.style.pointerEvents = 'none';
             playerTwoWinCount++
             p2winCountSpan.innerText = playerTwoWinCount
+            const historyItem = document.createElement('li')
+            historyItem.innerText = ` Played Moves: [${playedMoves}] Winner: Player Two `
+            gameHistory.appendChild(historyItem)
+
             return "Player Two Wins"
         }
 
     }
 
     return "TEST"
-}
-
-const gameOver = () => {
-
 }
 
 const incrementCounter = () => {
@@ -144,9 +151,11 @@ const incrementCounter = () => {
 
 const resetBoard = () => {
     headerDisplay.innerText = ""
+    declareWinnerArea.innerText = ""
     turnCounter = ""
     playerOneMoves = []
     playerTwoMoves = []
+    playedMoves = []
     gameGrid.style.pointerEvents = "auto"
     headerDisplay.innerText = "It's Player One's Turn."
     for (i = 0; i < 9; i++) {

@@ -23,7 +23,6 @@ const createGrid = () => {
         gridList[i].addEventListener('click', selectCell)
         gridList[i].addEventListener('click', incrementCounter)
         gridList[i].setAttribute("data-value", i+1)
-          
         // console.log(gridList[i].getAttribute("data-value"))
     }
 }
@@ -47,9 +46,6 @@ const selectCell = (event) => {
     }
 }   
 
-const displayMove = () => {
-
-}
 /* 
     I need move validation logic
     instead of storing 0 or 1 and the coordinate of the move,
@@ -59,7 +55,6 @@ const displayMove = () => {
     playerObj: { moves: [ ]}
     each turn append to mov?
 */
-
 
 // we can use modulus to determine whos turn it is, because players are essentiall 0 or 1.
 // Note: This Logic Might Actually be backwards because it does not display until the first user clicks.
@@ -136,8 +131,22 @@ const incrementCounter = () => {
     // console.log("incrementCounter() " + turnCounter)
 }
 
+const resetBoard = () => {
+    headerDisplay.innerText = ""
+    turnCounter = ""
+    playerOneMoves = []
+    playerTwoMoves = []
+    gameGrid.style.pointerEvents = "auto"
+    headerDisplay.innerText = "It's Player One's Turn."
+    for (i = 0; i < 9; i++) {
+        gridList[i].innerText = "";
+        gridList[i].style.pointerEvents = "auto"    
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     startButton.addEventListener('click', createGrid)
+    resetButton.addEventListener('click', resetBoard)
     // gameGrid.addEventListener('click', incrementCounter)
 
 })

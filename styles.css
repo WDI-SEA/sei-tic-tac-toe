@@ -1,0 +1,161 @@
+:root {
+  --box-size: 200px;
+  --mark-size: calc(var(--box-size) * 0.9);
+}
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.board {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.box {
+  width: var(--box-size);
+  height: var(--box-size);
+  border: 1px solid #00ff66;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.box:first-child,
+.box:nth-child(2),
+.box:nth-child(3) {
+  border-top: none;
+}
+
+.box:nth-child(3n + 1) {
+  border-left: none;
+}
+
+.box:nth-child(3n + 3) {
+  border-right: none;
+}
+
+.box:last-child,
+.box:nth-child(8),
+.box:nth-child(7) {
+  border-bottom: none;
+}
+
+.box.x,
+.box.o {
+  cursor: not-allowed;
+}
+
+.box.x::before,
+.box.x::after {
+  background-color: #ff0000;
+}
+
+.box.o::before {
+  background-color: #0065ff;
+}
+
+.box.x::before,
+.box.x::after {
+  content: '';
+  width: calc(var(--mark-size) * 0.15);
+  height: var(--mark-size);
+  position: absolute;
+}
+
+.box.x::before,
+.board.x .box:not(.x):not(.o)::before {
+  transform: rotate(45deg);
+}
+
+.box.x::after,
+.board.x .box:not(.x):not(.o)::after {
+  transform: rotate(-45deg);
+}
+
+.box.o::before,
+.box.o::after,
+.board.o .box:not(.x):not(.o)::before,
+.board.o .box:not(.x):not(.o)::after {
+  content: ' ';
+  border-radius: 50%;
+  position: absolute;
+}
+
+.board.o .box:not(.x):not(.o)::before,
+.box.o::before {
+  width: var(--mark-size);
+  height: var(--mark-size);
+}
+
+.board.o .box:not(.x):not(.o)::after,
+.box.o::after {
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+  background-color: #fff;
+}
+
+.winning-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 5rem;
+}
+
+.winning-message button {
+  font-size: 3rem;
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+.winning-message.show {
+  display: flex;
+}

@@ -3,133 +3,107 @@ const rulesX = document.getElementById('messageX')
 const rulesO = document.getElementById('messageO')
 const startButton = document.getElementById('start')
 const resetButton = document.getElementById('reset')
+let playerOneTurn = true
+
 
 // identify which square was clicked
 function gameStart () {
-    playerOne()
+   playingGame()
     rulesX.innerHTML = `Player One Starts with X`
     rulesO.innerHTML = `Player Two is O`
 }
 
-const emptyArray = []
-
-
 function playerOne() {
     for (let i = 0; i < div.length; i++) {
-        div[i].addEventListener('click', (event) => {
+        div[i].addEventListener('click', (event) => { 
             const clickedDiv = event.target
     // make the divs become a button and toggle between X and O
-            if (!clickedDiv.innerText) {
+            if (playerOneTurn && !clickedDiv.innerText) {
                 clickedDiv.innerText = 'X'
                 rulesX.innerHTML = "Now it is O's turn"
                 rulesO.innerHTML = " "
+                playerOneTurn = false
+                gamePlay()
+            } else if (!playerOneTurn) {
                 swithToPlayerTwo()
-            //  } else if (clickedDiv.innerText == false) {
-            //         clickedDiv.innerText = 'O'
-             } else {
-                 alert('cant be clicked')
-                // swithToPlayerTwo()
-                }
-            // } else if (clickedDiv.innerText == 'O') {
-            //     clickedDiv.innerText = 'X'
-            //     rulesX.innerHTML = "Now it is O's turn"
-            //     rulesO.innerHTML = " "
-            //     swithToPlayerTwo()
-            }) 
-        }     
-    }  
-    // gamePlay()
+            }
+        })
+    }   
+}  
 
-    function swithToPlayerTwo() {
-        for (let i = 0; i < div.length; i++) {
-            div[i].addEventListener('click', (event) => {
-                const clickedDiv = event.target
-            if (!clickedDiv.innerText) {
+function swithToPlayerTwo() {
+    for (let i = 0; i < div.length; i++) {
+        div[i].addEventListener('click', (event) => {
+            const clickedDiv = event.target
+            if (!playerOneTurn && !clickedDiv.innerText) {
                 clickedDiv.innerText = 'O'
                 rulesX.innerHTML = "Now it is X's turn"
                 rulesO.innerHTML = " "
+                playerOneTurn = true
+                gamePlay()
+            } else if (playerOneTurn) {
                 playerOne()
             } else {
-                alert('this has been checked')
+                // continue
+                // alert('this has been checked-player Two')
             }
         })
     }
+}
 
-const winngingConditions = [
-    // wining by row
-    [document.getElementById('square1'),document.getElementById('square2'), document.getElementById('square3')],
-    [document.getElementById('square4'),document.getElementById('square5'), document.getElementById('square6')],
-    [document.getElementById('square7'),document.getElementById('square8'), document.getElementById('square9')],
-    // winning by column
-    [document.getElementById('square1'),document.getElementById('square4'), document.getElementById('square7')],
-    [document.getElementById('square2'),document.getElementById('square5'), document.getElementById('square8')],
-    [document.getElementById('square3'),document.getElementById('square6'), document.getElementById('square9')],
-    // winning diagonal
-    [document.getElementById('square1'),document.getElementById('square5'), document.getElementById('square9')],
-    [document.getElementById('square3'),document.getElementById('square5'), document.getElementById('square7')]
-]
+function playingGame () {
+    if (playerOneTurn) {
+        playerOne()
+    } else {
+        swithToPlayerTwo()
+    }
+}
 
 function gamePlay () {
-    for (let i = 0; i < winngingConditions[i].length; i++) { 
-        div[i].addEventListener('click', (event) => {
-            let clickedDiv = event.target
-            let count = 0
-            for (let k = 0; k < winngingConditions[i].length; k++) {
-                if (clickedDiv.innerText[i] !== winngingConditions[k]) {
-                    console.log('clicked', clickedDiv)
-                } else {
-                count++
-                if (count == winngingConditions.length) {
-                    console.log('this doesnt work')
+    if (
+        // X wining by row
+        document.getElementById('square1').innerText == 'X' && document.getElementById('square2').innerText == 'X' && document.getElementById('square3').innerText == 'X' 
+    || document.getElementById('square4').innerText == 'X' && document.getElementById('square5').innerText == 'X' && document.getElementById('square6').innerText == 'X'
+    || document.getElementById('square7').innerText == 'X' &&  document.getElementById('square8').innerText == 'X' && document.getElementById('square9').innerText == 'X'
+        // X winning by column
+    || document.getElementById('square1').innerText == 'X' && document.getElementById('square4').innerText == 'X' && document.getElementById('square7').innerText == 'X'
+    || document.getElementById('square2').innerText == 'X' && document.getElementById('square5').innerText == 'X' && document.getElementById('square8').innerText == 'X'
+    || document.getElementById('square3').innerText == 'X' && document.getElementById('square6').innerText == 'X' && document.getElementById('square9').innerText == 'X'
+        // X winning diagonal
+    || document.getElementById('square1').innerText == 'X' && document.getElementById('square5').innerText == 'X' && document.getElementById('square9').innerText == 'X'
+    || document.getElementById('square3').innerText == 'X' && document.getElementById('square5').innerText == 'X' && document.getElementById('square7').innerText == 'X') {
+        
+        rulesX.innerHTML = `The Winner is: X `
+        rulesO.innerHTML = ``
 
-                }
-            } 
+    } else if (
+        // O wining by row
+        document.getElementById('square1').innerText == 'O' && document.getElementById('square2').innerText == 'O' && document.getElementById('square3').innerText == 'O' 
+    || document.getElementById('square4').innerText == 'O' && document.getElementById('square5').innerText == 'O' && document.getElementById('square6').innerText == 'O'
+    || document.getElementById('square7').innerText == 'O' &&  document.getElementById('square8').innerText == 'O' && document.getElementById('square9').innerText == 'O'
+        // O winning by column
+    || document.getElementById('square1').innerText == 'O' && document.getElementById('square4').innerText == 'O' && document.getElementById('square7').innerText == 'O'
+    || document.getElementById('square2').innerText == 'O' && document.getElementById('square5').innerText == 'O' && document.getElementById('square8').innerText == 'O'
+    || document.getElementById('square3').innerText == 'O' && document.getElementById('square6').innerText == 'O' && document.getElementById('square9').innerText == 'O'
+        // O winning diagonal
+    || document.getElementById('square1').innerText == 'O' && document.getElementById('square5').innerText == 'O' && document.getElementById('square9').innerText == 'O'
+    || document.getElementById('square3').innerText == 'O' && document.getElementById('square5').innerText == 'O' && document.getElementById('square7').innerText == 'O') {
+        rulesX.innerHTML = `The Winner is: O `
+        rulesO.innerHTML = ``
+    } else {
+        for (let i = 0; i < div.length; i++) {
+            if (div.length <= 7)
+            rulesX.innerHTML = `The Game is A Tie!`
+            rulesO.innerHTML = ``
         }
-            // for (let k = 0; k < winngingConditions[i].length; k++) {
-            // }
-        // for (let j = 0; j < winngingConditions[i].length; i++) {
-        //     if (clickedDiv[0].innerText == 'X') {
-        //         console.log('im getting it')
-        //     } else {
-        //         console.log('not getting it')
-        //     }
-        // }
-        // }) 
-    })
+    }
 }
-}
-
-// [0, 1, 2],
-// [3, 4, 5],
-// [6, 7, 8],
-// [0, 3, 6],
-// [1, 4, 7],
-// [2, 5, 8],
-// [0, 4, 8],
-// [2, 4, 6]
 // reset game
-// function gameReset () { 
-//     for (let i = 0; i < 9; i++) {
-//         resetButton[i].addEventListener('click', (event) => {
-//             const clickedReset = event.target
-                
-//             }
-//     }
-// }
+function gameReset () { 
+    window.location.reload()
+}
 
 // press button to start game
 startButton.addEventListener('click', gameStart)
 // press button to reset game
-// resetButton.addEventListener('click', gameReset)
-
-// for (let i = 0; i < winngingConditions.length; i++) {
-//     div[i].addEventListener('click', (event) => {
-//     const clickedDiv = event.target
-//         for (let i = 0; i < 3; i++)
-//             if (winngingConditions[0] == clickedDiv.innerText) {
-//                 console.log('winning')
-//         } else {
-//                 console.log('losing')
-//         }
-//     })
-// }
+resetButton.addEventListener('click', gameReset)

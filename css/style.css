@@ -2,7 +2,7 @@ body {
     margin: 0;
     text-align: center;
     font-family: helvetica;
-    background-color: whitesmoke;
+    background-color: gray;
     display:grid;
     justify-items: center; 
 }
@@ -17,8 +17,13 @@ section {
 }
 
 .square {
-    background-color: gray;
+    background-color: whitesmoke;
+    color: gray;
     display: grid;
     justify-items: center;
     align-items: center;
+}
+
+.mark {
+    font-size: 20px
 }

@@ -1,0 +1,68 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.ticTacToeContainer { 
+    display: grid;
+    margin: 0 auto;
+    grid-template-rows: 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px;
+    
+    
+
+}
+.display {
+    color:black;
+    font-size: 20px;
+    text-align: center;
+
+}
+
+.background {
+    background-color: burlywood;
+    height: 150vh;
+    padding-top: 1px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.hide {
+    display: none;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /*height: 40px;
+    width: auto;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: 50px; */
+}
+
+.squareTile {
+    background-color:cornflowerblue;
+    border: 2px solid #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: auto;
+    font-size: 70px;
+    cursor:pointer;
+
+}
+
+.playerX {
+    color: seagreen;
+}
+
+.playerO {
+    color: slateblue;
+}

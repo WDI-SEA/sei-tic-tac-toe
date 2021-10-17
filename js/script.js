@@ -6,9 +6,12 @@ const resetButton = document.getElementById('reset')
 let playerOneTurn = true
 
 
+let findingTie = []
+
 // identify which square was clicked
 function gameStart () {
    playingGame()
+   
     rulesX.innerHTML = `Player One Starts with X`
     rulesO.innerHTML = `Player Two is O`
 }
@@ -24,12 +27,21 @@ function playerOne() {
                 rulesO.innerHTML = " "
                 playerOneTurn = false
                 gamePlay()
+                findingTie.push(clickedDiv.innerText)
             } else if (!playerOneTurn) {
                 swithToPlayerTwo()
             }
         })
     }   
 }  
+
+function playingGame () {
+    if (playerOneTurn) {
+        playerOne()
+    } else {
+        swithToPlayerTwo()
+    }
+}
 
 function swithToPlayerTwo() {
     for (let i = 0; i < div.length; i++) {
@@ -41,22 +53,24 @@ function swithToPlayerTwo() {
                 rulesO.innerHTML = " "
                 playerOneTurn = true
                 gamePlay()
+                findingTie.push(clickedDiv.innerText)
             } else if (playerOneTurn) {
                 playerOne()
-            } else {
-                // continue
-                // alert('this has been checked-player Two')
-            }
+            } 
         })
     }
 }
 
-function playingGame () {
-    if (playerOneTurn) {
-        playerOne()
-    } else {
-        swithToPlayerTwo()
-    }
+
+function gameTie () {
+       if (findingTie.length >= 7 && findingTie.length < 8) {
+        rulesX.innerHTML = `ITS A TIE!`
+        rulesO.innerHTML = ``
+        console.log(findingTie)
+     } else if (findingTie.length >= 8) {
+         alert('Please, Press the start button to restart the game')
+         window.location.reload()
+     }
 }
 
 function gamePlay () {
@@ -72,9 +86,11 @@ function gamePlay () {
         // X winning diagonal
     || document.getElementById('square1').innerText == 'X' && document.getElementById('square5').innerText == 'X' && document.getElementById('square9').innerText == 'X'
     || document.getElementById('square3').innerText == 'X' && document.getElementById('square5').innerText == 'X' && document.getElementById('square7').innerText == 'X') {
-        
+
         rulesX.innerHTML = `The Winner is: X `
         rulesO.innerHTML = ``
+        alert('Please, Press the start button to restart the game')
+         window.location.reload()
 
     } else if (
         // O wining by row
@@ -88,16 +104,16 @@ function gamePlay () {
         // O winning diagonal
     || document.getElementById('square1').innerText == 'O' && document.getElementById('square5').innerText == 'O' && document.getElementById('square9').innerText == 'O'
     || document.getElementById('square3').innerText == 'O' && document.getElementById('square5').innerText == 'O' && document.getElementById('square7').innerText == 'O') {
+        
         rulesX.innerHTML = `The Winner is: O `
         rulesO.innerHTML = ``
+        alert('Please, Press the start button to restart the game')
+         window.location.reload()
     } else {
-        for (let i = 0; i < div.length; i++) {
-            if (div.length <= 7)
-            rulesX.innerHTML = `The Game is A Tie!`
-            rulesO.innerHTML = ``
-        }
+        gameTie()
     }
 }
+
 // reset game
 function gameReset () { 
     window.location.reload()

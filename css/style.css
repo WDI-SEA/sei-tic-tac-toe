@@ -1,27 +1,109 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Open Sans', sans-serif;
     text-align: center;
 }
 
+.header h1, p {
+    color: white;
+}
+
+.header h1 {
+    margin-bottom: -15px;
+}
+
+.header p {
+    margin-bottom: 15px;
+}
+
+.scoreboard {
+    color:white;
+}
+
 .game {
-    width: 75%;
+    margin: -10px auto;
+    padding: 50px 0;
+    background-color: rgb(32, 32, 32);
+    width: 60%;
     height: 100%;
 }
 
 .board {
-    margin: 0 auto;
+    margin: 20px auto;
     width: 300px;
     display: grid;
     grid-template-columns: 100px 100px 100px;
     grid-template-rows: 100px 100px 100px;
     justify-content: center;
+    font-family: 'Permanent Marker', sans-serif;
     background-color: lightgray;
 }
 
 .square {
-    font-size: 55px;
-    line-height: 85px;
-    background-color: rgb(0, 0, 0);
+    box-sizing: border-box;
+    font-size: 70px;
+    line-height: 90px;
+    background-color: rgb(32, 32, 32);
     color: white;
-    margin: 2px;
+}
+
+#a1 {
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+#a2 {
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+#a3 {
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+}
+
+#b1 {
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+}
+
+#b2 {
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+}
+
+#b3 {
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+}
+
+#c1 {
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+}
+
+#c2 {
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+}
+
+#c3 {
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+}
+
+#gameConsole {
+    margin-bottom: -15px;
+}
+
+#reset {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
 }

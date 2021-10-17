@@ -96,13 +96,11 @@ body {
 }
 
 .win-container {
-    outline: 1px dotted red;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: 3rem;
-    text-align:
     
 }
 
@@ -111,7 +109,6 @@ span {
 }
 
 #game-board-history {
-    outline: 1px solid red;
     width:700px;
     display: flex;
     flex-direction:column-reverse;

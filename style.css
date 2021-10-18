@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background-color: lightblue;
+}
+
+main {
+    height: 600px;
+    width: 600px;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    column-gap: 20px;
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    cursor: pointer;
+}
+

@@ -10,6 +10,8 @@ body {
  border: 3px black solid;
  width: 100%;
  height: 100vh;
+ justify-content: center;
+ align-content: center;
 }
 
 .head {
@@ -19,30 +21,31 @@ body {
 
 #tic-tac-board {
  border: 2px solid blue;
- width: 100%;
+ width: 450px;
  height:65%; 
  display: flex;
+ flex-wrap: wrap;
  /* flex-direction:column; */
  justify-content: center;
- align-items: center;
+ align-content: center;
 }
-/* 
-#tic-tac-board div {
+
+.box {
   display: flex;
   justify-content: center;
   align-items: center;
   border: 4px solid gray;
-  width: 50%;
-  height: 100%; 
-  } */
+  width: 140px;
+  height: 150px; 
+  }
 
  
- .board-level{
+ /* .board-level{
      display: flex;
      border: 5px solid red;
      width: 100%;
      height: 100%
- } 
+ }  */
 
 .score {
   border: 2px solid red;

@@ -68,13 +68,13 @@ const checkWin = () => {
                 if(twoPlayTurns === 3){
                     playerTurn.innerHTML = "WINNER Player 2"
                     //console.log("player 2 wins")
-                    setTimeout(() => { restartGame() }, 2000)
+                    setTimeout(() => { restartGame() }, 1000)
                 } 
             //tie conditional: if the click count has reached 9 and neither player 1 nor player 2 has achieved 3 of 3 boxes in a winning set, draw tie.
             if (count === 9 && onePlayTurns !== 3 && twoPlayTurns !== 3) {
                 playerTurn.innerHTML = "Tie!"
                 //reset game automatically after 2 seconds
-                setTimeout(() => {restartGame() }, 2000)
+                setTimeout(() => {restartGame() }, 1000)
             }  
         }
     } 
@@ -90,7 +90,7 @@ const boxChosen = (event) => {
         //change p ID background color
         event.target.style.backgroundColor = "#F3D9BE"
         //box chosen propels the turn of the next player, player 2
-        playerTurn.innerHTML = "Player 2's turn"
+        playerTurn.innerHTML = "Player 2's turn. Player 1 is next!"
         //push results to player 1 array
         oneArray.push(event.target.parentNode.id)
         //console.log(oneArray)
@@ -102,7 +102,7 @@ const boxChosen = (event) => {
         //change p ID background color
         event.target.style.backgroundColor = "#E5F7DE"
         //box chosen propels the turn of the next player, player 1
-        playerTurn.innerHTML = "Player 1's turn"
+        playerTurn.innerHTML = "Player 1's turn. Player 2 is next!"
         //push results to player 2 array
         twoArray.push(event.target.parentNode.id)
     }

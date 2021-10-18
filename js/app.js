@@ -2,19 +2,21 @@
 //game-related variables
 let oneWin = false //one = player one
 let twoWin = false //two = player two
+let onePlayTurns = 0
+let twoPlayTurns = 0
 let count = 0 //click count
 let oneArray = [] //array of player one choices
 let twoArray = [] //array of player two choices
 let wins = [ //possible winning combinations
-    ["div1", "div2", "div3"],
-    ["div4", "div5", "div6"],
-    ["div7", "div8", "div9"],
-    ["div1", "div5", "div9"],
-    ["div1", "div4", "div7"],
-    ["div1", "div3", "div5"],
-    ["div2", "div5", "div8"],
-    ["div3", "div6", "div9"],
-    ["div7", "div5", "div3"],
+    ["square1", "square2", "square3"],
+    ["square4", "square5", "square6"],
+    ["square7", "square8", "square9"],
+    ["square1", "square5", "square9"],
+    ["square1", "square4", "square7"],
+    ["square1", "square3", "square5"],
+    ["square2", "square5", "square8"],
+    ["square3", "square6", "square9"],
+    ["square7", "square5", "square3"],
 ]
 
 //declare DOM manipulation variables
@@ -24,46 +26,21 @@ let gameBoard = null //board game container
 let boxText = null //variable that passes text for box from HTML
 
 //declare each box class as a variable (tried using IDs here at first, but kept getting errors.)
-const square1 = document.querySelector(".div1")
-const square2 = document.querySelector(".div2")
-const square3 = document.querySelector(".div3")
-const square4 = document.querySelector(".div4")
-const square5 = document.querySelector(".div5")
-const square6 = document.querySelector(".div6")
-const square7 = document.querySelector(".div7")
-const square8 = document.querySelector(".div8")
-const square9 = document.querySelector(".div9")
+const square1 = document.querySelector("#message1")
+const square2 = document.querySelector("#message2")
+const square3 = document.querySelector("#message3")
+const square4 = document.querySelector("#message4")
+const square5 = document.querySelector("#message5")
+const square6 = document.querySelector("#message6")
+const square7 = document.querySelector("#message7")
+const square8 = document.querySelector("#message8")
+const square9 = document.querySelector("#message9")
 
 playerTurn = document.querySelector(".game-stat") //text that changes depending on whose turn
 gameBoard = document.querySelector(".parent") //board game container
 restartButton = document.querySelector("#restart-game") //restart button variable
 
 //GAME FUNCTIONS
-
-//assigning X or O text to box
-const boxChosen = (event) => {
-    //if count is divisible by 2, player 2 is playing (player 2 exclusively plays on even number count)
-    if (count % 2 === 0) {
-        count++
-        event.target.innerText = "X"
-        event.target.style.backgroundColor = "#F3D9BE"
-        //box chosen propels the turn of the next player, player 2
-        playerTurn.innerHTML = "Player 2 turn"
-        //push results to player 1 array
-        oneArray.push(event.target.parentNode.className)
-    //else it is player 1 playing
-    }else{
-        count++
-        event.target.innerText = "O"
-        event.target.style.backgroundColor = "#E5F7DE"
-        //box chosen propels the turn of the next player, player 1
-        playerTurn.innerHTML = "Player 1 turn"
-        //push results to player 2 array
-        twoArray.push(event.target.parentNode.className);
-    }
-    console.log(count)
-    checkWin()
-} 
 
 //determine winner or tie
 const checkWin = () => {
@@ -80,11 +57,8 @@ const checkWin = () => {
             }
                 if(onePlayTurns === 3){
                     playerTurn.innerHTML = "Player 1 won"
-                    oneWin = true
-                    console.log(onePlayTurns)
-                    console.log(oneWin)
                     //console.log("Player 1 wins")
-                    setTimeout(() => { restartGame() }, 2000)   
+                    setTimeout(() => { restartGame() }, 2000) 
                 } 
             //player 2 win conditional 
             if(twoArray.includes(wins[i][j])){
@@ -93,7 +67,6 @@ const checkWin = () => {
             } 
                 if(twoPlayTurns === 3){
                     playerTurn.innerHTML = "Player 2 won"
-                    twoWin = true
                     //console.log("player 2 wins")
                     setTimeout(() => { restartGame() }, 2000)
                 } 
@@ -105,6 +78,33 @@ const checkWin = () => {
         }
     } 
 }
+
+//assigning X or O text to box
+const boxChosen = (event) => {
+    //if count is divisible by 2, player 2 is playing (player 2 exclusively plays on even number count)
+    if (count % 2 === 0) {
+        count++
+        event.target.innerHTML = "X"
+        event.target.style.backgroundColor = "#F3D9BE"
+        //box chosen propels the turn of the next player, player 2
+        playerTurn.innerHTML = "Player 2 turn"
+        //push results to player 1 array
+        oneArray.push(event.target.parentNode.id)
+        console.log(oneArray)
+    //else it is player 1 playing
+    }else{
+        count++
+        event.target.innerHTML = "O"
+        event.target.style.backgroundColor = "#E5F7DE"
+        //box chosen propels the turn of the next player, player 1
+        playerTurn.innerHTML = "Player 1 turn"
+        //push results to player 2 array
+        twoArray.push(event.target.parentNode.id)
+    }
+    checkWin()
+    console.log(oneArray)
+    console.log(twoArray)
+} 
 
 //selecting a box
 const selectBox = (event) => {
@@ -145,10 +145,8 @@ function restartGame() {
     count = 0
     oneArray = []
     twoArray = []
-    oneWin = false //one = player one
-    twoWin = false //two = player two
-    console.log(oneWin)
-    console.log(twoWin)
+    console.log(oneArray)
+    console.log(twoArray)
 }
 
 

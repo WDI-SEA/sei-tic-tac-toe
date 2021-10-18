@@ -106,7 +106,7 @@ const isWinner = () => {
     for (let i = 0; i < winStates.length; i++) {        
         let p1winCount = 0
         let p2winCount = 0
-        for (let j = 0; j < playerOneMoves.length; j++) {
+        for (let j = 0; j < playerOneMoves.length; j++) { // <-- WRONG?
             // console.log("[i][j]: " + i + "/" + j)
             if (playerOneMoves[j] == winStates[i][j]) {
                 p1winCount++;
@@ -132,6 +132,7 @@ const isWinner = () => {
             <br> Player Two Moves: ${playerTwoMoves}
             <br> <strong>Winner:</strong> Player One `
             gameHistory.appendChild(historyItem)
+            gameGrid.style.pointerEvents = "none";
             gameCount++;
 
             return "Player One Wins"
@@ -147,6 +148,7 @@ const isWinner = () => {
             <br> Player Two Moves: ${playerTwoMoves}
             <br> <strong>Winner:</strong> Player Two `
             gameHistory.appendChild(historyItem)
+            gameGrid.style.pointerEvents = "none";
             gameCount++;
             return "Player Two Wins"
         }

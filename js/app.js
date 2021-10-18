@@ -22,6 +22,24 @@ let oMoves = []
 let xWins = false
 let oWins = false
 
+// function triggered by click on square
+const playerAction = (event) => {
+    // check whether the game has already been won
+    if (xWins || oWins) {
+        console.log('the game is over')
+        // check whether the square has already been used
+    } else if (event.target.firstChild) {
+        console.log('invalid move')
+    } else {
+        makeMark()
+        // next turn
+        turn++
+        announceTurn()
+        checkWins()
+        checkGameOver()
+    }
+}   
+
 // function to update turn announcer at the top of the page
 const announceTurn = () => {
     if (turn % 2 === 0) {
@@ -37,59 +55,51 @@ const announceTurn = () => {
     }
 }
 
-
-// function triggered by click on square
-const playerAction = (event) => {
-    // check whether the game has already been won
-    if (xWins || oWins) {
-        console.log('the game is over')
-    // check whether the square has already been used
-    } else if (event.target.firstChild) {
-        console.log('invalid move')
+// function to mark the board after a click
+const makeMark = () => {
+    // if the square hasn't been used, id the square
+    const chosenSquareId = event.target.id
+    // create a mark to go in
+    const newMark = document.createElement('p')
+    newMark.classList.add('mark')
+    //if else statement based on turn that assigns x or o
+    if (turn % 2 === 0) {
+        newMark.innerText = 'x'
+        // record move to x player array
+        xMoves.push(chosenSquareId)
     } else {
-        // if the square hasn't been used, id the square
-        const chosenSquareId = event.target.id
-        // create a mark to go in
-        const newMark = document.createElement('p')
-        newMark.classList.add('mark')
-        //if else statement based on turn that assigns x or o
-        if (turn % 2 === 0) {
-            newMark.innerText = 'x'
-            // record move to x player array
-            xMoves.push(chosenSquareId)
-        } else {
-            newMark.innerText = 'o'
-            // record move to o player array
-            oMoves.push(chosenSquareId)
-        }
-        // add new mark to the square
-        document.getElementById(chosenSquareId).appendChild(newMark)
-        
-        // check whether x won
-        for (i = 0; i < wins.length; i++) {
-            if(isWinner(wins[i], xMoves)) {
-                xWins = true
-            }
-        }
-        
-        // check whether o won
-        for (i = 0; i < wins.length; i++) {
-            if(isWinner(wins[i], oMoves)) {
-                oWins = true
-            }
-        }        
-        // next turn
-        turn++
-        announceTurn()
-        checkGameOver()
+        newMark.innerText = 'o'
+        // record move to o player array
+        oMoves.push(chosenSquareId)
     }
-}   
+    // add new mark to the square
+    document.getElementById(chosenSquareId).appendChild(newMark)
+}
 
 // function to check whether a player array contains a winning array
 const isWinner = (winArray, playerArray) => {
     return winArray.every( (element) => {
         return playerArray.includes(element)
     })
+}
+
+// function to run both players through isWinner
+const checkWins = () => {
+    // check whether x won
+    for (i = 0; i < wins.length; i++) {
+        if(isWinner(wins[i], xMoves)) {
+            xWins = true
+            break
+        }
+    }
+    
+    // check whether o won
+    for (i = 0; i < wins.length; i++) {
+        if(isWinner(wins[i], oMoves)) {
+            oWins = true
+            break
+        }
+    }    
 }
 
 // function to check whether the game has ended

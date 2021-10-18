@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="grid-container">
+        <h1>Tic-Tac-Toe</h1>
+       
+        <div class="container">
+          <h1 id="playText">Let's Play!</h1>
+          <button id="StartBtn" onclick="restart()">restart</button>
+          <br>
+          <h2 id="playerTurn">Player 1's turn</h2>
+          <br>
+        <div class="game-board">
+          <div id="block_0" class="box">
+            <img id="box0" class="box" img=" " onclick="turn('box0')">
+          </div>
+          <div id="block_1">
+            <img id="box1" class="box" onclick="turn('box1')">
+          </div>
+          <div id="block_2">
+            <img id="box2" class="box" onclick="turn('box2')">
+          </div>
+          <div id="block_3">
+            <img id="box3" class="box" onclick="turn('box3')">
+          </div>
+          <div id="block_4">
+            <img id="box4" class="box" onclick="turn('box4')">
+          </div>
+          <div id="block_5">
+            <img id="box5" class="box" onclick="turn('box5')">
+          </div>
+          <div id="block_6">
+            <img id="box6" class="box" onclick="turn('box6')">
+          </div>
+          <div id="block_7">
+            <img id="box7" class="box" onclick="turn('box7')">
+          </div>
+          <div id="block_8">
+            <img id="box8" class="box" onclick="turn('box8')">
+          </div>
+        </div>
+      </div>
+      <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: rgb(226, 226, 175);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    background-color: cadetblue;
+    height: 400px;
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+    flex-wrap: wrap;
+}
+
+div {
+    background-color: goldenrod;
+    width: 30%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

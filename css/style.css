@@ -1,0 +1,56 @@
+body {
+    background-color: #25274d;;
+  }
+  
+  h1 {
+      text-align: center;
+      color: #45a29e;;
+      font-size: 50px;
+  }
+  
+  .topRowContainer, .bottomRowContainer, .middleRowContainer {
+      margin: 0 auto;
+      padding: 0;
+      display: flex;
+      height: 200px;
+      width: 600px;
+  }
+  
+  .square {
+      margin-top: 30px;
+      padding: 0;
+      width: 33%;
+      height: 100%;
+      background-color: #2e9cca;;
+      border: 2px solid black;
+      font-size: 100px;
+      text-align: center;
+      line-height: 200px;
+      cursor: pointer;
+  }
+  
+  .buttonDiv {
+      margin: 50px auto;
+      display: block;
+      text-align: center;
+  }
+  
+  button {
+    padding: 15px 32px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    background-color: #ff5733;;
+  }
+  
+  
+  .message {
+      height: 100px;
+      width: 700px;
+      font-size: 30px;
+      margin: 0 auto;
+      padding: 10px;
+      color: #45a29e;;
+      text-align: center;
+  }

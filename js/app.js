@@ -1,25 +1,18 @@
 const container = document.getElementById("board");
 const boxArray = [];
 const square = document.getElementsByClassName("square");
+const playAgain = document.querySelector("#reload");
+let numberOfBoxClicks = 0;
 let nextMove = "x"
+let isThereAWinner = false;
 // playerOne will be 'x'
 // playerTwo will be 'o'
-const playerOne = ("x")
+const playerOne = ("X")
 //console.log(playerOne)
-const playerTwo = ("o")
+const playerTwo = ("O")
 // console.log(playerTwo)
 
-// player one goes first and puts an x
-// player two goes next and puts an o
-// create an eventListener for a button click
-//
-document.createElement("p")
-// const button = document.querySelector ("button");
-
-
-document.getElementById("btn").addEventListener("click",();
-
-// check for winning conditionals
+// write a function that will check for winning conditionals
 function winCombo() {
     const lines = [
         [0,1,2],
@@ -32,24 +25,51 @@ function winCombo() {
         [2,4,6],
 
     ];
-    for (let i = 0; i < lines.length; i++)
-        const
+    // write a for loop 
+    for (let i = 0; i < lines.length; i++) {
+        const arr1 = lines[i];
+        let possibleWins = "";
+        for (let j = 0; j < arr1.length; j++) {
+            let paragraph = document.getElementById("p" + arr1[j]);   
+            possibleWins = possibleWins + paragraph.innerText;
+        }
+        if (possibleWins === "ooo") {
+            let winningMessage = document.getElementById("winningMessage");
+            winningMessage.innerText = "player O wins!";
+            isThereAWinner = true;
+        } else if (possibleWins === "xxx") {
+            let winningMessage = document.getElementById("winningMessage");
+            winningMessage.innerText = "player X wins!";
+            isThereAWinner = true;
+        } 
+    }
 }
-
-// write a conditional that will declare player one as the winner
-// write a conditional taht will declare player two as the winner
-// check for a tie
-
-
-// create a loop that for the 9 boxes
-for (let i = 0; i < 9; i++) {
-    const div = document.createElement("div");
-    div.classList.add("square");
-    const square = new classSquare(div, index);
-    container.appendChild(div)
-    squareArray.push(square);
-// create a p tag that will hold value 'x' or 'o'
-    div.appendChild(document.createElement("p"));
+// listen for a click on the box
+const onBoxClick = (boxId) => {
+    // if all the boxes are clicked
+    if (isThereAWinner === true || numberOfBoxClicks > 8) {
+        return;
+    }
+    numberOfBoxClicks = numberOfBoxClicks + 1;
+    // console.log("hello" + boxId);
+    const playerChoice = document.getElementById("p" + boxId);
+    console.log(playerChoice);
+    playerChoice.innerText = nextMove;
+    if (nextMove === "x") {
+        nextMove = "o";
+    } else { 
+        nextMove = "x";
+    }
+    winCombo();
 }
-
-console.log(squareArray);
+// write a function that will check for a tie
+// let onBoxClick = (boxId) => {
+//     if (isThereAWinner === false || numberOfBoxClicks > 8) {
+//         return "it's a tie!";
+//     }
+// }
+// write a function that will refresh the game when "play again" button is clicked
+function reload() {
+    reload = location.reload();
+}
+playAgain.addEventListener("click", reload, false);

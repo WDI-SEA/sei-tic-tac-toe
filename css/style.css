@@ -9,21 +9,23 @@ body {
 
 h1 {
     color: white;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     font-family: "Reenie Beanie", sans-serif;
-    font-size: 100px;
+    font-size: 80px;
 } 
-    
+
+h2 {
+    font-family: "Reenie Beanie";
+    font-size: 50px;
+    color: white;
+}
+
+p {
+    font-family: "Reenie Beanie";
+    font-size: 100px;
+}
+
 #btn {
-    /* color: white;
-    border: none;
-    border-radius: 50% 50%;
-    padding: 15px 30px;
-    font-size: 40px;
-    font-weight: bold;
-    font-family: "Reenie Beanie", sans-serif;
-    background-color: black;
-    margin-top: 30px; */
     border: 0;
     line-height: 2.5;
     padding: 0 10px;
@@ -44,7 +46,7 @@ h1 {
 
 #board {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1vw;
 }
@@ -56,10 +58,38 @@ h1 {
     justify-content: center;
     font-size: medium;
     font-weight: bold;
-    border: 5px solid black;
+    border: solid black;
+
+
 
 }
 
-#p {
+#box0 {
+    border-top: 0;
+    border-left: 0;
+}
 
+#box1 {
+    border-top: 0;
+}
+#box2 {
+    border-top: 0;
+    border-right: 0;
+}
+#box3 {
+    border-left: 0;
+}
+#box5 {
+    border-right: 0;
+}
+#box6 {
+    border-left: 0;
+    border-bottom: 0;
+}
+#box7 {
+    border-bottom: 0;
+}
+#box8 {
+    border-right: 0;
+    border-bottom: 0;
 }

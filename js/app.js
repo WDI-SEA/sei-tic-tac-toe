@@ -25,14 +25,14 @@ const checkForWinner = () => {
     const sq7 = document.getElementById("#button-7")
     const sq8 = document.getElementById("#button-8")
     const sq9 = document.getElementById("#button-9")
-    if (sq1.innerHTML === "X" && sq2.innerHTML === "X" && sq3.innerHTML === "X" ||
-    sq4.innerHTML === "X" && sq5.innerHTML === "X" && sq6.innerHTML === "X" ||
-    sq7.innerHTML === "X" && sq8.innerHTML === "X" && sq9.innerHTML === "X" ||
-    sq1.innerHTML === "X" && sq5.innerHTML === "X" && sq9.innerHTML === "X" ||
-    sq3.innerHTML === "X" && sq5.innerHTML === "X" && sq7.innerHTML === "X" ||
-    sq1.innerHTML === "X" && sq4.innerHTML === "X" && sq7.innerHTML === "X" ||
-    sq2.innerHTML === "X" && sq5.innerHTML === "X" && sq8.innerHTML === "X" ||
-    sq3.innerHTML === "X" && sq6.innerHTML === "X" && sq9.innerHTML === "X") {
+    if (sq1 === "X" && sq2 === "X" && sq3 === "X" ||
+    sq4 === "X" && sq5 === "X" && sq6 === "X" ||
+    sq7 === "X" && sq8 === "X" && sq9 === "X" ||
+    sq1 === "X" && sq5 === "X" && sq9 === "X" ||
+    sq3 === "X" && sq5 === "X" && sq7 === "X" ||
+    sq1 === "X" && sq4 === "X" && sq7 === "X" ||
+    sq2 === "X" && sq5 === "X" && sq8 === "X" ||
+    sq3 === "X" && sq6 === "X" && sq9 === "X") {
         message.innerText = "Player X wins!"
     } 
     else if (sq1 === "O" && sq2 === "O" && sq3 === "O" ||

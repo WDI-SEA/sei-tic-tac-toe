@@ -1,148 +1,28 @@
+// eventListener that runs entire JS script once the website has loaded
+// bulk of functions should be within eventlistener
+document.addEventListener('DOMContentLoaded', () => {
 
-// Alternate between x and y for every click
-// determine the last move made(x or o)
-// determine which should be next(x or o)
-// pass something to a function that will play either x or o depending on above conditions
-window.addEventListener('DOMContentLoaded', () => {
+    // variable storing all the tiles 
+    let tile = Array.from(document.querySelectorAll("tile"));
 
-    const squareTile = Array.from(document.querySelectorAll('.squareTile'))
-    const playerDisplay = document.querySelector('.display-player')
-    const resetButton = document.querySelector("#reset")
-    const announcer = document.querySelector(".announcer")
+    // variable containing reset button, add eventlistener click to run
 
-    let gameBoard = ['', '', '', '', '', '', '', '', '']
-    let currentPlayer = "X"
-    let isGameActive = true;
-
-    const playerXWon = "PLAYER_X_WON"
-    const playerOWon = "PLAYER_O_WON"
-    const TIE = "TIE"
-
-    const winningConditions = [
-        [0,1,2],
-        [3,4,5],
-        [6,7,8],
-        [0,3,6],
-        [1,4,7],
-        [2,5,8],
-        [0,4,8],
-        [2,4,6]
-    ];
-
+    // variable storing the gameboard itself 
     
+    // variable storing the current player playing
 
-    const announce = (type) => {
-        switch(type){
-            case playerXWon:
-                announcer.innerHTML = 'Player <span class="playerX">X</span> Won';
-                break;
-            case playerOWon:
-                announcer.innerHTML = 'Player <span class="playerO">O</span> Won';
-                break;
-            case TIE:
-                announcer.innerHTML = 'Its a tie.';
-        }
+    // variable containing the announcer, let announcer text change depending on winner/player
 
-        announcer.classList.remove('hide');
-    }
+    // array containing all possible win conditions for TTT
 
-    function handleResultValidation() {
-        let roundWon = false;
-        for (let i = 0; i<=7; i++) {
-            const winConditions = winningConditions[i];
-            const a = gameBoard[winConditions[0]]
-            const b = gameBoard[winConditions[1]]
-            const c = gameBoard[winConditions[2]]
-            if(a === '' || b === ''||c === '') {
-                continue;
-            }
-            if(a === b && b === c){
-                roundWon=true
-                break;
-            }
-        }
+    // function to determine if valid move(ex. cant click an already clicked tile)
 
-        if(roundWon) {
-            announce(currentPlayer === 'X' ? playerXWon : playerOWon);
-            isGameActive = false;
-            return;
-        }
-
-        if(!gameBoard.includes('')){
-            announce(TIE);
-        }
-    }
-
-    const updateBoard = (index) => {
-        gameBoard[index] = currentPlayer;
-    }
-
-    const isValidAction = (tile) => {
-        if(tile.innerText === 'X' || tile.innerText === 'O'){
-            return false;
-        }
-        return true;
-    };
+    // function that uses the winning conditions array to determine if there is a winner and also checks for cats game
     
-    const changePlayer = () => {
-        playerDisplay.classList.remove(`player${currentPlayer}`);
-        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        playerDisplay.innerText = currentPlayer;
-        playerDisplay.classList.add(`player${currentPlayer}`);
-    }
+    // function that keeps updating the gameboard
+    // function to make all tiles clickable 
+    tile.addEventListener()
 
-    const userAction = (tile, index) => {
-        if(isValidAction(tile) && isGameActive) {
-            tile.innerText = currentPlayer;
-            tile.classList.add(`player${currentPlayer}`);
-            updateBoard(index);
-            handleResultValidation();
-            changePlayer();
-        }
-    }
-
-    
-
-    
-
-    
-    
-
-    const resetBoard = () => {
-        gameBoard = ['','','','','','','','','']
-        isGameActive = true;
-        announcer.classList.add(`hide`);
-
-        if(currentPlayer === 'O') {
-            changePlayer();
-        }
-
-        squareTile.forEach(tile => {
-            tile.innerText = '';
-            tile.classList.remove('playerX')
-            tile.classList.remove('playerO')
-
-    });
-    }
-
-    squareTile.forEach((tile, index) => {
-        tile.addEventListener('click', () => userAction(tile, index));
-    });
-
-    resetButton.addEventListener('click', resetBoard);
+    //
 
 })
-
-
-// const alertTest = () => {
-//     console.log("Clicked")
-// }
-
-// const squareTile = document.getElementById("squa")
-// squareTile.addEventListener('click', alertTest)
-
-// function to determine winner of game
-
-// function that draws X 
-
-// function that draws 

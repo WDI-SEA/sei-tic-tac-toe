@@ -1,76 +1,50 @@
-* {
-    padding: 0;
-    margin: 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-.ticTacToeContainer { 
-    display: grid;
-    margin: 0 auto;
-    grid-template-rows: 200px 200px 200px;
-    grid-template-columns: 200px 200px 200px;
-    
-    
-
-}
-.display {
-    color:black;
-    font-size: 30px;
-    text-align: center;
-
-}
-
-.background {
-    background-color: whitesmoke;
-    height: 150vh;
-    padding-top: 1px;
-}
-
 body {
-    display: flex;
-    justify-content: center;
+    background-color: blanchedalmond;
 }
 
-.hide {
-    display: none;
-}
-
-.buttons {
+h1 {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    /*height: 40px;
-    width: auto;
-    text-align: center;
-    margin-left: 30px;
-    margin-top: 50px; */
+}
+
+.announcer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-family: 'Carter One', cursive;
+
+}
+
+.tileContainer {
+    background-color: blanchedalmond;
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 150px 150px 150px;
+    justify-content: center;
+    align-items: center;
+}
+
+.tile {
+    height: 150px;
+    width: 150px;
+    border: 2px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:darkslateblue;
 }
 
 #reset {
-    font-size: 20px;
-    padding: 15px;
-    margin-top: 10px;
-}
-
-.squareTile {
-    background-color:cornflowerblue;
-    border: 2px solid #444;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: auto;
-    width: auto;
-    font-size: 70px;
-    cursor:pointer;
-
-}
-
-.playerX {
-    color: seagreen;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-.playerO {
-    color: slateblue;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 25px;
+    margin: 0 auto;
+    padding:5px;
+    margin-top: 20px;
+    font-family: 'Carter One', cursive;
+    
 }

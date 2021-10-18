@@ -1,18 +1,28 @@
-div {
-    border: 1px solid black;
-    height: 50px;
+body {
+    background-color: lightgray;
 }
 
-#mainContainer {
-    height: 500px;
-    background-color: lightyellow;
-    display: flex;
+h1 {
+    color: black;
+}
+
+.mainBlock {
+    display: table;
+    border-spacing: 2px
   }
 
-#leftColumn {
-    background-color: lightblue;
-    width: 75%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
+  .subBlocks {
+    display: table-row;
+  }
+
+  .containerChild {
+    width: 200px;
+    height: 200px;
+    background: rgb(74, 94, 180);
+    display: table-cell;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid black;
+  }
+
+  

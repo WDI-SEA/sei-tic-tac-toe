@@ -4,29 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Tic-Tac-Toe</title>
 </head>
 <body>
+    <h1>Tic-Tac-Toe</h1>
+    <button id="start">Start Game</button>
+    <!-- Restart button will retsart the game-->
+    <button id="reset">Reset</button>
+    <!-- <h2 id="messageDisplay"></h2> -->
+    <h2 id="player1Message"></h2>
+    <h2 id="player2Message"></h2>
+
     <!-- The gameboard page should include the 3x3 grid (of divs), 
     and at minimum a reset button. 
     Using id and/or class on clickable elements will help you wire this up in JavaScript afterwards. -->
-    <div id="mainContainer"></div>
-        <div id="leftColumn" class="smallGuy">
-            <div class="leftColumnLeftChild"></div>
-            <div class="leftColumnLeftChild"></div>
-            <div class="leftColumnLeftChild"></div>
+    <div id="mainContainer" class=mainBlock>
+        <div id="subContainer" class="subBlocks">
+            <div id="square0" class="containerChild"></div>
+            <div id="square1" class="containerChild"></div>
+            <div id="square2" class="containerChild"></div>
         </div>
-        <div id="middleColumn" class="smallGuy">
-            <div class="middleColumnMiddleChild"></div>
-            <div class="middleColumnMiddleChild"></div>
-            <div class="middleColumnMiddleChild"></div>
+        <div id="subContainer" class="subBlocks">
+            <div id="square3" class="containerChild"></div>
+            <div id="square4" class="containerChild"></div>
+            <div id="square5" class="containerChild"></div>
         </div>
-        <div id="rightColumn" class="smallGuy">
-            <div class="rightColumnRightChild"></div>
-            <div class="rightColumnRightChild"></div>
-            <div class="rightColumnRightChild"></div>
+        <div id="subContainer" class="subBlocks">
+            <div id="square6" class="containerChild"></div>
+            <div id="square7" class="containerChild"></div>
+            <div id="square8" class="containerChild"></div>
         </div>
-        <script src="app.js"></script>
+        <script src="js/app.js"></script>
 </body>
 </html>

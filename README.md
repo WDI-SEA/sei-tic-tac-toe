@@ -49,3 +49,32 @@ We will be making a Tic Tac Toe game using all of these concepts.
 ## Licensing
 1. All content is licensed under a CC-BY-NC-SA 4.0 license.
 2. All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.
+
+
+Notes:
+
+//Alternate between x and o for every click
+//determine the last move made(x or o)
+//determine which should be next (x or o)
+//pass something to a function that will play either x or o depending on above conditions
+
+
+//How TO FRY AN EGG
+get egg
+crack egg
+fry egg
+
+determine if there are eggs
+find where egg live
+attain one egg
+attain 8oz stick of butter 
+place egg gently on counter near working surface
+determine if you have a pan
+find where the pans live
+open the door to the pan cabinet 
+remove one(1) pan from cabinet
+select burner on stove to use
+place pan gently on stove
+cut 1 stbsp of butter from stick of buter
+place said tbsp of butter in pan
+locate stovetop dials

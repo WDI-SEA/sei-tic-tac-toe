@@ -1,0 +1,79 @@
+body {
+    display: grid;
+    background-color: blanchedalmond;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+h4 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 60px;
+    justify-content: center;
+    align-self: center;
+}
+
+h6 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 30px;
+    justify-content: center;
+    align-self: center;
+}
+
+#container {
+    display: grid;
+    height: 600px;
+    width: 600px;
+    background-color: maroon;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px; 
+    gap: 10px 10px;
+    grid-template-columns: repeat(3, 1fr) ;
+    grid-template-rows: repeat(3, 1fr) ;
+    justify-content: center;
+    align-items: center;
+}
+
+
+div {
+    border-color: rgb(241, 131, 131);
+    background-color: blanchedalmond;
+    justify-self: stretch;
+    align-self: stretch;
+    border-style:outset;
+}
+
+button {
+    display: grid;
+    width: 190px;
+    height: 190px;
+    background-color: maroon;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px; 
+    gap: 10px 10px;
+    grid-template-columns: repeat(3, 1fr) ;
+    grid-template-rows: repeat(3, 1fr) ;
+    justify-content: center;
+    align-items: center;
+    font-size: 180px;
+    color: blanchedalmond;
+    /* font-display: center; */
+}
+
+#clear {
+    display: grid;
+    width: 190px;
+    height: 80px;
+    margin: 40px;
+    margin-left: 210px;
+    padding-left: 45px;
+    background-color: darksalmon;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 50px 50px 50px; 
+    gap: 10px 10px;
+    grid-template-columns: repeat(3, 1fr) ;
+    grid-template-rows: repeat(3, 1fr) ;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    color: blanchedalmond;
+}

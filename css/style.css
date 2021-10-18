@@ -1,0 +1,128 @@
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    background-color: snow;
+}
+
+h1 {
+    text-align: center;
+    justify-content: center;
+}
+h2 {
+    text-align: center;
+}
+
+p {
+    font-weight: 700px;
+    font-size: 20px;
+}
+
+.sidebar {
+    width: 200px;
+}
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 600px;
+    gap: 15px;
+}
+
+#gamecontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 500px;
+}
+
+.column {
+    width: 33%;
+    height: 100%;
+}
+
+#first #second #thrid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.space {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 33%;
+}
+#player-wins {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+#space1 {
+    border-bottom: 5px solid black; 
+    font-size: 60px;
+}
+
+#space2 {
+    border-right: 5px solid black;
+    border-bottom: 5px solid black; 
+    border-left: 5px solid black;
+    font-size: 60px;
+}
+
+#space3 {
+    border-bottom: 5px solid black; 
+    font-size: 60px;
+}
+
+#space4 {
+    border-bottom: 5px solid black; 
+    font-size: 60px;
+}
+
+#space5 {
+    border-right: 5px solid black;
+    border-bottom: 5px solid black; 
+    border-left: 5px solid black;
+    font-size: 60px;
+}
+
+#space6 {
+    border-bottom: 5px solid black; 
+    font-size: 60px;
+}
+#space7 {
+    font-size: 60px;
+}
+
+#space8 {
+    border-right: 5px solid black;
+    border-left: 5px solid black;
+    font-size: 60px;
+}
+#space9 {
+    font-size: 60px;
+}
+
+#reset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px
+}
+
+#button-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+
+

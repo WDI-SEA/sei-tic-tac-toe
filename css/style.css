@@ -1,0 +1,37 @@
+body {
+    font-family:'Permanent Marker', cursive;
+}
+h1 {
+    text-align: center;
+}
+
+#gameGrid {
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-flow: column wrap;
+    margin: auto;
+
+}
+
+.cell {
+    border: 1px solid black;
+    height: 32%;
+    width: 33%;
+    justify-content: center;
+    display: flex;
+    font-size: 120px;
+}
+
+#playerTurn{
+    font-size: 90px;
+}
+
+
+#restart{
+    position: absolute;
+    margin-top: 500px;
+    align-self: center;
+    cursor: pointer;
+}
+ 

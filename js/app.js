@@ -10,6 +10,8 @@ const box7 = document.getElementById('space7')
 const box8 = document.getElementById('space8')
 const box9 = document.getElementById('space9')
 const reset = document.getElementById('reset')
+const Player1 = document.getElementById('Player1')
+const Player2 = document.getElementById('Player2')
 // set array to check for winner
 // set each column array
 const column1 = [box1,box4,box7]
@@ -31,6 +33,8 @@ const diagonals = [diagonal1, diagonal2]
 // const to keep track of which players move
 var Player = 'Player 1'
 var Winner = 'none'
+var wins01 = 0
+var wins02 = 0
 
 // constant to edit text at bottom of page
 const bottomText = document.querySelector('h2')
@@ -47,11 +51,15 @@ const checkGame = () => {
         if((columns[i][0].innerText=='X') && (columns[i][1].innerText=='X') && (columns[i][2].innerText == 'X')){
             Winner = 'X'
             console.log('column winner X')
+            wins01 += 1
+            Player1.innerText = (wins01)
             return Winner;
         }
         if((columns[i][0].innerText=='O') && (columns[i][1].innerText=='O') && (columns[i][2].innerText == 'O')){
             Winner = 'O'
             console.log('column winner O')
+            wins02 += 1
+            Player2.innerText = (wins02) 
             return Winner;
         }
     }
@@ -60,11 +68,15 @@ const checkGame = () => {
         if((rows[i][0].innerText=='X') && (rows[i][1].innerText=='X') && (rows[i][2].innerText == 'X')){
             Winner = 'X'
             console.log('row winner X')
+            wins01 += 1
+            Player1.innerText = (wins01)
             return Winner;
         }
         if((rows[i][0].innerText=='O') && (rows[i][1].innerText=='O') && (rows[i][2].innerText == 'O')){
             Winner = 'O'
             console.log('row winner O')
+            wins02 += 1
+            Player2.innerText = (wins02) 
             return Winner;
         }
      }
@@ -73,11 +85,15 @@ const checkGame = () => {
         if((diagonals[i][0].innerText=='X') && (diagonals[i][1].innerText=='X') && (diagonals[i][2].innerText == 'X')){
             Winner = 'X'
             console.log('diagonal winner X')
+            wins01 += 1
+            Player1.innerText = (wins01)
             return Winner;
         }
         if((diagonals[i][0].innerText=='O') && (diagonals[i][1].innerText=='O') && (diagonals[i][2].innerText == 'O')){
             Winner = 'O'
             console.log('diagonal winner O')
+            wins02 += 1
+            Player2.innerText = (wins02) 
             return Winner;
         }
      }

@@ -21,6 +21,10 @@ p {
 
 .sidebar {
     width: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid black;
 }
 #container {
     display: flex;
@@ -61,7 +65,6 @@ p {
 #player-wins {
     display: flex;
     flex-direction: column;
-    gap: 10px
 }
 
 #space1 {

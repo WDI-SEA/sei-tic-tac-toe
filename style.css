@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: lightslategray;
+    min-height: 100vh;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+section {
+    width: 600px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: return (3, 1fr);
+    grid-template-rows: return (3, 1fr);
+    justify-items: center;
+    align-items: center;
+    margin-top: -15%;
+}
+
+.tttBox {
+    border: 2px solid lightseagreen;
+    height: 100%;
+    width:  100%;
+    justify-items: center;
+    align-items: center;
+    font-size: 500%;
+}
+
+#topLeft {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    justify-self: center;
+    border-top: none;
+    border-left: none;
+}
+
+#topMiddle {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    border-top: none;
+}
+
+#topRight {
+    grid-row: 1/2;
+    grid-column: 3/4;
+    border-top: none;
+    border-right: none;
+}
+
+#middleLeft {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    border-left: none;
+}
+
+#middleMiddle {
+    grid-row: 2/3;
+    grid-column: 2/3;
+}
+
+#middleRight {
+    grid-row: 2/3;
+    grid-column: 3/4;
+    border-right: none;
+}
+
+#bottomLeft {
+    grid-row: 3/4;
+    grid-column: 1/2;
+    border-bottom: none;
+    border-left: none;
+}
+
+#bottomMiddle {
+    grid-row: 3/4;
+    grid-column: 2/3;
+    border-bottom: none;
+}
+
+#bottomRight {
+    grid-row: 3/4;
+    grid-column: 3/4;
+    border-right: none;
+    border-bottom: none;
+}
+
+h1 {
+    font-size: 300%;
+}
+
+#playersTurn {
+    font-size: 200%;
+    margin-top: -15%;
+}
+
+#result {
+    font-size: 250%;
+    margin-top: -13%;
+}
+#clear {
+    font-size: 150%;
+    margin-top: -30%;
+}

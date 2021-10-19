@@ -29,9 +29,9 @@ const checkForWinner = () => {
             else if (!playerXTurn) {
                 message.innerText = "Player X Wins!"
             }
-            else if (tiedGame.length >= 7){
+            else if (tiedGame.length >= 8){
                 message.innerText = "Cat's game!"
-            }
+            }                      
              else {
             }
         }
@@ -50,9 +50,9 @@ const playerMoveX = () => {
             playerXTurn = false
             turn.innerText = "Time for Player O to make a choice."
         })
-        tiedGame.push("X")
-        checkForWinner()
     }
+    tiedGame.push("X")
+    checkForWinner()
 }
 const playerMoveO = () => {
     for (const square of move) {
@@ -65,9 +65,9 @@ const playerMoveO = () => {
             playerXTurn = true
             turn.innerText = "Time for Player X to make a choice"
         })
-        tiedGame.push("O")
-        checkForWinner()
     }
+    tiedGame.push("O")
+    checkForWinner()
 }
 function playGame() {
     if (playerXTurn) {

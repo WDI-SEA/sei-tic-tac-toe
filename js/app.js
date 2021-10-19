@@ -1,5 +1,5 @@
 let reset = document.querySelector('#resetGame')
-const squares = document.getElementsByTagName('p') // this is redundant code
+squares = document.getElementsByTagName('p') // this is redundant code
 let displayNextTurn = document.querySelector('h3')
 const square1 = document.querySelector('#square1')
 const square2 = document.querySelector('#square2')
@@ -10,14 +10,15 @@ const square6 = document.querySelector('#square6')
 const square7 = document.querySelector('#square7')
 const square8 = document.querySelector('#square8')
 const square9 = document.querySelector('#square9')
-
+const winnerText = document.querySelector('#winner')
 
 let currentPlayer = 'X'
 
+
 checkForTie = () => {
-        if (square1.innerText !== "" && square2.innerText !== "" && square3.innerText !== "" && square4.innerText !== "" 
+    if (square1.innerText !== "" && square2.innerText !== "" && square3.innerText !== "" && square4.innerText !== "" 
         && square5.innerText !== "" && square6.innerText !== "" && square7.innerText !== "" && square8.innerText !== "" && square9.innerText !== ""){
-            {setTimeout(function(){ alert('The game is a draw! Try again')}, 200)}  
+            {}  
         }
     }
 
@@ -29,45 +30,51 @@ const checkForWin = () => {
     switch(true){
         case (square1.innerText == 'X' && square5.innerText == 'X' && square9.innerText == 'X' || 
             square1.innerText == 'O' && square5.innerText == 'O' && square9.innerText == 'O' ):
-            {setTimeout(function(){ alert('You win the game!')}, 200)}
-            true
+            winnerText.innerHTML = "You Win!"
+            currentPlayer = "" 
             break
         case (square3.innerText == 'X' && square5.innerText == 'X' && square7.innerText == 'X' || 
             square3.innerText == 'O' && square5.innerText == 'O' && square7.innerText == 'O' ):
-            {setTimeout(function(){ alert('You win the game!')}, 200)}
+            winnerText.innerHTML = "You Win!"
+            currentPlayer = "" 
             break
         case (square2.innerText == 'X' && square5.innerText == 'X' && square8.innerText == 'X' || 
             square2.innerText == 'O' && square5.innerText == 'O' && square8.innerText == 'O' ):
-            {setTimeout(function(){ alert('You win the game!')}, 200)}
+            winnerText.innerHTML = "You Win!"
+            currentPlayer = "" 
             break
         case (square1.innerText == 'X' && square4.innerText == 'X' && square7.innerText == 'X' || 
             square1.innerText == 'O' && square4.innerText == 'O' && square7.innerText == 'O' ):
-            {setTimeout(function(){ alert('You win the game!')}, 200)}
+            winnerText.innerHTML = "You Win!"
+            currentPlayer = "" 
             break
         case (square1.innerText == 'X' && square2.innerText == 'X' && square3.innerText == 'X' || 
             square1.innerText == 'O' && square2.innerText == 'O' && square3.innerText == 'O' ):
-            {setTimeout(function(){ alert('You win the game!')}, 200)}
+            winnerText.innerHTML = "You Win!"
+            currentPlayer = "" 
             break
         case (square3.innerText == 'X' && square6.innerText == 'X' && square9.innerText == 'X' || 
             square3.innerText == 'O' && square6.innerText == 'O' && square9.innerText == 'O' ):
-            {setTimeout(function(){ alert('You win the game!')}, 200)}
+            winnerText.innerHTML = "You Win!"
             break
         case (square7.innerText == 'X' && square8.innerText == 'X' && square9.innerText == 'X' || 
             square7.innerText == 'O' && square8.innerText == 'O' && square9.innerText == 'O' ):
-            {setTimeout(function(){ alert('You win the game!')}, 200)}
+            winnerText.innerHTML = "You Win!"
+            currentPlayer = "" 
             break
         case (square4.innerText == 'X' && square5.innerText == 'X' && square6.innerText == 'X' || 
             square4.innerText == 'O' && square5.innerText == 'O' && square6.innerText == 'O' ):
-            {setTimeout(function(){ alert('You win the game!')}, 200)}
-            break
-        case (squares.innerText == 'X' || squares.innerText == "O" ):
-            {setTimeout(function(){ alert('The game is a draw! Try again')}, 200)} 
+            winnerText.innerHTML = "You Win!"
+            currentPlayer = "" 
             break
         default: 
-        if (square1.innerText !== "" && square2.innerText !== "" && square3.innerText !== "" && square4.innerText !== "" 
-        && square5.innerText !== "" && square6.innerText !== "" && square7.innerText !== "" && square8.innerText !== "" && square9.innerText !== ""){
-            {setTimeout(function(){ alert('The game is a draw! Try again')}, 200)}  
+        if (square1.innerText !== "" && square2.innerText !== "" && square3.innerText !== "" && 
+            square4.innerText !== "" && square5.innerText !== "" && square6.innerText !== "" 
+            && square7.innerText !== "" && square8.innerText !== "" && square9.innerText !== ""){
+            winnerText.innerHTML = "Cats game! try again" 
+            currentPlayer = "" 
         }
+        
     }}
 
 let changeTurn =  () => {
@@ -76,7 +83,6 @@ let changeTurn =  () => {
         displayNextTurn.innerHTML = "O, you're up!"
         checkForWin()
         // checkForTie()
-
     } else {
         currentPlayer = 'X'
         displayNextTurn.innerHTML = "X's turn"
@@ -163,6 +169,8 @@ const clearBoard = () => {
    square7.innerText = "" 
    square8.innerText = "" 
    square9.innerText = "" 
+   winnerText.innerHTML = ""
+   currentPlayer = "X"
 }
         
 reset.addEventListener('click', clearBoard)

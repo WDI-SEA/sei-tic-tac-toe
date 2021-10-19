@@ -39,6 +39,7 @@ section {
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     align-items: center;
+    text-align: center;
     background-image: url(https://i.imgur.com/5LxToH4.png);
 
 }
@@ -56,4 +57,6 @@ div {
     
 }
 
-
+#winner {
+    color: red;
+}

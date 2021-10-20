@@ -8,12 +8,35 @@
 //     }
 // }
 // document.addEventListener('click', ()=> {
+// const squares = document.getElementById("gameGrid")
 
-// })
-const cellElements = document.querySelectorAll("div.cell")
-    cellElements.forEach(cell => {
-        cell.addEventListener("click", handleClick, {once: true})
-    })
-    function handleClick(e) {
-        console.log('clicked')
-    }
+const cellElements = document.querySelectorAll("div.square")
+
+function changePlayer () {
+     currentPlayer = currentPlayer === "X" ? "O" : "X";
+    //  statusDisplay.innerHTML = currentPlayerTurn();
+ }
+
+cellElements.forEach(cell => {
+    cell.addEventListener("click", handleClick, {once: true})
+    // .innerText = "X"
+ })
+
+ function handleClick(e){
+     console.log(e.target)
+     e.target.innerText = currentPlayer
+     changePlayer ()
+ }
+
+
+
+
+let currentPlayer = "X";
+const changePlayerTurn = () => `It's ${currentPlayer} 's turn`;
+
+ 
+ 
+//place mark 
+//alternate X and O 
+//check for win
+//check for tie

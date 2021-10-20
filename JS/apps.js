@@ -1,39 +1,79 @@
-// eventListener that runs entire JS script once the website has loaded
-// bulk of functions should be within eventlistener
-document.addEventListener('DOMContentLoaded', () => {
+let currentPlayerIsX = true;
+let announcer = document.getElementById("announcer")
 
-    // variable storing all the tiles 
-    let tile = Array.from(document.querySelectorAll("tile"));
+// all the possible winning combos
+const winningCombos = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,3,6],
+    [1,4,7],
+    [0,4,8],
+    [2,4,6]
+]
 
-    // 8 possible winning conditions
-    const winningConditions = [
-        [0,1,2],
-        [3,4,5],
-        [6,7,8],
-        [0,3,6],
-        [1,4,7],
-        [2,5,8],
-        [0,4,8],
-        [2,4,8]
-    ]
-    // variable containing reset button, add eventlistener click to run
+let gameBoard = [" "," "," "," "," "," "," "," "," "]
 
-    // variable storing the gameboard itself 
+// function that checks for a winner by comparing current board to winning selections
+const checkForWinner = () => {
+
+
+}
+// function to determine if tile has been played
+
+// function to reset board on click of reset button
+const resetButton = () => {
+    tileOne.innerText = "";
+    tileTwo.innerText = "";
+    tileThree.innerText = "";
+    tileFour.innerText = "";
+    tileFive.innerText = "";
+    tileSix.innerText = "";
+    tileSeven.innerText = "";
+    tileEight.innerText = "";
+    tileNine.innerText = "";
+    announcer.innerText = "Player X goes first!"
+}
+
+// function that gets called when clickevent happens to a tile
+const playerMove = (e) => {
+    let tileClick = e.target
+    if(currentPlayerIsX){
+    tileClick.innerText = "X"
+    announcer.innerText = "Player O turn"
+    currentPlayerIsX = false;
     
-    // variable storing the current player playing
-
-    // variable containing the announcer, let announcer text change depending on winner/player
-
-    // array containing all possible win conditions for TTT
-
-    // function to determine if valid move(ex. cant click an already clicked tile)
-
-    // function that uses the winning conditions array to determine if there is a winner and also checks for cats game
+    } else {
+    tileClick.innerText = "O"
+    announcer.innerText = "Player X turn"
+    currentPlayerIsX = true;
+    }
     
-    // function that keeps updating the gameboard
-    // function to make all tiles clickable 
-    tile.addEventListener()
+    
+    
+}
+let tileOne = document.getElementById("tile1") 
+let tileTwo = document.getElementById("tile2")
+let tileThree = document.getElementById("tile3")
+let tileFour = document.getElementById("tile4") 
+let tileFive = document.getElementById("tile5")
+let tileSix = document.getElementById("tile6") 
+let tileSeven = document.getElementById("tile7") 
+let tileEight = document.getElementById("tile8")
+let tileNine = document.getElementById("tile9") 
+tileOne.addEventListener('click', playerMove)
+tileTwo.addEventListener('click', playerMove)
+tileThree.addEventListener('click', playerMove)
+tileFour.addEventListener('click', playerMove)
+tileFive.addEventListener('click', playerMove)
+tileSix.addEventListener('click', playerMove)
+tileSeven.addEventListener('click', playerMove)
+tileEight.addEventListener('click', playerMove)
+tileNine.addEventListener('click', playerMove)
+document.getElementById("reset").addEventListener('click', resetButton)
 
-    //
+    
 
-})
+
+
+

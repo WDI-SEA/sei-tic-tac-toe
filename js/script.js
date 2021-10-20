@@ -26,8 +26,9 @@ function playerOne() {
                 rulesX.innerHTML = "Now it is O's turn"
                 rulesO.innerHTML = " "
                 playerOneTurn = false
-                gamePlay()
                 findingTie.push(clickedDiv.innerText)
+                gamePlay()
+                // console.log(findingTie.length)
             } else if (!playerOneTurn) {
                 swithToPlayerTwo()
             }
@@ -52,8 +53,9 @@ function swithToPlayerTwo() {
                 rulesX.innerHTML = "Now it is X's turn"
                 rulesO.innerHTML = " "
                 playerOneTurn = true
-                gamePlay()
                 findingTie.push(clickedDiv.innerText)
+                gamePlay()
+                // console.log(findingTie.length)
             } else if (playerOneTurn) {
                 playerOne()
             } 
@@ -63,13 +65,10 @@ function swithToPlayerTwo() {
 
 
 function gameTie () {
-       if (findingTie.length >= 7 && findingTie.length < 8) {
+        // console.log('gameTie function',findingTie.length)
+       if (findingTie.length == 9) {
         rulesX.innerHTML = `ITS A TIE!`
-        rulesO.innerHTML = ``
-        console.log(findingTie)
-     } else if (findingTie.length >= 8) {
-         alert('Please, Press the start button to restart the game')
-         window.location.reload()
+        rulesO.innerHTML = ` `
      }
 }
 
@@ -87,11 +86,9 @@ function gamePlay () {
     || document.getElementById('square1').innerText == 'X' && document.getElementById('square5').innerText == 'X' && document.getElementById('square9').innerText == 'X'
     || document.getElementById('square3').innerText == 'X' && document.getElementById('square5').innerText == 'X' && document.getElementById('square7').innerText == 'X') {
 
-        rulesX.innerHTML = `The Winner is: X `
-        rulesO.innerHTML = ``
-        alert('Please, Press the start button to restart the game')
-         window.location.reload()
-
+        rulesX.innerHTML = `The Winner is: X ` 
+        rulesO.innerHTML = ` ` 
+        setTimeout(gameReset, 4000)
     } else if (
         // O wining by row
         document.getElementById('square1').innerText == 'O' && document.getElementById('square2').innerText == 'O' && document.getElementById('square3').innerText == 'O' 
@@ -107,8 +104,7 @@ function gamePlay () {
         
         rulesX.innerHTML = `The Winner is: O `
         rulesO.innerHTML = ``
-        alert('Please, Press the start button to restart the game')
-         window.location.reload()
+        setTimeout(gameReset, 4000)
     } else {
         gameTie()
     }
@@ -116,8 +112,17 @@ function gamePlay () {
 
 // reset game
 function gameReset () { 
-    window.location.reload()
+    for (let i = 0; i < div.length; i++) {
+        div[i].innerText = " "
+    }
+    findingTie = []
+    rulesX.innerHTML = `Game has been reset`
+    rulesO.innerHTML = `Please press Start Game to play again`
 }
+
+// function gameResetAfterWin () {
+
+// }
 
 // press button to start game
 startButton.addEventListener('click', gameStart)

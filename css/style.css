@@ -30,7 +30,7 @@ h1 {
     min-width: 100vh;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: row, 3;
     flex-wrap: wrap;
 }
 .square {

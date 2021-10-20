@@ -78,7 +78,7 @@ const resetButton = () => {
 let turnCount = 0
 // function that checks for tie 
 const isTie = () => {
-    if(turnCount == 8){
+    if(turnCount == 8 && gameActive){
         announcer.innerText = "Cats game! Its a tie!"
     } else {
         turnCount++

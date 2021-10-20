@@ -21,12 +21,21 @@ h1 {
     justify-content: center;
     display: flex;
     font-size: 120px;
+    font-family:'Permanent Marker', cursive;
+    background-color: white;
 }
+    
 
-#playerTurn{
-    font-size: 90px;
+.button {
+   border: none;
+   width: 50%;
+   background-color: rgb(61, 87, 143);
+   font-family:'Permanent Marker', cursive;
+   font-size: 120px;
+   justify-content: center;
+   
+    
 }
-
 
 #restart{
     position: absolute;

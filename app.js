@@ -3,8 +3,10 @@ let player1 = "X"
 let player2 = "O"
 let isPlaying = false; 
 let activePlayer = null;
+let status = ["", "", "", "", "", "", "", "", "" ]
 
 const reset = document.getElementById("reset")
+
 
 // click on different squares to make a move
 const elements = document.querySelectorAll(".tic")
@@ -37,9 +39,14 @@ const determineIfGameHasEnded = () => {
         if (a === b && b === c) {
             console.log('GAME WON');
             return true
+        } if (turnsTaken === 9) {
+            messageDiv.innerHTML = "Draw!";
         }
+
     }
 }
+
+
 
 const removeEventListeners = () => {
     // Loop through all the elements after the game has finished and remove the attached event listeners to prevent the changing of innerHTML
@@ -53,19 +60,24 @@ const clickListener = (event) => {
         if (event.target.innerHTML !== "") {
             return
         }
-        turnsTaken++;
+
+
+
         // if number is even, then player 1. Odd is player 2.
         // every click will alternate between X and O
         // use JS to add X or O to the cell depending on who's turn it is
         if (Number.isInteger(turnsTaken / 2)) {
             event.target.innerHTML = player2
             messageDiv.innerHTML = "First Player!";
-            activePlayer = 'Player 2';
+            activePlayer = 'Player 1';
+            turnsTaken++
         } else {
             event.target.innerHTML = player1
             messageDiv.innerHTML = "Second Player!";
-            activePlayer = 'Player 1';
+            activePlayer = 'Player 2';
+            turnsTaken++
         }
+
         // Is playing is the inverse of determineIfGameHasEnded. So if the function returns true, isPlaying will be false. 
         isPlaying = !determineIfGameHasEnded();
         if (!isPlaying) {
@@ -96,6 +108,8 @@ reset.addEventListener('click', () => {
     turnsTaken = 0; 
     init();
 })
+
+
 
 
 

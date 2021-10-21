@@ -20,7 +20,7 @@ const turnIndicator = () => {
     } else {
         currentTurn = turnX
     }
-    playersTurn.innerText = `It's ${currentTurn}'s turn!`
+    playersTurn.innerText = currentPlayerTurn()
 }
 
 let space = []
@@ -29,19 +29,18 @@ const moveMade = (event) => {
     const position = event.target.getAttribute('id')
     // console.log('this id is the position of \n', position)
     // Upon marking of an individual cell, use JavaScript to add an X or O to the cell, according to whose turn it is.
+    console.log(space.length)
     if (!space[position]) {
         space[position] = currentTurn
-        console.log('this is the currentTurn\n', currentTurn)
+        // console.log('this is the currentTurn\n', currentTurn)
         event.target.innerText = currentTurn
         space.push(event.target.innerText)
-        console.log(space)
+        // console.log(`space arr is keeping track of # of turns it\n,` space)
         // Check win combinations on the board contents after every move.
         if (checkWin() === false){
             turnIndicator()
-        } else if (checkWin() === true){
-            event.target.innerText === null
-        }
-        if (checkTie() === true) {
+        } 
+        if ((space.length) >= 8 && checkWin() === false) {
             gameResults.innerText = "Game over. It's a tie!"
         }        
         turnIndicator()
@@ -52,7 +51,7 @@ const moveMade = (event) => {
     
 const board = Array.from(document.getElementsByClassName('tttBox'))
 // console.log(board)
-
+let winner = `Player ${currentTurn} is the winner! Play again?`
 
 // Detect winner: Stop game and declare the winner if one player ends up getting three in a row.
 // Hint: Determine a set of winning combinations.
@@ -89,17 +88,18 @@ const checkWin = () => {
         } 
     }
 }
-
-// Detect draw conditions (ties/cat's game)
-const checkTie = () => {
-    if (space.length === 9 && checkWin() !== true) {
-        console.log(`Game over. It's a tie!`)
-        return true
-    }
+// // You should not be able to click remaining empty cells after the game is over.
+const endMoves = (event) => {
+    event.target = null
 }
 
-// // You should not be able to click remaining empty cells after the game is over.
-
+// Detect draw conditions (ties/cat's game)
+// const checkTie = () => {
+//     if ( && checkWin() !== truespace.length === 9) {
+//         // console.log(`Game over. It's a tie!`)
+//         return true
+//     }
+// }
 
 // Add a reset button that will clear the contents of the board.
 const clearBoard = () => {

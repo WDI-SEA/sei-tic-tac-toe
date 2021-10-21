@@ -67,3 +67,30 @@ align-items: center;
 font-size: 8em;
 
 }
+
+.reset {
+  width: 20px;
+  height: 20px;
+}
+
+.x::before {
+  content: 'x';
+  font-size: 200px;
+
+}
+
+.o::before  {
+  content: 'o';
+  font-size: 200px;
+
+}
+
+.xW::after {
+  content: 'X is the winner! ';
+  font-size: 100px;
+}
+
+.oW::after {
+  content: 'O is the winner! ';
+  font-size: 100px;
+}

@@ -1,9 +1,15 @@
 body {
-    background-color: lightgray;
+    background-color:rgb(51, 136, 145);
 }
 
 h1 {
-    color: black;
+    color: whitesmoke;
+    font-family: 'Rampart One';
+}
+
+h2 {
+  font-family: 'Rampart One';
+  color: whitesmoke;
 }
 
 .mainBlock {
@@ -18,11 +24,11 @@ h1 {
   .containerChild {
     width: 200px;
     height: 200px;
-    background: rgb(74, 94, 180);
+    background: rgb(110, 171, 172);
     display: table-cell;
     align-items: center;
     justify-content: center;
-    border: 5px solid black;
+    border: 5px solid whitesmoke;
   }
 
   

@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Tic-Tac-Toe</title>
 </head>
@@ -13,27 +16,26 @@
     <!-- Restart button will retsart the game-->
     <button id="reset">Reset</button>
     <!-- <h2 id="messageDisplay"></h2> -->
-    <h2 id="player1Message"></h2>
-    <h2 id="player2Message"></h2>
+    <h2 id="gameMessage"></h2>
 
     <!-- The gameboard page should include the 3x3 grid (of divs), 
     and at minimum a reset button. 
     Using id and/or class on clickable elements will help you wire this up in JavaScript afterwards. -->
     <div id="mainContainer" class=mainBlock>
         <div id="subContainer" class="subBlocks">
-            <div id="square0" class="containerChild"></div>
-            <div id="square1" class="containerChild"></div>
-            <div id="square2" class="containerChild"></div>
-        </div>
+            <div data-cell-index="0" class="containerChild"></div>
+            <div data-cell-index="1" class="containerChild"></div>
+            <div data-cell-index="2" class="containerChild"></div>
+        </div>    
         <div id="subContainer" class="subBlocks">
-            <div id="square3" class="containerChild"></div>
-            <div id="square4" class="containerChild"></div>
-            <div id="square5" class="containerChild"></div>
-        </div>
+            <div data-cell-index="3" class="containerChild"></div>
+            <div data-cell-index="4" class="containerChild"></div>
+            <div data-cell-index="5" class="containerChild"></div>
+        </div>    
         <div id="subContainer" class="subBlocks">
-            <div id="square6" class="containerChild"></div>
-            <div id="square7" class="containerChild"></div>
-            <div id="square8" class="containerChild"></div>
+            <div data-cell-index="6" class="containerChild"></div>
+            <div data-cell-index="7" class="containerChild"></div>
+            <div data-cell-index="8" class="containerChild"></div>
         </div>
         <script src="js/app.js"></script>
 </body>

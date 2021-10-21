@@ -1,194 +1,108 @@
-// Select elements and attach functions via event listeners
-const subContainer = document.querySelector('#subContainer')
-const reset = document.querySelector('#reset')
-// let message = document.querySelector('#messageDisplay')
-let player1Message = document.querySelector('#player1Message')
-let player2Message = document.querySelector('#player2Message')
+const gameMessage = document.querySelector('#gameMessage')
 const start = document.querySelector('#start')
+// This will determine if the game is active
+let gameStatus = true
 
-// You will also need a variable to keep track of moves.
+// Plare indicator
+let currentPlayer ="X"
+let gameFunction = ["", "", "", "", "", "", "", "", ""]
 
-let currentPlayer = ""
-const player1 = "X"
-const player2 = "O"
+// Who won
+// Indicating if the game ended in a draw
+// Indicating whose turn it is
+const winningMessage = () => `Player ${currentPlayer} is the winner!`
+const drawMessage = () => `Its a draw! Play again.`
+const whoseTurn = () => `It's ${currentPlayer}'s turn.`
 
-// pseudo code - this logic needs to be somewhere in the gameplay
-// currentPlayer = player1
-// currentPlayer = player2
+gameMessage.innerHTML = whoseTurn()
 
+// This will be used to indicate the winner
+const howToWin = [
+    [0, 1, 2], 
+    [3, 4, 5], 
+    [6, 7, 8], 
+    [0, 3, 6], 
+    [1, 4, 7], 
+    [2, 5, 8], 
+    [0, 4, 6],
+    [2, 4, 6]]
 
-// let winner;
-// later on when there is a winner you assign winner to winner
-// const winner = player1
-const boxList = document.querySelectorAll('.containerChild')
-// const gameBoard = getElementsByClassName("mainBlock"[0])
-
-//This will be used to indicate whether or not to draw an X or an O
-const howToWin = [[0, 1, 2,], [3, 4, 5], [6, 7, 8], [0, 4, 8], [2, 4, 6], [0, 3, 6,], [2, 5, 8,]]
-
-function startGame() {
-    console.log('starting game')
-    playPlayer1()
+// This will indicate which square was played
+function squarePlayed(clickedSquare, clickedSquareIndex) {
+    gameFunction[clickedSquareIndex] = currentPlayer
+    clickedSquare.innerHTML = currentPlayer
 }
 
-// function playPlayer() {
-//     currentPlayer = player1
-
-//     // let boxes;
-//     for (let i = 0; i < 9; i++) {
-//         boxList[i].addEventListener('click', e => {
-//             let box = e.target
-
-//             if (box.innerText === '' && currentPlayer === player1) {
-//                 box.innerText = 'X'
-//             }
-//         })
-//     }
-//     // console.log('these are the boxes', boxes)
-
-// }
-
-function playPlayer1() {
-    // console.log(
-    //     'we are inside playPlayer1',
-    //     'boxList', boxList,
-    //     )
-    for (let i = 0; i < 9; i++){
-        boxList[i].addEventListener('click', (e) => {
-            let box = e.target
-
-            console.log('inner text BEFORE', box.innerText)
-            console.log('testing here', e.currentTarget.innerText)
-            if (box.innerText == "") {
-                box.innerText = "X"
-                console.log('inner text AFTER', box.innerText)
-                player1Message.innerHTML + player2 + "'s turn."
-                player2Message.innerHTML = ""
-                playPlayer2()
-            } else if (box.innerText == "X" || box.innerText == "O") {
-                box.innerText = "X"
-                player1Message.innerHTML + player2 + "'s turn."
-                player2Message.innerHTML = ""
-                playPlayer2()
-                // player1Message.innerHTML = "Box not available, please try again"
-            }
-        })
-    }
+// How the players change
+function changingPlayers() {
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    gameMessage.innerHTML = whoseTurn()
 }
-
-function playPlayer2() {
-    console.log("we are inside")
-    for (let i = 0; i < 9; i++) {
-        boxList[i].addEventListener('click', (e) => {
-            let box = e.target
-
-            if (box.innerText == "") {
-                box.innerText = "O"
-                player1Message.innerHTML = "It's " + player1 + "'s turn."
-                player2Message.innerHTML = ""
-                playPlayer1()
-            } else if (box.innerText == "X" || box.innerText == "O") {
-                box.innerText = "O"
-                player1Message.innerHTML = "It's " + player2 + "'s turn."
-                player2Message.innerHTML = ""
-                playPlayer1()
-                // player1Message.innerHTML = "Box not available, please try again"
-            }
-        })
-    }
-}
-
-
-// document.getElementById("myBtn").addEventListener("click", myFunction);
+// How to win the game
 function gamePlay() {
-    console.log('click')
+    let winnerOfRound = false
+    for (let i = 0; i <= 7; i++) {
+        const winCondition = howToWin[i]
+        let a = gameFunction[winCondition[0]]
+        let b = gameFunction[winCondition[1]]
+        let c = gameFunction[winCondition[2]]
 
-    // currentPlayer = player1
-    // playPlayer1()
-
-    for (let i = 0; i < 9; i++) {
-        boxList[i].addEventListener('click', startGame)
-        // boxList[i].addEventListener('click', clickCheckO)
-        // boxList[i].addEventListener('click', clickCheck)
-        console.log("This is boxList[i]", boxList[i])
+        if (a === '' || b === '' || c === '') {
+            continue;
+        }
+        if (a === b && b === c) {
+            winnerOfRound = true
+            break
+        }
     }
 
+    if (winnerOfRound) {
+        gameMessage.innerHTML = winningMessage()
+        gameStatus = false
+        return;
+    }
+
+    let roundDraw = !gameFunction.includes("")
+    if (roundDraw) {
+        gameMessage.innerHTML = drawMessage()
+        gameStatus = false
+        return;
+    }
+
+    changingPlayers()
 }
 
-    
-    // function clickCheck(e) {
-    //     let box = e.target
+//clicked square functionality 
+function squareClicked(clickedSquareEvent) {
+    const clickedSquare = clickedSquareEvent.target;
+    const clickedSquareIndex = parseInt(clickedSquare.getAttribute('data-cell-index'))
 
-    //     if (currentPlayer === player1) {
-    //         box = 'X'
-    //     } else {
-    //         box = 'O'
-    //     }
-    // }
+    if (gameFunction[clickedSquareIndex] !== "" || !gameStatus) {
+        return;
+    }
 
-    
-// Gameplay
-// function clickCheckX(event) {
-//     let  box = event.target
-//     console.log(box)
-//     // If innerText  is not filled/empty then have it filled with the first letter I want (either X or O)
-//     // if (innerHTML == false) {
-//         box.innerHTML = "X"
-//         console.log(box.innerHTML) 
-//         // 
-//         if (currentPlayer) {
-//             box = "X"
-//         } else {
-//             box = "O"
-//         }
-//     }
+    squarePlayed(clickedSquare, clickedSquareIndex)
+    gamePlay();
+}
 
-//     function clickCheckO(event) {
-//         let  box = event.target
-//         console.log(box)
-//         // If innerText  is not filled/empty then have it filled with the first letter I want (either X or O)
-//         // if (innerHTML == false) {
-//             box.innerHTML = "O"
-//             console.log(box.innerHTML) 
-//             if (box == player2 === "O" ? "X" : "O") {
-//                 box = "O"
-//                 message.innerHTML = "Player 1's turn!"
-//                 console.log(message)
+function resetGame() {
+    gameStatus = true
+    currentPlayer = "X"
+    gameFunction = ["", "", "", "", "", "", "", "", ""]
+    gameMessage.innerHTML = whoseTurn()
+    document.querySelectorAll('.containerChild').forEach(square => square.innerHTML = "")
+}
 
-//             } else if (box == "X") {
-//                 console.log("It's Player 2's turn")
-//             }   
-//         }
-    
-    // }
-    // return innerHTML
-
-
-
-// This will tell me whose turn it is.
-//     if (player1 = player1 === "X" ? "O" : "X");
-// } else if ()    
-//     console.log("Player 2's turn!")
-//     message.innerHTML = player1();
-// } 
-
-
-// let whoseTurn = function(square) {
-//     if (player2 = player2 === "O" ? "X" : "O");
-//     message.innerHTML = player2();
-// }
-
-
-// Check for winner or for draw
-//if & else statements, for loops, addEventListeners
-
-
-
-
+document.querySelectorAll('.containerChild').forEach(square => square.addEventListener('click', squareClicked))
+document.querySelector('#reset').addEventListener('click', resetGame)
+console.log(resetGame)
 
 document.addEventListener('DOMContentLoaded', () => {
-    start.addEventListener('click', startGame)
+    start.addEventListener('click', gamePlay
+    )
+    console.log("click")
     // start.addEventListener('click', gamePlay)
 
     // reset.addEventListener('click', gamePlay)
 })
+

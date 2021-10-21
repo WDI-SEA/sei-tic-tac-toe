@@ -26,11 +26,11 @@ h1 {
 }
 #board {
     display: flex;
-    min-height: 100vh;
-    min-width: 100vh;
+    min-height: 60vh;
+    min-width: 60vh;
     justify-content: center;
     align-items: center;
-    flex-direction: row, 3;
+    flex-direction: row;
     flex-wrap: wrap;
 }
 .square {
@@ -38,6 +38,9 @@ h1 {
     height: 33.3%;
     width: 33.3%;
     border: 10px solid black;
+    font-family: fantasy;
+    font-size: 50px;
+    color:rgb(0, 0, 0);
 }
 
 #button-1, #button-3, #button-5, #button-7, #button-9 {

@@ -17,7 +17,7 @@ section {
     grid-template-rows: return (3, 1fr);
     justify-items: center;
     align-items: center;
-    margin-top: -15%;
+    /* margin-top: -9%; */
 }
 
 .tttBox {
@@ -93,14 +93,14 @@ h1 {
 
 #playersTurn {
     font-size: 200%;
-    margin-top: -15%;
+    /* margin-top: -10%; */
 }
 
 #result {
     font-size: 250%;
-    margin-top: -13%;
+    /* margin-top: -5%; */
 }
 #clear {
     font-size: 150%;
-    margin-top: -30%;
+    /* margin-top: -10%; */
 }

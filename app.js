@@ -1,5 +1,5 @@
 let playersTurn = document.getElementById('playersTurn')
-let box = document.getElementsByClassName('tttBox')
+const box = document.getElementsByClassName('tttBox')
 const gameResults = document.getElementById('result')
 const clearButton = document.getElementById('clear')
 
@@ -23,91 +23,82 @@ const turnIndicator = () => {
     playersTurn.innerText = `It's ${currentTurn}'s turn!`
 }
 
-
-let space = ['', '', '', '', '', '', '', '', '']
-const tieGame = "No winner. It's a tie!"
+let space = []
 // A user should be able to click on different squares to make a move.
 const moveMade = (event) => {
     const position = event.target.getAttribute('id')
-    // console.log('this id is the position of\n', position)
+    // console.log('this id is the position of \n', position)
     // Upon marking of an individual cell, use JavaScript to add an X or O to the cell, according to whose turn it is.
     if (!space[position]) {
         space[position] = currentTurn
-        // console.log(currentTurn)
+        console.log('this is the currentTurn\n', currentTurn)
         event.target.innerText = currentTurn
-        turnIndicator()
-        // Check those combinations on the board contents after every move.
-        if (checkWin()) {
-            gameResults.innerText = `Player ${currentTurn} is the winner!`
-            return
+        space.push(event.target.innerText)
+        console.log(space)
+        // Check win combinations on the board contents after every move.
+        if (checkWin() === false){
+            turnIndicator()
+        } else if (checkWin() === true){
+            event.target.innerText === null
         }
-    // }
-    // if (checkDraw()) {
-    //     return
-    } else {
-        playersTurn.innerText = `A play has already been made in this box! Please select an empty space, Player ${currentTurn}.`
+        if (checkTie() === true) {
+            gameResults.innerText = "Game over. It's a tie!"
+        }        
+        turnIndicator()
+        } else {
+            playersTurn.innerText = `A play has already been made in this box! Please select an empty space, Player ${currentTurn}.`
         }
     }
     
-    const board = Array.from(document.getElementsByClassName('tttBox'))
-    // console.log(board)
-    
-    const winPaths = [
-        // [0, 1, 2],
-        // [3, 4, 5],
-        // [6, 7, 8],
-        // [0, 3, 6],
-        // [1, 4 ,7],
-        // [2, 5 ,8],
-        // [0, 4, 8],
-        // [6, 4, 2]
-    ]
-    
+const board = Array.from(document.getElementsByClassName('tttBox'))
+// console.log(board)
+
+
 // Detect winner: Stop game and declare the winner if one player ends up getting three in a row.
-    // Hint: Determine a set of winning combinations.
+// Hint: Determine a set of winning combinations.
 const checkWin = () => {
+    let winner = `Player ${currentTurn} is the winner! Play again?`
     if (board[0].innerText === currentTurn) {
         if (board[1].innerText === currentTurn && board[2].innerText === currentTurn) {
-            return true
+            gameResults.innerText = winner
         }
         if (board[3].innerText === currentTurn && board[6].innerText === currentTurn) {
-            return true
+            gameResults.innerText = winner
         }
         if (board[4].innerText === currentTurn && board[8].innerText === currentTurn) {
-            return true
+            gameResults.innerText = winner
         }
     }
     if (board[4].innerText === currentTurn) {
         if (board[3].innerText === currentTurn && board[5].innerText === currentTurn) {
-                return true
+            gameResults.innerText = winner
         }
         if (board[1].innerText === currentTurn && board[7].innerText === currentTurn) {
-                return true
+            gameResults.innerText = winner
         }
         if (board[6].innerText === currentTurn && board[2].innerText === currentTurn) {
-                return true
+            gameResults.innerText = winner
         } 
     }
     if (board[8].innerText === currentTurn) {
         if (board[6].innerText === currentTurn && board[7].innerText === currentTurn) {
-                    return true
+            gameResults.innerText = winner
         }
         if (board[2].innerText === currentTurn && board[5].innerText === currentTurn) {
-                    return true
-        } else {
-            return false
-        }    
+            gameResults.innerText = winner
+        } 
     }
 }
 
 // Detect draw conditions (ties/cat's game)
- const checkDraw = () => {
-    for (let i = 0; i < board.length; i++) {
-        if (board[i] !== null)
+const checkTie = () => {
+    if (space.length === 9 && checkWin() !== true) {
+        console.log(`Game over. It's a tie!`)
         return true
     }
- }
-// You should not be able to click remaining empty cells after the game is over.
+}
+
+// // You should not be able to click remaining empty cells after the game is over.
 
 
 // Add a reset button that will clear the contents of the board.
@@ -115,10 +106,10 @@ const clearBoard = () => {
     board.forEach(tttBox => {
         tttBox.innerText = ''
     })
-    space = ['', '', '', '', '', '', '', '', '']
+    space = []
     playersTurn.innerText = 'New Game! Player X Starts.'
     gameResults.innerText = ''
-    moveMade()
+    currentTurn = turnX
 }
 
 document.querySelectorAll('.tttBox').forEach(tttBox => tttBox.addEventListener('click', moveMade))

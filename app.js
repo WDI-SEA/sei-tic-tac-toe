@@ -41,9 +41,13 @@ const playableBoxes = [
 // const endTurn =()=> {e.target = null}
 
 // loops over all playable boxes and adds click event listener to each
-for (let i = 0; i < playableBoxes.length; i++) {
-  playableBoxes[i].addEventListener("click", playerTurn, { once: true })
+
+const eventListenerGenerator = () => {
+  for (let i = 0; i < playableBoxes.length; i++) {
+    playableBoxes[i].addEventListener("click", playerTurn, { once: true })
+  }
 }
+eventListenerGenerator()
 
 let countingClicks = 0
 
@@ -62,8 +66,12 @@ function playerTurn(e) {
   if (countingClicks >= 5) {
     checkWinner()
   }
+  if (countingClicks == 9 && checkWinner != true) {
+    notifier.innerText = "It's a tie!"
+  }
 }
 
+// find out how to return truthy values and pass it to a variable
 function checkWinner() {
   if (
     // b1=b2=b3
@@ -72,7 +80,8 @@ function checkWinner() {
     boxOne.innerText != ""
   ) {
     notifier.innerText = "We have a winner!"
-    playableBoxes.disabled = true
+    playArea.style.pointerEvents = "none"
+    return true
   }
   if (
     //b4=b5=b6
@@ -81,7 +90,8 @@ function checkWinner() {
     boxFour.innerText != ""
   ) {
     notifier.innerText = "We have a winner!"
-    playableBoxes.disabled = true
+    playArea.style.pointerEvents = "none"
+    return true
   }
   if (
     // b7= b8 =b9
@@ -90,7 +100,8 @@ function checkWinner() {
     boxSeven.innerText != ""
   ) {
     notifier.innerText = "We have a winner!"
-    playableBoxes.disabled = true
+    playArea.style.pointerEvents = "none"
+    return true
   }
   if (
     // b1=b4=b7
@@ -99,7 +110,8 @@ function checkWinner() {
     boxOne.innerText != ""
   ) {
     notifier.innerText = "We have a winner!"
-    playableBoxes.disabled = true
+    playArea.style.pointerEvents = "none"
+    return true
   }
   if (
     // b2=b5=b8
@@ -108,7 +120,8 @@ function checkWinner() {
     boxTwo.innerText != ""
   ) {
     notifier.innerText = "We have a winner!"
-    playableBoxes.disabled = true
+    playArea.style.pointerEvents = "none"
+    return true
   }
   if (
     // b3 =b6 =b9
@@ -117,7 +130,8 @@ function checkWinner() {
     boxThree.innerText != ""
   ) {
     notifier.innerText = "We have a winner!"
-    playableBoxes.disabled = true
+    playArea.style.pointerEvents = "none"
+    return true
   }
   if (
     // b1=b5=b9
@@ -126,7 +140,8 @@ function checkWinner() {
     boxNine.innerText != ""
   ) {
     notifier.innerText = "We have a winner!"
-    playableBoxes.disabled = true
+    playArea.style.pointerEvents = "none"
+    return true
   }
   if (
     boxThree.innerText == boxFive.innerText &&
@@ -134,7 +149,8 @@ function checkWinner() {
     boxFive.innerText != ""
   ) {
     notifier.innerText = "We have a winner!"
-    // playableBoxes.disabled = true
+    playArea.style.pointerEvents = "none"
+    return true
   }
 }
 
@@ -151,14 +167,17 @@ function checkWinner() {
 //   }
 // }
 
-// reset button in progress
+// reset button
 resetButton.addEventListener("click", () => {
   for (i = 0; i < allBoxes.length; i++) {
     allBoxes[i].textContent = ""
-    playableBoxes.disabled = false
+    playableBoxes.enabled = true
   }
   countingClicks = 0
   console.log("working reset")
+  eventListenerGenerator()
+  notifier.innerText = ""
+  playArea.style.pointerEvents = "auto"
 })
 
 //  const clearTable=()=> {

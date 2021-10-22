@@ -32,6 +32,7 @@ function winCombo() {
         for (let j = 0; j < arr1.length; j++) {
             let paragraph = document.getElementById("p" + arr1[j]);   
             possibleWins = possibleWins + paragraph.innerText;
+            
         }
         if (possibleWins === "ooo") {
             let winningMessage = document.getElementById("winningMessage");
@@ -41,7 +42,14 @@ function winCombo() {
             let winningMessage = document.getElementById("winningMessage");
             winningMessage.innerText = "player X wins!";
             isThereAWinner = true;
-        } 
+        } else {
+            const allDivs = document.querySelectorAll(".disable");
+            if (allDivs.length === 8) {
+                let winningMessage = document.getElementById("winningMessage");
+                winningMessage.innerText = "it's a draw!";
+                isThereAWinner = false;
+            }
+        }
     }
 }
 // listen for a click on the box
@@ -49,26 +57,24 @@ const onBoxClick = (boxId) => {
     // if all the boxes are clicked
     if (isThereAWinner === true || numberOfBoxClicks > 8) {
         return;
-    }
+    } else  
+    
     numberOfBoxClicks = numberOfBoxClicks + 1;
     // console.log("hello" + boxId);
     const playerChoice = document.getElementById("p" + boxId);
     console.log(playerChoice);
     playerChoice.innerText = nextMove;
+    // player x goes first
     if (nextMove === "x") {
         nextMove = "o";
+    // then player o goes
     } else { 
         nextMove = "x";
     }
     winCombo();
+    document.querySelector('#box'+ boxId).classList.add('disable')
 }
-// write a function that will check for a tie
-// let onBoxClick = (boxId) => {
-//     if (isThereAWinner === false || numberOfBoxClicks > 8) {
-//         return "it's a tie!";
-//     }
-// }
-// write a function that will refresh the game when "play again" button is clicked
+// write a function to refresh page
 function reload() {
     reload = location.reload();
 }

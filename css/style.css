@@ -33,11 +33,21 @@ h1 {
    font-family:'Permanent Marker', cursive;
    font-size: 120px;
    justify-content: center;
-   
-    
 }
 
-#restart{
+#printWin {
+    font-size: 30px;
+    position: relative;
+    margin-left: 38%;
+}
+    
+#playerTurn {
+    font-size: 30px;
+    position: relative;
+    margin-left: 38%;
+}
+
+#restartButton{
     position: absolute;
     margin-top: 500px;
     align-self: center;

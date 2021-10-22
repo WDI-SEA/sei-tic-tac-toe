@@ -1,96 +1,123 @@
 body { 
-  margin: 0;
+  color: white;
+  background-color: black;
+   margin: 0;
    padding : 0;
-   /* min-height: 100vh; */
    width: 100%;
    box-sizing: border-box;
 }
 
 .main-container {
- border: 3px black solid;
+ margin: 0;
+ padding : 0;
+ border: 10px black solid;
  width: 100%;
  height: 100vh;
+ display: flex;
  justify-content: center;
- align-content: center;
+ align-items: center;
+ position: relative
 }
 
 .head {
- height: 5%;
- text-align: center;
+  margin-top:1%;
+  font-size: 2em;
+  text-align: center;
 }
 
-#tic-tac-board {
- border: 2px solid blue;
- width: 450px;
- height:65%; 
- display: flex;
- flex-wrap: wrap;
- /* flex-direction:column; */
- justify-content: center;
- align-content: center;
+.board{
+  justify-content: center;
+  position: relative;
+  width: 450px;
+  height:400px;
+  display: flex;
+  flex-wrap: wrap;
+  bottom:10%;
+  margin-right: 5.5%;
 }
 
 .box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 4px solid gray;
+  margin: 0px;
   width: 140px;
-  height: 150px; 
+  height:140px;
+  border: 4px solid white;
+  position: relative;
   }
 
- 
- /* .board-level{
-     display: flex;
-     border: 5px solid red;
-     width: 100%;
-     height: 100%
- }  */
 
-.score {
-  border: 2px solid red;
- width: 100%;
- height:10%;
+.player {
+  border: 4px solid white;
+  font-size: 2em;
+  bottom: 34.5%;
+  position: relative;
+  right :4%;
 }
 
-.result {
-  border: 2px solid yellow;
- width: 100%;
- height:15%;
-}
 
-.div-x{
- border:yellow solid 12px;
-justify-content:center;
-display:flex;
-align-items: center;
-font-size: 8em;
-
-}
-
-.reset {
-  width: 20px;
-  height: 20px;
+#restart {
+  font-size: 2em;
+  right:52%;
+  bottom: 23%;
+  position: relative;
+  background-color: black;
+  color: white;
 }
 
 .x::before {
-  content: 'x';
+  content: "x";
   font-size: 200px;
+  margin-left: 15%;
+  position:relative;
+  bottom: 50%;
 
 }
 
 .o::before  {
-  content: 'o';
+  
+  content: "o";
   font-size: 200px;
+  margin-left: 15%;
+  position:relative;
+  bottom: 50%;
+
 
 }
 
 .xW::after {
-  content: 'X is the winner! ';
-  font-size: 100px;
+  position: absolute;
+  content: "Player X is the winner! ";
+  font-size: 70px;
+  top: 30%;
+  left: 70%;
 }
 
 .oW::after {
-  content: 'O is the winner! ';
-  font-size: 100px;
+  position: absolute;
+  content: "Player O is the winner! ";
+  font-size: 70px;
+  top: 30%;
+  left: 70%;
 }
+
+.d::after {
+  position: absolute;
+  content: "it's a Draw! ";
+  font-size: 50px;
+  top: 35%;
+  left: 70%;
+}
+
+#cell1, #cell0, #cell2{
+  border-top: none;
+} 
+
+#cell2, #cell5, #cell8{
+  border-right: none;
+} 
+
+#cell0, #cell3, #cell6{
+  border-left: none;
+} 
+#cell6, #cell7, #cell8{
+  border-bottom: none;
+} 

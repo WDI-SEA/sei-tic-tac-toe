@@ -1,118 +1,101 @@
-//first I have to click a square
-//the squares must be connected to the divs
-//then the game begins
-//the first click can either be x or o
-//use javascript tp add an x or o to each cell it must appear
-// a box should not be able to be clicked more than once so add a stop event listener but not remove
-//when clicked display player 1 or player two another loop
-//also detect draw conditionst 
-
-// if player 1 who is x or player 2 who is 0 clicks box 1 box 2 box 3 winner
-// if player 1 who is x or player 2 who is 0 clicks box 1 box 5 box 9 winner are clicked 
-// if player 1 who is x or player 2 who is 0 clicks box 3 box 5 box 7 winner are clicked  
-// if player 1 who is x or player 2 who is 0 clicks box 7 box 8 box 9 winner are clicked 
-// if player 1 who is x or player 2 who is 0 clicks box 1 box 4 box 7 winner are clicked 
-// if player 1 who is x or player 2 who is 0 clicks box 3 box 6 box 9 winner are clicked 
-// 
-//  
-let currentPlayer = "X"
+const squareA = document.getElementById('div1')
+// console.log(squareA)
+const squareB = document.getElementById('div2')
+const squareC = document.getElementById('div3')
+const squareD = document.getElementById('div4')
+const squareE = document.getElementById('div5')
+const squareF = document.getElementById('div6')
+const squareG = document.getElementById('div7')
+const squareH = document.getElementById('div8')
+const squareI = document.getElementById('div9')
 
 
-// let winnerMessage = () => 'Player ' + currentPlayer + ' is the winner'
-// let drawMessage = () => 'The game is a tie'
-// let playerTurn = () => 'It is ' + currentPlayer + ' turn'
 
-//possible winning solutions
-let winningChoiceA = ["div1", "div2", "div3"]
-// console.log (winningChoiceA)
-let winningChoiceB = ["div1", "div5", "div9"]
-let  winningChoiceC = ["div3", "div5", "div7"]
-let  winningChoiceD = ["div7", "div8", "div9"]
-let  winningChoiceE = ["div1", "div4", "div7"]
-let  winningChoiceF = ["div3", "div6", "div9"]
+let currentPlayer = "x";
 
-//function to run winning choices
+// //stores the status of the game, whether its over or still in play
+// let gameStatus = document.getElementById('.gamestatus') 
+// // console.log(statusGame)
 
-const calculateWinner = () => {
-if (winningChoiceA.innerText === "X" || "O") {
-    alert ("Winner")
-} else if (winningChoiceB.innerText === "X" || "O") {
-    alert ("Winner")
-} else if (winningChoiceC.innerText === "X" || "O") {
-    alert ("Winner")
-} else if (winningChoiceD.innerText === "X" || "O") {
-    alert ("Winner")
-} else if (winningChoiceE.innerText === "X" || "O") {
-    alert ("Winner")
-} else if (winningChoiceF.innerText === "X" || "O") {
-    alert ("Winner")
-}else{
-    alert ("Your Turn")
+//Gets all Boxes elements
+const choices = document.querySelectorAll(".choice");
+console.log(choices)
+
+let moves = 0
+
+//check for matching x's or o's
+const checkForWin = () => {
+    if (
+        squareA.innerText == squareB.innerText &&
+        squareB.innerText == squareC.innerText
+    ) {
+       console.log('Winner')
+    }
+    else if (
+        squareA.innerText == squareE.innerText &&
+        squareE.innerText == squareI.innerText
+    ) {
+        console.log('Winner')
+    } else if (
+        squareA.innerText == squareD.innerText &&
+        squareD.innerText == squareG.innerText
+    ) {
+        console.log('Winner')
+    } else if (
+        squareC.innerText == squareE.innerText &&
+        squareE.innerText == squareG.innerText
+
+    ) {
+        console.log('Winner')
+    } else if (
+        squareC.innerText == squareF.innerText &&
+        squareF.innerText == squareI.innerText
+
+    ) {
+        console.log('Winner')
+    } else if (
+        squareB.innerText == squareE.innerText &&
+        squareE.innerText == squareH.innerText
+
+    ) {
+        console.log('Winner')
+    } else if (
+        squareD.innerText == squareE.innerText &&
+        squareD.innerText == squareF.innerText
+    ) {
+        console.log('Winner')
+    } else if (
+        squareG.innerText == squareH.innerText &&
+        squareH.innerText == squareI.innerText
+    ) {
+        console.log('Winner')
+    }
+    else if (moves === 9) {
+        // return true
+        console.log("draw")
+    }
 }
+const switchClicks = (e) => {
+    let choice = e.target
+    if (currentPlayer === "x") {
+        currentPlayer = "o"
+        choice.innerText = currentPlayer
+        moves++
+    } else {
+        currentPlayer = "x"
+        choice.innerText = currentPlayer
+        moves++
+    }
+    console.log("switchClicks")
+    choice.removeEventListener("click", switchClicks);
+    checkForWin()
 }
-calculateWinner ()
-
-
-//alternate between X and O
-let playerChange = () => {
-    currentPlayer = playerClick === "X" ? "X" : "O";
-    playerChange();
+for (let i = 0; i < choices.length; i++) {
+    choices[i].addEventListener("click", switchClicks);
 }
 
-document.querySelectorAll('.choice').forEach(playerClick => {
-    playerClick.addEventListener('click', event => {
-        playerClick.innerText = "X"
-      //click
-    })
-  })
-
-  document.querySelectorAll('.choice').forEach(playerClick => {
-    playerClick.addEventListener('click', event => {
-        playerClick.innerText = "O"
-    })
-  })
 
 
-
-// const currentPlayer = 'X'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function startGame() {
-// for (i = 0; i < playerClick.length; i++)
-// }
-
-// const playerClick = () => {
-//     if (squareOne = const twoChoices [0];
-//     } else { squareOne = const twoChoice [1];
-//     }
-// }
-
-        
-
-
-//   }
-
-
-
-//   
-//     const twoChoices = ['x', 'o']
-//     const firstChoice = 'x'
-    // const secondChoice = 'o'
+// statusDisplay.innerText = currentPlayerTurn();
+// document.querySelector('.gamestatus').innerText = 
+// console.log(statusDisplay)

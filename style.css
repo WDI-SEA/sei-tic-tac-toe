@@ -7,6 +7,7 @@ body {
     justify-content: center; 
     align-items: center;
     background-color: lightblue;
+    font-family: sans-serif;
 }
 
 main {
@@ -31,5 +32,6 @@ div {
     align-items: center;
     padding: 40px;
     cursor: pointer;
+    font-size: 50px;
 }
 

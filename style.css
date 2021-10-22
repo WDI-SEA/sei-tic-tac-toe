@@ -1,91 +1,75 @@
-
 #container {
-    display: grid;
-    grid-template-columns: 50px 50px 50px;
-    grid-template-rows: 50px 50px 50px; 
-    background-color: ;
-    grid-gap: 30px;
-    text-align: center;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: 50px 50px 50px;
+  grid-template-rows: 50px 50px 50px;
+  background-color: ;
+  gap: 30px;
+  text-align: center;
+  justify-content: center;
+  
 }
 
-#div-0 {
- height: 50px;
- width: 50px;
- background-color: salmon;
-}
 
-#container {
-    display: grid;
-    grid-template-columns: 50px 50px 50px;
-    grid-template-rows: 50px 50px 50px; 
-    background-color: ;
-    grid-gap: 30px;
-    text-align: center;
-    justify-content: center;
-}
-
-#div-0 {
- height: 50px;
- width: 50px;
- background-color: salmon;
-}
 
 #div-1 {
-    height: 50px;
-    width: 50px;
-    background-color: salmon;
-   }
+  height: 50px;
+  width: 50px;
+  background-color: salmon;
+}
 
-   #div-2 {
-    height: 50px;
-    width: 50px;
-    background-color: salmon;
-   }
+#div-2 {
+  height: 50px;
+  width: 50px;
+  background-color: salmon;
+}
 
-   #div-3 {
-    height: 50px;
-    width: 50px;
-    background-color: salmon;
-   }
-   
-   #div-4 {
-    height: 50px;
-    width: 50px;
-    background-color: salmon;
-   }
+#div-3 {
+  height: 50px;
+  width: 50px;
+  background-color: salmon;
+}
 
-   #div-5 {
-    height: 50px;
-    width: 50px;
-    background-color: salmon;
-   }
+#div-4 {
+  height: 50px;
+  width: 50px;
+  background-color: salmon;
+}
 
-   #div-6 {
-    height: 50px;
-    width: 50px;
-    background-color: salmon;
-   }
+#div-5 {
+  height: 50px;
+  width: 50px;
+  background-color: salmon;
+}
 
-   #div-7 {
-    height: 50px;
-    width: 50px;
-    background-color: salmon;
-   }
+#div-6 {
+  height: 50px;
+  width: 50px;
+  background-color: salmon;
+}
 
-   #div-8 {
-    height: 50px;
-    width: 50px;
-    background-color: salmon;
-   }
+#div-7 {
+  height: 50px;
+  width: 50px;
+  background-color: salmon;
+}
 
-   h1 {
-       text-align: center;
-   }
+#div-8 {
+  height: 50px;
+  width: 50px;
+  background-color: salmon;
+}
 
-   .buttons {
-       text-align: center;
-       margin-top: 30px;
-   }
+#div-9 {
+  height: 50px;
+  width: 50px;
+  background-color: salmon;
+}
 
-   
+h1 {
+  text-align: center;
+}
+
+.buttons {
+  text-align: center;
+  margin-top: 30px;
+}

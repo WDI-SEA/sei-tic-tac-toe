@@ -1,91 +1,130 @@
 //assign variable to html that will show current player's turn
-const current = document.querySelector('.playerTurn');
+const currentStatus = document.querySelector('.playerTurn');
 //assign default variable to player one (later on, enable on-click function that switches X to O)
-var currentPlayer = "X";
+let currentPlayer = "X";
 //default gamestate start as a blank grid (dedicate functions to when grid is in a state of "non-blankness" i.e. filled)
-var gameState = ["", "", "", "", "", "", "", "", ""];
+let gameState = new Array(9);
 //create function that will show when x or o player wins
 const winningMessage = () => `Player ${currentPlayer} wins!`;
-//create function that will show when it's a draw
-const drawMessage = () => `It's a draw! Play again!`;
 //create function that will show whose turn it currently is
 const currentPlayerTurn = () => `Player ${currentPlayer}'s turn`;
-//create a variable that defines the state of an ongoing game (in contrast to a won or draw game)
-var gameInPlay = true
+let gameActive = true
 
+currentStatus.innerText = currentPlayerTurn()
+
+function drawMessage() {
+    console.log ("boom");
+    currentStatus.innerText= "It's a draw! Play again!";
+    gameActive = false;
+}
+
+function resultValidation(index){
+    if (index == "0") {
+        if (
+            (gameState[0] == gameState[1] && gameState[1] == gameState[2]) ||
+            (gameState[0] == gameState[3] && gameState[3] == gameState[6]) ||
+            (gameState[0] == gameState[4] && gameState[4] == gameState[8])                        
+        ) return true;
+    } else if (index == "1") {
+        if (
+            (gameState[0] == gameState[1] && gameState[1] == gameState[2]) ||
+            (gameState[1] == gameState[4] && gameState[4] == gameState[7])
+        ) return true;
+    }else if (index == "2") {
+        if (
+            (gameState[0] == gameState[1] && gameState[1] == gameState[2]) ||
+            (gameState[2] == gameState[5] && gameState[5] == gameState[8]) ||
+            (gameState[2] == gameState[4] && gameState[4] == gameState[6])
+        ) return true;
+    }else if (index == "3") {
+        if (
+            (gameState[3] == gameState[4] && gameState[4] == gameState[5])||
+            (gameState[0] == gameState[3] && gameState[3] == gameState[6])
+        ) return true;
+    }else if (index == "4") {
+        if (
+            (gameState[3] == gameState[4] && gameState[4] == gameState[5]) ||
+            (gameState[1] == gameState[4] && gameState[4] == gameState[7]) ||
+            (gameState[0] == gameState[4] && gameState[4] == gameState[8]) ||
+            (gameState[2] == gameState[4] && gameState[4] == gameState[6])
+        ) return true;
+    }else if (index == "5") {
+        if (
+            (gameState[3] == gameState[4] && gameState[4] == gameState[5]) ||
+            (gameState[2] == gameState[5] && gameState[5] == gameState[8])
+        ) return true;
+    }else if (index == "6") {
+        if (
+            (gameState[0] == gameState[3] && gameState[3] == gameState[6]) ||
+            (gameState[6] == gameState[7] && gameState[7] == gameState[8]) ||
+            (gameState[2] == gameState[4] && gameState[4] == gameState[6])
+        ) return true;
+    }else if (index == "7") {
+        if (
+            (gameState[6] == gameState[7] && gameState[7] == gameState[8]) ||
+            (gameState[1] == gameState[4] && gameState[4] == gameState[7])
+        ) return true;
+    } else if (index == "8") {
+        if (
+            (gameState[6] == gameState[7] && gameState[7] == gameState[8]) ||
+            (gameState[2] == gameState[5] && gameState[5] == gameState[8]) ||
+            (gameState[0] == gameState[4] && gameState[4] == gameState[8])
+        ) return true;
+    }
+
+    for (let i = 0; i < gameState.length; i++) {
+        if (gameState[i] === undefined)
+            return false;
+        else if (i === 8) {
+            drawMessage();
+        }
+            
+    }
+    return false;
+}
 
 function cellSelect (clickedCellEvent){
-    var clickedCell = clickedCellEvent.target
-    var clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
-    if (gameState[clickedCellIndex] !== "" || !gameInPlay) {
+    if ( gameActive == false )
+    return;
+    var clickedCell = clickedCellEvent.target;
+    var clickedCellIndex = (clickedCell.getAttribute('id'));
+    if (clickedCell.innerText !== "")
         return;
-    }
-}
-function PlayerChange() {
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
-    current.innerHTML = currentPlayerTurn();
+    if (!gameState[clickedCellIndex]){
+        console.log("youre a wizard")
+        clickedCell.innerText = currentPlayer
+        gameState[clickedCellIndex]=currentPlayer
 
-
-    if (roundWon) {
-        statusDisplay.innerHTML = winningMessage();
-        gameActive = false;
-        return;
-    }
-
-    let roundDraw = !gameState.includes("");
-    if (roundDraw) {
-        statusDisplay.innerHTML = drawMessage();
-        gameActive = false;
-        return;
-    }
-    currentPlayerTurn();
-    }
-function actionCell (clickedCell, clickedCellIndex){
-    gameState[clickedCellIndex]= currentPlayer
-    clickedCell.innerHTML = currentPlayer;
-    }
-const winningConditions = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
-    ];
-function resultValidation(){
-    let roundWon = false;
-    for(let i= 0; i<=7; i++){
-    const winCondition = winningConditions[i];
-    let a = gameState[winCondition [0]]
-    let b = gameState[winCondition [1]]
-    let c = gameState[winCondition [2]]
-    if (a === '' || b === '' || c === ''){
-        continue;
-    }
-    if (a === b && b === c) {
-        roundWon = true;
-        break
-        }
-    }
-    if (roundWon) {
-            statusDisplay.innerHTML = winningMessage();
+        /* On click, check for win */
+        let res = resultValidation(clickedCellIndex);
+        if (res == true) {
+            console.log("yey!");
+            currentStatus.innerText = winningMessage();
             gameActive = false;
+            // win = true;
             return;
+        }
+        playerChange();       
+        console.log('its working')
+        return
     }
-    let roundDraw = !gameState.includes("");
-    
-
-document.querySelectorAll('.block').forEach(block => block.addEventListener('click', actionCell));
-
-
+}
+function playerChange() {
+    if ( gameActive === false)
+        return ;
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+        console.log('wawaweewa')
+        currentStatus.innerText = currentPlayerTurn()
+}
+  
 function restartGame() {
-    gameInPlay = true;
+    console.log('mammammia')
     currentPlayer = 'X';
-    gameState = ["", "", "", "", "", "", "", "", ""];
-    current.innerHTML = currentPlayerTurn();
-    document.querySelectorAll('.block').forEach(block => block.innerHTML = "");
+    document.querySelectorAll('.block').forEach(block => block.innerHTML = "")
+    gameState = new Array (9);
+    gameActive = true
+    currentStatus.innerText = currentPlayerTurn();
 }
+document.querySelectorAll('.block').forEach(block => block.innerHTML = "");
 document.querySelector('.gameReset').addEventListener('click', restartGame);
-}
+document.querySelectorAll('.block').forEach(block => block.addEventListener('click', cellSelect));

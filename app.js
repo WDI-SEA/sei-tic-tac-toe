@@ -66,7 +66,7 @@ function playerTurn(e) {
   if (countingClicks >= 5) {
     checkWinner()
   }
-  if (countingClicks == 9 && checkWinner != true) {
+  if (countingClicks == 9 && checkWinner() != true) {
     notifier.innerText = "It's a tie!"
   }
 }

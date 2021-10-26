@@ -21,4 +21,9 @@
     font-size: 70px;
 }
 
-
+#status{
+font-size: 100px;
+    position: relative;
+    left: 35%;
+    margin: auto;
+}

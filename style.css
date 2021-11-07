@@ -11,7 +11,7 @@
 .boxes {
   height: 200px;
   width: 200px;
-  border: 10px solid whitesmoke;
+  border: 10px solid whitesmoke;  
   justify-content: center;
   align-items: center;
   display: flex;

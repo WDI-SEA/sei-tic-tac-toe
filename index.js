@@ -127,3 +127,64 @@ if (player1Won) {
 //   console.log(`${i}. ${value}`)
 // }
 // player2.forEach(printValue)
+
+//Saturday morning work
+
+// These arrays below should hold a value of X or O
+let player1 = {
+  row1: [],
+  row2: ["x", "x", "x"],
+  row3: [],
+  col1: [],
+  col2: [],
+  col3: [],
+  x1: [],
+  x2: [],
+};
+
+let player2 = {
+  row1: [3, 4],
+  row2: [5, 6],
+  row3: [8, 5],
+  col1: [8, 3],
+  col2: [1, 1],
+  col3: [9],
+  x1: [4, 6],
+  x2: [4, 5],
+};
+
+const rows = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+
+const columns = [
+  [1, 4, 7],
+  [2, 5, 8],
+  [3, 6, 9],
+];
+
+// the goal of this function is to iterate through rows and through each array and save each array to a variable
+
+const storeRowsCombo = (row) => {
+  let freeNumber = 0;
+  row.forEach((num, i, arr) => {
+    console.log(`Index: ${i}, Element: ${num},  Array: ${arr}`);
+    for (let z = 0; z < num.length; z++) {
+      console.log(`${i}:`, num[z]);
+      freeNumber = num[z];
+      console.log(freeNumber);
+    }
+  });
+
+  // for (const prop in row) {
+  //   console.log(`${prop} = ${row[prop]}`)
+  //   console.log(prop.length)
+  // for (let z = 0; z < prop.length; z++) {
+  //   console.log(prop)
+  // }
+};
+// }
+// storeRowsCombo(rows)
+storeRowsCombo(columns);

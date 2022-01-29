@@ -188,3 +188,125 @@ const storeRowsCombo = (row) => {
 // }
 // storeRowsCombo(rows)
 storeRowsCombo(columns);
+
+// Noon work
+// These arrays below should hold a value of X
+let player2 = {
+  row1: [3, 4],
+  row2: [5, 6],
+  row3: [8, 5],
+  col1: [8, 3],
+  col2: [1, 1],
+  col3: [9],
+  x1: [4, 6],
+  x2: [4, 5],
+};
+
+const rows = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+
+const columns = [
+  [1, 4, 7],
+  [2, 5, 8],
+  [3, 6, 9],
+];
+
+const p1Input = [1, 7, 6];
+
+// the goal of this function is to iterate through rows and through each array and save each array to a variable
+
+const storeRowsCombo = (row, playerInput) => {
+  let freeNumber = 0;
+  let row1num1;
+  let row1num2;
+  let row1num3;
+
+  let row2num1;
+  let row2num2;
+  let row2num3;
+
+  let row3num1;
+  let row3num2;
+  let row3num3;
+
+  let input1;
+  let input2;
+  let input3;
+  let input4;
+  let input5;
+
+  let player1 = {
+    row1: [],
+    row2: [],
+    row3: [],
+    col1: [],
+    col2: [],
+    col3: [],
+    x1: [],
+    x2: [],
+  };
+
+  row.forEach((num, i, arr) => {
+    console.log(`Index: ${i}, Element: ${num},  Array: ${arr}`);
+    // console.log(i[1])
+    if (i === 0) {
+      (row1num1 = num[0]), (row1num2 = num[1]), (row1num3 = num[2]);
+    }
+
+    // here I need to get that second index value which is 1
+    if (i === 1) {
+      row2num1 = num[0];
+    }
+    console.log("@@@@" + row2num1);
+
+    for (let z = 0; z < num.length; z++) {}
+  });
+
+  // console.log('####',row1num1)
+
+  let playerInputValue = 0;
+  playerInput.forEach((num2, i2, arr2) => {
+    // console.log(`Index: ${i2} Value: ${num2} Array: ${arr2}`);
+
+    if (i2 === 0) {
+      input1 = arr2[0];
+      input2 = arr2[1];
+      input2 = arr2[2];
+      console.log("success");
+    } else {
+      console.log("bug");
+    }
+
+    // console.log(input1)
+  });
+  let two = 2;
+  console.log(row1num1, row1num2, row1num3);
+  console.log(input1);
+
+  // this works with test data
+  if (input1 === row1num1 || input1 === row1num2 || input1 === row1num3) {
+    player1.row1.push("X");
+    console.log(`Player one row 1 was updated: ${player1.row1}`);
+  } else {
+    console.log(
+      `Number ${input1} was not found in ${row1num1} ${row1num2} ${row1num3}`
+    );
+  }
+
+  if (input2 === row1num1 || input1 === row1num2 || input1 === row1num3) {
+    player1.row1.push("X");
+    console.log(`Player one row 1 was updated: ${player1.row1}`);
+  } else {
+    console.log(
+      `Number ${input1} was not found in ${row1num1} ${row1num2} ${row1num3}`
+    );
+  }
+
+  console.log(player1);
+};
+
+// console.log(input1)
+storeRowsCombo(columns, p1Input);

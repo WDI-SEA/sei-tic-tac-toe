@@ -1,0 +1,82 @@
+** HTML ***
+1. Header
+    -Game Title
+2. Container Div
+3. Inside container, make 9 divs give each an id to correspond array index(indexes always start with 0), and give all of them the same class. (check if you can use a number as an id.)
+4. Make Results Div
+
+** CSS (NOT A PRIORITY**
+1. Make click space Div display 3 x 3 ( google display: flex; flex-wrap: wrap)
+2. Borders
+3. Make X and O But put display none unless clicked??? (HOW TO CHECK WHICH ONE TO DISPLAY?? TF?????????) (I didn't do this. Too complex for me.)
+
+** JAVASCRIPT **
+
+1. Get all necessary html elements and store them in variables.
+2. Make the click spaces into an array. (Use Array.from)
+    this makes all the divs with the same class into an array.
+3. Make a separate Array to track which spaces have been clicked. (arrays can have empty strings, or null values * number of click spaces)
+
+4. loop through the clickspaces array to give them an eventListener individually.
+4. Toggle the currentPlayer between player1/X and player2/O (BOOLEAN????) 
+
+
+5. Get all possible winning combinations. 
+6. Check if currentPlayer matches one winningCombo
+7. If there's a winner, deny access to game. (Make another div, display none, and if there's a winner, this div will cover game board???)
+8. Restart/ New Game Button (Put this in the div/container that covers the game board????)
+
+
+
+** QUESTIONS FOR TA **
+
+1. This is if I use png images instead of x and o. I made a container div, and inside of it there are 9 sub container divs. each subcontainer divs has an img tag. 
+    Then I made an array of the subcontainers. How do I access the img src inside each of the subcontainers?
+    I want it so that when I click a sub container, the src of the img inside the subcontainer I clicked will be set to the url I stored in the currentPlayer variable.
+
+
+2. Can you put another switch-case inside another switch-case? The same was as you can put nest another if/else statement inside another if/else statement?
+
+3. const arr = ["","","","","",""]
+
+    if(arr[0]){
+        console.log("something is in the array")
+    } else {
+        console.log("there's" nothing in the array)
+    }
+
+GET WINNER FUNCTION 1:
+
+1. Store all winningNumbersCombo in an winningCombosArray. (an array of arrays containing winning number combos)
+2. 
+3. 
+
+
+CURRENT BUGS:
+
+1. If there's no way to get a winner, it spits out an alert saying "Winner at ${number combos}
+    => make a movesCounter, every time a space is clicked, movesCounter--
+    => declare winner = true; 
+    => if(movesCounter === 0 &&& winner = false){
+        gameOver()
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      

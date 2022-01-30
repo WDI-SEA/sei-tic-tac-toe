@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+
+
+h1 {
+    text-align: center;
+    font-size: 5rem;
+    font-family: 'Oswald', sans-serif;;
+    padding: 2rem 0rem 0rem 0rem;
+}
+
+h3 {
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Oswald', sans-serif;
+    margin: .25rem
+}
+
+.playerContainer {
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Oswald', sans-serif;
+    padding: 2rem;
+
+}
+
+.players {
+    display: inline;
+    font-family: 'Oswald', sans-serif;
+}
+
+.playingFieldContainer {
+    text-align: center;
+}
+
+.playingFieldRows {
+    margin: .25rem;
+}
+
+.boxes {
+    display: inline-block;
+    border: 1vw solid black;
+    font-size: 5.25rem;
+    width: 8rem;
+    height: 8rem;
+    overflow: hidden;
+    font-family: 'Oswald', sans-serif;
+}
+
+.reset {
+    text-align: center;
+    padding: 3rem;
+}
+
+.resetButton {
+    padding: 1rem 3rem;
+    font-family: 'Oswald', sans-serif;
+}

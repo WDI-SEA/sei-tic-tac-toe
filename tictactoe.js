@@ -136,6 +136,7 @@ function checkWin(array) {
       xWins++;
       xScore.innerText = xWins;
       blocks.forEach(removeClicks);
+      break;
     } else if (winArray.every(checkO)) {
       alert("O has 3 in a row! O is the WINNER");
       oWins++;

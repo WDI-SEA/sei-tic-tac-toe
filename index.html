@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <h1>Tic Tac Toe </h1>
+
+    <h2>How to Play:</h2>
+
+    <div class="instructions">
+        <p>1. The game is played on a 3 x 3 grid.</p>
+        <p>2. You are X, the other player is O. Players will take turns putting their marks in empty squares.</p>
+        <p>3. The first player to get 3 in a row (up, down, across, or diagonally) is the winner!</p>
+        <p>When all 9 squares are full, the game is over. If no player has 3 in a row, the game ends in a tie.</p>
+    </div>
+
+    <div>
+        <p class="current-player">X goes first</p>
+    </div>   
+
+    <div class="wireframe-gameboard">
+        <div id="grid1" class="grid"></div>
+        <div id="grid2" class="grid"></div>
+        <div id="grid3" class="grid"></div>
+        <div id="grid4" class="grid"></div>
+        <div id="grid5" class="grid"></div>
+        <div id="grid6" class="grid"></div>
+        <div id="grid7" class="grid"></div>
+        <div id="grid8" class="grid"></div>
+        <div id="grid9" class="grid"></div>
+    </div>
+
+    <div>
+        <p class="announceWinner"></p>
+    </div>
+    
+    <div class="play-again">
+        <button id='reset'>Play Again</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

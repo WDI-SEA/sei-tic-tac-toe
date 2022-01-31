@@ -1,3 +1,32 @@
+// append <div class='x'>X</div>
+
+const div1 = (document.getElementById("one").value = 1);
+const div2 = (document.getElementById("two").value = 2);
+const div3 = (document.getElementById("three").value = 3);
+const div4 = (document.getElementById("four").value = 4);
+const div5 = (document.getElementById("five").value = 5);
+const div6 = (document.getElementById("six").value = 6);
+const div7 = (document.getElementById("seven").value = 7);
+const div8 = (document.getElementById("eight").value = 8);
+const div9 = (document.getElementById("nine").value = 9);
+
+let play1 = true;
+let play2 = false;
+
+if (play1) {
+  document.getElementById("one");
+}
+
+document.getElementById("one").addEventListener("click", function () {
+  const number1 = document.getElementById("one");
+  number1.append('<div class="x">X</div>');
+});
+
+// const reset = document.querySelector('#reset');
+// reset.addEventListener('click', () => {
+//   document.location.reload();
+// });
+
 // Winning patterns
 const rows = [
   [1, 2, 3],

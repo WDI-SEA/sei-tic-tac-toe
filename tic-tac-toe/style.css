@@ -39,12 +39,13 @@ h1 {
     font-size: 50px;
 }
 
-#resetBtn {
+.reloadBtn {
     background-color: violet;
     z-index: 1;
-    margin-top: 30%;
+    margin-top: 5%;
     padding: 10px 25px;
     background-color: var(--accent);
+    border-radius: 10px;
     /* display: none; */
 }
 
@@ -67,7 +68,7 @@ h1 {
   height: 100%;
   z-index: 1;
   background-color: black;
-  opacity: .96;
+  opacity: .939;
   color: crimson;
   display: none;
 }

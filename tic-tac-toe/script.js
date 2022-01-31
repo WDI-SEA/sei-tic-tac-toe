@@ -3,6 +3,7 @@ const results = document.querySelector("#results")
 const endGameCover = document.querySelector("#gameOver")
 const tryAgain = document.querySelector("#tryAgain")
 const resetBtn = document.querySelector("#resetBtn")
+const newGameBtn = document.querySelector("#newGameBtn")
 const playerTurnDisplay = document.querySelector("#playerTurnDisplay")
 const selectionTracker = ["", "", "", "", "", "", "", "", "",]
 const playerX = "x"
@@ -184,16 +185,16 @@ const getWinner = () => {
         // } 
     } else if(selectionTracker[3] === currentPlayer){
         if(selectionTracker[4] === currentPlayer && selectionTracker[5] === currentPlayer){
-            // alert("player wins 345")
+            alert("player wins 345")
             // hasWinner = true;
-            alert(`${currentPlayer} wins!`)
+            // alert(`${currentPlayer} wins!`)
             return true;
         } 
     } else if (selectionTracker[6] === currentPlayer){
         if(selectionTracker[7] === currentPlayer && selectionTracker[8] === currentPlayer){
-            // alert("player wins 678")
+            alert("player wins 678")
             // hasWinner = true;
-            alert(`${currentPlayer} wins!`)
+            // alert(`${currentPlayer} wins!`)
             return true
         // } 
         // if(selectionTracker[4] === currentPlayer && selectionTracker[2] === currentPlayer){
@@ -215,9 +216,12 @@ const getWinner = () => {
 const reset = () => {
     location.reload()
 }
+const newGame = () => {
+    location.reload()
+}
 
 resetBtn.addEventListener("click", reset)
-
+newGameBtn.addEventListener("click", reset)
 // const getWinner = () => {
 //     if(selectionTracker[0] === currentPlayer){
 //         if(selectionTracker[1] === currentPlayer && selectionTracker[2] === currentPlayer){

@@ -1,0 +1,48 @@
+h1 {
+    text-align: center;
+}
+
+.board {
+    display: grid;
+    width: 300px;
+    height: 300px;
+    grid-template-columns: auto auto auto;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+.block {
+    background-color: lightblue;
+    outline: 2px solid red;
+    text-align: center;
+    padding: 50px 0px;
+}
+
+.new-container {
+    text-align: center;
+    padding: 0px;
+}
+
+.button-container {
+    height:50px;
+    position: relative;
+}
+
+#reset-button {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#message-box {
+    position: relative;
+    height: 140px;
+    width: 380px;
+    margin: 90px auto 50px auto;
+    color: red;
+    text-align: center;
+    font-size: 50px;
+}

@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Indie+Flower&family=Londrina+Shadow&family=Orbitron&family=Poiret+One&family=VT323&display=swap');
+*{
+  background-color: black;
+  font-family: 'Londrina Shadow';
+  color: white;
+  /* for fun, check this bg */
+  /* background-image: url('https://i.imgur.com/ohRza7h.gif');  */
+}
+.some{
+  background-image: url('https://i.imgur.com/wOUDJ8z.gif');
+  animation-name: animate;
+  animation-duration: 15s;
+  animation-iteration-count: 30;
+  position: relative;
+}
+p{
+  font-size: 20px;
+  font-family: 'Orbitron';
+}
+.center{
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .container{
+    border: .2rem solid red;
+    width: 90%;
+  }
+
+  .frame{
+    display: inline-block;
+    border: .2rem solid black;
+    margin-top: .5rem;
+    width: 50%;
+  }
+
+  .box{
+    display: inline-block;
+    border: .2rem solid blue;
+    /* width: 30%; */
+    padding: 5rem;
+    margin: 2rem;
+  }
+
+  .box1{
+    display: inline-block;
+    /* border: .2rem solid blue; */
+    /* width: 30%; */
+    padding: 5rem;
+    margin: 2rem;
+  }
+
+  .btn{
+    margin: 1rem;
+   
+  }
+
+  .ins{
+    position: absolute;
+    /* display: inline-block; */
+    margin-left: 1rem;
+    margin-right: 2rem;
+  }
+
+  .pads{
+    margin-top: 6rem;
+  }
+
+  @keyframes animate {
+    0%   {left:0px;}
+    25%  {left:1000px;}
+    50%  {left:3000px;}
+    75%  {left:1000px;;}
+    100% {left:0px;}
+  }

@@ -1,20 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&family=Yuji+Boku&display=swap');
+
+
 body{
   text-align: center;
+  background-color: rgb(23, 57, 65);
 }
 
 .container {
   display: grid;
   grid-template-columns: auto auto auto;
   justify-content: center;
-  padding: 50px;
+  padding: 40px;
 }
 
 .square {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(53, 133, 139);
   border: 5px solid rgba(0, 0, 0, 0.8);
-  padding: 5rem;
-  font-size: 30px;
+  padding: 6rem;
+  font-size: 45px;
   text-align: center;
-  
+  font-family:'Montserrat', sans-serif;
 }
+
+#restartButton {
+  font-size: 20px;
+}
+
+.declareWinner {
+  font-size: 30px;
+}
+
+.Current-Player {
+  font-size: 30px;
+}
+
+h1 {
+  font-size: 60px;
+  font-family:'Montserrat', sans-serif;
+  color: rgb(174, 254, 255);
+}
+
+h3 {
+  font-family:'Montserrat', sans-serif;
+  color: rgb(174, 254, 255);
+}
+
+.declareWinner {
+  font-family: 'Yuji Boku', serif;
+  color: rgb(174, 254, 255);
+}
+
+#restartButton {
+  font-family:'Montserrat', sans-serif;
+  background-color: rgb(174, 254, 255);
+  font-size: 30px;
+}
+
 

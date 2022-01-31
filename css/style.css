@@ -1,0 +1,46 @@
+* {
+    background-color: rgb(201, 201, 201);
+    font-family: helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.play-spaces {
+    /* background-color: black; */
+    border: 2px solid white;
+    color: white;
+    height: 10vw;
+    width: 10vw;
+    margin: 0 auto;
+    background-size: contain;
+}
+
+#gameboard {
+    /* background-color: white; */
+    /* border: 1px solid black; */
+    height: 31vw;
+    width: 31vw;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#turn {
+    text-align: center;
+    margin: 5vh auto 0 auto;
+    background-color: white;
+    width: 25vw;
+    font-size: 1.5em;
+    padding: 0.5em;
+}
+
+.reset-container {
+    text-align: center;
+    margin-top: 5vh;
+}
+#reset-button {
+    background-color: white;
+    padding: 1vw 2vw;
+    font-size: 1em;
+}

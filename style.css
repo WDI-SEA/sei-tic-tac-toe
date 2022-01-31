@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Mochiy+Pop+P+One&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+:root {
+   --primary-font:'Mochiy Pop P One', sans-serif;
+   --secondary-font: 'Bebas Neue', cursive;
+}
+
+body {
+    background-color: gray;
+    font-family: var(--primary-font);
+}
+
+.game-container {
+    text-align: center;
+}
+
+.gameTitle {
+    margin: 20px;
+}
+
+.box {
+    background-color: black;
+    border: white 1px solid;
+    color: white;
+    padding: 2rem;
+    font-size: 4rem;
+    cursor: pointer;
+    
+}
+
+.statusAction {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.reset {
+    cursor: pointer;
+}
+
+#gameboard {
+    display: inline-grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-auto-rows: 200px;
+    margin: auto;
+
+}
+
+#statusBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 20px;
+}

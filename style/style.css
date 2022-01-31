@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+:root{
+
+    --border-thickness: 5px solid rgb(112, 110, 110);
+}
+
+*{
+    background-color: pink;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Mochiy Pop P One', sans-serif;
+
+}
+.border-left {
+    border-left: var(--border-thickness)
+
+}
+
+.border-right {
+    border-right: var(--border-thickness)
+
+}
+
+.border-bottom {
+    border-bottom: var(--border-thickness)
+
+}
+
+.border-top {
+    border-top: var(--border-thickness)
+
+}
+
+h1{
+    margin-top: 1em;
+    margin-bottom: .5em;
+    font-size: 50px;
+}
+
+.container {
+    margin-top: 2em;
+    width: 800px;
+    text-align: center;
+}
+
+
+.positions {
+    font-family: 'Merienda', cursive;
+    position: relative;
+    width: 250px;
+    HEIGHT: 250px;
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 100px;
+}
+
+P{
+    font-weight: bold;
+    margin-top: 1em;
+    margin-bottom:1em;
+    font-size: 50px;
+    color: rgb(71, 71, 71);
+}
+
+.characters {
+    margin: 3.79em 3em;
+}
+.characters:hover {
+    transform: scale(1.5);
+}
+
+button {
+    margin-top: 2em;
+    width: 250px;
+    height: 100px;
+    background-color: rgb(207, 123, 123);
+    font-size: 30px;
+}

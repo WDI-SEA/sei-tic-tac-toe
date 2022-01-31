@@ -10,7 +10,7 @@ const winCombos =
     [3,4,5],
     [6,7,8],    
 ]
-
+let winExist = false
 // function to check if player won. returns true if player board matches winCombos
 let checkBoard = (playerBoard,winKeys) => {
     let x = 0
@@ -25,7 +25,8 @@ let checkBoard = (playerBoard,winKeys) => {
         }
         // console.log("vvvvvvvvvvvvvvvvvvvv")
         if (x === 3) {
-           win = true            
+           win = true        
+           winExist = true    
         } 
         // reinitialize counter back to 0
         x = 0
@@ -36,33 +37,49 @@ let checkBoard = (playerBoard,winKeys) => {
 
 let playerX = [,,,,,,,,]
 let playerO = [,,,,,,,,]
+let turnCount = 0
 
+
+console.log(document.getElementById("0").innerText)
 const onClick = (event) => {
+    
     if (event.target.nodeName === 'BUTTON') {
         let choice = event.target.id
         let player = document.getElementById('play').innerText
-        console.log(player)
-        if (player === "X") {
-            playerX[choice] = 1
-            document.getElementById('play').innerText = "O"
-            document.getElementById(choice).innerText = "X"
-            document.getElementById(choice).style.backgroundColor = "khaki"
-            if (checkBoard(playerX,winCombos) === true) {
-                // using .innerHTML for fun purposes
-                document.getElementById('game-message').innerHTML = '<img src="img/duck-dancing.gif" width="200px">Player X wins!'
-                
+        do {
+            if (player === "X") {
+                playerX[choice] = 1
+                document.getElementById('play').innerText = "O"
+                document.getElementById(choice).innerText = "X"
+                document.getElementById(choice).style.backgroundColor = "khaki"
+                document.getElementById(choice).disabled = true;
+                if (checkBoard(playerX,winCombos) === true) {
+                    // using .innerHTML for fun purposes
+                    document.getElementById('game-message').innerHTML = '<img src="img/duck-dancing.gif" width="200px">Player X wins!'
+                }
+            } else {
+                playerO[choice] = 1
+                document.getElementById('play').innerText = "X"
+                document.getElementById(choice).innerText = "O"
+                document.getElementById(choice).style.backgroundColor = "coral"
+                document.getElementById(choice).disabled = true;
+                if (checkBoard(playerO,winCombos) === true) {
+                    document.getElementById('game-message').innerHTML = '<img src="img/duck-dancing.gif" width="200px">Player O wins!'
+                }
             }
-        } else {
-            playerO[choice] = 1
-            document.getElementById('play').innerText = "X"
-            document.getElementById(choice).innerText = "O"
-            document.getElementById(choice).style.backgroundColor = "coral"
-            if (checkBoard(playerO,winCombos) === true) {
-                document.getElementById('game-message').innerHTML = '<img src="img/duck-dancing.gif" width="200px">Player O wins!'
+            arrBoard[choice] = player                         
+            turnCount++
+            if (turnCount == 9 && winExist == false) {
+                document.getElementById('game-message').innerHTML = '<img src="img/duck-dancing.gif" width="200px">Draw! Good game!'
             }
-        }
-        arrBoard[choice] = player             
-        
+        } while (document.getElementById("0").innerText.length ==0);
     }
-  }
-  window.addEventListener('click', onClick);
+}
+window.addEventListener('click', onClick);
+
+      
+
+//   console.log(arrBoard)
+//   document.getElementById('game-message').innerHTML = '<img src="img/duck-dancing.gif" width="200px">Draw! Good game!'
+
+

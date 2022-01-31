@@ -1,0 +1,91 @@
+body {
+    text-align:center;
+    background-color: rgb(186, 159, 123);
+}
+
+h1 {
+    color: white;
+    margin: 2em 0rem 0rem 0rem;
+    padding: 0rem 0rem 2rem 0rem;
+    font-size: 4rem;
+}
+
+.container {
+    margin: .1rem;
+}
+
+.box {
+    border: .1rem solid white;
+    padding:0;
+    border-radius: .1em;
+    width: 100px;
+    height: 100px;
+    display:inline-block;
+    font-weight: bold;
+    font-size: 85px;
+    vertical-align: top;
+
+}
+
+.box:hover{
+    background-color: rgba(255, 255, 255, 0.536);
+    transition: all 500ms ease;
+}
+
+.box:active {
+    background-color: rgb(255, 255, 255);
+    transition: all 100ms ease;
+    
+}
+
+
+.top-row{
+    position: relative;
+    bottom: 4px;
+
+}
+.middle-row{
+    position: relative;
+
+}
+.bottom-row{
+    position: relative;
+    top:4px;
+
+}
+
+
+
+.player-display {
+    border-radius: .5rem;
+    margin: 0 0 40px 0;
+    padding: 10px 100px;
+    color: white;
+    font-size: 25px;
+    text-align:center;
+    display: inline-block;
+    transition: all 300ms ease;
+    
+}
+
+.clear-button {
+    border: 2px solid black;
+    border-radius: .5em;
+    background-color: rgba(255, 255, 255, 0.639);
+    margin: 30px;
+    width: 10rem;
+    height: 3rem;
+    font-size: 15px;
+
+}
+
+.clear-button:hover {
+    background-color: rgb(255, 255, 255);
+    transition: all 500ms ease;
+}
+
+.clear-button:active {
+    background-color: black;
+    color:white;
+    transition: all 100ms ease;
+}

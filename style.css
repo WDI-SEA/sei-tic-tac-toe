@@ -1,0 +1,17 @@
+h1 {
+    color: blue;
+}
+
+.button {
+    height: 10rem;
+    width: 10rem;
+}
+
+.row1 {
+    display: inline-block;
+}
+
+#reset {
+    color: blue;
+    font-size: 24px;
+}

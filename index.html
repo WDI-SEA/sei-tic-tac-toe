@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css"></link>
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+    
+    <div class="row1">
+        <button id="b1" class="button" onclick="toggleChar()"></button>
+        <button id="b2" class="button" onclick="toggleChar2()"></button>
+        <button id="b3" class="button" onclick="toggleChar3()"></button>
+    </div>
+
+    <div class="row2">
+        <button id="b4" class="button" onclick="toggleChar4()"></button>
+        <button id="b5" class="button" onclick="toggleChar5()"></button>
+        <button id="b6" class="button" onclick="toggleChar6()"></button>        
+    </div>
+
+    <div class="row3">
+        <button id="b7" class="button" onclick="toggleChar7()"></button>
+        <button id="b8" class="button" onclick="toggleChar8()"></button>
+        <button id="b9" class="button" onclick="toggleChar9()"></button> 
+    </div> 
+
+    <!-- <div id="gameboard"><
+        <div class=box id="1"></div>
+        <div class=box id="2"></div>
+        <div class=box id="3"></div>
+        <div class=box id="4"></div>
+        <div class=box id="5"></div>
+        <div class=box id="6"></div>
+        <div class=box id="7"></div>
+        <div class=box id="8"></div>
+        <div class=box id="9"></div>
+    </div>     -->
+
+    <div>
+        //message box
+        <span id=messageBox>X's turn</span>
+    </div>
+
+    <div>
+        <button onClick="window.location.reload();">Reset</button>
+    </div>
+        <script type="text/javascript" src="ttt.js"></script>
+</body>
+</html>
+
+
+
+
+
+<!-- your html file -->
+<!-- what elements are needed for your user experience -->
+/* your css file*/
+/* what css is needed to layout the page like your wireframes */
+/* DO NOT DO ANY FANCY STYLING UNTIL THE JAVASCRIPT IS DONE */
+// your javascript file
+
+// what kind of variables will I need? (app state)
+  // data container (array) to hold who has gone where (the gameboard) (this would contain player choices)
+  // (optional) -- define each players choice x/o
+  // whose turn it is? -- state of player
+  // winning combinations to check (data container?)
+  // toggle/boolean if someone has won (is user allowd to click/keep playing)
+  // (cats option 1) board is full = draw
+  // (cats option 2) turn count for cats game
+
+// what will happen when the user clicks?
+  // slection of X or O (who's turn is it?)
+  // mark space if it is availible
+    // if it is marked -- do nothing
+  // check if there is a winner
+    // if there is a winner -- stop gameplay and show who won
+    // if not -- let gameplay continue 
+
+
+
+
+
+
+
+
+
+
+// strech goals
+// cool css
+// timers for turns
+// let user select side
+// timer for each turn
+// ai 
+  // level 1 -- is random ai
+  // level 2 -- minimax

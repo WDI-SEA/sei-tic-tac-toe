@@ -154,7 +154,7 @@ function toggleChar9 () {
 //display box--possibly add event listener to click of a button to change, after 9 clicks display draw
 
 switchTurn = (player) => {
-    if (player === "X's turn") {
+    if (player === "O's turn") {
         
     }
 

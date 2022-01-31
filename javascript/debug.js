@@ -1,7 +1,19 @@
+// ui
+const div1 = document.getElementById("one");
+const div2 = document.getElementById("two");
+const div3 = document.getElementById("three");
+const div4 = document.getElementById("four");
+const div5 = document.getElementById("five");
+const div6 = document.getElementById("six");
+const div7 = document.getElementById("seven");
+const div8 = document.getElementById("eight");
+const div9 = document.getElementById("nine");
+
 // This will be players input
 const p1Input = [];
 const p2Input = [];
 
+// This is Players database check, if a player checks of a box the algorithm is going to check if there is a matching number in each array if there is an array will be updated with an 'X'
 let player1 = {
   row1: [],
   row2: [],
@@ -12,7 +24,6 @@ let player1 = {
   x1: [],
   x2: [],
 };
-
 let player2 = {
   row1: [],
   row2: [],
@@ -23,16 +34,6 @@ let player2 = {
   x1: [],
   x2: [],
 };
-
-const div1 = document.getElementById("one");
-const div2 = document.getElementById("two");
-const div3 = document.getElementById("three");
-const div4 = document.getElementById("four");
-const div5 = document.getElementById("five");
-const div6 = document.getElementById("six");
-const div7 = document.getElementById("seven");
-const div8 = document.getElementById("eight");
-const div9 = document.getElementById("nine");
 
 // Winning patterns
 const rows = [
@@ -1023,96 +1024,31 @@ if (input5p2 === x2num1 || input5p2 === x2num2 || input5p2 === x2num3) {
   );
 }
 
-// this determines which symbols show up for each player
-let PlayerOneX = true;
-// Need to make a function for this
+let PlayerOneX = false;
 
-// loops for 9 turns, each time should check for winner and switch off PlayerOne to PlayerTwo
-let turns = 9;
-for (let i = 0; i < turns; i++) {
-  if (PlayerOneX) {
-    const x1Image = document.querySelector(".x1");
-    div1.addEventListener("click", () => {
-      const value = (document.getElementById("one").value = 1);
-      console.log(value);
-      if (p1Input.push(value)) {
-        console.log("success");
-      } else console.log("boo");
-      console.log(player1);
-      x1Image.style.display = "block";
-    });
-    PlayerOneX = false;
-  }
+if (PlayerOneX) {
+  const x1Image = document.querySelector(".x1");
+  div1.addEventListener("click", () => {
+    const value = (document.getElementById("one").value = 1);
+    console.log(value);
+    if (p1Input.push(value)) {
+      console.log("success");
+    } else console.log("boo");
+    console.log(player1);
+    x1Image.style.display = "block";
+  });
+} else {
+  const c1Image = document.querySelector(".o1");
+  div1.addEventListener("click", () => {
+    const value = (document.getElementById("one").value = 1);
 
-  console.log(PlayerOneX);
+    if (p1Input.push(value)) {
+      console.log("success");
+    } else console.log("boo");
+    console.log(player1);
+    c1Image.style.display = "block";
+  });
 }
-
-// if (PlayerOneX) {
-//   const x1Image = document.querySelector(".x1");
-//   div1.addEventListener("click", () => {
-//     const value = (document.getElementById("one").value = 1);
-//     console.log(value);
-//     if (p1Input.push(value)) {
-//       console.log("success");
-//     } else console.log("boo");
-//     console.log(player1);
-//     x1Image.style.display = "block";
-//   });
-//   // can reasign this value to false for the other player to go
-//   PlayerOneX = false;
-//   const x2Image = document.querySelector(".x2");
-//   div2.addEventListener("click", () => {
-//     const value = (document.getElementById("two").value = 2);
-//     console.log(value);
-//     if (p1Input.push(value)) {
-//       console.log("success");
-//     } else console.log("boo");
-//     console.log(player1);
-//     x2Image.style.display = "block";
-//   });
-//   const x3Image = document.querySelector(".x3");
-//   div3.addEventListener("click", () => {
-//     const value = (document.getElementById("three").value = 3);
-//     console.log(value);
-//     if (p1Input.push(value)) {
-//       console.log("success");
-//     } else console.log("boo");
-//     console.log(player1);
-//     x3Image.style.display = "block";
-//   });
-//   const x4Image = document.querySelector(".x4");
-//   div4.addEventListener("click", () => {
-//     const value = (document.getElementById("four").value = 4);
-//     console.log(value);
-//     if (p1Input.push(value)) {
-//       console.log("success");
-//     } else console.log("boo");
-//     console.log(player1);
-//     x4Image.style.display = "block";
-//   });
-// } else {
-//   const c1Image = document.querySelector(".o1");
-//   div1.addEventListener("click", () => {
-//     const value = (document.getElementById("one").value = 1);
-
-//     if (p1Input.push(value)) {
-//       console.log("success");
-//     } else console.log("boo");
-//     console.log(player1);
-//     c1Image.style.display = "block";
-//   });
-
-//   const c2Image = document.querySelector(".o2");
-//   div2.addEventListener("click", () => {
-//     const value = (document.getElementById("two").value = 2);
-
-//     if (p1Input.push(value)) {
-//       console.log("success");
-//     } else console.log("boo");
-//     console.log(player1);
-//     c2Image.style.display = "block";
-//   });
-// }
 
 console.log(player1);
 console.log(player2);

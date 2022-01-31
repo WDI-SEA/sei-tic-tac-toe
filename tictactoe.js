@@ -46,7 +46,6 @@ resetButton.addEventListener('click',function(){
     //iterate over spaces to clear them all - setting the text to blank.
     spaces.forEach(element=>{
         changeText(element,"")
-        deleteImage(element)
     })
     //reset movecount to 0
     moveCount = 0;
@@ -58,7 +57,6 @@ resetButton.addEventListener('click',function(){
     changeColor(turnIdentifier,"black","white")
     //clear out array of x's moves by iterating over array and popping everything out
     for(let i = 0; i < xMoves.length; i++){
-        xMoves.pop()
         xMoves.pop()
     }
     //clear out array of o's moves by iterating over array and popping everything out

@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Eater&family=IM+Fell+Great+Primer+SC&display=swap');
+
+:root{
+    --colorOne: #08F7FE;
+    --colorTwo: #09f8d3;
+    --colorThree: #fe53bb;
+    --colorFour: #F5D300;
+    --ticFont: 'creepster';
+    --toeFont: 'eater';
+
+}
+
+*{ text-align: center;
+    background-color:;
+    font-family: var(--ticFont), sans-serif;
+    background-color: whitesmoke;
+   
+   
+}
+
+#vs{
+    color: red;
+    font-family: var(--toeFont);
+	font-size: 40px;
+	text-shadow: -1px 1px 0 #000,
+				  1px 1px 0 #000,
+				 1px -1px 0 #000;
+                 
+}
+
+#title{
+    font-family: var(--toeFont), sans-serif;
+    font-size: 80px;
+}
+#scoreboard{
+    text-align: justify;
+    display: inline-block;
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    font-size: 40px;
+   
+
+}
+
+#ticBoard{
+
+    font-family: var(--ticFont), sans-serif
+}
+#ticScore{
+    font-size: 45px;
+    padding: 1px 1px;
+    margin: 10px;
+}
+#ticBoardTitle{
+    padding: 10px 10px;
+    margin: 10px;
+    box-sizing: border-box;
+   
+  
+}
+
+#toeBoard{
+    font-family: var(--toeFont), sans-serif
+}
+
+#toeBoardTitle{
+    padding: 10px 10px;
+    margin: 10px;
+}
+#toeScore{
+    font-size: 45px;
+    padding: 1px 1px;
+    margin: 10px; 
+
+}
+
+
+
+
+.board{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    text-align: center;
+    width: 600px;
+    margin: 10px auto;
+    color:red;
+    border-radius: 80%;
+}
+
+.boardpiece{
+  
+    width: 200px;
+    height: 200px;
+    border: 3mm ridge rgba(176, 211, 36, 0.9);
+    cursor: pointer;
+    font-size: 150px;
+    text-align: center;
+
+}
+
+.cellOne{
+    border-top: none;
+    border-left: none;
+}
+#0{
+    border-top: none;
+    border-left: none;
+}
+
+.board{
+    border-top: none;
+}
+
+#thetac{
+    font-size: 40px;
+}
+
+#joeDa{
+    font-size: 40px;
+}
+
+
+#restart{
+    padding: 30px 60px;
+    color: red;
+    background-color: white;
+    border-color: green;
+    border-radius: 10%;
+    font-size: 3rem;
+}
+
+#restart:hover{
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.boardpiece:first-child{
+    border-top: none;
+    border-left: none;
+    
+}
+
+.boardpiece:nth-child(2){
+    border-top: none;
+}
+.boardpiece:nth-child(3){
+    border-top: none;
+    border-right: none;
+}
+.boardpiece:nth-child(4){
+    border-left: none;
+    
+}
+.boardpiece:nth-child(6){
+    border-right: none;
+}
+.boardpiece:nth-child(7){
+    border-left: none;
+    border-bottom: none;
+}
+.boardpiece:nth-child(8){
+    border-bottom: none;
+}
+.boardpiece:nth-child(9){
+    border-right: none;
+    border-bottom: none;
+}
+
+#winmessage{
+    font-size: 50px;
+}
+
+

@@ -1,0 +1,53 @@
+* {
+    /* background-image: url("https://i.imgur.com/FcGJ7k5.png"); */
+    background-color: rgb(104, 104, 104);
+}
+
+h1 {
+    text-align: center;
+    color: maroon;
+    font-size: 4rem;
+}
+#instructions{
+    display: center;
+    text-align: center;
+    margin: auto;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+.boxes{
+    display: center;
+    margin: auto;
+    text-align: center;
+}
+#uL #uM #uR #mL #mM
+#mR #bL #bM #bR {
+    background-color: white;
+    width: 5rem;
+    height: 5rem;
+    margin: auto;
+    border: 1px solid darkgray;
+    border-radius: 6px;
+    font-size: 30px;
+    text-align: center;
+}
+#restartButton {
+    box-sizing: border-box;
+    width: 95px;
+    height: 40px;
+    border: 1px solid maroon;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: grey;
+    color: maroon;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: auto;
+    text-align: center;
+    display: block;
+}
+#playerTurn {
+    display: center;
+}
+#winner {
+    display: center;
+}

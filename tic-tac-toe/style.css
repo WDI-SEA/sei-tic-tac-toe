@@ -1,11 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+:root {
+    --dark: #001C57;
+    --light: yellow;
+    --accent: #FB6501;
+}
+
 * {
     margin: 0 auto;
     text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    background-color: var(--dark);
+    color: var(--light)
 }
 
 h1 {
     margin: 2%;
-    color: blue;
+    /* color: crimson; */
+    font-size: 40px;
 }
 
 .gameBoard {
@@ -13,19 +24,39 @@ h1 {
     flex-wrap: wrap;
     width: 70%;
     margin-top: 3%;
-    margin-left: 21%;
+    margin-left: 20%;
 }
 
 .clickSpace {
     display: inline-block;
-    height: 5rem;
-    width: 14rem;
+    height: 3rem;
+    width: 10rem;
     margin: 0;
     /* margin: 0 auto; */
     padding: 5%;
-    border: 2px solid black;
+    border: 7px solid var(--accent);
     border-collapse: collapse;
     font-size: 50px;
+}
+
+#resetBtn {
+    background-color: violet;
+    z-index: 1;
+    margin-top: 30%;
+    padding: 10px 25px;
+    background-color: var(--accent);
+    /* display: none; */
+}
+
+#tryAgain {
+    margin-top: 10%;
+    font-size: 55px;
+    opacity: 1;
+    /* display: none; */
+}
+
+#results {
+    font-size: 25px;
 }
 
 #gameOver {
@@ -36,6 +67,7 @@ h1 {
   height: 100%;
   z-index: 1;
   background-color: black;
+  opacity: .96;
   color: crimson;
   display: none;
 }

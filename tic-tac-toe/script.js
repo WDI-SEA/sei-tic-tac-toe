@@ -1,10 +1,13 @@
 const clickSpaces = Array.from(document.querySelectorAll(".clickSpace"))
 const results = document.querySelector("#results")
 const endGameCover = document.querySelector("#gameOver")
+const tryAgain = document.querySelector("#tryAgain")
+const resetBtn = document.querySelector("#resetBtn")
 const playerTurnDisplay = document.querySelector("#playerTurnDisplay")
 const selectionTracker = ["", "", "", "", "", "", "", "", "",]
 const playerX = "x"
 const playerO = "o"
+// playerO.style.color = "crimson"
 let currentPlayer = playerX
 let hasWinner = false;
 let movesCounter = 9;
@@ -47,7 +50,7 @@ const togglePlayers = () => {
     //     currentPlayer = playerX
     // }
     currentPlayer = currentPlayer === playerO ? playerX : playerO
-    playerTurnDisplay.innerText = currentPlayer.toUpperCase()
+    playerTurnDisplay.innerText = `${currentPlayer.toUpperCase()}'s turn!`
 }
 
 
@@ -65,14 +68,14 @@ const clickedBtnChecker = (event) => {
         // getWinner()
         
         if(getWinner()){
-            hasWinner = true;
+            
             // alert(`${currentPlayer} wins!`)
             endGame()
             return;
         } 
         togglePlayers()
         
-        if(hasWinner === false && movesCounter < 2){
+        if(hasWinner === false && movesCounter === 0){
             endGame()
    
         }
@@ -97,7 +100,7 @@ const clickedBtnChecker = (event) => {
 /*
 
 WINNING COMBOS 
-[0][1][2] 012, 048, 246
+[0][1][2] 012, 246
 [3][4][5] 345, 036, 147, 258
 [6][7][8]
 
@@ -107,65 +110,113 @@ cross 048 246
 */
 
 const endGame = () => {
+    if(hasWinner === false && movesCounter === 0){
+        results.innerText = "No one wins. Try again?"
+    } else {
+        results.innerText = `${currentPlayer} wins! Play again?`
+    }
     endGameCover.style.display = "block"
+    // results.style.display = "block"
+    // resetBtn.style.display = "block"
+    // tryAgain.style.display = "block"
    
 }
 
+
+/*
+
+I PROMISE TO CLEAN UP THIS "WORKING" getWinner FUNCTION AS SOON AS I HAVE TIME TO WRITE DOWN WHAT WENT WRONG 
+AND WHY WHERE THE CONDITIONALS ARE TYPED MATTER
+
+*/
 const getWinner = () => {
-    if(selectionTracker[0] === currentPlayer){
-        if(selectionTracker[1] === currentPlayer && selectionTracker[2] === currentPlayer){
-            // alert("player wins 012")
-            // hasWinner = true
-            alert(`${currentPlayer} wins!`)
+    // if(selectionTracker[0] === currentPlayer){
+    //     if(selectionTracker[4] === currentPlayer && selectionTracker[8] === currentPlayer){
+    //         // hasWinner = true;
+    //         alert(`${currentPlayer} wins!`)
+    //         return true;
+    //     }
+     if ( selectionTracker[2] === currentPlayer){
+        if(selectionTracker[4] === currentPlayer && selectionTracker[6] === currentPlayer){
+            // hasWinner = true;
+            alert(`${currentPlayer} wins! 246`)
+            return true;
+        } 
+        if(selectionTracker[1] === currentPlayer && selectionTracker[0] === currentPlayer){
+            alert(`${currentPlayer} wins! 012`)
             return true;
         }
+        if( selectionTracker[5] === currentPlayer && selectionTracker[8] === currentPlayer) {
+            alert(`${currentPlayer} wins on 258!`)
+            return true;
+        }
+    } else if(selectionTracker[0] === currentPlayer){
+        // if(selectionTracker[1] === currentPlayer && selectionTracker[2] === currentPlayer){
+        //     // alert("player wins 048")
+        //     // hasWinner = true
+        //     alert(`${currentPlayer} wins!`)
+        //     return true;
+        // }
         if (selectionTracker[4] === currentPlayer &&  selectionTracker[8] === currentPlayer){
-            // alert("player wins 048 ")
-            alert(`${currentPlayer} wins!`)
+            // alert("player wins 012 ")
+            hasWinner = true;
+            alert(`${currentPlayer} wins! 048`)
             return true;
         }
         if (selectionTracker[3] === currentPlayer && selectionTracker[6] === currentPlayer){
             // alert("player wins 036")
-            alert(`${currentPlayer} wins!`)
+            // hasWinner = true;
+            alert(`${currentPlayer} wins! 036`)
             return true;
         }
-    } else if(selectionTracker[2] === currentPlayer){
-        if(selectionTracker[4] === currentPlayer && selectionTracker[6] === currentPlayer){
+    } else if(selectionTracker[1] === currentPlayer){
+        if(selectionTracker[4] === currentPlayer && selectionTracker[7] === currentPlayer){
             // alert("player wins 246")
-            alert(`${currentPlayer} wins!`)
+            // hasWinner = true;
+            alert(`${currentPlayer} wins! 147`)
             return true;
         }
-        if(selectionTracker[5] === currentPlayer &&  selectionTracker[8]  === currentPlayer){
-            // alert("player wins 258")
-            alert(`${currentPlayer} wins!`)
-            return true;
-        }
+        // if(selectionTracker[5] === currentPlayer &&  selectionTracker[8]  === currentPlayer){
+        //     // alert("player wins 258")
+        //     // hasWinner = true;
+        //     alert(`${currentPlayer} wins! 158`)
+        //     return true;
+        // } 
     } else if(selectionTracker[3] === currentPlayer){
         if(selectionTracker[4] === currentPlayer && selectionTracker[5] === currentPlayer){
             // alert("player wins 345")
+            // hasWinner = true;
             alert(`${currentPlayer} wins!`)
             return true;
-        }
+        } 
     } else if (selectionTracker[6] === currentPlayer){
         if(selectionTracker[7] === currentPlayer && selectionTracker[8] === currentPlayer){
             // alert("player wins 678")
+            // hasWinner = true;
             alert(`${currentPlayer} wins!`)
             return true
-        }
-    } else if (selectionTracker[1] === currentPlayer){
-        if(selectionTracker[4] === currentPlayer && selectionTracker[7] === currentPlayer){
-            // alert("player wins  147")
-            alert(`${currentPlayer} wins!`)
-            return true
-        }
+        // } 
+        // if(selectionTracker[4] === currentPlayer && selectionTracker[2] === currentPlayer){
+        //     alert(`${currentPlayer}`)
+        //     return true
+        } 
+    // } else if (selectionTracker[2] === currentPlayer){
+    //     if(selectionTracker[4] === currentPlayer && selectionTracker[6] === currentPlayer){
+    //         // alert("player wins  147")
+    //         alert(`${currentPlayer} wins!`)
+    //         return true
+        // }
     } else {
         return false
     }
     // } else 
-
-    
 }
 
+const reset = () => {
+    location.reload()
+}
+
+resetBtn.addEventListener("click", reset)
 
 // const getWinner = () => {
 //     if(selectionTracker[0] === currentPlayer){

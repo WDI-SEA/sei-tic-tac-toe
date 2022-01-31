@@ -11,26 +11,21 @@ const winCombos =
     [6,7,8],    
 ]
 let winExist = false
-// function to check if player won. returns true if player board matches winCombos
+// function to check if player won. returns true if player`s board matches winCombos
 let checkBoard = (playerBoard,winKeys) => {
     let x = 0
     let win = false
     for (let i = 0; i < 8; i++) {
         for (let j = 0; j < 3; j++) {
             if (playerBoard[winKeys[i][j]] === 1) {
-                x++
-                // debug line
-                // console.log("X value : " + x + " | key : " + winKeys[i][j] + " | playerboard : " + playerBoard[winKeys[i][j]])
+                x++                
             } 
-        }
-        // console.log("vvvvvvvvvvvvvvvvvvvv")
+        }        
         if (x === 3) {
            win = true        
            winExist = true    
         } 
-        // reinitialize counter back to 0
-        x = 0
-          
+        x = 0   // reinitialize counter back to 0       
     }    
     return win
 }
@@ -39,10 +34,7 @@ let playerX = [,,,,,,,,]
 let playerO = [,,,,,,,,]
 let turnCount = 0
 
-
-console.log(document.getElementById("0").innerText)
-const onClick = (event) => {
-    
+const onClick = (event) => {    
     if (event.target.nodeName === 'BUTTON') {
         let choice = event.target.id
         let player = document.getElementById('play').innerText
@@ -69,17 +61,11 @@ const onClick = (event) => {
             }
             arrBoard[choice] = player                         
             turnCount++
-            if (turnCount == 9 && winExist == false) {
+            if (turnCount ==9  && winExist == false) {
                 document.getElementById('game-message').innerHTML = '<img src="img/duck-dancing.gif" width="200px">Draw! Good game!'
             }
         } while (document.getElementById("0").innerText.length ==0);
     }
 }
 window.addEventListener('click', onClick);
-
-      
-
-//   console.log(arrBoard)
-//   document.getElementById('game-message').innerHTML = '<img src="img/duck-dancing.gif" width="200px">Draw! Good game!'
-
 

@@ -29,6 +29,7 @@ const grid = Array.from(document.querySelectorAll('.grid'))
 // const fruits = ["apple", "orange", "cherry"];
 // fruits.forEach(myFunction);-- calls function for each element
 
+// check turn, mark turn
 grid.forEach(function (grid) {
     grid.addEventListener('click', function() {
         if (grid.innerText === '' && isGameActive) {
@@ -40,8 +41,6 @@ grid.forEach(function (grid) {
                 currentPlayer = 'X'
                 playerNow.innerText = "X's turn"
             }
-            tieCondition()
-            checkWinner ()
         }
     })
 })
@@ -59,6 +58,7 @@ let winningCombinations = [
     [2, 4, 6]
 ]
 
+// something wrong with this, checking for winner but not logging winner...what am I missing?!?!!?!?
 const checkWinner = () => {
     if (grid[0] === currentPlayer) {
       if (grid[1] === currentPlayer && grid[2] === currentPlayer) {
@@ -99,9 +99,10 @@ const checkWinner = () => {
         return false
     } 
   } 
+checkWinner()
 
 // check for tie
-const tieCondition = () => {
+const tieCheck = () => {
     let playedGrid = 0
     for (let i = 0; i < grid.length; i++) {
         if (grid[i].innerText === 'X' || grid[i].innerText === 'O') {
@@ -113,7 +114,7 @@ const tieCondition = () => {
         playerNow.innerText = 'Game Over'
     }
 }
-tieCondition() 
+tieCheck() 
 
 
 // reset button

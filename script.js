@@ -127,12 +127,12 @@ let resetButton = document.querySelector('#reset-button')
 
 resetButton.addEventListener('click', resetGame)
 
-//for loop to run functionality with click
+// Player move function after click
 let playerMove = (e) => {
     // parseInt(e.target.id) finds the number of the ID of the clicked div
     //player move conditional
     if (playerUp == 'X') {
-        // update inner text--x
+        // update inner text of targeted tile--x
         e.target.innerText ="X";
         // add to array--PLAYER 1
         playerXchoices.push(parseInt(e.target.id));
@@ -141,7 +141,7 @@ let playerMove = (e) => {
         // remove event listener from that tile
         e.target.removeEventListener('click', playerMove)
     } else if (playerUp == 'O') {
-        // update inner text--o
+        // update inner text of targeted tile--o
         e.target.innerText ="O";
         // add to array--PLAYER 2
         playerOchoices.push(parseInt(e.target.id));

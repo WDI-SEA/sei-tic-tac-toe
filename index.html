@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <h1>TIC TAC TOE</h1>
+    <div class="turn-terminal">
+      <div class="turn-display turn-box">
+        <h3 class="turn-display" id="turn-title">WHOSE TURN IS IT???</h3>
+        <div class="xo-turn" id="x-turn">X</div>
+        <div class="xo-turn" id="o-turn">O</div>
+      </div>
+      <div class="turn-counter counter-box">
+        <h3 class="turn-counter">WHAT TURN NUMBER IS IT???</h3>
+        <div class="turn-counter">TURN #</div>
+        <div id="turn-count"></div></div>
+      </div>
+    </div>
+    <div class="game-board">
+      <div class="top-row">
+        <div class="diagonal-topleft board-block left-col" id="a"></div>
+        <div class="board-block mid-vert mid-col" id="b"></div>
+        <div class="diagonal-topright board-block right-col" id="c"></div>
+      </div>
+      <div class="middle-row">
+        <div class="board-block mid-horiz left-col" id="d"></div>
+        <div
+          class="diagonal-topleft diagonal-topright board-block mid-vert mid-horiz mid-col"
+          id="e"
+        ></div>
+        <div class="board-block mid-horiz right-col" id="f"></div>
+      </div>
+      <div class="bottom-row">
+        <div class="diagonal-topright board-block left-col" id="g"></div>
+        <div class="board-block mid-vert mid-col" id="h"></div>
+        <div class="diagonal-topleft board-block right-col" id="i"></div>
+      </div>
+    </div>
+
+    <div class="button-box">
+      <button class="reset-game" type = "button">RESET GAME STATE <br>
+        (OR START NEW GAME)</button>
+      <button class="reset-wins" type="button">RESET<br> WINS</button>
+    </div>
+
+    <div class="score-box">
+      <div class="x-score-box">
+       <div class="x-score-label">X Wins</div> 
+       <div class="score-counter" id="x-score">0</div>
+      </div>
+      <div class="o-score-box">
+        <div class="o-score-label">O Wins</div> 
+        <div class="score-counter" id="o-score">0</div>
+       </div>
+    </div>
+
+    <script src="tictactoe.js"></script>
+  </body>
+</html>

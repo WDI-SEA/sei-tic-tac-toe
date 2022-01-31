@@ -1,0 +1,11 @@
+check win conditions:
+top-row -- child div
+middle-row -- child div
+bottom-row -- child div
+diagonal-topleft
+diagonal-topright
+mid-vert
+mid-horiz
+left-col
+mid-col
+right-col

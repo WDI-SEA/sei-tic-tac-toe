@@ -76,7 +76,7 @@ const oScore = document.getElementById("o-score");
 // ------------------------------
 
 // Initialization and Declarations
-let winArray = [];
+
 const winConditions = [
   midRow,
   topRow,
@@ -109,9 +109,12 @@ let currentTurn = "X";
 let turnNumber = 0;
 
 turnCount.innerText = turnNumber;
+oScore.innerText = oWins;
+xScore.innerText = xWins;
 
 xToggle.style.backgroundColor = "rgba(0, 255, 0, 0.6)";
 
+let winArray = [];
 let drawArray = [];
 
 // Function to check win conditions for three X or O in a 'row' (or diagonal)
@@ -138,6 +141,7 @@ function checkWin(array) {
       oWins++;
       oScore.innerText = oWins;
       blocks.forEach(removeClicks);
+      break;
     }
   }
   for (a = 0; a < blockRefs.length; a++) {
@@ -151,6 +155,7 @@ function checkWin(array) {
     alert("Draw! No more moves available. No one wins!");
     blocks.forEach(removeClicks);
   }
+  console.log();
 }
 // ----------------
 

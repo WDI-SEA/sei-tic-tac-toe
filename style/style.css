@@ -3,36 +3,36 @@
 }
 
 body {
-    background: url(/img/geometric-leaves.png);
-    background-color: rgb(240, 167, 167);
+  background: url(/img/geometric-leaves.png);
+  background-color: rgb(240, 167, 167);
 }
 
 button {
-    background-color: black;
-    display: block;
-    width: 12rem;
-    height: 12rem;
-    color: white;
-    font-size: 50px;
+  background-color: black;
+  display: block; 
+  width: 12rem;
+  height: 12rem;
+  color: white;
+  font-size: 50px;
 }
 
 .center {
-    text-align: center;
-    margin: 0 auto;
+  text-align: center;
+margin: 0 auto;
 }
 
 .button-container {
-    height: 50%;
-    /* position: relative; */
-    display: inline-block
+  height: 50%;
+  /* position: relative; */
+  display: inline-block
 }
 
 .button-container > img {
-    height: 300px;
+  height: 300px;
 }
 
 .wrapper {
-    margin-left:auto;
-    margin-right:auto;
-    width: 700px
+  margin-left:auto;
+  margin-right:auto;
+  width: 700px
 }

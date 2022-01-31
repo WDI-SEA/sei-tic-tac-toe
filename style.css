@@ -1,0 +1,74 @@
+:root {
+    background-color: black;
+    color: red;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 8;
+}
+
+.box {
+    background-color: red;
+    display: inline-block;
+    color: black;
+    padding: 70px;
+    margin: 1vh 1vw;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#grid {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.box:hover {
+    background-color: white;
+}
+
+
+.turn {
+    color: white;
+}
+
+
+.players {
+    display: inline;
+}
+
+#player-one {
+    margin-right: 12px;
+}
+
+#player-two {
+    margin-left: 16px;
+}
+
+#result {
+    color: red;
+}
+
+#clear {
+    margin: 10px;
+}
+
+#clear:hover {
+    background-color: red;
+    color: black;
+}
+
+#result {
+    color: yellow;
+    font-weight: bold;
+    font-size: 18px;
+    padding-top: 13px;
+    padding-bottom: 8px;
+}

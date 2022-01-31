@@ -2,7 +2,7 @@
 
 //arrays to keep track of who played which space
 const xMoves = []
-let xWinCount = 0
+let xWinCount = 0;
 const oMoves = []
 let oWinCount = 0;
 
@@ -56,7 +56,7 @@ resetButton.addEventListener('click',function(){
     //change color of notification box to default colors
     changeColor(turnIdentifier,"black","white")
     //clear out array of x's moves by iterating over array and popping everything out
-    for(let i = 0; i < xMoves.length; i++){
+    for(let i = 0; i < xMoves.length+1; i++){
         xMoves.pop()
     }
     //clear out array of o's moves by iterating over array and popping everything out
@@ -127,6 +127,9 @@ const makeMove = (space) =>{
                     changeText(turnIdentifier,"X WINS!!!!")
                     changeColor(turnIdentifier, "black", "green")
                     gameOver = true
+                }else if(moveCount === 9){
+                    gameOver = true;
+                    changeText(turnIdentifier,"tie game!!!!")
                 }else{
                     xTurn = false
                     changeText(turnIdentifier,"O's turn!")
@@ -143,6 +146,9 @@ const makeMove = (space) =>{
                     changeText(turnIdentifier,"O WINS!!!!")
                     changeColor(turnIdentifier, "black", "green")
                     gameOver = true;
+                }else if(moveCount === 9){
+                    gameOver = true;
+                    changeText(turnIdentifier,"tie game!!!!")
                 }else{
                     xTurn = true;
                     changeText(turnIdentifier, "X's turn!")
@@ -177,5 +183,13 @@ let checkWinner = (arr1) =>{
             actualWinningSquares.push(winningArray[i][0], winningArray[i][1], winningArray[i][2])
             return "win"
         }
+    }
+}
+
+let checkTie = () => {
+    if(moveCount === 9){
+        gameOver = true;
+        changeText(turnIdentifier,"TIE GAME!!!")
+        return true
     }
 }

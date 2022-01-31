@@ -1,0 +1,40 @@
+body{
+    text-align: center;
+    margin: 0 auto;
+}
+
+h1{
+    color: hotpink
+}
+
+img{
+    height: 17vh;
+    width: 17vw;
+}
+
+#gameboard{
+    border: 3px solid red;
+    height: 70vw;
+    width: 70vw;
+}
+
+.space{
+    height: 17vh;
+    width: 17vw;
+    border: 1px solid grey
+}
+
+.row{
+    display: inline-block;
+    position: relative;
+    vertical-align: top
+}
+
+.center{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.gameStatus{
+    width: 20vw;
+}

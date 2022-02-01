@@ -1,0 +1,27 @@
+/* what css is needed to layout the page like your wireframes */
+/* DO NOT DO ANY FANCY STYLING UNTIL THE JAVASCRIPT IS DONE */
+
+body {
+    margin: 10px 200px 10px 200px;
+}
+
+.grid-container {
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    background-color: #75bffc;
+    padding: 20px;
+}
+
+.grid-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(173, 173, 173, 0.753);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.game-display {
+    color: black;
+    text-align: center;
+    border: 5px;
+}

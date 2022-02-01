@@ -17,17 +17,17 @@ let winCheck = (moves) => {
   return false
 }
 
-// let usedMoves = (num) => {
-//   const index = oMovesChoices.indexOf(num);
-//   if (index > -1) {
-//     oMovesChoices.splice(index,1);
-//   }
-// }
+let usedMoves = (num) => {
+  const index = oMovesChoices.indexOf(num);
+  if (index > -1) {
+    oMovesChoices.splice(index,1);
+  }
+}
 
-// let getOMoves = () => {
-//   const index = Math.floor(Math.random() * oMovesChoices.length)
-//     return oMovesChoices[index]
-// }
+let getOMoves = () => {
+  const index = Math.floor(Math.random() * oMovesChoices.length)
+    return oMovesChoices[index]
+}
 
 for (let button of buttons) {
   button.addEventListener("click", function(event) {
@@ -46,7 +46,7 @@ for (let button of buttons) {
     console.log(`omovechoices: ${oMovesChoices}`)
 
     if (oMoves.length + xMoves.length == 9) {
-      document.getElementById("notes").innerText = ("It's a Tie!")
+      alert("TIE")
       window.location.reload(true);
       return
     }

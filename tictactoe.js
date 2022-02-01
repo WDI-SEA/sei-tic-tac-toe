@@ -65,6 +65,8 @@ const midVert = document.querySelectorAll(".mid-vert");
 const diagTopLeft = document.querySelectorAll(".diagonal-topleft");
 const diagTopRight = document.querySelectorAll(".diagonal-topright");
 
+const msgBox = document.querySelector(".message-box");
+const winMessage = document.querySelector(".win-message");
 const turnCount = document.querySelector("#turn-count");
 const xToggle = document.querySelector("#x-turn");
 const oToggle = document.querySelector("#o-turn");
@@ -132,15 +134,17 @@ function checkWin(array) {
       winArray.push(array[c][i].innerText);
     }
     if (winArray.every(checkX)) {
-      alert("X has 3 in a row! X is the WINNER");
       xWins++;
       xScore.innerText = xWins;
+      winMessage.innerText = "X has 3 in a row! X is the WINNER!";
+      msgBox.style.backgroundColor = "rgba(0, 255, 0, 0.6)";
       blocks.forEach(removeClicks);
       break;
     } else if (winArray.every(checkO)) {
-      alert("O has 3 in a row! O is the WINNER");
       oWins++;
       oScore.innerText = oWins;
+      winMessage.innerText = "O has 3 in a row! O is the WINNER!";
+      msgBox.style.backgroundColor = "rgba(0, 255, 0, 0.6)";
       blocks.forEach(removeClicks);
       break;
     }
@@ -153,14 +157,16 @@ function checkWin(array) {
     winArray.every(checkX) !== true &&
     winArray.every(checkO) !== true
   ) {
-    alert("Draw! No more moves available. No one wins!");
+    winMessage.innerText = "Draw! No more moves available. No one wins!";
+    msgBox.style.backgroundColor = "rgba(255, 0, 0, 0.6)";
     blocks.forEach(removeClicks);
   }
-  console.log();
 }
 // ----------------
 
 function updateBoard(e) {
+  winMessage.innerText = "NO WINNER ...YET";
+
   if (e.target.innerText === "" && currentTurn === "X") {
     e.target.innerText = "X";
     turnNumber += 1;
@@ -198,6 +204,8 @@ function resetGame() {
   turnCount.innerText = turnNumber;
   xToggle.style.backgroundColor = "rgba(0, 255, 0, 0.6)";
   oToggle.style.backgroundColor = "";
+  winMessage.innerText = "NO WINNER ... YET";
+  msgBox.style.backgroundColor = "rgba(255, 255, 0, 0.6)";
   blocks.forEach(addClicks);
 }
 

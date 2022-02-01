@@ -19,8 +19,8 @@ squares.forEach(function (square) {
         currentPlayer = 'X'
         playerNow.innerText = 'The current player is X'
       }
-      winCondition()
       tieCondition()
+      winCondition()
     }
   })
 })

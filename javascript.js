@@ -80,7 +80,7 @@ function winCondition () {
         let middleCell = winPattern[1] //grab the middleCell of the board
         let rightCell = winPattern[2] //grab the rightCell of the board
         // grabs each rows and check in the boardLayout[i] if those values are present, if they are present run the next if statement
-        if (boardLayout[leftCell] != "" && boardLayout[middleCell] != "" && boardLayout[rightCell] != ""){
+        if (boardLayout[leftCell] != ""  && boardLayout[middleCell] != "" && boardLayout[rightCell] != ""){
             if (boardLayout[leftCell] == boardLayout[middleCell] && boardLayout[middleCell] == boardLayout[rightCell]) { // if all cells have the same value (X or O)
                 finished = true // finishes the game and prevents players from adding more O & X
                 if (boardLayout[leftCell] == players.one) {

@@ -1,4 +1,4 @@
-
+const box = document.querySelector('.box')
 const box1 = document.querySelector('#box1')
 const box2 = document.querySelector('#box2')
 const box3 = document.querySelector('#box3')
@@ -37,40 +37,57 @@ let player1Moves = []
 let player2Moves = []
 let allMoves = []
 
+
 // this function checks for a winner and then calls the display results function
 function checkWinner() {
     if (player1Moves.includes(1) && player1Moves.includes(2) && player1Moves.includes(3)) {
         displayResult('PLAYER ONE WINS')
+        endGame()
     } else if (player1Moves.includes(4) && player1Moves.includes(5) && player1Moves.includes(6)) {
         displayResult('PLAYER ONE WINS')
+        endGame()
     } else if (player1Moves.includes(7) && player1Moves.includes(8) && player1Moves.includes(9)) {
         displayResult('PLAYER ONE WINS')
+        endGame()
     } else if (player1Moves.includes(1) && player1Moves.includes(4) && player1Moves.includes(7)) {
         displayResult('PLAYER ONE WINS')
+        endGame()
     } else if (player1Moves.includes(2) && player1Moves.includes(5) && player1Moves.includes(8)) {
         displayResult('PLAYER ONE WINS')
+        endGame()
     } else if (player1Moves.includes(3) && player1Moves.includes(6) && player1Moves.includes(9)) {
         displayResult('PLAYER ONE WINS')
+        endGame()
     } else if (player1Moves.includes(1) && player1Moves.includes(5) && player1Moves.includes(9)) {
         displayResult('PLAYER ONE WINS')
+        endGame()
     } else if (player1Moves.includes(3) && player1Moves.includes(5) && player1Moves.includes(7)) {
         displayResult('PLAYER ONE WINS')
+        endGame()
     } else if (player2Moves.includes(1) && player2Moves.includes(2) && player2Moves.includes(3)) {
         displayResult('PLAYER TWO WINS')
+        endGame()
     } else if (player2Moves.includes(4) && player2Moves.includes(5) && player2Moves.includes(6)) {
         displayResult('PLAYER TWO WINS')
+        endGame()
     } else if (player2Moves.includes(7) && player2Moves.includes(8) && player2Moves.includes(9)) {
         displayResult('PLAYER TWO WINS')
+        endGame()
     } else if (player2Moves.includes(1) && player2Moves.includes(4) && player2Moves.includes(7)) {
         displayResult('PLAYER TWO WINS')
+        endGame()
     } else if (player2Moves.includes(2) && player2Moves.includes(5) && player2Moves.includes(8)) {
         displayResult('PLAYER TWO WINS')
+        endGame()
     } else if (player2Moves.includes(3) && player2Moves.includes(6) && player2Moves.includes(9)) {
         displayResult('PLAYER TWO WINS')
+        endGame()
     } else if (player2Moves.includes(1) && player2Moves.includes(5) && player2Moves.includes(9)) {
         displayResult('PLAYER TWO WINS')
+        endGame()
     } else if (player2Moves.includes(3) && player2Moves.includes(5) && player2Moves.includes(7)) {
         displayResult('PLAYER TWO WINS')
+        endGame()
     }
 }
 
@@ -79,6 +96,7 @@ function checkTie() {
         displayResult('DRAW')
     }
 }
+
 
 function displayResult(result) {
     document.querySelector('#result').innerText = result;
@@ -90,17 +108,17 @@ function displayResult(result) {
 // this function also calls checkTie and checkWinner
 // *** CHECK WINNER HAD TO BE BELOW CHECK TIE OR THE GAME WOULD BE CALLED A DRAW
 // also there's an oject that isn't a variable... }, { } That makes is so you can't click on the same box twice
-
-box1.addEventListener('click', function () {
+const box1Click = box1.addEventListener('click', function () {
     const box = 1
     box1.innerText = playerTurn(box)
     checkTie()
     checkWinner()
+
 }, {
     once: true
 })
 
-box2.addEventListener('click', function () {
+const box2Click = box2.addEventListener('click', function () {
     const box = 2
     box2.innerText = playerTurn(box)
     checkTie()
@@ -110,7 +128,7 @@ box2.addEventListener('click', function () {
     once: true
 })
 
-box3.addEventListener('click', function () {
+const box3Click = box3.addEventListener('click', function () {
     const box = 3
     box3.innerText = playerTurn(box)
     checkTie()
@@ -119,7 +137,7 @@ box3.addEventListener('click', function () {
     once: true
 })
 
-box4.addEventListener('click', function () {
+const box4Click = box4.addEventListener('click', function () {
     const box = 4
     box4.innerText = playerTurn(box)
     checkTie()
@@ -128,7 +146,7 @@ box4.addEventListener('click', function () {
     once: true
 })
 
-box5.addEventListener('click', function () {
+const box5Click = box5.addEventListener('click', function () {
     const box = 5
     box5.innerText = playerTurn(box)
     checkTie()
@@ -137,7 +155,7 @@ box5.addEventListener('click', function () {
     once: true
 })
 
-box6.addEventListener('click', function () {
+const box6Click = box6.addEventListener('click', function () {
     const box = 6
     box6.innerText = playerTurn(box)
     checkTie()
@@ -146,7 +164,7 @@ box6.addEventListener('click', function () {
     once: true
 })
 
-box7.addEventListener('click', function () {
+const box7Click = box7.addEventListener('click', function () {
     const box = 7
     box7.innerText = playerTurn(box)
     checkTie()
@@ -155,7 +173,7 @@ box7.addEventListener('click', function () {
     once: true
 })
 
-box8.addEventListener('click', function () {
+const box8Click = box8.addEventListener('click', function () {
     const box = 8
     box8.innerText = playerTurn(box)
     checkTie()
@@ -164,7 +182,7 @@ box8.addEventListener('click', function () {
     once: true
 })
 
-box9.addEventListener('click', function () {
+const box9Click = box9.addEventListener('click', function () {
     const box = 9
     box9.innerText = playerTurn(box)
     checkTie()
@@ -172,6 +190,11 @@ box9.addEventListener('click', function () {
 }, {
     once: true
 })
+
+function endGame() {
+    document.querySelector('#grid').classList.toggle('over');
+  }
+
 
 
 const clearButton = document.querySelector('#clear')

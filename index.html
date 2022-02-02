@@ -1,61 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TIC TAC POE</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-    <link rel="stylesheet" href="style/style.css">
-</head>
-<body>
-  <div class="center">
-    <h1>Tic-Tac-Poe</h1>
-    <p>Match 3 in a row and you win! X's go first, then POE</p>
-  </div>
-  <table id="game-board" class= "center wrapper">
-    <tbody>
-      <tr class="row1 button-container board-square">
-        <td>
-          <button type="button" id="0" value=" ">
-            <img id="poewon">
-          </button>
-        </td>
-        <td>
-          <button type="button" id="1" value=" "></button>
-        </td>
-        <td>
-          <button type="button" id="2" value=" "></button>
-        </td>
-      </tr>
-      <tr class="row1 button-container board-square">
-        <td>
-          <button type="button" id="3" value=" "></button>
-        </td>
-        <td>
-          <button type="button" id="4" value=" "></button>
-        </td>
-        <td>
-          <button type="button" id="5" value=" "></button>
-        </td>
-      </tr>
-      <tr class="row1 button-container board-square">
-        <td>
-          <button type="button" id="6" value=" "></button>
-        </td>
-        <td>
-          <button type="button" id="7" value=" "></button>
-        </td>
-        <td>
-          <button type="button" id="8" value=" "></button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="center">
-    <p id="notes"></p>
-    <img id="poewon">
-  </div> 
-</body>
-<script src="js/script.js"></script>
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+      crossorigin="anonymous"
+    /> -->
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <div class="center">
+      <h1>Tic-Tac-Poe</h1>
+      <p>Match 3 in a row and you win! X's go first, then POE</p>
+    </div>
+    <div>
+      <!-- <form class="controls"> -->
+        
+          <!-- </form> -->
+      <table id="game-board overlay table" class="center wrapper">
+        <tbody>
+          <tr class="row1 tr button-container board-square block">
+            <td class ="td">
+              <button type="button" id="0" value=" ">
+                <img>
+              </button>
+            </td>
+            <td class ="td">
+              <button type="button" id="1" value=" ">
+                <img>
+              </button>
+            </td>
+            <td class ="td">
+              <button type="button" id="2" value=" "><img></button>
+            </td>
+          </tr>
+          <tr class="row1 tr button-container board-square block">
+            <td  class ="td">
+              <button type="button" id="3" value=" "><img></button>
+            </td>
+            <td  class ="td">
+              <button type="button" id="4" value=" "><img></button>
+            </td>
+            <td class ="td">
+              <button type="button" id="5" value=" "><img></button>
+            </td>
+          </tr>
+          <tr class="row1 trbutton-container board-square block">
+            <td>
+              <button type="button" id="6" value=" "><img></button>
+            </td>
+            <td>
+              <button type="button" id="7" value=" "><img></button>
+            </td>
+            <td>
+              <button type="button" id="8" value=" "><img></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="center">
+      <p id="notes"></p>
+      <input class="center" type="reset" value="AGAIN!" onClick="window.location.reload()">
+    </div>
+    <div class="center">
+      <img id="poetie">
+    </div>
+  
+  </body>
+  <script src="js/script.js"></script>
 </html>

@@ -1,5 +1,6 @@
 let gameActive = true
 let currentPlayer = "X"
+let secondPlayer = "O"
 const clickOne = document.querySelector("#squareOne")
 const clickTwo = document.querySelector("#squareTwo")
 const clickThree = document.querySelector("#squareThree")
@@ -9,6 +10,7 @@ const clickSix = document.querySelector("#squareSix")
 const clickSeven = document.querySelector("#squareSeven")
 const clickEight = document.querySelector("#squareEight")
 const clickNine = document.querySelector("#squareNine")
+const winner = document.querySelector("#the-winner")
 const reset = document.querySelector("#reset-button")
 let turnCounter = 1;
 
@@ -20,68 +22,354 @@ const changeTurn = () => {
        currentPlayer="X";}else if (turnCounter ===1) {
            currentPlayer="O";} else if (turnCounter ===2) {currentPlayer="X"}else if (turnCounter===3) {currentPlayer="O"}else if (turnCounter ===4) {currentPlayer="X"}else if (turnCounter===5) {currentPlayer="O"}else if (turnCounter ===6) {currentPlayer="X"}else if (turnCounter===7) {currentPlayer="O"}
            else if (turnCounter ===8) {currentPlayer="X"}else if (turnCounter===9) {currentPlayer="O"};
-               
-
-           
-    
            turnCounter++;
-           console.log(turnCounter)
        }
 
+const tie = () => {
+    if (turnCounter==10){
+        document.getElementById("the-winner").innerHTML = "it's a tie!"
+    }
+}
 
-    //    Event listeners that change from a blank box to an x or o
-clickOne.addEventListener("click", () => {
+const winOne = () => {
+if (document.getElementById('squareOne').innerText === 'X' && document.getElementById('squareTwo').innerText === 'X' && document.getElementById('squareThree').innerText === 'X'){
+    document.getElementById("squareOne").style.color = "red"
+    document.getElementById("squareTwo").style.color = "red"
+    document.getElementById("squareThree").style.color = "red"
+    document.getElementById("the-winner").innerHTML = "X has won!"
+    clickOne.removeEventListener('click', moveMade)
+    clickTwo.removeEventListener('click', moveMadeTwo)
+    clickThree.removeEventListener('click', moveMadeThree)
+    clickFour.removeEventListener('click', moveMadeFour)
+    clickFive.removeEventListener('click', moveMadeFive)
+    clickSix.removeEventListener('click', moveMadeSix)
+    clickSeven.removeEventListener('click', moveMadeSeven)
+    clickEight.removeEventListener('click', moveMadeEight)
+    clickNine.removeEventListener('click', moveMadeNine)
+} else if (document.getElementById('squareOne').innerText === 'X' && document.getElementById('squareFive').innerText === 'X' && document.getElementById('squareNine').innerText === 'X') {
+    document.getElementById("the-winner").innerHTML = "X has won!" 
+    document.getElementById("squareOne").style.color = "red"
+    document.getElementById("squareFive").style.color = "red"
+    document.getElementById("squareNine").style.color = "red"
+    clickOne.removeEventListener('click', moveMade)
+    clickTwo.removeEventListener('click', moveMadeTwo)
+    clickThree.removeEventListener('click', moveMadeThree)
+    clickFour.removeEventListener('click', moveMadeFour)
+    clickFive.removeEventListener('click', moveMadeFive)
+    clickSix.removeEventListener('click', moveMadeSix)
+    clickSeven.removeEventListener('click', moveMadeSeven)
+    clickEight.removeEventListener('click', moveMadeEight)
+    clickNine.removeEventListener('click', moveMadeNine)
+} else if (document.getElementById('squareThree').innerText === 'X' && document.getElementById('squareFive').innerText === 'X' && document.getElementById('squareSeven').innerText === 'X') {
+    document.getElementById("the-winner").innerHTML = "X has won!"
+    document.getElementById("squareThree").style.color = "red"
+    document.getElementById("squareFive").style.color = "red"
+    document.getElementById("squareSeven").style.color = "red"
+    clickOne.removeEventListener('click', moveMade)
+    clickTwo.removeEventListener('click', moveMadeTwo)
+    clickThree.removeEventListener('click', moveMadeThree)
+    clickFour.removeEventListener('click', moveMadeFour)
+    clickFive.removeEventListener('click', moveMadeFive)
+    clickSix.removeEventListener('click', moveMadeSix)
+    clickSeven.removeEventListener('click', moveMadeSeven)
+    clickEight.removeEventListener('click', moveMadeEight)
+    clickNine.removeEventListener('click', moveMadeNine)
+} else if (document.getElementById('squareOne').innerText === 'X' && document.getElementById('squareFour').innerText === 'X' && document.getElementById('squareSeven').innerText === 'X') {
+    document.getElementById("the-winner").innerHTML = "X has won!"
+    document.getElementById("squareOne").style.color = "red"
+    document.getElementById("squareFour").style.color = "red"
+    document.getElementById("squareSeven").style.color = "red"
+    clickOne.removeEventListener('click', moveMade)
+    clickTwo.removeEventListener('click', moveMadeTwo)
+    clickThree.removeEventListener('click', moveMadeThree)
+    clickFour.removeEventListener('click', moveMadeFour)
+    clickFive.removeEventListener('click', moveMadeFive)
+    clickSix.removeEventListener('click', moveMadeSix)
+    clickSeven.removeEventListener('click', moveMadeSeven)
+    clickEight.removeEventListener('click', moveMadeEight)
+    clickNine.removeEventListener('click', moveMadeNine)
+} else if (document.getElementById('squareTwo').innerText === 'X' && document.getElementById('squareFive').innerText === 'X' && document.getElementById('squareEight').innerText === 'X') {
+    document.getElementById("the-winner").innerHTML = "X has won!"
+    document.getElementById("squareTwo").style.color = "red"
+    document.getElementById("squareFive").style.color = "red"
+    document.getElementById("squareEight").style.color = "red"
+    clickOne.removeEventListener('click', moveMade)
+    clickTwo.removeEventListener('click', moveMadeTwo)
+    clickThree.removeEventListener('click', moveMadeThree)
+    clickFour.removeEventListener('click', moveMadeFour)
+    clickFive.removeEventListener('click', moveMadeFive)
+    clickSix.removeEventListener('click', moveMadeSix)
+    clickSeven.removeEventListener('click', moveMadeSeven)
+    clickEight.removeEventListener('click', moveMadeEight)
+    clickNine.removeEventListener('click', moveMadeNine)
+} else if (document.getElementById('squareThree').innerText === 'X' && document.getElementById('squareSix').innerText === 'X' && document.getElementById('squareNine').innerText === 'X') {
+    document.getElementById("the-winner").innerHTML = "X has won!"
+    document.getElementById("squareThree").style.color = "red"
+    document.getElementById("squareSix").style.color = "red"
+    document.getElementById("squareNine").style.color = "red"
+    clickOne.removeEventListener('click', moveMade)
+    clickTwo.removeEventListener('click', moveMadeTwo)
+    clickThree.removeEventListener('click', moveMadeThree)
+    clickFour.removeEventListener('click', moveMadeFour)
+    clickFive.removeEventListener('click', moveMadeFive)
+    clickSix.removeEventListener('click', moveMadeSix)
+    clickSeven.removeEventListener('click', moveMadeSeven)
+    clickEight.removeEventListener('click', moveMadeEight)
+    clickNine.removeEventListener('click', moveMadeNine)
+} else if (document.getElementById('squareFour').innerText === 'X' && document.getElementById('squareFive').innerText === 'X' && document.getElementById('squareSix').innerText === 'X') {
+    document.getElementById("the-winner").innerHTML = "X has won!"
+    document.getElementById("squareFour").style.color = "red"
+    document.getElementById("squareFive").style.color = "red"
+    document.getElementById("squareSix").style.color = "red"
+    clickOne.removeEventListener('click', moveMade)
+    clickTwo.removeEventListener('click', moveMadeTwo)
+    clickThree.removeEventListener('click', moveMadeThree)
+    clickFour.removeEventListener('click', moveMadeFour)
+    clickFive.removeEventListener('click', moveMadeFive)
+    clickSix.removeEventListener('click', moveMadeSix)
+    clickSeven.removeEventListener('click', moveMadeSeven)
+    clickEight.removeEventListener('click', moveMadeEight)
+    clickNine.removeEventListener('click', moveMadeNine)
+} else if (document.getElementById('squareSeven').innerText === 'X' && document.getElementById('squareEight').innerText === 'X' && document.getElementById('squareNine').innerText === 'X') {
+    document.getElementById("the-winner").innerHTML = "X has won!"
+    document.getElementById("squareSeven").style.color = "red"
+    document.getElementById("squareEight").style.color = "red"
+    document.getElementById("squareNine").style.color = "red"
+    clickOne.removeEventListener('click', moveMade)
+    clickTwo.removeEventListener('click', moveMadeTwo)
+    clickThree.removeEventListener('click', moveMadeThree)
+    clickFour.removeEventListener('click', moveMadeFour)
+    clickFive.removeEventListener('click', moveMadeFive)
+    clickSix.removeEventListener('click', moveMadeSix)
+    clickSeven.removeEventListener('click', moveMadeSeven)
+    clickEight.removeEventListener('click', moveMadeEight)
+    clickNine.removeEventListener('click', moveMadeNine)
+}
+}
+
+
+const winTwo = () => {
+    if (document.getElementById('squareOne').innerText === 'O' && document.getElementById('squareTwo').innerText === 'O' && document.getElementById('squareThree').innerText === 'O'){
+        document.getElementById("the-winner").innerHTML = "O has won!"
+        document.getElementById("squareOne").style.color = "red"
+    document.getElementById("squareTwo").style.color = "red"
+    document.getElementById("squareThree").style.color = "red"
+        clickOne.removeEventListener('click', moveMade)
+        clickTwo.removeEventListener('click', moveMadeTwo)
+        clickThree.removeEventListener('click', moveMadeThree)
+        clickFour.removeEventListener('click', moveMadeFour)
+        clickFive.removeEventListener('click', moveMadeFive)
+        clickSix.removeEventListener('click', moveMadeSix)
+        clickSeven.removeEventListener('click', moveMadeSeven)
+        clickEight.removeEventListener('click', moveMadeEight)
+        clickNine.removeEventListener('click', moveMadeNine)
+    } else if (document.getElementById('squareOne').innerText === 'O' && document.getElementById('squareFive').innerText === 'O' && document.getElementById('squareNine').innerText === 'O') {
+        document.getElementById("the-winner").innerHTML = "O has won!" 
+        document.getElementById("squareOne").style.color = "red"
+    document.getElementById("squareFive").style.color = "red"
+    document.getElementById("squareNine").style.color = "red"
+        clickOne.removeEventListener('click', moveMade)
+        clickTwo.removeEventListener('click', moveMadeTwo)
+        clickThree.removeEventListener('click', moveMadeThree)
+        clickFour.removeEventListener('click', moveMadeFour)
+        clickFive.removeEventListener('click', moveMadeFive)
+        clickSix.removeEventListener('click', moveMadeSix)
+        clickSeven.removeEventListener('click', moveMadeSeven)
+        clickEight.removeEventListener('click', moveMadeEight)
+        clickNine.removeEventListener('click', moveMadeNine)
+    } else if (document.getElementById('squareThree').innerText === 'O' && document.getElementById('squareFive').innerText === 'O' && document.getElementById('squareSeven').innerText === 'O') {
+        document.getElementById("the-winner").innerHTML = "O has won!"
+        document.getElementById("squareThree").style.color = "red"
+    document.getElementById("squareFive").style.color = "red"
+    document.getElementById("squareSeven").style.color = "red"
+        clickOne.removeEventListener('click', moveMade)
+        clickTwo.removeEventListener('click', moveMadeTwo)
+        clickThree.removeEventListener('click', moveMadeThree)
+        clickFour.removeEventListener('click', moveMadeFour)
+        clickFive.removeEventListener('click', moveMadeFive)
+        clickSix.removeEventListener('click', moveMadeSix)
+        clickSeven.removeEventListener('click', moveMadeSeven)
+        clickEight.removeEventListener('click', moveMadeEight)
+        clickNine.removeEventListener('click', moveMadeNine)
+    } else if (document.getElementById('squareOne').innerText === 'O' && document.getElementById('squareFour').innerText === 'O' && document.getElementById('squareSeven').innerText === 'O') {
+        document.getElementById("the-winner").innerHTML = "O has won!"
+        document.getElementById("squareOne").style.color = "red"
+    document.getElementById("squareFour").style.color = "red"
+    document.getElementById("squareSeven").style.color = "red"
+        clickOne.removeEventListener('click', moveMade)
+        clickTwo.removeEventListener('click', moveMadeTwo)
+        clickThree.removeEventListener('click', moveMadeThree)
+        clickFour.removeEventListener('click', moveMadeFour)
+        clickFive.removeEventListener('click', moveMadeFive)
+        clickSix.removeEventListener('click', moveMadeSix)
+        clickSeven.removeEventListener('click', moveMadeSeven)
+        clickEight.removeEventListener('click', moveMadeEight)
+        clickNine.removeEventListener('click', moveMadeNine)
+    } else if (document.getElementById('squareTwo').innerText === 'O' && document.getElementById('squareFive').innerText === 'O' && document.getElementById('squareEight').innerText === 'O') {
+        document.getElementById("the-winner").innerHTML = "O has won!"
+        document.getElementById("squareTwo").style.color = "red"
+    document.getElementById("squareFive").style.color = "red"
+    document.getElementById("squareEight").style.color = "red"
+        clickOne.removeEventListener('click', moveMade)
+        clickTwo.removeEventListener('click', moveMadeTwo)
+        clickThree.removeEventListener('click', moveMadeThree)
+        clickFour.removeEventListener('click', moveMadeFour)
+        clickFive.removeEventListener('click', moveMadeFive)
+        clickSix.removeEventListener('click', moveMadeSix)
+        clickSeven.removeEventListener('click', moveMadeSeven)
+        clickEight.removeEventListener('click', moveMadeEight)
+        clickNine.removeEventListener('click', moveMadeNine)
+    } else if (document.getElementById('squareThree').innerText === 'O' && document.getElementById('squareSix').innerText === 'O' && document.getElementById('squareNine').innerText === 'O') {
+        document.getElementById("the-winner").innerHTML = "O has won!"
+        document.getElementById("squareThree").style.color = "red"
+    document.getElementById("squareSix").style.color = "red"
+    document.getElementById("squareNine").style.color = "red"
+        clickOne.removeEventListener('click', moveMade)
+        clickTwo.removeEventListener('click', moveMadeTwo)
+        clickThree.removeEventListener('click', moveMadeThree)
+        clickFour.removeEventListener('click', moveMadeFour)
+        clickFive.removeEventListener('click', moveMadeFive)
+        clickSix.removeEventListener('click', moveMadeSix)
+        clickSeven.removeEventListener('click', moveMadeSeven)
+        clickEight.removeEventListener('click', moveMadeEight)
+        clickNine.removeEventListener('click', moveMadeNine)
+    } else if (document.getElementById('squareFour').innerText === 'O' && document.getElementById('squareFive').innerText === 'O' && document.getElementById('squareSix').innerText === 'O') {
+        document.getElementById("the-winner").innerHTML = "O has won!"
+        document.getElementById("squareFour").style.color = "red"
+    document.getElementById("squareFive").style.color = "red"
+    document.getElementById("squareSix").style.color = "red"
+        clickOne.removeEventListener('click', moveMade)
+        clickTwo.removeEventListener('click', moveMadeTwo)
+        clickThree.removeEventListener('click', moveMadeThree)
+        clickFour.removeEventListener('click', moveMadeFour)
+        clickFive.removeEventListener('click', moveMadeFive)
+        clickSix.removeEventListener('click', moveMadeSix)
+        clickSeven.removeEventListener('click', moveMadeSeven)
+        clickEight.removeEventListener('click', moveMadeEight)
+        clickNine.removeEventListener('click', moveMadeNine)
+    } else if (document.getElementById('squareSeven').innerText === 'O' && document.getElementById('squareEight').innerText === 'O' && document.getElementById('squareNine').innerText === 'O') {
+        document.getElementById("the-winner").innerHTML = "O has won!"
+        document.getElementById("squareSeven").style.color = "red"
+    document.getElementById("squareEight").style.color = "red"
+    document.getElementById("squareNine").style.color = "red"
+        clickOne.removeEventListener('click', moveMade)
+        clickTwo.removeEventListener('click', moveMadeTwo)
+        clickThree.removeEventListener('click', moveMadeThree)
+        clickFour.removeEventListener('click', moveMadeFour)
+        clickFive.removeEventListener('click', moveMadeFive)
+        clickSix.removeEventListener('click', moveMadeSix)
+        clickSeven.removeEventListener('click', moveMadeSeven)
+        clickEight.removeEventListener('click', moveMadeEight)
+        clickNine.removeEventListener('click', moveMadeNine)
+    }
+    }
+
+
+const stopClick = () => {
+    if (winOne() === true) {
+        clickOne.removeEventListener("click")
+        clickTwo.removeEventListener("click")
+        clickThree.removeEventListener("click")
+        clickFour.removeEventListener("click")
+        clickFive.removeEventListener("click")
+        clickSix.removeEventListener("click")
+        clickSeven.removeEventListener("click")
+        clickEight.removeEventListener("click")
+        clickNine.removeEventListener("click")
+    }
+}
+
+const moveMade = () => {
     changeTurn()
     document.getElementById('squareOne').innerText = currentPlayer
-});
+    winOne()
+    winTwo()
+    clickOne.removeEventListener('click', moveMade)
+    tie()
+}
+clickOne.addEventListener("click", moveMade)
 
-
-clickFive.addEventListener("click", () => {
-    changeTurn()
-    document.getElementById('squareFive').innerText = currentPlayer
-});
-
-
-clickFour.addEventListener("click", () => {
-    changeTurn()
-    document.getElementById('squareFour').innerText = currentPlayer
-});
-
-
-clickThree.addEventListener("click", () => {
-    changeTurn()
-    document.getElementById('squareThree').innerText = currentPlayer
-});
-
-
-clickTwo.addEventListener("click", () => {
+const moveMadeTwo = () => {
     changeTurn()
     document.getElementById('squareTwo').innerText = currentPlayer
-});
+    winOne()
+    winTwo()
+    clickTwo.removeEventListener('click', moveMadeTwo)
+    tie()
+}
+clickTwo.addEventListener("click", moveMadeTwo)
 
+const moveMadeThree = () => {
+    changeTurn()
+    document.getElementById('squareThree').innerText = currentPlayer
+    winOne()
+    winTwo()
+    clickThree.removeEventListener('click', moveMadeThree)
+    tie()
+}
+clickThree.addEventListener("click", moveMadeThree)
 
-clickSix.addEventListener("click", () => {
+const moveMadeFour = () => {
+    changeTurn()
+    document.getElementById('squareFour').innerText = currentPlayer
+    winOne()
+    winTwo()
+    clickFour.removeEventListener('click', moveMadeFour)
+    tie()
+}
+clickFour.addEventListener("click", moveMadeFour)
+
+const moveMadeFive = () => {
+    changeTurn()
+    document.getElementById('squareFive').innerText = currentPlayer
+    winOne()
+    winTwo()
+    clickFive.removeEventListener('click', moveMadeFive)
+    tie()
+}
+clickFive.addEventListener("click", moveMadeFive)
+
+const moveMadeSix = () => {
     changeTurn()
     document.getElementById('squareSix').innerText = currentPlayer
-});
+    winOne()
+    winTwo()
+    clickSix.removeEventListener('click', moveMadeSix)
+    tie()
+}
+clickSix.addEventListener("click", moveMadeSix)
 
-
-clickSeven.addEventListener("click", () => {
+const moveMadeSeven = () => {
     changeTurn()
     document.getElementById('squareSeven').innerText = currentPlayer
-});
+    winOne()
+    winTwo()
+    clickSeven.removeEventListener('click', moveMadeSeven)
+    tie()
+}
+clickSeven.addEventListener("click", moveMadeSeven)
 
-
-clickEight.addEventListener("click", () => {
+const moveMadeEight = () => {
     changeTurn()
     document.getElementById('squareEight').innerText = currentPlayer
-});
+    winOne()
+    winTwo()
+    clickEight.removeEventListener('click', moveMadeEight)
+    tie()
+}
+clickEight.addEventListener("click", moveMadeEight)
 
-
-clickNine.addEventListener("click", () => {
+const moveMadeNine = () => {
     changeTurn()
-    document.getElementById('squareNine').innerHTML = currentPlayer
-});
+    document.getElementById('squareNine').innerText = currentPlayer
+    winOne()
+    winTwo()
+    clickNine.removeEventListener('click', moveMadeNine)
+    tie()
+
+}
+clickNine.addEventListener("click", moveMadeNine)
+
 
 
 // Reset Button, Just reloads the page

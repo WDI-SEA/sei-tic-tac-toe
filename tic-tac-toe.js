@@ -1,5 +1,21 @@
 // your javascript file
 // what kind of variables will I need? (app state)
+// what will happen when the user clicks?
+// document.getElementById("box").addEventListener("click", myFunction);
+
+function cellClick(event) {
+    if (event.target.classList.contains('box')) {
+        let id = event.target.id;
+        if (gridBox[id] == "") {
+            gridBox[id] = currentUser;
+            event.target.textContent = currentUser;
+            event.target.style.backgroundColor = 'white';
+            event.target.classList.toggle('f200');
+            checkGrid();
+            switchUser();
+        }
+    }
+}
 
 // data container (array) to hold who has gone where (on the gameboard) 
 // (this would contain player choices)
@@ -26,15 +42,12 @@ function checkData() {
   console.log('winner diagonal1')
 } else if (gameBoard[6] == gameBoard[4] && gameBoard[4] == gameBoard[2]) {
   console.log('winner diagonal2')
-} else if (gameBoard[0] == gameBoard[1] && gameBoard[1] == gameBoard[2] && 
-          gameboard[2] == gameBoard[3] && gameBoard[3] == gameboard[4] &&
-          gameBoard[4] == gameBoard[5] && gameBoard[5] == gameboard[6] &&
-          gameBoard[6] == gameBoard[7] && gameBoard[7] == gameBoard[8]) {
-  console.log('its a draw')
-}}
+} else if (!gridBox.includes("")) {
+    drawGame();
+}
+};
 
-// what will happen when the user clicks?
-// document.getElementById("box").addEventListener("click", myFunction);
+
 // toggle/boolean if someone has won (is user allowd to click/keep playing)
 
 let gridBox = document.querySelectorAll(".grid-box");
@@ -61,17 +74,45 @@ function playerChange() {
 // mark space if it is availible
   // if it is marked -- do nothing
 // check if there is a winner
+
+function displayWinner() {
+    let winnerBox = document.querySelector('.win');
+    if (currentUser == playerOne) {
+        scoreboard.user1 = scoreboard.playerOne + 1
+    } else {
+        scoreboard.user2 = scoreboard.playerTwo + 1
+    }
+    winnerBox.textContent = `${currentUser} is the winner!`;
+    alert('You have won!')
+    const grid = document.querySelector(`.grid`);
+    grid.removeEventListener('click', cellClick);
+    updateScoreboard();
+};
   // if there is a winner -- stop gameplay and show who won
   // if not -- let gameplay continue
 
 let gameDisplay = {
   playerOne: 0,
   playerTwo: 0,
+  draw: 0,
 }
+
+function updateScoreboard() {
+    let xScore = document.getElementById("X-Wins")
+    xScore.textContent = scoreboard.playerOne;
+    let oScore = document.getElementById("O-Wins")
+    oScore.textContent = scoreboard.playerTwo;
+    let tieScore = document.getElementById("Ties")
+    tieScore.textContent = scoreboard.ties;
+}
+
   // RESET GAME
 
-let resetElement = document.getElementById("reset");
-
-resetElement.addEventListener("onclick", function() {
-  
+  resetGame.addEventListener('click', () => {
+    for(let i = 0; i < selectAllBoxes.length; i++) {
+        selectAllBoxes[i].innerHTML = '';
+        selectAllBoxes[i].style.backgroundColor = 'light-gray'
+    }
+    document.getElementById('firstMoveX').textContent = "Choose it or loose it"
+    location.reload();
 }

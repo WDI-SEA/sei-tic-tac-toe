@@ -1,27 +1,52 @@
-/* what css is needed to layout the page like your wireframes */
-/* DO NOT DO ANY FANCY STYLING UNTIL THE JAVASCRIPT IS DONE */
-
 body {
-    margin: 10px 200px 10px 200px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    margin: 50px 50px;
 }
 
 .grid-container {
-    display: inline-grid;
-    grid-template-columns: auto auto auto;
-    background-color: #75bffc;
-    padding: 20px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding: 2px;
+    grid-gap: 1 px;
+    background-color: rgb(255, 255, 255);
 }
 
-.grid-box {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 2px solid rgba(173, 173, 173, 0.753);
-    padding: 20px;
-    font-size: 20px;
+.box {
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
     text-align: center;
+    border: 1px solid rgba(237, 235, 240, 0.76);
+    background-color: rgb(255, 225, 125);
+
 }
 
 .game-display {
-    color: black;
+    display: grid;
+    justify-content: center;
+    align-content: center;
     text-align: center;
-    border: 5px;
+    margin: 20px 40px;
+    border: 3px solid rgb(144, 219, 248);
+    color: rgb(44, 24, 131);   
+    background-color: rgb(245, 166, 166);
+}
+
+.winner {
+    border: 5px solid rgb(344,233,344);
+    margin: 20px;
+    padding: 20px;
+    background-color: rgb(171, 223, 247);
+}
+
+.reset {
+   border: 2px solid rgb(3, 3, 2);
+    color:rgb(0, 58, 182);
+    font-size: 20px;  
 }

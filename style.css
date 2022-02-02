@@ -2,25 +2,31 @@
 /* what css is needed to layout the page like your wireframes */
 /* DO NOT DO ANY FANCY STYLING UNTIL THE JAVASCRIPT IS DONE */
 
-body {
-    font-family: "Helvetica", sans-serif;
+
+
+body{
+
+  background-color: rgb(20, 116, 57);
+  
 }
-section {
-    text-align: center;
-}
-.game--container {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    width: 306px;
-    margin: 50px auto;
-}
-.cell {
-    font-family: "Permanent Marker", cursive;
-    width: 100px;
-    height: 100px;
-    box-shadow: 0 0 0 1px #333333;
-    border: 1px solid #333333;
-    cursor: pointer;
-line-height: 100px;
-    font-size: 60px;
-}
+
+/* .button-board {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  bottom: 100px;
+  right: 100px;
+  width: 200px;
+  height: 200px;
+  background-color: lightgreen;
+  margin: auto;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+} 
+.box{
+width: 70px;
+height: 70px;
+border: 1px solid rgb(0, 0, 0);
+font-size: 60px;
+} */

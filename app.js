@@ -26,7 +26,7 @@ const changeTurn = () => {
        }
 
 const tie = () => {
-    if (turnCounter==10){
+    if (turnCounter==10 && winOne === false){
         document.getElementById("the-winner").innerHTML = "it's a tie!"
     }
 }

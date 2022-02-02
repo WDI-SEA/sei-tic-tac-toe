@@ -1,12 +1,11 @@
 console.log("ahhhhhhh!")
 let xMoves =[]
-let oMovesChoices=[0,1,2,3,4,5,6,7,8]
+// let oMovesChoices=[0,1,2,3,4,5,6,7,8]
 let oMoves =[]
 let winningMoves = [[0,1,2],[3,4,5],[6,7,8],[0,4,8],[2,4,6],[0,3,6],[1,4,7],[2,5,7]]
-
 let buttons = document.getElementsByTagName('button');
 
-
+// checks oMoves and xMoves to see if it matches winningMoves
 let winCheck = (moves) => {
   for (let i = 0; i < winningMoves.length; i++) {
     let winningNums = winningMoves[i]
@@ -33,13 +32,15 @@ for (let button of buttons) {
   button.addEventListener("click", function(event) {
     const pick = (parseInt(event.target.id))
     if (xMoves.includes(pick) || oMoves.includes(pick)) {
-      document.getElementById("notes").innerText = ('Already Taken')
+      // document.getElementById("poewon").src="/img/poe.png"
+      document.getElementById("notes").innerText = (`Already Taken`)
       return 
     }
 
     event.target.innerText = "x";
     xMoves.push(pick)
-    usedMoves(pick)
+    document.getElementById("notes").innerText = (`Poe move!`)
+    // usedMoves(pick)
 
     console.log(`moves: ${xMoves}`)
     console.log(`ommoves: ${oMoves}`)
@@ -47,14 +48,12 @@ for (let button of buttons) {
 
     if (oMoves.length + xMoves.length == 9) {
       document.getElementById("notes").innerText = ("It's a Tie!")
-      window.location.reload(true);
       return
     }
 
     if (winCheck(xMoves)) {
-      alert("X WINS!")
-      window.location.reload(true);
       document.getElementById("notes").innerText = ("You Won!")
+      // document.getElementById("poewon").src="/img/poe.png"
       return
     }
 
@@ -63,7 +62,7 @@ for (let button of buttons) {
     oMoves.push(pick)
     usedMoves(pick)
     
-
+//image element add src 
 
     if (winCheck(oMoves)) {
       alert("O WINS")

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
 :root {
   --background-color: #f5f5f5;
   --font-color: #212121;
@@ -12,12 +14,20 @@
 body {
   margin-top: 35px;
   background-color: var(--background-color);
-  font-family: Helvetica, Arial, Sans-Serif;
+  font-family: "Varela Round", sans-serif;
+  font-size: 80px;
 }
 
 h1 {
-  font-size: 22px;
+  font-size: 28px;
+  font-family: Helvetica, Arial, Sans-Serif;
   /* padding-bottom: 30px; */
+}
+
+h2 {
+  font-size: 20px;
+  font-family: Helvetica, Arial, Sans-Serif;
+  text-align: center;
 }
 
 .wrapper {
@@ -74,7 +84,7 @@ img {
 
 .button {
   background-color: white;
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 50px;
   display: block;
   padding: 12px 50px;
@@ -87,44 +97,4 @@ img {
   background-color: var(--button-color);
   color: white;
   cursor: pointer;
-}
-
-.x1 {
-  display: none;
-}
-.x2 {
-  display: none;
-}
-.x3 {
-  display: none;
-}
-.x4 {
-  display: none;
-}
-.x5 {
-  display: none;
-}
-.x6 {
-  display: none;
-}
-.x7 {
-  display: none;
-}
-.x8 {
-  display: none;
-}
-.x9 {
-  display: none;
-}
-
-.o1,
-.o2,
-.o3,
-.o4,
-.o5,
-.o6,
-.o7,
-.o8,
-.o9 {
-  display: none;
 }

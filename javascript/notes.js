@@ -27,3 +27,34 @@
 
 const player1 = "x";
 const player2 = "O";
+
+<div id="results"></div>;
+
+const results = document.getElementById("results");
+
+// results.innerText =
+
+const moveEvent = () => {};
+
+// add event listeners to each box
+// allow current player to mark a spot
+// check if mark is a tie
+// if a tie, display tie results
+//check if mark is a win
+// if a win, display with results and doe't allow  any other clicks
+
+// state who the current player will be
+
+// use arrays
+
+// use one array to comapare the solution
+
+const winCombos = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+
+const player1Moves = []
+  // array method
+  .includes();

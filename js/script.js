@@ -28,6 +28,12 @@ let winCheck = (moves) => {
 //     return oMovesChoices[index]
 // }
 
+// let gameOver = () => {
+//   if (winCheck(oMoves) = false || winCheck(xMoves = false)) && (oMoves.length + xMoves.length == 9) {
+
+//   }
+// }
+
 for (let button of buttons) {
   button.addEventListener("click", function(event) {
     const pick = (parseInt(event.target.id))
@@ -36,42 +42,45 @@ for (let button of buttons) {
       document.getElementById("notes").innerText = (`Already Taken`)
       return 
     }
-
-    event.target.innerText = "x";
-    xMoves.push(pick)
-    document.getElementById("notes").innerText = (`Poe move!`)
-    // usedMoves(pick)
-
-    console.log(`moves: ${xMoves}`)
-    console.log(`ommoves: ${oMoves}`)
-    console.log(`omovechoices: ${oMovesChoices}`)
-
-    if (oMoves.length + xMoves.length == 9) {
-      document.getElementById("notes").innerText = ("It's a Tie!")
-      return
+  
+    
+remove event listener...
+    
+    if (xMoves.length > oMoves.length) {
+      event.target.innerText = "o";
+      oMoves.push(pick)
+      document.getElementById("notes").innerText = (`o move!`)
+    } else if (xMoves.length === oMoves.length) {
+      document.getElementById("notes").innerText = (`x move!`)
+      event.target.innerText = "x";
+      xMoves.push(pick)
     }
+
+    console.log(`xmoves: ${xMoves}`)
+    console.log(`ommoves: ${oMoves}`)
+    console.log(pick)
+
+    // console.log(`omovechoices: ${oMovesChoices}`)
+
+
 
     if (winCheck(xMoves)) {
-      document.getElementById("notes").innerText = ("You Won!")
+      document.getElementById("notes").innerText = ("x Won!")
       // document.getElementById("poewon").src="/img/poe.png"
-      return
     }
-
-    let oPick = getOMoves()
-    document.getElementById(oPick.toString()).innerText = "o";
-    oMoves.push(pick)
-    usedMoves(pick)
-    
 //image element add src 
 
     if (winCheck(oMoves)) {
-      alert("O WINS")
-      window.location.reload(true);
-      document.getElementById("notes").innerText = ("Computer Won!")
+      document.getElementById("notes").innerText = ("o Won!")
         return
     }
 
-    })
+    if ((oMoves.length + xMoves.length == 9) && (winCheck(xMoves)=== false) && (winCheck(oMoves) === false)) {
+      document.getElementById("notes").innerText = ("It's a Tie!")
+        return
+    }
+
+  })
     
 
 }

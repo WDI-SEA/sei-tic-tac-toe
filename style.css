@@ -194,8 +194,8 @@
         text-align: center;
     }
     .boardpiece{
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
         border: 1mm ridge rgba(176, 211, 36, 0.9);
         cursor: pointer;
         font-size: 150px;
@@ -205,18 +205,26 @@
     .board{
         display: grid;
         grid-template-columns: repeat(3, auto);
-        width: 100px;
+        width: 50px;
         margin: 5px 5px 5px 5px;
         color:red;
         border-radius: 80%;
         position: relative;
-        grid-column: 3;
+        grid-column: 2;
         
        
     }
+
+    .scoreboard{
+        display: grid;
+        grid-column: 2;
+        grid-template-columns: repeat(3,auto);
+
+    }
     #title{
         flex-wrap: nowrap;
-        font-size: 50px;
+        font-size: 30px;
+        text-align: center;
     }
     .image{
 
@@ -227,7 +235,7 @@
    .upper{
        display: inline;
        text-align: center;
-       font-size: 45px;
+       font-size: 30px;
     padding: auto;
 margin: 0 auto;}
 .grid{

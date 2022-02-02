@@ -31,22 +31,25 @@ const grid = Array.from(document.querySelectorAll('.grid'))
 
 // check turn, mark turn
 grid.forEach(function (grid) {
-    grid.addEventListener('click', function() {
-        if (grid.innerText === '' && isGameActive) {
-            grid.innerText = currentPlayer
-            if (currentPlayer === 'X') {
-                currentPlayer = 'O'
-                playerNow.innerText = "O's turn"
-            } else if (currentPlayer === 'O') {
-                currentPlayer = 'X'
-                playerNow.innerText = "X's turn"
-            }
-        }
-    })
+  grid.addEventListener('click', function () {
+    if (grid.innerText === '' && isGameActive) {
+      grid.innerText = currentPlayer
+      if (currentPlayer === 'X') {
+        checkWinner()
+        tieCheck ()
+        currentPlayer = 'O'
+        playerNow.innerText = "O's turn"
+      } else if (currentPlayer === 'O') {
+        checkWinner()
+        tieCheck ()
+        currentPlayer = 'X'
+        playerNow.innerText = "X's turn"
+      }
+    }
+  })
 })
 
 // check for winner
-
 let winningCombinations = [
     [0, 1, 2],
     [3, 4, 5],
@@ -58,61 +61,126 @@ let winningCombinations = [
     [2, 4, 6]
 ]
 
-// something wrong with this, checking for winner but not logging winner...what am I missing?!?!!?!?
 const checkWinner = () => {
-    if (grid[0] === currentPlayer) {
-      if (grid[1] === currentPlayer && grid[2] === currentPlayer) {
-        return true
-      }
-      if (grid[3] === currentPlayer && grid[6] === currentPlayer) {
-        return true
-      }
-      if (grid[4] === currentPlayer && grid[8] === currentPlayer) {
-        return true
-      }
-    }
-    if (grid[8] === currentPlayer) {
-      if (grid[5] === currentPlayer && grid[2] === currentPlayer) {
-        return true
-      }
-      if (grid[7] === currentPlayer && grid[6] === currentPlayer) {
-        return true
-      }
-      if (grid[4] === currentPlayer && grid[0] === currentPlayer) {
-        return true
-      }
-    }
-    if (grid[4] === currentPlayer) {
-      if (grid[1] === currentPlayer && grid[7] === currentPlayer) {
-        return true
-      }
-      if (grid[3] === currentPlayer && grid[5] === currentPlayer) {
-        return true
-      }
-      if (grid[2] === currentPlayer && grid[6] === currentPlayer) {
-        return true
-      }
-      if (grid[0] === currentPlayer && grid[8] === currentPlayer) {
-        return true
-      }
-    } else {
-        return false
-    } 
-  } 
-checkWinner()
+  if (grid[0].innerText === 'X' && grid[1].innerText === 'X' && grid[2].innerText === 'X') {
+    announceWinner.innerText = 'X has won'
+    playerNow.innerText = 'Game Over'
+    isGameActive = false
+  } else if (grid[3].innerText === 'X' && grid[4].innerText === 'X' && grid[5].innerText === 'X') {
+    announceWinner.innerText = 'X has won'
+    playerNow.innerText = 'Game Over'
+    isGameActive = false
+  } else if (grid[6].innerText === 'X' && grid[7].innerText === 'X' && grid[8].innerText === 'X') {
+    announceWinner.innerText = 'X has won'
+    playerNow.innerText = 'Game Over'
+    isGameActive = false
+  } else if (grid[0].innerText === 'X' && grid[3].innerText === 'X' && grid[6].innerText === 'X') {
+    announceWinner.innerText = 'X has won'
+    playerNow.innerText = 'Game Over'
+    isGameActive = false
+  } else if (grid[1].innerText === 'X' && grid[4].innerText === 'X' && grid[7].innerText === 'X') {
+    announceWinner.innerText = 'X has won'
+    playerNow.innerText = 'Game Over'
+    isGameActive = false
+  } else if (grid[2].innerText === 'X' && grid[5].innerText === 'X' && grid[8].innerText === 'X') {
+    announceWinner.innerText = 'X has won'
+    playerNow.innerText = 'Game Over'
+    isGameActive = false
+  } else if (grid[0].innerText === 'X' && grid[4].innerText === 'X' && grid[8].innerText === 'X') {
+    announceWinner.innerText = 'X has won'
+    playerNow.innerText = 'Game Over'
+    isGameActive = false
+  } else if (grid[2].innerText === 'X' && grid[4].innerText === 'X' && grid[6].innerText === 'X') {
+    announceWinner.innerText = 'X has won'
+    playerNow.innerText = 'Game Over'
+    isGameActive = false
+  } else if (grid[0].innerText === 'O' && grid[1].innerText === 'O' && grid[2].innerText === 'O') {
+    announceWinner.innerText = 'O has won'
+    playerNow.innerText = 'Game Over'
+    isGameActive = false
+  } else if (grid[3].innerText === 'O' && grid[4].innerText === 'O' && grid[5].innerText === 'O') {
+    announceWinner.innerText = 'O has won'
+    playerNow.innerText = 'Game Over'
+    isGameActive = false
+  } else if (grid[6].innerText === 'O' && grid[7].innerText === 'O' && grid[8].innerText === 'O') {
+    announceWinner.innerText = 'O has won'
+    playerNow.innerText = 'Game Over'
+    isGameActive = false
+  } else if (grid[0].innerText === 'O' && grid[3].innerText === 'O' && grid[6].innerText === 'O') {
+    announceWinner.innerText = 'O has won'
+    playerNow.innerText = 'Game Over'
+    isGameActive = false
+  } else if (grid[1].innerText === 'O' && grid[4].innerText === 'O' && grid[7].innerText === 'O') {
+    announceWinner.innerText = 'O has won'
+    playerNow.innerText = 'Game Over'
+    isGameActive = false
+  } else if (grid[2].innerText === 'O' && grid[5].innerText === 'O' && grid[8].innerText === 'O') {
+    announceWinner.innerText = 'O has won'
+    playerNow.innerText = 'Game Over'
+    isGameActive = false
+  } else if (grid[0].innerText === 'O' && grid[4].innerText === 'O' && grid[8].innerText === 'O') {
+    announceWinner.innerText = 'O has won'
+    playerNow.innerText = 'Game Over'
+    isGameActive = false
+  } else if (grid[2].innerText === 'O' && grid[4].innerText === 'O' && grid[6].innerText === 'O') {
+    announceWinner.innerText = 'O has won'
+    isGameActive = false
+    playerNow.innerText = 'Game Over'
+  }
+}
+
+
+// something wrong with this, checking for winner but not logging winner...what am I missing?!?!!?!?
+// const checkWinner = () => {
+//   if (grid[0] === currentPlayer) {
+//     if (grid[1] === currentPlayer && grid[2] === currentPlayer) {
+//       return true
+//       }
+//     if (grid[3] === currentPlayer && grid[6] === currentPlayer) {
+//       return true
+//       }
+//     if (grid[4] === currentPlayer && grid[8] === currentPlayer) {
+//       return true
+//       }
+//   }
+//   if (grid[4] === currentPlayer) {
+//     if (grid[3] === currentPlayer && grid[5] === currentPlayer) {
+//       return true
+//       }
+//     if (grid[1] === currentPlayer && grid[7] === currentPlayer) {
+//       return true
+//       }
+//     if (grid[6] === currentPlayer && grid[2] === currentPlayer) {
+//       return true
+//       } 
+//   }
+//   if (grid[8] === currentPlayer) {
+//     if (grid[6] === currentPlayer && grid[7] === currentPlayer) {
+//       return true
+//       }
+//     if (grid[2] === currentPlayer && grid[5] === currentPlayer) {
+//       return true
+//     } else {
+//         return false
+//     }    
+//   } else {
+// }
+// checkWinner ()
+
 
 // check for tie
 const tieCheck = () => {
-    let playedGrid = 0
-    for (let i = 0; i < grid.length; i++) {
-        if (grid[i].innerText === 'X' || grid[i].innerText === 'O') {
-            playedGrid++
-        }
-    } 
-    if (playedGrid === 9) {
-        announceWinner.innerText = 'Game is Tied'
-        playerNow.innerText = 'Game Over'
+  let playedGrid = 0
+  for (let i = 0; i < grid.length; i++) {
+    if (grid[i].innerText === 'X' || grid[i].innerText === 'O') {
+      playedGrid++
     }
+  } 
+    // if all grids are full , tie game
+  if (playedGrid === 9) {
+    announceWinner.innerText = 'Game is Tied'
+    playerNow.innerText = 'Game Over'
+  }
 }
 tieCheck() 
 
@@ -151,7 +219,6 @@ document.querySelector('#reset').addEventListener('click', function() {
 // }
 
 // const grid = Array.from(document.querySelectorAll('.grid'))
-
 
 
 // make the reset button reset the game

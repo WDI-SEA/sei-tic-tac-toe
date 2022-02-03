@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Orbitron&family=Short+Stack&display=swap" rel="stylesheet" >
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +12,17 @@
 </head>
 <body>
 
+   
     <div id="container">
-        <h1>Tic-Tac-Toe</h1>
+        <h1>-THE DRIFTERS- <br> Tic-Tac-Toe</h1>
 
         <!-- Game instructions -->
-        <p id="instructions" >This game will start when player 1 chooses a box.</p>
+        <p id="instructions" >This game will start when player X chooses a box.<br>
+        Good luck and have fun!</p>
+        
 
         <br><br>
-        <div class="boxes">
+        <div id="boxes">
             <input type="text" id="uL" onclick="myFunc1(); myFunc();" readonly>
             <input type="text" id="uM" onclick="myFunc2(); myFunc();" readonly>
             <input type="text" id="uR" onclick="myFunc3(); myFunc();" readonly>

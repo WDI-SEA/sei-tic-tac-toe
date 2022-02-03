@@ -1,51 +1,44 @@
 * {
-    /* background-image: url("https://i.imgur.com/FcGJ7k5.png"); */
-    background-color: rgb(104, 104, 104);
-}
+    background-color: rgb(53, 53, 53);
 
-h1 {
-    text-align: center;
-    color: maroon;
-    font-size: 4rem;
 }
-#instructions{
-    display: center;
-    text-align: center;
-    margin: auto;
-    font-family:Verdana, Geneva, Tahoma, sans-serif
-}
-
-.boxes{
-    display: center;
-    margin: auto;
-    text-align: center;
-}
-#uL #uM #uR #mL #mM
-#mR #bL #bM #bR {
-    background-color: white;
-    width: 5rem;
-    height: 5rem;
-    margin: auto;
-    border: 1px solid darkgray;
-    border-radius: 6px;
-    font-size: 30px;
-    text-align: center;
-}
-#restartButton {
-    box-sizing: border-box;
-    width: 95px;
-    height: 40px;
-    border: 1px solid maroon;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    background-color: grey;
-    color: maroon;
-    font-size: 1rem;
+#container {
+    font-family:'Orbitron', sans-serif;
+    color: aqua;
+    font-size: 1.3rem;
     cursor: pointer;
     margin: auto;
     text-align: center;
     display: block;
 }
-.winner {
-  
 
+
+
+#uL, #uM, #uR, #mL, #mM, #mR,
+#bL, #bM, #bR{
+height: 5rem;
+width: 5rem;
+font-size: 5rem;
+color: white;
+text-align: center;
+font-family: 'Orbitron', 'sans-serif';
+background-color: rgb(53, 53, 53);
+border-radius: 30px;
+border: 4px aqua solid;
 }
+
+
+#restartButton {
+    font-family: 'Orbitron', 'sans-serif';
+    border-radius: 10%;
+    border:4px aqua solid;
+    background-color: blanchedalmond;
+    font-size: 1.5rem;
+    width: 7.3rem;
+    height: 2.3rem;
+} 
+#winner {
+    font-size: 2.5rem;
+}
+
+

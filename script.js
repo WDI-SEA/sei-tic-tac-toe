@@ -1,17 +1,26 @@
+let playerWinsMsg = document.querySelector('#player-message')
 // Whose turn is it
 let currentPlayer = "X"
 const xPlayer = []
 const oPlayer = []
-
+const allMoves = []
 
 const playersTurn = (event) => {
 if (currentPlayer === "X") {
 event.target.innerText = currentPlayer
 xPlayer.push(event.target.id)
+allMoves.push(event.target.id)
+console.log(xPlayer)
+console.log(event)
+gameWin()
+gameDraw()
 currentPlayer = "O"
 } else if (currentPlayer === "O") {
   event.target.innerText = currentPlayer
   oPlayer.push(event.target.id)
+  allMoves.push(event.target.id)
+  gameWin()
+  gameDraw()
   currentPlayer = "X"
 
 }}
@@ -22,32 +31,47 @@ let buttons = document.querySelectorAll(".button-board")
 buttons.forEach(function(button) {
    button.addEventListener('click', playersTurn) 
   }) 
+ 
 
-// Store where players' moves are going
-// 2 separate empty arrays (one for each player) 
-// within players function, push in ID of where they're making a move
 
 
 
 
 // Winning Scenario
-// if Player "X/O" clicks any of these combos --> it is a win
-//in that case, no longer can click --> message "You won"
-
 const winningCombos = 
 [
-[0,1,2],
-[3,4,5],
-[6, 7, 8],
-[2,3,6],
-[1,4,7],
-[2,5,8],
-[0,5,9],
-[2,4,6],
+['0','1','2'],
+['3','4','5'],
+['6', '7', '8'],
+['2','3','6'],
+['1','4','7'],
+['2','5','8'],
+['0','4','8'],
+['2','4','6'],
 ]
+const gameWin = () => {
+for (let i = 0; i<winningCombos.length; i++) {
+  if (xPlayer.includes(winningCombos[i]['0']) && xPlayer.includes(winningCombos[i]['1']) && xPlayer.includes(winningCombos[i]['2'])) {
+    playerWinsMsg.innerText = "X Player Has Won!";
+    buttons.forEach(function(button) {
+      button.removeEventListener('click', playersTurn) 
+    })
+  } else if (oPlayer.includes(winningCombos[i]['0']) && oPlayer.includes(winningCombos[i]['1']) && oPlayer.includes(winningCombos[i]['2'])) {
+    playerWinsMsg.innerText = "O Player Has Won!";
+    buttons.forEach(function(button) {
+      button.removeEventListener('click', playersTurn) 
+  }) 
+}}}
 
-// .includes method (built in array)
-// use for loop for winningCombos array
+// Draw Scenario
+gameDraw = () => {
+  if (allMoves.length === 9 && gameWin != true) {
+    playerWinsMsg.innerText = "Tie!"
+  }
+  
+}
+
+
 //const declareWinner = () => {
 //   if (??? === winningCombos) {
 //     declareWinner.innerText = currentPlayer + "is the Winner!"
@@ -58,7 +82,7 @@ const winningCombos =
 //if 0 remaining box --> it is a draw
 // in that case, reset 
 
-let allMoves = []
+
 
 // id is being pushed into the array 
 //all moves 
@@ -188,4 +212,3 @@ let allMoves = []
 //     gameInProgress = true
 //     currentPlayer = 'X'
 //     playerNow.innerText = 'The current player is X'
-// } })

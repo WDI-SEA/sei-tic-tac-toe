@@ -3,30 +3,51 @@
 /* DO NOT DO ANY FANCY STYLING UNTIL THE JAVASCRIPT IS DONE */
 
 
-
-body{
-
-  background-color: rgb(20, 116, 57);
-  
+body {
+  text-align: center;
+  background-color: red;
+  font-family: 'Orbitron', sans-serif;
 }
 
-/* .button-board {
-  position: absolute;
-  top: 100px;
-  left: 100px;
-  bottom: 100px;
-  right: 100px;
-  width: 200px;
-  height: 200px;
-  background-color: lightgreen;
-  margin: auto;
-  justify-content: center;
+.grid {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-} 
-.box{
-width: 70px;
-height: 70px;
-border: 1px solid rgb(0, 0, 0);
-font-size: 60px;
-} */
+  width: 800px;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+}
+
+.wrapper {
+  display: flex;
+  width: 100vw;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 0 0.75rem black);
+}
+
+.button-board {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  font-size: 10rem;
+}
+
+.button-board:hover {
+  background-color: rgb(255, 73, 73);
+  transition: 0.2s ease;
+}
+ 
+.button-reset {
+  width: 150px;
+  height: 60px;
+  filter: drop-shadow(0 0 0.75rem black);
+  font-family: 'Orbitron', sans-serif
+}

@@ -29,6 +29,7 @@ border: 4px aqua solid;
 
 
 #restartButton {
+    text-align: center;
     font-family: 'Orbitron', 'sans-serif';
     border-radius: 10%;
     border:4px aqua solid;
@@ -36,6 +37,7 @@ border: 4px aqua solid;
     font-size: 1.5rem;
     width: 7.3rem;
     height: 2.3rem;
+    color:rgb(53, 53, 53)
 } 
 #winner {
     font-size: 2.5rem;

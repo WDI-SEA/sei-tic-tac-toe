@@ -87,12 +87,23 @@ function myFunc() {
         document.getElementById("mL").disabled = true;
         document.getElementById("mR").disabled = true;
         document.getElementById("bL").disabled = true;
-        document.getElementById("bM").disabled = true;   
+        document.getElementById("bM").disabled = true;  
+        return 
+    }else if (bL == "X" && mM == "X" && uR =="X"){
+        document.getElementById('winner').innerText = "Player X won!!";
+        document.getElementById("uM").disabled = true;
+        document.getElementById("uR").disabled = true;
+        document.getElementById("mL").disabled = true;
+        document.getElementById("mR").disabled = true;
+        document.getElementById("bL").disabled = true;
+        document.getElementById("bM").disabled = true;
+        return
     }else if ((uL == 'X' || uL == 'O') && (uM == 'X' || uM == 'O') &&
     (uR == 'X' || uR == 'O') && (mL == 'X' || mL == 'O') && (mM == 'X' || mM == 'O') && 
     (mR == 'X' || mR == 'O') && (bL == 'X' || bL == 'O') && (bM == 'X' || bM == 'O') &&
     (bR == 'X' || bR =='O')) {
         document.getElementById('winner').innerText = 'Cats Game';
+        
     }else{
         if (flag == 1) {
             document.getElementById('playerTurn').innerText = "Player X's turn";
@@ -173,6 +184,7 @@ function myFunc() {
         document.getElementById("mR").disabled = true;
         document.getElementById("bL").disabled = true;
         document.getElementById("bM").disabled = true;
+        return
 
     }else if (bL == "O" && mM == "O" && uR =="O"){
         document.getElementById('winner').innerText = "Player O won!!";
@@ -182,6 +194,7 @@ function myFunc() {
         document.getElementById("mR").disabled = true;
         document.getElementById("bL").disabled = true;
         document.getElementById("bM").disabled = true;
+        return
 
     }else if ((uL == 'X' || uL == 'O') && (uM == 'X' || uM == 'O') &&
     (uR == 'X' || uR == 'O') && (mL == 'X' || mL == 'O') && (mM == 'X' || mM == 'O') && 

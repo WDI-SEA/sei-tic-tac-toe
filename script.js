@@ -27,7 +27,7 @@ const pieceClicked = (tile) => {const place = tile.target.id;
             board[place]=previousPlayer;tile.target;
             console.log(Array)}
             if(tile.target.innerText === 'x' || tile.target.innerText === 'o'){
-                winMes.innerText =`This space has already been picked, pick again somewhere else!`; boardPiece.removeEventListener(`clicked`,pieceClicked) }
+                winMes.innerText =`This space has already been picked, pick again somewhere else!`; pieces.removeEventListener(`clicked`,pieceClicked) }
         tile.target.innerText = currentPlayer;
         
     board[place]=currentPlayer;

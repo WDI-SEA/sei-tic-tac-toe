@@ -45,9 +45,7 @@ h1 {
     text-align: center;
     display: block;
 }
-#playerTurn {
-    display: center;
-}
-#winner {
-    display: center;
+.winner {
+  
+
 }

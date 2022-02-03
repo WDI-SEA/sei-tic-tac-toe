@@ -2,18 +2,15 @@ body {
     display: grid;
     justify-content: center;
     align-content: center;
-    margin: 50px 50px;
+    margin: 100px 100px;
 }
 
 .grid-container {
     display: grid;
-    justify-content: center;
-    align-content: center;
-    justify-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    padding: 2px;
-    grid-gap: 1 px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 100px);
+    padding: 10px;
+    grid-gap: 5 px;
     background-color: rgb(255, 255, 255);
 }
 
@@ -22,27 +19,21 @@ body {
     height: 100px;
     font-size: 50px;
     text-align: center;
-    border: 1px solid rgba(237, 235, 240, 0.76);
-    background-color: rgb(255, 225, 125);
+    border: 10px solid rgba(237, 235, 240, 0.795);
+    background-color: rgba(176, 255, 242, 0.973);
 
 }
 
 .game-display {
-    display: grid;
+    grid: 5vh;
+    background-color: blue;
     justify-content: center;
     align-content: center;
     text-align: center;
     margin: 20px 40px;
     border: 3px solid rgb(144, 219, 248);
     color: rgb(44, 24, 131);   
-    background-color: rgb(245, 166, 166);
-}
-
-.winner {
-    border: 5px solid rgb(344,233,344);
-    margin: 20px;
-    padding: 20px;
-    background-color: rgb(171, 223, 247);
+    background-color: rgba(43, 149, 219, 0.897);
 }
 
 .reset {

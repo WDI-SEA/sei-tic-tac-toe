@@ -1,21 +1,36 @@
-// your javascript file
-// what kind of variables will I need? (app state)
 // what will happen when the user clicks?
 // document.getElementById("box").addEventListener("click", myFunction);
+  // slection of X or O (who's turn is it?)
+
+  let playerOne = "X";
+  let playerTwo = "O";
+  let currentUser = playerOne;
+  
+  function playerChange(event) {
+    if (currentUser == playerOne) {
+      console.log(event)
+      event.target.innerText = "X"
+        currentUser = playerTwo;
+    } else {
+      event.target.innerText = "O"
+        currentUser = playerOne;
+    }
+  }
 
 function cellClick(event) {
-    if (event.target.classList.contains('box')) {
-        let id = event.target.id;
-        if (gridBox[id] == "") {
-            gridBox[id] = currentUser;
-            event.target.textContent = currentUser;
-            event.target.style.backgroundColor = 'white';
-            event.target.classList.toggle('f200');
-            checkGrid();
-            switchUser();
-        }
-    }
+  console.log(event.target)
 }
+  // should determine who the current player is x or o then insert 
+  // insert inner text based on who the current player is
+  // push into active players array the id 
+  // puch into all moves whoever current player or id
+  // change the current player to next
+
+
+  let box = document.querySelectorAll(".box")
+    box.forEach(function(box) {
+      box.addEventListener('click', playerChange)
+    })
 
 // data container (array) to hold who has gone where (on the gameboard) 
 // (this would contain player choices)
@@ -23,57 +38,53 @@ function cellClick(event) {
 // winning combinations to check (data container?)
 // (cats option 1) board is full = draw
 
+// make three different array variable one for playerOne moves
+// 2nd for playerTwo moves
+//  for all moves made by either; all set and checked at end to check for tie
 let gameBoard = ['', '', '', '', '', '', '', '', ''] 
 
-function checkData() {
-  if (gameBoard[0] == gameboard[1] && gameBoard[1] == gameBoard[2]) {
+// check winning combos
+let winningCombos = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+]
+
+const checkForWinners = () => {
+  if (gridContainer[0] == gridContainer[1] && gridContainer[1] == gridContainer[2]) {
     console.log('winner row1')
-} else if (gameBoard[3] == gameBoard[4] && gameBoard[4] == gameBoard[5]) {
+} else if (gridContainer[3] == gridContainer[4] && gridContainer[4] == gridContainer[5]) {
     console.log('winner row2')
-} else if (gameBoard[6] == gameBoard[7] && gameBoard[7] == gameBoard[8]) {
+} else if (gridContainer[6] == gridContainer[7] && gridContainer[7] == gridContainer[8]) {
   console.log('winner row3')
-} else if (gameBoard[0] == gameBoard[3] && gameBoard[3] == gameBoard[6]) {
+} else if (gridContainer[0] == gridContainer[3] && gridContainer[3] == gridContainer[6]) {
   console.log('winner column1')
-} else if (gameBoard[1] == gameBoard[4] && gameBoard[4] == gameBoard[7]) {
+} else if (gridContainer[1] == gridContainer[4] && gridContainer[4] == gridContainer[7]) {
   console.log('winner column2')
-} else if (gameBoard[2] == gameBoard[5] && gameBoard[5] == gameBoard[8]) {
+} else if (gridContainer[2] == gridContainer[5] && gridContainer[5] == gridContainer[8]) {
   console.log('winner column3')
-} else if (gameBoard[0] == gameBoard[4] && gameBoard[4] == gameBoard[8]) {
+} else if (gridContainer[0] == gridContainer[4] && gridContainer[4] == gridContainer[8]) {
   console.log('winner diagonal1')
-} else if (gameBoard[6] == gameBoard[4] && gameBoard[4] == gameBoard[2]) {
+} else if (gridContainer[6] == gridContainer[4] && gridContainer[4] == gridContainer[2]) {
   console.log('winner diagonal2')
-} else if (!gridBox.includes("")) {
+} else if (!gridgridContainer.includes("")) {
     drawGame();
 }
-};
+}
 
-
-// toggle/boolean if someone has won (is user allowd to click/keep playing)
-
-let gridBox = document.querySelectorAll(".grid-box");
+let gridBox = document.querySelectorAll(".box");
   console.log("everything selected", gridBox)
 
 const gridContainer = document.querySelector(".grid-container");
-gridBox.addEventListener('click', );
-  console.log(gridSelected);
 
-  // slection of X or O (who's turn is it?)
-
-let playerOne = "X";
-let playerTwo = "O";
-let switchUser = playerOne;
-
-function playerChange() {
-  if (currentUser == playerOne) {
-      currentUser = playerTwo;
-  } else {
-      currentUser = playerOne;
-  }
+for (let i = 0; i < gridBox.length; i++) {
+  gridBox[i].addEventListener('click', cellClick)
 }
-
-// mark space if it is availible
-  // if it is marked -- do nothing
-// check if there is a winner
 
 function displayWinner() {
     let winnerBox = document.querySelector('.win');
@@ -87,7 +98,7 @@ function displayWinner() {
     const grid = document.querySelector(`.grid`);
     grid.removeEventListener('click', cellClick);
     updateScoreboard();
-};
+}; console.log("grid")
   // if there is a winner -- stop gameplay and show who won
   // if not -- let gameplay continue
 
@@ -105,14 +116,15 @@ function updateScoreboard() {
     let tieScore = document.getElementById("Ties")
     tieScore.textContent = scoreboard.ties;
 }
-
   // RESET GAME
 
+let resetGame = document.querySelector(".reset")
+ 
   resetGame.addEventListener('click', () => {
     for(let i = 0; i < selectAllBoxes.length; i++) {
         selectAllBoxes[i].innerHTML = '';
-        selectAllBoxes[i].style.backgroundColor = 'light-gray'
+        selectAllBoxes[i].style.backgroundColor = 'light-blue'
     }
     document.getElementById('firstMoveX').textContent = "Choose it or loose it"
     location.reload();
-}
+})

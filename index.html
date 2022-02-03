@@ -5,49 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css"></link>
+   
     <title>Tic Tac Toe</title>
 </head>
 <body>
-    <h1>Tic Tac Toe</h1>
-    
-    <div class="row1">
-        <button id="b1" class="button" onclick="toggleChar()"></button>
-        <button id="b2" class="button" onclick="toggleChar2()"></button>
-        <button id="b3" class="button" onclick="toggleChar3()"></button>
-    </div>
-
-    <div class="row2">
-        <button id="b4" class="button" onclick="toggleChar4()"></button>
-        <button id="b5" class="button" onclick="toggleChar5()"></button>
-        <button id="b6" class="button" onclick="toggleChar6()"></button>        
-    </div>
-
-    <div class="row3">
-        <button id="b7" class="button" onclick="toggleChar7()"></button>
-        <button id="b8" class="button" onclick="toggleChar8()"></button>
-        <button id="b9" class="button" onclick="toggleChar9()"></button> 
-    </div> 
-
-    <!-- <div id="gameboard"><
-        <div class=box id="1"></div>
-        <div class=box id="2"></div>
-        <div class=box id="3"></div>
-        <div class=box id="4"></div>
-        <div class=box id="5"></div>
-        <div class=box id="6"></div>
-        <div class=box id="7"></div>
-        <div class=box id="8"></div>
-        <div class=box id="9"></div>
-    </div>     -->
-
-    <div>
-        <span id=messageBox>O's turn</span>
-    </div>
-
-    <div>
-        <button onClick="window.location.reload();">Reset</button>
-    </div>
-        <script type="text/javascript" src="ttt.js"></script>
+    <main class="background">
+        <section class="title">
+            <h1>Tic Tac Toe</h1>
+        </section>
+        
+        <section class="display">
+            Player <span class="display-player playerX">X</span>'s turn
+        </section>
+        
+        <section class="container">
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+        </section>
+        <section class="display announcer hide"></section>
+        <section class="controls">
+            <button id="reset">Reset</button>
+        </section>  
+    </main>
+    <script type="text/javascript" src="ttt.js"></script>
 </body>
 </html>
 

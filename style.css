@@ -1,17 +1,59 @@
-h1 {
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.title {
+    text-align: center;
+}
+
+.display {
+    text-align: center;
+    font-size: 25px;
+}
+
+.hide {
+    display: none;
+}
+
+.container {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+    max-width: 300px;
+}
+
+.tile {
+    background-color: #f5f5f5;
+    min-width: 100px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    cursor: pointer;
+    border: 6px solid #2c3e50;
+}
+
+.playerX{
     color: blue;
 }
 
-.button {
-    height: 10rem;
-    width: 10rem;
+.playerO{
+    color:red;
 }
 
-.row1 {
-    display: inline-block;
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 #reset {
-    color: blue;
-    font-size: 24px;
+    font-size: 20px;
+    cursor: pointer;
 }

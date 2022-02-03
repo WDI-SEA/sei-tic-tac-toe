@@ -22,18 +22,19 @@ let winner = X;
 
 const pieceClicked = (tile) => {const place = tile.target.id;
     board[place]== currentPlayer;
-    if(!board[place]){
-        board[place]=previousPlayer;tile.target;
-        console.log(Array)
-
-    }
     if(board[place] === board[place]){
+        if(!board[place]){
+            board[place]=previousPlayer;tile.target;
+            console.log(Array)}
+            if(tile.target.innerText === 'x' || tile.target.innerText === 'o'){
+                winMes.innerText =`This space has already been picked, pick again somewhere else!`; boardPiece.removeEventListener(`clicked`,pieceClicked) }
         tile.target.innerText = currentPlayer;
+        
     board[place]=currentPlayer;
     checkBoard()
    if(turnCounter === 0){
        currentPlayer=X, previousPlayer=O}else if (turnCounter ===1) {
-           currentPlayer=O,previousPlayer=X} else if (turnCounter ===2 ) {currentPlayer=X,previousPlayer=O}else if (turnCounter===3) {currentPlayer=O, previousPlayer=X}else if (turnCounter ===4) {currentPlayer=X, previousPlayer=O}else if (turnCounter===5) {currentPlayer=O, previousPlayer=X}else if (turnCounter ===6) {currentPlayer=X, previousPlayer=O}else if (turnCounter===7) {currentPlayer=O, previousPlayer=X}else if (turnCounter ===8) {currentPlayer=X, previousPlayer=O}else if (turnCounter ===9) {currentPlayer=O, previousPlayer=X,checkBoard(),winMes.innerText=`It's a tie`}else if (turnCounter ===10) {tieCondition()}
+           currentPlayer=O,previousPlayer=X} else if (turnCounter ===2 ) {currentPlayer=X,previousPlayer=O}else if (turnCounter===3) {currentPlayer=O, previousPlayer=X}else if (turnCounter ===4) {currentPlayer=X, previousPlayer=O}else if (turnCounter===5) {currentPlayer=O, previousPlayer=X}else if (turnCounter ===6) {currentPlayer=X, previousPlayer=O}else if (turnCounter===7) {currentPlayer=O, previousPlayer=X}else if (turnCounter ===8) {currentPlayer=X, previousPlayer=O}else if (turnCounter ===9) {currentPlayer=O, previousPlayer=X,checkBoard(),winMes.innerText=`It's a tie`}else if(turnCounter ===10) {tieCondition()}
 
 
            
@@ -41,18 +42,20 @@ const pieceClicked = (tile) => {const place = tile.target.id;
 
 
            checkBoard()
+           console.log(place)
             
             
            
             
-           
+        //    place.removeEventListener(`click`,pieceClicked)
             
-    
+   
            turnCounter++;
+           ;
            console.log(turnCounter)
            console.log(board)
         //    console.log(turnCounter)
-    }
+    }else if(board === currentPlayer || previousPlayer){}
            
        }
 
@@ -74,7 +77,7 @@ const pieceClicked = (tile) => {const place = tile.target.id;
         // if(turnCounter===9){console.log(`tie`), winMes.innerText=`It's a tie` , endGame(),tieCorrector()}}
         // if(previousPlayer!=board[0]&&board[0] == board[1] 
         //    && board[0] == board[2]&&previousPlayer!=board[3]&&board[3] == board[4] && board[3] == board[5]&&previousPlayer!=board[6]&&board[6] == board[7] && board[6] == board[8]&&previousPlayer!=board[0]&&board[0] == board[3] && board[0] == board[6]&&previousPlayer!=board[1]&&board[1] == board[4] && board[1] == board[7]&&previousPlayer!=board[2]&&board[2] == board[5] && board[2] == board[8]&&previousPlayer!=board[0]&&board[0] == board[4] && board[0] == board[8]&&previousPlayer!=board[2]&&board[2] == board[4] && board[2] == board[6]){turnCounter++}else 
-        if(turnCounter===10){console.log(`tie`), winMes.innerText=`It's a tie` , endGame(),tieCorrector()}}
+        if(turnCounter===10){console.log(`tie`), winMes.innerText=`It's a tie` , endGame()}}
 
        
         
@@ -119,7 +122,8 @@ const pieceClicked = (tile) => {const place = tile.target.id;
     //     }
 // console.log(winMes)
 
-pieces.forEach((piece) => piece.addEventListener('click', pieceClicked))
+pieces.forEach((piece) => piece.addEventListener('click', pieceClicked),{
+})
 
 restartGame = () => {
 currentPlayer=X;

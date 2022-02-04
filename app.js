@@ -26,9 +26,12 @@ const changeTurn = () => {
        }
 
 const tie = () => {
-    if (turnCounter==10 && winOne === false){
-        document.getElementById("the-winner").innerHTML = "it's a tie!"
+    if(turnCounter===10 && winOne() === false && winTwo() === false){
+         document.getElementById("the-winner").innerHTML = "it's a tie!"
     }
+    // if (turnCounter===10){
+    //     document.getElementById("the-winner").innerHTML = "it's a tie!"
+    // }
 }
 
 const winOne = () => {
@@ -46,6 +49,7 @@ if (document.getElementById('squareOne').innerText === 'X' && document.getElemen
     clickSeven.removeEventListener('click', moveMadeSeven)
     clickEight.removeEventListener('click', moveMadeEight)
     clickNine.removeEventListener('click', moveMadeNine)
+    return true
 } else if (document.getElementById('squareOne').innerText === 'X' && document.getElementById('squareFive').innerText === 'X' && document.getElementById('squareNine').innerText === 'X') {
     document.getElementById("the-winner").innerHTML = "X has won!" 
     document.getElementById("squareOne").style.color = "red"
@@ -60,6 +64,7 @@ if (document.getElementById('squareOne').innerText === 'X' && document.getElemen
     clickSeven.removeEventListener('click', moveMadeSeven)
     clickEight.removeEventListener('click', moveMadeEight)
     clickNine.removeEventListener('click', moveMadeNine)
+    return true
 } else if (document.getElementById('squareThree').innerText === 'X' && document.getElementById('squareFive').innerText === 'X' && document.getElementById('squareSeven').innerText === 'X') {
     document.getElementById("the-winner").innerHTML = "X has won!"
     document.getElementById("squareThree").style.color = "red"
@@ -74,6 +79,7 @@ if (document.getElementById('squareOne').innerText === 'X' && document.getElemen
     clickSeven.removeEventListener('click', moveMadeSeven)
     clickEight.removeEventListener('click', moveMadeEight)
     clickNine.removeEventListener('click', moveMadeNine)
+    return true
 } else if (document.getElementById('squareOne').innerText === 'X' && document.getElementById('squareFour').innerText === 'X' && document.getElementById('squareSeven').innerText === 'X') {
     document.getElementById("the-winner").innerHTML = "X has won!"
     document.getElementById("squareOne").style.color = "red"
@@ -88,6 +94,7 @@ if (document.getElementById('squareOne').innerText === 'X' && document.getElemen
     clickSeven.removeEventListener('click', moveMadeSeven)
     clickEight.removeEventListener('click', moveMadeEight)
     clickNine.removeEventListener('click', moveMadeNine)
+    return true
 } else if (document.getElementById('squareTwo').innerText === 'X' && document.getElementById('squareFive').innerText === 'X' && document.getElementById('squareEight').innerText === 'X') {
     document.getElementById("the-winner").innerHTML = "X has won!"
     document.getElementById("squareTwo").style.color = "red"
@@ -102,6 +109,7 @@ if (document.getElementById('squareOne').innerText === 'X' && document.getElemen
     clickSeven.removeEventListener('click', moveMadeSeven)
     clickEight.removeEventListener('click', moveMadeEight)
     clickNine.removeEventListener('click', moveMadeNine)
+    return true
 } else if (document.getElementById('squareThree').innerText === 'X' && document.getElementById('squareSix').innerText === 'X' && document.getElementById('squareNine').innerText === 'X') {
     document.getElementById("the-winner").innerHTML = "X has won!"
     document.getElementById("squareThree").style.color = "red"
@@ -116,6 +124,7 @@ if (document.getElementById('squareOne').innerText === 'X' && document.getElemen
     clickSeven.removeEventListener('click', moveMadeSeven)
     clickEight.removeEventListener('click', moveMadeEight)
     clickNine.removeEventListener('click', moveMadeNine)
+    return true
 } else if (document.getElementById('squareFour').innerText === 'X' && document.getElementById('squareFive').innerText === 'X' && document.getElementById('squareSix').innerText === 'X') {
     document.getElementById("the-winner").innerHTML = "X has won!"
     document.getElementById("squareFour").style.color = "red"
@@ -130,6 +139,7 @@ if (document.getElementById('squareOne').innerText === 'X' && document.getElemen
     clickSeven.removeEventListener('click', moveMadeSeven)
     clickEight.removeEventListener('click', moveMadeEight)
     clickNine.removeEventListener('click', moveMadeNine)
+    return true
 } else if (document.getElementById('squareSeven').innerText === 'X' && document.getElementById('squareEight').innerText === 'X' && document.getElementById('squareNine').innerText === 'X') {
     document.getElementById("the-winner").innerHTML = "X has won!"
     document.getElementById("squareSeven").style.color = "red"
@@ -144,6 +154,9 @@ if (document.getElementById('squareOne').innerText === 'X' && document.getElemen
     clickSeven.removeEventListener('click', moveMadeSeven)
     clickEight.removeEventListener('click', moveMadeEight)
     clickNine.removeEventListener('click', moveMadeNine)
+    return true
+} else {
+    return false
 }
 }
 
@@ -163,6 +176,7 @@ const winTwo = () => {
         clickSeven.removeEventListener('click', moveMadeSeven)
         clickEight.removeEventListener('click', moveMadeEight)
         clickNine.removeEventListener('click', moveMadeNine)
+        return true
     } else if (document.getElementById('squareOne').innerText === 'O' && document.getElementById('squareFive').innerText === 'O' && document.getElementById('squareNine').innerText === 'O') {
         document.getElementById("the-winner").innerHTML = "O has won!" 
         document.getElementById("squareOne").style.color = "red"
@@ -177,6 +191,7 @@ const winTwo = () => {
         clickSeven.removeEventListener('click', moveMadeSeven)
         clickEight.removeEventListener('click', moveMadeEight)
         clickNine.removeEventListener('click', moveMadeNine)
+        return true
     } else if (document.getElementById('squareThree').innerText === 'O' && document.getElementById('squareFive').innerText === 'O' && document.getElementById('squareSeven').innerText === 'O') {
         document.getElementById("the-winner").innerHTML = "O has won!"
         document.getElementById("squareThree").style.color = "red"
@@ -191,6 +206,7 @@ const winTwo = () => {
         clickSeven.removeEventListener('click', moveMadeSeven)
         clickEight.removeEventListener('click', moveMadeEight)
         clickNine.removeEventListener('click', moveMadeNine)
+        return true
     } else if (document.getElementById('squareOne').innerText === 'O' && document.getElementById('squareFour').innerText === 'O' && document.getElementById('squareSeven').innerText === 'O') {
         document.getElementById("the-winner").innerHTML = "O has won!"
         document.getElementById("squareOne").style.color = "red"
@@ -205,6 +221,7 @@ const winTwo = () => {
         clickSeven.removeEventListener('click', moveMadeSeven)
         clickEight.removeEventListener('click', moveMadeEight)
         clickNine.removeEventListener('click', moveMadeNine)
+        return true
     } else if (document.getElementById('squareTwo').innerText === 'O' && document.getElementById('squareFive').innerText === 'O' && document.getElementById('squareEight').innerText === 'O') {
         document.getElementById("the-winner").innerHTML = "O has won!"
         document.getElementById("squareTwo").style.color = "red"
@@ -219,6 +236,7 @@ const winTwo = () => {
         clickSeven.removeEventListener('click', moveMadeSeven)
         clickEight.removeEventListener('click', moveMadeEight)
         clickNine.removeEventListener('click', moveMadeNine)
+        return true
     } else if (document.getElementById('squareThree').innerText === 'O' && document.getElementById('squareSix').innerText === 'O' && document.getElementById('squareNine').innerText === 'O') {
         document.getElementById("the-winner").innerHTML = "O has won!"
         document.getElementById("squareThree").style.color = "red"
@@ -233,6 +251,7 @@ const winTwo = () => {
         clickSeven.removeEventListener('click', moveMadeSeven)
         clickEight.removeEventListener('click', moveMadeEight)
         clickNine.removeEventListener('click', moveMadeNine)
+        return true
     } else if (document.getElementById('squareFour').innerText === 'O' && document.getElementById('squareFive').innerText === 'O' && document.getElementById('squareSix').innerText === 'O') {
         document.getElementById("the-winner").innerHTML = "O has won!"
         document.getElementById("squareFour").style.color = "red"
@@ -247,6 +266,7 @@ const winTwo = () => {
         clickSeven.removeEventListener('click', moveMadeSeven)
         clickEight.removeEventListener('click', moveMadeEight)
         clickNine.removeEventListener('click', moveMadeNine)
+        return true
     } else if (document.getElementById('squareSeven').innerText === 'O' && document.getElementById('squareEight').innerText === 'O' && document.getElementById('squareNine').innerText === 'O') {
         document.getElementById("the-winner").innerHTML = "O has won!"
         document.getElementById("squareSeven").style.color = "red"
@@ -261,6 +281,9 @@ const winTwo = () => {
         clickSeven.removeEventListener('click', moveMadeSeven)
         clickEight.removeEventListener('click', moveMadeEight)
         clickNine.removeEventListener('click', moveMadeNine)
+        return true
+    } else {
+        return false
     }
     }
 
@@ -282,90 +305,152 @@ const stopClick = () => {
 const moveMade = () => {
     changeTurn()
     document.getElementById('squareOne').innerText = currentPlayer
-    winOne()
-    winTwo()
     clickOne.removeEventListener('click', moveMade)
-    tie()
+    if (winOne() === true) {
+        winOne()
+    } else if (winTwo() === true) {
+        winTwo()
+    } else {
+        tie()
+    }
+    // winTwo()
+    // tie()
 }
 clickOne.addEventListener("click", moveMade)
 
 const moveMadeTwo = () => {
     changeTurn()
     document.getElementById('squareTwo').innerText = currentPlayer
-    winOne()
-    winTwo()
+    // winOne()
+    // winTwo()
+    // tie()
+    if (winOne() === true) {
+        winOne()
+    } else if (winTwo() === true) {
+        winTwo()
+    } else {
+        tie()
+    }
     clickTwo.removeEventListener('click', moveMadeTwo)
-    tie()
 }
 clickTwo.addEventListener("click", moveMadeTwo)
 
 const moveMadeThree = () => {
     changeTurn()
     document.getElementById('squareThree').innerText = currentPlayer
-    winOne()
-    winTwo()
+    // winOne()
+    // winTwo()
+    // tie()
+    if (winOne() === true) {
+        winOne()
+    } else if (winTwo() === true) {
+        winTwo()
+    } else {
+        tie()
+    }
     clickThree.removeEventListener('click', moveMadeThree)
-    tie()
 }
 clickThree.addEventListener("click", moveMadeThree)
 
 const moveMadeFour = () => {
     changeTurn()
     document.getElementById('squareFour').innerText = currentPlayer
-    winOne()
-    winTwo()
+    // winOne()
+    // winTwo()
+    // tie()
+    if (winOne() === true) {
+        winOne()
+    } else if (winTwo() === true) {
+        winTwo()
+    } else {
+        tie()
+    }
     clickFour.removeEventListener('click', moveMadeFour)
-    tie()
 }
 clickFour.addEventListener("click", moveMadeFour)
 
 const moveMadeFive = () => {
     changeTurn()
     document.getElementById('squareFive').innerText = currentPlayer
-    winOne()
-    winTwo()
+    // winOne()
+    // winTwo()
+    // tie()
+    if (winOne() === true) {
+        winOne()
+    } else if (winTwo() === true) {
+        winTwo()
+    } else {
+        tie()
+    }
     clickFive.removeEventListener('click', moveMadeFive)
-    tie()
 }
 clickFive.addEventListener("click", moveMadeFive)
 
 const moveMadeSix = () => {
     changeTurn()
     document.getElementById('squareSix').innerText = currentPlayer
-    winOne()
-    winTwo()
+    // winOne()
+    // winTwo()
+    // tie()
+    if (winOne() === true) {
+        winOne()
+    } else if (winTwo() === true) {
+        winTwo()
+    } else {
+        tie()
+    }
     clickSix.removeEventListener('click', moveMadeSix)
-    tie()
 }
 clickSix.addEventListener("click", moveMadeSix)
 
 const moveMadeSeven = () => {
     changeTurn()
     document.getElementById('squareSeven').innerText = currentPlayer
-    winOne()
-    winTwo()
+    // winOne()
+    // winTwo()
+    // tie()
+    if (winOne() === true) {
+        winOne()
+    } else if (winTwo() === true) {
+        winTwo()
+    } else {
+        tie()
+    }
     clickSeven.removeEventListener('click', moveMadeSeven)
-    tie()
 }
 clickSeven.addEventListener("click", moveMadeSeven)
 
 const moveMadeEight = () => {
     changeTurn()
     document.getElementById('squareEight').innerText = currentPlayer
-    winOne()
-    winTwo()
+    // winOne()
+    // winTwo()
+    // tie()
+    if (winOne() === true) {
+        winOne()
+    } else if (winTwo() === true) {
+        winTwo()
+    } else {
+        tie()
+    }
     clickEight.removeEventListener('click', moveMadeEight)
-    tie()
 }
 clickEight.addEventListener("click", moveMadeEight)
 
 const moveMadeNine = () => {
     changeTurn()
     document.getElementById('squareNine').innerText = currentPlayer
-    winOne()
-    winTwo()
+    // winOne()
+    // winTwo()
+    // tie()
+    if (winOne() === true) {
+        winOne()
+    } else if (winTwo() === true) {
+        winTwo()
+    } else {
+        tie()
+    }
     clickNine.removeEventListener('click', moveMadeNine)
-    tie()
 
 }
 clickNine.addEventListener("click", moveMadeNine)

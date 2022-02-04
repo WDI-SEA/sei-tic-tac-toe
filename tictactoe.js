@@ -9,7 +9,7 @@
 
 let currentPlayer = 'X';
 
-const combinations = [
+const winningConditions = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -36,8 +36,8 @@ function swapTurn() {
 }
 
 
-function isValidMark(block) {
-    if (block.innerText === 'X' || block.innerText === 'O') {
+function isValidMark(blocks) {
+    if (blocks.innerText === 'X' || blocks.innerText === 'O') {
         return false;
     }
     return true;
@@ -47,17 +47,17 @@ function isValidMark(block) {
         block.addEventListener('click', () => blockMarked(block, index));
     });
 
-    function updateContainer(index) {
-    resultArray[index] = currentPlayer;
-}
+    const updateContainer = (index) => {
+        resultArray[index] = currentPlayer;
+    }
 
     function blockMarked() {
         let winner = false;
         for (let i = 0; i <= 7; i++) {
-            const win = winningCondition[i];
-            const a = game-container[win[0]];
-            const b = game-container[win[1]];
-            const c = game-container[win[2]];
+            const win = winningConditions[i];
+            const a = board[win[0]];
+            const b = board[win[1]];
+            const c = board[win[2]];
             if (a === ' ' || b === ' ' || c === ' ') {
                 continue;
             }
@@ -71,7 +71,7 @@ function isValidMark(block) {
             isGameActive = false;
             return;
         }
-         if (!game-container.includes(' '))
+         if (!board.includes(' '))
         result(Tie);
     }
 
@@ -88,13 +88,13 @@ function blockSelected(block, index) {
 function result(type) {
     switch (type) {
         case playerOWon:
-            result.innerHTML = 'Player O won!';
+            result.innerText = 'Player O won!';
             break;
         case playerXWon:
-            result.innerHTML = 'Player X won!';
+            result.innerText = 'Player X won!';
             break;
         case Tie:
-            result.innerHTML = 'Tie';
+            result.innerText = 'Tie';
     }
     result.classList.remove('hide');
 };

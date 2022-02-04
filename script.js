@@ -35,13 +35,16 @@ grid.forEach(function (grid) {
     if (grid.innerText === '' && isGameActive) {
       grid.innerText = currentPlayer
       if (currentPlayer === 'X') {
+        checkWinner()
+        tieCheck()
         currentPlayer = 'O'
         playerNow.innerText = "O's turn"
       } else if (currentPlayer === 'O') {
+        checkWinner()
+        tieCheck()
         currentPlayer = 'X'
         playerNow.innerText = "X's turn"
       }
-    checkWinner()
     }
   })
 })
@@ -179,7 +182,7 @@ const tieCheck = () => {
     playerNow.innerText = 'Game Over'
   }
 }
-tieCheck() 
+
 
 
 // reset button

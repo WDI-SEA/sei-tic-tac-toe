@@ -39,11 +39,40 @@ const checkTie = () => {
     checkWinPlayer1 != true &&
     checkWinPlayer2 != true
   ) {
-    console.log("Tie");
     const a = document.createElement("Winner");
     a.textContent = "Tie!";
-    const menu = document.querySelector(".here");
+    const menu = document.querySelector(".here2");
     menu.appendChild(a);
+  }
+};
+
+const dontShowTieP1 = () => {
+  if (
+    (p1Input.includes(1) && p1Input.includes(2) && p1Input.includes(3)) ||
+    (p1Input.includes(4) && p1Input.includes(5) && p1Input.includes(6)) ||
+    (p1Input.includes(7) && p1Input.includes(8) && p1Input.includes(9)) ||
+    (p1Input.includes(1) && p1Input.includes(4) && p1Input.includes(7)) ||
+    (p1Input.includes(2) && p1Input.includes(5) && p1Input.includes(8)) ||
+    (p1Input.includes(3) && p1Input.includes(6) && p1Input.includes(9)) ||
+    (p1Input.includes(3) && p1Input.includes(5) && p1Input.includes(7)) ||
+    (p1Input.includes(1) && p1Input.includes(5) && p1Input.includes(9))
+  ) {
+    document.getElementById("here2").style.display = "none";
+  }
+};
+
+const dontShowTieP2 = () => {
+  if (
+    (p2Input.includes(1) && p2Input.includes(2) && p2Input.includes(3)) ||
+    (p2Input.includes(4) && p2Input.includes(5) && p2Input.includes(6)) ||
+    (p2Input.includes(7) && p2Input.includes(8) && p2Input.includes(9)) ||
+    (p2Input.includes(1) && p2Input.includes(4) && p2Input.includes(7)) ||
+    (p2Input.includes(2) && p2Input.includes(5) && p2Input.includes(8)) ||
+    (p2Input.includes(3) && p2Input.includes(6) && p2Input.includes(9)) ||
+    (p2Input.includes(3) && p2Input.includes(5) && p2Input.includes(7)) ||
+    (p2Input.includes(1) && p2Input.includes(5) && p2Input.includes(9))
+  ) {
+    document.getElementById("here2").style.display = "none";
   }
 };
 
@@ -296,6 +325,7 @@ div1.addEventListener(
       currentPlayer = "O";
       checkTie();
       checkWinPlayer1(p1Input);
+      dontShowTieP1();
     } else {
       p2Input.push(one);
       total.push(one);
@@ -303,6 +333,7 @@ div1.addEventListener(
       currentPlayer = "X";
       checkTie();
       checkWinPlayer2(p2Input);
+      dontShowTieP2();
     }
   },
   {
@@ -322,6 +353,7 @@ div2.addEventListener(
       currentPlayer = "O";
       checkTie();
       checkWinPlayer1(p1Input);
+      dontShowTieP1();
     } else {
       p2Input.push(two);
       total.push(two);
@@ -329,6 +361,7 @@ div2.addEventListener(
       currentPlayer = "X";
       checkTie();
       checkWinPlayer2(p2Input);
+      dontShowTieP2();
     }
   },
   {
@@ -348,6 +381,7 @@ div3.addEventListener(
       currentPlayer = "O";
       checkTie();
       checkWinPlayer1(p1Input);
+      dontShowTieP1();
     } else {
       p2Input.push(three);
       total.push(three);
@@ -355,6 +389,7 @@ div3.addEventListener(
       currentPlayer = "X";
       checkTie();
       checkWinPlayer2(p2Input);
+      dontShowTieP2();
     }
   },
   {
@@ -373,6 +408,7 @@ div4.addEventListener(
       currentPlayer = "O";
       checkTie();
       checkWinPlayer1(p1Input);
+      dontShowTieP1();
     } else {
       p2Input.push(four);
       total.push(four);
@@ -380,6 +416,7 @@ div4.addEventListener(
       currentPlayer = "X";
       checkTie();
       checkWinPlayer2(p2Input);
+      dontShowTieP2();
     }
   },
   {
@@ -399,6 +436,7 @@ div5.addEventListener(
       currentPlayer = "O";
       checkTie();
       checkWinPlayer1(p1Input);
+      dontShowTieP1();
     } else {
       p2Input.push(five);
       total.push(five);
@@ -406,6 +444,7 @@ div5.addEventListener(
       currentPlayer = "X";
       checkTie();
       checkWinPlayer2(p2Input);
+      dontShowTieP2();
     }
   },
   {
@@ -425,6 +464,7 @@ div6.addEventListener(
       currentPlayer = "O";
       checkTie();
       checkWinPlayer1(p1Input);
+      dontShowTieP1();
     } else {
       p2Input.push(six);
       total.push(six);
@@ -432,6 +472,7 @@ div6.addEventListener(
       currentPlayer = "X";
       checkTie();
       checkWinPlayer2(p2Input);
+      dontShowTieP2();
     }
   },
   {
@@ -451,6 +492,7 @@ div7.addEventListener(
       currentPlayer = "O";
       checkTie();
       checkWinPlayer1(p1Input);
+      dontShowTieP1();
     } else {
       p2Input.push(seven);
       total.push(seven);
@@ -458,6 +500,7 @@ div7.addEventListener(
       currentPlayer = "X";
       checkTie();
       checkWinPlayer2(p2Input);
+      dontShowTieP2();
     }
   },
   {
@@ -477,6 +520,7 @@ div8.addEventListener(
       currentPlayer = "O";
       checkTie();
       checkWinPlayer1(p1Input);
+      dontShowTieP1();
     } else {
       p2Input.push(eight);
       total.push(eight);
@@ -484,6 +528,7 @@ div8.addEventListener(
       currentPlayer = "X";
       checkTie();
       checkWinPlayer2(p2Input);
+      dontShowTieP2();
     }
   },
   {
@@ -503,6 +548,7 @@ div9.addEventListener(
       currentPlayer = "O";
       checkTie();
       checkWinPlayer1(p1Input);
+      dontShowTieP1();
     } else {
       p2Input.push(nine);
       total.push(nine);
@@ -510,6 +556,7 @@ div9.addEventListener(
       currentPlayer = "X";
       checkTie();
       checkWinPlayer2(p2Input);
+      dontShowTieP2();
     }
   },
   {

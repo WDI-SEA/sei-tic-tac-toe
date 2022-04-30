@@ -64,6 +64,7 @@ main {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
   margin-bottom: 1.5rem;
+  min-width: 30rem;
 
   background-color: var(--dark-500);
   padding: 1rem;
@@ -92,6 +93,11 @@ html.light #game-board {
 html.light .tile {
   background-color: var(--light-300);
   color: var(--light-800);
+}
+
+.main-buttons {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .main-buttons button {
@@ -124,25 +130,31 @@ html.light button:disabled {
   aspect-ratio: 1/1;
 
   border-radius: 1rem;
+  border: 0.5rem solid var(--dark-500);
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
 
-  box-shadow: var(--dark-shadow);
+  color: var(--dark-200);
 }
 /* Light mode */
 html.light .player-info {
   background-color: var(--light-300);
+  color: var(--light-600);
+  border-color: var(--light-100);
 }
 
 .player-info.active {
-  border: 0.5rem solid var(--dark-text);
+  box-shadow: var(--dark-shadow);
+  border-color: var(--dark-text);
+  color: inherit;
 }
 /* Light mode */
 html.light .player-info.active {
   border-color: var(--light-800);
+  color: inherit;
 }
 
 .player-mark {

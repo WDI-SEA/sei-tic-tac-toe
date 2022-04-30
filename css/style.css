@@ -1,0 +1,11 @@
+body {
+    text-align: center;
+}
+
+button {
+    position: relative;
+    margin: 2rem 2rem;
+    height: 10rem;
+    width: 10rem;
+    font-size: 3rem;
+}

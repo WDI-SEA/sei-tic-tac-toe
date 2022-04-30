@@ -7,14 +7,18 @@
   --dark-500: #4c4964;
   --dark-800: #222033;
   --dark-900: #201f26;
+  --dark-shadow-color: rgba(32, 31, 38, 0.3);
+  --dark-shadow: 0 0 8px var(--dark-shadow-color);
   --dark-text: white;
 }
 
+html,
 body {
   margin: 0;
   background-color: var(--dark-800);
   color: var(--dark-text);
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Comfortaa", cursive;
+  height: 100%;
 }
 
 button {
@@ -29,6 +33,7 @@ main {
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  height: 100%;
 }
 
 #game-board {
@@ -49,17 +54,24 @@ main {
   border-radius: 0.25rem;
   min-width: 3rem;
   aspect-ratio: 1/1; /* square */
+
+  font-size: 3rem;
+  text-shadow: var(--dark-shadow);
+
+  box-shadow: var(--dark-shadow);
 }
 
 .main-buttons button {
   background-color: var(--dark-200);
   border-radius: 10rem;
   padding: 1rem 3rem;
+  box-shadow: var(--dark-shadow);
 }
 
 .main-buttons button:disabled {
   background-color: var(--dark-500);
   color: #8781b4;
+  cursor: default;
 }
 
 .player-info {
@@ -73,8 +85,24 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
+
+  box-shadow: var(--dark-shadow);
 }
 
 .player-info.active {
   border: 0.5rem solid var(--dark-text);
+}
+
+.player-mark {
+  font-size: 4rem;
+  margin: 0;
+  text-shadow: var(--dark-shadow);
+}
+
+.win-message {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  min-height: 2rem; /* Take up space even without content */
 }

@@ -3,33 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Add fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="css/styles.css" />
     <script src="./js/script.js" defer></script>
     <title>Tic Tac Toe</title>
   </head>
   <body>
     <main>
-      <aside id="player1-info">
-        <p id="player1-win-display"></p>
-        <div class="player-info">
+      <aside id="player1-info" class="player-info-wrapper">
+        <p id="player1-win-display" class="win-message"></p>
+        <div class="player-info active">
           <h2 id="player1-name">Player 1</h2>
-          <p id="player1-mark">X</p>
+          <p class="player-mark" id="player1-mark">X</p>
           <p id="player1-wins">0 wins</p>
         </div>
       </aside>
       <section class="center-section">
-        <p id="tie-display"></p>
+        <p id="tie-display" class="win-message"></p>
         <div id="game-board"></div>
         <div class="main-buttons">
           <button type="button" id="new-round-btn" disabled>New Round</button>
           <button type="button" id="restart-btn">Restart</button>
         </div>
       </section>
-      <aside id="player2-info">
-        <p id="player2-win-display"></p>
+      <aside id="player2-info" class="player-info-wrapper">
+        <p id="player2-win-display" class="win-message"></p>
         <div class="player-info">
           <h2 id="player2-name">Player 2</h2>
-          <p id="player2-mark">O</p>
+          <p class="player-mark" id="player2-mark">O</p>
           <p id="player2-wins">0 wins</p>
         </div>
       </aside>

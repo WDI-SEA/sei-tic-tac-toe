@@ -104,6 +104,12 @@ const switchPlayers = () => {
   }
 }
 
+// To remove the active styles when it's a tie
+const removeActiveCasses = () => {
+  player1.infoEle.classList.remove("active")
+  player2.infoEle.classList.remove("active")
+}
+
 const addMark = (tile) => {
   // Semicolon explanation: https://prettier.io/docs/en/rationale.html#semicolons
   ;[row, col] = JSON.parse(tile.getAttribute("position"))
@@ -243,6 +249,8 @@ const setGameOver = (winner) => {
   if (winner) {
     winner.wins++
     renderPlayersInfo()
+  } else {
+    removeActiveCasses()
   }
 
   renderGameOverMessage(winner)

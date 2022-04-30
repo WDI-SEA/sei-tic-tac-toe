@@ -21,9 +21,12 @@ showStartScreen()
 
 const WIN_MESSAGE = "🎉 You Won 🎉"
 const TIE_MESSAGE = "It's a tie"
+const HUMAN_MODE = "HUMAN_MODE"
+const AI_MODE = "AI_MODE"
 
 // Get buttons
 const new2PlayerBtn = document.querySelector("#new-2-player-game")
+const newAiBtn = document.querySelector("#new-computer-game")
 const newRoundBtn = document.querySelector("#new-round-btn")
 const restartBtn = document.querySelector("#restart-btn")
 const colorToggle = document.querySelector("#color-mode")
@@ -91,6 +94,8 @@ let activePlayer = player1
 
 let isGameOver = false
 
+let gameMode = HUMAN_MODE
+
 /////////////////
 // Game Logic //
 ///////////////
@@ -115,6 +120,14 @@ const restartGame = () => {
   renderPlayersInfo()
 }
 
+const startAiGame = () => {
+  activePlayer = player2
+  restartGame()
+  gameMode = AI_MODE
+  player2.name = "Computer"
+  renderPlayersInfo()
+}
+
 const switchPlayers = () => {
   if (activePlayer === player1) {
     activePlayer = player2
@@ -125,6 +138,34 @@ const switchPlayers = () => {
     player1.infoEle.classList.add("active")
     player2.infoEle.classList.remove("active")
   }
+
+  if (gameMode === AI_MODE && activePlayer === player2) {
+    makeAiMove()
+  }
+}
+
+const makeAiMove = () => {
+  console.log("It's the computer's turn!")
+  let foundEmptyTile = null
+  while (!foundEmptyTile) {
+    const randomIndex = Math.floor(Math.random() * 9)
+    const tile = tileElements[randomIndex]
+    if (isTileEmpty(tile)) {
+      foundEmptyTile = tile
+    }
+  }
+
+  // Add a radom "tinking time" delay for the computer
+  const minDelay = 400
+  const maxDelay = 700
+  const randomDelay =
+    Math.floor(Math.random() * (maxDelay - minDelay)) + minDelay
+
+  setTimeout(() => {
+    addMark(foundEmptyTile)
+    checkGameOver()
+    if (!isGameOver) switchPlayers()
+  }, randomDelay)
 }
 
 // To remove the active styles when it's a tie
@@ -149,6 +190,11 @@ const isTileEmpty = (tile) => {
 const handlePlayerClick = (event) => {
   // Do nothing if game is over
   if (isGameOver) return
+
+  // Do nothing if it's the computer's turn
+  if (gameMode === AI_MODE && activePlayer === player2) {
+    return
+  }
 
   const tile = event.currentTarget
 
@@ -325,6 +371,11 @@ const removeGameOverMessage = () => {
 // Attatch click listeners
 new2PlayerBtn.addEventListener("click", () => {
   restartGame()
+  hideStartScreen()
+})
+
+newAiBtn.addEventListener("click", () => {
+  startAiGame()
   hideStartScreen()
 })
 

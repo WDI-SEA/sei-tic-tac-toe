@@ -1,3 +1,6 @@
+const WIN_MESSAGE = "🎉 You Won 🎉"
+const TIE_MESSAGE = "It's a tie"
+
 // Get buttons
 const newRoundBtn = document.querySelector("#new-round-btn")
 const restartBtn = document.querySelector("#restart-btn")
@@ -31,25 +34,34 @@ for (let i = 0; i < 3; i++) {
 // Game State //
 ///////////////
 
-const board = []
-for (let i = 0; i < 3; i++) {
-  const row = []
-  for (let j = 0; j < 3; j++) {
-    row.push("")
+const generateBoard = () => {
+  const board = []
+  for (let i = 0; i < 3; i++) {
+    const row = []
+    for (let j = 0; j < 3; j++) {
+      row.push("")
+    }
+    board.push(row)
   }
-  board.push(row)
+  return board
 }
+
+let board = generateBoard()
 
 const player1 = {
   name: "Player 1",
   mark: "X",
   wins: 0,
+  infoEle: document.querySelector("#player1-info .player-info"),
+  winDisplayEle: document.querySelector("#player1-win-display"),
 }
 
 const player2 = {
   name: "Player 2",
   mark: "O",
   wins: 0,
+  infoEle: document.querySelector("#player2-info .player-info"),
+  winDisplayEle: document.querySelector("#player2-win-display"),
 }
 
 let activePlayer = player1
@@ -60,8 +72,36 @@ let isGameOver = false
 // Game Logic //
 ///////////////
 
+const newRound = () => {
+  isGameOver = false
+  board = generateBoard()
+  clearTiles()
+  switchPlayers()
+  newRoundBtn.disabled = true
+  removeGameOverMessage()
+}
+
+const clearTiles = () => {
+  tileElements.forEach((tile) => (tile.innerText = ""))
+}
+
+const restartGame = () => {
+  player1.wins = 0
+  player2.wins = 0
+  newRound()
+  renderPlayersInfo()
+}
+
 const switchPlayers = () => {
-  activePlayer = activePlayer === player1 ? player2 : player1
+  if (activePlayer === player1) {
+    activePlayer = player2
+    player2.infoEle.classList.add("active")
+    player1.infoEle.classList.remove("active")
+  } else {
+    activePlayer = player1
+    player1.infoEle.classList.add("active")
+    player2.infoEle.classList.remove("active")
+  }
 }
 
 const addMark = (tile) => {
@@ -78,6 +118,9 @@ const isTileEmpty = (tile) => {
 }
 
 const handlePlayerClick = (event) => {
+  // Do nothing if game is over
+  if (isGameOver) return
+
   const tile = event.currentTarget
 
   // Return if position is not empty (ie. not '')
@@ -88,9 +131,10 @@ const handlePlayerClick = (event) => {
   // Position is empty, so we add current user's mark and change players
   addMark(tile)
   checkGameOver()
-  switchPlayers()
+  if (!isGameOver) switchPlayers()
 }
 
+// Helper function for win checking
 const isSameMark = (mark1, mark2, mark3) => {
   // Dont return true if all marks are empty strings
   if (mark1 === "") return false
@@ -183,15 +227,74 @@ const checkGameOver = () => {
   const winner = horizontalWinner() || verticalWinner() || diagonalWinner()
 
   if (winner) {
-    isGameOver = true
-    console.log("Winner found", winner)
+    // isGameOver = true
+    // console.log("Winner found", winner)
+    setGameOver(winner)
   } else if (isTie()) {
-    isGameOver = true
-    console.log("It's a tie!")
+    // isGameOver = true
+    // console.log("It's a tie!")
+    setGameOver(null)
   }
+}
+
+const setGameOver = (winner) => {
+  isGameOver = true
+
+  if (winner) {
+    winner.wins++
+    renderPlayersInfo()
+  }
+
+  renderGameOverMessage(winner)
+  newRoundBtn.disabled = false
+}
+
+const winString = (numWins) => {
+  if (numWins === 1) {
+    return "1 win"
+  }
+
+  return `${numWins} wins`
+}
+
+const renderPlayersInfo = () => {
+  const player1Name = document.querySelector("#player1-name")
+  const player1Mark = document.querySelector("#player1-mark")
+  const player1Wins = document.querySelector("#player1-wins")
+
+  const player2Name = document.querySelector("#player2-name")
+  const player2Mark = document.querySelector("#player2-mark")
+  const player2Wins = document.querySelector("#player2-wins")
+
+  player1Name.innerText = player1.name
+  player1Mark.innerText = player1.mark
+  player1Wins.innerText = winString(player1.wins)
+
+  player2Name.innerText = player2.name
+  player2Mark.innerText = player2.mark
+  player2Wins.innerText = winString(player2.wins)
+}
+
+const renderGameOverMessage = (winner) => {
+  if (winner) {
+    winner.winDisplayEle.innerText = WIN_MESSAGE
+  } else {
+    const tieDisplayEle = document.querySelector("#tie-display")
+    tieDisplayEle.innerText = TIE_MESSAGE
+  }
+}
+
+const removeGameOverMessage = () => {
+  const tieDisplayEle = document.querySelector("#tie-display")
+  tieDisplayEle.innerText = ""
+  player1.winDisplayEle.innerText = ""
+  player2.winDisplayEle.innerText = ""
 }
 
 // Attatch click listeners
 tileElements.forEach((tile) =>
   tile.addEventListener("click", handlePlayerClick)
 )
+
+newRoundBtn.addEventListener("click", newRound)
+restartBtn.addEventListener("click", restartGame)

@@ -57,10 +57,15 @@ main {
   padding: 1rem 3rem;
 }
 
+.main-buttons button:disabled {
+  background-color: var(--dark-500);
+  color: #8781b4;
+}
+
 .player-info {
   background-color: var(--dark-500);
 
-  min-width: 10rem;
+  min-width: 15rem;
   aspect-ratio: 1/1;
 
   border-radius: 1rem;
@@ -68,4 +73,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.player-info.active {
+  border: 0.5rem solid var(--dark-text);
 }

@@ -65,6 +65,7 @@ const switchPlayers = () => {
 }
 
 const addMark = (tile) => {
+  // Semicolon explanation: https://prettier.io/docs/en/rationale.html#semicolons
   ;[row, col] = JSON.parse(tile.getAttribute("position"))
   board[row][col] = activePlayer.mark
   tile.innerText = activePlayer.mark
@@ -86,7 +87,99 @@ const handlePlayerClick = (event) => {
 
   // Position is empty, so we add current user's mark and change players
   addMark(tile)
+  checkGameOver()
   switchPlayers()
+}
+
+const isSameMark = (mark1, mark2, mark3) => {
+  // Dont return true if all marks are empty strings
+  if (mark1 === "") return false
+
+  return mark1 === mark2 && mark1 === mark3
+}
+
+// Takes a mark and returns the player object
+const markToPlayer = (mark) => {
+  if (player1.mark === mark) {
+    return player1
+  }
+
+  if (player2.mark === mark) {
+    return player2
+  }
+}
+
+// Returns the winning player if there is one, or null
+const horizontalWinner = () => {
+  let winningMark = ""
+
+  for (let i = 0; i < 3; i++) {
+    const row = board[i]
+
+    if (isSameMark(row[0], row[1], row[2])) {
+      winningMark = row[0]
+      break
+    }
+  }
+
+  if (!winningMark) {
+    return null
+  }
+
+  return markToPlayer(winningMark)
+}
+
+const verticalWinner = () => {
+  let winningMark = ""
+
+  for (let i = 0; i < 3; i++) {
+    const mark1 = board[0][i]
+    const mark2 = board[1][i]
+    const mark3 = board[2][i]
+
+    if (isSameMark(mark1, mark2, mark3)) {
+      winningMark = mark1
+      break
+    }
+  }
+
+  if (!winningMark) {
+    return null
+  }
+
+  return markToPlayer(winningMark)
+}
+
+const diagonalWinner = () => {
+  let winningMark = ""
+
+  const diagonal1 = [board[0][0], board[1][1], board[2][2]]
+  const diagonal2 = [board[0][2], board[1][1], board[2][0]]
+
+  if (isSameMark(...diagonal1)) {
+    winningMark = diagonal1[0]
+  } else if (isSameMark(...diagonal2)) {
+    winningMark = diagonal2[0]
+  }
+
+  if (!winningMark) {
+    return null
+  }
+
+  return markToPlayer(winningMark)
+}
+
+const checkGameOver = () => {
+  // horizontal
+  let winner = null
+
+  winner = horizontalWinner()
+  winner = verticalWinner()
+  winner = diagonalWinner()
+
+  if (winner) {
+    isGameOver = true
+  }
 }
 
 // Attatch click listeners

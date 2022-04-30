@@ -17,30 +17,37 @@
   </head>
   <body>
     <main>
-      <aside id="player1-info" class="player-info-wrapper">
-        <p id="player1-win-display" class="win-message"></p>
-        <div class="player-info active">
-          <h2 id="player1-name">Player 1</h2>
-          <p class="player-mark" id="player1-mark">X</p>
-          <p id="player1-wins">0 wins</p>
-        </div>
-      </aside>
-      <section class="center-section">
-        <p id="tie-display" class="win-message"></p>
-        <div id="game-board"></div>
-        <div class="main-buttons">
-          <button type="button" id="new-round-btn" disabled>New Round</button>
-          <button type="button" id="restart-btn">Restart</button>
-        </div>
-      </section>
-      <aside id="player2-info" class="player-info-wrapper">
-        <p id="player2-win-display" class="win-message"></p>
-        <div class="player-info">
-          <h2 id="player2-name">Player 2</h2>
-          <p class="player-mark" id="player2-mark">O</p>
-          <p id="player2-wins">0 wins</p>
-        </div>
-      </aside>
+      <header>
+        <!-- Dark / Light Mode Toggle -->
+        <input type="checkbox" name="" id="mode" class="toggle" />
+        <label for="mode"></label>
+      </header>
+      <div class="play-area">
+        <aside id="player1-info" class="player-info-wrapper">
+          <p id="player1-win-display" class="win-message"></p>
+          <div class="player-info active">
+            <h2 id="player1-name">Player 1</h2>
+            <p class="player-mark" id="player1-mark">X</p>
+            <p id="player1-wins">0 wins</p>
+          </div>
+        </aside>
+        <section class="center-section">
+          <p id="tie-display" class="win-message"></p>
+          <div id="game-board"></div>
+          <div class="main-buttons">
+            <button type="button" id="new-round-btn" disabled>New Round</button>
+            <button type="button" id="restart-btn">Restart</button>
+          </div>
+        </section>
+        <aside id="player2-info" class="player-info-wrapper">
+          <p id="player2-win-display" class="win-message"></p>
+          <div class="player-info">
+            <h2 id="player2-name">Player 2</h2>
+            <p class="player-mark" id="player2-mark">O</p>
+            <p id="player2-wins">0 wins</p>
+          </div>
+        </aside>
+      </div>
     </main>
   </body>
 </html>

@@ -10,6 +10,11 @@
   --dark-shadow-color: rgba(32, 31, 38, 0.3);
   --dark-shadow: 0 0 8px var(--dark-shadow-color);
   --dark-text: white;
+
+  --light-100: #f5f8f4;
+  --light-300: #d6e6e6;
+  --light-600: #69a8a8;
+  --light-800: #3d7e7e;
 }
 
 html,
@@ -19,6 +24,10 @@ body {
   color: var(--dark-text);
   font-family: "Comfortaa", cursive;
   height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 button {
@@ -29,9 +38,14 @@ button {
 }
 
 main {
+  padding: 3rem 10rem;
+  max-width: 90rem;
+}
+
+.play-area {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 2rem;
   height: 100%;
 }
@@ -105,4 +119,86 @@ main {
   font-size: 1.5rem;
   margin: 1rem 0;
   min-height: 2rem; /* Take up space even without content */
+}
+
+/*                  */
+/* Dark Mode Toggle */
+/*                  */
+
+header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+input[type="checkbox"].toggle {
+  /* Move off the page (hide it) */
+  opacity: 0;
+  position: absolute;
+  left: -900rem;
+  top: -900rem;
+}
+
+/* Toggle + label */
+input[type="checkbox"].toggle + label {
+  /* Change display so that the label::before shows */
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+
+  position: relative;
+
+  cursor: pointer;
+}
+
+/* Toggle background */
+input[type="checkbox"].toggle + label::before {
+  content: "";
+  width: 2em;
+  height: 1em;
+
+  background-color: var(--dark-500);
+  border-radius: 1em;
+  margin-right: 0.25em;
+
+  transition: 200ms ease-in-out;
+}
+
+/* Toggle background when checked */
+input[type="checkbox"].toggle:checked + label::before {
+  background-color: var(--light-800);
+}
+
+/* Toggle when focused (accessiblity feature) */
+input[type="checkbox"].toggle:focus + label::before {
+  outline: 0.1em solid var(--dark-200);
+}
+input[type="checkbox"].toggle:checked:focus + label::before {
+  outline: 0.1em solid var(--light-600);
+}
+
+/* Toggle circle inside */
+input[type="checkbox"].toggle + label::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0.2em;
+
+  content: "🌙";
+  font-size: 0.5em;
+  width: 1.8em;
+  height: 1.8em;
+
+  background-color: var(--dark-900);
+  border-radius: 1em;
+  margin-right: 0.25em;
+
+  transition: 200ms ease-in-out;
+}
+
+/* Toggle circle inside when checked */
+input[type="checkbox"].toggle:checked + label::after {
+  content: "☀️";
+  transform: translateX(100%);
+  background-color: var(--light-100);
 }

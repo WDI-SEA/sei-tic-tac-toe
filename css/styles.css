@@ -63,8 +63,12 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
+}
+
+.central-square {
   margin-bottom: 1.5rem;
   min-width: 30rem;
+  aspect-ratio: 1/1;
 
   background-color: var(--dark-500);
   padding: 1rem;
@@ -73,9 +77,32 @@ main {
 }
 
 /* Light mode */
-html.light #game-board {
+html.light .central-square {
   background-color: var(--light-600);
   border-color: var(--light-800);
+}
+
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.start-screen h1 {
+  font-size: 3rem;
+  margin-block: 3rem;
+}
+
+.start-btns {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.start-btns .btn {
+  width: 100%;
+  margin-block: 1rem;
 }
 
 .tile {
@@ -100,7 +127,7 @@ html.light .tile {
   justify-content: space-evenly;
 }
 
-.main-buttons button {
+.btn {
   background-color: var(--dark-200);
   border-radius: 10rem;
   padding: 1rem 3rem;
@@ -112,7 +139,7 @@ html.light button {
   color: var(--light-100);
 }
 
-.main-buttons button:disabled {
+.btn:disabled {
   background-color: var(--dark-500);
   color: #8781b4;
   cursor: default;
@@ -250,4 +277,13 @@ input[type="checkbox"].toggle:checked + label::after {
   content: "☀";
   transform: translateX(100%);
   background-color: var(--light-100);
+}
+
+/*           */
+/* Utilities */
+/*           */
+
+.hide {
+  /* opacity: 0; */
+  display: none !important;
 }

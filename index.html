@@ -33,10 +33,26 @@
         </aside>
         <section class="center-section">
           <p id="tie-display" class="win-message"></p>
-          <div id="game-board"></div>
+          <div class="central-square start-screen">
+            <h1>Tic Tac Toe</h1>
+            <div class="start-btns">
+              <p>Start a new game</p>
+              <button type="button" class="btn" id="new-2-player-game">
+                2 Player
+              </button>
+              <button type="button" class="btn" id="new-computer-game" disabled>
+                VS Computer
+              </button>
+            </div>
+          </div>
+
+          <div id="game-board" class="central-square"></div>
+
           <div class="main-buttons">
-            <button type="button" id="new-round-btn" disabled>New Round</button>
-            <button type="button" id="restart-btn">Restart</button>
+            <button type="button" id="new-round-btn" disabled class="btn">
+              New Round
+            </button>
+            <button type="button" id="restart-btn" class="btn">Restart</button>
           </div>
         </section>
         <aside id="player2-info" class="player-info-wrapper">

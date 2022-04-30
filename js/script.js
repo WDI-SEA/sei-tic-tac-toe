@@ -1,7 +1,29 @@
+// Elements that are hidden when start screen is shown
+const gameElements = [
+  document.querySelector("#player1-info"),
+  document.querySelector("#game-board"),
+  document.querySelector(".main-buttons"),
+  document.querySelector("#player2-info"),
+]
+const startScreen = document.querySelector(".start-screen")
+
+const hideStartScreen = () => {
+  startScreen.classList.add("hide")
+  gameElements.forEach((ele) => ele.classList.remove("hide"))
+}
+
+const showStartScreen = () => {
+  startScreen.classList.remove("hide")
+  gameElements.forEach((ele) => ele.classList.add("hide"))
+}
+
+showStartScreen()
+
 const WIN_MESSAGE = "🎉 You Won 🎉"
 const TIE_MESSAGE = "It's a tie"
 
 // Get buttons
+const new2PlayerBtn = document.querySelector("#new-2-player-game")
 const newRoundBtn = document.querySelector("#new-round-btn")
 const restartBtn = document.querySelector("#restart-btn")
 const colorToggle = document.querySelector("#color-mode")
@@ -301,12 +323,17 @@ const removeGameOverMessage = () => {
 }
 
 // Attatch click listeners
+new2PlayerBtn.addEventListener("click", () => {
+  restartGame()
+  hideStartScreen()
+})
+
 tileElements.forEach((tile) =>
   tile.addEventListener("click", handlePlayerClick)
 )
 
 newRoundBtn.addEventListener("click", newRound)
-restartBtn.addEventListener("click", restartGame)
+restartBtn.addEventListener("click", showStartScreen)
 
 colorToggle.addEventListener("change", () => {
   document.querySelector("html").classList.toggle("light")

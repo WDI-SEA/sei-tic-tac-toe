@@ -169,11 +169,25 @@ const diagonalWinner = () => {
   return markToPlayer(winningMark)
 }
 
+// Returns true if every tile in a row has a mark
+const isRowFull = (row) => {
+  return !!row[0] && !!row[1] && !!row[2]
+}
+
+// Returns true if board is full (ie. all rows are full)
+const isTie = () => {
+  return isRowFull(board[0]) && isRowFull(board[1]) && isRowFull(board[2])
+}
+
 const checkGameOver = () => {
   const winner = horizontalWinner() || verticalWinner() || diagonalWinner()
 
   if (winner) {
     isGameOver = true
+    console.log("Winner found", winner)
+  } else if (isTie()) {
+    isGameOver = true
+    console.log("It's a tie!")
   }
 }
 

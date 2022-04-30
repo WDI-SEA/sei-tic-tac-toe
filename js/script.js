@@ -170,12 +170,7 @@ const diagonalWinner = () => {
 }
 
 const checkGameOver = () => {
-  // horizontal
-  let winner = null
-
-  winner = horizontalWinner()
-  winner = verticalWinner()
-  winner = diagonalWinner()
+  const winner = horizontalWinner() || verticalWinner() || diagonalWinner()
 
   if (winner) {
     isGameOver = true

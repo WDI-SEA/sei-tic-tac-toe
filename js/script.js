@@ -60,24 +60,33 @@ let isGameOver = false
 // Game Logic //
 ///////////////
 
+const switchPlayers = () => {
+  activePlayer = activePlayer === player1 ? player2 : player1
+}
+
+const addMark = (tile) => {
+  ;[row, col] = JSON.parse(tile.getAttribute("position"))
+  board[row][col] = activePlayer.mark
+  tile.innerText = activePlayer.mark
+}
+
+const isTileEmpty = (tile) => {
+  const [row, col] = JSON.parse(tile.getAttribute("position"))
+  // If board position is falsy, return true
+  return !board[row][col]
+}
+
 const handlePlayerClick = (event) => {
-  console.log("tile clicked")
   const tile = event.currentTarget
 
-  // Get position as an array of numbers => [rowIndex, colIndex]
-  const position = JSON.parse(tile.getAttribute("position"))
-  const row = position[0]
-  const col = position[1]
-
   // Return if position is not empty (ie. not '')
-  if (board[row][col]) {
+  if (!isTileEmpty(tile)) {
     return
   }
 
-  // Position is empty, so we add current user's mark and chnage users
-  board[row][col] = activePlayer.mark
-  tile.innerText = activePlayer.mark
-  activePlayer = activePlayer === player1 ? player2 : player1
+  // Position is empty, so we add current user's mark and change players
+  addMark(tile)
+  switchPlayers()
 }
 
 // Attatch click listeners

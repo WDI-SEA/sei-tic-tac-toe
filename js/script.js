@@ -4,6 +4,7 @@ const TIE_MESSAGE = "It's a tie"
 // Get buttons
 const newRoundBtn = document.querySelector("#new-round-btn")
 const restartBtn = document.querySelector("#restart-btn")
+const colorToggle = document.querySelector("#color-mode")
 
 // Create tiles in JS
 // so we can add their position index as an attribute.
@@ -306,3 +307,7 @@ tileElements.forEach((tile) =>
 
 newRoundBtn.addEventListener("click", newRound)
 restartBtn.addEventListener("click", restartGame)
+
+colorToggle.addEventListener("change", () => {
+  document.querySelector("html").classList.toggle("light")
+})

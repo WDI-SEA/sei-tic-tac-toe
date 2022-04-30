@@ -16,18 +16,27 @@
   --light-600: #69a8a8;
   --light-800: #3d7e7e;
 }
+html {
+  background-color: var(--dark-800);
+  color: var(--dark-text);
+}
 
 html,
 body {
   margin: 0;
-  background-color: var(--dark-800);
-  color: var(--dark-text);
+
   font-family: "Comfortaa", cursive;
   height: 100%;
 
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Light mode */
+html.light {
+  background-color: var(--light-100);
+  color: var(--light-800);
 }
 
 button {
@@ -51,7 +60,6 @@ main {
 }
 
 #game-board {
-  /* background-color: var(--dark-900); */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
@@ -61,6 +69,12 @@ main {
   padding: 1rem;
   border-radius: 1rem;
   border: 0.5rem solid var(--dark-900);
+}
+
+/* Light mode */
+html.light #game-board {
+  background-color: var(--light-600);
+  border-color: var(--light-800);
 }
 
 .tile {
@@ -74,6 +88,11 @@ main {
 
   box-shadow: var(--dark-shadow);
 }
+/* Light mode */
+html.light .tile {
+  background-color: var(--light-300);
+  color: var(--light-800);
+}
 
 .main-buttons button {
   background-color: var(--dark-200);
@@ -81,11 +100,21 @@ main {
   padding: 1rem 3rem;
   box-shadow: var(--dark-shadow);
 }
+/* Light mode */
+html.light button {
+  background-color: var(--light-800);
+  color: var(--light-100);
+}
 
 .main-buttons button:disabled {
   background-color: var(--dark-500);
   color: #8781b4;
   cursor: default;
+}
+/* Light mode */
+html.light button:disabled {
+  background-color: var(--light-300);
+  color: var(--light-600);
 }
 
 .player-info {
@@ -103,9 +132,17 @@ main {
 
   box-shadow: var(--dark-shadow);
 }
+/* Light mode */
+html.light .player-info {
+  background-color: var(--light-300);
+}
 
 .player-info.active {
   border: 0.5rem solid var(--dark-text);
+}
+/* Light mode */
+html.light .player-info.active {
+  border-color: var(--light-800);
 }
 
 .player-mark {
@@ -184,7 +221,7 @@ input[type="checkbox"].toggle + label::after {
   position: absolute;
   left: 0.2em;
 
-  content: "🌙";
+  content: "☾";
   font-size: 0.5em;
   width: 1.8em;
   height: 1.8em;
@@ -198,7 +235,7 @@ input[type="checkbox"].toggle + label::after {
 
 /* Toggle circle inside when checked */
 input[type="checkbox"].toggle:checked + label::after {
-  content: "☀️";
+  content: "☀";
   transform: translateX(100%);
   background-color: var(--light-100);
 }

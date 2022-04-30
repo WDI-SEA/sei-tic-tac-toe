@@ -1,6 +1,7 @@
 # Resources referenced
 
 - [CSS Toggle Buttons](https://www.youtube.com/watch?v=N8BZvfRD_eU)
+- [Color Mode Toggle](https://www.youtube.com/watch?v=RiWxhm5ZdFM)
 
 ![General Assembly Logo](http://i.imgur.com/ke8USTq.png)
 

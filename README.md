@@ -44,7 +44,7 @@ Bonuses:
 
 ### Links
 
-- Solution URL:
+- Live URL: https://saulthebear.github.io/sei-tic-tac-toe/
 
 ### Screenshots
 

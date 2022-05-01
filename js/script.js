@@ -5,14 +5,34 @@ const gameElements = [
   document.querySelector(".main-buttons"),
   document.querySelector("#player2-info"),
 ]
-const startScreen = document.querySelector(".start-screen")
+
+// Hide game mode selection buttons and show names form
+const hideStartBtns = () => {
+  const startBtnsDiv = document.querySelector(".start-btns")
+  const namesFormDiv = document.querySelector(".names-form")
+
+  startBtnsDiv.classList.add("hide")
+  namesFormDiv.classList.remove("hide")
+}
+
+// Hide names form and show game mode selection buttons
+const showStartBtns = () => {
+  const startBtnsDiv = document.querySelector(".start-btns")
+  const namesFormDiv = document.querySelector(".names-form")
+
+  startBtnsDiv.classList.remove("hide")
+  namesFormDiv.classList.add("hide")
+}
 
 const hideStartScreen = () => {
+  const startScreen = document.querySelector(".start-screen")
   startScreen.classList.add("hide")
   gameElements.forEach((ele) => ele.classList.remove("hide"))
 }
 
 const showStartScreen = () => {
+  const startScreen = document.querySelector(".start-screen")
+  showStartBtns()
   startScreen.classList.remove("hide")
   gameElements.forEach((ele) => ele.classList.add("hide"))
 }
@@ -27,6 +47,7 @@ const AI_MODE = "AI_MODE"
 // Get buttons
 const new2PlayerBtn = document.querySelector("#new-2-player-game")
 const newAiBtn = document.querySelector("#new-computer-game")
+const startGameBtn = document.querySelector("#start-game-btn")
 const newRoundBtn = document.querySelector("#new-round-btn")
 const restartBtn = document.querySelector("#restart-btn")
 const colorToggle = document.querySelector("#color-mode")
@@ -123,7 +144,6 @@ const restartGame = () => {
 const startAiGame = () => {
   activePlayer = player2
   restartGame()
-  gameMode = AI_MODE
   player2.name = "Computer"
   renderPlayersInfo()
 }
@@ -368,16 +388,46 @@ const removeGameOverMessage = () => {
   player2.winDisplayEle.innerText = ""
 }
 
+const handleNamesSubmit = () => {
+  const p1Input = document.querySelector("#p1-name")
+  const p2Input = document.querySelector("#p2-name")
+
+  const p1Val = p1Input.value
+  const p2Val = p2Input.value
+
+  if (p1Val !== "") {
+    player1.name = p1Val
+  }
+
+  if (p2Val !== "") {
+    player2.name = p2Val
+  }
+
+  if (gameMode === HUMAN_MODE) {
+    restartGame()
+  } else if (gameMode === AI_MODE) {
+    startAiGame()
+  }
+
+  hideStartScreen()
+}
+
 // Attatch click listeners
 new2PlayerBtn.addEventListener("click", () => {
-  restartGame()
-  hideStartScreen()
+  gameMode = HUMAN_MODE
+  hideStartBtns()
 })
 
 newAiBtn.addEventListener("click", () => {
-  startAiGame()
-  hideStartScreen()
+  gameMode = AI_MODE
+  // Dont allow changing the computer's name (Player 2)
+  const p2NameControl = document.querySelector("#p2-name-form-control")
+  p2NameControl.classList.add("hide")
+
+  hideStartBtns()
 })
+
+startGameBtn.addEventListener("click", handleNamesSubmit)
 
 tileElements.forEach((tile) =>
   tile.addEventListener("click", handlePlayerClick)

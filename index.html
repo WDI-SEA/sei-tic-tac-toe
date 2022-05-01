@@ -33,6 +33,7 @@
         </aside>
         <section class="center-section">
           <p id="tie-display" class="win-message"></p>
+
           <div class="central-square start-screen">
             <h1>Tic Tac Toe</h1>
             <div class="start-btns">
@@ -46,6 +47,28 @@
               <button type="button" class="btn" id="new-computer-game" disabled>
                 VS Smart Computer
               </button>
+            </div>
+
+            <div class="names-form hide">
+              <div class="form-control">
+                <label for="p1-name">P1 name: </label>
+                <input
+                  type="text"
+                  name="p1-name"
+                  id="p1-name"
+                  placeholder="Player 1"
+                />
+              </div>
+              <div class="form-control" id="p2-name-form-control">
+                <label for="p2-name">P2 name: </label>
+                <input
+                  type="text"
+                  name="p2-name"
+                  id="p2-name"
+                  placeholder="Player 2"
+                />
+              </div>
+              <button class="btn" id="start-game-btn">Start Game</button>
             </div>
           </div>
 

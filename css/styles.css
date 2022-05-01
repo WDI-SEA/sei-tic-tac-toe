@@ -88,6 +88,12 @@ html.light .central-square {
   align-items: center;
   justify-content: space-evenly;
 }
+
+/* light mode */
+html.light .start-screen {
+  color: white;
+}
+
 .start-screen h1 {
   font-size: 3rem;
   margin-block: 3rem;
@@ -147,6 +153,7 @@ html.light button {
 /* Light mode */
 html.light button:disabled {
   background-color: var(--light-300);
+  box-shadow: none;
   color: var(--light-600);
 }
 
@@ -197,6 +204,57 @@ html.light .player-info.active {
   min-height: 2rem; /* Take up space even without content */
 }
 
+.names-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-control {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.form-control label {
+  margin-right: 0.5em;
+  width: 5rem;
+}
+
+.form-control input {
+  flex-grow: 1;
+
+  padding: 0.5em 1em;
+
+  border: none;
+  font-size: 1.1rem;
+
+  background-color: var(--dark-500);
+  border-bottom: 0.1rem solid var(--dark-200);
+  color: white;
+}
+
+/* Light mode */
+html.light .form-control input {
+  background-color: var(--light-600);
+  border-color: var(--light-800);
+}
+
+.form-control input:focus,
+.form-control input:focus-visible {
+  outline: none;
+  background-color: var(--dark-200);
+  color: white;
+}
+
+.form-control input::placeholder {
+  color: var(--dark-200);
+}
+
+/* light mode */
+html.light .form-control input::placeholder {
+  color: var(--light-800);
+}
 /*                  */
 /* Dark Mode Toggle */
 /*                  */

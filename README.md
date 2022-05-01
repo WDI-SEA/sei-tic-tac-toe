@@ -48,9 +48,9 @@ Bonuses:
 
 ### Screenshots
 
-![Dark Mode Screenshot]("./design/screenshot-dark.png")
+![Dark Mode Screenshot](design/screenshot-dark.png)
 
-![Light Mode Screenshot]("./design/screenshot-light.png")
+![Light Mode Screenshot](design/screenshot-light.png)
 
 ## My process
 

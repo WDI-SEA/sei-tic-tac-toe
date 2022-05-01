@@ -24,12 +24,16 @@ const showStartBtns = () => {
   namesFormDiv.classList.add("hide")
 }
 
+// Hide the start screen and show the game board
 const hideStartScreen = () => {
   const startScreen = document.querySelector(".start-screen")
   startScreen.classList.add("hide")
   gameElements.forEach((ele) => ele.classList.remove("hide"))
 }
 
+// Show the start screen with game mode selection buttons
+// Hide the game board
+// Reset player names and name input fields
 const showStartScreen = () => {
   const startScreen = document.querySelector(".start-screen")
   showStartBtns()
@@ -51,12 +55,13 @@ const showStartScreen = () => {
   player2.name = "Player 2"
 }
 
+// Constants
 const WIN_MESSAGE = "🎉 You Won 🎉"
 const TIE_MESSAGE = "It's a tie"
 const HUMAN_MODE = "HUMAN_MODE"
 const AI_MODE = "AI_MODE"
 
-// Get buttons
+// Get global buttons
 const new2PlayerBtn = document.querySelector("#new-2-player-game")
 const newAiBtn = document.querySelector("#new-computer-game")
 const startGameBtn = document.querySelector("#start-game-btn")
@@ -93,6 +98,8 @@ for (let i = 0; i < 3; i++) {
 // Game State //
 ///////////////
 
+// 2D array representation of the board state
+// Each cell is either empty ('') or holds a player's mark ('X' or 'O')
 const generateBoard = () => {
   const board = []
   for (let i = 0; i < 3; i++) {
@@ -133,6 +140,10 @@ let gameMode = HUMAN_MODE
 // Game Logic //
 ///////////////
 
+// Starts a new game round
+// The game board is reset and isGameOver is set to false
+// Messages like "you win" or "it's a tie" are hidden
+// switchPlayers() is called so that P1 doesn't start every game
 const newRound = () => {
   isGameOver = false
   board = generateBoard()
@@ -142,6 +153,7 @@ const newRound = () => {
   removeGameOverMessage()
 }
 
+// Removes X's and O's from the screen
 const clearTiles = () => {
   tileElements.forEach((tile) => (tile.innerText = ""))
 }
@@ -155,6 +167,8 @@ const restartGame = () => {
   renderPlayersInfo()
 }
 
+// Setup for a game VS the "dumb" computer
+// Only called after game mode has already been set to AI_MODE
 const startAiGame = () => {
   activePlayer = player2
   restartGame()
@@ -162,6 +176,8 @@ const startAiGame = () => {
   renderPlayersInfo()
 }
 
+// Switch active player and set appropriate styles
+// Make a move if game mode is AI_MODE and it's the computer's turn
 const switchPlayers = () => {
   if (activePlayer === player1) {
     activePlayer = player2
@@ -178,8 +194,10 @@ const switchPlayers = () => {
   }
 }
 
+// Choose a random tile until an empty one is found
+// Wait a random amount of time between minDelay and maxDelay
+// Mark the empty tile we found, check if game is over, then switch players
 const makeAiMove = () => {
-  console.log("It's the computer's turn!")
   let foundEmptyTile = null
   while (!foundEmptyTile) {
     const randomIndex = Math.floor(Math.random() * 9)
@@ -202,12 +220,13 @@ const makeAiMove = () => {
   }, randomDelay)
 }
 
-// To remove the active styles when it's a tie
-const removeActiveCasses = () => {
+// To remove the active styles from both players when it's a tie
+const removeActiveClasses = () => {
   player1.infoEle.classList.remove("active")
   player2.infoEle.classList.remove("active")
 }
 
+// Mark a tile both on screen and in our board representation
 const addMark = (tile) => {
   // Semicolon explanation: https://prettier.io/docs/en/rationale.html#semicolons
   ;[row, col] = JSON.parse(tile.getAttribute("position"))
@@ -221,6 +240,7 @@ const isTileEmpty = (tile) => {
   return !board[row][col]
 }
 
+// Called when a player clicks on a game tile
 const handlePlayerClick = (event) => {
   // Do nothing if game is over
   if (isGameOver) return
@@ -232,7 +252,7 @@ const handlePlayerClick = (event) => {
 
   const tile = event.currentTarget
 
-  // Return if position is not empty (ie. not '')
+  // Do nothing if position is not empty (ie. not '')
   if (!isTileEmpty(tile)) {
     return
   }
@@ -251,7 +271,8 @@ const isSameMark = (mark1, mark2, mark3) => {
   return mark1 === mark2 && mark1 === mark3
 }
 
-// Takes a mark and returns the player object
+// Takes a mark and returns the player object associated with that mark
+// eg. ('X') => player1
 const markToPlayer = (mark) => {
   if (player1.mark === mark) {
     return player1
@@ -262,6 +283,7 @@ const markToPlayer = (mark) => {
   }
 }
 
+// Check if there are three in a row horizontally
 // Returns the winning player if there is one, or null
 const horizontalWinner = () => {
   let winningMark = ""
@@ -282,6 +304,8 @@ const horizontalWinner = () => {
   return markToPlayer(winningMark)
 }
 
+// Check if there are three in a row vertically
+// Returns the winning player if there is one, or null
 const verticalWinner = () => {
   let winningMark = ""
 
@@ -303,6 +327,8 @@ const verticalWinner = () => {
   return markToPlayer(winningMark)
 }
 
+// Check if there are three in a row diagonally
+// Returns the winning player if there is one, or null
 const diagonalWinner = () => {
   let winningMark = ""
 
@@ -322,6 +348,7 @@ const diagonalWinner = () => {
   return markToPlayer(winningMark)
 }
 
+// Helper function for checking if it's a tie game
 // Returns true if every tile in a row has a mark
 const isRowFull = (row) => {
   return !!row[0] && !!row[1] && !!row[2]
@@ -336,12 +363,8 @@ const checkGameOver = () => {
   const winner = horizontalWinner() || verticalWinner() || diagonalWinner()
 
   if (winner) {
-    // isGameOver = true
-    // console.log("Winner found", winner)
     setGameOver(winner)
   } else if (isTie()) {
-    // isGameOver = true
-    // console.log("It's a tie!")
     setGameOver(null)
   }
 }
@@ -353,13 +376,16 @@ const setGameOver = (winner) => {
     winner.wins++
     renderPlayersInfo()
   } else {
-    removeActiveCasses()
+    // It's a tie
+    removeActiveClasses()
   }
 
+  // Will show "You Win" if there is a winner or "It's a tie" if winner is null
   renderGameOverMessage(winner)
   newRoundBtn.disabled = false
 }
 
+// Convert a number of wins to a string to display
 const winString = (numWins) => {
   if (numWins === 1) {
     return "1 win"
@@ -368,6 +394,7 @@ const winString = (numWins) => {
   return `${numWins} wins`
 }
 
+// Update each player's info displayed on the screen
 const renderPlayersInfo = () => {
   const player1Name = document.querySelector("#player1-name")
   const player1Mark = document.querySelector("#player1-mark")
@@ -386,6 +413,8 @@ const renderPlayersInfo = () => {
   player2Wins.innerText = winString(player2.wins)
 }
 
+// If a winner is passed, show "You Win" above that user's info box
+// If no winner is passed it's a tie game and the tie message is displayed
 const renderGameOverMessage = (winner) => {
   if (winner) {
     winner.winDisplayEle.innerText = WIN_MESSAGE
@@ -395,6 +424,8 @@ const renderGameOverMessage = (winner) => {
   }
 }
 
+// Used when starting a new round or new game
+// to remove the "you win" or "it's a tie" messages
 const removeGameOverMessage = () => {
   const tieDisplayEle = document.querySelector("#tie-display")
   tieDisplayEle.innerText = ""
@@ -402,6 +433,8 @@ const removeGameOverMessage = () => {
   player2.winDisplayEle.innerText = ""
 }
 
+// After users enter their names, update their names in the game player object
+// Then start the game based on the game mode that was set
 const handleNamesSubmit = () => {
   const p1Input = document.querySelector("#p1-name")
   const p2Input = document.querySelector("#p2-name")
@@ -426,12 +459,17 @@ const handleNamesSubmit = () => {
   hideStartScreen()
 }
 
-// Attatch click listeners
+/////////////////////////////
+// Attach click listeners //
+//////////////////////////
+
+// Set game mode to HUMAN_MODE and go to 2 player name input screen
 new2PlayerBtn.addEventListener("click", () => {
   gameMode = HUMAN_MODE
   hideStartBtns()
 })
 
+// Set game mode to AI_MODE and go to player name input screen
 newAiBtn.addEventListener("click", () => {
   gameMode = AI_MODE
   // Dont allow changing the computer's name (Player 2)
@@ -441,17 +479,25 @@ newAiBtn.addEventListener("click", () => {
   hideStartBtns()
 })
 
+// On name input screen, called after users enter their names
 startGameBtn.addEventListener("click", handleNamesSubmit)
 
+// Give each game board tile a click event
 tileElements.forEach((tile) =>
   tile.addEventListener("click", handlePlayerClick)
 )
 
+// Start a new round between the same players
 newRoundBtn.addEventListener("click", newRound)
+// Go back to the start screen so a new game mode can be selected
 restartBtn.addEventListener("click", showStartScreen)
 
+// Toggle dark and light mode
 colorToggle.addEventListener("change", () => {
   document.querySelector("html").classList.toggle("light")
 })
 
+//////////////////////////////////////////////////////////
+
+// Show the start screen with game mode selection buttons on page load
 showStartScreen()

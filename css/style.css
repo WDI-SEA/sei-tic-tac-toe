@@ -2,10 +2,38 @@ body {
     text-align: center;
 }
 
-button {
-    position: relative;
-    margin: 2rem 2rem;
+.btns {
+    position:relative;
+    margin: 0;
+    padding: 0;
     height: 10rem;
     width: 10rem;
     font-size: 3rem;
 }
+
+.buttonContainer {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+  }
+
+  .gridContainer {
+      display: flex;
+      justify-content: center;
+  }
+
+  #clearButton {
+      margin: 30px auto;
+      height: 3rem;
+      width: 10rem;
+      font-size:2rem;
+  }
+
+  h3 {
+      display: inline-block;
+      border: 1px solid black;
+      width: 300px;
+  }
+
+  .columns {
+      display: inline;
+  }

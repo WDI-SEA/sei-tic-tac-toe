@@ -6,29 +6,36 @@
     </head>
 
     <body>
-        <h1>Tick Tac Toe</h1>
-        <h2 id="playerTurn">Player: O's Turn </h2>
-        
-        <div class="buttonContainer">
-            <button id="one" class="btns" value="1"></button>
-            <button id="two" class="btns" value="2"></button>
-            <button id="three" class="btns" value="3"></button>
-        </div>
+        <div class="columns">
+            <h1>Tick Tac Toe</h1>
+            <h2 id="playerTurn">Player: O's Turn </h2>
+            <div>
+                <h3>Player O Win Count: <span id="oWinCount">0</span></h3>
+                <h3>Player X Win Count: <span id="xWinCount">0</span></h3>
+                <h3>Tie Count: <span id="tieCount">0</span></h3>
+            </div>
+            
+            <div class="gridContainer">
+                <div class="buttonContainer">
+                    <button id="one" class="btns" value="1"></button>
+                    <button id="two" class="btns" value="2"></button>
+                    <button id="three" class="btns" value="3"> </button>
+                    <button id="four" class="btns" value="4"></button>
+                    <button id="five" class="btns" value="5"></button>
+                    <button id="six" class="btns" value="6"></button>
+                    <button id="seven" class="btns" value="7"></button>
+                    <button id="eight" class="btns" value="8"></button>
+                    <button id="nine" class="btns" value="9"></button>
+                </div>
+            </div>
 
-        <div class="buttonContainer">
-            <button id="four" class="btns" value="4"></button>
-            <button id="five" class="btns" value="5"></button>
-            <button id="six" class="btns" value="6"></button>
+            <div>
+                <button id="clearButton">Clear</button>
+            </div>
         </div>
-
-        <div class="buttonContainer">
-            <button id="seven" class="btns" value="7"></button>
-            <button id="eight" class="btns" value="8"></button>
-            <button id="nine" class="btns" value="9"></button>
-        </div>
-
-        <div class="Clear Button" >
-            <button id="clearButton">Clear</button>
+        <div class="columns">
+            <p>Start a game with a computer AI</p>
+            <button></button>
         </div>
     <script type="text/javascript" src="./js/script.js"></script>
     </body>

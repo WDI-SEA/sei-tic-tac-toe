@@ -2,6 +2,8 @@
 
 - [CSS Toggle Buttons](https://www.youtube.com/watch?v=N8BZvfRD_eU)
 - [Color Mode Toggle](https://www.youtube.com/watch?v=RiWxhm5ZdFM)
+- [Random Number Generation](https://www.codecademy.com/forum_questions/50c386a4a122749bc1006ca6)
+- [CSS Box Shadow](https://css-tricks.com/snippets/css/css-box-shadow/)
 
 ![General Assembly Logo](http://i.imgur.com/ke8USTq.png)
 

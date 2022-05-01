@@ -1,0 +1,47 @@
+body {
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  border: 0.2rem solid rgb(95, 19, 19);
+  border-radius: 0.5rem;
+  background-color: pink;
+}
+
+.grid-items {
+  background-color: white;
+  border: 5px solid rgb(95, 19, 19);
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 50px;
+}
+
+.reset {
+  padding: 2rem 4rem;
+  font-family: "Press Start 2P", cursive;
+  background-color: white;
+  border: 0.2rem solid grey;
+  border-radius: 20rem;
+}
+
+.reset:hover {
+  background-color: black;
+  color: white;
+}
+
+.player1 {
+  color: red;
+}
+
+.player2 {
+  color: palevioletred;
+}

@@ -35,9 +35,21 @@ const showStartScreen = () => {
   showStartBtns()
   startScreen.classList.remove("hide")
   gameElements.forEach((ele) => ele.classList.add("hide"))
-}
 
-showStartScreen()
+  // Show input for p2's name again, incase it was hidden before
+  const p2NameControl = document.querySelector("#p2-name-form-control")
+  p2NameControl.classList.remove("hide")
+
+  // Reset name inputs
+  const p1Input = document.querySelector("#p1-name")
+  const p2Input = document.querySelector("#p2-name")
+  p1Input.value = ""
+  p2Input.value = ""
+
+  // Reset player names
+  player1.name = "Player 1"
+  player2.name = "Player 2"
+}
 
 const WIN_MESSAGE = "🎉 You Won 🎉"
 const TIE_MESSAGE = "It's a tie"
@@ -135,8 +147,10 @@ const clearTiles = () => {
 }
 
 const restartGame = () => {
+  // Reset win counts
   player1.wins = 0
   player2.wins = 0
+
   newRound()
   renderPlayersInfo()
 }
@@ -439,3 +453,5 @@ restartBtn.addEventListener("click", showStartScreen)
 colorToggle.addEventListener("change", () => {
   document.querySelector("html").classList.toggle("light")
 })
+
+showStartScreen()

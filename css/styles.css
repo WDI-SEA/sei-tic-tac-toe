@@ -2,7 +2,9 @@
   box-sizing: border-box;
 }
 
+/* Variables */
 :root {
+  /* Dark mode colors */
   --dark-200: #8781b4;
   --dark-500: #4c4964;
   --dark-800: #222033;
@@ -11,11 +13,13 @@
   --dark-shadow: 0 0 8px var(--dark-shadow-color);
   --dark-text: white;
 
+  /* Light mode colors */
   --light-100: #f5f8f4;
   --light-300: #d6e6e6;
   --light-600: #69a8a8;
   --light-800: #3d7e7e;
 }
+
 html {
   background-color: var(--dark-800);
   color: var(--dark-text);
@@ -29,6 +33,7 @@ body {
   height: 100%;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -255,6 +260,23 @@ html.light .form-control input {
 html.light .form-control input::placeholder {
   color: var(--light-800);
 }
+
+a,
+a:visited {
+  color: var(--dark-200);
+}
+
+footer {
+  text-align: center;
+  margin-top: 4rem;
+  font-size: smaller;
+}
+
+svg {
+  fill: var(--dark-200);
+  height: 1.2em;
+}
+
 /*                  */
 /* Dark Mode Toggle */
 /*                  */
@@ -333,7 +355,7 @@ input[type="checkbox"].toggle + label::after {
 /* Toggle circle inside when checked */
 input[type="checkbox"].toggle:checked + label::after {
   content: "☀";
-  transform: translateX(100%);
+  transform: translateX(102%);
   background-color: var(--light-100);
 }
 

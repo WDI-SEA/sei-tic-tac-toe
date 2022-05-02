@@ -1,0 +1,94 @@
+/* css
+/* //css file
+what CSS do you need to make your html look like your wireframes
+DO NO WRITE ANY OTHER CSS/DO ANY OTHER STYLING UNTIL THE JS IS COMPLETE */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: blue;
+    color: black;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+    color: white;
+    cursor: pointer;
+    }
+
+.game-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    height: 100%;
+}
+
+.center-square {
+    margin-bottom: 1.5rem;
+    min-width: 30rem;
+    aspect-ratio: 1/1;
+    background-color: blue;
+    padding: 1rem;
+    border: 0.5rem solid red;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.game-button {
+    background-color: white;
+    border-radius: 0.25rem;
+    min-width: 3rem;
+    aspect-ratio: 1/1;
+    font-size: 2rem;
+}   
+
+.clear-button {
+    background-color: red;
+    padding: 1rem 3rem;
+    margin-bottom: 0;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.player-turn {
+    color: white;
+    font-weight: bold;   
+    padding: 1rem 3rem;
+    margin-bottom: 0;
+    text-align: center;
+    margin-bottom: 5rem;;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.declare-winner {
+    font-weight: bold;   
+    font-size:larger;
+    color: white 
+
+}
+        
+
+    
+        

@@ -1,0 +1,47 @@
+h1 {
+  color: rgb(250, 91, 115);
+  text-decoration: underline;
+}
+
+h3 {
+  color: rgb(250, 91, 115);
+  border: 1px dotted rgb(255, 153, 170);
+}
+body {
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  width: 25rem;
+  height: 25rem;
+  margin: 0 auto;
+  border: 0.2rem solid rgb(250, 91, 115);
+  border-radius: 0.5rem;
+  background-color: rgb(255, 153, 170);
+}
+
+.column {
+  background-color: rgb(255, 153, 170);
+  border: 5px solid rgb(250, 91, 115);
+  display: flex;
+  padding: 3rem;
+}
+
+.total p {
+  display: inline-block;
+  margin: 0 30px;
+  color: rgb(250, 91, 115);
+  font-size: 20px;
+}
+
+button {
+  color: white;
+  background-color: rgb(255, 153, 170);
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  margin: 20px;
+  padding: 7px 40px;
+  font-size: 17px;
+}

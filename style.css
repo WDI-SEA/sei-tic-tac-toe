@@ -1,0 +1,192 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+  }
+.header{
+    text-align: center;
+    color: lightcoral;
+}
+#playerinput{
+    text-align: center;
+    font-size: 40px;
+    color: rgb(91, 173, 50)
+}
+.row1{
+    position: relative;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+.row2{
+    position: relative;
+    text-align: center;
+
+}
+.row3{
+    position: relative;
+    text-align: center;
+
+}
+#box1{
+    display: inline-block;
+    background-color: orange;
+    border: solid 1rem black;
+    width:100px;
+    height:100px;
+    position:relative;
+    z-index: 2;
+
+}
+#box2{
+    display: inline-block;
+    background-color: orange;
+    border: solid 1rem black;
+    width:100px;
+    height:100px;
+    position: relative;
+}
+#box3{
+    display: inline-block;
+    background-color: orange;
+    border: solid 1rem black;
+    width:100px;
+    height:100px;
+    position: relative;
+}
+#box4{
+    display: inline-block;
+    background-color: orange;
+    border: solid 1rem black;
+    width:100px;
+    height:100px;
+    position: relative;
+}
+#box5{
+    display: inline-block;
+    background-color: orange;
+    border: solid 1rem black;
+    width:100px;
+    height:100px;
+    position: relative;
+}
+#box6{
+    display: inline-block;
+    background-color: orange;
+    border: solid 1rem black;
+    width:100px;
+    height:100px;
+    position: relative;
+}
+#box7{
+    display: inline-block;
+    background-color: orange;
+    border: solid 1rem black;
+    width:100px;
+    height:100px;
+    position: relative;
+}
+#box8{
+    display: inline-block;
+    background-color: orange;
+    border: solid 1rem black;
+    width:100px;
+    height:100px;
+    position: relative;
+}
+#box9{
+    display: inline-block;
+    background-color: orange;
+    border: solid 1rem black;
+    width:100px;
+    height:100px;
+    position: relative;
+}
+#mark1{
+    position: absolute;
+    z-index: 3;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+
+}
+#mark2{
+    position: absolute;
+    z-index: 3;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+
+}
+#mark3{
+    position: absolute;
+    z-index: 3;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+
+}
+#mark4{
+    position: absolute;
+    z-index: 3;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+
+}
+#mark5{
+    position: absolute;
+    z-index: 3;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+
+}
+#mark6{
+    position: absolute;
+    z-index: 3;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+
+}
+#mark7{
+    position: absolute;
+    z-index: 3;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+
+}
+#mark8{
+    position: absolute;
+    z-index: 3;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+
+}
+#mark9{
+    position: absolute;
+    z-index: 3;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+
+}
+.resetbutton{
+    text-align: center;
+    padding: 10px;
+}
+#reload{
+    padding: 15px;
+    font-size: 20px;
+}

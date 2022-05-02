@@ -1,0 +1,163 @@
+body {
+  background-color: teal;
+  margin: 0px;
+}
+div {
+  /* left: 458px; */
+  text-align: center;
+  max-height: 156 px;
+
+  margin: 0px;
+  /* background-color: black; */
+  /* max-width: 458px; */
+}
+button {
+  width: 150px;
+  height: 150px;
+  margin: 0px;
+  font-family: sans-serif;
+  font-size: 50px;
+  vertical-align: top;
+  text-transform: uppercase;
+  background-color: teal;
+  border: none;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+#one,
+#two,
+#three,
+#four,
+#five,
+#six,
+#seven,
+#eight,
+#nine {
+  display: inline-block;
+  /* position: fixed; */
+  margin: 0px;
+  left: 458px;
+}
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+#reset {
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+}
+#newgame {
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+}
+
+#playerXScore {
+  font-family: sans-serif;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+#playerOScore {
+  font-family: sans-serif;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+#gameBtn1 {
+  border-top: 0px;
+  border-left: 0px;
+  border-bottom: 5px;
+  border-right: 5px;
+  /* border-left: 5px; */
+  /* border-width: 5px; */
+  border-style: solid;
+  border-color: black;
+}
+#gameBtn2 {
+  border-top: 0px;
+  border-right: 5px;
+  border-left: 5px;
+  border-bottom: 5px;
+  border-style: solid;
+  border-color: black;
+}
+#gameBtn3 {
+  border-top: 0px;
+  border-left: 5px;
+  border-right: 0px;
+  border-bottom: 5px;
+  border-style: solid;
+  border-color: black;
+}
+#gameBtn4 {
+  border-top: 5px;
+  border-left: 0px;
+  border-bottom: 5px;
+  border-right: 5px;
+  border-style: solid;
+}
+#gameBtn5 {
+  border-top: 5px;
+  border-left: 5px;
+  border-right: 5px;
+  border-bottom: 5px;
+  border-style: solid;
+}
+#gameBtn6 {
+  border-top: 5px;
+  border-left: 5px;
+  border-right: 0px;
+  border-bottom: 5px;
+  border-style: solid;
+}
+#gameBtn7 {
+  border-top: 5px;
+  border-right: 5px;
+  border-left: 0px;
+  border-style: solid;
+  border-bottom: 0px;
+}
+#gameBtn8 {
+  border-top: 5px;
+  border-left: 5px;
+  border-right: 5px;
+  border-style: solid;
+  border-bottom: 0px;
+}
+#gameBtn9 {
+  border-top: 5px;
+  border-left: 5px;
+  border-bottom: 0px;
+  border-right: 0px;
+  border-style: solid;
+}
+
+#reset {
+  border: 5px;
+  border-style: solid;
+  background-color: red;
+}
+#newgame {
+  border: 5px;
+  border-style: solid;
+  background-color: green;
+}
+#rowone,
+#rowtwo,
+#rowthree,
+#gameboard {
+  /* transform: translate(-50); */
+  left: 50%;
+  max-width: 458px;
+  background-color: black;
+  position: relative;
+  transform: translate(-50%);
+}

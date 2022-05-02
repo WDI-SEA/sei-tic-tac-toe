@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="./css/styles.css">
+        <title>TicTacToe</title>
+    </head>
+
+    <body>
+        <h1>this is tictactoe</h1>
+        
+        <div class="inst">
+            <p id="instructions">INSTRUCTIONS
+            </p>
+            <ul>
+                <li>Players will alternate turns to click areas on the grid. Player 1 clicks Xs, Player 2 clicks Os</li>
+                <li>Players will try to win by placing their icons 3 in a row, including diagonally</li>
+                <li>Player 1 will start the game!</li>
+            </ul>
+        </div>
+        
+
+        <div class="game-area"> <!-- grid layout -->
+            <div class="r1c1"> <button id="r1c1-btn"><span id="r1c1-text"></span></button>  </div> 
+            <div class="r1c2"> <button id="r1c2-btn"><span id="r1c2-text"></span></button>  </div> 
+            <div class="r1c3"> <button id="r1c3-btn"><span id="r1c3-text"></span></button>  </div> 
+            <div class="r2c1"> <button id="r2c1-btn"><span id="r2c1-text"></span></button>  </div> 
+            <div class="r2c2"> <button id="r2c2-btn"><span id="r2c2-text"></span></button>  </div> 
+            <div class="r2c3"> <button id="r2c3-btn"><span id="r2c3-text"></span></button>  </div> 
+            <div class="r3c1"> <button id="r3c1-btn"><span id="r3c1-text"></span></button>  </div> 
+            <div class="r3c2"> <button id="r3c2-btn"><span id="r3c2-text"></span></button>  </div> 
+            <div class="r3c3"> <button id="r3c3-btn"><span id="r3c3-text"></span></button>  </div> 
+        </div>
+
+        <div class="button">
+            <button id="reset-btn">Reset</button>
+        </div>
+
+        <div class="winner-banner"> 
+            <p id="win">AND THE WINNER IS PLAYER: <span id="winner"></span></p>
+            
+        </div>
+
+        <div class="players-turn"> 
+            <p> 
+                IT IS PLAYER <span id="play-turn"></span> TURN!
+            </p>
+        </div>
+
+
+    </body>
+
+
+    <script type="text/javascript" src="js/script.js"></script>
+</html>
+
+<!-- OUTLINE
+Header "Tic Tac Toe"
+
+instructions paragraph
+
+block for the gameboard
+    set up different div ids for the grid, possibly use a button to be able to event listen
+    set span ids within each box for recieving text from js
+
+add a scoreboard block to display current score, maybe even last winner
+
+add reset button
+
+
+-->
+
+<!-- REQUIREMENTS
+A user should be able to click on different squares to make a move.
+
+Every click will alternate between marking an X and O
+
+Upon marking of an individual cell, use JavaScript to add an X or O to the cell, 
+    according to whose turn it is.
+
+A cell should not be able to be replayed once marked.
+
+You should not be able to click remaining empty cells after the game is over.
+
+Add a reset button that will clear the contents of the board.
+
+Display a message to indicate which turn is about to be played.
+
+Detect draw conditions (ties/cat's game)
+
+Detect winner: Stop game and declare the winner if one player ends up getting three in a row.
+Hint: Determine a set of winning combinations. Check those combinations on the board contents 
+    after every move.
+-->

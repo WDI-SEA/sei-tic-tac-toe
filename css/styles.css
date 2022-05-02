@@ -1,0 +1,98 @@
+* {
+    text-align: center;
+}
+body {
+    color: black;
+}
+
+.game-area {
+    width: 300px;
+    height: 300px;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
+}
+.game-area div {
+    width: 98px;
+    height: 98px;
+    float: left;
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-area button {
+    padding: 10px 30px;
+    border: none;
+    font-size: 30px;
+    background-color: white;
+    color: black;
+}
+.game-area button:hover {
+   background-color: lightgray;
+}
+
+#instructions {
+    text-align: left;
+}
+
+li {
+    text-align: left;
+}
+
+.winner-banner {
+    font-size: larger;
+}
+.r1c1 {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.r1c2 {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.r1c3 {
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.r2c1 {
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.r2c2 {
+    border: 1px solid black;
+}
+.r2c3 {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+}
+.r3c1 {
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}
+.r3c2 {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
+.r3c3 {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+}
+
+/* OUTLINE
+
+position grid div ids
+positions ids for the X/O elements
+    might be able to give positioning to w js to ids
+create the inner borders of the grid
+create button styling to get activated by js for X and O text
+change color when hovering over button to choose grid
+
+postions header, instructions, reset button (styling)
+add backgrounds -- red and green -- to show winnign combos
+*/

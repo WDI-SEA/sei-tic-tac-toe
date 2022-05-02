@@ -1,0 +1,41 @@
+body {
+    text-align: center;
+    background: turquoise;
+  }
+  .buttonContainer {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+  }
+  
+  .buttonGrid {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .buttons {
+    position: relative;
+    height: 10rem;
+    width: 8rem;
+    font-size: 2rem;
+    margin: 1rem
+  }
+  
+  .resetButton {
+    align-items: center;
+    height: 5rem;
+    width: 5rem;
+  }
+  
+  .clearContainer {
+    margin-top: 3rem;
+    text-align: center;
+    height: 10rem;
+    width: 10rem;
+  }
+  
+  p {
+    font-size: 50px;
+  
+  }
+  
+  

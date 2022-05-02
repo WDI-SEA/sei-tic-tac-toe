@@ -1,0 +1,71 @@
+
+h1 {
+    text-align: center;
+}
+body {
+    text-align: center;
+}
+.container {
+    margin: auto;
+    width: 60%;
+    border: 3px solid green;
+    padding: 5px;
+}
+
+#reset-button {
+    text-align: center;
+    border: 2px solid black;
+    padding: 10px;
+    font-size: 1.5em;
+    color: #cb0b0b;
+    margin: 10px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  gap: 15px;
+  grid-auto-rows: minmax(100px, auto);
+    
+}
+
+#box0 {
+    
+    grid-column: 50%;
+    grid-row: 50%;
+
+}
+#box1 {
+    
+    grid-column: 50%;
+    grid-row: 50%;
+}
+#box2 {
+    
+    grid-column: 50%;
+    grid-row: 50%;
+}
+#box3 {
+    grid-column: 50%;
+    grid-row: 50%;
+}
+#box4 {
+    grid-column: 50%;
+    grid-row: 50%;
+}
+#box5 {
+    grid-column: 50%;
+    grid-row: 50%;
+}
+#box6 {
+    grid-column: 50%;
+    grid-row: 50%;
+}
+#box7 {
+    grid-column: 50%;
+    grid-row: 50%;
+}
+#box8 {
+    grid-column: 50%;
+    grid-row: 50%;
+}

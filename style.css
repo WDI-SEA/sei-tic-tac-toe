@@ -1,0 +1,115 @@
+body {
+  background-color:rgba(229, 209, 243, 0.8);
+  text-align: center;
+}
+
+h1 {
+    color: hotpink;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h2 {
+    color: hotpink;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: lightpink;
+    padding: 20px;
+}
+
+#user-input1 {
+  background-color: hotpink;
+  border: 1px solid rgba(210, 101, 163, 0.8);
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+#user-input2 {
+    background-color: hotpink;
+    border: 1px solid rgba(210, 101, 163, 0.8);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+#user-input3 {
+    background-color: hotpink;
+    border: 1px solid rgba(210, 101, 163, 0.8);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  #user-input4 {
+    background-color: hotpink;
+    border: 1px solid rgba(210, 101, 163, 0.8);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  #user-input5 {
+    background-color: hotpink;
+    border: 1px solid rgba(210, 101, 163, 0.8);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  #user-input6 {
+    background-color: hotpink;
+    border: 1px solid rgba(210, 101, 163, 0.8);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  #user-input7 {
+    background-color: hotpink;
+    border: 1px solid rgba(210, 101, 163, 0.8);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  #user-input8 {
+    background-color: hotpink;
+    border: 1px solid rgba(210, 101, 163, 0.8);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  #user-input9 {
+    background-color: hotpink;
+    border: 1px solid rgba(210, 101, 163, 0.8);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  h3 {
+    color: hotpink;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  #restart {
+    background-color: hotpink;
+    border: 1px solid rgba(210, 101, 163, 0.8);
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: lightpink;
+  }
+
+  p {
+    color: hotpink;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+  }

@@ -1,0 +1,38 @@
+.buttonContainer {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+.buttonGrid {
+    display: flex;
+    justify-content: center;
+}
+.buttons {
+    position: relative;
+    height: 8rem;
+    width: 8rem;
+    font-size: 8rem;
+    font-family: 'Comfortaa', cursive;
+    font-weight: bolder;
+    text-align: center;
+    margin: 3px 3px 3px 3px;
+    background-color: black;
+    color: white;
+    border-radius: 0.75rem;
+}
+body {
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+}
+.clearContainer {
+    text-align: center;
+    margin-top: 3rem;
+}
+.clearButton {
+    background-color: black;
+    color: white;
+    height: 3rem;
+    width: 5rem;
+    border-radius: 0.5rem;
+    font-family: 'Comfortaa', cursive;
+    font-size: 22px;
+}

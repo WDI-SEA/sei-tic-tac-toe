@@ -1,0 +1,35 @@
+html {
+    background-color: rgb(229, 152, 152);
+    text-align: center;
+}
+
+h1 {
+    color: rgb(212, 45, 73);
+    font-size: 70px;
+}
+
+.grid-container {
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    background-color: blanchedalmond;
+    padding: 7px;
+}
+
+.grid-items {
+    background-color: rgb(123, 119, 119);
+    border: 2px solid black;
+    padding: 60px 70px;
+    text-align: center;
+    height: 30px;
+    width: 30px;
+    font-size: 40px;
+    /* color: rgb(123, 119, 119); */
+}
+
+.clear {
+    font-size: 30px;
+}
+
+p {
+    font-size: 50px;
+}

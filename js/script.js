@@ -23,10 +23,13 @@ const tieGame = function () {
 let turn = 1
 let playerTurn = "X"
 const activePlayer = function(){
+    winCheck()
     if (win === false && turn === 10){
+        winCheck()
         tieGame()
         console.log('tie')
         console.log(turn)
+        //sometimes does cat game when someone wins on final turn
     }else if (turn % 2 !== 0 && turn <= 10){
         playerTurn = "X"
         endGame.innerText = "It's Player 1's turn!"

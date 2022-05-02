@@ -49,12 +49,11 @@ body{
     border: 8px solid yellow;
     border-radius: 15px;
     display: inline-block;
-    
+    background-color: yellow;
 }
 #top-row{
     display: block;
     margin-bottom: 4px;
-    
 }
 #top-left{
     display: inline-block;

@@ -44,11 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log("clickNum:",clickNum)
                 winFlag = winCheck(game)
             
-                //checks to see if someone wins, switches to next player if not and sets tie at 9 turns.
+                // checks for winner, switches player if not & auto ties game at 9 turns
                 if (winFlag == 1) {
                     playerTurnText.innerText = "Player " + playerChoice + " wins"
                     disButtons(btns)
-                    // console.log("player choice:", playerChoice)
+                    
                     if (playerChoice == "O") {
                         playerOwins++
                         
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 })
 
-// function for checking for a winner
+// function for checking winner on board
 function winCheck (arr) {
     let count = 0
     const winArr = [

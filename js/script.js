@@ -59,10 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             }
             console.log("play vs comp:", playVScomp)
-        
+            
             if (playVScomp == true && clickNum < 8 && winFlag == false) {
                 playerChoice = playerSwitcher(playerChoice)
-                compAIturn(playerChoice, gameArr)
+                waitTime = Math.floor(Math.random()*5000)
+                setTimeout(compAIturn(playerChoice, gameArr),waitTime)
                 currPlayerArr = playerX
                 winCheck(playerChoice, currPlayerArr, clickNum)
                 playerChoice = playerSwitcher(playerChoice)
@@ -74,16 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     })
 
-function reset() {
-    enButtons(btns)
-    playerX = [false, false, false, false, false, false, false, false, false]
-    playerO = [false, false, false, false, false, false, false, false, false]
-    gameArr = [false, false, false, false, false, false, false, false, false]
-    clickNum = 0
-    playerTurnText.innerHTML = Oturn
-    playerChoice = "O"
-    winFlag = false
-}
 
     clearButton.addEventListener('click', function(){
         reset()
@@ -116,6 +107,18 @@ function reset() {
 
 })
 
+
+function reset() {
+    enButtons(btns)
+    playerX = [false, false, false, false, false, false, false, false, false]
+    playerO = [false, false, false, false, false, false, false, false, false]
+    gameArr = [false, false, false, false, false, false, false, false, false]
+    clickNum = 0
+    playerTurnText.innerHTML = Oturn
+    playerChoice = "O"
+    winFlag = false
+}
+
 function getRand(Array) {
     g =  Math.floor(Math.random() * (8 - 0) + 0)
     randCounter = 0
@@ -129,7 +132,7 @@ function getRand(Array) {
 
 
 function compAIturn(playerChoice,gameArr,randy) {
-    console.log("compAIturn running")
+    // console.log("compAIturn running")
     randy = getRand(gameArr)
     for (i = 0; i<9;i++) {
         if (playerX[randy] == false) {
@@ -143,7 +146,6 @@ function compAIturn(playerChoice,gameArr,randy) {
                 }                
             })
         }
-
     }
     // console.log("Final gameArr:",gameArr)
     // console.log("Final player X:",playerX)
@@ -162,11 +164,8 @@ function winCheck (playerChoice, arr,clickNum) {
         [true, "", "", "", true, "", "", "", true],
         ["", "", true, "", true, "", true, "", ""]
     ]
-    
     // count 
     for (i=0; i < winArr.length ; i++){
-        
-
         for (j=0; j < winArr[i].length ;j++){
             if (winArr[i][j] === true && arr[j] === true) {               
                 count++
@@ -180,8 +179,8 @@ function winCheck (playerChoice, arr,clickNum) {
 
     //checks to see if someone wins, switches to next player if not and sets tie at 9 turns.
     if (winFlag == true) {
-        console.log("Current Player", playerChoice)
-        console.log("click number:",clickNum)
+        // console.log("Current Player", playerChoice)
+        // console.log("click number:",clickNum)
         if (playVScomp == false) {
             playerTurnText.innerText = "Player " + playerChoice + " wins"
         } else if (playVScomp == true) {
@@ -191,23 +190,19 @@ function winCheck (playerChoice, arr,clickNum) {
                 playerTurnText.innerText = "Player " + playerChoice + " wins"
             }
         } 
-
-        
-        
         disButtons(btns)
-
         if (playerChoice == "O") {
-            console.log("O wins flag")
+            // console.log("O wins flag")
             playerOwins++
             oWinCountText.innerText = playerOwins
         } else if (playerChoice == "X"){
-            console.log("X wins flag")
+            // console.log("X wins flag")
             playerXwins++
             xWinCountText.innerText = playerXwins
         } 
 
     } else if (winFlag == false && clickNum == 9){
-        console.log("tie flag")
+        // console.log("tie flag")
     playerTurnText.innerText = tieText
     disButtons(btns)
     tieCounter++
@@ -230,7 +225,7 @@ function playerSwitcher(turn) {
 function disButtons(btns) {
     btns.forEach(function(i){
         i.disabled = true
-        console.log("disbutton runs")
+        // console.log("disbutton runs")
     })
 }
 

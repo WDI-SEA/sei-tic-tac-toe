@@ -28,6 +28,7 @@ const disable = function(){
     document.getElementById('r3c2-btn').disabled = true
     document.getElementById('r3c3-btn').disabled = true
 }
+let count = 0
 
 document.addEventListener("DOMContentLoaded",  () => {
     const checking = function(){ // 8 winning combos
@@ -64,8 +65,8 @@ document.addEventListener("DOMContentLoaded",  () => {
             winTagger()
             disable()
         
-        } else 
-            winTag = 'NOBODY ! ITS A TIE'
+        } else if (gameboard[8] != '' && count === 9) // add turn count on each click, reset on reset
+            document.getElementById('winner').innerHTML = 'NOBODY ! ITS A TIE'
         }
     
 
@@ -82,6 +83,7 @@ document.addEventListener("DOMContentLoaded",  () => {
             playerTurn= switchPlayer(playerTurn)
         }}
         document.getElementById('play-turn').innerText = playerTurn
+        count++
         checking()
         document.getElementById('r1c1-btn').disabled = true
     })
@@ -98,8 +100,11 @@ document.addEventListener("DOMContentLoaded",  () => {
             playerTurn= switchPlayer(playerTurn)
         }}
         document.getElementById('play-turn').innerText = playerTurn
+        count++
         checking()
         document.getElementById('r1c2-btn').disabled = true
+        
+
     })
 
     document.getElementById('r1c3-btn').addEventListener('click', () => {
@@ -114,8 +119,11 @@ document.addEventListener("DOMContentLoaded",  () => {
             playerTurn= switchPlayer(playerTurn)
         }}
         document.getElementById('play-turn').innerText = playerTurn
+        count++
         checking()
         document.getElementById('r1c3-btn').disabled = true
+        
+
     })
 
     document.getElementById('r2c1-btn').addEventListener('click', () => {
@@ -130,8 +138,10 @@ document.addEventListener("DOMContentLoaded",  () => {
             playerTurn= switchPlayer(playerTurn)
         }}
         document.getElementById('play-turn').innerText = playerTurn
+        count++
         checking()
         document.getElementById('r2c1-btn').disabled = true
+        
     })
 
     document.getElementById('r2c2-btn').addEventListener('click', () => {
@@ -146,8 +156,10 @@ document.addEventListener("DOMContentLoaded",  () => {
             playerTurn= switchPlayer(playerTurn)
         }}
         document.getElementById('play-turn').innerText = playerTurn
+        count++
         checking()
         document.getElementById('r2c2-btn').disabled = true
+        
     })
 
     document.getElementById('r2c3-btn').addEventListener('click', () => {
@@ -162,8 +174,10 @@ document.addEventListener("DOMContentLoaded",  () => {
             playerTurn= switchPlayer(playerTurn)
         }}
         document.getElementById('play-turn').innerText = playerTurn
+        count++
         checking()
         document.getElementById('r2c3-btn').disabled = true
+        
     })
 
     document.getElementById('r3c1-btn').addEventListener('click', () => {
@@ -178,8 +192,10 @@ document.addEventListener("DOMContentLoaded",  () => {
             playerTurn= switchPlayer(playerTurn)
         }}
         document.getElementById('play-turn').innerText = playerTurn
+        count++
         checking()
         document.getElementById('r3c1-btn').disabled = true
+
     })
 
     document.getElementById('r3c2-btn').addEventListener('click', () => {
@@ -194,8 +210,10 @@ document.addEventListener("DOMContentLoaded",  () => {
             playerTurn= switchPlayer(playerTurn)
         }}
         document.getElementById('play-turn').innerText = playerTurn
+        count++
         checking()
         document.getElementById('r3c2-btn').disabled = true
+        
     })
 
     document.getElementById('r3c3-btn').addEventListener('click', () => {
@@ -210,8 +228,10 @@ document.addEventListener("DOMContentLoaded",  () => {
             playerTurn= switchPlayer(playerTurn)
         }}
         document.getElementById('play-turn').innerText = playerTurn
+        count++
         checking()
         document.getElementById('r3c3-btn').disabled = true
+        
     })
 
     document.getElementById('reset-btn').addEventListener('click', function(){
@@ -236,6 +256,7 @@ document.addEventListener("DOMContentLoaded",  () => {
         document.getElementById('winner').innerHTML= ''
         gameboard = ['', '', '', '', '', '', '', '', '']
         console.log(gameboard)
+        count = 0
     })
 
 

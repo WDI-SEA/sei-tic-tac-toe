@@ -23,6 +23,7 @@ body {
 }
 
 .column {
+  display: flex;
   background-color: rgb(255, 153, 170);
   border: 5px solid rgb(250, 91, 115);
   display: flex;

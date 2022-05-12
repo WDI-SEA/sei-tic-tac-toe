@@ -10,12 +10,18 @@ let playerTwoCount = 0;
 
 let gameBoard = ["", "", "", "", "", "", "", "", ""];
 
+//updates the array to keep track of where the user put there symbol (x, o)
 const updateGameBoard = (id) => {
+  //the id is the spacific div the user choice to put the symbol in (x, o)
   switch (id) {
     case "row1":
+      // when the computer recognizes which id the user choice than it checks if there is already a "x" or an "o" in that spot in the array
+      //if there is a symbol in that spot then it skips the whole function
       if (gameBoard[0] === "x" || gameBoard[0] === "o") {
         return;
       } else {
+        //if there is no symbol in that index of the array then it checks if its player 1 if true then
+        // put "x" in that index in the array or if it's false then then put an "o"
         currentPlayer === "player1"
           ? (gameBoard[0] = "x")
           : (gameBoard[0] = "o");
@@ -96,11 +102,14 @@ const updateGameBoard = (id) => {
   }
 };
 
+// chekcs if its player one or player two who got the winCondition
+//marks it into the totalWinFor one ofthe players
 const whoWins = () => {
+  //if its player one then
   if (currentPlayer === "player1") {
+    //inputs the text of who won into the result class in the html
     result.innerText = "Player One Wins";
     playerOneCount++;
-    console.log(playerOneCount);
     totalOne.innerText = playerOneCount;
     //tracking the game state if(true the game is runnig) if (its false then the game stops)
     gameState = false;

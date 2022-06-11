@@ -2,10 +2,12 @@
     display: grid;
     grid-template-columns: repeat(3, auto);
 }
+
 .buttonGrid {
     display: flex;
     justify-content: center;
 }
+
 .buttons {
     position: relative;
     height: 8rem;
@@ -19,14 +21,17 @@
     color: white;
     border-radius: 0.75rem;
 }
+
 body {
     text-align: center;
     font-family: 'Comfortaa', cursive;
 }
+
 .clearContainer {
     text-align: center;
     margin-top: 3rem;
 }
+
 .clearButton {
     background-color: black;
     color: white;

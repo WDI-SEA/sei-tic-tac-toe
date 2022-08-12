@@ -1,0 +1,21 @@
+
+body {
+    background-color: black;
+    text-align: center;
+    margin-top: 20%;
+    
+}
+
+#gameboard {
+    background-color: black;
+}
+
+.plot {
+    display: inline-block;
+    border: solid black; 
+    margin: 0 auto;
+    background-color: red;
+    padding: 40px;
+    max-width: 40px;
+    max-height: 40px;
+}

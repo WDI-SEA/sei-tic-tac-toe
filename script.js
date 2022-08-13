@@ -30,32 +30,40 @@ const sq6 = document.getElementById("sq6")
 const sq7 = document.getElementById("sq7")
 const sq8 = document.getElementById("sq8")
 const sq9 = document.getElementById("sq9")
-const sqAll = [sq1,sq2,sq3,sq4,sq5,sq6,sq7,sq8,sq9]
+const grid = document.getElementsByTagName("div")
 
 const reset = document.getElementById("reset")
+
+const win = 
 
 let displayText = document.querySelector("p")
 
 let clickedSqs = []
 
-const player = ["X","O"]
-let turn = "X"
+const player = ["O","X"]
+let turn = player[0]
 
-sq1.addEventListener("click", function () {
-    sq1.innerText = turn
-    sq1.style.pointerEvents = "none";
-    if (turn === player[0]) {turn = player[1];} 
-    else {turn = player[0];}
-    clickedSqs.push("sq1")
-    console.log(clickedSqs)
-        if (clickedSqs.length === 9) {displayText.innerText = "It's a draw! Rematch?"}
-        else if(clickedSqs >= 3) {checkMatch();} 
-        else {displayText.innerText = `Player ${turn}, It's your turn!`}})
+//console log to test 
 
 
-function checkMatch () {
-    console.log("going to write tomorrow")
-}
+for (let i=0; i < grid.length; i++) {
+    grid[i].addEventListener("click", function () {
+    grid[i].innerText = turn
+    grid[i].style.pointerEvents = "none";
+    clickedSqs.push(grid[i])
+    if (clickedSqs.length === 9) {displayText.innerText = "It's a draw! Rematch?"}
+    else {checkMatch ()}
+    })}
+
+
+function checkMatch() {
+    if (turn === player[0]) {
+    if(clickedSqs.length >= 3) {
+
+        }
+    else if ()}
+
+
 
 reset.addEventListener("click", function () {
     for(i=0; i < sqAll.length; i++) {

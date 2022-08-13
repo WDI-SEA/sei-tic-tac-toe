@@ -1,5 +1,6 @@
 h1 {
     font-size: 50px;
+    margin-bottom: 50px;
 }
 
 body {
@@ -18,9 +19,6 @@ body {
     vertical-align: middle;
     line-height: 30px;
     font-size: 50px;
-}
-.rowOne {
-    margin-top: 50px;
 }
 
 p {

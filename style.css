@@ -3,3 +3,15 @@
 /* DO NOT DO ANY EXTRA CSS UNTIL YOU ARE FINISHED WITH THE GAME */
 
 /* enough css to align/make the gameboard */
+
+body {
+    background-color: rgb(45, 45, 45);
+}
+
+h1 {
+    color: white;
+}
+
+p {
+    border-color: white;
+}

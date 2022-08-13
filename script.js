@@ -9,11 +9,14 @@ const six = document.getElementById('six')
 const seven = document.getElementById('seven')
 const eight = document.getElementById('eight')
 const nine = document.getElementById('nine')
+const topRow = document.getElementById('rowOne')
+const midRow = document.getElementById('rowTwo')
+const botRow = document.getElementById('rowThree')
 const playSpace = document.querySelectorAll('.gridSpace')
 const reset = document.getElementById('reset')
+const result = document.getElementById('result')
 const playerTurn = document.getElementById('playerTurn')
-console.log(playSpace)
-console.log(reset)
+
 // APP STATE (variables)
     // a variable to track whose turn it is
     // can do even/odd with % to determine player turn
@@ -25,9 +28,9 @@ let curPlayer = 0 //0 is playerOne
 // let claimedSpaces = []
 
 
-    
-const playerOne = 'x'
-const playerTwo = 'o'
+     
+const playerOne = '❌' // ❌ not working
+const playerTwo = '⭕️' // ⭕️ not working
 
     // a var for 'x' and a var for 'o'
 // const x =
@@ -78,12 +81,16 @@ nine.addEventListener('click',function(){
 function markGridLocationAndUpdatePlayerTurn(gridLocation){
     if(curPlayer === 0){
         playerTurn.innerText = "Go for it, Player 2!"
-        gridLocation.innerText = 'x'
+        gridLocation.innerText = playerOne
         curPlayer = 1
+        console.log(gridLocation.innerText)
+        gameWon()
     } else {
         playerTurn.innerText = "Make a move, Player 1!"
-        gridLocation.innerText = 'o'
+        gridLocation.innerText = playerTwo
         curPlayer = 0
+        console.log(gridLocation.innerText)
+        gameWon()
     }
 }
 
@@ -137,6 +144,21 @@ function markGridLocationAndUpdatePlayerTurn(gridLocation){
 //     playerTurn.innerText = "Go for it, Player 2!"
 // }
 
+if (one.innerText === playerOne){
+    console.log("test")
+}
+
+ function gameWon(curPlayer){
+    if (one.innerText === playerOne && two.innerText === playerOne && three.innerText === playerOne){
+        result.innerText = "Player One wins!"
+        playerTurn.innerText = ""
+        console.log("Player One wins!")
+    } else if (one.innerText === playerTwo && two.innerText === playerTwo && three.innerText === playerTwo) {
+        result.innerText = "Player Two wins!"
+        playerTurn.innerText = ""
+        console.log("Player Two wins!")
+    }
+ }
 reset.addEventListener('click', resetBoard)
 function resetBoard(){
     one.innerText = " - "
@@ -151,6 +173,7 @@ function resetBoard(){
     curPlayer = 0
     playerTurn.innerText = "Make a move, Player 1!"
 }
+
 
 
 // some way to tell if a player has already clicked on a square

@@ -57,3 +57,14 @@
     right: 0px;
 }
 
+#message-board {
+    text-align: center;
+    margin: 20px auto;
+    position: relative;
+    font-size: 20px;
+    border-style: solid;
+    border-width: 5px;
+    width: 50%;
+    height: 50px;
+}
+

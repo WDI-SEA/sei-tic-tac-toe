@@ -19,8 +19,12 @@
     const square8 = document.getElementById("square8")
     const square9 = document.getElementById("square9")
 
-    // function clickedSquare(turn,squareClicked)
+   // define output message board
+   const messageBoard = document.getElementById("message-board")
 
+
+   // Starting message board text
+   messageBoard.innerText = "Player 1, you are X's and you go first.  Click on the square to select your move."
     //FUNCTIONS CATALOGUE 
 
     //function to change to next player's turn
@@ -36,43 +40,83 @@
 
     // function to check to see if game is over
         function isGameOver () {
-            if 
+            if (playerTurn >=5) {
+                if (score[0] === score[1] === score[2] ||
+                    score[3] === score[4] === score[5] ||
+                    score[6] === score[7] === score[8] ||
+                    score[0] === score[3] === score[6] ||
+                    score[1] === score[4] === score[7] ||
+                    score[2] === score[5] === score[8] ||
+                    score[0] === score[4] === score[8] ||
+                    score[2] === score[4] === score[6] 
+                    ) // THERE'S A WINNER!
+                    { winnerMessage()
+                } else if (playerTurn === 9) {
+                        tieMessage()
+                } else {
+                    changePlayerTurn(); 
+                    console.log(playerTurn);
+                }
+            } else {
+                changePlayerTurn(); 
+                console.log(playerTurn);
+            }
         }
-    // function to throw out output to message board
+    // function to throw out winning message to message board
+        function winnerMessage() {
+            if (playerTurn % 2 === 0) {
+                messageBoard.innerText = "TIC TAC TOE, THREE IN A ROW! PLAYER 2 WINS!"
+            } else {
+                messageBoard.innerText = "TIC TAC TOE, THREE IN A ROW! PLAYER 1 WINS!"
+            }
+        }
+    // function - message to change player turn
+    function nextTurn () {
+        if (playerTurn % 2 === 0) {
+            messageBoard.innerText = "Player 2, take your turn."
+        } else {
+            messageBoard.innerText = "Player 1, take your turn."
+        }
+    }
 
-    //
- 
-    let whatsUp = 'square1';
-    console.log(playerTurn)
+    // function to throw out cat's game message to message board
+    function tieMessage() {
+        messageBoard.innerText = "'Game over! It\'s a cat\'s game!'"
+    }
+
+    // function to run with event listener
+    function gamePlayFunction (squareIdentifier) {
+        if (playerTurn % 2 === 0) {
+            squareIdentifier.innerText = o
+    } else (squareIdentifier.innerText = x)
+    // console.log(playerTurn)
+    arrayIndexPlace = 0;
+    selectionToScoreArray(arrayIndexPlace,squareIdentifer.innerText);
+    isGameOver();
+    nextTurn();
+    }
 
     //EVENT LISTENERS
     //Square1 event listener
     square1.addEventListener("click", function(e) {
-        if (playerTurn % 2 === 0) {
-                square1.innerText = o
-        } else (square1.innerText = x)
-        // console.log(playerTurn)
-        arrayIndexPlace = 0
-        selectionToScoreArray(arrayIndexPlace,square1.innerText)
-        changePlayerTurn()
-        console.log(playerTurn)
+        gamePlayFunction('square1')
+        
+        // if (playerTurn % 2 === 0) {
+        //         square1.innerText = o
+        // } else (square1.innerText = x)
+        // // console.log(playerTurn)
+        // arrayIndexPlace = 0;
+        // selectionToScoreArray(arrayIndexPlace,square1.innerText);
+        // isGameOver();
+        // nextTurn();
     })
     //square2 event listener function
-    square2.addEventListener("click", function(e) {
-        if (playerTurn % 2 === 0) {
-                square2.innerText = o
-        } else (square2.innerText = x)
-        changePlayerTurn()
-        // console.log(playerTurn)
-        arrayIndexPlace = 1
-        selectionToScoreArray(arrayIndexPlace,square2.innerText)
-        console.log(playerTurn)
-    })
+
     
     
     
     // a var to keep count of moves to detect cats/draw game
-    let g
+    
     // gameBoard array to keep track of player moves ['x', '', 'o', 'x', '', 'o', 'x', '', '']
         // 2d array
         // [

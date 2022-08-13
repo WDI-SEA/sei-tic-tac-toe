@@ -1,0 +1,29 @@
+header{
+    color:darkolivegreen;
+    text-align: center;
+    font-size: 60px;
+}
+
+.gameboard{
+    background-color: darkgoldenrod;
+    display:grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    height: 600px;
+    width: 600px;
+    position: relative;
+    
+
+}
+
+.box{
+    background-color: lightgray ;
+    border: solid darkolivegreen;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 4em;
+    text-align: center;
+} 
+

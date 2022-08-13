@@ -13,19 +13,26 @@ h1 {
     color: white;
 }
 
+/* adds gird display and aligns to center */
+.grid {
+    display: grid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 150px 150px 150px;
+}
 
-p {
-    resize: none;
-    margin: -5px;
-    font-size: 15px;
+/* adds border to the grid display and sets font size/color */
+.item {
+    font-size: 115px;
     color: white;
-    box-sizing: border-box;
-    height: 50px;
-    width: 50px;
-    border-color: white;
-    border-style: solid;
-    border-width: 5px;
-    display: inline-block;
-    padding: 60px;
+    border: 2px solid;
+}
+
+.text {
+    
+}
 }
 

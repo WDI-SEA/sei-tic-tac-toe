@@ -4,6 +4,9 @@
 
 /* enough css to align/make the gameboard */
 
+body {
+    background-color: blanchedalmond;
+}
 h1 {
     font-size: 75px;
     text-align: center;
@@ -21,49 +24,11 @@ h1 {
   
 }
 
-#grid1 {
+#grid1, #grid2, #grid3, #grid4, #grid5, #grid6, #grid7, #grid8, #grid9 {
     border: 1px solid black;
-    
+    font-size: 90px;
+    text-align: center;
+    background-color: lightblue;
    
 }
 
-#grid2 {
-    border: 1px solid black;
-
-}
-
-#grid3 {
-    border: 1px solid black;
-
-}
-
-#grid4 {
-    border: 1px solid black;
-
-}
-
-#grid5 {
-    border: 1px solid black;
-
-}
-
-#grid6 {
-    border: 1px solid black;
-
-}
-
-
-#grid7 {
-    border: 1px solid black;
-
-}
-
-#grid8 {
-    border: 1px solid black;
-
-}
-
-#grid9 {
-    border: 1px solid black;
-
-}

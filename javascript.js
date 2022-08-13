@@ -27,10 +27,150 @@
         // if the game is won, display the winner and prevent the users from clicking more
         // if it is a cats game, display that and prevent clicks
 
+       
+        let turn = 1
         let grid1click = document.querySelector("#grid1")
-        
+        let grid2click = document.querySelector("#grid2")
+        let grid3click = document.querySelector("#grid3")
+        let grid4click = document.querySelector("#grid4")
+        let grid5click = document.querySelector("#grid5")
+        let grid6click = document.querySelector("#grid6")
+        let grid7click = document.querySelector("#grid7")
+        let grid8click = document.querySelector("#grid8")
+        let grid9click = document.querySelector("#grid9")
+        let playerXClick = document.querySelector(".board")
+        let playerClickCount = document.querySelector(".board")
+
+        function turnCounter() {
+            if(turn % 2 === 1) {
+                playerX()
+                turn++
+            } else {
+                playerO()
+                turn++
+        }
+    }
+
+
+        playerClickCount.addEventListener("click", turnCounter)
+        // function playerTurn() {
+        //     if(turn % 2 === 1) {
+        //         playerX()
+        //         console.log(turn)
+        //     }  else {
+        //         console.log("not your turn")
+        //     }
+        // }
+    
+        // playerTurn()
+       
+
        
         
-        grid1click.addEventListener("click", function(e) {
-            grid1click.innerText ="X"
-        })
+
+        
+       
+
+        function playerX() {
+            grid1click.addEventListener("click", function(e) {
+                grid1click.innerText ="X"
+            })
+            grid2click.addEventListener("click", function(  e) {
+                grid2click.innerText ="X"
+            })
+            grid3click.addEventListener("click", function(e) {
+                grid3click.innerText ="X"
+            })
+            grid4click.addEventListener("click", function(e) {
+                grid4click.innerText ="X"
+            })
+            grid5click.addEventListener("click", function(e) {
+                grid5click.innerText ="X"
+            })
+            grid6click.addEventListener("click", function(e) {
+                grid6click.innerText ="X"
+            }) 
+            grid7click.addEventListener("click", function(e) {
+                grid7click.innerText ="X"
+            })
+            grid8click.addEventListener("click", function(e) {
+                grid8click.innerText ="X"
+            })
+            grid9click.addEventListener("click", function(e) {
+                grid9click.innerText ="X"
+            })
+        }
+
+        function playerO() {
+            grid1click.addEventListener("click", function(e) {
+                grid1click.innerText ="O"
+            })
+            grid2click.addEventListener("click", function(  e) {
+                grid2click.innerText ="O"
+            })
+            grid3click.addEventListener("click", function(e) {
+                grid3click.innerText ="O"
+            })
+            grid4click.addEventListener("click", function(e) {
+                grid4click.innerText ="O"
+            })
+            grid5click.addEventListener("click", function(e) {
+                grid5click.innerText ="O"
+            })
+            grid6click.addEventListener("click", function(e) {
+                grid6click.innerText ="O"
+            }) 
+            grid7click.addEventListener("click", function(e) {
+                grid7click.innerText ="O"
+            })
+            grid8click.addEventListener("click", function(e) {
+                grid8click.innerText ="O"
+            })
+            grid9click.addEventListener("click", function(e) {
+                grid9click.innerText ="O"
+            })
+        }
+        
+
+    
+   
+    
+    
+    
+        
+        
+        
+       
+
+    
+       
+//         playerXClick.addEventListener("click", function(e) {
+//         grid1click.addEventListener("click", function(e) {
+//             grid1click.innerText ="X"
+//         })
+//         grid2click.addEventListener("click", function(e) {
+//             grid2click.innerText ="X"
+//         })
+//         grid3click.addEventListener("click", function(e) {
+//             grid3click.innerText ="X"
+//         })
+//         grid4click.addEventListener("click", function(e) {
+//             grid4click.innerText ="X"
+//         })
+//         grid5click.addEventListener("click", function(e) {
+//             grid5click.innerText ="X"
+//         })
+//         grid6click.addEventListener("click", function(e) {
+//             grid6click.innerText ="X"
+//         }) 
+//         grid7click.addEventListener("click", function(e) {
+//             grid7click.innerText ="X"
+//         })
+//         grid8click.addEventListener("click", function(e) {
+//             grid8click.innerText ="X"
+//         })
+//         grid9click.addEventListener("click", function(e) {
+//             grid9click.innerText ="X"
+//         })
+        
+// })

@@ -1,0 +1,69 @@
+/* styles.css */
+
+/* DO NOT DO ANY EXTRA CSS UNTIL YOU ARE FINISHED WITH THE GAME */
+
+/* enough css to align/make the gameboard */
+
+h1 {
+    font-size: 75px;
+    text-align: center;
+    margin: 0px 0px;
+}
+.board {
+    display: grid;
+    justify-content: center;
+    margin: 100px 400px 100px 400px;
+    grid-template-rows: 100px 100px 100px;
+    grid-template-columns: 100px 100px 100px;
+   
+    
+    
+  
+}
+
+#grid1 {
+    border: 1px solid black;
+    
+   
+}
+
+#grid2 {
+    border: 1px solid black;
+
+}
+
+#grid3 {
+    border: 1px solid black;
+
+}
+
+#grid4 {
+    border: 1px solid black;
+
+}
+
+#grid5 {
+    border: 1px solid black;
+
+}
+
+#grid6 {
+    border: 1px solid black;
+
+}
+
+
+#grid7 {
+    border: 1px solid black;
+
+}
+
+#grid8 {
+    border: 1px solid black;
+
+}
+
+#grid9 {
+    border: 1px solid black;
+
+}

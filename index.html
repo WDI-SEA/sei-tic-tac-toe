@@ -7,21 +7,26 @@
     <body>
         <div class="wrapper">
             <div class="grid-container">
-                <div class="grid-item" id="a2"><p class="value"></p></div>
-                <div class="grid-item" id="a1"><p class="value"></p></div>
-                <div class="grid-item" id="a3"><p class="value"></p></div>
-                <div class="grid-item" id="b1"><p class="value"></p></div>
-                <div class="grid-item" id="b2"><p class="value"></p></div>
-                <div class="grid-item" id="b3"><p class="value"></p></div>
-                <div class="grid-item" id="c1"><p class="value"></p></div>
-                <div class="grid-item" id="c2"><p class="value"></p></div>
-                <div class="grid-item" id="c3"><p class="value"></p></div>
+                <div><button class="grid-item" id="a1"></button></div>
+                <div><button class="grid-item" id="a2"></button></div>
+                <div><button class="grid-item" id="a3"></button></div>
+                <div><button class="grid-item" id="b1"></button></div>
+                <div><button class="grid-item" id="b2"></button></div>
+                <div><button class="grid-item" id="b3"></button></div>
+                <div><button class="grid-item" id="c1"></button></div>
+                <div><button class="grid-item" id="c2"></button></div>
+                <div><button class="grid-item" id="c3"></button></div>
             </div>
         </div>
         <div class="stats-container">
-            <div class="stats-item">Turn Number: <span id="turnNumSpan"></span></div>
-            <div class="stats-item"><button id="turnButton">Next Turn</button></div>
+            <div class="stats-item">Turn Number: <span id="turnNumSpan">0</span></div>
+            <!-- <div class="stats-item"><button id="turnButton">Next Turn</button></div> -->
             <div class="stats-item"><button id="clearButton">Clear</button></div>
+        </div>
+        <div class="p-container">
+            <div id="popup">
+                play again
+            </div>
         </div>
         
         <script src="script.js"></script>

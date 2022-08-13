@@ -39,9 +39,12 @@ body {
 .grid-item {
     background: steelblue;
     color: white;
-    font-size: 20px;
+    font-size: 140px;
+    font-weight: bold;
     padding: 20px;
     border: skyblue 1px solid;
+    height: 200px;
+    width: 200px;
 }
 
 .stats-item {
@@ -75,3 +78,28 @@ body {
     background-color: black;
     
 }
+
+/* postgame */
+
+
+/* .popup-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: red;
+}
+
+#popup {
+    /* visibility: hidden; */
+    /* width: 160px;
+    background: rgba(135,206,250, 0.7);
+    color: red;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+  } */ 

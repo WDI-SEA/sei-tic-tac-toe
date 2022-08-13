@@ -6,8 +6,19 @@
 
 body {
     text-align: center;
+    background-color: blanchedalmond;
 }
 
 .row {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    font-size: 48px;
+    /* margin-top: 60px;
+    margin-bottom: 60px; */
+   
+}
+
+#gameBoard {
+    background-color: olivedrab;
+    
 }

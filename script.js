@@ -34,48 +34,75 @@ const grid = document.getElementsByTagName("div")
 
 const reset = document.getElementById("reset")
 
-const win = 
+//
+const win = [
+    [sq1, sq2, sq3],
+    [sq4, sq5, sq6],
+    [sq7, sq8, sq9],
+    [sq1, sq4, sq7],
+    [sq2, sq5, sq8],
+    [sq3, sq6, sq9],
+    [sq3, sq5, sq7],
+    [sq1, sq5, sq9],
+]
+
 
 let displayText = document.querySelector("p")
 
-let clickedSqs = []
+let clickedSqsO = []
+let clickedSqsX = []
+let clickedSqsTotal = []
 
 const player = ["O","X"]
 let turn = player[0]
 
-//console log to test 
+
+function checkWinForO () {
+    for (i=0; i < win.length; i++) {
+        let resultForO = win[i].every(v => clickedSqsO.includes(v));
+        console.log(resultForO)
+        if (resultForO === true) {
+            displayText.innerText = `Player ${player[0]} WINS!`
+        } else {
+            turn = player[1]
+            displayText.innerText = `Player ${turn}, It's your turn!`}}}
+
+
+function checkWinForX () {
+    for (i=0; i < win.length; i++) {
+        let resultForX = win[i].every(v => clickedSqsX.includes(v));
+        console.log(resultForX)
+        if (resultForX === true) {
+            displayText.innerText = `Player ${player[1]} WINS!`
+        } else {
+            turn = player[0]
+            displayText.innerText = `Player ${turn}, It's your turn!`}}}
 
 
 for (let i=0; i < grid.length; i++) {
-    grid[i].addEventListener("click", function () {
-    grid[i].innerText = turn
+    grid[i].addEventListener("click", function (e) {
+    grid[i].innerText = turn;
     grid[i].style.pointerEvents = "none";
-    clickedSqs.push(grid[i])
-    if (clickedSqs.length === 9) {displayText.innerText = "It's a draw! Rematch?"}
-    else {checkMatch ()}
-    })}
-
-
-function checkMatch() {
-    if (turn === player[0]) {
-    if(clickedSqs.length >= 3) {
-
-        }
-    else if ()}
+    clickedSqsTotal.push(grid[i]);
+    console.log(clickedSqsTotal)
+    if (clickedSqsTotal === 9) {displayText.innerText = "It's a draw! Rematch?"}
+    else {
+        if (turn === player[0]) {
+        clickedSqsO.push(grid[i])
+        console.log(clickedSqsO)
+        checkWinForO ();
+        }else {
+        clickedSqsX.push(grid[i])
+        console.log(clickedSqsX)
+        checkWinForX ();
+    }}})}
 
 
 
 reset.addEventListener("click", function () {
-    for(i=0; i < sqAll.length; i++) {
-        sqAll[i].innerText = ""
+    for(i=0; i < grid.length; i++) {
+        grid[i].innerText = ""
     }
     displayText.innerText = "Play Again! 👍"
 })
 
-
-// some 9ay to tell if a player has alr9ady 7licked on a square
-// win/t9e game logic in function9
-    // o9tion: detect a win using9conditionals and comparisions 
-    // option hard mode: store al9 winning conditions and use loops to compare them to the gameBoard array
-        // if the game is won, di9play the winner and prevent the users from clicking more
-        // if it is a cats game, 9isplay that and prevent click9

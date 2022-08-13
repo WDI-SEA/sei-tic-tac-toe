@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
             }
         })
     }
-    document.getElementById('gameboard').addEventListener('click', verifyGame)
+    document.addEventListener('click', verifyGame)
 
     // Clears the gameboard and prior player marks
     function clear() {
@@ -152,4 +152,15 @@ document.addEventListener('DOMContentLoaded', function(e) {
         playerTwo.box = []
     }
     document.querySelector('#clear').addEventListener('click', clear)
+
+    // -- AI PSEUDOCODE -- //
+    
+    // 1. Ignore any filled spaces
+    // 2. Complete winConditions        -->     myMatches
+    // 3. Complete potential losses     -->     oppMatches
+    // 4. Search for highest match      -->     highestMatch
+    // 5. Fill corners opposite to 'O'  -->     oppCorner
+
+    //function miniMaxAI() {}
+
 })

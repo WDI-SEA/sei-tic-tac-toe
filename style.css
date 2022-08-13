@@ -1,3 +1,5 @@
+/* color styling added for improved readability for me  */
+
 header{
     color:darkolivegreen;
     text-align: center;
@@ -12,7 +14,6 @@ header{
     height: 600px;
     width: 600px;
     position: relative;
-    left: 250px;
     border-radius: 5px;
    
 } 

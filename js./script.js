@@ -7,6 +7,8 @@ const winningComboSix = ["buttonThree", "buttonFive", "buttonSeven"]
 const winningComboSeven = ["buttonThree", "buttonSix", "buttonNine"]
 const winningComboEight = ["buttonSeven", "buttonEight", "buttonNine"]
 
+const winningCombos = [winningComboOne, winningComboTwo, winningComboThree, winningComboFour, winningComboFive, winningComboSix, winningComboSeven, winningComboEight]
+
 let butOne = document.querySelector("buttonOne")
 let butTwo = document.querySelector("buttonTwo")
 let butThree = document.querySelector("buttonThree")
@@ -16,27 +18,67 @@ let butSix = document.querySelector("buttonSix")
 let butSeven = document.querySelector("buttonSeven")
 let butEight = document.querySelector("buttonEight")
 let butNine = document.querySelector("buttonNine")
+
+const buttons = [butOne, butTwo, butThree, butFour, butFive, butSix, butSeven, butEight, butNine]
+
 let butNew = document.querySelector("resetButton")
+
+let playerOneTurns = [], playerTwoTurns = []  // Receives button id from clicks
 
 let turnCount = 0 /* number of total clicks*/
 
 
-function calcOddEven() {
+//returns "true" if odd ("& 1" checks if the last digit of the number as binary is 1)
+function calcOdd() {
     return (turnCount & 1)
 }
 
 function turnProcess(e) {
     turnCount ++
-    calcOddEven()
-    //on click call function calcOddEven
-    //if odd, then change innerText to "X"
-    //else, change innerText to "O"
-    //e.srcElement is there for asigning x or o
+    let button = e.srcElement
+    if (calcOdd()) {
+        button.innerText = "X"
+        playerOneTurns.append(button.id)
+        
+    } else {
+        button.innerText = "O"
+        playerTwoTurns.append(button.id)
+    }
+    button.disabled = true // Makes button not clickable any more
+    
+    winningCombos.forEach(function(item) {
+        if (playerOneTurns == item) {
+            // Run win conditon: PLAYER 1 WINS
+        } else if (playerTwoTurns == item) {
+            // run win condition PLAYER 2 WINS
+        } else if (turnCount == 9) {
+            //You SUCK IT IS A TIE!!
+        }
+    })
+    
     
 } 
 
 
 butOne.addEventListener("click", turnProcess)
+butTwo.addEventListener("click", turnProcess)
+butThree.addEventListener("click", turnProcess)
+butFour.addEventListener("click", turnProcess)
+butFive.addEventListener("click", turnProcess)
+butSix.addEventListener("click", turnProcess)
+butSeven.addEventListener("click", turnProcess)
+butEight.addEventListener("click", turnProcess)
+butNine.addEventListener("click", turnProcess)
+
+butNew.addEventListener("click", function() {
+    buttons.forEach(function(item) {
+        item.disabled = false
+        item.innerText = ""
+    }) 
+    playerOneTurns = []
+    playerTwoTurns = []
+    turnCount = 0
+})
 
 
 

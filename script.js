@@ -21,16 +21,20 @@ const playerTurn = document.getElementById('playerTurn')
     // a variable to track whose turn it is
     // can do even/odd with % to determine player turn
 
-    const turn = gameBoard.length
+    // const turn = gameBoard.length
 
 
+    // let claimedSpaces = []
+    
+    
 let curPlayer = 0 //0 is playerOne
-// let claimedSpaces = []
-
-
-     
 const playerOne = '❌' // ❌ not working
 const playerTwo = '⭕️' // ⭕️ not working
+// if (curPlayer = 0){
+//     curPlayer = playerOne
+// } else {
+//     curPlayer = playerTwo
+// }
 
     // a var for 'x' and a var for 'o'
 // const x =
@@ -148,7 +152,18 @@ if (one.innerText === playerOne){
     console.log("test")
 }
 
- function gameWon(curPlayer){
+// const topHorizontalWin = if (one.innerText === playerOne && two.innerText === playerOne && three.innerText === playerOne){
+//     result.innerText = "Player One wins!"
+//     playerTurn.innerText = ""
+//     console.log("Player One wins!")
+// } else if (one.innerText === playerTwo && two.innerText === playerTwo && three.innerText === playerTwo) {
+//     result.innerText = "Player Two wins!"
+//     playerTurn.innerText = ""
+//     console.log("Player Two wins!")
+// }
+
+ function gameWon(){
+    //top horizontal win condition
     if (one.innerText === playerOne && two.innerText === playerOne && three.innerText === playerOne){
         result.innerText = "Player One wins!"
         playerTurn.innerText = ""
@@ -158,7 +173,79 @@ if (one.innerText === playerOne){
         playerTurn.innerText = ""
         console.log("Player Two wins!")
     }
- }
+    // center horizontal win condition
+    if (four.innerText === playerOne && five.innerText === playerOne && six.innerText === playerOne){
+        result.innerText = "Player One wins!"
+        playerTurn.innerText = ""
+        console.log("Player One wins!")
+    } else if  (four.innerText === playerTwo && five.innerText === playerTwo && six.innerText === playerTwo) {
+        result.innerText = "Player Two wins!"
+        playerTurn.innerText = ""
+        console.log("Player Two wins!")
+    }
+    //bottom horizontal win condition
+    if (seven.innerText === playerOne && eight.innerText === playerOne && nine.innerText === playerOne){
+        result.innerText = "Player One wins!"
+        playerTurn.innerText = ""
+        console.log("Player One wins!")
+    } else if  (seven.innerText === playerTwo && eight.innerText === playerTwo && nine.innerText === playerTwo) {
+        result.innerText = "Player Two wins!"
+        playerTurn.innerText = ""
+        console.log("Player Two wins!")
+    }
+    // left vertical win condition
+    if (one.innerText === playerOne && four.innerText === playerOne && seven.innerText === playerOne){
+        result.innerText = "Player One wins!"
+        playerTurn.innerText = ""
+        console.log("Player One wins!")
+    } else if  (one.innerText === playerTwo && four.innerText === playerTwo && seven.innerText === playerTwo) {
+        result.innerText = "Player Two wins!"
+        playerTurn.innerText = ""
+        console.log("Player Two wins!")
+    }
+    // center vertical win condition
+    if (two.innerText === playerOne && five.innerText === playerOne && eight.innerText === playerOne){
+        result.innerText = "Player One wins!"
+        playerTurn.innerText = ""
+        console.log("Player One wins!")
+    } else if  (two.innerText === playerTwo && five.innerText === playerTwo && eight.innerText === playerTwo) {
+        result.innerText = "Player Two wins!"
+        playerTurn.innerText = ""
+        console.log("Player Two wins!")
+    }
+    // right vertical win condition
+    if (three.innerText === playerOne && six.innerText === playerOne && nine.innerText === playerOne){
+        result.innerText = "Player One wins!"
+        playerTurn.innerText = ""
+        console.log("Player One wins!")
+    } else if  (three.innerText === playerTwo && six.innerText === playerTwo && nine.innerText === playerTwo) {
+        result.innerText = "Player Two wins!"
+        playerTurn.innerText = ""
+        console.log("Player Two wins!")
+    }
+    // NW/SE diagonal win condition
+    if (one.innerText === playerOne && five.innerText === playerOne && nine.innerText === playerOne){
+        result.innerText = "Player One wins!"
+        playerTurn.innerText = ""
+        console.log("Player One wins!")
+    } else if  (one.innerText === playerTwo && five.innerText === playerTwo && nine.innerText === playerTwo) {
+        result.innerText = "Player Two wins!"
+        playerTurn.innerText = ""
+        console.log("Player Two wins!")
+    }
+    // SW/NE diagonal win condition
+    if (seven.innerText === playerOne && five.innerText === playerOne && three.innerText === playerOne){
+        result.innerText = "Player One wins!"
+        playerTurn.innerText = ""
+        console.log("Player One wins!")
+    } else if  (seven.innerText === playerTwo && five.innerText === playerTwo && three.innerText === playerTwo) {
+        result.innerText = "Player Two wins!"
+        playerTurn.innerText = ""
+        console.log("Player Two wins!")
+    }
+}
+
+ 
 reset.addEventListener('click', resetBoard)
 function resetBoard(){
     one.innerText = " - "
@@ -172,6 +259,7 @@ function resetBoard(){
     nine.innerText = " - "
     curPlayer = 0
     playerTurn.innerText = "Make a move, Player 1!"
+    result.innerText = ""
 }
 
 

@@ -1,0 +1,37 @@
+h1 {
+    font-size: 50px;
+}
+
+body {
+    text-align: center;
+}
+
+#sq1, #sq2, #sq3, #sq4, #sq5, #sq6, #sq7, #sq8, #sq9 {
+    display: inline-block; 
+    height: 30px;
+    width: 30px;
+    margin: 0 auto;
+    padding: 3rem;
+    border-style: solid;
+    border-color: black;
+    background-color: burlywood;
+    vertical-align: middle;
+    line-height: 30px;
+    font-size: 50px;
+}
+.rowOne {
+    margin-top: 50px;
+}
+
+p {
+    margin: 30px 20px;
+    font-size: 25px;
+}
+
+button {
+    font-size: 20px;
+    background-color: darkcyan;
+    padding: 15px;
+    font-weight: bold;
+    color: white;
+}

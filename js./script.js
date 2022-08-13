@@ -27,16 +27,27 @@ let playerOneTurns = [], playerTwoTurns = []  // Receives button id from clicks
 
 let turnCount = 0 /* number of total clicks*/
 
+const displayBox = document.querySelector("displayBox")
 
-//returns "true" if odd ("& 1" checks if the last digit of the number as binary is 1)
-function calcOdd() {
-    return (turnCount & 1)
+function endGame(player) {
+    switch(player) {
+        case "one": {
+            displayBox.innerText = "You are a cunt, player one wins!"
+        }
+        case "two": {
+            displayBox.innerText = "Player one is a cunt, Player two wins!"
+        } 
+        case "tie": {
+            displayBox.innerText = "You're both cunts, it is a tie."
+        }
+    }
 }
+
 
 function turnProcess(e) {
     turnCount ++
     let button = e.srcElement
-    if (calcOdd()) {
+    if (turnCount & 1) {  //("& 1" checks if the last digit of the number as binary is 1)
         button.innerText = "X"
         playerOneTurns.append(button.id)
         
@@ -48,18 +59,22 @@ function turnProcess(e) {
     
     winningCombos.forEach(function(item) {
         if (playerOneTurns == item) {
-            // Run win conditon: PLAYER 1 WINS
+            endGame("one")// Run win conditon: PLAYER 1 WINS
         } else if (playerTwoTurns == item) {
-            // run win condition PLAYER 2 WINS
+            endGame("two")// run win condition PLAYER 2 WINS
         } else if (turnCount == 9) {
-            //You SUCK IT IS A TIE!!
+            endGame("tie")//You SUCK IT IS A TIE!!
         }
     })
     
     
 } 
 
+buttons.forEach(function(item) {
+    item.addEventListener("click", turnProcess)
+})
 
+/*
 butOne.addEventListener("click", turnProcess)
 butTwo.addEventListener("click", turnProcess)
 butThree.addEventListener("click", turnProcess)
@@ -69,6 +84,8 @@ butSix.addEventListener("click", turnProcess)
 butSeven.addEventListener("click", turnProcess)
 butEight.addEventListener("click", turnProcess)
 butNine.addEventListener("click", turnProcess)
+*/
+
 
 butNew.addEventListener("click", function() {
     buttons.forEach(function(item) {
@@ -78,6 +95,7 @@ butNew.addEventListener("click", function() {
     playerOneTurns = []
     playerTwoTurns = []
     turnCount = 0
+    document.querySelector("displayBox").innerText = ""
 })
 
 

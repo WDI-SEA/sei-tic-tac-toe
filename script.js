@@ -30,24 +30,41 @@ const sq6 = document.getElementById("sq6")
 const sq7 = document.getElementById("sq7")
 const sq8 = document.getElementById("sq8")
 const sq9 = document.getElementById("sq9")
+const sqAll = [sq1,sq2,sq3,sq4,sq5,sq6,sq7,sq8,sq9]
+
 const reset = document.getElementById("reset")
-const sqAll = ["sq1","sq2","sq3","sq4","sq5","sq6","sq7","sq8","sq9"]
+
+let displayText = document.querySelector("p")
+
+let clickedSqs = []
+
+const player = ["X","O"]
+let turn = "X"
 
 sq1.addEventListener("click", function () {
-    sq1.innerText = "X"
-})
+    sq1.innerText = turn
+    sq1.style.pointerEvents = "none";
+    if (turn === player[0]) {turn = player[1];} 
+    else {turn = player[0];}
+    clickedSqs.push("sq1")
+    console.log(clickedSqs)
+        if (clickedSqs.length === 9) {displayText.innerText = "It's a draw! Rematch?"}
+        else if(clickedSqs >= 3) {checkMatch();} 
+        else {displayText.innerText = `Player ${turn}, It's your turn!`}})
+
+
+function checkMatch () {
+    console.log("going to write tomorrow")
+}
 
 reset.addEventListener("click", function () {
-    sq.innerText = ""
-    sq1.innerText = ""
-    sq1.innerText = ""
-    sq1.innerText = ""
-    sq1.innerText = ""
-    sq1.innerText = ""
-    sq1.innerText = ""
-    sq1.innerText = ""
-    sq1.innerText = ""
+    for(i=0; i < sqAll.length; i++) {
+        sqAll[i].innerText = ""
+    }
+    displayText.innerText = "Play Again! 👍"
 })
+
+
 // some 9ay to tell if a player has alr9ady 7licked on a square
 // win/t9e game logic in function9
     // o9tion: detect a win using9conditionals and comparisions 

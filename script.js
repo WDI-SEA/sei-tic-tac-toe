@@ -72,19 +72,21 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
     // Marks each box with player icon and incr turns
     function markBox() {
-        if(turns%2 == 0){
-            turns++;
-            this.innerHTML = 'X'
-            this.style.color = 'black'
-            playerOne.box.push(this)
-            winCheck(playerOne)
-        }
-        else {
-            turns++;
-            this.innerHTML = 'O'
-            this.style.color = 'black'
-            playerTwo.box.push(this)
-            winCheck(playerTwo)
+        if(this.innerText === '-') {
+            if(turns%2 == 0){
+                turns++;
+                this.innerText = 'X'
+                this.style.color = 'black'
+                playerOne.box.push(this)
+                winCheck(playerOne)
+            }
+            else {
+                turns++;
+                this.innerText = 'O'
+                this.style.color = 'black'
+                playerTwo.box.push(this)
+                winCheck(playerTwo)
+            }
         }
     }
 
@@ -119,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
             winTally()
             gameRunning = endGame
         }
-        if(turns == maxTurns) {
+        else if(turns == maxTurns) {
             cats++
             //console.log('The match is draw. Play again?', cats)
             catTally()

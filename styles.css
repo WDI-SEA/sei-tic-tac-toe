@@ -40,7 +40,7 @@ h1 {
 
 #container {
     position: relative;
-    left: calc(50vw - 17.5vw);
+    left: calc(50vw - 17.6vw);
     top: 40px;
 }
 
@@ -88,10 +88,10 @@ h1 {
 button {
     font-family: lato, sans-serif;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 18px;
     border: none;
     margin-top: 60px;
-    padding: .5em 1.5em;
+    padding: .8em 2.4em;
     border-radius: 3px;
     box-shadow: 0 0 13px var(--light);
     outline: 2px transparent white;

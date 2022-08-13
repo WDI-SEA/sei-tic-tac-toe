@@ -6,6 +6,11 @@ body {
     
 }
 
+.clicked {
+    border-radius: 100%;
+    
+}
+
 #gameboard {
     background-color: black;
 }

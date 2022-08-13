@@ -13,14 +13,19 @@ h1 {
     color: white;
 }
 
+
 p {
-    margin: 0 auto;
-    font-size: 50px;
+    resize: none;
+    margin: -5px;
+    font-size: 15px;
     color: white;
+    box-sizing: border-box;
+    height: 50px;
+    width: 50px;
     border-color: white;
-    border-style: double;
+    border-style: solid;
     border-width: 5px;
     display: inline-block;
-    padding: 50px;
-    
+    padding: 60px;
 }
+

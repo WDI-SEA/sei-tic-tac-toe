@@ -1,0 +1,54 @@
+/* styles.css */
+
+/* DO NOT DO ANY EXTRA CSS UNTIL YOU ARE FINISHED WITH THE GAME */
+
+/* enough css to align/make the gameboard */
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline;
+}
+
+#grid {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#firstColumn {
+    display: inline;
+    margin: 0;
+    
+}
+
+#secondColumn {
+    display: inline;
+    margin: 0;
+}
+
+#thirdColumn {
+    display: inline;
+    margin: 0;
+}
+.space{
+    border: solid;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    top: 50%;
+}
+
+#reset{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: px;
+}
+#player{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

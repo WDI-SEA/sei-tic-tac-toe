@@ -2,27 +2,57 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="./styles.css">
+    <title>Tic-Tac-Toe!</title>
 </head>
 
-<body>
-<!-- html boilerplate -- linking css and js -->
-<!-- header to name the game -->
 <!-- GAME BOARD: three divs for the game board, in each div you need three more more divs -->
-<!-- button for reset -->
+
 <!-- an area to display messages to the user such us whose turn it is and who the winner winner is, and if there is a cats game -->
+<body>
 
+    <h1>Tic-Tac-Toe!</h1>
+    
+    <div id ="gameBoard">
+        <div id="rowOne" class ="row">
+            <div id ="one">
+                x
+            </div>
+            <div id ="two">
+                x
+            </div>
+            <div id ="three">
+                x
+            </div>
+        </div>
+        <div id="rowTwo" class ="row">
+            <div id ="four">
+                x
+            </div>
+            <div id ="five">
+                x
+            </div>
+            <div id ="six">
+                x    
+            </div>
+        </div>
+        <div id="rowThree" class ="row">
+            <div id ="seven">
+                x
+            </div>
+            <div id ="eight">
+                x
+            </div>
+            <div id ="nine">
+                x  
+            </div>
+        </div>
+    </div>
+    
+    <p id ="playerTurn">Placeholder text to identify which player is up</p> <!-- add innerText to declare current player turn -->
 
+    <p id ="result">Placeholder text for winner</p> <!-- add innerText to delcare winner/draw on game completion -->
 
-
-
-
-
-
-
-
-
-
-
+    <button id="reset">Reset Game!</button>
 
 
 <script src="./script.js"></script>

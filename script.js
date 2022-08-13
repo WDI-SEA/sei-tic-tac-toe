@@ -1,3 +1,5 @@
+console.log("Hello!")
+
 // APP STATE (variables)
     // a variable to track whose turn it is
     // a var for 'x' and a var for 'o'

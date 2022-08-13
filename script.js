@@ -11,6 +11,7 @@ const eight = document.getElementById('eight')
 const nine = document.getElementById('nine')
 const playSpace = document.querySelectorAll('.gridSpace')
 const reset = document.getElementById('reset')
+const playerTurn = document.getElementById('playerTurn')
 console.log(playSpace)
 console.log(reset)
 // APP STATE (variables)
@@ -21,7 +22,7 @@ console.log(reset)
 
 
 let curPlayer = 0 //0 is playerOne
-let claimedSpaces = []
+// let claimedSpaces = []
 
 
     
@@ -76,9 +77,11 @@ nine.addEventListener('click',function(){
 
 function markGridLocationAndUpdatePlayerTurn(gridLocation){
     if(curPlayer === 0){
+        playerTurn.innerText = "Go for it, Player 2!"
         gridLocation.innerText = 'x'
         curPlayer = 1
     } else {
+        playerTurn.innerText = "Make a move, Player 1!"
         gridLocation.innerText = 'o'
         curPlayer = 0
     }
@@ -127,6 +130,13 @@ function markGridLocationAndUpdatePlayerTurn(gridLocation){
         // change to the next player's turn
         // check for a win -- calling a win condition function/doing all the win logic
     // click event to clear/reset the board
+
+// if (curPlayer === 0){
+//     playerTurn.innerText = "Make a move, Player 1!"
+// } else {
+//     playerTurn.innerText = "Go for it, Player 2!"
+// }
+
 reset.addEventListener('click', resetBoard)
 function resetBoard(){
     one.innerText = " - "
@@ -139,6 +149,7 @@ function resetBoard(){
     eight.innerText = " - "
     nine.innerText = " - "
     curPlayer = 0
+    playerTurn.innerText = "Make a move, Player 1!"
 }
 
 

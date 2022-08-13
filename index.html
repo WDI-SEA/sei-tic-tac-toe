@@ -5,17 +5,25 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <div class="grid-container">
-            <div class="grid-item" id="a1">item 1</div>
-            <div class="grid-item" id="a2">item 2</div>
-            <div class="grid-item" id="a3">item 3</div>
-            <div class="grid-item" id="b1">item 4</div>
-            <div class="grid-item" id="b2">item 5</div>
-            <div class="grid-item" id="b3">item 6</div>
-            <div class="grid-item" id="c1">item 7</div>
-            <div class="grid-item" id="c2">item 8</div>
-            <div class="grid-item" id="c3">item 9</div>
+        <div class="wrapper">
+            <div class="grid-container">
+                <div class="grid-item" id="a2"><p class="value"></p></div>
+                <div class="grid-item" id="a1"><p class="value"></p></div>
+                <div class="grid-item" id="a3"><p class="value"></p></div>
+                <div class="grid-item" id="b1"><p class="value"></p></div>
+                <div class="grid-item" id="b2"><p class="value"></p></div>
+                <div class="grid-item" id="b3"><p class="value"></p></div>
+                <div class="grid-item" id="c1"><p class="value"></p></div>
+                <div class="grid-item" id="c2"><p class="value"></p></div>
+                <div class="grid-item" id="c3"><p class="value"></p></div>
+            </div>
         </div>
+        <div class="stats-container">
+            <div class="stats-item">Turn Number: <span id="turnNumSpan"></span></div>
+            <div class="stats-item"><button id="turnButton">Next Turn</button></div>
+            <div class="stats-item"><button id="clearButton">Clear</button></div>
+        </div>
+        
         <script src="script.js"></script>
     </body>
 </html>

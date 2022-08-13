@@ -1,3 +1,5 @@
+// logic
+
 // win conditions
 
 function winCheck(playerInput) {
@@ -11,60 +13,56 @@ function winCheck(playerInput) {
     let plotC2 = document.getElementById('c2').innerText
     let plotC3 = document.getElementById('c3').innerText
     if(plotA1 === playerInput && plotA2 === playerInput && plotA3 === playerInput) {
-        console.log('you win.')
+        youWin()
     } else if (plotB1 === playerInput && plotB2 === playerInput && plotB3 === playerInput) {
-        console.log('you win.')
+        youWin()
     } else if (plotC1 === playerInput && plotC2 === playerInput && plotC3 === playerInput) {
-        console.log('you win.')
+        youWin()
     } else if (plotA1 === playerInput && plotB2 === playerInput && plotC3 === playerInput) {
-        console.log('you win.')
+        youWin()
     } else if (plotA3 === playerInput && plotB2 === playerInput && plotC1 === playerInput) {
-        console.log('you win.')
+        youWin()  
+    } else if (plotA1 === playerInput && plotB1 === playerInput && plotC1 === playerInput) {
+        youWin()
+    } else if (plotA2 === playerInput && plotB2 === playerInput && plotC2 === playerInput) {
+        youWin()
+    } else if (plotA3 === playerInput && plotB3 === playerInput && plotC3 === playerInput) {
+        youWin()
     }
 
 }
-
-
-
-// logic
-
-
-
-
-
+let win = false
 let turn = 0
+let playerInput = ""
 // let turnButton = document.getElementById('turnButton')
 let clearButton = document.getElementById('clearButton')
 let numSpan = document.getElementById('turnNumSpan')
-
+let winnerNoti = document.getElementById('winner-stage')
 
 // if clicked
 let divs = document.querySelectorAll(".grid-item")
 const plotClick = e => {
-    // e.currentTarget.classList.toggle('clicked')
+    
+    // square to circle function
+    //  e.currentTarget.classList.toggle('clicked')
     if (turn % 2 === 0) {
-        let playerInput = 'X'
+        playerInput = 'X'
         e.currentTarget.innerText = "X"
         e.currentTarget.setAttribute('disabled','')
         winCheck(playerInput)
         turn++    
+        winnerNoti.innerText = `Player O's Turn!`
     } else {
-        let playerInput = 'O'
+        playerInput = 'O'
         e.currentTarget.innerText = "O"
         e.currentTarget.setAttribute('disabled','')
         winCheck(playerInput)
         turn++
+        winnerNoti.innerText = `Player X's Turn!`
     }
     numSpan.innerText = turn
-    
-    // if(turn === 8) [
-    //     turnButton.innerText = "End Game"
-    // ]
-    if(turn === 9) {
-        setTimeout(function() {
-            alert('game over')
-        }, 1000)
-        
+    if(turn >= 9 && win === false) {
+        youLose()
     }
     
 }
@@ -79,16 +77,35 @@ clearButton.addEventListener('click', function() {
         div.removeAttribute('disabled', '')
         turn = 0
         numSpan.innerText = turn
+        if (turn === 0) {
+            clearButton.innerText = "Clear"
+        }
+        winnerNoti.innerText = ""
+        win = false
     })
 })
 
-// if win
-// let win = true
-// function winScreen() {
-//     if(win === true) {
-//         document.getElementById('a1').toggle('winner')
-//     }
-// }
+function youWin() {
+    win = true
+    setTimeout(function() {
+        winnerNoti.innerText = `Player ${playerInput} Wins!`
 
+    }, 10)
+    clearButton.innerText = "Play Again"
+    divs.forEach(div => {
+        div.setAttribute('disabled', '')
+        
+    })
+}
 
-// winScreen()
+function youLose() {
+    setTimeout(function() {
+        winnerNoti.innerText = `Everyone Loses!`
+
+    }, 10)
+    clearButton.innerText = "Play Again"
+    divs.forEach(div => {
+        div.setAttribute('disabled', '')
+        
+    })
+}

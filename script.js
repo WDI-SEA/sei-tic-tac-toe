@@ -131,20 +131,19 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
     // Allows for player input until a winner is decided
     function verifyGame() {
-        if(gameRunning == true) {
-            boxes.forEach((item) => {
-                item.addEventListener('click', markBox)
-            })
-        }
+        boxes.forEach((item) => {
+            item.addEventListener('click', markBox)
+            if(!gameRunning) {
+                item.removeEventListener('click', markBox)
+            }
+        })
     }
-    if(gameRunning == true) {
-        document.getElementById('gameboard').addEventListener('click', verifyGame)
-    }
+    document.getElementById('gameboard').addEventListener('click', verifyGame)
 
     // Clears the gameboard and prior player marks
     function clear() {
         boxes.forEach((item) => {
-            item.innerHTML = '-'
+            item.innerText = '-'
             item.style.color = '#f1f1f1'
         })
         turns = 0

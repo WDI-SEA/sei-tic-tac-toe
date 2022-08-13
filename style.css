@@ -3,21 +3,29 @@
 /* DO NOT DO ANY EXTRA CSS UNTIL YOU ARE FINISHED WITH THE GAME */
 
 /* enough css to align/make the gameboard */
-body{
-    color: blue;
+body {
+    color: grey;
     text-align: center;
+    align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .grid {
-    height: 100px;
-    margin: 2rem;
+    height: 200px;
+    width: 200px;
+    margin: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    gap: 5px;
+    text-align: center;
+    position: relative;
 }
 
 .box {
     background-color: black;
-    height: 80px;
-    width: 80px;
+    height: 120px;
+    width: 120px;
+
 }
+

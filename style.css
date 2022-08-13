@@ -6,6 +6,7 @@
 
 body {
     background-color: rgb(45, 45, 45);
+    text-align: center;
 }
 
 h1 {
@@ -13,5 +14,13 @@ h1 {
 }
 
 p {
+    margin: 0 auto;
+    font-size: 50px;
+    color: white;
     border-color: white;
+    border-style: double;
+    border-width: 5px;
+    display: inline-block;
+    padding: 50px;
+    
 }

@@ -83,19 +83,21 @@ nine.addEventListener('click',function(){
 //how to insert value 
 
 function markGridLocationAndUpdatePlayerTurn(gridLocation){
-    if(curPlayer === 0){
-        playerTurn.innerText = "Go for it, Player 2!"
-        gridLocation.innerText = playerOne
-        curPlayer = 1
-        console.log(gridLocation.innerText)
-        gameWon()
-    } else {
-        playerTurn.innerText = "Make a move, Player 1!"
-        gridLocation.innerText = playerTwo
-        curPlayer = 0
-        console.log(gridLocation.innerText)
-        gameWon()
-    }
+    // if(gridLocation.innerText = "-"){
+        if(curPlayer === 0){
+            playerTurn.innerText = "Go for it, Player 2!"
+            gridLocation.innerText = playerOne
+            curPlayer = 1
+            console.log(gridLocation.innerText)
+            gameWon()
+        } else {
+            playerTurn.innerText = "Make a move, Player 1!"
+            gridLocation.innerText = playerTwo
+            curPlayer = 0
+            console.log(gridLocation.innerText)
+            gameWon()
+        }
+    // }
 }
 
 // function claimSpace(space){
@@ -162,86 +164,83 @@ if (one.innerText === playerOne){
 //     console.log("Player Two wins!")
 // }
 
+function playerOneWins(){
+    result.innerText = "Player One wins!"
+    playerTurn.innerText = ""
+    console.log("Player One wins!")
+}
+
+function playerTwoWins(){
+    result.innerText = "Player Two wins!"
+    playerTurn.innerText = ""
+    console.log("Player Two wins!")
+}
+
+        //trying to figure out how to condense this code. can't put just a conditional in variable. 
  function gameWon(){
     //top horizontal win condition
     if (one.innerText === playerOne && two.innerText === playerOne && three.innerText === playerOne){
-        result.innerText = "Player One wins!"
-        playerTurn.innerText = ""
-        console.log("Player One wins!")
+        playerOneWins()
+
     } else if (one.innerText === playerTwo && two.innerText === playerTwo && three.innerText === playerTwo) {
-        result.innerText = "Player Two wins!"
-        playerTurn.innerText = ""
-        console.log("Player Two wins!")
+        playerTwoWins()
+
     }
     // center horizontal win condition
     if (four.innerText === playerOne && five.innerText === playerOne && six.innerText === playerOne){
-        result.innerText = "Player One wins!"
-        playerTurn.innerText = ""
-        console.log("Player One wins!")
+        playerOneWins()
+        
     } else if  (four.innerText === playerTwo && five.innerText === playerTwo && six.innerText === playerTwo) {
-        result.innerText = "Player Two wins!"
-        playerTurn.innerText = ""
-        console.log("Player Two wins!")
+        playerTwoWins()
+       
     }
     //bottom horizontal win condition
     if (seven.innerText === playerOne && eight.innerText === playerOne && nine.innerText === playerOne){
-        result.innerText = "Player One wins!"
-        playerTurn.innerText = ""
-        console.log("Player One wins!")
+        playerOneWins()
+       
     } else if  (seven.innerText === playerTwo && eight.innerText === playerTwo && nine.innerText === playerTwo) {
-        result.innerText = "Player Two wins!"
-        playerTurn.innerText = ""
-        console.log("Player Two wins!")
+        playerTwoWins()
+       
     }
     // left vertical win condition
     if (one.innerText === playerOne && four.innerText === playerOne && seven.innerText === playerOne){
-        result.innerText = "Player One wins!"
-        playerTurn.innerText = ""
-        console.log("Player One wins!")
+        playerOneWins()
+        
     } else if  (one.innerText === playerTwo && four.innerText === playerTwo && seven.innerText === playerTwo) {
-        result.innerText = "Player Two wins!"
-        playerTurn.innerText = ""
-        console.log("Player Two wins!")
+        playerTwoWins()
+       
     }
     // center vertical win condition
     if (two.innerText === playerOne && five.innerText === playerOne && eight.innerText === playerOne){
-        result.innerText = "Player One wins!"
-        playerTurn.innerText = ""
-        console.log("Player One wins!")
+        playerOneWins()
+       
     } else if  (two.innerText === playerTwo && five.innerText === playerTwo && eight.innerText === playerTwo) {
-        result.innerText = "Player Two wins!"
-        playerTurn.innerText = ""
-        console.log("Player Two wins!")
+        playerTwoWins()
+    
     }
     // right vertical win condition
     if (three.innerText === playerOne && six.innerText === playerOne && nine.innerText === playerOne){
-        result.innerText = "Player One wins!"
-        playerTurn.innerText = ""
-        console.log("Player One wins!")
+        playerOneWins()
+    
     } else if  (three.innerText === playerTwo && six.innerText === playerTwo && nine.innerText === playerTwo) {
-        result.innerText = "Player Two wins!"
-        playerTurn.innerText = ""
-        console.log("Player Two wins!")
+        playerTwoWins()
+     
     }
     // NW/SE diagonal win condition
     if (one.innerText === playerOne && five.innerText === playerOne && nine.innerText === playerOne){
-        result.innerText = "Player One wins!"
-        playerTurn.innerText = ""
-        console.log("Player One wins!")
+        playerOneWins()
+        
     } else if  (one.innerText === playerTwo && five.innerText === playerTwo && nine.innerText === playerTwo) {
-        result.innerText = "Player Two wins!"
-        playerTurn.innerText = ""
-        console.log("Player Two wins!")
+        playerTwoWins()
+      
     }
     // SW/NE diagonal win condition
     if (seven.innerText === playerOne && five.innerText === playerOne && three.innerText === playerOne){
-        result.innerText = "Player One wins!"
-        playerTurn.innerText = ""
-        console.log("Player One wins!")
+        playerOneWins()
+        
     } else if  (seven.innerText === playerTwo && five.innerText === playerTwo && three.innerText === playerTwo) {
-        result.innerText = "Player Two wins!"
-        playerTurn.innerText = ""
-        console.log("Player Two wins!")
+        playerTwoWins()
+      
     }
 }
 

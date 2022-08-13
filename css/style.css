@@ -1,0 +1,42 @@
+html, body
+{
+    text-align: center;
+}
+.board
+{
+    width: 60vw;
+    height: 60vw;
+    margin: 0 auto 20px;
+}
+.board .row
+{
+    position: relative;
+    margin: 0 auto;
+    width: 90%;
+    height: 30%;
+}
+.board .tile
+{
+    display: inline-block;
+    width: 33.333%;
+    height: 100%;
+    border: 1px solid black;
+}
+.row .left
+{
+    position: absolute;
+    left: -1px;    /* To account for the 1px border */
+}
+.row .center
+{
+    margin: 0 auto;
+}
+.row .right
+{
+    position: absolute;
+    right: -1px;    /* To account for the 1px border */
+}
+#resetBtn
+{
+    margin: 20px auto;
+}

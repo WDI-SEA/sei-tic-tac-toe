@@ -1,0 +1,40 @@
+<!-- messages: whose turn it is 
+               who the winner winner is
+               if there is a cats game -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+  </head>
+  <body>
+    <main>
+        <h1>Tic-Tac-Toe</h1>
+        <div class="board">
+            <div class="row" title="row1">
+                <section id="top-left-square" class="left tile"></section>
+                <section id="top-mid-square" class="center tile"></section>
+                <section id="top-right-square" class="right tile"></section>
+            </div>
+            <div class="row" title="row2">
+                <section id="mid-left-square" class="left tile"></section>
+                <section id="mid-mid-square" class="center tile"></section>
+                <section id="mid-right-square" class="right tile"></section>
+            </div>
+            <div class="row" title="row3">
+                <section id="bot-left-square" class="left tile"></section>
+                <section id="bot-mid-square" class="center tile"></section>
+                <section id="bot-right-square" class="right tile"></section>
+            </div>
+            <button id="resetBtn">Reset</button>
+        </div>
+        <p class="message"></p>
+    </main>
+	<script src="./js/script.js"></script>
+  </body>
+</html>

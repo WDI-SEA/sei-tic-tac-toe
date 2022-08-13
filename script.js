@@ -1,7 +1,21 @@
 // APP STATE (variables)
     // a variable to track whose turn it is
+let startingPlayer = 'x'    
+let currentPlayer =  startingPlayer
+
     // a var for 'x' and a var for 'o'
+let x = 'x'
+let o = 'o'
+
     // a var to keep count of moves to detect cats/draw game
+        /* Add your logic here */
+
+let catsGame = () => {
+    document.getElementById("h2").innerHTML = "Cat\'s Game";
+}
+setTimeout(catsGame, 2000)
+
+
     // gameBoard array to keep track of player moves ['x', '', 'o', 'x', '', 'o', 'x', '', '']
         // 2d array
         // [

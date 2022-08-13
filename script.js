@@ -9,12 +9,13 @@ let o = 'o'
 
     // a var to keep count of moves to detect cats/draw game
         /* Add your logic here */
-
+let count = 9
 let catsGame = () => {
-    document.getElementById("h2").innerHTML = "Cat\'s Game";
+    if(count === 9){
+        document.getElementById("h2").innerHTML = "Cat\'s Game";
+    }
 }
 setTimeout(catsGame, 2000)
-
 
     // gameBoard array to keep track of player moves ['x', '', 'o', 'x', '', 'o', 'x', '', '']
         // 2d array
@@ -23,8 +24,17 @@ setTimeout(catsGame, 2000)
         //     ['x', 'o', ''],
         //     ['x', '', 'o']
         // ]
+let gameBoard = [
+    [document.getElementById('aOne'), document.getElementById('bOne'), document.getElementById('cOne')],
+    [document.getElementById('aTwo'), document.getElementById('bTwo') , document.getElementById('cTwo') ],
+    [document.getElementById('aThree'), document.getElementById('bThree') , document.getElementById('cThree') ]
+]
     // a boolean for if the game is over or not -- is the game currently happening?
+// let over = (gameState) => {
+//     if(gameState === true){
 
+//     }
+// }
 
 // EVENT LISTENERS
     // click event listener(s) for player clicks

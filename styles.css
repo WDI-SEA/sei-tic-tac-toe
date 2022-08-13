@@ -9,7 +9,7 @@ body {
     font-family: sans-serif;
     font-size: 16px;
     line-height: 1.5;
-    color: #333;
+    
     background: #152238 ;
     
 }
@@ -96,7 +96,34 @@ body {
 
 /* postgame */
 
-#popup {
-    background-color: red;
-    height: 300px;
-}
+.popContainer{
+
+    position: absolute;
+    background-color: #152238;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .popup {
+    margin-top: 200px;
+    font-size: 30px;
+    color: skyblue;
+    
+    
+  }
+
+  .popup p {
+    margin-bottom: 200px;
+  }
+
+  .popup button {
+    font-size: 50px;
+    font-weight: bold;
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    border: skyblue 4px solid;
+    
+  }

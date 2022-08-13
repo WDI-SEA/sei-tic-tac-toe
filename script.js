@@ -109,3 +109,7 @@ function youLose() {
         
     })
 }
+
+document.getElementById('fade-in').addEventListener('click', function() {
+    document.getElementById('toFade').style.display = "none"
+})

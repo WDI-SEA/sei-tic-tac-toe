@@ -90,17 +90,21 @@ nine.addEventListener('click',function(){
 function markGridLocationAndUpdatePlayerTurn(gridLocation){
     // if(gridLocation.innerText = "-"){
         if(curPlayer === 0){
-            playerTurn.innerText = "Go for it, Player 2!"
-            gridLocation.innerText = playerOne
-            curPlayer = 1
-            console.log(gridLocation.innerText)
-            gameWon()
+            if(gridLocation.innerText === "-"){
+                playerTurn.innerText = "Go for it, Player 2!"
+                gridLocation.innerText = playerOne
+                curPlayer = 1
+                console.log(gridLocation.innerText)
+                gameWon()
+            }
         } else {
-            playerTurn.innerText = "Make a move, Player 1!"
-            gridLocation.innerText = playerTwo
-            curPlayer = 0
-            console.log(gridLocation.innerText)
-            gameWon()
+            if(gridLocation.innerText === "-"){
+                playerTurn.innerText = "Make a move, Player 1!"
+                gridLocation.innerText = playerTwo
+                curPlayer = 0
+                console.log(gridLocation.innerText)
+                gameWon()
+            }
         }
     // }
 }
@@ -155,9 +159,9 @@ function markGridLocationAndUpdatePlayerTurn(gridLocation){
 //     playerTurn.innerText = "Go for it, Player 2!"
 // }
 
-if (one.innerText === playerOne){
-    console.log("test")
-}
+// if (one.innerText === playerOne){
+//     console.log("test")
+// }
 
 // const topHorizontalWin = if (one.innerText === playerOne && two.innerText === playerOne && three.innerText === playerOne){
 //     result.innerText = "Player One wins!"
@@ -188,14 +192,23 @@ one.innerText === playerTwo && five.innerText === playerTwo && nine.innerText ==
 seven.innerText === playerTwo && five.innerText === playerTwo && three.innerText === playerTwo]
 
 // function p1Win(){
-// if (playerOneWinCondits.some() === true)
-//     playerOneWins()
+//     if (playerOneWinCondits.some()){
+//         playerOneWins()
+//     }
 // }
+
+// function p2Win(){
+//     if (playerTwoWinCondits.some()){
+//         playerTwoWins()
+//     }
+// }
+
 function playerOneWins(){
     result.innerText = "Player One wins!"
     playerTurn.innerText = ""
     console.log("Player One wins!")
     pOneWinTotal.innerText++
+    
 }
 
 function playerTwoWins(){
@@ -211,7 +224,7 @@ function tieTacToe(){
     console.log("draw")
 }
 
-        //trying to figure out how to condense this code. can't put just a conditional in variable. 
+        //trying to figure out how to condense this code. 
  function gameWon(){
     // if (playerOneWinCondits.some()){
     //     playerOneWins()
@@ -284,6 +297,11 @@ function tieTacToe(){
     }
 }
 
+// function stopGame(){
+//     if (playerOneWins()){
+//         markGridLocationAndUpdatePlayerTurn() = console.log("Game over!")
+//     }
+// }
  
 reset.addEventListener('click', resetBoard)
 function resetBoard(){

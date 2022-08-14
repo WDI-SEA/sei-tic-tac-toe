@@ -26,3 +26,6 @@
     // option hard mode: store all winning conditions and use loops to compare them to the gameBoard array
         // if the game is won, display the winner and prevent the users from clicking more
         // if it is a cats game, display that and prevent clicks
+let turn = 'X'
+let moves = 0
+let gameBoard = ['', '', '', '', '', '', '', '', '']

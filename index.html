@@ -9,10 +9,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+        <title>Tic Tac Toe</title>
+        <link rel="stylesheet" href="styles.css" />
     </head>
-    
     <body>
-        
+        <h1>Tic Tac Toe</h1>
+        <h2>display messages</h2>
+        <div id="gameboard">
+            <div id="top" class="rows">
+                <div id="one" class="tiles"></div>
+                <div id="two" class="tiles">O</div>
+                <div id="three" class="tiles">X</div>
+            </div>
+            <div id="middle" class="rows">
+                <div id="four" class="tiles">O</div>
+                <div id="five" class="tiles"></div>
+                <div id="six" class="tiles">O</div>
+            </div>
+            <div id="bottom" class="rows">
+                <div id="seven" class="tiles"></div>
+                <div id="eight" class="tiles">O</div>
+                <div id="nine" class="tiles">X</div>
+            </div>
+        </div>
+        <button>Reset Board</button>
     </body>
+
+    <script src="script.js"></script>
 </html>

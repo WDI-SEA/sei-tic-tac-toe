@@ -4,3 +4,77 @@
 
 /* enough css to align/make the gameboard */
 
+body{
+    text-align: center;
+}
+
+#gameboard {
+
+}
+
+.rows {
+    position: relative;
+    margin: 0 auto;
+}
+
+.tiles {
+    display: inline-block;
+    margin: -2px -2px;
+    width: 150px;
+    height: 150px;
+    font-size: 100px;
+    writing-mode: vertical-lr;
+    background-color: aquamarine;
+}
+
+#one {
+    border-right: 5px solid black;
+    border-bottom: 5px solid black;
+}
+
+#two {
+    border-left: 5px solid black;
+    border-right: 5px solid black;
+    border-bottom: 5px solid black;
+}
+
+#three {
+    border-bottom: 5px solid black;
+    border-left: 5px solid black;
+}
+
+#four {
+    border-top: 5px solid black;
+    border-right: 5px solid black;
+    border-bottom: 5px solid black;
+}
+
+#five {
+    border: 5px solid black;
+}
+
+#six {
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    border-left: 5px solid black;
+}
+
+#seven {
+    border-top: 5px solid black;
+    border-right: 5px solid black;
+}
+
+#eight {
+    border-top: 5px solid black;
+    border-right: 5px solid black;
+    border-left: 5px solid black;
+}
+
+#nine {
+    border-top: 5px solid black;
+    border-left: 5px solid black;
+}
+
+button {
+    margin-top: 50px;
+}

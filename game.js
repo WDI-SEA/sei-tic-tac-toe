@@ -18,6 +18,41 @@ const boxArray = [" ", "", " ", " ", " "," "," ", " ", " "]
 const userOne= "x"
 const userTwo= "o"
 let playerTurn = 1
+let playCount = " "
+
+let boxPlayed = document.querySelectorAll(".boxes")
+
+// Event Listeners
+let choice1 = document.getElementById("one").addEventListener("click", chooseTurn)
+let choice2 = document.getElementById("two").addEventListener("click", chooseTurn)
+let choice3 = document.getElementById("three").addEventListener("click", chooseTurn)
+let choice4= document.getElementById("four").addEventListener("click", chooseTurn)
+let choice5 = document.getElementById("five").addEventListener("click", chooseTurn)
+let choice6 = document.getElementById("six").addEventListener("click", chooseTurn)
+let choice7 = document.getElementById("seven").addEventListener("click",chooseTurn)
+let choice8= document.getElementById("eight").addEventListener("click", chooseTurn)
+let choice9 = document.getElementById("nine").addEventListener("click", chooseTurn)
+
+
+const chooseTurn = function (){
+    if (playerTurn % 2 === 0 ){
+        document.getElementById(boxArray[""]).addEventListener("click", userChoice)
+        boxArray[" "].innerText = "x" ///this needs to change the value of ANY slected box 
+    } else{
+        boxArray[ " "].innerText = "o"
+    }
+    }
+
+// function to start game play
+let gamePlay = function gamePlay(){
+    if (playCount <= 5){
+    //this is the function for x and 0 
+  (playerTurn %2 === 0)
+        chooseTurn()
+    } else if (playCount === 9) {
+        gameOutcome()
+    }
+}
 
 //  game logic for end result
 const gameOutcome =function gameLogic (){
@@ -42,43 +77,6 @@ const gameOutcome =function gameLogic (){
  }
 }
 
-
-// function for player turn
-const chooseTurn = function (){
-if (playerTurn % 2 === 0 ){
-    document.getElementById(boxArray[""]).addEventListener("click", userChoice)
-    boxArray[" "].innerText = "x" ///this needs to change the value of ANY slected box 
-} else{
-    boxArray[ " "].innerText = "o"
-}
-}
-
-
-// Event Listeners
-let choice1 = document.getElementById("one").addEventListener("click", userChoice)
-let choice2 = document.getElementById("two").addEventListener("click", userChoice)
-let choice3 = document.getElementById("three").addEventListener("click", userChoice)
-let choice4= document.getElementById("four").addEventListener("click", userChoice)
-let choice5 = document.getElementById("five").addEventListener("click", userChoice)
-let choice6 = document.getElementById("six").addEventListener("click", userChoice)
-let choice7 = document.getElementById("seven").addEventListener("click", userChoice)
-let choice8= document.getElementById("eight").addEventListener("click", userChoice)
-let choice9 = document.getElementById("nine").addEventListener("click", userChoice)
-
-
-
-
-
-function userChoice(){ 
-    //if number of plays is  than 5 -->
-
-    //  function for {if player turn put x in chosen box
-    // else  place 0 in chosen box }
-
-   // if number of place is 9  -->
-   // { function for game logic} 
-       
-}
 
 
 // reset the game

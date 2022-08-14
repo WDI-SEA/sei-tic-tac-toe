@@ -34,6 +34,7 @@ let turn = 0;
 let testArray = ['', '', '', 
                 '', '', '',
                 '', '', ''];
+
 let one = document.getElementById("1");
 let two = document.getElementById("2");
 let three = document.getElementById("3");
@@ -49,7 +50,7 @@ console.log(one);
 
 
 one.addEventListener('click', function(e) {
-    if(turn >= 9){
+    if(turn >= 9 || one.innerHTML === "X" || one.innerHTML === "O"){
         return;
     }
     if(turn % 2 === 0) {
@@ -66,7 +67,7 @@ one.addEventListener('click', function(e) {
 })
 
 two.addEventListener('click', function(e) {
-    if(turn >= 9){
+    if(turn >= 9 || two.innerHTML === "X" || two.innerHTML === "O"){
         return;
     }
     if(turn % 2 === 0) {
@@ -83,7 +84,7 @@ two.addEventListener('click', function(e) {
 })
 
 three.addEventListener('click', function(e) {
-    if(turn >= 9){
+    if(turn >= 9 || three.innerHTML === "X" || three.innerHTML === "O"){
         return;
     }
     if(turn % 2 === 0) {
@@ -100,7 +101,7 @@ three.addEventListener('click', function(e) {
 })
 
 four.addEventListener('click', function(e) {
-    if(turn >= 9){
+    if(turn >= 9 || four.innerHTML === "X" || four.innerHTML === "O") {
         return;
     }
     if(turn % 2 === 0) {
@@ -117,7 +118,7 @@ four.addEventListener('click', function(e) {
 })
 
 five.addEventListener('click', function(e) {
-    if(turn >= 9){
+    if(turn >= 9 || five.innerHTML === "X" || five.innerHTML === "O"){
         return;
     }
     if(turn % 2 === 0) {
@@ -134,7 +135,7 @@ five.addEventListener('click', function(e) {
 })
 
 six.addEventListener('click', function(e) {
-    if(turn >= 9){
+    if(turn >= 9 || six.innerHTML === "X" || six.innerHTML === "O"){
         return;
     }
     if(turn % 2 === 0) {
@@ -151,7 +152,7 @@ six.addEventListener('click', function(e) {
 })
 
 seven.addEventListener('click', function(e) {
-    if(turn >= 9){
+    if(turn >= 9 || seven.innerHTML === "X" || seven.innerHTML === "O"){
         return;
     }
     if(turn % 2 === 0) {
@@ -168,7 +169,7 @@ seven.addEventListener('click', function(e) {
 })
 
 eight.addEventListener('click', function(e) {
-    if(turn >= 9){
+    if(turn >= 9 || eight.innerHTML === "X" || eight.innerHTML === "O"){
         return;
     }
     if(turn % 2 === 0) {
@@ -185,7 +186,7 @@ eight.addEventListener('click', function(e) {
 })
 
 nine.addEventListener('click', function(e) {
-    if(turn >= 9){
+    if(turn >= 9 || nine.innerHTML === "X" || nine.innerHTML === "O"){
         return;
     }
     if(turn % 2 === 0) {

@@ -9,76 +9,116 @@ gameboard array to keep track of player moves
 boolen for end game
 */
 
-let boxOne = "one"
-let boxTwo= "two"
-let boxThree = "three"
-let boxFour = "four"
-let boxFive = "five"
-let boxSix = "six"
-let boxSeven= "seven"
-let boxEight = "eight"
-let boxNine = "nine"
 
+//not sure if I should use individual or an array
+let boxOne = document.getElementById("one")
+let boxTwo=  document.getElementById("two")
+let boxThree = document.getElementById("three")
+let boxFour = document.getElementById("four")
+let boxFive = document.getElementById("five")
+let boxSix = document.getElementById("six")
+let boxSeven= document.getElementById("seven")
+let boxEight = document.getElementById("eight")
+let boxNine = document.getElementById("nine")
 
+const boxArray = ["one", "two", "three", "four", "five","six","seven", "eight", "nine"]
 
-let gameBoxes = ""
-const userOne= ""
-const userTwo= ""
-
+const userOne= "x"
+const userTwo= "o"
+let playerTurn = 1
 
 //  game logic
+function gameLogic (){
+    if  (boxOne === boxTwo === boxThree){
+     return winner
+ } else if (boxThree === boxFour === boxFive) {
+     return winner
+ } else if (boxSix=== boxSeven === boxEight) {
+     return winner
+ } else if (boxOne === boxFour === boxSeven) {
+     return winner
+ } else if (boxTwo === boxFive === boxEight) {
+     return winner
+} else if (boxThree === boxSix=== boxNine) {
+     return winner
+ } else if (boxOne === boxFive === boxNine) {
+     return winner
+ } else if (boxThree=== boxFive === boxSeven) {
+     return winner
+ } else{
+     return tie
+ }
+}
 
-// if (box1 === box2 === box3){
-//     return winner
-// } else if (box3 === box4 === box5) {
-//     return winner
-// } else if (box6 === box7 === box8) {
-//     return winner
-// } else if (box1 === box4 === box7) {
-//     return winner
-// } else if (box2 === box5 === box8) {
-//     return winner
-// } else if (box3 === box6=== box9) {
-//     return winner
-// } else if (box1 === box5 === box9) {
-//     return winner
-// } else if (box3 === box5 === box7) {
-//     return winner
-// } else{
-//     return tie
-// }
 
+// function for player turn
+if (playerTurn % 2 === 0 ){
+    boxArray.innerText = "0"
+} else{
+    boxArray.innerText = "X"
+}
 
 
 
 // Event Listeners
 // change inner text to x or o : getElementbyID:"box1"...
 
-let choice= document.getElementById("six")
 
-choice.addEventListener("click", playerChoiceX);
+let choiceX = document.getElementById("one").addEventListener("click", userOneChoice)
+let choiceO = document.getElementById("two").addEventListener("click", userTwoChoice)
 
- function playerChoiceX(){ 
-        document.getElementById("six").innerText= "x";
-        let boxSix = X
- }
+function userOneChoice(){ 
+        document.getElementById("one").innerText= "x";
+        }
 
-  function choice {
-    playerChoiceX ()
-// userOne (X) chooses then 
-//games goes to player 2 
-// userTwo chooses (O) 
+function userTwoChoice (){
+    document.getElementById("two").innerText = "o"
+}
+ 
+
+// // to start game
+// const newGame = newGame()
+
+// function newGame (){
     
-// game goes to userOne(X)
-  }
+// }
 
-// store players move and keep box from being chosen again
+//game play
+//function gamePlay (e) {
+// userOne (X) chooses sq - somehow this needs to be a click event on current box for each??
+// switch turns
+// userTwo (O) chooses sq
+// check for win-drasw
+//}
+
+// function to change turns
+// function changeUser(){
+//     playerOne = !playerOne
+// }
 
 
-// change turns
 
 
-// check for win/lose/draw
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // reset the game
-// 
+function clearBoard (){
+
+}
+function resetGameboard() {
+    document.getElementById("button").addEventListener("click", clearBoard)
+}

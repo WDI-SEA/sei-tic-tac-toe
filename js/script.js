@@ -15,7 +15,6 @@
     // click event to clear/reset the board
 
 // tie game logic in functions
-        // if the game is won, display the winner and prevent the users from clicking more
         // if it is a cats game, display that and prevent clicks
 // could try while loop to enclose entire game, but will leave it as a stretch goal
 /* END NOTES */
@@ -81,16 +80,25 @@ const makeMove = (e, arrayIndex) =>    // Updates game state according to move m
         weapon = option1;
         e.target.innerText = weapon;    // Visually display action
         array[arrayIndex] = 0;    // Player 1 represented in array as "0"
-        checkWin();//EDIT:WIP
-        message.innerText = "Player 2's turn";
+        if (checkWin())
+        {
+            message.innerText = "Player 1 has won!";
+        }
+        else if (turnNum < 8)    // Don't display next turn if it's last turn or more
+        {
+            message.innerText = "Player 2's turn";
+        }
     }
     else    // If Player 2's turn
     {
         weapon = option2;
         e.target.innerText = weapon;    // Visually display action
         array[arrayIndex] = 1;    // Player 2 represented in array as "1"
-        checkWin();
-        if (turnNum !== 8)    // Don't display next turn if it's last turn
+        if (checkWin())
+        {
+            message.innerText = "Player 2 has won!";
+        }
+        else
         {
             message.innerText = "Player 1's turn";
         }
@@ -101,44 +109,43 @@ const checkWin = () =>    // Win logic
 {
     if (array[0] === array[1] && array[0] === array[2])    // Row 1 win
     {
-        console.log('row1')
         turnNum = 8;    // Ends game (doesn't listen for tile clicks anymore)
         return true;
     }
     if (array[3] === array[4] && array[3] === array[5])    // Row 2 win
     {
-        console.log('row2')
         turnNum = 8;
+        return true;
     }
     if (array[6] === array[7] && array[6] === array[8])    // Row 3 win
     {
-        console.log('row3')
         turnNum = 8;
+        return true;
     }
     if (array[0] === array[3] && array[0] === array[6])    // Colm 1 win
     {
-        console.log('colm1')
         turnNum = 8;
+        return true;
     }
     if (array[1] === array[4] && array[1] === array[7])    // Colm 2 win
     {
-        console.log('colm2')
         turnNum = 8;
+        return true;
     }
     if (array[2] === array[5] && array[2] === array[8])    // Colm 3 win
     {
-        console.log('colm3')
         turnNum = 8;
+        return true;
     }
     if (array[0] === array[4] && array[0] === array[8])    // '\' win
     {
-        console.log('\\')
         turnNum = 8;
+        return true;
     }
     if (array[2] === array[4] && array[2] === array[6])    // '/' win
     {
-        console.log('/')
         turnNum = 8;
+        return true;
     }
     return false;    // If no win yet
 }

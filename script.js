@@ -107,7 +107,7 @@ let nine = document.getElementById("9");
 let g = document.getElementsByClassName("grid");
 
 g[0].addEventListener('click', function(e) {
-    if(turn % 2 === 0 && turn != 9) {
+
         if(testArray[0] === "X" && ((testArray[1] === "X" && testArray[2] === "X") || 
                                     (testArray[4] === "X" && testArray[8] === "X") || 
                                     (testArray[3] === "X" && testArray[6] === "X")) ) {
@@ -124,9 +124,26 @@ g[0].addEventListener('click', function(e) {
                                     (testArray[2] === "X" && testArray[5] === "X")) ) {
             h2.innerHTML = "Player 1 wins";
             return;
-        }  
-    }  
-   
+        }
+          
+        if(testArray[0] === "O" && ((testArray[1] === "O" && testArray[2] === "O") || 
+                                    (testArray[4] === "O" && testArray[8] === "O") || 
+                                    (testArray[3] === "O" && testArray[6] === "O")) ) {
+            h2.innerHTML = "Player 2 wins";
+            return;
+        }
+        if(testArray[4] === "O" && ((testArray[1] === "O" && testArray[7] === "O") ||
+                                    (testArray[3] === "O" && testArray[5] === "O") || 
+                                    (testArray[2] === "O" && testArray[6] === "O")) ) {
+            h2.innerHTML = "Player 2 wins";
+            return;
+        }
+        if(testArray[8] === "O" && ((testArray[6] === "O" && testArray[7] === "O") ||
+                                    (testArray[2] === "O" && testArray[5] === "O")) ) {
+            h2.innerHTML = "Player 2 wins";
+            return;
+        }
+
 
     if(one.contains(e.target)){
         if(turn >= 9 || one.innerHTML === "X" || one.innerHTML === "O"){
@@ -280,7 +297,8 @@ g[0].addEventListener('click', function(e) {
         console.log(testArray);
         console.log(turn);
     }
-if(turn % 2 === 0 && turn != 9) {
+
+
     if(testArray[0] === "X" && ((testArray[1] === "X" && testArray[2] === "X") || 
                                 (testArray[4] === "X" && testArray[8] === "X") || 
                                 (testArray[3] === "X" && testArray[6] === "X")) ) {
@@ -297,9 +315,29 @@ if(turn % 2 === 0 && turn != 9) {
                                 (testArray[2] === "X" && testArray[5] === "X")) ) {
         h2.innerHTML = "Player 1 wins";
         return;
-    }  
+    }
+      
+    if(testArray[0] === "O" && ((testArray[1] === "O" && testArray[2] === "O") || 
+                                (testArray[4] === "O" && testArray[8] === "O") || 
+                                (testArray[3] === "O" && testArray[6] === "O")) ) {
+        h2.innerHTML = "Player 2 wins";
+        return;
+    }
+    if(testArray[4] === "O" && ((testArray[1] === "O" && testArray[7] === "O") ||
+                                (testArray[3] === "O" && testArray[5] === "O") || 
+                                (testArray[2] === "O" && testArray[6] === "O")) ) {
+        h2.innerHTML = "Player 2 wins";
+        return;
+    }
+    if(testArray[8] === "O" && ((testArray[6] === "O" && testArray[7] === "O") ||
+                                (testArray[2] === "O" && testArray[5] === "O")) ) {
+        h2.innerHTML = "Player 2 wins";
+        return;
+    }
+if(turn === 9) {
+    h2.innerHTML = "&#x1F431";
 }
-     
+
 })
 
 

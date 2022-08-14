@@ -29,7 +29,11 @@ let turnCount = 0 /* number of total clicks*/
 
 const displayBox = document.getElementById("displayBox")
 
+console.log("Hello")
+
 function endGame(player) {
+    buttons.forEach(function(item) {
+        item.disabled = true })
     switch(player) {
         case 0: {
             displayBox.innerText = "It's a tie."
@@ -47,27 +51,47 @@ function endGame(player) {
 }
 
 
+const compareArrays = (a, b) => {
+    if (a.length < b.length) {
+        return false
+    }
+    let newA = a;
+    let newB = b;
+  return (
+    newA.every((el) => newB.includes(el))
+  )
+}
+
+// Other code blocks tested here moved to the bottom of the page.
+
 function turnProcess(e) {
-    turnCount ++
+        displayBox.innerText = "Player One's Turn"
+        turnCount ++
     let button = e.srcElement
     if (turnCount & 1) {  //("& 1" checks if the last digit of the number as binary is 1)
         button.innerText = "X"
         playerOneTurns.push(button.id)
-        
+        console.log(playerOneTurns)
+        displayBox.innerText = "Player Two's Turn"
     } else {
         button.innerText = "O"
         playerTwoTurns.push(button.id)
+        console.log(playerTwoTurns)
+        displayBox.innerText = "Player One's Turn"
+
+
     }
     button.disabled = true // Makes button not clickable any more
     
     winningCombos.forEach(function(item) {
-        if (playerOneTurns.toString() == item.toString()) {
-            endGame(1)// Run win conditon: PLAYER 1 WINS
-        } else if (playerTwoTurns.toString() == item.toString()) {
-            endGame(2)// run win condition PLAYER 2 WINS
-        } else if (turnCount == 9) {
+        console.log(item)
+        if (turnCount == 9) {
             endGame(0)//You SUCK IT IS A TIE!!
-        }
+        } else if (compareArrays(playerOneTurns, item)) {
+            endGame(1)// Run win conditon: PLAYER 1 WINS
+        } else if (compareArrays(playerTwoTurns, item)) {
+            endGame(2)// run win condition PLAYER 2 WINS
+        } 
     })
     
     
@@ -98,7 +122,7 @@ butNew.addEventListener("click", function() {
     playerOneTurns = []
     playerTwoTurns = []
     turnCount = 0
-    displayBox.innerText = ""
+    displayBox.innerText = "" //some ""
 })
 
 
@@ -152,3 +176,64 @@ document.body.append(newDiv)
         // if it is a cats game, display that and prevent clicks
 
         */
+
+
+//compareArrays(newA, newB); // true
+
+/*
+function compareArray(a, b) {
+    if (a.length < b.length) {
+        return false        
+    }
+    
+    let newA = a;
+    let newB = b;
+    
+    for (i = 0; i <= newA.length; i++) {
+        for (ii = 0; ii <= newB.length; ii++) {
+            if (newA[i] == newB[ii]) {
+                newA.splice(i, 1);
+                newB.splice(ii, 1);
+            }
+        }
+    }
+    return (newA.length == 1);
+}
+*/
+/*
+function compareArrays(a, b) {
+    if (a.length !== b.length) {
+        return false        
+    }
+    let newA = a;
+    let newB = b;
+    
+    for (i = 0; i <= newA.length; i++) {
+        for (ii = 0; ii <= newB.length; ii++) {
+            if (newA[i] == newB[ii]) {
+                newA.splice(i, 1);
+                newB.splice(ii, 1);
+            }
+        }
+    }
+    return (newA.length == 1 && newB.length == 1);
+}
+*/
+/*function compareArrays(a, b) {
+    if (a.length !== b.length)
+    return false
+    let newA = a
+    let newB = b
+    console.log("hello " + newA + " and " + newB)
+    for (i = 0; i > a.length; i++) {
+        for (ii = 0; ii > b.length; ii++) {
+            if (newA[i] == newB[ii]) {
+                newA.splice(i, 1)
+                newB.splice(ii, 1)
+            }
+        }
+    }
+    return (newA.length == 0 && newB.length == 0)
+    
+}
+*/

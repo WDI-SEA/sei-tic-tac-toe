@@ -1,4 +1,55 @@
-const winningComboOne = ["buttonOne", "buttonTwo", "buttonThree"]
+//const filterArray = = array1.filter(element => array2.includes(element));
+
+
+/*
+Not all browsers will support it, unless you use a polyfill: developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/… – 
+AFD
+ Oct 1, 2018 at 11:58
+
+ ref website: https://stackoverflow.com/questions/12433604/how-can-i-find-matching-values-in-two-arrays
+*/
+
+
+
+/*Array.prototype.diff = function(arr2) {
+    var ret = [];
+    this.sort();
+    arr2.sort();
+    for(var i = 0; i < this.length; i += 1) {
+        if(arr2.indexOf(this[i]) > -1){
+            ret.push(this[i]);
+        }
+    }
+    return ret;
+};
+
+var array1 = ["cat", "sum","fun", "run", "hut"];
+var array2 = ["bat", "cat","dog","sun", "hut", "gut"];
+
+console.log(array1.diff(array2));
+*/
+
+//If you have an issue/problem with extending the Array prototype, you could easily change this to a function.
+
+//var diff = function(arr, arr2) {
+
+
+//And you'd change anywhere where the func originally said this to arr2.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*const winningComboOne = ["buttonOne", "buttonTwo", "buttonThree"]
 const winningComboTwo = ["buttonOne", "buttonFour", "buttonSeven"]
 const winningComboThree = ["buttonOne", "buttonFive", "buttonNine"]
 const winningComboFour = ["buttonTwo", "buttonFive", "buttonEight"]
@@ -26,7 +77,7 @@ let butNew = document.querySelector("resetButton")
 let playerOneTurns = [], playerTwoTurns = []  // Receives button id from clicks
 
 let turnCount = 0 /* number of total clicks*/
-
+/*
 const displayBox = document.querySelector("displayBox")
 
 function endGame(player) {
@@ -73,7 +124,7 @@ function turnProcess(e) {
 buttons.forEach(function(item) {
     item.addEventListener("click", turnProcess)
 })
-
+*/
 /*
 butOne.addEventListener("click", turnProcess)
 butTwo.addEventListener("click", turnProcess)
@@ -86,7 +137,7 @@ butEight.addEventListener("click", turnProcess)
 butNine.addEventListener("click", turnProcess)
 */
 
-
+/*
 butNew.addEventListener("click", function() {
     buttons.forEach(function(item) {
         item.disabled = false
@@ -97,7 +148,7 @@ butNew.addEventListener("click", function() {
     turnCount = 0
     document.querySelector("displayBox").innerText = ""
 })
-
+*/
 
 
 // APP STATE (variables)

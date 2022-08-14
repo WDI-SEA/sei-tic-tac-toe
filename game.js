@@ -1,14 +1,6 @@
 // take a deep breath. you can do this!
 
 // VARIABLES
-/*
-variable for user turns
-var for X and o
-variable to keep track of moves, detect win/lose/draw
-gameboard array to keep track of player moves
-boolen for end game
-*/
-
 
 //not sure if I should use individual or an array
 let boxOne = document.getElementById("one")
@@ -21,14 +13,14 @@ let boxSeven= document.getElementById("seven")
 let boxEight = document.getElementById("eight")
 let boxNine = document.getElementById("nine")
 
-const boxArray = ["one", "two", "three", "four", "five","six","seven", "eight", "nine"]
+const boxArray = [" ", "", " ", " ", " "," "," ", " ", " "]
 
 const userOne= "x"
 const userTwo= "o"
 let playerTurn = 1
 
-//  game logic
-function gameLogic (){
+//  game logic for end result
+const gameOutcome =function gameLogic (){
     if  (boxOne === boxTwo === boxThree){
      return winner
  } else if (boxThree === boxFour === boxFive) {
@@ -52,72 +44,48 @@ function gameLogic (){
 
 
 // function for player turn
+const chooseTurn = function (){
 if (playerTurn % 2 === 0 ){
-    boxArray.innerText = "0"
+    document.getElementById(boxArray[""]).addEventListener("click", userChoice)
+    boxArray[" "].innerText = "x" ///this needs to change the value of ANY slected box 
 } else{
-    boxArray.innerText = "X"
+    boxArray[ " "].innerText = "o"
 }
-
+}
 
 
 // Event Listeners
-// change inner text to x or o : getElementbyID:"box1"...
+let choice1 = document.getElementById("one").addEventListener("click", userChoice)
+let choice2 = document.getElementById("two").addEventListener("click", userChoice)
+let choice3 = document.getElementById("three").addEventListener("click", userChoice)
+let choice4= document.getElementById("four").addEventListener("click", userChoice)
+let choice5 = document.getElementById("five").addEventListener("click", userChoice)
+let choice6 = document.getElementById("six").addEventListener("click", userChoice)
+let choice7 = document.getElementById("seven").addEventListener("click", userChoice)
+let choice8= document.getElementById("eight").addEventListener("click", userChoice)
+let choice9 = document.getElementById("nine").addEventListener("click", userChoice)
 
 
-let choiceX = document.getElementById("one").addEventListener("click", userOneChoice)
-let choiceO = document.getElementById("two").addEventListener("click", userTwoChoice)
 
-function userOneChoice(){ 
-        document.getElementById("one").innerText= "x";
-        }
 
-function userTwoChoice (){
-    document.getElementById("two").innerText = "o"
+
+function userChoice(){ 
+    //if number of plays is  than 5 -->
+
+    //  function for {if player turn put x in chosen box
+    // else  place 0 in chosen box }
+
+   // if number of place is 9  -->
+   // { function for game logic} 
+       
 }
- 
-
-// // to start game
-// const newGame = newGame()
-
-// function newGame (){
-    
-// }
-
-//game play
-//function gamePlay (e) {
-// userOne (X) chooses sq - somehow this needs to be a click event on current box for each??
-// switch turns
-// userTwo (O) chooses sq
-// check for win-drasw
-//}
-
-// function to change turns
-// function changeUser(){
-//     playerOne = !playerOne
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // reset the game
 function clearBoard (){
-
+ //need to reset all inner text to " "
+ let reset = document.getElementsByClassName("box")
+  reset=innerText = " "
 }
 function resetGameboard() {
     document.getElementById("button").addEventListener("click", clearBoard)

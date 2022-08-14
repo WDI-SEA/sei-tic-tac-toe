@@ -2,6 +2,32 @@ body {
     background-color: darkgray;
 }
 
+.gameBoard {
+    background-color: antiquewhite;
+    width: 10vw;
+    height: 10vw;
+    border: 2em;
+    border-style: groove;
+    padding: 3em;
+    color: blue;
+
+}
+
+.gameBoard:disabled {
+    margin: 0;
+    background: darkgray;
+}
+
+ 
+
+
+
+
+
+
+
+
+/*
 #buttonOne {
     background-color: antiquewhite;
     width: 10vw;
@@ -83,7 +109,7 @@ body {
     padding: 5em;
 }
 
-
+*/
 
 
 /* 

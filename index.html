@@ -11,28 +11,32 @@
     <title>TIC TAC TOE</title>
     <link rel = "stylesheet" type="text/css" href = "style.css" />
   </head>
-    <h1>Hello, we are gonna build a tic tac toe game!</h1>
-    <div class = "gameBoard">
+    <h1>TIC TAC TOE</h1>
+    <div>
         <div class = "rowOne">
-            <button id = buttonOne></button>
-            <button id = buttonTwo></button>
-            <button id = buttonThree></button>
+            <button id = buttonOne class = "gameBoard"></button>
+            <button id = buttonTwo class = "gameBoard"></button>
+            <button id = buttonThree class = "gameBoard"></button>
         </div>
         <div class = "rowTwo">
-            <button id = buttonFour></button>
-            <button id = buttonFive></button>
-            <button id = buttonSix></button>
+            <button id = buttonFour class = "gameBoard"></button>
+            <button id = buttonFive class = "gameBoard"></button>
+            <button id = buttonSix class = "gameBoard"></button>
         </div>
         <div class = "rowThree">
-            <button id = buttonSeven></button>
-            <button id = buttonEight></button>
-            <button id = buttonNine></button>
+            <button id = buttonSeven class = "gameBoard"></button>
+            <button id = buttonEight class = "gameBoard"></button>
+            <button id = buttonNine class = "gameBoard"></button>
         </div>
     </div>
         <div id = "resetButton">
             <button>NEW GAME</button>
         </div>
     <h2 id = "displayBox"></h2>
+    <h3>Player One Wins:</h3>
+        <p  id = "displayBoxTwo"></p>
+    <h4>Player Two Wins:</h4>
+        <p  id = "displayBoxThree"></p>
   </body>
   <script src="script.js"></script>
   </html>

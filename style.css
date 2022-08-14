@@ -42,9 +42,9 @@ h1, body {
     margin: 1px, auto;
 } 
 
-.startgame, .endgame {
-    display: flex;
-    justify-content: center;
+.reset-game {
+    /* display: flex;
+    justify-content: center; */
     margin-top: 10px;
     padding: 10px, 10px;
 }

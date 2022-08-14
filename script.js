@@ -27,13 +27,35 @@
         // if the game is won, display the winner and prevent the users from clicking more
         // if it is a cats game, display that and prevent clicks
 
-h2.value = "Player 1, place an X onto the board.";
+h2.innerHTML = "Player 1, place an X onto the board.";
 
 let turn = 0;
 
 let testArray = ['', '', '', 
                 '', '', '',
                 '', '', ''];
+
+let grid = document.getElementById("grod");
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 let one = document.getElementById("1");
 let two = document.getElementById("2");
@@ -46,8 +68,12 @@ let eight = document.getElementById("8");
 let nine = document.getElementById("9");
 
 
-console.log(one);
+let g = document.getElementsByClassName("grid");
+console.log(g[0][0]);
 
+console.log(document.getElementsByClassName("grid"));
+
+g[0].addEventListener('click', function(e) {
 
 one.addEventListener('click', function(e) {
     if(turn >= 9 || one.innerHTML === "X" || one.innerHTML === "O"){
@@ -203,3 +229,14 @@ nine.addEventListener('click', function(e) {
 })
 
     
+if(turn > 2) {
+    if(testArray[0] === "X") {
+        if(testArray[1] === "X") {
+            if(testArray[2] === "X") {
+                h2.innerHTML = "Player 1 wins"
+                return;
+            }
+        }
+    }
+}
+})

@@ -39,6 +39,7 @@ const seven = document.getElementById('seven')
 const eight = document.getElementById('eight')
 const tiles = document.getElementsByClassName('tiles')
 const message = document.getElementById('message')
+const reset = document.getElementById('reset')
 
 // app state variables
 let turn = 'X'
@@ -137,10 +138,6 @@ function currentMove(event){
         turn = 'X'
     }
     message.innerText = turn + "'s turn!"
-
-    console.log(moves)
-    console.log(gameBoard)
-    console.log(gameOver)
 }
 
 // adds event handlers to tile divs
@@ -154,3 +151,29 @@ six.addEventListener('click', currentMove, {once:true})
 seven.addEventListener('click', currentMove, {once:true})
 eight.addEventListener('click', currentMove, {once:true})
 
+// resets game
+reset.addEventListener('click', function(){
+    message.innerText = "X gets the first turn"
+    zero.innerText = ""
+    one.innerText = ""
+    two.innerText = ""
+    three.innerText = ""
+    four.innerText = ""
+    five.innerText = ""
+    six.innerText = ""
+    seven.innerText = ""
+    eight.innerText = ""
+    turn = "X"
+    moves = 0
+    gameOver = false
+    gameBoard = ['0', '1', '2', '3', '4', '5', '6', '7', '8']
+    zero.addEventListener('click', currentMove, {once:true})
+    one.addEventListener('click', currentMove, {once:true})
+    two.addEventListener('click', currentMove, {once:true})
+    three.addEventListener('click', currentMove, {once:true})
+    four.addEventListener('click', currentMove, {once:true})
+    five.addEventListener('click', currentMove, {once:true})
+    six.addEventListener('click', currentMove, {once:true})
+    seven.addEventListener('click', currentMove, {once:true})
+    eight.addEventListener('click', currentMove, {once:true})
+})

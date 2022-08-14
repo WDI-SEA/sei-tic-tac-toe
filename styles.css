@@ -8,6 +8,10 @@ body{
     text-align: center;
 }
 
+#gameboard {
+    margin-top: 100px
+}
+
 .rows {
     position: relative;
     margin: 0 auto;
@@ -20,7 +24,6 @@ body{
     height: 150px;
     font-size: 100px;
     writing-mode: vertical-lr;
-    background-color: aquamarine;
 }
 
 #zero {
@@ -72,5 +75,7 @@ body{
 }
 
 button {
-    margin-top: 50px;
+    margin-top: 100px;
+    padding: 20px 30px;
+    font-size: 20px;
 }

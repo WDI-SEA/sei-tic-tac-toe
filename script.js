@@ -88,6 +88,7 @@ function currentMove(event){
     event.target.innerText = turn
     moves++
 
+    // checks for draw
     if (moves >= 9){
         message.innerText = "Cat's game! / It's a draw!"
         gameOver = true

@@ -27,4 +27,29 @@
         // if the game is won, display the winner and prevent the users from clicking more
         // if it is a cats game, display that and prevent clicks
 
-let input = document.getElementById.
+h2.value = "Player 1, place an X onto the board.";
+
+let turn = 0;
+
+let testArray = ['', '', '', 
+                '', '', '',
+                '', '', ''];
+let input = document.getElementById("1");
+
+
+console.log(input);
+input.addEventListener('click', function(e) {
+    if(turn % 2 === 0) {
+        input.innerHTML = "X";
+        testArray[0] = "X";
+        turn++;
+    } else {
+        input.innerHTML = "O";
+        testArray[0] = "O";
+        turn++;
+    }
+    console.log(testArray);
+    console.log(turn);
+ })
+
+ 

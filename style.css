@@ -13,7 +13,7 @@ h1 {
     color: white;
 }
 
-/* adds gird display and aligns to center */
+/* adds grid display and aligns to center */
 .grid {
     display: grid;
     position: absolute;
@@ -26,6 +26,7 @@ h1 {
 
 /* adds border to the grid display and sets font size/color */
 .item {
+    user-select: none;
     font-size: 115px;
     color: white;
     border: 2px solid;

@@ -89,21 +89,23 @@ nine.addEventListener('click',function(){
 
 function markGridLocationAndUpdatePlayerTurn(gridLocation){
     // if(gridLocation.innerText = "-"){
-        if(curPlayer === 0){
-            if(gridLocation.innerText === "-"){
-                playerTurn.innerText = "Go for it, Player 2!"
-                gridLocation.innerText = playerOne
-                curPlayer = 1
-                console.log(gridLocation.innerText)
-                gameWon()
-            }
-        } else {
-            if(gridLocation.innerText === "-"){
-                playerTurn.innerText = "Make a move, Player 1!"
-                gridLocation.innerText = playerTwo
-                curPlayer = 0
-                console.log(gridLocation.innerText)
-                gameWon()
+        if(result.innerText === ""){ //stops game if a winner is declared
+            if(curPlayer === 0){
+                if(gridLocation.innerText === "-"){ //stops player from playing on a claimed space
+                    playerTurn.innerText = "Go for it, Player 2!"
+                    gridLocation.innerText = playerOne
+                    curPlayer = 1
+                    console.log(gridLocation.innerText)
+                    gameWon()
+                }
+            } else {
+                if(gridLocation.innerText === "-"){
+                    playerTurn.innerText = "Make a move, Player 1!"
+                    gridLocation.innerText = playerTwo
+                    curPlayer = 0
+                    console.log(gridLocation.innerText)
+                    gameWon()
+                }
             }
         }
     // }

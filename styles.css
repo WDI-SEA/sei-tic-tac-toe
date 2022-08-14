@@ -15,7 +15,10 @@ body {
     font-size: 48px;
     /* margin-top: 60px;
     margin-bottom: 60px; */
-   
+}
+
+h1 {
+    /* font-family: ; */
 }
 
 #gameBoard {
@@ -29,4 +32,17 @@ button {
     border: none;
     background-color: #555555;
     color: white;
+}
+
+.gridSpace {
+    margin: 32px;
+    padding: 0;
+}
+
+#playerTurn {
+    font-size: 32px;
+}
+
+#result {
+    font-size: 40px;
 }

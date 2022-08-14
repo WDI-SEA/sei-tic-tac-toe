@@ -52,7 +52,7 @@ function checkWinForX () {
     for (i=0; i < win.length; i++) {
         let resultForX = win[i].every(v => clickedSqsX.includes(v));
         console.log(resultForX)
-        if (resultForX[i] === true) {
+        if (resultForX === true) {
             displayText.innerText = `Player ${player[1]} WINS!`
             for (i=0; i < grid.length; i++) {
                 grid[i].style.pointerEvents = "none";}

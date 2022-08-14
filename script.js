@@ -1,6 +1,4 @@
-// logic
-
-// win conditions
+// named functions
 
 function winCheck(playerInput) {
     let plotA1 = document.getElementById('a1').innerText
@@ -29,22 +27,47 @@ function winCheck(playerInput) {
     } else if (plotA3 === playerInput && plotB3 === playerInput && plotC3 === playerInput) {
         youWin()
     }
-
 }
+
+function youWin() {
+    win = true
+    setTimeout(function() {
+        winnerNoti.innerText = `Player ${playerInput} Wins!`
+
+    }, 10)
+    clearButton.innerText = "Play Again"
+    divs.forEach(div => {
+        div.setAttribute('disabled', '')
+        
+    })
+}
+
+function youLose() {
+    setTimeout(function() {
+        winnerNoti.innerText = `Everyone Loses!`
+
+    }, 10)
+    clearButton.innerText = "Play Again"
+    divs.forEach(div => {
+        div.setAttribute('disabled', '')
+        
+    })
+}
+
+// init 
+
 let win = false
 let turn = 0
 let playerInput = ""
-// let turnButton = document.getElementById('turnButton')
 let clearButton = document.getElementById('clearButton')
 let numSpan = document.getElementById('turnNumSpan')
 let winnerNoti = document.getElementById('winner-stage')
 
-// if clicked
+// game functionality
+
 let divs = document.querySelectorAll(".grid-item")
 const plotClick = e => {
-    
-    // square to circle function
-    //  e.currentTarget.classList.toggle('clicked')
+
     if (turn % 2 === 0) {
         playerInput = 'X'
         e.currentTarget.innerText = "X"
@@ -71,6 +94,7 @@ divs.forEach(div => {
 })
 
 // clear button functionality
+
 clearButton.addEventListener('click', function() {
     divs.forEach(div => {
         div.innerText = " "
@@ -85,30 +109,8 @@ clearButton.addEventListener('click', function() {
     })
 })
 
-function youWin() {
-    win = true
-    setTimeout(function() {
-        winnerNoti.innerText = `Player ${playerInput} Wins!`
 
-    }, 10)
-    clearButton.innerText = "Play Again"
-    divs.forEach(div => {
-        div.setAttribute('disabled', '')
-        
-    })
-}
-
-function youLose() {
-    setTimeout(function() {
-        winnerNoti.innerText = `Everyone Loses!`
-
-    }, 10)
-    clearButton.innerText = "Play Again"
-    divs.forEach(div => {
-        div.setAttribute('disabled', '')
-        
-    })
-}
+// playscreen
 
 document.getElementById('fade-in').addEventListener('click', function() {
     document.getElementById('toFade').style.display = "none"

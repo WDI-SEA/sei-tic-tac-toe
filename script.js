@@ -308,6 +308,10 @@ g[0].addEventListener('click', function(e) {
         h2.innerHTML = "&#x1F431";
     }
 
+    if(h2.innerHTML === "Player 1 wins") {
+        
+    }
+
 })
 
 

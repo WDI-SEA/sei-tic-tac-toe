@@ -18,7 +18,7 @@ h1 {
 h2 {
     color: white;
     position: relative;
-    margin: 40px auto;
+    margin: 25px auto;
 }
 
 /* adds grid display and aligns to center */
@@ -40,7 +40,7 @@ h2 {
 }
 
 button {
-    margin-top: 50px;
+    margin-top: 40px;
     font-size: 1.5em;
     font-weight: ;
     width: 450px;
@@ -48,6 +48,10 @@ button {
     border-radius: 8px; 
     background-color: chartreuse;
     color: black;
+}
+
+.Winstreak {
+    display: inline;
 }
 
 

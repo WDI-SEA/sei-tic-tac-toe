@@ -17,6 +17,11 @@
     background-color: grey;
     display: inline-block;
     margin: 0;
+    position: relative;
+}
+p {
+    position: absolute;
+    transform: translate(47px, 100%);
 }
 #boxOne {
     border-right: 5px solid black;

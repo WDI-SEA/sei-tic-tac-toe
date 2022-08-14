@@ -35,7 +35,44 @@ let testArray = ['', '', '',
                 '', '', '',
                 '', '', ''];
 
-
+function Status() {
+    if(turn >= 2) {
+        if(testArray[0] === "X" && ((testArray[1] === "X" && testArray[2] === "X") || (testArray[4] && testArray[8] === "X")) ) {
+            h2.innerHTML = "Player 1 wins";
+            return;
+        }
+        if(testArray[3] === "X" && testArray[4] === "X" && testArray[5] === "X") {
+            h2.innerHTML = "Player 1 wins";
+            return;
+        }
+        if(testArray[6] === "X" && testArray[7] === "X" && testArray[8] === "X"){
+            h2.innerHTML = "Player 1 wins";
+            return;
+        }   
+        if(testArray[0] === "X" && testArray[4] === "X" && testArray[8] === "X"){
+            h2.innerHTML = "Player 1 wins";
+            return;
+        }   
+        if(testArray[6] === "X" && testArray[4] === "X" && testArray[2] === "X"){
+            h2.innerHTML = "Player 1 wins";
+            return;
+        }   
+        if(testArray[0] === "X" && testArray[3] === "X" && testArray[6] === "X"){
+            h2.innerHTML = "Player 1 wins";
+            return;
+        }   
+        if(testArray[1] === "X" && testArray[4] === "X" && testArray[7] === "X"){
+            h2.innerHTML = "Player 1 wins";
+            return;
+        }   
+        if(testArray[2] === "X" && testArray[5] === "X" && testArray[8] === "X"){
+            h2.innerHTML = "Player 1 wins";
+            return;
+        }
+        
+        
+    }
+}
 
     
 
@@ -70,6 +107,27 @@ let nine = document.getElementById("9");
 let g = document.getElementsByClassName("grid");
 
 g[0].addEventListener('click', function(e) {
+    if(turn % 2 === 0 && turn != 9) {
+        if(testArray[0] === "X" && ((testArray[1] === "X" && testArray[2] === "X") || 
+                                    (testArray[4] === "X" && testArray[8] === "X") || 
+                                    (testArray[3] === "X" && testArray[6] === "X")) ) {
+            h2.innerHTML = "Player 1 wins";
+            return;
+        }
+        if(testArray[4] === "X" && ((testArray[1] === "X" && testArray[7] === "X") ||
+                                    (testArray[3] === "X" && testArray[5] === "X") || 
+                                    (testArray[2] === "X" && testArray[6] === "X")) ) {
+            h2.innerHTML = "Player 1 wins";
+            return;
+        }
+        if(testArray[8] === "X" && ((testArray[6] === "X" && testArray[7] === "X") ||
+                                    (testArray[2] === "X" && testArray[5] === "X")) ) {
+            h2.innerHTML = "Player 1 wins";
+            return;
+        }  
+    }  
+   
+
     if(one.contains(e.target)){
         if(turn >= 9 || one.innerHTML === "X" || one.innerHTML === "O"){
             return;
@@ -222,16 +280,26 @@ g[0].addEventListener('click', function(e) {
         console.log(testArray);
         console.log(turn);
     }
-
-    
-if(turn > 2) {
-    if(testArray[0] === "X") {
-        if(testArray[1] === "X") {
-            if(testArray[2] === "X") {
-                h2.innerHTML = "Player 1 wins"
-                return;
-            }
-        }
+if(turn % 2 === 0 && turn != 9) {
+    if(testArray[0] === "X" && ((testArray[1] === "X" && testArray[2] === "X") || 
+                                (testArray[4] === "X" && testArray[8] === "X") || 
+                                (testArray[3] === "X" && testArray[6] === "X")) ) {
+        h2.innerHTML = "Player 1 wins";
+        return;
     }
+    if(testArray[4] === "X" && ((testArray[1] === "X" && testArray[7] === "X") ||
+                                (testArray[3] === "X" && testArray[5] === "X") || 
+                                (testArray[2] === "X" && testArray[6] === "X")) ) {
+        h2.innerHTML = "Player 1 wins";
+        return;
+    }
+    if(testArray[8] === "X" && ((testArray[6] === "X" && testArray[7] === "X") ||
+                                (testArray[2] === "X" && testArray[5] === "X")) ) {
+        h2.innerHTML = "Player 1 wins";
+        return;
+    }  
 }
+     
 })
+
+

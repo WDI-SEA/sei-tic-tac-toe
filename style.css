@@ -4,6 +4,8 @@
 
 /* enough css to align/make the gameboard */
 
+
+
 body {
     background-color: rgb(45, 45, 45);
     text-align: center;
@@ -19,15 +21,9 @@ h2 {
 
 /* adds grid display and aligns to center */
 .grid {
-    display: inline-grid;
-    /* position: absolute; */
-    /* top: 50%; */
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
     grid-template-columns: 150px 150px 150px;
     grid-template-rows: 150px 150px 150px;
-    /* max-width: 450px; */
-    /* font-size: 115px; */
+    display: inline-grid;
     border: 3px solid white; 
 }
 

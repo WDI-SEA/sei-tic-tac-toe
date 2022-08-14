@@ -37,7 +37,7 @@ let turn = player[0]
 function checkWinForO () {
     for (i=0; i < win.length; i++) {
         let resultForO = win[i].every(v => clickedSqsO.includes(v));
-        console.log(resultForO)
+        // console.log(resultForO)
         if (resultForO === true) { 
             displayText.innerText = `Player ${player[0]} WINS!`
             for (i=0; i < grid.length; i++) {
@@ -51,7 +51,7 @@ function checkWinForO () {
 function checkWinForX () {
     for (i=0; i < win.length; i++) {
         let resultForX = win[i].every(v => clickedSqsX.includes(v));
-        console.log(resultForX)
+        // console.log(resultForX)
         if (resultForX === true) {
             displayText.innerText = `Player ${player[1]} WINS!`
             for (i=0; i < grid.length; i++) {
@@ -72,16 +72,16 @@ for (let i=0; i < grid.length; i++) {
         grid[i].style.backgroundColor = "#FFA07A"
     } else {
         grid[i].style.backgroundColor = "#9FE2BF"}
-    console.log(clickedSqsTotal)
+    // console.log(clickedSqsTotal)
     if (clickedSqsTotal.length === 9) {displayText.innerText = "It's a draw! Rematch?"}
     else {
         if (turn === player[0]) {
         clickedSqsO.push(grid[i])
-        console.log(clickedSqsO)
+        // console.log(clickedSqsO)
         checkWinForO ();
         }else {
         clickedSqsX.push(grid[i])
-        console.log(clickedSqsX)
+        // console.log(clickedSqsX)
         checkWinForX ();
     }}})}
 

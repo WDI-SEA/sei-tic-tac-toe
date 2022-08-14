@@ -16,6 +16,11 @@ const playSpace = document.querySelectorAll('.gridSpace')
 const reset = document.getElementById('reset')
 const result = document.getElementById('result')
 const playerTurn = document.getElementById('playerTurn')
+const winTracker = document.getElementById('winTracker')
+const pOneWinTotal = document.getElementById('pOneWinTotal')
+const pTwoWinTotal = document.getElementById('pTwoWinTotal')
+console.log(pOneWinTotal.innerText)
+console.log(pTwoWinTotal.innerText)
 
 // APP STATE (variables)
     // a variable to track whose turn it is
@@ -182,16 +187,22 @@ three.innerText === playerTwo && six.innerText === playerTwo && nine.innerText =
 one.innerText === playerTwo && five.innerText === playerTwo && nine.innerText === playerTwo, 
 seven.innerText === playerTwo && five.innerText === playerTwo && three.innerText === playerTwo]
 
+// function p1Win(){
+// if (playerOneWinCondits.some() === true)
+//     playerOneWins()
+// }
 function playerOneWins(){
     result.innerText = "Player One wins!"
     playerTurn.innerText = ""
     console.log("Player One wins!")
+    pOneWinTotal.innerText++
 }
 
 function playerTwoWins(){
     result.innerText = "Player Two wins!"
     playerTurn.innerText = ""
     console.log("Player Two wins!")
+    pTwoWinTotal.innerText++
 }
 
 function tieTacToe(){
@@ -202,6 +213,11 @@ function tieTacToe(){
 
         //trying to figure out how to condense this code. can't put just a conditional in variable. 
  function gameWon(){
+    // if (playerOneWinCondits.some()){
+    //     playerOneWins()
+    // } else if (playerTwoWinCondits.some()){
+    //     playerTwoWins()
+    // }
     //top horizontal win condition
     if (one.innerText === playerOne && two.innerText === playerOne && three.innerText === playerOne){
         playerOneWins()

@@ -1,7 +1,38 @@
 console.log('test')
 
+// BOXES CLICKED input
+let box1 = document.querySelector('#1')
+let box2 = document.querySelector('#2')
+let box3 = document.querySelector('#3')
+let box4 = document.querySelector('#4')
+let box5 = document.querySelector('#5')
+let box6 = document.querySelector('#6')
+let box7 = document.querySelector('#7')
+let box8 = document.querySelector('#8')
+let box9 = document.querySelector('#9')
+
+let reset = document.querySelector('#reset')
+let result = document.querySelector('#result')
+
+// EVENT LISTENERS
+
+// FUNCTION
+
+    1. player clicks
+        - score gets tallied
+    2. check if score is a winning combo
+    3. game status 
+        a. winner 
+        b. tie 
+        c. next player click
+
+
+// --- notes from class
+
+
 // APP STATE (variables)
     // a variable to track whose turn it is
+
     // a var for 'x' and a var for 'o'
     // a var to keep count of moves to detect cats/draw game
     // gameBoard array to keep track of player moves ['x', '', 'o', 'x', '', 'o', 'x', '', '']
@@ -12,7 +43,6 @@ console.log('test')
         //     ['x', '', 'o']
         // ]
     // a boolean for if the game is over or not -- is the game currently happening?
-
 
 // EVENT LISTENERS
     // click event listener(s) for player clicks

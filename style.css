@@ -10,22 +10,29 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.grid {
-    height: 200px;
-    width: 200px;
-    margin: 10px;
+.gameboard {
+    margin-left: 30%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     gap: 5px;
-    text-align: center;
-    position: relative;
+    position: absolute;
+    align: center;
 }
 
 .box {
     background-color: black;
     height: 120px;
     width: 120px;
+    margin: 0 auto;
+    font: white;
+    display: flex;
+    justify-content: center;
+    
 
 }
 
+#1 {
+    font-size: 23;
+
+}

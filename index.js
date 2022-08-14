@@ -30,6 +30,7 @@ const boxEight = document.getElementById("boxEight")
 const eightText = document.getElementById("eightText")
 const boxNine = document.getElementById("boxNine")
 const nineText = document.getElementById("nineText")
+const winText = document.getElementById("winText")
 //reset button
 const resetBtn = document.getElementById("resetBtn")
 const allP = document.querySelectorAll("p")
@@ -50,13 +51,20 @@ let boxNineClick = false
     // win/tie game logic in functions
 
     //detect a win using conditionals and comparisions 
-
+    // if it is a cats game, display that and prevent clicks    
+//win function
+function winCheck (){
+    if(playerTurn >= 9){
+        gameOver = true
+        winText.innerText = "Cat's game! Play again to find a winner."
+    }else if(gameBoard[0] == gameBoard[1] && gameBoard[0] == gameBoard[2]){
+        gameOver = true
+        return gameBoard[1]
+        gameBoard.textContent += gameBoard[1] + "'s win!" 
+    }
+}
     // if the game is won, display the winner and prevent the users from clicking more
 
-    // if it is a cats game, display that and prevent clicks
-if (playerTurn >= 9){
-    gameOver = true
-}
     // EVENT LISTENERS
         // click event listener(s) for player clicks
 
@@ -70,7 +78,7 @@ boxOne.addEventListener("click", function(e){
     playerTurn++
     boxOneClick = true   
     gameBoard.splice(0, 1, oneText.innerText)
-    console.log(gameBoard)
+    winCheck()
 }
 })
 boxTwo.addEventListener("click", function(e){
@@ -83,7 +91,7 @@ boxTwo.addEventListener("click", function(e){
     playerTurn++
     boxTwoClick = true
     gameBoard.splice(1, 1, twoText.innerText)
-    console.log(gameBoard)
+    winCheck()
     }
 
 })
@@ -97,7 +105,7 @@ boxThree.addEventListener("click", function(e){
     playerTurn++
     boxThreeClick = true 
     gameBoard.splice(2, 1, threeText.innerText)
-    console.log(gameBoard)
+    winCheck() 
     }
   
 })
@@ -111,7 +119,7 @@ boxFour.addEventListener("click", function(e){
     playerTurn++
     boxFourClick = true
     gameBoard.splice(3, 1, fourText.innerText)
-    console.log(gameBoard)
+    winCheck ()
     }
       
 })
@@ -125,7 +133,7 @@ boxFive.addEventListener("click", function(e){
     playerTurn++
     boxFiveClick = true 
     gameBoard.splice(4, 1, fiveText.innerText)
-    console.log(gameBoard)
+    winCheck() 
     }
    
 })
@@ -139,7 +147,7 @@ boxSix.addEventListener("click", function(e){
     playerTurn++
     boxSixClick = true
     gameBoard.splice(5, 1, sixText.innerText)
-    console.log(gameBoard)
+    winCheck() 
     }
 
 })
@@ -153,7 +161,7 @@ boxSeven.addEventListener("click", function(e){
     playerTurn++
     boxSevenClick = true
     gameBoard.splice(6, 1, sevenText.innerText)
-    console.log(gameBoard)
+    winCheck() 
     }
 
 })
@@ -167,7 +175,7 @@ boxEight.addEventListener("click", function(e){
     playerTurn++
     boxEightClick = true
     gameBoard.splice(7, 1, eightText.innerText)
-    console.log(gameBoard)
+    winCheck() 
     }
 
 })
@@ -181,13 +189,15 @@ boxNine.addEventListener("click", function(e){
     playerTurn++
     boxNineClick = true
     gameBoard.splice(8, 1, nineText.innerText)
-    console.log(gameBoard)
+    winCheck() 
     }
   
 })
-            // change innertext of div to X or O
-            // store the player's move in the gameBoard array
-            // change to the next player's turn
+
+
+            // --change innertext of div to X or O
+            // --store the player's move in the gameBoard array
+            // --change to the next player's turn
             // check for a win -- calling a win condition function/doing all the win logic
     // click event to clear/reset the board
 resetBtn.addEventListener("click", function(e){
@@ -209,5 +219,6 @@ resetBtn.addEventListener("click", function(e){
     boxSevenClick = false
     boxEightClick = false
     boxNineClick = false
+    gameBoard = ['', '', '', '', '', '', '', '', '']
+    winText.innerText = ""
 })
-

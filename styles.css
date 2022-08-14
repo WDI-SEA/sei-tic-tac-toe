@@ -21,7 +21,8 @@
 }
 p {
     position: absolute;
-    transform: translate(47px, 100%);
+    transform: translate(15px, -95%);
+    font-size: 100px;
 }
 #boxOne {
     border-right: 5px solid black;

@@ -33,7 +33,13 @@ function youWin() {
     win = true
     setTimeout(function() {
         winnerNoti.innerText = `Player ${playerInput} Wins!`
-
+        if(playerInput === 'X') {
+            xWin++
+            xWinUpdate.innerText = xWin
+        } else {
+            oWin++
+            oWinUpdate.innerText = oWin
+        }
     }, 10)
     clearButton.innerText = "Play Again"
     divs.forEach(div => {
@@ -58,11 +64,14 @@ function youLose() {
 
 let win = false
 let turn = 0
+let xWin = 0
+let oWin = 0
 let playerInput = ""
 let clearButton = document.getElementById('clearButton')
 let numSpan = document.getElementById('turnNumSpan')
 let winnerNoti = document.getElementById('winner-stage')
-
+let xWinUpdate = document.getElementById('xWinSpan')
+let oWinUpdate = document.getElementById('oWinSpan')
 // game functionality
 
 let divs = document.querySelectorAll(".grid-item")

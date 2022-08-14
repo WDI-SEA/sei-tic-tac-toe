@@ -37,233 +37,108 @@ gameBoard.addEventListener("click", function(e)    // A space has been clicked
     {
         if (e.target.id === "top-left-square")
         {
-            makeMove(e);
-            // Stores game state in array
-            if (turnNum % 2 === 0)
-            {
-                array[0] = 0;    // Player 1 represented in array
-                checkwin();
-                message.innerText = "Player 2's turn";
-            }
-            else
-            {
-                array[0] = 1;    // Player 2 represented in array
-                checkwin();
-                if (turnNum !== 8)    // Don't display next turn if it's last turn
-                {
-                    message.innerText = "Player 1's turn";
-                }
-            }
-            turnNum++;
+            makeMove(e, 0);
         }
         else if (e.target.id === "top-mid-square")
         {
-            makeMove(e);
-            if (turnNum % 2 === 0)
-            {
-                array[1] = 0;
-                checkwin();
-                message.innerText = "Player 2's turn";
-            }
-            else
-            {
-                array[1] = 1;
-                checkwin();
-                if (turnNum !== 8)
-                {
-                    message.innerText = "Player 1's turn";
-                }
-            }
-            turnNum++;
+            makeMove(e, 1);
         }
         else if (e.target.id === "top-right-square")
         {
-            makeMove(e);
-            if (turnNum % 2 === 0)
-            {
-                array[2] = 0;
-                checkwin();
-                message.innerText = "Player 2's turn";
-            }
-            else
-            {
-                array[2] = 1;
-                checkwin();
-                if (turnNum !== 8)
-                {
-                    message.innerText = "Player 1's turn";
-                }
-            }
-            turnNum++;
+            makeMove(e, 2);
         }
         else if (e.target.id === "mid-left-square")
         {
-            makeMove(e);
-            if (turnNum % 2 === 0)
-            {
-                array[3] = 0;
-                checkwin();
-                message.innerText = "Player 2's turn";
-            }
-            else
-            {
-                array[3] = 1;
-                checkwin();
-                if (turnNum !== 8)
-                {
-                    message.innerText = "Player 1's turn";
-                }
-            }
-            turnNum++;
+            makeMove(e, 3);
         }
         else if (e.target.id === "mid-mid-square")
         {
-            makeMove(e);
-            if (turnNum % 2 === 0)
-            {
-                array[4] = 0;
-                checkwin();
-                message.innerText = "Player 2's turn";
-            }
-            else
-            {
-                array[4] = 1;
-                checkwin();
-                if (turnNum !== 8)
-                {
-                    message.innerText = "Player 1's turn";
-                }
-            }
-            turnNum++;
+            makeMove(e, 4);
         }
         else if (e.target.id === "mid-right-square")
         {
-            makeMove(e);
-            if (turnNum % 2 === 0)
-            {
-                array[5] = 0;
-                checkwin();
-                message.innerText = "Player 2's turn";
-            }
-            else
-            {
-                array[5] = 1;
-                checkwin();
-                if (turnNum !== 8)
-                {
-                    message.innerText = "Player 1's turn";
-                }
-            }
-            turnNum++;
+            makeMove(e, 5);
         }
         else if (e.target.id === "bot-left-square")
         {
-            makeMove(e);
-            if (turnNum % 2 === 0)
-            {
-                array[6] = 0;
-                checkwin();
-                message.innerText = "Player 2's turn";
-            }
-            else
-            {
-                array[6] = 1;
-                checkwin();
-                if (turnNum !== 8)
-                {
-                    message.innerText = "Player 1's turn";
-                }
-            }
-            turnNum++;
+            makeMove(e, 6);
         }
         else if (e.target.id === "bot-mid-square")
         {
-            makeMove(e);
-            if (turnNum % 2 === 0)
-            {
-                array[7] = 0;
-                checkwin();
-                message.innerText = "Player 2's turn";
-            }
-            else
-            {
-                array[7] = 1;
-                checkwin();
-                if (turnNum !== 8)
-                {
-                    message.innerText = "Player 1's turn";
-                }
-            }
-            turnNum++;
+            makeMove(e, 7);
         }
         else if (e.target.id === "bot-right-square")
         {
-            makeMove(e);
-            if (turnNum % 2 === 0)
-            {
-                array[8] = 0;
-                checkwin();
-                message.innerText = "Player 2's turn";
-            }
-            else
-            {
-                array[8] = 1;
-                checkwin();
-                if (turnNum !== 8)
-                {
-                    message.innerText = "Player 1's turn";
-                }
-            }
-            turnNum++;
+            makeMove(e, 8);
         }
     }
 })
-const makeMove = (e) =>    // Updates game state according to move made
+const makeMove = (e, arrayIndex) =>    // Updates game state according to move made
 {
     e.target.id = "dead";    // Switch off tile to unplayable
     if (turnNum % 2 === 0)    // If Player 1's turn
     {
         weapon = option1;
         e.target.innerText = weapon;    // Visually display action
+        array[arrayIndex] = 0;    // Player 1 represented in array as "0"
+        checkWin();//EDIT:WIP
+        message.innerText = "Player 2's turn";
     }
     else    // If Player 2's turn
     {
         weapon = option2;
         e.target.innerText = weapon;    // Visually display action
+        array[arrayIndex] = 1;    // Player 2 represented in array as "1"
+        checkWin();
+        if (turnNum !== 8)    // Don't display next turn if it's last turn
+        {
+            message.innerText = "Player 1's turn";
+        }
     }
+    turnNum++;
 }
-const checkwin = () =>    // Win logic
+const checkWin = () =>    // Win logic
 {
     if (array[0] === array[1] && array[0] === array[2])    // Row 1 win
     {
         console.log('row1')
+        turnNum = 8;    // Ends game (doesn't listen for tile clicks anymore)
+        return true;
     }
     if (array[3] === array[4] && array[3] === array[5])    // Row 2 win
     {
         console.log('row2')
+        turnNum = 8;
     }
     if (array[6] === array[7] && array[6] === array[8])    // Row 3 win
     {
         console.log('row3')
+        turnNum = 8;
     }
     if (array[0] === array[3] && array[0] === array[6])    // Colm 1 win
     {
         console.log('colm1')
+        turnNum = 8;
     }
     if (array[1] === array[4] && array[1] === array[7])    // Colm 2 win
     {
         console.log('colm2')
+        turnNum = 8;
     }
     if (array[2] === array[5] && array[2] === array[8])    // Colm 3 win
     {
         console.log('colm3')
+        turnNum = 8;
     }
     if (array[0] === array[4] && array[0] === array[8])    // '\' win
     {
         console.log('\\')
+        turnNum = 8;
     }
     if (array[2] === array[4] && array[2] === array[6])    // '/' win
     {
         console.log('/')
+        turnNum = 8;
     }
+    return false;    // If no win yet
 }

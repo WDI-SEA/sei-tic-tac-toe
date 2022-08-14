@@ -34,22 +34,171 @@ let turn = 0;
 let testArray = ['', '', '', 
                 '', '', '',
                 '', '', ''];
-let input = document.getElementById("1");
+let one = document.getElementById("1");
+let two = document.getElementById("2");
+let three = document.getElementById("3");
+let four = document.getElementById("4");
+let five = document.getElementById("5");
+let six = document.getElementById("6");
+let seven = document.getElementById("7");
+let eight = document.getElementById("8");
+let nine = document.getElementById("9");
 
 
-console.log(input);
-input.addEventListener('click', function(e) {
+console.log(one);
+
+
+one.addEventListener('click', function(e) {
+    if(turn >= 9){
+        return;
+    }
     if(turn % 2 === 0) {
-        input.innerHTML = "X";
+        one.innerHTML = "X";
         testArray[0] = "X";
         turn++;
     } else {
-        input.innerHTML = "O";
+        one.innerHTML = "O";
         testArray[0] = "O";
         turn++;
     }
     console.log(testArray);
     console.log(turn);
- })
+})
 
- 
+two.addEventListener('click', function(e) {
+    if(turn >= 9){
+        return;
+    }
+    if(turn % 2 === 0) {
+        two.innerHTML = "X";
+        testArray[1] = "X";
+        turn++;
+    } else {
+        two.innerHTML = "O";
+        testArray[1] = "O";
+        turn++;
+    }
+    console.log(testArray);
+    console.log(turn);
+})
+
+three.addEventListener('click', function(e) {
+    if(turn >= 9){
+        return;
+    }
+    if(turn % 2 === 0) {
+        three.innerHTML = "X";
+        testArray[2] = "X";
+        turn++;
+    } else {
+        three.innerHTML = "O";
+        testArray[2] = "O";
+        turn++;
+    }
+    console.log(testArray);
+    console.log(turn);
+})
+
+four.addEventListener('click', function(e) {
+    if(turn >= 9){
+        return;
+    }
+    if(turn % 2 === 0) {
+        four.innerHTML = "X";
+        testArray[3] = "X";
+        turn++;
+    } else {
+        four.innerHTML = "O";
+        testArray[3] = "O";
+        turn++;
+    }
+    console.log(testArray);
+    console.log(turn);
+})
+
+five.addEventListener('click', function(e) {
+    if(turn >= 9){
+        return;
+    }
+    if(turn % 2 === 0) {
+        five.innerHTML = "X";
+        testArray[4] = "X";
+        turn++;
+    } else {
+        five.innerHTML = "O";
+        testArray[4] = "O";
+        turn++;
+    }
+    console.log(testArray);
+    console.log(turn);
+})
+
+six.addEventListener('click', function(e) {
+    if(turn >= 9){
+        return;
+    }
+    if(turn % 2 === 0) {
+        six.innerHTML = "X";
+        testArray[5] = "X";
+        turn++;
+    } else {
+        six.innerHTML = "O";
+        testArray[5] = "O";
+        turn++;
+    }
+    console.log(testArray);
+    console.log(turn);
+})
+
+seven.addEventListener('click', function(e) {
+    if(turn >= 9){
+        return;
+    }
+    if(turn % 2 === 0) {
+        seven.innerHTML = "X";
+        testArray[6] = "X";
+        turn++;
+    } else {
+        seven.innerHTML = "O";
+        testArray[6] = "O";
+        turn++;
+    }
+    console.log(testArray);
+    console.log(turn);
+})
+
+eight.addEventListener('click', function(e) {
+    if(turn >= 9){
+        return;
+    }
+    if(turn % 2 === 0) {
+        eight.innerHTML = "X";
+        testArray[7] = "X";
+        turn++;
+    } else {
+        eight.innerHTML = "O";
+        testArray[7] = "O";
+        turn++;
+    }
+    console.log(testArray);
+    console.log(turn);
+})
+
+nine.addEventListener('click', function(e) {
+    if(turn >= 9){
+        return;
+    }
+    if(turn % 2 === 0) {
+        nine.innerHTML = "X";
+        testArray[8] = "X";
+        turn++;
+    } else {
+        nine.innerHTML = "O";
+        testArray[8] = "O";
+        turn++;
+    }
+    console.log(testArray);
+    console.log(turn);
+})
+
+    

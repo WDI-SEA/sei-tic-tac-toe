@@ -27,13 +27,67 @@ let gameBoard = [r1B1.innerHTML, r1B2.innerText, r1B3.innerText,
 let CountClicks = 0;
 let gameTracker = document.querySelector('.Tic-Tac-Toe');
 let playerTurn = document.querySelector('.playerturn');
-let startGame = document.querySelector('.start-button');
 let resetGame = document.querySelector('.reset-game');
 let pageTracker = document.querySelector('.page')
 
-let winning = ['X', 'X', 'X',
+let compareGame = function() {
+    for (let i = 0; i < 16; i++) {
+        if (gameBoard == winningX[i]) {
+            console.log('You win!')
+        } else {
+            console.log('You lose!')
+        }
+    }
+}
+
+let winningX = [['X', 'X', 'X',
                '', '', '',
-               '', '', '']
+               '', '', ''],
+               ['', '', '',
+               'X', 'X', 'X',
+               '', '', ''],
+               ['', '', '',
+               '', '', '',
+               'X', 'X', 'X'],
+               ['X', '', '',
+               '', 'X', '',
+               '', '', 'X'],
+               ['', '', 'X',
+               '', 'X', '',
+               'X', '', ''],
+               ['X', '', '',
+               'X', '', '',
+               'X', '', ''],
+               ['', 'X', '',
+               '', 'X', '',
+               '', 'X', ''],
+               ['', '', 'X',
+               '', '', 'X',
+               '', '', 'X'],
+               ['O', 'O', 'O',
+               '', '', '',
+               '', '', ''],
+               ['', '', '',
+               'O', 'O', 'O',
+               '', '', ''],
+               ['', '', '',
+               '', '', '',
+               'O', 'O', 'O'],
+               ['O', '', '',
+               '', 'O', '',
+               '', '', 'O'],
+               ['', '', 'O',
+               '', 'O', '',
+               'O', '', ''],
+               ['O', '', '',
+               'O', '', '',
+               'O', '', ''],
+               ['', 'O', '',
+               '', 'O', '',
+               '', 'O', ''],
+               ['', '', 'O',
+               '', '', 'O',
+               '', '', 'O']]
 
 
 function checkPlayerTurn() {
@@ -64,14 +118,13 @@ r1B1.addEventListener("click", function() {
     if (CountClicks % 2 == 0) {
         r1B1.innerText = 'O';
         checkPlayerTurn();
-        return CountClicks; 
+        return CountClicks, r1B1.innerText;
     } else {
         r1B1.innerText = 'X';
         checkPlayerTurn();
-        return CountClicks; 
+        clearInterval(this)
+        return CountClicks, r1B1.innerText; 
     };
-    // checkPlayerTurn();
-    // return CountClicks;   
 });
 r1B2.addEventListener("click", function() {
     CountClicks ++;

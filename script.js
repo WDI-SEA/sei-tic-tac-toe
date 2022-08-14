@@ -27,70 +27,15 @@
         // if the game is won, display the winner and prevent the users from clicking more
         // if it is a cats game, display that and prevent clicks
 
-h2.innerHTML = "Player 1, place an X onto the board.";
+
 
 let turn = 0;
+
+h2.innerHTML = "Player 1's turn";
 
 let testArray = ['', '', '', 
                 '', '', '',
                 '', '', ''];
-
-function Status() {
-    if(turn >= 2) {
-        if(testArray[0] === "X" && ((testArray[1] === "X" && testArray[2] === "X") || (testArray[4] && testArray[8] === "X")) ) {
-            h2.innerHTML = "Player 1 wins";
-            return;
-        }
-        if(testArray[3] === "X" && testArray[4] === "X" && testArray[5] === "X") {
-            h2.innerHTML = "Player 1 wins";
-            return;
-        }
-        if(testArray[6] === "X" && testArray[7] === "X" && testArray[8] === "X"){
-            h2.innerHTML = "Player 1 wins";
-            return;
-        }   
-        if(testArray[0] === "X" && testArray[4] === "X" && testArray[8] === "X"){
-            h2.innerHTML = "Player 1 wins";
-            return;
-        }   
-        if(testArray[6] === "X" && testArray[4] === "X" && testArray[2] === "X"){
-            h2.innerHTML = "Player 1 wins";
-            return;
-        }   
-        if(testArray[0] === "X" && testArray[3] === "X" && testArray[6] === "X"){
-            h2.innerHTML = "Player 1 wins";
-            return;
-        }   
-        if(testArray[1] === "X" && testArray[4] === "X" && testArray[7] === "X"){
-            h2.innerHTML = "Player 1 wins";
-            return;
-        }   
-        if(testArray[2] === "X" && testArray[5] === "X" && testArray[8] === "X"){
-            h2.innerHTML = "Player 1 wins";
-            return;
-        }
-        
-        
-    }
-}
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 let one = document.getElementById("1");
@@ -106,7 +51,13 @@ let nine = document.getElementById("9");
 
 let g = document.getElementsByClassName("grid");
 
+
 g[0].addEventListener('click', function(e) {
+    if(turn % 2 === 0){
+        h2.innerHTML = "Player 2's turn";
+    } else if (turn % 2 != 0) {
+        h2.innerHTML = "Player 1's turn";
+    }
 
         if(testArray[0] === "X" && ((testArray[1] === "X" && testArray[2] === "X") || 
                                     (testArray[4] === "X" && testArray[8] === "X") || 

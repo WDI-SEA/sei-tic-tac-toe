@@ -17,6 +17,8 @@ h1 {
 
 h2 {
     color: white;
+    position: relative;
+    margin: 40px auto;
 }
 
 /* adds grid display and aligns to center */
@@ -36,8 +38,12 @@ h2 {
     border: 3px solid;
 }
 
-.text {
-    
+button {
+    margin-top: 50px;
+    font-size: 20px;
+    width: 450px;
+    height: 100px;
+    border-radius: 10px;
 }
-}
+
 

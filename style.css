@@ -1,0 +1,50 @@
+h1, body {
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+.Tic-Tac-Toe {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    left: 33%;
+    
+}
+
+.row1 {
+    height: 50px;
+    width: 150px;
+    display: flex;
+    margin: 1px;
+}
+
+.row2 {
+    height: 50px;
+    width: 150px;
+    display: flex;
+    text-align: center;
+    margin: 1px;
+}
+
+.row3 {
+    height: 50px;
+    width: 150px;
+    display: flex;
+    margin: 1px;
+}
+
+.row1B, .row2B, .row3B {
+    height: 50px;
+    width: 50px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    margin: 1px, auto;
+} 
+
+.startgame, .endgame {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 10px, 10px;
+}

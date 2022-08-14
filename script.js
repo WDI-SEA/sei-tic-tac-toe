@@ -50,46 +50,48 @@ let gameOver = false
 function checkWin() {
     if (gameBoard[0] == gameBoard[1] && gameBoard[1] == gameBoard[2]){
         gameOver = true
-        message.innerText = turn + "Wins!"
+        message.innerText = turn + " Wins!"
     }
     if (gameBoard[3] == gameBoard[4] && gameBoard[4] == gameBoard[5]){
         gameOver = true
-        message.innerText = turn + "Wins!"
+        message.innerText = turn + " Wins!"
     }
     if (gameBoard[6] == gameBoard[7] && gameBoard[7] == gameBoard[8]){
         gameOver = true
-        message.innerText = turn + "Wins!"
+        message.innerText = turn + " Wins!"
     }
     if (gameBoard[0] == gameBoard[3] && gameBoard[3] == gameBoard[6]){
         gameOver = true
-        message.innerText = turn + "Wins!"
+        message.innerText = turn + " Wins!"
     }
     if (gameBoard[1] == gameBoard[4] && gameBoard[4] == gameBoard[7]){
         gameOver = true
-        message.innerText = turn + "Wins!"
+        message.innerText = turn + " Wins!"
     }
     if (gameBoard[2] == gameBoard[5] && gameBoard[5] == gameBoard[8]){
         gameOver = true
-        message.innerText = turn + "Wins!"
+        message.innerText = turn + " Wins!"
     }
     if (gameBoard[0] == gameBoard[4] && gameBoard[4] == gameBoard[8]){
         gameOver = true
-        message.innerText = turn + "Wins!"
+        message.innerText = turn + " Wins!"
     }
     if (gameBoard[2] == gameBoard[4] && gameBoard[4] == gameBoard[6]){
         gameOver = true
-        message.innerText = turn + "Wins!"
+        message.innerText = turn + " Wins!"
     }
 }
 
 // function for player moves
 function currentMove(event){
-    moves++
-    if (moves >= 9){
-        gameOver = true
-    }
-
     event.target.innerText = turn
+    moves++
+
+    if (moves >= 9){
+        message.innerText = "Cat's game! / It's a draw!"
+        gameOver = true
+
+    }
 
     // records moves to gameBoard array
     if (event.target.id == 'zero'){
@@ -114,6 +116,20 @@ function currentMove(event){
 
     checkWin()
 
+    // ends game if win conditions or cats game detected
+    if (gameOver){
+        zero.removeEventListener('click', currentMove)
+        one.removeEventListener('click', currentMove)
+        two.removeEventListener('click', currentMove)
+        three.removeEventListener('click', currentMove)
+        four.removeEventListener('click', currentMove)
+        five.removeEventListener('click', currentMove)
+        six.removeEventListener('click', currentMove)
+        seven.removeEventListener('click', currentMove)
+        eight.removeEventListener('click', currentMove)
+        return
+    }
+
     // changes whos turn it is
     if (turn == 'X') {
         turn = 'O'
@@ -125,17 +141,6 @@ function currentMove(event){
     console.log(moves)
     console.log(gameBoard)
     console.log(gameOver)
-    if (gameOver){
-        zero.removeEventListener('click', currentMove)
-        one.removeEventListener('click', currentMove)
-        two.removeEventListener('click', currentMove)
-        three.removeEventListener('click', currentMove)
-        four.removeEventListener('click', currentMove)
-        five.removeEventListener('click', currentMove)
-        six.removeEventListener('click', currentMove)
-        seven.removeEventListener('click', currentMove)
-        eight.removeEventListener('click', currentMove)
-    }
 }
 
 // adds event handlers to tile divs

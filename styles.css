@@ -1,0 +1,32 @@
+h1 {
+    text-align: center;
+    font-family: Georgia;
+    color: rgb(197, 86, 86);
+}
+
+.gameboard {
+    display: flex;
+    position: relative;
+    top: 20px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    background-color: #85d0f6;
+    max-width: 324px;
+
+}
+
+
+.boxes {
+    height: 100px;
+    width: 100px;
+    background-color: #84CEEB;;
+    border: 4px solid #f4f4f4;
+}
+
+.btn {
+    margin-top: 3rem;
+    text-align: center;
+    height: 2rem;
+    width: 5rem;
+    font-family: georgia;
+  }

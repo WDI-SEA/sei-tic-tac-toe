@@ -22,3 +22,11 @@ body {
     background-color: olivedrab;
     
 }
+
+button {
+    border-radius: 50%;
+    padding: 18px;
+    border: none;
+    background-color: #555555;
+    color: white;
+}

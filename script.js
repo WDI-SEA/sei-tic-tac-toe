@@ -28,8 +28,8 @@ const playerTurn = document.getElementById('playerTurn')
     
     
 let curPlayer = 0 //0 is playerOne
-const playerOne = '❌' // ❌ not working
-const playerTwo = '⭕️' // ⭕️ not working
+const playerOne = '❌' // 
+const playerTwo = '⭕️' // 
 // if (curPlayer = 0){
 //     curPlayer = playerOne
 // } else {
@@ -164,6 +164,24 @@ if (one.innerText === playerOne){
 //     console.log("Player Two wins!")
 // }
 
+const playerOneWinCondits = [one.innerText === playerOne && two.innerText === playerOne && three.innerText === playerOne,
+ four.innerText === playerOne && five.innerText === playerOne && six.innerText === playerOne, 
+ seven.innerText === playerOne && eight.innerText === playerOne && nine.innerText === playerOne, 
+ one.innerText === playerOne && four.innerText === playerOne && seven.innerText === playerOne, 
+ two.innerText === playerOne && five.innerText === playerOne && eight.innerText === playerOne, 
+ three.innerText === playerOne && six.innerText === playerOne && nine.innerText === playerOne, 
+ one.innerText === playerOne && five.innerText === playerOne && nine.innerText === playerOne, 
+ seven.innerText === playerOne && five.innerText === playerOne && three.innerText === playerOne
+]
+const playerTwoWinCondits = [one.innerText === playerTwo && two.innerText === playerTwo && three.innerText === playerTwo,
+four.innerText === playerTwo && five.innerText === playerTwo && six.innerText === playerTwo, 
+seven.innerText === playerTwo && eight.innerText === playerTwo && nine.innerText === playerTwo, 
+one.innerText === playerTwo && four.innerText === playerTwo && seven.innerText === playerTwo, 
+two.innerText === playerTwo && five.innerText === playerTwo && eight.innerText === playerTwo, 
+three.innerText === playerTwo && six.innerText === playerTwo && nine.innerText === playerTwo, 
+one.innerText === playerTwo && five.innerText === playerTwo && nine.innerText === playerTwo, 
+seven.innerText === playerTwo && five.innerText === playerTwo && three.innerText === playerTwo]
+
 function playerOneWins(){
     result.innerText = "Player One wins!"
     playerTurn.innerText = ""
@@ -174,6 +192,12 @@ function playerTwoWins(){
     result.innerText = "Player Two wins!"
     playerTurn.innerText = ""
     console.log("Player Two wins!")
+}
+
+function tieTacToe(){
+    result.innerText = "It's a draw!"
+    playerTurn.innerText = ""
+    console.log("draw")
 }
 
         //trying to figure out how to condense this code. can't put just a conditional in variable. 

@@ -28,4 +28,41 @@
         // if it is a cats game, display that and prevent clicks
 let turn = 'X'
 let moves = 0
-let gameBoard = ['', '', '', '', '', '', '', '', '']
+const gameBoard = ['X', 'X', 'X', '', '', '', '', '', '']
+let gameOver = false
+
+function checkWin() {
+    if (gameBoard[0] == gameBoard[1] && gameBoard[1] == gameBoard[2]){
+
+        gameOver = true
+    }
+    if (gameBoard[3] == gameBoard[4] && gameBoard[4] == gameBoard[5]){
+
+        gameOver = true
+    }
+    if (gameBoard[6] == gameBoard[7] && gameBoard[7] == gameBoard[8]){
+
+        gameOver = true
+    }
+    if (gameBoard[0] == gameBoard[3] && gameBoard[3] == gameBoard[6]){
+
+        gameOver = true
+    }
+    if (gameBoard[1] == gameBoard[4] && gameBoard[4] == gameBoard[7]){
+
+        gameOver = true
+    }
+    if (gameBoard[2] == gameBoard[5] && gameBoard[5] == gameBoard[8]){
+
+        gameOver = true
+    }
+    if (gameBoard[0] == gameBoard[4] && gameBoard[4] == gameBoard[8]){
+
+        gameOver = true
+    }
+    if (gameBoard[2] == gameBoard[4] && gameBoard[4] == gameBoard[6]){
+        
+        gameOver = true
+    }
+}
+checkWin()

@@ -8,10 +8,6 @@ body{
     text-align: center;
 }
 
-#gameboard {
-
-}
-
 .rows {
     position: relative;
     margin: 0 auto;
@@ -27,50 +23,50 @@ body{
     background-color: aquamarine;
 }
 
+#zero {
+    border-right: 5px solid black;
+    border-bottom: 5px solid black;
+}
+
 #one {
+    border-left: 5px solid black;
     border-right: 5px solid black;
     border-bottom: 5px solid black;
 }
 
 #two {
-    border-left: 5px solid black;
-    border-right: 5px solid black;
     border-bottom: 5px solid black;
+    border-left: 5px solid black;
 }
 
 #three {
-    border-bottom: 5px solid black;
-    border-left: 5px solid black;
-}
-
-#four {
     border-top: 5px solid black;
     border-right: 5px solid black;
     border-bottom: 5px solid black;
 }
 
-#five {
+#four {
     border: 5px solid black;
+}
+
+#five {
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    border-left: 5px solid black;
 }
 
 #six {
     border-top: 5px solid black;
-    border-bottom: 5px solid black;
-    border-left: 5px solid black;
+    border-right: 5px solid black;
 }
 
 #seven {
     border-top: 5px solid black;
     border-right: 5px solid black;
-}
-
-#eight {
-    border-top: 5px solid black;
-    border-right: 5px solid black;
     border-left: 5px solid black;
 }
 
-#nine {
+#eight {
     border-top: 5px solid black;
     border-left: 5px solid black;
 }

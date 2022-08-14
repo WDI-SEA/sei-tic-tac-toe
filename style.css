@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: blanchedalmond;
+}
+
+section.gridBox {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 33%);
+    grid-auto-rows: 200px;
+    background-color: black;
+}
+
+div h1 {
+    background-color: rgb(12, 82, 167);
+    text-align: center; 
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: red solid 4px;
+    background-color: rgb(16, 117, 205);
+}

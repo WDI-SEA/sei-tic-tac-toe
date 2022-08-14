@@ -32,7 +32,6 @@ let catsGame = () => {
         //     ['x', 'o', ''],
         //     ['x', '', 'o']
         // ]
-let gameBoard = ['','','','','','','','','']
 
 let aOne = document.getElementById("aOne");
 let bOne = document.getElementById("bOne");
@@ -44,9 +43,23 @@ let aThree = document.getElementById("aThree");
 let bThree = document.getElementById("bThree");
 let cThree = document.getElementById("cThree");
 
+
+let aOneSpace = true
+let bOneSpace = true
+let cOneSpace = true
+let aTwoSpace = true
+let bTwoSpace = true
+let cTwoSpace = true
+let aThreeSpace = true
+let bThreeSpace = true
+let cThreeSpace = true
+
+let gameBoard = ['','','','','','','','','']
+
     // a boolean for if the game is over or not -- is the game currently happening?
 
 let gameOver = false;
+
 
 let reset = document.querySelector('button')
 reset.addEventListener('click', () => {
@@ -60,7 +73,37 @@ reset.addEventListener('click', () => {
         // change to the next player's turn
         // check for a win -- calling a win condition function/doing all the win logic
     // click event to clear/reset the board
+let changePlayers = () => {
+    if(currentPlayer === 'x'){
+        currentPlayer = o
+    } else if (currentPlayer === 'o'){
+        currentPlayer = x
+    }
+}
 
+let playerMove = (player) => {
+    if(gameOver !== true){
+        player.innerHTML = `${currentPlayer}`
+        changePlayers()
+    }
+}
+
+
+aOne.addEventListener('click', (event) => {
+    if(aOneSpace){
+        playerMove(event.target)
+        aOneSpace = false
+    }
+    // console.log('click')
+})
+
+bOne.addEventListener('click', (event) => {
+    if(bOneSpace){
+        playerMove(event.target)
+        bOneSpace = false
+    }
+    // console.log('click')
+})
 
 // some way to tell if a player has already clicked on a square
 // win/tie game logic in functions

@@ -1,10 +1,15 @@
 h1 {
-    font-size: 50px;
-    margin-bottom: 50px;
+    font-size: 60px;
+    margin-bottom: 45px;
+    color: lightpink;
+    font-family: 'DynaPuff', cursive;
 }
 
 body {
     text-align: center;
+    background-color: #1B1F1E;
+    font-family: 'Noto Serif HK', serif;
+    
 }
 
 #sq1, #sq2, #sq3, #sq4, #sq5, #sq6, #sq7, #sq8, #sq9 {
@@ -19,11 +24,13 @@ body {
     vertical-align: middle;
     line-height: 30px;
     font-size: 50px;
+    font-weight: bold;
 }
 
 p {
-    margin: 30px 20px;
-    font-size: 25px;
+    margin-bottom: 25px;
+    font-size: 30px;
+    color: lightgray
 }
 
 button {
@@ -32,4 +39,10 @@ button {
     padding: 15px;
     font-weight: bold;
     color: white;
+    margin-top: 20px;
 }
+
+.rowOne, .rowTwo {
+    margin-bottom: 4px;
+}
+

@@ -3,9 +3,9 @@ body {
 }
 
 .squareTopLeft {
-    color: black;
+    color: white;
 }
 
 .clearButton {
-    color: purple;
+   background-color: purple;
 }

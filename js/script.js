@@ -3,9 +3,9 @@ const gameBoard = document.querySelector(".board");
 let message = document.querySelector(".message");
 const resetBtn = document.querySelector("#resetBtn");
 let turnNum = 0;    // Initialize first turn (0 and evens = Player 1); #'s past 8 = Game Over
-const option1 = "O";
-const option2 = "X";
-let weapon = option1;    // Initialize first placement as "O"
+// (OLD) const option1 = "O";
+// (OLD) const option2 = "X";
+// (OLD) let weapon = option1;    // Initialize first placement as "O"
 let array = ["a0", "a1", "a2", "b0", "b1", "b2", "c0", "c1", "c2"];    // Placeholder array for game state
 let winRoutes = 8;    // # of ways to win in a new game
 // The 8 possible win conditions set to true initially
@@ -19,6 +19,9 @@ let canDiag1 = true;    // "\" diag
 let canDiag2 = true;    // "/" diag
 // Array containing conditions for future check
 const canArray = [canRow1, canRow2, canRow3, canColm1, canColm2, canColm3, canDiag1, canDiag2]
+let playerOneWinCount = 0;
+let playerTwoWinCount = 0;
+let drawCount = 0;
 
 // EVENT LISTENERS AND FUNCTIONS
 gameBoard.addEventListener("click", function(e)    // A space has been clicked
@@ -97,15 +100,33 @@ resetBtn.addEventListener("click", function(e)
     document.querySelector("#bot-right-square").classList.remove("dead");
 
     // Frontend reset
-    document.querySelector("#top-left-square").innerText = "";
-    document.querySelector("#top-mid-square").innerText = "";
-    document.querySelector("#top-right-square").innerText = "";
-    document.querySelector("#mid-left-square").innerText = "";
-    document.querySelector("#mid-mid-square").innerText = "";
-    document.querySelector("#mid-right-square").innerText = "";
-    document.querySelector("#bot-left-square").innerText = "";
-    document.querySelector("#bot-mid-square").innerText = "";
-    document.querySelector("#bot-right-square").innerText = "";
+    document.querySelector("#top-left-square").classList.remove("option-one");
+    document.querySelector("#top-mid-square").classList.remove("option-one");
+    document.querySelector("#top-right-square").classList.remove("option-one");
+    document.querySelector("#mid-left-square").classList.remove("option-one");
+    document.querySelector("#mid-mid-square").classList.remove("option-one");
+    document.querySelector("#mid-right-square").classList.remove("option-one");
+    document.querySelector("#bot-left-square").classList.remove("option-one");
+    document.querySelector("#bot-mid-square").classList.remove("option-one");
+    document.querySelector("#bot-right-square").classList.remove("option-one");
+    document.querySelector("#top-left-square").classList.remove("option-two");
+    document.querySelector("#top-mid-square").classList.remove("option-two");
+    document.querySelector("#top-right-square").classList.remove("option-two");
+    document.querySelector("#mid-left-square").classList.remove("option-two");
+    document.querySelector("#mid-mid-square").classList.remove("option-two");
+    document.querySelector("#mid-right-square").classList.remove("option-two");
+    document.querySelector("#bot-left-square").classList.remove("option-two");
+    document.querySelector("#bot-mid-square").classList.remove("option-two");
+    document.querySelector("#bot-right-square").classList.remove("option-two");
+    // document.querySelector("#top-left-square").innerText = "";
+    // document.querySelector("#top-mid-square").innerText = "";
+    // document.querySelector("#top-right-square").innerText = "";
+    // document.querySelector("#mid-left-square").innerText = "";
+    // document.querySelector("#mid-mid-square").innerText = "";
+    // document.querySelector("#mid-right-square").innerText = "";
+    // document.querySelector("#bot-left-square").innerText = "";
+    // document.querySelector("#bot-mid-square").innerText = "";
+    // document.querySelector("#bot-right-square").innerText = "";
     message.innerText = "Player 1's turn";
 })
 const makeMove = (e, arrayIndex) =>    // Updates game state according to move made
@@ -113,12 +134,15 @@ const makeMove = (e, arrayIndex) =>    // Updates game state according to move m
     e.target.classList.add("dead");    // Switch off tile to unplayable
     if (turnNum % 2 === 0)    // If Player 1's turn
     {
-        weapon = option1;
-        e.target.innerText = weapon;    // Visually display action
+        // (OLD) weapon = option1;
+        // (OLD) e.target.innerText = weapon;    // Visually display action
+        e.target.classList.add("option-one");    // NEW image weapons
         array[arrayIndex] = 0;    // Player 1 represented in array as "0"
         if (checkWin())
         {
             message.innerText = "Player 1 has won!";
+            playerOneWinCount++;
+            document.querySelector("#score1").innerText = "Player 1: " + playerOneWinCount;
         }
         else if (turnNum < 8)    // Don't display next turn if it's last turn or more
         {
@@ -127,12 +151,15 @@ const makeMove = (e, arrayIndex) =>    // Updates game state according to move m
     }
     else    // If Player 2's turn
     {
-        weapon = option2;
-        e.target.innerText = weapon;    // Visually display action
+        // (OLD) weapon = option2;
+        // (OLD) e.target.innerText = weapon;    // Visually display action
+        e.target.classList.add("option-two");
         array[arrayIndex] = 1;    // Player 2 represented in array as "1"
         if (checkWin())
         {
             message.innerText = "Player 2 has won!";
+            playerTwoWinCount++;
+            document.querySelector("#score2").innerText = "Player 2: " + playerTwoWinCount;
         }
         else
         {
@@ -360,8 +387,13 @@ const checkDraw = () =>
                         {
                             turnNum = 8;
                             message.innerText = "The game ends in a draw: cat's game";
+                            console.log("count")
+                            drawCount++;
+                            document.querySelector("#draw").innerText = "Draws: " + drawCount;
+                            break;
                         }
                     }
+                    break;
                 case 1:
                     for (let i = 3; i < 6; i++)
                     {
@@ -373,8 +405,13 @@ const checkDraw = () =>
                         {
                             turnNum = 8;
                             message.innerText = "The game ends in a draw: cat's game";
+                            console.log("count")
+                            drawCount++;
+                            document.querySelector("#draw").innerText = "Draws: " + drawCount;
+                            break;
                         }
                     }
+                    break;
                 case 2:
                     for (let i = 6; i < 9; i++)
                     {
@@ -386,8 +423,13 @@ const checkDraw = () =>
                         {
                             turnNum = 8;
                             message.innerText = "The game ends in a draw: cat's game";
+                            console.log("count")
+                            drawCount++;
+                            document.querySelector("#draw").innerText = "Draws: " + drawCount;
+                            break;
                         }
                     }
+                    break;
                 case 3:
                     for (let i = 0; i < 3; i++)
                     {
@@ -399,8 +441,13 @@ const checkDraw = () =>
                         {
                             turnNum = 8;
                             message.innerText = "The game ends in a draw: cat's game";
+                            console.log("count")
+                            drawCount++;
+                            document.querySelector("#draw").innerText = "Draws: " + drawCount;
+                            break;
                         }
                     }
+                    break;
                 case 4:
                     for (let i = 0; i < 3; i++)
                     {
@@ -412,8 +459,13 @@ const checkDraw = () =>
                         {
                             turnNum = 8;
                             message.innerText = "The game ends in a draw: cat's game";
+                            console.log("count")
+                            drawCount++;
+                            document.querySelector("#draw").innerText = "Draws: " + drawCount;
+                            break;
                         }
                     }
+                    break;
                 case 5:
                     for (let i = 0; i < 3; i++)
                     {
@@ -425,8 +477,13 @@ const checkDraw = () =>
                         {
                             turnNum = 8;
                             message.innerText = "The game ends in a draw: cat's game";
+                            console.log("count")
+                            drawCount++;
+                            document.querySelector("#draw").innerText = "Draws: " + drawCount;
+                            break;
                         }
                     }
+                    break;
                 case 6:
                     for (let i = 0; i < 3; i++)
                     {
@@ -438,8 +495,13 @@ const checkDraw = () =>
                         {
                             turnNum = 8;
                             message.innerText = "The game ends in a draw: cat's game";
+                            console.log("count")
+                            drawCount++;
+                            document.querySelector("#draw").innerText = "Draws: " + drawCount;
+                            break;
                         }
                     }
+                    break;
                 case 7:
                     for (let i = 0; i < 3; i++)
                     {
@@ -451,8 +513,15 @@ const checkDraw = () =>
                         {
                             turnNum = 8;
                             message.innerText = "The game ends in a draw: cat's game";
+                            console.log("count")
+                            drawCount++;
+                            document.querySelector("#draw").innerText = "Draws: " + drawCount;
+                            break;
                         }
                     }
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -460,5 +529,8 @@ const checkDraw = () =>
     {
         turnNum = 8;
         message.innerText = "The game ends in a draw!";
+        console.log("count")
+        drawCount++;
+        document.querySelector("#draw").innerText = "Draws: " + drawCount;
     }
 }

@@ -26,6 +26,7 @@ html, body
 {
     position: absolute;
     left: -1px;    /* To account for the 1px border */
+    border-left: 0;
 }
 .row .center
 {
@@ -35,8 +36,56 @@ html, body
 {
     position: absolute;
     right: -1px;    /* To account for the 1px border */
+    border-right: 0;
+}
+.row .top
+{
+    border-top: 0;
+}
+.row .bot
+{
+    border-bottom: 0;
+    bottom: -1px;
+}
+.row .mid
+{
+    border-bottom: 0;
 }
 #resetBtn
 {
     margin: 20px auto;
+}
+.option-one
+{
+    background-image: url("../img/pokemon-ultra-sun.png");    /* EDIT: fix img transparency not working */
+    background-size: cover;
+}
+.option-two
+{
+    background-image: url("../img/pokemon-ultra-moon-by-alexalan.png");    /* EDIT: fix img transparency not working */
+    background-size: cover;
+}
+#score1
+{
+    background-color: blanchedalmond;
+    position: fixed;
+    display: inline-block;
+    right: 40px;
+    top: 70px;
+}
+#score2
+{
+    background-color: blanchedalmond;
+    position: fixed;
+    display: inline-block;
+    right: 40px;
+    top: 88px;
+}
+#draw
+{
+    background-color: blanchedalmond;
+    position: fixed;
+    display: inline-block;
+    right: 40px;
+    top: 106px;
 }

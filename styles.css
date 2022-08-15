@@ -6,6 +6,15 @@
 
 body{
     text-align: center;
+    background-color: blanchedalmond;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 30px;
 }
 
 #gameboard {
@@ -20,8 +29,8 @@ body{
 .tiles {
     display: inline-block;
     margin: -2px -2px;
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
     font-size: 100px;
     writing-mode: vertical-lr;
 }
@@ -78,4 +87,5 @@ button {
     margin-top: 100px;
     padding: 20px 30px;
     font-size: 20px;
+    border-radius: 10px;
 }

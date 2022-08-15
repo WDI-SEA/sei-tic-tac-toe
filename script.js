@@ -98,6 +98,8 @@ let freshBoard = () => {
     aThree.style.color = 'black'
     bThree.style.color = 'black'
     cThree.style.color = 'black'
+    xScore = 0
+    oScore = 0
     document.getElementById('nextRound').classList.add('hidden')
     document.getElementById("h2").style.color = '#afbfeb'
     changeStarting()

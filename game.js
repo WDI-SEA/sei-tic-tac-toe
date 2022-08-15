@@ -2,7 +2,7 @@
 
 // VARIABLES
 
-//not sure if I should use individual or an array
+//not sure if I should use individual or array
 let boxOne = document.getElementById("one")
 let boxTwo=  document.getElementById("two")
 let boxThree = document.getElementById("three")
@@ -13,31 +13,58 @@ let boxSeven= document.getElementById("seven")
 let boxEight = document.getElementById("eight")
 let boxNine = document.getElementById("nine")
 
-const boxArray = [" ", "", " ", " ", " "," "," ", " ", " "]
+const boxArray = ["boxOne", "boxTwo", "boxThree ", "boxFour ", "boxFive ","boxSix "," boxSeven", "boxEight ", "boxNine "]
 
 const userOne= "x"
 const userTwo= "o"
 let playerTurn = 1
-let playCount = " "
+let box = document.querySelectorAll(".box")
 
-let boxPlayed = document.querySelectorAll(".boxes")
 
-// Event Listeners
-let choice1 = document.getElementById("one").addEventListener("click", chooseTurn)
-let choice2 = document.getElementById("two").addEventListener("click", chooseTurn)
-let choice3 = document.getElementById("three").addEventListener("click", chooseTurn)
-let choice4= document.getElementById("four").addEventListener("click", chooseTurn)
-let choice5 = document.getElementById("five").addEventListener("click", chooseTurn)
-let choice6 = document.getElementById("six").addEventListener("click", chooseTurn)
-let choice7 = document.getElementById("seven").addEventListener("click",chooseTurn)
-let choice8= document.getElementById("eight").addEventListener("click", chooseTurn)
-let choice9 = document.getElementById("nine").addEventListener("click", chooseTurn)
+// Event Listeners: 
+boxOne.addEventListener("click", function ( ){
+    markBoxAsfilled (1)
+})
+boxTwo.addEventListener("click",  function ( ){
+    markBoxAsfilled (2)
+})
+
+boxThree.addEventListener("click",  function ( ){
+    markBoxAsfilled (3)
+})
+boxFour.addEventListener("click",  function ( ){
+    markBoxAsfilled (4)
+})
+boxFive.addEventListener("click",  function ( ){
+    markBoxAsfilled (5)
+})
+boxSix.addEventListener("click",  function ( ){
+    markBoxAsfilled (6)
+})
+boxSeven.addEventListener("click", function ( ){
+    markBoxAsfilled (7)
+})
+boxEight.addEventListener("click",  function ( ){
+    markBoxAsfilled (8)
+})
+boxNine.addEventListener("click",  function ( ){
+    markBoxAsfilled (9)
+})
+
+function markBoxAsfilled () {
+
+}
+// box.forEach (box => {
+//     box.addEventListener("click", chooseTurn)
+//         console.log ('box clicked')
+//     } )
 
 
 const chooseTurn = function (){
     if (playerTurn % 2 === 0 ){
         document.getElementById(boxArray[""]).addEventListener("click", userChoice)
         boxArray[" "].innerText = "x" ///this needs to change the value of ANY slected box 
+        console.log()
     } else{
         boxArray[ " "].innerText = "o"
     }
@@ -80,11 +107,14 @@ const gameOutcome =function gameLogic (){
 
 
 // reset the game
-function clearBoard (){
- //need to reset all inner text to " "
- let reset = document.getElementsByClassName("box")
+let clearBoard=  function clearBoard (){
+  //need to reset all inner text to " "
+  let reset = document.getElementsByClassName("box")
   reset=innerText = " "
+ }
+ function resetGameboard() {
+document.getElementById("button").addEventListener("click", clearBoard)
 }
-function resetGameboard() {
-    document.getElementById("button").addEventListener("click", clearBoard)
-}
+
+addEventListener('DOMContentLoaded', (event) => {});
+onDOMContentLoaded = (event) => { };

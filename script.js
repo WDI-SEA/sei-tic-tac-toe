@@ -51,7 +51,8 @@ let nine = document.getElementById("9");
 
 let g = document.getElementsByClassName("grid");
 
-
+let h3P1streak = 0;
+let h3P2streak = 0;
 
 
 g[0].addEventListener('click', function(e) {
@@ -309,7 +310,8 @@ g[0].addEventListener('click', function(e) {
     }
 
     if(h2.innerHTML === "Player 1 wins") {
-        
+        h3P1streak++;
+        h3P1.innerHTML = h3P1streak;
     }
 
 })

@@ -79,11 +79,14 @@ let freshBoard = () => {
     cThree.innerHTML = '' 
     currentPlayer = 'x'
     document.getElementById('h2').innerHTML = `X's Go First`;
+    gameOver = false
+    
 }
 
-let reset = document.querySelector('button')
+let reset = document.getElementById('reset')
 reset.addEventListener('click', () => {
     freshBoard()
+    count = 0
 })
 
 // EVENT LISTENERS
@@ -100,7 +103,18 @@ let changePlayers = () => {
         currentPlayer = x
     }
 }
+let xScore = 0
+let oScore = 0
 
+let upScore = () => {
+    if(currentPlayer === 'x'){
+        xScore += 1
+        document.getElementById('xScore').innerHTML = `X's - ${xScore}`
+    } else if (currentPlayer === 'o') {
+        oScore += 1
+        document.getElementById('oScore').innerHTML = `O's - ${oScore}`
+    }
+}
 
 
 // let gameBoard = [
@@ -111,27 +125,36 @@ let winConditions = () => {
     if(currentPlayer === gameBoard[0] && currentPlayer === gameBoard[1] && currentPlayer === gameBoard[2]){
         gameOver = true
         document.getElementById("h2").innerHTML = `${currentPlayer.toUpperCase()}'s Wins!`
+        upScore()
+
     }else if(currentPlayer === gameBoard[2] && currentPlayer === gameBoard[5] && currentPlayer  === gameBoard[8]){
         gameOver = true
         document.getElementById("h2").innerHTML = `${currentPlayer.toUpperCase()}'s Wins!`
+        upScore()
     }else if(currentPlayer === gameBoard[0] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[8]){
         gameOver = true
         document.getElementById("h2").innerHTML = `${currentPlayer.toUpperCase()}'s Wins!`
+        upScore()
     }else if(currentPlayer === gameBoard[0] && currentPlayer === gameBoard[3] && currentPlayer === gameBoard[6]){
         gameOver = true
         document.getElementById("h2").innerHTML = `${currentPlayer.toUpperCase()}'s Wins!`
+        upScore()
     }else if(currentPlayer === gameBoard[1] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[7]){
         gameOver = true
         document.getElementById("h2").innerHTML = `${currentPlayer.toUpperCase()}'s Wins!`
+        upScore()
     }else if(currentPlayer === gameBoard[3] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[5]){
         gameOver = true
         document.getElementById("h2").innerHTML = `${currentPlayer.toUpperCase()}'s Wins!`
+        upScore()
     }else if(currentPlayer === gameBoard[6] && currentPlayer === gameBoard[7] && currentPlayer === gameBoard[8]){
         gameOver = true
         document.getElementById("h2").innerHTML = `${currentPlayer.toUpperCase()}'s Wins!`
+        upScore()
     }else if(currentPlayer === gameBoard[6] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[2]){
         gameOver = true
         document.getElementById("h2").innerHTML = `${currentPlayer.toUpperCase()}'s Wins!`
+        upScore()
     }
 }
 

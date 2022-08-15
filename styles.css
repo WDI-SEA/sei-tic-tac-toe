@@ -4,7 +4,7 @@
 
 /* enough css to align/make the gameboard */
 body{
-    background-color: gray
+    background-color: #554640;
 }
 
 header{
@@ -12,6 +12,7 @@ header{
     justify-content: center;
     align-items: center;
     text-decoration: underline;
+    color: #afbfeb;
 }
 
 #grid {
@@ -37,16 +38,16 @@ header{
     margin: 0;
 }
 .space{
-    border: solid;
+    /* border: solid; */
     width: 40px;
     height: 40px;
     text-align: center;
     top: 50%;
     font-size: 34px;
-    background-color: blanchedalmond;
+    background-color: tan;
 }
 
-#reset{
+#btns{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,6 +57,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #afbfeb;
 }
 #score{
     display: flex;
@@ -64,20 +66,64 @@ header{
 }
 
 #xScore{
-    color: blue;
+    color: #f93943;
     margin-right: 5px;
     font-size: 25px;
     padding: 5px;
-    background-color: blanchedalmond;
+    background-color:;
+    font-weight: 1000;
+    text-decoration: underline;
 }
         
 #oScore{
-    color: red;
+    color: #36827f;
     margin-left: 5px;
     padding: 5px;
     font-size: 25px;
-    background-color: blanchedalmond;
+    background-color: ;
+    font-weight: 1000;
+    background-color: ;
+    text-decoration: underline;
 }
 .hidden{
     display: ;
+}
+#cOne{
+    border-left: solid;
+    border-bottom: solid;
+}
+#cTwo{
+    border-bottom: solid;
+    border-left: solid;
+    border-top: solid;
+}
+#cThree {
+    border-top: solid;
+    border-left: solid;
+}
+#aOne{
+    border-bottom: solid;
+    border-right: solid;
+}
+#aTwo{
+    border-bottom: solid;
+    border-right: solid;
+    border-top: Solid;
+}
+#aThree{
+    border-top: solid;
+    border-right: solid;
+}
+#bOne{
+    border-bottom: solid;
+    border-left: solid;
+    border-right: solid;
+}
+#bTwo{
+    border: solid;
+}
+#bThree{
+    border-top: solid;
+    border-left: solid;
+    border-right: solid;
 }

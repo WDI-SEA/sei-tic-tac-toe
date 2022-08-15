@@ -3,25 +3,49 @@
 /* DO NOT DO ANY EXTRA CSS UNTIL YOU ARE FINISHED WITH THE GAME */
 
 /* enough css to align/make the gameboard */
-
-#board {
-    text-align: center;
-    margin: 60px 
+body { 
+    background-color: rgb(238 236 225);
 }
+#board {
+text-align: center;
+margin: 60px 
+}
+
+#scoreBoard{
+    position: fixed;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    padding-right: 20px;
+    margin-left: -10px;
+}
+
+#scoreReset {
+    margin-left: 10px;
+    border-radius: 3px;
+    border: 1px solid black;
+}
+
 .row{
     margin: 0;
 }
 .square {
-    height:100px;
-    width: 100px;
+    height:150px;
+    width: 150px;
     display: inline-block;
     margin: 0;
     position: relative;
 }
 p {
     position: absolute;
-    transform: translate(15px, -95%);
-    font-size: 100px;
+    transform: translate(20px, -95%);
+    font-size: 150px;
+}
+h2 {
+    font-size: 50px;
+    text-decoration: underline;
+    margin-top: 10px
 }
 #boxOne {
     border-right: 5px solid black;
@@ -62,8 +86,11 @@ p {
     border-left: 5px solid black;
     border-top: 5px solid black;
 }
-button {
-    margin: 30px 0;
+#resetBtn {
+    margin-top: 30px;
     padding: 20px;
     border-radius: 10px;
+    width: 300px;
+    font-size: 20px;
+    border: 1px solid grey;
 }

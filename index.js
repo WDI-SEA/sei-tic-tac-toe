@@ -7,6 +7,7 @@ let X = "X"
 let O = "O"
 let clicked = false
 
+
 // a var to keep count of moves to detect cats/draw game
 // gameBoard array to keep track of player moves ['x', '', 'o', 'x', '', 'o', 'x', '', '']
 let gameBoard = ['0', '1', '2', '3', '4', '5', '6', '7', '8']
@@ -32,10 +33,13 @@ const eightText = document.getElementById("eightText")
 const boxNine = document.getElementById("boxNine")
 const nineText = document.getElementById("nineText")
 const winText = document.getElementById("winText")
-//reset button
+const xText = document.getElementById("xScore")
+const oText = document.getElementById("oScore")
+//reset buttons
 const resetBtn = document.getElementById("resetBtn")
 const allP = document.querySelectorAll("p")
 const div = document.getElementsByClassName("square")  
+const scoreReset = document.getElementById("scoreReset")
 
 
     // some way to tell if a player has already clicked on a square
@@ -49,11 +53,23 @@ let boxSevenClick = false
 let boxEightClick = false
 let boxNineClick = false
     // win/tie game logic in functions
-
+let oScore = 0
+let xScore = 0
     //detect a win using conditionals and comparisions 
     // if it is a cats game, display that and prevent clicks    
     //win function
     // if the game is won, display the winner and prevent the users from clicking more
+function tallyScore (i){
+    if(gameBoard[i] === "X"){
+        xScore++
+        xText.innerText = xScore
+    }else if(gameBoard[i] === "O"){
+        oScore++
+        oText.innerText = oScore
+    }
+}
+
+
 function winCheck (){
     if(playerTurn >= 9){
         gameOver = true
@@ -61,29 +77,38 @@ function winCheck (){
     }
     if(gameBoard[0] == gameBoard[1] && gameBoard[0] == gameBoard[2]){
         gameOver = true
-        winText.innerText = gameBoard[0] + "'s win! Click Reset to try again!" 
+        winText.innerText = gameBoard[0] + "'s win! Click Reset to try again!"
+        tallyScore(0)
     }else if(gameBoard[0] == gameBoard[3] && gameBoard[0] == gameBoard[6]){
         gameOver = true
         winText.innerText = gameBoard[0] + "'s win! Click Reset to try again!"
+        tallyScore(0)
     }else if(gameBoard[0] == gameBoard[4] && gameBoard[0] == gameBoard[8]){
         gameOver = true
         winText.innerText = gameBoard[0] + "'s win! Click Reset to try again!"
+        tallyScore(0)
     }else if(gameBoard[1] == gameBoard[4] && gameBoard[1] == gameBoard[7]){
         gameOver = true
         winText.innerText = gameBoard[1] + "'s win! Click Reset to try again!"
+        tallyScore(1)
     }else if(gameBoard[2] == gameBoard[5] && gameBoard[2] == gameBoard[8]){
         gameOver = true
         winText.innerText = gameBoard[2] + "'s win! Click Reset to try again!"
+        tallyScore(2)
     }else if(gameBoard[2] == gameBoard[4] && gameBoard[2] == gameBoard[6]){
         gameOver = true
         winText.innerText = gameBoard[2] + "'s win! Click Reset to try again!"
+        tallyScore(2)
     }else if(gameBoard[3] == gameBoard[4] && gameBoard[3] == gameBoard[5]){
         gameOver = true
         winText.innerText = gameBoard[3] + "'s win! Click Reset to try again!"
+        tallyScore(3)
     }else if(gameBoard[6] == gameBoard[7] && gameBoard[6] == gameBoard[8]){
         gameOver = true
         winText.innerText = gameBoard[6] + "'s win! Click Reset to try again!"
+        tallyScore(6)
     }
+    playerTurn++
 }
 
     // EVENT LISTENERS
@@ -96,7 +121,6 @@ boxOne.addEventListener("click", function(e){
         } else{
             oneText.innerText = O
         }    
-    playerTurn++
     boxOneClick = true   
     gameBoard.splice(0, 1, oneText.innerText)
     winCheck()
@@ -109,7 +133,6 @@ boxTwo.addEventListener("click", function(e){
         } else{
             twoText.innerText = O
         }
-    playerTurn++
     boxTwoClick = true
     gameBoard.splice(1, 1, twoText.innerText)
     winCheck()
@@ -123,7 +146,6 @@ boxThree.addEventListener("click", function(e){
         } else{
             threeText.innerText = O
         }    
-    playerTurn++
     boxThreeClick = true 
     gameBoard.splice(2, 1, threeText.innerText)
     winCheck() 
@@ -137,7 +159,6 @@ boxFour.addEventListener("click", function(e){
         } else{
             fourText.innerText = O
         }
-    playerTurn++
     boxFourClick = true
     gameBoard.splice(3, 1, fourText.innerText)
     winCheck ()
@@ -151,7 +172,6 @@ boxFive.addEventListener("click", function(e){
         } else{
             fiveText.innerText = O
         }   
-    playerTurn++
     boxFiveClick = true 
     gameBoard.splice(4, 1, fiveText.innerText)
     winCheck() 
@@ -165,7 +185,6 @@ boxSix.addEventListener("click", function(e){
         } else{
             sixText.innerText = O
         }    
-    playerTurn++
     boxSixClick = true
     gameBoard.splice(5, 1, sixText.innerText)
     winCheck() 
@@ -179,7 +198,6 @@ boxSeven.addEventListener("click", function(e){
         } else{
             sevenText.innerText = O
         }    
-    playerTurn++
     boxSevenClick = true
     gameBoard.splice(6, 1, sevenText.innerText)
     winCheck() 
@@ -193,7 +211,6 @@ boxEight.addEventListener("click", function(e){
         } else{
             eightText.innerText = O
         }
-    playerTurn++
     boxEightClick = true
     gameBoard.splice(7, 1, eightText.innerText)
     winCheck() 
@@ -207,7 +224,6 @@ boxNine.addEventListener("click", function(e){
         } else{
             nineText.innerText = O
         }  
-    playerTurn++
     boxNineClick = true
     gameBoard.splice(8, 1, nineText.innerText)
     winCheck() 
@@ -244,4 +260,8 @@ resetBtn.addEventListener("click", function(e){
     winText.innerText = ""
     playerTurn = 0
     gameOver = false
+})
+scoreReset.addEventListener("click", function(e){
+    xText.innerText = ""
+    oText.innerText = ""
 })

@@ -14,7 +14,6 @@
 .square {
     height:100px;
     width: 100px;
-    background-color: grey;
     display: inline-block;
     margin: 0;
     position: relative;

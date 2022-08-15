@@ -1,17 +1,12 @@
-// APP STATE (variables)
-// a var to keep count of moves to detect cats/draw game
-
 // EVENT LISTENERS
 // click event to clear/reset the board
 
-// tie game logic in functions
-        // if it is a cats game, display that and prevent clicks
 // could try while loop to enclose entire game, but will leave it as a stretch goal
 /* END NOTES */
 
 // VARIABLES
 const gameBoard = document.querySelector(".board");
-let message = document.querySelector(".message");
+const resetBtn = document.querySelector("#resetBtn");
 let turnNum = 0;    // Initialize first turn (0 and evens = Player 1); #'s past 8 = Game Over
 const option1 = "O";
 const option2 = "X";
@@ -27,7 +22,8 @@ let canColm2 = true;
 let canColm3 = true;
 let canDiag1 = true;    // "\" diag
 let canDiag2 = true;    // "/" diag
-
+// Array containing conditions for future check
+const canArray = [canRow1, canRow2, canRow3, canColm1, canColm2, canColm3, canDiag1, canDiag2]
 
 // EVENT LISTENERS AND FUNCTIONS
 gameBoard.addEventListener("click", function(e)    // A space has been clicked
@@ -103,8 +99,8 @@ const makeMove = (e, arrayIndex) =>    // Updates game state according to move m
             message.innerText = "Player 1's turn";
         }
     }
-    turnNum++;
     checkDraw();
+    turnNum++;
 }
 const checkWin = () =>    // Win logic
 {
@@ -152,11 +148,6 @@ const checkWin = () =>    // Win logic
 }
 const checkDraw = () =>
 {
-    for (let i = 0; i < 9; i++)
-    {
-        // implement a catch if there is one route left and 2 spaces next to each other
-        // end game
-    }
     let zeros = 0;
     let ones = 0;
     for (let i = 0; i < 3; i++)    // Check contents of first row
@@ -172,6 +163,7 @@ const checkDraw = () =>
         if (zeros > 0 && ones > 0 && canRow1)    // Checks if at least one of each is in the row
         {
             canRow1 = false;
+            canArray[0] = false;
             winRoutes--;
         }
     }
@@ -191,6 +183,7 @@ const checkDraw = () =>
         if (zeros > 0 && ones > 0 && canRow2)
         {
             canRow2 = false;
+            canArray[1] = false;
             winRoutes--;
         }
     }
@@ -209,6 +202,7 @@ const checkDraw = () =>
         if (zeros > 0 && ones > 0 && canRow3)
         {
             canRow3 = false;
+            canArray[2] = false;
             winRoutes--;
         }
     }
@@ -227,6 +221,7 @@ const checkDraw = () =>
         if (zeros > 0 && ones > 0 && canColm1)
         {
             canColm1 = false;
+            canArray[3] = false;
             winRoutes--;
         }
     }
@@ -245,6 +240,7 @@ const checkDraw = () =>
         if (zeros > 0 && ones > 0 && canColm2)
         {
             canColm2 = false;
+            canArray[4] = false;
             winRoutes--;
         }
     }
@@ -263,6 +259,7 @@ const checkDraw = () =>
         if (zeros > 0 && ones > 0 && canColm3)
         {
             canColm3 = false;
+            canArray[5] = false;
             winRoutes--;
         }
     }
@@ -281,6 +278,7 @@ const checkDraw = () =>
         if (zeros > 0 && ones > 0 && canDiag1)
         {
             canDiag1 = false;
+            canArray[6] = false;
             winRoutes--;
         }
     }
@@ -299,11 +297,128 @@ const checkDraw = () =>
         if (zeros > 0 && ones > 0 && canDiag2)
         {
             canDiag2 = false;
+            canArray[7] = false;
             winRoutes--;
+        }
+    }
+    if (winRoutes === 1)    // Check if the last 2 spaces are in the last win condition route
+    {                       // If so, then it's a draw game
+        let lastRoute = canArray.indexOf(true);
+        if (turnNum === 6)    // If at end of turn 7 (2 spaces left)
+        {
+            let emptySpaces = 0;
+            switch (lastRoute)
+            {
+                case 0:
+                    for (let i = 0; i < 3; i++)    // Optimization note: possibly merge with for loops at beginning of checkDraw() and split into 2 more functions
+                    {
+                        if (array[i] !== 0 && array[i] !== 1)    // If space is unplayed
+                        {
+                            emptySpaces++;
+                        }
+                        if (emptySpaces < 3)    // If 2 or less spaces left
+                        {
+                            turnNum = 8;
+                            message.innerText = "The game ends in a draw: cat's game";
+                        }
+                    }
+                case 1:
+                    for (let i = 3; i < 6; i++)
+                    {
+                        if (array[i] !== 0 && array[i] !== 1)
+                        {
+                            emptySpaces++;
+                        }
+                        if (emptySpaces < 3)
+                        {
+                            turnNum = 8;
+                            message.innerText = "The game ends in a draw: cat's game";
+                        }
+                    }
+                case 2:
+                    for (let i = 6; i < 9; i++)
+                    {
+                        if (array[i] !== 0 && array[i] !== 1)
+                        {
+                            emptySpaces++;
+                        }
+                        if (emptySpaces < 3)
+                        {
+                            turnNum = 8;
+                            message.innerText = "The game ends in a draw: cat's game";
+                        }
+                    }
+                case 3:
+                    for (let i = 0; i < 3; i++)
+                    {
+                        if (array[i * 3] !== 0 && array[i * 3] !== 1)
+                        {
+                            emptySpaces++;
+                        }
+                        if (emptySpaces < 3)
+                        {
+                            turnNum = 8;
+                            message.innerText = "The game ends in a draw: cat's game";
+                        }
+                    }
+                case 4:
+                    for (let i = 0; i < 3; i++)
+                    {
+                        if (array[i * 3 + 1] !== 0 && array[i * 3 + 1] !== 1)
+                        {
+                            emptySpaces++;
+                        }
+                        if (emptySpaces < 3)
+                        {
+                            turnNum = 8;
+                            message.innerText = "The game ends in a draw: cat's game";
+                        }
+                    }
+                case 5:
+                    for (let i = 0; i < 3; i++)
+                    {
+                        if (array[i * 3 + 2] !== 0 && array[i * 3 + 2] !== 1)
+                        {
+                            emptySpaces++;
+                        }
+                        if (emptySpaces < 3)
+                        {
+                            turnNum = 8;
+                            message.innerText = "The game ends in a draw: cat's game";
+                        }
+                    }
+                case 6:
+                    for (let i = 0; i < 3; i++)
+                    {
+                        if (array[i * 4] !== 0 && array[i * 4] !== 1)
+                        {
+                            emptySpaces++;
+                        }
+                        if (emptySpaces < 3)
+                        {
+                            turnNum = 8;
+                            message.innerText = "The game ends in a draw: cat's game";
+                        }
+                    }
+                case 7:
+                    for (let i = 0; i < 3; i++)
+                    {
+                        if (array[(i + 1) * 2] !== 0 && array[(i + 1) * 2] !== 1)
+                        {
+                            emptySpaces++;
+                        }
+                        if (emptySpaces < 3)
+                        {
+                            turnNum = 8;
+                            message.innerText = "The game ends in a draw: cat's game";
+                        }
+                    }
+            }
         }
     }
     if (winRoutes === 0)
     {
-        console.log("donezo")
+        turnNum = 8;
+        message.innerText = "The game ends in a draw!";
     }
 }

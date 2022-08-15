@@ -223,11 +223,10 @@ let playerMove = (player) => {
 }
 
 let catsGame = () => {
-    if(count === 9){
-        document.getElementById("h2").innerHTML = "Cat\'s Game";
-    } else {
-        count += 1
-    }
+    count += 1
+    if(gameOver !== true && count === 9){
+        document.getElementById("h2").innerHTML = "Cat\'s Game 😿";
+    } 
 }
 
 aOne.addEventListener('click', (event) => {

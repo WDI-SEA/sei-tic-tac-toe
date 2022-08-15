@@ -13,6 +13,8 @@ header{
     align-items: center;
     text-decoration: underline;
     color: #afbfeb;
+    margin-top: 0px;
+    font-size: 40px;
 }
 
 #grid {
@@ -39,11 +41,11 @@ header{
 }
 .space{
     /* border: solid; */
-    width: 40px;
-    height: 40px;
+    width: 150px;
+    height: 150px;
     text-align: center;
     top: 50%;
-    font-size: 34px;
+    font-size: 120px;
     background-color: tan;
 }
 
@@ -59,6 +61,7 @@ header{
     justify-content: center;
     align-items: center;
     color: #afbfeb;
+    margin: 0px;
 }
 #score{
     display: flex;
@@ -74,6 +77,8 @@ header{
     background-color:;
     font-weight: 1000;
     text-decoration: underline;
+    font-size: 40px;
+    margin-top: 0px
 }
         
 #oScore{
@@ -85,6 +90,8 @@ header{
     font-weight: 1000;
     background-color: ;
     text-decoration: underline;
+    font-size: 40px;
+    margin-top: 0px
 }
 .hidden{
     display: none;
@@ -133,4 +140,7 @@ header{
 button{
     font-size: 20px;
     background-color: gray;
+}
+h2{
+    font-size: 40px;
 }

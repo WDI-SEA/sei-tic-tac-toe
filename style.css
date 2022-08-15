@@ -1,15 +1,15 @@
 body {
-    background: white;
+    background: whitesmoke;
 }
 
 h1 {
  text-align: center;
 }
 .squareTopLeft {
-    color: white;
+    color: pink;
 }
 
 .clearButton {
    background-color: darkolivegreen;
-   position: ;
+   text-align: center;
 }

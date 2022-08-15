@@ -186,15 +186,16 @@
     //     gamePlayFunction('square1');
     // }, true)
 
-    function turnOffEvent() {
-        square1.removeEventListener('click', function(e) {
-            gamePlayFunction('square1');
-        },)
-    }
+    // function turnOffEvent() {
+    //     square1.removeEventListener('click', function(e) {
+    //         gamePlayFunction('square1');
+    //     },)
+    // }
 
     // square 2
-    square2.addEventListener("click", gamePlayFunction('square2'))
-
+    square1.addEventListener("click", function(e) {
+        gamePlayFunction('square1');
+    })
     // square 3
     square3.addEventListener("click", function(e) {
         gamePlayFunction('square3');

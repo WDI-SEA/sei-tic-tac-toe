@@ -6,44 +6,48 @@
 <!-- button for reset -->
 <!-- an area to display messages to the user such us whose turn it is and who the winner winner is, and if there is a cats game -->
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link rel="stylesheet" href="styles.css"/>
-    <title>Document</title>
 </head>
 <body>
-    <h1 id="header">
-         TIC TAC TOE! 
-    </h1>
-    <div class="board">
-        <div id="grid1">
-        </div>
-        <div id="grid2">
-        </div>
-        <div id="grid3">
-        </div>
-        <div id="grid4">
-        </div>
-        <div id="grid5">
-        </div>
-        <div id="grid6">
-        </div>
-        <div id="grid7">
-        </div>
-        <div id="grid8">
-        </div>
-        <div id="grid9">
-        </div>
 
 
+    <div id="header">
+        <h1>TIC TAC TOE!</h1>
+        <h2 id="displayMessage" >
+            Player X's Turn
+        </h2>
+        <div id="board">
+            <input type="button" id="grid1" onclick="clickGrid1(); startGame();">
+            </input>
+            <input type="button" id="grid2" onclick="clickGrid2(); startGame();">
+            </input>
+            <input type="button" id="grid3" onclick="clickGrid3(); startGame();">
+            </input>
+
+            <input type="button" id="grid4" onclick="clickGrid4(); startGame();">
+            </input>
+            <input type="button" id="grid5" onclick="clickGrid5(); startGame();">
+            </input>
+            <input type="button" id="grid6" onclick="clickGrid6(); startGame();">
+            </input>
+            <input type="button" id="grid7" onclick="clickGrid7(); startGame();">
+            </input>
+            <input type="button" id="grid8" onclick="clickGrid8(); startGame();">
+            </input>
+            <input type="button" id="grid9" onclick="clickGrid9(); startGame();">
+        </input>   
+        </div>
+        <button id="restartButton" onclick="resetButton()">Restart Game</button>
+       
+        </div>
     </div>
-
-    
+    <script src="javascript.js"></script>
 </body>
-<script src="./javascript.js"></script>
-</html>
+</html> 

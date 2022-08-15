@@ -25,17 +25,6 @@ const playerOne = '❌' //
 const playerTwo = '⭕️' // 
 let turn = 0
 
-    // a var to keep count of moves to detect cats/draw game
-// const draw = 
-    // gameBoard array to keep track of player moves ['x', '', 'o', 'x', '', 'o', 'x', '', '']
-
-        // 2d array
-        // [
-        //     ['x', '', 'o'],
-        //     ['x', 'o', ''],
-        //     ['x', '', 'o']
-        // ]
-
 // EVENT LISTENERS
 one.addEventListener('click', function(){
     markGridLocationAndUpdatePlayerTurn(one)
@@ -64,8 +53,8 @@ eight.addEventListener('click',function(){
 nine.addEventListener('click',function(){
     markGridLocationAndUpdatePlayerTurn(nine)
 })
-//how to insert value 
 
+// how to insert value 
 function markGridLocationAndUpdatePlayerTurn(gridLocation){
         if(result.innerText === ""){ //stops game if a winner is declared
             if(curPlayer === 0){
@@ -110,18 +99,6 @@ two.innerText === playerTwo && five.innerText === playerTwo && eight.innerText =
 three.innerText === playerTwo && six.innerText === playerTwo && nine.innerText === playerTwo, 
 one.innerText === playerTwo && five.innerText === playerTwo && nine.innerText === playerTwo, 
 seven.innerText === playerTwo && five.innerText === playerTwo && three.innerText === playerTwo]
-
-// function p1Win(){
-//     if (playerOneWinCondits.some()){
-//         playerOneWins()
-//     }
-// }
-
-// function p2Win(){
-//     if (playerTwoWinCondits.some()){
-//         playerTwoWins()
-//     }
-// }
 
 function playerOneWins(){
     result.innerText = "Player One wins!"
@@ -209,7 +186,7 @@ function tieTacToe(){
         playerTwoWins()
       
     }
-
+    // tie condition
     else if (turn === 9 && result.innerText === ""){
         tieTacToe()
     }

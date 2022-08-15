@@ -1,18 +1,8 @@
 // APP STATE (variables)
-    // a var to keep count of moves to detect cats/draw game
-    // gameBoard array to keep track of player moves ['x', '', 'o', 'x', '', 'o', 'x', '', '']
-        // 2d array
-        // [
-        //     ['x', '', 'o'],
-        //     ['x', 'o', ''],
-        //     ['x', '', 'o']
-        // ]
-    // a boolean for if the game is over or not -- is the game currently happening?
+// a var to keep count of moves to detect cats/draw game
 
 // EVENT LISTENERS
-    // click event listener(s) for player clicks
-        // check for a win -- calling a win condition function/doing all the win logic
-    // click event to clear/reset the board
+// click event to clear/reset the board
 
 // tie game logic in functions
         // if it is a cats game, display that and prevent clicks
@@ -22,16 +12,26 @@
 // VARIABLES
 const gameBoard = document.querySelector(".board");
 let message = document.querySelector(".message");
-let turnNum = 0;    // Initialize first turn (0 and evens = Player 1)
+let turnNum = 0;    // Initialize first turn (0 and evens = Player 1); #'s past 8 = Game Over
 const option1 = "O";
 const option2 = "X";
 let weapon = option1;    // Initialize first placement as "O"
 let array = ["a0", "a1", "a2", "b0", "b1", "b2", "c0", "c1", "c2"];    // Placeholder array for game state
+let winRoutes = 8;    // # of ways to win in a new game
+// The 8 possible win conditions set to true initially
+let canRow1 = true;
+let canRow2 = true;
+let canRow3 = true;
+let canColm1 = true;
+let canColm2 = true;
+let canColm3 = true;
+let canDiag1 = true;    // "\" diag
+let canDiag2 = true;    // "/" diag
+
 
 // EVENT LISTENERS AND FUNCTIONS
 gameBoard.addEventListener("click", function(e)    // A space has been clicked
 {
-    console.log("begin turn #" + (turnNum+1))
     if (turnNum < 9)
     {
         if (e.target.id === "top-left-square")
@@ -104,6 +104,7 @@ const makeMove = (e, arrayIndex) =>    // Updates game state according to move m
         }
     }
     turnNum++;
+    checkDraw();
 }
 const checkWin = () =>    // Win logic
 {
@@ -148,4 +149,161 @@ const checkWin = () =>    // Win logic
         return true;
     }
     return false;    // If no win yet
+}
+const checkDraw = () =>
+{
+    for (let i = 0; i < 9; i++)
+    {
+        // implement a catch if there is one route left and 2 spaces next to each other
+        // end game
+    }
+    let zeros = 0;
+    let ones = 0;
+    for (let i = 0; i < 3; i++)    // Check contents of first row
+    {
+        if (array[i] === 0)
+        {
+            zeros++;
+        }
+        else if (array[i] === 1)
+        {
+            ones++;
+        }
+        if (zeros > 0 && ones > 0 && canRow1)    // Checks if at least one of each is in the row
+        {
+            canRow1 = false;
+            winRoutes--;
+        }
+    }
+    // Reseting to zeros and ones to check next row
+    zeros = 0;
+    ones = 0;
+    for (let i = 3; i < 6; i++)    // Check contents of second row
+    {
+        if (array[i] === 0)
+        {
+            zeros++;
+        }
+        else if (array[i] === 1)
+        {
+            ones++;
+        }
+        if (zeros > 0 && ones > 0 && canRow2)
+        {
+            canRow2 = false;
+            winRoutes--;
+        }
+    }
+    zeros = 0;
+    ones = 0;
+    for (let i = 6; i < 9; i++)    // Check contents of third row
+    {
+        if (array[i] === 0)
+        {
+            zeros++;
+        }
+        else if (array[i] === 1)
+        {
+            ones++;
+        }
+        if (zeros > 0 && ones > 0 && canRow3)
+        {
+            canRow3 = false;
+            winRoutes--;
+        }
+    }
+    zeros = 0;
+    ones = 0;
+    for (let i = 0; i < 3; i++)    // Check contents of first column
+    {
+        if (array[i * 3] === 0)
+        {
+            zeros++;
+        }
+        else if (array[i * 3] === 1)
+        {
+            ones++;
+        }
+        if (zeros > 0 && ones > 0 && canColm1)
+        {
+            canColm1 = false;
+            winRoutes--;
+        }
+    }
+    zeros = 0;
+    ones = 0;
+    for (let i = 0; i < 3; i++)    // Check contents of second column
+    {
+        if (array[i * 3 + 1] === 0)
+        {
+            zeros++;
+        }
+        else if (array[i * 3 + 1] === 1)
+        {
+            ones++;
+        }
+        if (zeros > 0 && ones > 0 && canColm2)
+        {
+            canColm2 = false;
+            winRoutes--;
+        }
+    }
+    zeros = 0;
+    ones = 0;
+    for (let i = 0; i < 3; i++)    // Check contents of third column
+    {
+        if (array[i * 3 + 2] === 0)
+        {
+            zeros++;
+        }
+        else if (array[i * 3 + 2] === 1)
+        {
+            ones++;
+        }
+        if (zeros > 0 && ones > 0 && canColm3)
+        {
+            canColm3 = false;
+            winRoutes--;
+        }
+    }
+    zeros = 0;
+    ones = 0;
+    for (let i = 0; i < 3; i++)    // Check contents of first diag "\"
+    {
+        if (array[i * 4] === 0)
+        {
+            zeros++;
+        }
+        else if (array[i * 4] === 1)
+        {
+            ones++;
+        }
+        if (zeros > 0 && ones > 0 && canDiag1)
+        {
+            canDiag1 = false;
+            winRoutes--;
+        }
+    }
+    zeros = 0;
+    ones = 0;
+    for (let i = 0; i < 3; i++)    // Check contents of second diag "/"
+    {
+        if (array[(i + 1) * 2] === 0)
+        {
+            zeros++;
+        }
+        else if (array[(i + 1) * 2] === 1)
+        {
+            ones++;
+        }
+        if (zeros > 0 && ones > 0 && canDiag2)
+        {
+            canDiag2 = false;
+            winRoutes--;
+        }
+    }
+    if (winRoutes === 0)
+    {
+        console.log("donezo")
+    }
 }

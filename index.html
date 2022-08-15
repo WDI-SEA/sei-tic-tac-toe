@@ -1,24 +1,18 @@
-<!-- in your index.html -->
-
-<!-- html boilerplate -- linking css and js -->
-<!-- header ot name the game -->
-<!-- GAME BOARD: three divs for the game board, in each div you need three more more divs -->
-<!-- button for reset -->
-<!-- an area to display messages to the user such us whose turn it is and who the winner winner is, and if there is a cats game -->
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TIC TAC TOE</title>
+    <title>TIC-TAC-TOE</title>
     <link rel = "stylesheet" type="text/css" href = "style.css" />
   </head>
     <h1>TIC TAC TOE</h1>
+    
     <div>
         <div class = "rowOne">
             <button id = buttonOne class = "gameBoard"></button>
             <button id = buttonTwo class = "gameBoard"></button>
             <button id = buttonThree class = "gameBoard"></button>
         </div>
-        <div class = "rowTwo">
+        <div class = "rowTow">
             <button id = buttonFour class = "gameBoard"></button>
             <button id = buttonFive class = "gameBoard"></button>
             <button id = buttonSix class = "gameBoard"></button>
@@ -29,14 +23,17 @@
             <button id = buttonNine class = "gameBoard"></button>
         </div>
     </div>
+    </p>
         <div id = "resetButton">
-            <button>NEW GAME</button>
+            <button id = "newGame">NEW GAME</button>
         </div>
-    <h2 id = "displayBox"></h2>
-    <h3>Player One Wins:</h3>
-        <p  id = "displayBoxTwo"></p>
-    <h4>Player Two Wins:</h4>
-        <p  id = "displayBoxThree"></p>
-  </body>
+    <div id = "tallyBox">
+        <h2 id = "displayBox"></h2>
+        <h3>Player One Wins:</h3>
+            <p  id = "displayBoxTwo"></p>
+        <h4>Player Two Wins:</h4>
+            <p  id = "displayBoxThree"></p>
+    </div>
+        </body>
   <script src="script.js"></script>
   </html>

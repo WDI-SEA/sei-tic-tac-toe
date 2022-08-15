@@ -3,14 +3,15 @@ body {
 }
 
 .gameBoard {
-    background-color: antiquewhite;
-    width: 10vw;
-    height: 10vw;
-    border: 2em;
-    border-style: groove;
+    background-color: lightgray;
+    width: 5vw;
+    height: 5vw;
+    border: 1.5em;
+    border-style:ridge;
     padding: 3em;
-    color: blue;
-
+    color: black;
+    text-align: center;
+    font-size: 2ch;
 }
 
 .gameBoard:disabled {
@@ -18,8 +19,56 @@ body {
     background: darkgray;
 }
 
- 
+#tallyBox {
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
 
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+h3 {
+    font-size: larger;
+    text-align: center;
+}
+
+h4 {
+    font-size: larger;
+    text-align: center;
+}
+
+#resetButton {
+    padding: .5em;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: xx-large;
+    font-weight: 550;
+    text-align: center;
+    border: .5em;
+    border-style: groove;
+    border-radius: 10pt;
+    margin-left: 7em;
+    margin-right: 7em;
+}
+
+.rowOne {
+    text-align: center;
+}
+
+.rowTow {
+    text-align: center;
+}
+
+.rowThree {
+    text-align: center;
+}
+ #newGame {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: xx-large;
+    background-color: lightgray;
+ }
 
 
 

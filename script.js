@@ -114,7 +114,7 @@ function turnProcess(e) {
             endGame(0)//IT IS A TIE!!
         }
     })
-    
+}
 // adds event listener to each gameboard button and calls turnProcess 
 butOne.addEventListener("click", turnProcess)
 butTwo.addEventListener("click", turnProcess)
@@ -140,6 +140,10 @@ butNew.addEventListener("click", function() {
 
 
 
+
+/*   red x img
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj-SnPkpEMm7irbFyGRTigrTy4oUxvS93LfDOk564&s
+*/
 
 
 
@@ -274,7 +278,7 @@ const compareArrays = (a, b) => {
     winningCombos.forEach(function(item) {
         console.log(item)
         if (turnCount == 9) {
-            endGame(0)//You SUCK IT IS A TIE!!
+            endGame(0)//IT IS A TIE!!
         } else if (compareArrays(playerOneTurns, item)) {
             endGame(1)// Run win conditon: PLAYER 1 WINS
         } else if (compareArrays(playerTwoTurns, item)) {
@@ -283,7 +287,7 @@ const compareArrays = (a, b) => {
     })
     */
     
-} 
+
 /*
 buttons.forEach(function(item) {
     item.addEventListener("click", turnProcess)

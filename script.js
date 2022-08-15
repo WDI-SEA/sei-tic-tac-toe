@@ -58,6 +58,11 @@ let h3P2streak = 0;
 
 // grid container event listener
 g[0].addEventListener('click', function(e) {
+    // cat game logic to prevent another click
+    if(turn === 9) {
+        h2.innerHTML = "&#x1F431";
+        return;
+    }
 
     // reset everything button
     button1.addEventListener("click", function(e) {
@@ -95,12 +100,7 @@ g[0].addEventListener('click', function(e) {
         h2.innerHTML = "Player 1's turn";
     })
 
-    // displays whose turn it is
-    if(turn % 2 === 0){
-        h2.innerHTML = "Player 2's turn";
-    } else if (turn % 2 != 0) {
-        h2.innerHTML = "Player 1's turn";
-    }
+    
 
     // Player 1 win conditions
     if(testArray[0] === "X" && ((testArray[1] === "X" && testArray[2] === "X") || 
@@ -150,11 +150,13 @@ g[0].addEventListener('click', function(e) {
             one.innerHTML = "X";
             testArray[0] = "X";
             turn++;
+            h2.innerHTML = "Player 2's turn";
         // if the turn is odd it's player 2's turn
         } else {
             one.innerHTML = "O";
             testArray[0] = "O";
             turn++;
+            h2.innerHTML = "Player 1's turn";
         }
     }
 
@@ -166,10 +168,12 @@ g[0].addEventListener('click', function(e) {
             two.innerHTML = "X";
             testArray[1] = "X";
             turn++;
+            h2.innerHTML = "Player 2's turn";
         } else {
             two.innerHTML = "O";
             testArray[1] = "O";
             turn++;
+            h2.innerHTML = "Player 1's turn";
         }
     }
 
@@ -181,10 +185,12 @@ g[0].addEventListener('click', function(e) {
             three.innerHTML = "X";
             testArray[2] = "X";
             turn++;
+            h2.innerHTML = "Player 2's turn";
         } else {
             three.innerHTML = "O";
             testArray[2] = "O";
             turn++;
+            h2.innerHTML = "Player 1's turn";
         }
     }
 
@@ -196,10 +202,12 @@ g[0].addEventListener('click', function(e) {
             four.innerHTML = "X";
             testArray[3] = "X";
             turn++;
+            h2.innerHTML = "Player 2's turn";
         } else {
             four.innerHTML = "O";
             testArray[3] = "O";
             turn++;
+            h2.innerHTML = "Player 1's turn";
         }
     }
 
@@ -211,10 +219,12 @@ g[0].addEventListener('click', function(e) {
             five.innerHTML = "X";
             testArray[4] = "X";
             turn++;
+            h2.innerHTML = "Player 2's turn";
         } else {
             five.innerHTML = "O";
             testArray[4] = "O";
             turn++;
+            h2.innerHTML = "Player 1's turn";
         }
     }
 
@@ -226,10 +236,12 @@ g[0].addEventListener('click', function(e) {
             six.innerHTML = "X";
             testArray[5] = "X";
             turn++;
+            h2.innerHTML = "Player 2's turn";
         } else {
             six.innerHTML = "O";
             testArray[5] = "O";
             turn++;
+            h2.innerHTML = "Player 1's turn";
         }
     }
 
@@ -241,10 +253,12 @@ g[0].addEventListener('click', function(e) {
             seven.innerHTML = "X";
             testArray[6] = "X";
             turn++;
+            h2.innerHTML = "Player 2's turn";
         } else {
             seven.innerHTML = "O";
             testArray[6] = "O";
             turn++;
+            h2.innerHTML = "Player 1's turn";
         }
     }
 
@@ -256,10 +270,12 @@ g[0].addEventListener('click', function(e) {
             eight.innerHTML = "X";
             testArray[7] = "X";
             turn++;
+            h2.innerHTML = "Player 2's turn";
         } else {
             eight.innerHTML = "O";
             testArray[7] = "O";
             turn++;
+            h2.innerHTML = "Player 1's turn";
         }
     }
 
@@ -271,10 +287,12 @@ g[0].addEventListener('click', function(e) {
             nine.innerHTML = "X";
             testArray[8] = "X";
             turn++;
+            h2.innerHTML = "Player 2's turn";
         } else {
             nine.innerHTML = "O";
             testArray[8] = "O";
             turn++;
+            h2.innerHTML = "Player 1's turn";
         }
     }
 
@@ -332,6 +350,7 @@ g[0].addEventListener('click', function(e) {
     // cat game logic
     if(turn === 9) {
         h2.innerHTML = "&#x1F431";
+        return;
     }
 })
 

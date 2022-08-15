@@ -1,11 +1,15 @@
 body {
-    background: black;
+    background: white;
 }
 
+h1 {
+ text-align: center;
+}
 .squareTopLeft {
     color: white;
 }
 
 .clearButton {
-   background-color: purple;
+   background-color: darkolivegreen;
+   position: ;
 }

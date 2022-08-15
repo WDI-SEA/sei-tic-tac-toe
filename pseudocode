@@ -1,0 +1,24 @@
+//TTT Planning Assignment
+
+///htmlembedded (index.html)
+//boilerplate, button for reset, header to name the game
+//3 divs for the game board, in each div you need 3 more divs for blocks
+//area to display messages to user such as whose turn it is, who winner is, if there is a cats game
+
+//CSS
+//don't do any extra CSS until you are finished with the game
+
+//JavaScript
+//clic event listeners
+//win/tie game logic
+//tracking whose turn it is
+//event listener for clearing board
+//way to tell if a player has already clicked on a square
+//variable for x and variable for O
+//keep tracks of moves to detect cats games
+//game board array to keep track of player moves
+
+//change innertext of div to x or O
+//store value in array]
+//change to next player's turn
+//check for a win: detect using conditionals

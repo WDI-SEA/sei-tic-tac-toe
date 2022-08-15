@@ -51,33 +51,34 @@ boxNine.addEventListener("click",  function ( ){
     markBoxAsfilled (9)
 })
 
-function markBoxAsfilled () {
-
-}
 // box.forEach (box => {
 //     box.addEventListener("click", chooseTurn)
 //         console.log ('box clicked')
 //     } )
 
 
-const chooseTurn = function (){
+const markBoxAsfilled= function (boxArray){
+    // there needs to be a statement if box is empty then run code
+    // else choose another square
+    // so i understand how to choose one square but I dont get random boxe
     if (playerTurn % 2 === 0 ){
-        document.getElementById(boxArray[""]).addEventListener("click", userChoice)
-        boxArray[" "].innerText = "x" ///this needs to change the value of ANY slected box 
-        console.log()
+        boxOne.innerText = "O"
+        console.log('testing event listeners') 
     } else{
-        boxArray[ " "].innerText = "o"
+        boxOne.innerText = "X"
     }
     }
 
 // function to start game play
 let gamePlay = function gamePlay(){
-    if (playCount <= 5){
-    //this is the function for x and 0 
-  (playerTurn %2 === 0)
-        chooseTurn()
+    if (playCount <= 5 ){
+        //user one starts
+    } else if (playCount <=9){
+        gameLogic() 
+        ///return to game
     } else if (playCount === 9) {
-        gameOutcome()
+        //return: tie 
+        console.log("tie")
     }
 }
 
@@ -109,9 +110,9 @@ const gameOutcome =function gameLogic (){
 // reset the game
 let clearBoard=  function clearBoard (){
   //need to reset all inner text to " "
-  let reset = document.getElementsByClassName("box")
-  reset=innerText = " "
+   document.querySelectorAll(".box").innerText =(" ")
  }
+ 
  function resetGameboard() {
 document.getElementById("button").addEventListener("click", clearBoard)
 }

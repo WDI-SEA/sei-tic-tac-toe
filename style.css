@@ -4,26 +4,48 @@
 
 body {
     font-family: sans-serif;
-    background-color: blanchedalmond;
+    background-color: rgb(7, 4, 0);
+    justify-content: center;
+    align-items: center;
 }
 
 section.gridBox {
     width: 100%;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, 33%);
     grid-auto-rows: 200px;
     background-color: black;
+    box-shadow: border-box;
+    
 }
 
 div h1 {
-    background-color: rgb(12, 82, 167);
+    color: rgb(60, 255, 86);
     text-align: center; 
 }
 
 .box {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
-    outline: red solid 4px;
-    background-color: rgb(16, 117, 205);
+    border-bottom: 5px solid rgb(252, 1, 164);
+    border-right: 5px solid rgb(252, 1, 164); 
+    background-color: rgb(39, 46, 53);
+    height: 100%;
+    color: rgb(156, 58, 255);
+    line-height: 10px;
+    font-size: 100px;
+}
+
+.box:nth-child(3n) {
+    border-right: none;
+}
+
+.box:nth-child(n+7) {
+    border-bottom: none;
+}
+
+button {
+    background-color: blueviolet;
 }

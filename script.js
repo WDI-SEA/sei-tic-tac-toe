@@ -1,6 +1,9 @@
 // Tic-Tac-Toe notes
 //___________________
 
+//*** numerous win conditions don't compute correctly
+//
+
 // arrays representing each indivual win combo
 const winningComboOne = ["buttonOne", "buttonTwo", "buttonThree"]
 const winningComboTwo = ["buttonOne", "buttonFour", "buttonSeven"]
@@ -52,7 +55,9 @@ function endGame(player) {
         item.disabled = true })
     switch(player) {
         case 0: {
-            displayBox.innerText = "It's a tie."
+            displayBox.innerText = "Player two wins!"
+            playerTwoWins ++
+            displayBoxThree.innerText = playerTwoWins
             break
         }
         case 1: {
@@ -62,13 +67,14 @@ function endGame(player) {
             break
         } 
         case 2: {
-            displayBox.innerText = "Player two wins!"
-            playerTwoWins ++
-            displayBoxThree.innerText = playerTwoWins
+            displayBox.innerText = "It's a tie."
             break
+            } 
+    
         }
     }
-}
+
+
 // function to compare players array to win combos (solution found on grepper)
 const compareArrays = (a, b) => {
     if (a.length < b.length) {
@@ -76,6 +82,7 @@ const compareArrays = (a, b) => {
     }
     let newA = a;
     let newB = b;
+    console.log(newA, newB)
   return (
     newA.every((el) => newB.includes(el))
   )
@@ -97,21 +104,19 @@ function turnProcess(e) {
         playerTwoTurns.push(button.id)
         console.log(playerTwoTurns)
         displayBox.innerText = "Player One's Turn"
-
-
     }
+
 // makes event button not clickable any more
     button.disabled = true
     
 // calls compareArrays and compares against win condtions + tie
     winningCombos.forEach(function(item) {
-        console.log(item)
         if (compareArrays(playerOneTurns, item)) {
             endGame(1)// PLAYER 1 WINS
         } else if (compareArrays(playerTwoTurns, item)) {
-            endGame(2)// PLAYER 2 WINS
-        } else if (turnCount == 9) {
-            endGame(0)//IT IS A TIE!!
+            endGame(0)// PLAYER 2 WINS
+    } else if (turnCount == 9) {
+            endGame(2)//IT IS A TIE!!
         }
     })
 }
@@ -137,13 +142,6 @@ butNew.addEventListener("click", function() {
     turnCount = 0
     displayBox.innerText = ""
 })
-
-
-
-
-/*   red x img
-https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj-SnPkpEMm7irbFyGRTigrTy4oUxvS93LfDOk564&s
-*/
 
 
 

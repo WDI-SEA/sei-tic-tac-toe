@@ -1,12 +1,7 @@
-// EVENT LISTENERS
-// click event to clear/reset the board
-
-// could try while loop to enclose entire game, but will leave it as a stretch goal
-/* END NOTES */
-
 // VARIABLES
 const gameBoard = document.querySelector(".board");
 let message = document.querySelector(".message");
+const resetBtn = document.querySelector("#resetBtn");
 let turnNum = 0;    // Initialize first turn (0 and evens = Player 1); #'s past 8 = Game Over
 const option1 = "O";
 const option2 = "X";
@@ -30,47 +25,92 @@ gameBoard.addEventListener("click", function(e)    // A space has been clicked
 {
     if (turnNum < 9)
     {
-        if (e.target.id === "top-left-square")
+        // Optimization note: upon finding add and remove classList, can restructure code
+        if (e.target.id === "top-left-square" && !e.target.classList.contains("dead"))
         {
             makeMove(e, 0);
         }
-        else if (e.target.id === "top-mid-square")
+        else if (e.target.id === "top-mid-square" && !e.target.classList.contains("dead"))
         {
             makeMove(e, 1);
         }
-        else if (e.target.id === "top-right-square")
+        else if (e.target.id === "top-right-square" && !e.target.classList.contains("dead"))
         {
             makeMove(e, 2);
         }
-        else if (e.target.id === "mid-left-square")
+        else if (e.target.id === "mid-left-square" && !e.target.classList.contains("dead"))
         {
             makeMove(e, 3);
         }
-        else if (e.target.id === "mid-mid-square")
+        else if (e.target.id === "mid-mid-square" && !e.target.classList.contains("dead"))
         {
             makeMove(e, 4);
         }
-        else if (e.target.id === "mid-right-square")
+        else if (e.target.id === "mid-right-square" && !e.target.classList.contains("dead"))
         {
             makeMove(e, 5);
         }
-        else if (e.target.id === "bot-left-square")
+        else if (e.target.id === "bot-left-square" && !e.target.classList.contains("dead"))
         {
             makeMove(e, 6);
         }
-        else if (e.target.id === "bot-mid-square")
+        else if (e.target.id === "bot-mid-square" && !e.target.classList.contains("dead"))
         {
             makeMove(e, 7);
         }
-        else if (e.target.id === "bot-right-square")
+        else if (e.target.id === "bot-right-square" && !e.target.classList.contains("dead"))
         {
             makeMove(e, 8);
         }
     }
 })
+resetBtn.addEventListener("click", function(e)
+{
+    // Backend reset
+    turnNum = 0;
+    array = ["a0", "a1", "a2", "b0", "b1", "b2", "c0", "c1", "c2"];    // Placeholder array for game state
+    winRoutes = 8;
+    canRow1 = true;
+    canRow2 = true;
+    canRow3 = true;
+    canColm1 = true;
+    canColm2 = true;
+    canColm3 = true;
+    canDiag1 = true;
+    canDiag2 = true;
+    canArray[0] = true;
+    canArray[1] = true;
+    canArray[2] = true;
+    canArray[3] = true;
+    canArray[4] = true;
+    canArray[5] = true;
+    canArray[6] = true;
+    canArray[7] = true;
+    document.querySelector("#top-left-square").classList.remove("dead");
+    document.querySelector("#top-mid-square").classList.remove("dead");
+    document.querySelector("#top-right-square").classList.remove("dead");
+    document.querySelector("#mid-left-square").classList.remove("dead");
+    document.querySelector("#mid-mid-square").classList.remove("dead");
+    document.querySelector("#mid-right-square").classList.remove("dead");
+    document.querySelector("#bot-left-square").classList.remove("dead");
+    document.querySelector("#bot-mid-square").classList.remove("dead");
+    document.querySelector("#bot-right-square").classList.remove("dead");
+
+    // Frontend reset
+    document.querySelector("#top-left-square").innerText = "";
+    document.querySelector("#top-mid-square").innerText = "";
+    document.querySelector("#top-right-square").innerText = "";
+    document.querySelector("#mid-left-square").innerText = "";
+    document.querySelector("#mid-mid-square").innerText = "";
+    document.querySelector("#mid-right-square").innerText = "";
+    document.querySelector("#bot-left-square").innerText = "";
+    document.querySelector("#bot-mid-square").innerText = "";
+    document.querySelector("#bot-right-square").innerText = "";
+    message.innerText = "Player 1's turn";
+})
 const makeMove = (e, arrayIndex) =>    // Updates game state according to move made
 {
-    e.target.id = "dead";    // Switch off tile to unplayable
+    e.target.classList.add("dead");    // Switch off tile to unplayable
     if (turnNum % 2 === 0)    // If Player 1's turn
     {
         weapon = option1;

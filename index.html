@@ -9,48 +9,43 @@
 </head>
 <body class="page">
     <h1>Tic-Tac-Toe</h1>
-    <div class='Tic-Tac-Toe'>
-        <div class="row1">
-            <div id="R1B1" class="row1B" onclick="this.disabled = true;">
-                ?
-            </div>
-            <div id="R1B2" class="row1B">
-                ?
-            </div>
-            <div id="R1B3" class="row1B">
-                ?
-            </div>
-        </div>
-        <div class="row2">
-            <div id="R2B1" class="row2B">
-                ?
-            </div>
-            <div id="R2B2" class="row2B">
-                ?
-            </div>
-            <div id="R2B3" class="row2B">
-                ?
-            </div>
-        </div>
-        <div class="row3">
-            <div id="R3B1" class="row3B">
-                ?
-            </div>
-            <div id="R3B2" class="row3B">
-                ?
-            </div>
-            <div id="R3B3" class="row3B">
-                ?
-            </div>
-        </div>
+    <div class="Win-Counter">Scoreboard
+        <div>Player 1: <span class="player1score">0</span></div>
+        <div>Player 2: <span class="player2score">0</span></div>
     </div>
-    <!-- <div class="startgame"> -->
-        <!-- <button class="start-button">Start game!</button> -->
+        <div class="TTTGrid">
+            <div>
+                <button id="R1B1" class="row1" disabled>?</button>
+            </div>
+            <div>
+                <button id="R1B2" class="row1" disabled>?</button>
+            </div>
+            <div>
+                <button id="R1B3" class="row1" disabled>?</button>
+            </div>
+            <div>
+                <button id="R2B1" class="row2" disabled>?</button>
+            </div>
+            <div>
+                <button id="R2B2" class="row2" disabled>?</button>
+            </div>
+            <div>
+                <button id="R2B3" class="row2" disabled>?</button>
+            </div>
+            <div>
+                <button id="R3B1" class="row3" disabled>?</button>
+            </div>
+            <div>
+                <button id="R3B2" class="row3" disabled>?</button>
+            </div>
+            <div>
+                <button id="R3B3" class="row3" disabled>?</button>
+            </div>        
+        </div>
         <div class="resetgame">
             <button class="reset-game">Reset game!</button>
         </div>
-    <!-- </div> -->
-    <div class="playerturn">Player 1 make your move!</div>
+    <div class="playerturn">Player Turn</div>
     <script src="./script.js"></script>
 </body>
 </html>

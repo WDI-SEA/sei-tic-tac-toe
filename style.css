@@ -3,48 +3,31 @@ h1, body {
     background-color: black;
     color: white;
 }
-.Tic-Tac-Toe {
-    width: 150px;
-    height: 150px;
-    position: relative;
-    left: 33%;
-    
-}
 
-.row1 {
-    height: 50px;
-    width: 150px;
-    display: flex;
-    margin: 1px;
-}
 
-.row2 {
-    height: 50px;
-    width: 150px;
-    display: flex;
+.TTTGrid {
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
     text-align: center;
-    margin: 1px;
-}
-
-.row3 {
-    height: 50px;
-    width: 150px;
-    display: flex;
-    margin: 1px;
-}
-
-.row1B, .row2B, .row3B {
-    height: 50px;
-    width: 50px;
-    border: 1px solid white;
-    display: flex;
+    display: grid;
     justify-content: center;
-    margin: 1px, auto;
+}
+
+button {
+    background-color: red;
+}
+
+.row1, .row2, .row3 {
+    height: 100px;
+    width: 100px;
+    border: 1px solid white;
+    color: white;
 } 
 
 .reset-game {
-    /* display: flex;
-    justify-content: center; */
     margin-top: 10px;
     padding: 10px, 10px;
+}
+.Win-Counter {
+    position: absolute;
 }

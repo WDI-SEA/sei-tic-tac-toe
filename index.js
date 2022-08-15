@@ -52,9 +52,10 @@ let boxSixClick = false
 let boxSevenClick = false
 let boxEightClick = false
 let boxNineClick = false
-    // win/tie game logic in functions
+//scoreboards
 let oScore = 0
 let xScore = 0
+    // win/tie game logic in functions
     //detect a win using conditionals and comparisions 
     // if it is a cats game, display that and prevent clicks    
     //win function
@@ -68,7 +69,6 @@ function tallyScore (i){
         oText.innerText = oScore
     }
 }
-
 
 function winCheck (){
     if(playerTurn >= 9){
@@ -111,8 +111,7 @@ function winCheck (){
     playerTurn++
 }
 
-    // EVENT LISTENERS
-        // click event listener(s) for player clicks
+// EVENT LISTENERS
 
 boxOne.addEventListener("click", function(e){
     if(!boxOneClick && !gameOver){
@@ -137,7 +136,6 @@ boxTwo.addEventListener("click", function(e){
     gameBoard.splice(1, 1, twoText.innerText)
     winCheck()
     }
-
 })
 boxThree.addEventListener("click", function(e){
     if(!boxThreeClick && !gameOver){
@@ -162,8 +160,7 @@ boxFour.addEventListener("click", function(e){
     boxFourClick = true
     gameBoard.splice(3, 1, fourText.innerText)
     winCheck ()
-    }
-      
+    } 
 })
 boxFive.addEventListener("click", function(e){
     if(!boxFiveClick && !gameOver){
@@ -176,7 +173,6 @@ boxFive.addEventListener("click", function(e){
     gameBoard.splice(4, 1, fiveText.innerText)
     winCheck() 
     }
-   
 })
 boxSix.addEventListener("click", function(e){
     if(!boxSixClick && !gameOver){
@@ -189,7 +185,6 @@ boxSix.addEventListener("click", function(e){
     gameBoard.splice(5, 1, sixText.innerText)
     winCheck() 
     }
-
 })
 boxSeven.addEventListener("click", function(e){
     if(!boxSevenClick && !gameOver){
@@ -202,7 +197,6 @@ boxSeven.addEventListener("click", function(e){
     gameBoard.splice(6, 1, sevenText.innerText)
     winCheck() 
     }
-
 })
 boxEight.addEventListener("click", function(e){
     if(!boxEightClick && !gameOver){
@@ -215,7 +209,6 @@ boxEight.addEventListener("click", function(e){
     gameBoard.splice(7, 1, eightText.innerText)
     winCheck() 
     }
-
 })
 boxNine.addEventListener("click", function(e){
     if(!boxNineClick && !gameOver){
@@ -228,10 +221,7 @@ boxNine.addEventListener("click", function(e){
     gameBoard.splice(8, 1, nineText.innerText)
     winCheck() 
     }
-  
 })
-
-
             // --change innertext of div to X or O
             // --store the player's move in the gameBoard array
             // --change to the next player's turn

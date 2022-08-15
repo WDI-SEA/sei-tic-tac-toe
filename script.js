@@ -26,7 +26,7 @@ function compareGame () {
     } else if (r1B3 === player_ && r2B2 === player_ && r3B1 === player_) {
         playerWins()
     }
-}
+};
 
 
 let win = false;
@@ -35,31 +35,42 @@ let player1 = 0;
 let player2 = 0;
 let player_ = "";
 let playerTurn = document.querySelector('#playerturn');
-let grid = document.querySelectorAll('.grid')
+let grid = document.querySelectorAll('.grid');
 let player1score = document.querySelector('#player1score');
 let player2score = document.querySelector('#player2score');
 let moveTracker = document.querySelector('#trackplayerturn');
 let resetGame = document.querySelector('.reset-game');
+let resetscoreboard = document.querySelector('.reset-scoreboard');
+let fireworks = document.getElementById('firework');
+let movecounter = document.getElementById('movecounter');
 function playerWins() {
     win = true;
     setTimeout(function() {
-        playerTurn.innerText = "Player " + player_ + " wins"
+        playerTurn.innerText = "Player " + player_ + " wins!"
         if (player_ === "X") {
             player1 ++;
             player1score.innerText = player1
+            grid.forEach(div => { 
+                div.setAttribute('disabled','')})
+            fireworks.style.display = 'inline';
+            movecounter.style.marginTop = '-20%';
         } else {
             player2 ++;
-            player2score.innerText = player2
+            player2score.innerText = player2;
+            grid.forEach(div => { 
+                div.setAttribute('disabled','')})
+            fireworks.style.display = 'inline';
+            movecounter.style.marginTop = '-20%';
         }
-    } )
-}
+    }, 10)
+};
 function draw () {
     setTimeout(function() {
-        playerTurn.innerText = "It's a Draw! Press 'Reset Game!' to Play Again."
+        playerTurn.innerText = "It's a Draw! Press 'Reset Game' to Play Again."
     } )
     grid.forEach(div => { 
-        div.setAttribute('disabled','')})
-}
+        div.setAttribute('disabled','')}, 10)
+};
 const checkPlayerTurn = e => {
     if (CountClicks % 2 === 0) {
         player_ = "X"
@@ -93,18 +104,25 @@ resetGame.addEventListener('click', function() {
         div.removeAttribute('disabled','')
         win = false;
         playerTurn.innerText = 'Player 1 (X) Turn'
-        moveTracker.innerHTML = "0" 
-    })
-   
+        moveTracker.innerHTML = "0";
+        fireworks.style.display = 'none';
+        movecounter.style.marginTop = '5%'; 
+    });
+});
+resetscoreboard.addEventListener('click', function() {
+    player1score.innerText = 0;
+    player2score.innerText = 0;
+    player1 = 0;
+    player2 = 0;
+    return [player1, player2]
+});
 
-})
 
 
 
 
 
-
-//previous work, before I spoke to sebastian. 
+//previous work... before I spoke to sebastian. 
 // I had a lot of difficulty with setting the array/grids of the deliverable... 
 // He helped me quite a bit by explaining how to make my work more simple.
 // let none = '?'

@@ -2,6 +2,13 @@ h1 {
     
 } 
 
+#firework {
+    margin-top: -70%;
+    display: none;
+    width: 350px;
+    height: 350px;
+}
+
 body {
     text-align: center;
     background-color: black;
@@ -33,15 +40,20 @@ button {
     font-size: 50px;
 } 
 
-.reset-game {
+.reset-game, .reset-scoreboard {
     margin-top: 10px;
-    padding: 10px, 10px;
+    padding: auto, 60px;
+    height: 35px;
+    width: 150px;
+
 }
 .Win-Counter {
     margin-right: 45%;
-    margin-top:  ;
+    margin-top: ;
 }
 
 .Move-Counter {
     margin-top: 5%;
 }
+
+/* margin-top: -15%; */

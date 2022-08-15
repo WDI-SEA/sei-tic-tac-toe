@@ -1,9 +1,10 @@
+let Player1 = ['X'];
+let Player2 = ['O'];
 
-function Array2D(x, _o){
-    let arr = Array(x);
-     for(let i = 0; i < y; i++){
-      arr[i] = Array(y);
-     }
-     return arr;
-   }
-   console.log(Array2D([]))
+if ( X === 3){
+    console.log("player " + Player1 + " has won!")
+} else if ( O === 3){
+    console.log("player " + Player2 + " has won!")
+} else {
+    console.log("Cats game!")
+}

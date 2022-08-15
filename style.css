@@ -5,7 +5,8 @@ body {
 h1 {
  text-align: center;
 }
-.squareTopLeft {
+
+.varTL {
     color: pink;
 }
 

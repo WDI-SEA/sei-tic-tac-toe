@@ -17,6 +17,9 @@ let gameBoardValue = [[0,0,0],[0,0,0],[0,0,0]]
 let saveXChoice = []
 let saveOChoice =[]
 
+let xWins = 0
+let oWins = 0
+
 // To keep track of whose turn it is play 
 // if xTurn is on true, play belongs to "X"
 // else play belongs to "O"
@@ -207,8 +210,22 @@ function boxAction(boxNum){
 
         // Hmmm...I think this is to trigger the search system of the game
 
-        if(xPlays >= 2 && xPlays < 5){
+        if(xPlays == 5 ||oPlays ==5)
+        {
+            console.log(xPlays)
+            console.log(oPlays)
             if(player == "X"){
+                if(hasWon(saveXChoice) == true){
+                    console.log("gameEnd")
+                    for(let i =0;i<boxAvailable.length;i++)
+                    boxAvailable[i] = false
+                    
+                }else textBox.innerHTML ="That's a Draw!"
+            } else textBox.innerHTML ="That's a Draw!"
+                             
+         }   
+         else if(xPlays >= 2 && xPlays < 5){
+             if(player == "X"){
                 if(hasWon(saveXChoice) == true){
                     console.log("gameEnd")
                     for(let i =0;i<boxAvailable.length;i++)
@@ -221,27 +238,13 @@ function boxAction(boxNum){
                 for(let i =0;i<boxAvailable.length;i++)
                     boxAvailable[i] = false
             }
-            }
-        }else if(xPlays == 5 ||oPlays ==5)
-        {
-            if(player == "X"){
-                if(hasWon(saveXChoice) == true){
-                    console.log("gameEnd")
-                    for(let i =0;i<boxAvailable.length;i++)
-                    boxAvailable[i] = false
-                }
-                else  textBox.innerHTML ="That's a Draw!"
-            }
-            else{
-            if(hasWon(saveOChoice) == true){
-                console.log("gameEnd")
-                for(let i =0;i<boxAvailable.length;i++)
-                boxAvailable[i] = false
-            }
-            else textBox.innerHTML ="That's a Draw!"
+            console.log(xPlays)
+            console.log(oPlays)
             }
         }
     }
+
+          
     
 
 
@@ -258,37 +261,90 @@ function hasWon(arr){
             {
                 if(arr[i]==0 && arr[j]==1 &&arr[k]==2){
                     textBox.innerHTML =`Congratulations Player ${whoPlays} wins!`
+                    if(whoPlays == 'X')
+                        xWins++
+                    else
+                        oWins++
+                        document.getElementById('xWin').innerHTML=xWins
+                        document.getElementById('oWin').innerHTML=oWins
                     return true
                 }
                 else if(arr[i]==3&&arr[j]==4&&arr[k]==5){
                     textBox.innerHTML =`Congratulations Player ${whoPlays} wins!`
+                    if(whoPlays == 'X')
+                    xWins++
+                    else
+                        oWins++
+                        document.getElementById('xWin').innerHTML=xWins
+                        document.getElementById('oWin').innerHTML=oWins
                     return true
                 }
                 else if(arr[i]==6&&arr[j]==7&&arr[k]==8){
                     textBox.innerHTML =`Congratulations Player ${whoPlays} wins!`
+                    if(whoPlays == 'X')
+                    xWins++
+                    else
+                        oWins++
+                        document.getElementById('xWin').innerHTML=xWins
+                        document.getElementById('oWin').innerHTML=oWins
                     return true
                 }
                 else if(arr[i]==0&&arr[j]==3&&arr[k]==6){
                     textBox.innerHTML =`Congratulations Player ${whoPlays} wins!`
+                    if(whoPlays == 'X')
+                        xWins++
+                    else
+                        oWins++
+                        document.getElementById('xWin').innerHTML=xWins
+                        document.getElementById('oWin').innerHTML=oWins
                     return true
                 }
                 else if(arr[i]==1&&arr[j]==4&&arr[k]==7){
                     textBox.innerHTML =`Congratulations Player ${whoPlays} wins!`
+                    if(whoPlays == 'X')
+                        xWins++
+                    else
+                        oWins++
+                        document.getElementById('xWin').innerHTML=xWins
+                        document.getElementById('oWin').innerHTML=oWins
                     return true
                 }
                 else if(arr[i]==2&&arr[j]==5&&arr[k]==8){
                     textBox.innerHTML =`Congratulations Player ${whoPlays} wins!`
+                    if(whoPlays == 'X')
+                        xWins++
+                    else
+                        oWins++
+                        document.getElementById('xWin').innerHTML=xWins
+                        document.getElementById('oWin').innerHTML=oWins
                     return true
                 }
                 else if(arr[i]==0&&arr[j]==4&&arr[k]==8){
                     textBox.innerHTML =`Congratulations Player ${whoPlays} wins!`
+                    if(whoPlays == 'X')
+                        xWins++
+                    else
+                        oWins++
+                        document.getElementById('xWin').innerHTML=xWins
+                        document.getElementById('oWin').innerHTML=oWins
                     return true
                 }
                 else if(arr[i]==2&&arr[j]==4&&arr[k]==6){
                     textBox.innerHTML =`Congratulations Player ${whoPlays} wins!`
+                    if(whoPlays == 'X')
+                        xWins++
+                    else
+                        oWins++
+                        document.getElementById('xWin').innerHTML=xWins
+                        document.getElementById('oWin').innerHTML=oWins
                     return true
                 }
             }
         }
     }
+    
 }
+
+console.log(xWins)
+
+

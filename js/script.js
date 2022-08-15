@@ -6,7 +6,7 @@
 
 // VARIABLES
 const gameBoard = document.querySelector(".board");
-const resetBtn = document.querySelector("#resetBtn");
+let message = document.querySelector(".message");
 let turnNum = 0;    // Initialize first turn (0 and evens = Player 1); #'s past 8 = Game Over
 const option1 = "O";
 const option2 = "X";

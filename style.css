@@ -4,13 +4,14 @@ body {
 
 h1 {
  text-align: center;
-}
-
-.varTL {
-    color: pink;
+ color: darkolivegreen;
 }
 
 .clearButton {
    background-color: darkolivegreen;
    text-align: center;
+}
+ 
+.gameBoard {
+    display: grid;
 }

@@ -6,8 +6,8 @@ html, body
 }
 .board
 {
-    width: 60vw;
-    height: 60vw;
+    width: 40vw;
+    height: 40vw;
     margin: 0 auto 20px;
 }
 .board .row

@@ -11,27 +11,55 @@ function compareGame () {
     let r3B3 = document.getElementById('R3B3').innerText;
     if (r1B1 === player_ && r1B2 === player_ && r1B3 === player_) {
         playerWins()
+    } else if (r2B1 === player_ && r2B2 === player_ && r2B3 === player_) {
+        playerWins()
+    } else if (r3B1 === player_ && r3B2 === player_ && r3B3 === player_) {
+        playerWins()
+    } else if (r1B1 === player_ && r2B1 === player_ && r3B1 === player_) {
+        playerWins()
+    } else if (r1B2 === player_ && r2B2 === player_ && r3B2 === player_) {
+        playerWins()
+    } else if (r1B3 === player_ && r2B3 === player_ && r3B3 === player_) {
+        playerWins()
+    } else if (r1B1 === player_ && r2B2 === player_ && r3B3 === player_) {
+        playerWins()
+    } else if (r1B3 === player_ && r2B2 === player_ && r3B1 === player_) {
+        playerWins()
     }
 }
 
 
-let win = false
+let win = false;
 let CountClicks = 0;
-let player_ = ""
-let playerTurn = document.getElementById('playerturn');
-let grid = document.querySelectorAll('grid')
-let player1score = document.getElementById('player1score')
-let player2score = document.getElementById('player2score')
-
-
+let player1 = 0;
+let player2 = 0;
+let player_ = "";
+let playerTurn = document.querySelector('#playerturn');
+let grid = document.querySelectorAll('.grid')
+let player1score = document.querySelector('#player1score');
+let player2score = document.querySelector('#player2score');
+let moveTracker = document.querySelector('#trackplayerturn');
+let resetGame = document.querySelector('.reset-game');
 function playerWins() {
     win = true;
     setTimeout(function() {
         playerTurn.innerText = "Player " + player_ + " wins"
-        player1score ++
+        if (player_ === "X") {
+            player1 ++;
+            player1score.innerText = player1
+        } else {
+            player2 ++;
+            player2score.innerText = player2
+        }
     } )
 }
-
+function draw () {
+    setTimeout(function() {
+        playerTurn.innerText = "It's a Draw! Press 'Reset Game!' to Play Again."
+    } )
+    grid.forEach(div => { 
+        div.setAttribute('disabled','')})
+}
 const checkPlayerTurn = e => {
     if (CountClicks % 2 === 0) {
         player_ = "X"
@@ -39,58 +67,46 @@ const checkPlayerTurn = e => {
         e.currentTarget.setAttribute('disabled', '');
         compareGame(player_);
         CountClicks ++
-        console.log(CountClicks)
-        playerTurn.innerText = 'Player 1 turn';
+        playerTurn.innerText = 'Player 2 (O) Turn';
     } else {
         player_ = "O"
         e.currentTarget.innerText = "O";
         e.currentTarget.setAttribute('disabled', '');
         compareGame(player_);
         CountClicks ++
-        playerTurn.innerText = 'Player 2 turn'
-        }
+        playerTurn.innerText = 'Player 1 (X) Turn'
+    };
+    moveTracker.innerText = CountClicks
+    if (CountClicks >= 9 && win === false) {
+        draw()
+    }
     }
 grid.forEach(div => { 
     div.addEventListener('click', checkPlayerTurn) 
-    });
+});
+
+
+resetGame.addEventListener('click', function() {
+    grid.forEach(div => { 
+        CountClicks = 0;
+        div.innerText = '';
+        div.removeAttribute('disabled','')
+        win = false;
+        playerTurn.innerText = 'Player 1 (X) Turn'
+        moveTracker.innerHTML = "0" 
+    })
+   
+
+})
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//previous work, before I spoke to sebastian. 
+// I had a lot of difficulty with setting the array/grids of the deliverable... 
+// He helped me quite a bit by explaining how to make my work more simple.
 // let none = '?'
 // let X = "X"
 // let O = "O"

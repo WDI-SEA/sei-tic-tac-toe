@@ -10,42 +10,46 @@
 <body class="page">
     <h1>Tic-Tac-Toe</h1>
     <div class="Win-Counter">Scoreboard
-        <div>Player 1: <span id="player1score">0</span></div>
-        <div>Player 2: <span id="player2score">0</span></div>
+        <div>Player 1 (X): <span id="player1score">0</span></div>
+        <div>Player 2 (O): <span id="player2score">0</span></div>
     </div>
         <div class="TTTGrid">
             <div>
-                <button id="R1B1" class="grid" >?</button>
+                <button id="R1B1" class="grid" ></button>
             </div>
             <div>
-                <button id="R1B2" class="grid" >?</button>
+                <button id="R1B2" class="grid" ></button>
             </div>
             <div>
-                <button id="R1B3" class="grid" >?</button>
+                <button id="R1B3" class="grid" ></button>
             </div>
             <div>
-                <button id="R2B1" class="grid" >?</button>
+                <button id="R2B1" class="grid" ></button>
             </div>
             <div>
-                <button id="R2B2" class="grid" >?</button>
+                <button id="R2B2" class="grid" ></button>
             </div>
             <div>
-                <button id="R2B3" class="grid" >?</button>
+                <button id="R2B3" class="grid" ></button>
             </div>
             <div>
-                <button id="R3B1" class="grid" >?</button>
+                <button id="R3B1" class="grid" ></button>
             </div>
             <div>
-                <button id="R3B2" class="grid" >?</button>
+                <button id="R3B2" class="grid" ></button>
             </div>
             <div>
-                <button id="R3B3" class="grid" >?</button>
+                <button id="R3B3" class="grid" ></button>
             </div>        
         </div>
         <div class="resetgame">
-            <button class="reset-game">Reset game!</button>
+            <button class="reset-game">Reset Game!</button>
         </div>
-    <div class="playerturn">Player Turn</div>
+        <div class="Move-Counter">
+            <div id="playerturn">Player 1 Turn (X)</div>
+            <div># of Moves</div>
+            <div id="trackplayerturn">0</div>
+        </div>
     <script src="./script.js"></script>
 </body>
 </html>

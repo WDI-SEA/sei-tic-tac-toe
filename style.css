@@ -1,7 +1,12 @@
-h1, body {
+h1 {
+    
+} 
+
+body {
     text-align: center;
     background-color: black;
     color: white;
+    font-size: 25px;
 }
 
 
@@ -11,10 +16,13 @@ h1, body {
     text-align: center;
     display: grid;
     justify-content: center;
+    margin-top: -5%;
 }
 
 button {
     background-color: red;
+    color: white;
+    
 }
 
 .grid {
@@ -22,6 +30,7 @@ button {
     width: 100px;
     border: 1px solid white;
     color: white;
+    font-size: 50px;
 } 
 
 .reset-game {
@@ -29,5 +38,10 @@ button {
     padding: 10px, 10px;
 }
 .Win-Counter {
-    position: absolute;
+    margin-right: 45%;
+    margin-top:  ;
+}
+
+.Move-Counter {
+    margin-top: 5%;
 }

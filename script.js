@@ -23,6 +23,7 @@ console.log(pTwoWinTotal.innerText)
 let curPlayer = 0 //0 is playerOne
 const playerOne = '❌' // 
 const playerTwo = '⭕️' // 
+let turn = 0
 
     // a var to keep count of moves to detect cats/draw game
 // const draw = 
@@ -66,7 +67,6 @@ nine.addEventListener('click',function(){
 //how to insert value 
 
 function markGridLocationAndUpdatePlayerTurn(gridLocation){
-    // if(gridLocation.innerText = "-"){
         if(result.innerText === ""){ //stops game if a winner is declared
             if(curPlayer === 0){
                 if(gridLocation.innerText === "-"){ //stops player from playing on a claimed space
@@ -74,6 +74,8 @@ function markGridLocationAndUpdatePlayerTurn(gridLocation){
                     gridLocation.innerText = playerOne
                     curPlayer = 1
                     console.log(gridLocation.innerText)
+                    turn++
+                    console.log(turn)
                     gameWon()
                 }
             } else {
@@ -82,14 +84,13 @@ function markGridLocationAndUpdatePlayerTurn(gridLocation){
                     gridLocation.innerText = playerTwo
                     curPlayer = 0
                     console.log(gridLocation.innerText)
+                    turn++
+                    console.log(turn)
                     gameWon()
                 }
             }
         }
-    // }
 }
-
-        // store the player's move in the gameBoard array
 
 const playerOneWinCondits = [one.innerText === playerOne && two.innerText === playerOne && three.innerText === playerOne,
  four.innerText === playerOne && five.innerText === playerOne && six.innerText === playerOne, 
@@ -126,7 +127,6 @@ function playerOneWins(){
     playerTurn.innerText = ""
     console.log("Player One wins!")
     pOneWinTotal.innerText++
-    
 }
 
 function playerTwoWins(){
@@ -227,6 +227,7 @@ function resetBoard(){
     eight.innerText = " - "
     nine.innerText = " - "
     curPlayer = 0
+    turn = 0
     playerTurn.innerText = "Make a move, Player 1!"
     result.innerText = ""
 }

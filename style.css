@@ -1,0 +1,138 @@
+/* Do not style until project is finished */
+/* <!--Check Gabe's review on how to setup gifs/and reset button/making things appear. -->
+ */
+
+ /* This was un-needed */
+/* .gameBoard{
+    border: 20px solid black;
+    position: absolute;
+    height: 14%;
+    width: 9%;
+} */
+/* #boxOne{
+    left: 24%;
+    top: 6%
+}
+#boxTwo{
+    left:35%;
+    top: 6%;
+}
+#boxThree{
+    left: 46%;
+    top: 6%
+}
+
+#boxFour{
+    left: 24%;
+    top: 23%;
+}
+#boxFive{
+    left: 35%;
+    top: 23%;
+}
+#boxSix{
+    left: 46%;
+    top: 23%;
+}
+#boxSeven{
+    left: 24%;
+    top: 40%;
+}
+#boxEight{
+    left: 35%;
+    top: 40%;
+}
+#boxNine{
+    left: 46%;
+    top: 40%;
+} */
+
+
+.buttons{
+    position: absolute;
+    height: 15%;
+    width: 10%;
+}
+#btnOne{
+    left: 25%;
+    top: 8%;
+}
+#btnTwo{
+    left: 36%;
+    top: 8%;
+}
+#btnThree{
+    left: 47%;
+    top: 8%;
+}
+#btnFour{
+    left: 25%;
+    top: 25%;
+}
+#btnFive{
+    left: 36%;
+    top: 25%;
+}
+#btnSix{
+    left: 47%;
+    top: 25%;
+}
+#btnSeven{
+    left: 25%;
+    top: 42%;
+}
+#btnEight{
+    left: 36%;
+    top: 42%;
+}
+#btnNine{
+    left: 47%;
+    top: 42%;
+}
+
+
+ .pOne{
+    position: absolute;
+    font-size: 140px;
+    
+} 
+#theX{
+    left: 26.8%;
+    top: -15%;
+}
+#x2{
+    left: 37.5%;
+    top: -15%;
+}
+#x3{
+    left: 48.5%;
+    top: -15%;
+}
+
+
+#x4{
+    left: 26.8%;
+    top: 2.5%;
+}
+#x5{
+    left: 37.5%;
+    top: 2.5%;
+}
+#x6{
+    left: 48.5%;
+    top: 2.5%;
+}
+
+
+#x7{
+    left: 26.5%;
+    top: 20%;
+}
+#x8{
+    left: 37.5%;
+    top: 20%;
+}
+#x9{
+    left: 48.5%;
+    top: 20%;
+}

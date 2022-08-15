@@ -5,16 +5,18 @@
 /* enough css to align/make the gameboard */
 
 
-
+/* dark mode always */
 body {
     background-color: rgb(45, 45, 45);
     text-align: center;
 }
 
+/* dark mode always */
 h1 {
     color: white;
 }
 
+/* #darkmodeshouldbedefault */
 h2 {
     color: white;
     position: relative;
@@ -30,8 +32,7 @@ h2 {
     border-radius: 3px;
 }
 
-/* adds border to the grid display and sets font size/color */
-
+/* adds border to the grid insides and sets font size/color. also prevents user from highlighting the options */
 .item {
     user-select: none;
     font-size: 115px;
@@ -39,6 +40,7 @@ h2 {
     border: 2px solid;
 }
 
+/* Player buttons elements */
 button {
     font-size: 1.5em;
     width: 200px;
@@ -50,16 +52,19 @@ button {
     text-align: center;
 }
 
+/* reset all coloring */
 #button1 {
     background-color: red;
     color: white;
 }
 
+/* to set position of winstreak number */
 h3 {
     margin-top: -5%;
     font-size: 30px;
 }
 
+/* sets display rules for Winstreak display and number */
 .Winstreak {
     display: inline-block;
     position: relative;

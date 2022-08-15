@@ -28,16 +28,17 @@
         // if it is a cats game, display that and prevent clicks
 
 
-
+// sets turn to beginning
 let turn = 0;
 
 h2.innerHTML = "Player 1's turn";
 
+// creates array that reflects the gameboard
 let testArray = ['', '', '', 
                 '', '', '',
                 '', '', ''];
 
-
+// creates variables to grab gameboard elements
 let one = document.getElementById("1");
 let two = document.getElementById("2");
 let three = document.getElementById("3");
@@ -48,14 +49,17 @@ let seven = document.getElementById("7");
 let eight = document.getElementById("8");
 let nine = document.getElementById("9");
 
-
+// gets grid container class
 let g = document.getElementsByClassName("grid");
 
+// keeps track of score
 let h3P1streak = 0;
 let h3P2streak = 0;
 
-
+// grid container event listener
 g[0].addEventListener('click', function(e) {
+
+    // reset everything button
     button1.addEventListener("click", function(e) {
         one.innerHTML = "";
         two.innerHTML = "";
@@ -75,6 +79,7 @@ g[0].addEventListener('click', function(e) {
         h3P2.innerHTML = 0;
     })
 
+    // Play again button. Similar to reset all but keeps score
     button2.addEventListener('click', function(e) {
         one.innerHTML = "";
         two.innerHTML = "";
@@ -90,57 +95,62 @@ g[0].addEventListener('click', function(e) {
         h2.innerHTML = "Player 1's turn";
     })
 
+    // displays whose turn it is
     if(turn % 2 === 0){
         h2.innerHTML = "Player 2's turn";
     } else if (turn % 2 != 0) {
         h2.innerHTML = "Player 1's turn";
     }
 
+    // Player 1 win conditions
     if(testArray[0] === "X" && ((testArray[1] === "X" && testArray[2] === "X") || 
                                 (testArray[4] === "X" && testArray[8] === "X") || 
                                 (testArray[3] === "X" && testArray[6] === "X")) ) {
-        h2.innerHTML = "Player 1 wins";
+        h2.innerHTML = "Player 1 wins!";
         return;
     }
     if(testArray[4] === "X" && ((testArray[1] === "X" && testArray[7] === "X") ||
                                 (testArray[3] === "X" && testArray[5] === "X") || 
                                 (testArray[2] === "X" && testArray[6] === "X")) ) {
-        h2.innerHTML = "Player 1 wins";
+        h2.innerHTML = "Player 1 wins!";
         return;
     }
     if(testArray[8] === "X" && ((testArray[6] === "X" && testArray[7] === "X") ||
                                 (testArray[2] === "X" && testArray[5] === "X")) ) {
-        h2.innerHTML = "Player 1 wins";
+        h2.innerHTML = "Player 1 wins!";
         return;
     }
         
     if(testArray[0] === "O" && ((testArray[1] === "O" && testArray[2] === "O") || 
                                 (testArray[4] === "O" && testArray[8] === "O") || 
                                 (testArray[3] === "O" && testArray[6] === "O")) ) {
-        h2.innerHTML = "Player 2 wins";
+        h2.innerHTML = "Player 2 wins!";
         return;
     }
     if(testArray[4] === "O" && ((testArray[1] === "O" && testArray[7] === "O") ||
                                 (testArray[3] === "O" && testArray[5] === "O") || 
                                 (testArray[2] === "O" && testArray[6] === "O")) ) {
-        h2.innerHTML = "Player 2 wins";
+        h2.innerHTML = "Player 2 wins!";
         return;
     }
     if(testArray[8] === "O" && ((testArray[6] === "O" && testArray[7] === "O") ||
                                 (testArray[2] === "O" && testArray[5] === "O")) ) {
-        h2.innerHTML = "Player 2 wins";
+        h2.innerHTML = "Player 2 wins!";
         return;
     }
 
-
+    // grid containers' click boxes
     if(one.contains(e.target)){
+        // prevents the game from going on any further
         if(turn >= 9 || one.innerHTML === "X" || one.innerHTML === "O"){
             return;
         }
+        // if the turn is even, it's player 1's turn
         if(turn % 2 === 0) {
             one.innerHTML = "X";
             testArray[0] = "X";
             turn++;
+        // if the turn is odd it's player 2's turn
         } else {
             one.innerHTML = "O";
             testArray[0] = "O";
@@ -268,11 +278,12 @@ g[0].addEventListener('click', function(e) {
         }
     }
 
-
+    // Player win conditions again to prevent having to click to see who won
     if(testArray[0] === "X" && ((testArray[1] === "X" && testArray[2] === "X") || 
                                 (testArray[4] === "X" && testArray[8] === "X") || 
                                 (testArray[3] === "X" && testArray[6] === "X")) ) {
-        h2.innerHTML = "Player 1 wins";
+        h2.innerHTML = "Player 1 wins!";
+        // adds to winstreak for player 1
         h3P1streak++;
         h3P1.innerHTML = h3P1streak;
         return;
@@ -280,14 +291,14 @@ g[0].addEventListener('click', function(e) {
     if(testArray[4] === "X" && ((testArray[1] === "X" && testArray[7] === "X") ||
                                 (testArray[3] === "X" && testArray[5] === "X") || 
                                 (testArray[2] === "X" && testArray[6] === "X")) ) {
-        h2.innerHTML = "Player 1 wins";
+        h2.innerHTML = "Player 1 wins!";
         h3P1streak++;
         h3P1.innerHTML = h3P1streak;
         return;
     }
     if(testArray[8] === "X" && ((testArray[6] === "X" && testArray[7] === "X") ||
                                 (testArray[2] === "X" && testArray[5] === "X")) ) {
-        h2.innerHTML = "Player 1 wins";
+        h2.innerHTML = "Player 1 wins!";
         h3P1streak++;
         h3P1.innerHTML = h3P1streak;
         return;
@@ -296,7 +307,8 @@ g[0].addEventListener('click', function(e) {
     if(testArray[0] === "O" && ((testArray[1] === "O" && testArray[2] === "O") || 
                                 (testArray[4] === "O" && testArray[8] === "O") || 
                                 (testArray[3] === "O" && testArray[6] === "O")) ) {
-        h2.innerHTML = "Player 2 wins";
+        // adds to winstreak for player 2
+        h2.innerHTML = "Player 2 wins!";
         h3P2streak++;
         h3P2.innerHTML = h3P2streak;
         return;
@@ -304,23 +316,23 @@ g[0].addEventListener('click', function(e) {
     if(testArray[4] === "O" && ((testArray[1] === "O" && testArray[7] === "O") ||
                                 (testArray[3] === "O" && testArray[5] === "O") || 
                                 (testArray[2] === "O" && testArray[6] === "O")) ) {
-        h2.innerHTML = "Player 2 wins";
+        h2.innerHTML = "Player 2 wins!";
         h3P2streak++;
         h3P2.innerHTML = h3P2streak;
         return;
     }
     if(testArray[8] === "O" && ((testArray[6] === "O" && testArray[7] === "O") ||
                                 (testArray[2] === "O" && testArray[5] === "O")) ) {
-        h2.innerHTML = "Player 2 wins";
+        h2.innerHTML = "Player 2 wins!";
         h3P2streak++;
         h3P2.innerHTML = h3P2streak;
         return;
     }
 
+    // cat game logic
     if(turn === 9) {
         h2.innerHTML = "&#x1F431";
     }
-
 })
 
 

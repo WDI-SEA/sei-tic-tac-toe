@@ -224,10 +224,7 @@
             document.querySelector("#grid9").disabled = true
             return
     
-        }else if ((grid1 === "X" || grid1 === "O") && (grid2 === "X" || grid2 === "O") &&
-        (grid3 === "X" || grid3 === "O") && (grid4 === "X" || grid4 === "O") && (grid5 === "X" || grid5 === "O") && 
-        (grid6 === "X" || grid6 === "O") && (grid7 === "X" || grid7 === "O") && (grid8 === "X" || grid8 === "O") &&
-        (grid9 === "X" || grid9 ==="O")) {
+        }else if ((grid1 === "X" || grid1 === "O") && (grid2 === "X" || grid2 === "O") && (grid3 === "X" || grid3 === "O") && (grid4 === "X" || grid4 === "O") && (grid5 === "X" || grid5 === "O") && (grid6 === "X" || grid6 === "O") && (grid7 === "X" || grid7 === "O") && (grid8 === "X" || grid8 === "O") && (grid9 === "X" || grid9 ==="O")) {
             document.getElementById("displayMessage").innerText = "Tie Game! Cat's Game!"
         }else{
             if (turn === 1) {

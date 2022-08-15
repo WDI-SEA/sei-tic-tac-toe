@@ -1,0 +1,47 @@
+<!-- in your index.html --> 
+
+<!-- html boilerplate -- linking css and js-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" defer src="script.js"></script>
+        <title>
+        </title>
+    </head>
+    <body>
+        <div>
+            <div class="turn-display">
+                <p class="display-text"></p>
+            </div>
+            <div class="rows">
+                <section id="x1" class="game-board" plays=""></section> 
+                <section id="x2" class="game-board" plays=""></section>
+                <section id="x3" class="game-board" plays=""></section>
+            </div>
+            
+            <div class="rows">
+
+                <section id="y1" class="game-board" plays=""></section>
+                <section id="y2" class="game-board" plays=""></section>
+                <section id="y3" class="game-board" plays=""></section>
+            
+            </div>
+            <div class="rows">
+                <section id="z1" class="game-board" plays=""></section>
+                <section id="z2" class="game-board" plays=""></section>
+                <section id="z3" class="game-board" plays=""></section>
+            </div>
+          
+            <div class="resetButton">
+                <input type = "button" value = "Reset" onClick = "resetButton()"/>
+            </div>
+
+        </div>
+    </body>
+</html>
+
+<!-- header ot name the game -->
+<!-- GAME BOARD: three divs for the game board, in each div you need three more more divs -->
+<!-- button for reset -->
+<!-- an area to display messages to the user such us whose turn it is and who the winner winner is, and if there is a cats game -->

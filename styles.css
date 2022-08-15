@@ -1,0 +1,29 @@
+body{
+    position: static;
+    left: 100px;
+    down: 100px;
+    background-color: aquamarine;
+    
+}
+.toc {
+    font-size: 22px;
+    border: 2px solid rgb(5, 5, 5);
+    display: inline-block;
+    min-height: 50px;
+    min-width: 50px;
+   
+    
+     
+}
+#btn{
+    
+}
+.container{
+    
+}
+
+/* styles.css */
+
+/* DO NOT DO ANY EXTRA CSS UNTIL YOU ARE FINISHED WITH THE GAME */
+
+/* enough css to align/make the gameboard */

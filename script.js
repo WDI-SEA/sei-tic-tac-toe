@@ -56,7 +56,7 @@ let h3P2streak = 0;
 
 
 g[0].addEventListener('click', function(e) {
-    button.addEventListener("click", function(e) {
+    button1.addEventListener("click", function(e) {
         one.innerHTML = "";
         two.innerHTML = "";
         three.innerHTML = "";
@@ -69,11 +69,25 @@ g[0].addEventListener('click', function(e) {
         testArray = ['', '', '', '', '', '', '', '', ''];
         turn = 0;
         h2.innerHTML = "Player 1's turn";
-        console.log(turn);
         h3P1streak = 0;
         h3P2streak = 0;
         h3P1.innerHTML = 0;
         h3P2.innerHTML = 0;
+    })
+
+    button2.addEventListener('click', function(e) {
+        one.innerHTML = "";
+        two.innerHTML = "";
+        three.innerHTML = "";
+        four.innerHTML = "";
+        five.innerHTML = "";
+        six.innerHTML = "";
+        seven.innerHTML = "";
+        eight.innerHTML = "";
+        nine.innerHTML = "";
+        testArray = ['', '', '', '', '', '', '', '', ''];
+        turn = 0;
+        h2.innerHTML = "Player 1's turn";
     })
 
     if(turn % 2 === 0){
@@ -132,8 +146,6 @@ g[0].addEventListener('click', function(e) {
             testArray[0] = "O";
             turn++;
         }
-        console.log(testArray);
-        console.log(turn);
     }
 
     if(two.contains(e.target)){
@@ -149,8 +161,6 @@ g[0].addEventListener('click', function(e) {
             testArray[1] = "O";
             turn++;
         }
-        console.log(testArray);
-        console.log(turn);
     }
 
     if(three.contains(e.target)){
@@ -166,8 +176,6 @@ g[0].addEventListener('click', function(e) {
             testArray[2] = "O";
             turn++;
         }
-        console.log(testArray);
-        console.log(turn);
     }
 
     if(four.contains(e.target)){
@@ -183,8 +191,6 @@ g[0].addEventListener('click', function(e) {
             testArray[3] = "O";
             turn++;
         }
-        console.log(testArray);
-        console.log(turn);
     }
 
     if(five.contains(e.target)){
@@ -200,8 +206,6 @@ g[0].addEventListener('click', function(e) {
             testArray[4] = "O";
             turn++;
         }
-        console.log(testArray);
-        console.log(turn);
     }
 
     if(six.contains(e.target)){
@@ -217,8 +221,6 @@ g[0].addEventListener('click', function(e) {
             testArray[5] = "O";
             turn++;
         }
-        console.log(testArray);
-        console.log(turn);
     }
 
     if(seven.contains(e.target)){
@@ -234,8 +236,6 @@ g[0].addEventListener('click', function(e) {
             testArray[6] = "O";
             turn++;
         }
-        console.log(testArray);
-        console.log(turn);
     }
 
     if(eight.contains(e.target)){
@@ -251,8 +251,6 @@ g[0].addEventListener('click', function(e) {
             testArray[7] = "O";
             turn++;
         }
-        console.log(testArray);
-        console.log(turn);
     }
 
     if(nine.contains(e.target)){
@@ -268,8 +266,6 @@ g[0].addEventListener('click', function(e) {
             testArray[8] = "O";
             turn++;
         }
-        console.log(testArray);
-        console.log(turn);
     }
 
 

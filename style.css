@@ -5,11 +5,15 @@ header{
     text-align: center;
     font-size: 60px;
 }
-
+ body{
+    align-items: center;
+    text-align: center;
+ }
 .gameboard{
     background-color: darkgoldenrod;
     display:grid;
     grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
     padding: 10px;
     height: 600px;
     width: 600px;

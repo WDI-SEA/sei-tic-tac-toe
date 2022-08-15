@@ -62,10 +62,11 @@ const markBoxAsfilled= function (boxArray){
     // else choose another square
     // so i understand how to choose one square but I dont get random boxe
     if (playerTurn % 2 === 0 ){
-        boxOne.innerText = "O"
+        boxArray[i].innerText = "O"
         console.log('testing event listeners') 
     } else{
         boxOne.innerText = "X"
+        console.log ("test1")
     }
     }
 

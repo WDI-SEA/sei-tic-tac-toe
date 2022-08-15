@@ -1,0 +1,30 @@
+
+body{
+    background-color: yellow;
+    text-align: center;
+}
+.box {
+    width:220px;
+    height:150px;
+    margin :2px 0px;
+    background-color: aquamarine;
+    display:inline-block;
+    text-align:center;
+    
+}
+#textBox{
+    color:blue;
+    font-size: 35px;
+
+}
+h1{
+    color:rgb(170, 0, 255);
+}
+#header{
+    color:black;
+    font-size: 35px;
+}
+
+
+
+

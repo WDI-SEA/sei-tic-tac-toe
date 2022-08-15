@@ -2,6 +2,8 @@
 // a variable to track whose turn it is
  // a var for 'x' and a var for 'o'
 
+ window.addEventListener('DOMContentLoaded', (event) => {
+
 
 let playerChoice = "O"
 let moves = 1
@@ -198,8 +200,7 @@ const clearBoard = function() {
     playerChoice = "O"
     winningBox = false
 }
-
-
+ })
         // 2d array
         // [
         //     ['x', '', 'o'],

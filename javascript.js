@@ -146,7 +146,7 @@
     
     
         if (grid1 === "O" && grid2 === "O" && grid3 === "O") {
-            document.querySelector("#displayMessage").innerText = "Player X is the winner!"
+            document.querySelector("#displayMessage").innerText = "Player O is the winner!"
             document.querySelector("#grid4").disabled = true
             document.querySelector("#grid5").disabled = true
             document.querySelector("#grid6").disabled = true
@@ -156,7 +156,7 @@
             return
     
         }else if (grid1 === "O" && grid4 === "O" && grid7 === "O") {
-            document.querySelector("#displayMessage").innerText = "Player X is the winner!"
+            document.querySelector("#displayMessage").innerText = "Player O is the winner!"
             document.querySelector("#grid2").disabled = true
             document.querySelector("#grid3").disabled = true
             document.querySelector("#grid5").disabled = true
@@ -166,7 +166,7 @@
             return
     
         }else if (grid7 === "O" && grid8 === "O" && grid9 === "O") {
-            document.querySelector("#displayMessage").innerText = "Player X is the winner!"
+            document.querySelector("#displayMessage").innerText = "Player O is the winner!"
             document.querySelector("#grid1").disabled = true
             document.querySelector("#grid2").disabled = true
             document.querySelector("#grid3").disabled = true
@@ -176,7 +176,7 @@
             return
     
         }else if (grid3 === "O" && grid6 === "O" && grid9 === "O")  {
-            document.querySelector("#displayMessage").innerText = "Player X is the winner!"
+            document.querySelector("#displayMessage").innerText = "Player O is the winner!"
             document.querySelector("#grid1").disabled = true
             document.querySelector("#grid2").disabled = true
             document.querySelector("#grid4").disabled = true
@@ -186,7 +186,7 @@
             return
     
         }else if (grid4 === "O" && grid5 === "O" && grid6=== "O") {
-            document.querySelector("#displayMessage").innerText = "Player X is the winner!"
+            document.querySelector("#displayMessage").innerText = "Player O is the winner!"
             document.querySelector("#grid1").disabled = true
             document.querySelector("#grid2").disabled = true
             document.querySelector("#grid3").disabled = true
@@ -196,7 +196,7 @@
             return
     
         }else if (grid2 === "O" && grid5 === "O" && grid8 === "O") {
-            document.querySelector("#displayMessage").innerText = "Player X is the winner!"
+            document.querySelector("#displayMessage").innerText = "Player O is the winner!"
             document.querySelector("#grid1").disabled = true
             document.querySelector("#grid3").disabled = true
             document.querySelector("#grid4").disabled = true
@@ -206,7 +206,7 @@
             return
     
         }else if (grid1 === "O" && grid5 === "O" && grid9 === "O") {
-            document.querySelector("#displayMessage").innerText = "Player X is the winner!"
+            document.querySelector("#displayMessage").innerText = "Player O is the winner!"
             document.querySelector("#grid2").disabled = true
             document.querySelector("#grid3").disabled = true
             document.querySelector("#grid4").disabled = true
@@ -215,7 +215,7 @@
             document.querySelector("#grid8").disabled = true  
             return 
         }else if (grid3 === "O" && grid5 === "O" && grid7 ==="O"){
-            document.querySelector("#displayMessage").innerText = "Player X is the winner!"
+            document.querySelector("#displayMessage").innerText = "Player O is the winner!"
             document.querySelector("#grid1").disabled = true
             document.querySelector("#grid2").disabled = true
             document.querySelector("#grid4").disabled = true

@@ -213,8 +213,12 @@ function tieTacToe(){
         playerTwoWins()
       
     }
+
+    else if (turn === 9 && result.innerText === ""){
+        tieTacToe()
+    }
 }
- 
+
 reset.addEventListener('click', resetBoard)
 function resetBoard(){
     one.innerText = " - "
@@ -231,10 +235,3 @@ function resetBoard(){
     playerTurn.innerText = "Make a move, Player 1!"
     result.innerText = ""
 }
-
-// some way to tell if a player has already clicked on a square
-// win/tie game logic in functions
-    // option: detect a win using conditionals and comparisions 
-    // option hard mode: store all winning conditions and use loops to compare them to the gameBoard array
-        // if the game is won, display the winner and prevent the users from clicking more
-        // if it is a cats game, display that and prevent clicks

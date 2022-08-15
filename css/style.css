@@ -1,0 +1,48 @@
+h1 {
+  color: grey;
+  text-align: center;
+}
+body {
+  background-color: beige;
+}
+ .game-board {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 200px 200px 200px;
+ }
+
+ .cell {
+  display: flex;
+  align-items: center;
+  border: 1px solid #555;
+  justify-content: center;
+  color: black;
+  font-size: larger;
+ }
+ 
+ section {
+  text-align: center;
+  margin: auto;
+  position: absolute;
+ }
+
+ #output {
+  color: black;
+  text-align: center;
+ }
+
+ button {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  font-size: 18px;
+ }
+
+ input {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+  width: 100px;
+ }

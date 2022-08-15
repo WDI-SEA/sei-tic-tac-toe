@@ -9,7 +9,7 @@ STEP 4: STOP ALLOWING MOVES ONCE PLAYER WINS OR THERES A DRAW
 //GLOBAL VARs
 //makes element into array
 let choices = document.querySelectorAll('.box');
-choices = Array.from(choices)
+Array.from(choices)
 // console.log(choices);
 
 let plyOne = "X";
@@ -34,6 +34,37 @@ let winnerIf = [
   [0, 4, 8],
   [2, 4, 6]
 ]
+
+function winnerIs() {
+  winnerIf.forEach(function(plays) {
+    let check = plays.every(idx => choices[idx].innerText.trim() == plyOne)
+    if(check) {
+      gameActive = false
+      alert(plyOne + ' has won')
+    }
+  })
+}
+
+function draw() {
+  moves -= 1
+  if(gameActive == true && moves == 0) {
+    alert("IT'S A DRAW!")
+  }
+}
+
+
+choices.forEach(function(box){
+  box.addEventListener('click', function() {
+    if(gameActive){
+      if(box.innerText.trim() != "") return
+      box.innerText = plyOne
+      winnerIs()
+      plyOne = plyOne == "X" ? "O" : "X"
+      draw()
+      // console.log(gameActive)
+    }
+  })
+})
 
 
 // window.addEventListener('load', () => {

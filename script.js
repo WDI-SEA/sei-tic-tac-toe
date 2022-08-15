@@ -167,22 +167,22 @@ document.querySelector('#box9').addEventListener('click', function() {
 //checking winner
 
 const checkWinner = function() {
-    if (boxOne.innerText === boxFour.innerText && boxFour.innerText === boxSeven.innerText && boxOne.innerText != "") { finishedGame.innerText = (playerChoice + " is the winner!")
-    }else if(boxTwo.innerText === boxFive.innerText && boxFive.innerText === boxEight.innerText && boxTwo.innerText != "") { finishedGame.innerText = (playerChoice + " is the winner!")
-
-     }else if(boxThree.innerText === boxSix.innerText & boxSix.innerText === boxNine.innerText && boxThree.innerText != "") {finishedGame.innerText = (playerChoice + " is the winner!") 
-
+    if (boxOne.innerText === boxFour.innerText && boxFour.innerText === boxSeven.innerText && boxOne.innerText != "") { 
+        finishedGame.innerText = (playerChoice + " is the winner!")
+    }else if(boxTwo.innerText === boxFive.innerText && boxFive.innerText === boxEight.innerText && boxTwo.innerText != "") { 
+        finishedGame.innerText = (playerChoice + " is the winner!")
+     }else if(boxThree.innerText === boxSix.innerText & boxSix.innerText === boxNine.innerText && boxThree.innerText != "") {
+        finishedGame.innerText = (playerChoice + " is the winner!") 
      }else if(boxOne.innerText === boxTwo.innerText && boxTwo.innerText === boxThree.innerText && boxOne.innerText != "") {
-            finishedGame.innerText = (playerChoice + " is the winner!") 
+        finishedGame.innerText = (playerChoice + " is the winner!") 
     }else if(boxFour.innerText === boxFive.innerText &&boxFive.innerText === boxSix.innerText && boxFour.innerText != "") {
-            finishedGame.innerText = (playerChoice + " is the winner!") 
+        finishedGame.innerText = (playerChoice + " is the winner!") 
      }else if(boxSeven.innerText === boxEight.innerText &&boxEight.innerText === boxNine.innerText && boxSeven.innerText != "") {
-            finishedGame.innerText = (playerChoice + " is the winner!") 
-
+        finishedGame.innerText = (playerChoice + " is the winner!") 
      }else if(boxOne.innerText === boxFive.innerText &&boxFive.innerText === boxNine.innerText && boxOne.innerText != "") {
-            finishedGame.innerText = (playerChoice + " is the winner!") 
+        finishedGame.innerText = (playerChoice + " is the winner!") 
      }else if(boxSeven.innerText === boxFive.innerText &&boxFive.innerText === boxThree.innerText && boxSeven.innerText != "") {
-            finishedGame.innerText = (playerChoice + " is the winner!") 
+        finishedGame.innerText = (playerChoice + " is the winner!") 
     }
 }
 

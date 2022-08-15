@@ -186,6 +186,18 @@ const checkWinner = function() {
     }
 }
 
+//Clearing board
+
+const clearBoard = function() {
+    const clear = document.querySelectorAll('.boxes')
+    for (let i = 0; i < clear.length; i++) {
+        clear[i].innerText = ""
+    }
+    moves = 1
+    finishedGame.innerText = ""
+    playerChoice = "O"
+    winningBox = false
+}
 
 
         // 2d array

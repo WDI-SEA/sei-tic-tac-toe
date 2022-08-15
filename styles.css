@@ -17,8 +17,12 @@ h2 {
     font-size: 30px;
 }
 
+#wintracker {
+    font-size: 30px;
+}
+
 #gameboard {
-    margin-top: 100px
+    margin: 100px auto;
 }
 
 .rows {
@@ -92,7 +96,6 @@ h2 {
 }
 
 button {
-    margin-top: 100px;
     padding: 20px 30px;
     font-size: 20px;
     border-radius: 10px;

@@ -40,6 +40,8 @@ const eight = document.getElementById('eight')
 const tiles = document.getElementsByClassName('tiles')
 const message = document.getElementById('message')
 const reset = document.getElementById('reset')
+const xwins = document.getElementById('xwins')
+const owins = document.getElementById('owins')
 
 // app state variables
 let turn = 'X'
@@ -52,39 +54,81 @@ function checkWin() {
     if (gameBoard[0] == gameBoard[1] && gameBoard[1] == gameBoard[2]){
         gameOver = true
         message.innerText = turn + " Wins!"
+        // increases winner's win count
+        if (turn == 'X'){
+            xwins.innerText++
+        } else {
+            owins.innerText++
+        }
     }
     if (gameBoard[3] == gameBoard[4] && gameBoard[4] == gameBoard[5]){
         gameOver = true
         message.innerText = turn + " Wins!"
+        if (turn == 'X'){
+            xwins.innerText++
+        } else {
+            owins.innerText++
+        }
     }
     if (gameBoard[6] == gameBoard[7] && gameBoard[7] == gameBoard[8]){
         gameOver = true
         message.innerText = turn + " Wins!"
+        if (turn == 'X'){
+            xwins.innerText++
+        } else {
+            owins.innerText++
+        }
     }
     if (gameBoard[0] == gameBoard[3] && gameBoard[3] == gameBoard[6]){
         gameOver = true
         message.innerText = turn + " Wins!"
+        if (turn == 'X'){
+            xwins.innerText++
+        } else {
+            owins.innerText++
+        }
     }
     if (gameBoard[1] == gameBoard[4] && gameBoard[4] == gameBoard[7]){
         gameOver = true
         message.innerText = turn + " Wins!"
+        if (turn == 'X'){
+            xwins.innerText++
+        } else {
+            owins.innerText++
+        }
     }
     if (gameBoard[2] == gameBoard[5] && gameBoard[5] == gameBoard[8]){
         gameOver = true
         message.innerText = turn + " Wins!"
+        if (turn == 'X'){
+            xwins.innerText++
+        } else {
+            owins.innerText++
+        }
     }
     if (gameBoard[0] == gameBoard[4] && gameBoard[4] == gameBoard[8]){
         gameOver = true
         message.innerText = turn + " Wins!"
+        if (turn == 'X'){
+            xwins.innerText++
+        } else {
+            owins.innerText++
+        }
     }
     if (gameBoard[2] == gameBoard[4] && gameBoard[4] == gameBoard[6]){
         gameOver = true
         message.innerText = turn + " Wins!"
+        if (turn == 'X'){
+            xwins.innerText++
+        } else {
+            owins.innerText++
+        }
     }
 }
 
 // function for player moves
 function currentMove(event){
+    // adds move to tile
     event.target.innerText = turn
     moves++
 
@@ -92,7 +136,6 @@ function currentMove(event){
     if (moves >= 9){
         message.innerText = "Cat's game! / It's a draw!"
         gameOver = true
-
     }
 
     // records moves to gameBoard array
@@ -152,7 +195,7 @@ six.addEventListener('click', currentMove, {once:true})
 seven.addEventListener('click', currentMove, {once:true})
 eight.addEventListener('click', currentMove, {once:true})
 
-// resets game
+// resets game board
 reset.addEventListener('click', function(){
     message.innerText = "X gets the first turn"
     zero.innerText = ""

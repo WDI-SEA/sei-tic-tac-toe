@@ -59,8 +59,7 @@ choices.forEach(function(box){
       if(box.innerText.trim() != "") return
       box.innerText = plyOne
       winnerIs()
-      plyOne = plyOne == "X" ? "O" : "X"
-      draw()
+      plyOne = plyOne == "X" ? "O" : "X";
       // console.log(gameActive)
     }
   })

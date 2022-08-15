@@ -17,7 +17,7 @@ button {
     background-color: red;
 }
 
-.row1, .row2, .row3 {
+.grid {
     height: 100px;
     width: 100px;
     border: 1px solid white;

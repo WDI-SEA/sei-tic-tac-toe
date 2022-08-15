@@ -1,26 +1,58 @@
 // //variables
-let r1B1 = document.getElementById('R1B1');
-let r1B2 = document.getElementById('R1B2');
-let r1B3 = document.getElementById('R1B3');
-let r2B1 = document.getElementById('R2B1');
-let r2B2 = document.getElementById('R2B2');
-let r2B3 = document.getElementById('R2B3');
-let r3B1 = document.getElementById('R3B1');
-let r3B2 = document.getElementById('R3B2');
-let r3B3 = document.getElementById('R3B3');
+function compareGame () {
+    let r1B1 = document.getElementById('R1B1').innerText;
+    let r1B2 = document.getElementById('R1B2').innerText;
+    let r1B3 = document.getElementById('R1B3').innerText;
+    let r2B1 = document.getElementById('R2B1').innerText;
+    let r2B2 = document.getElementById('R2B2').innerText;
+    let r2B3 = document.getElementById('R2B3').innerText;
+    let r3B1 = document.getElementById('R3B1').innerText;
+    let r3B2 = document.getElementById('R3B2').innerText;
+    let r3B3 = document.getElementById('R3B3').innerText;
+    if (r1B1 === player_ && r1B2 === player_ && r1B3 === player_) {
+        playerWins()
+    }
+}
 
+
+let win = false
 let CountClicks = 0;
-let X = 'X'
-let O = 'O'
+let player_ = ""
+let playerTurn = document.getElementById('playerturn');
+let grid = document.querySelectorAll('grid')
+let player1score = document.getElementById('player1score')
+let player2score = document.getElementById('player2score')
 
 
-function checkPlayerTurn() {
+function playerWins() {
+    win = true;
+    setTimeout(function() {
+        playerTurn.innerText = "Player " + player_ + " wins"
+        player1score ++
+    } )
+}
+
+const checkPlayerTurn = e => {
     if (CountClicks % 2 === 0) {
-        playerTurn.innerText = 'Player 1 turn'
-    } else if (CountClicks % 2 != 0) {
+        player_ = "X"
+        e.currentTarget.innerText = "X";
+        e.currentTarget.setAttribute('disabled', '');
+        compareGame(player_);
+        CountClicks ++
+        console.log(CountClicks)
+        playerTurn.innerText = 'Player 1 turn';
+    } else {
+        player_ = "O"
+        e.currentTarget.innerText = "O";
+        e.currentTarget.setAttribute('disabled', '');
+        compareGame(player_);
+        CountClicks ++
         playerTurn.innerText = 'Player 2 turn'
-        };
-    };
+        }
+    }
+grid.forEach(div => { 
+    div.addEventListener('click', checkPlayerTurn) 
+    });
 
 
 

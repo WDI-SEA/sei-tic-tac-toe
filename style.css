@@ -50,6 +50,8 @@ div h1 {
 }
 
 button {
+    display: flex;
+    align-items: center;
     background-color: rgb(246, 255, 0);
     color: rgb(255, 149, 0);
     font-size: 30px;

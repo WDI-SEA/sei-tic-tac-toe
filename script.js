@@ -18,7 +18,6 @@ let moves = 9;
 
 let gameActive = true;
 
-
 let winnerIf = [
   //Horriz
   [0, 1, 2],
@@ -59,8 +58,18 @@ choices.forEach(function(box){
       if(box.innerText.trim() != "") return
       box.innerText = plyOne
       winnerIs()
-      plyOne = plyOne == "X" ? "O" : "X";
+      // //ternary op -- short "if ... else"
+      // plyOne = plyOne == "X" ? "O" : "X";
+
+      // another way 
+      plyOne = plyOne == "X" ? (
+        plyOne = "O"
+      ) : (
+        plyOne = "X"
+      );
+      // console.log(plyOne)
       // console.log(gameActive)
+      draw()
     }
   })
 })

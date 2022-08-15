@@ -3,10 +3,10 @@ h1 {
 } 
 
 #firework {
-    margin-top: -70%;
     display: none;
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 150px;
+    /* margin-left: 40px; */
 }
 
 body {
@@ -52,8 +52,8 @@ button {
     margin-top: ;
 }
 
-.Move-Counter {
-    margin-top: 5%;
+#movecounter {
+    margin-top: 25px;
 }
 
 /* margin-top: -15%; */

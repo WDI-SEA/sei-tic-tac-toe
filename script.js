@@ -53,14 +53,14 @@ function playerWins() {
             grid.forEach(div => { 
                 div.setAttribute('disabled','')})
             fireworks.style.display = 'inline';
-            movecounter.style.marginTop = '-20%';
+            movecounter.style.marginTop = '-10%';
         } else {
             player2 ++;
             player2score.innerText = player2;
             grid.forEach(div => { 
                 div.setAttribute('disabled','')})
             fireworks.style.display = 'inline';
-            movecounter.style.marginTop = '-20%';
+            movecounter.style.marginTop = '-10%';
         }
     }, 10)
 };

@@ -262,6 +262,8 @@ resetBtn.addEventListener("click", function(e){
     gameOver = false
 })
 scoreReset.addEventListener("click", function(e){
+    xScore = 0
+    oScore = 0
     xText.innerText = ""
     oText.innerText = ""
 })

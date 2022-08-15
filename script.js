@@ -14,13 +14,8 @@ let currentPlayer =  x
 
     // a var to keep count of moves to detect cats/draw game
         /* Add your logic here */
-let count = 9
-let catsGame = () => {
-    if(count === 9){
-        document.getElementById("h2").innerHTML = "Cat\'s Game";
-        
-    }
-}
+let count = 0
+
 
 
 // setTimeout(catsGame, 2000)
@@ -62,10 +57,33 @@ let gameBoard = ['','','','','','','','','']
 
 let gameOver = false;
 
+let freshBoard = () => {
+    gameBoard = ['','','','','','','','','']
+    aOneSpace = true
+    bOneSpace = true
+    cOneSpace = true
+    aTwoSpace = true
+    bTwoSpace = true
+    cTwoSpace = true
+    aThreeSpace = true
+    bThreeSpace = true
+    cThreeSpace = true
+    aOne.innerHTML = ''
+    bOne.innerHTML = ''
+    cOne.innerHTML = '' 
+    aTwo.innerHTML = '' 
+    bTwo.innerHTML = '' 
+    cTwo.innerHTML = '' 
+    aThree.innerHTML = '' 
+    bThree.innerHTML = '' 
+    cThree.innerHTML = '' 
+    currentPlayer = 'x'
+    document.getElementById('h2').innerHTML = `X's Go First`;
+}
 
 let reset = document.querySelector('button')
 reset.addEventListener('click', () => {
-    console.log('ugh')
+    freshBoard()
 })
 
 // EVENT LISTENERS
@@ -82,6 +100,7 @@ let changePlayers = () => {
         currentPlayer = x
     }
 }
+
 
 
 // let gameBoard = [
@@ -119,10 +138,16 @@ let winConditions = () => {
 let playerMove = (player) => {
     if(gameOver !== true){
         player.innerHTML = `${currentPlayer}`      
-    
     }
 }
 
+let catsGame = () => {
+    if(count === 9){
+        document.getElementById("h2").innerHTML = "Cat\'s Game";
+    } else {
+        count += 1
+    }
+}
 
 aOne.addEventListener('click', (event) => {
     if(aOneSpace && gameOver !== true){
@@ -130,8 +155,8 @@ aOne.addEventListener('click', (event) => {
         aOneSpace = false
         gameBoard[0] = currentPlayer
         winConditions()
+        catsGame()
         changePlayers()
-      
     }
 })
 
@@ -141,6 +166,7 @@ bOne.addEventListener('click', (event) => {
         bOneSpace = false
         gameBoard[1] = currentPlayer
         winConditions()
+        catsGame()
         changePlayers()
     }
 })
@@ -151,6 +177,7 @@ cOne.addEventListener('click', (event) => {
         cOneSpace = false
         gameBoard[2] = currentPlayer
         winConditions()
+        catsGame()
         changePlayers()
     }
 })
@@ -160,6 +187,7 @@ aTwo.addEventListener('click', (event) => {
         aTwoSpace = false
         gameBoard[3] = currentPlayer
         winConditions()
+        catsGame()
         changePlayers()
     }
 })
@@ -169,6 +197,7 @@ bTwo.addEventListener('click', (event) => {
         bTwoSpace = false
         gameBoard[4] = currentPlayer
         winConditions()
+        catsGame()
         changePlayers()
     }
 })
@@ -178,6 +207,7 @@ cTwo.addEventListener('click', (event) => {
         cTwoSpace = false
         gameBoard[5] = currentPlayer
         winConditions()
+        catsGame()
         changePlayers()
     }
 })
@@ -187,6 +217,7 @@ aThree.addEventListener('click', (event) => {
         aThreeSpace = false
         gameBoard[6] = currentPlayer
         winConditions()
+        catsGame()
         changePlayers()
     }
 })
@@ -196,6 +227,7 @@ bThree.addEventListener('click', (event) => {
         bThreeSpace = false
         gameBoard[7] = currentPlayer
         winConditions()
+        catsGame()
         changePlayers()
     }
 })
@@ -205,6 +237,7 @@ cThree.addEventListener('click', (event) => {
         cThreeSpace = false
         gameBoard[8] = currentPlayer
         winConditions()
+        catsGame()
         changePlayers()
     }
 })

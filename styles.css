@@ -3,6 +3,9 @@
 /* DO NOT DO ANY EXTRA CSS UNTIL YOU ARE FINISHED WITH THE GAME */
 
 /* enough css to align/make the gameboard */
+body{
+    background-color: gray
+}
 
 header{
     display: flex;
@@ -40,6 +43,7 @@ header{
     text-align: center;
     top: 50%;
     font-size: 34px;
+    background-color: blanchedalmond;
 }
 
 #reset{
@@ -52,4 +56,28 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#score{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#xScore{
+    color: blue;
+    margin-right: 5px;
+    font-size: 25px;
+    padding: 5px;
+    background-color: blanchedalmond;
+}
+        
+#oScore{
+    color: red;
+    margin-left: 5px;
+    padding: 5px;
+    font-size: 25px;
+    background-color: blanchedalmond;
+}
+.hidden{
+    display: ;
 }

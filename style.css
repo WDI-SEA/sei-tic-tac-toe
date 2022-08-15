@@ -15,3 +15,7 @@ h1 {
 .gameBoard {
     display: grid;
 }
+
+.box {
+    color: black;
+}

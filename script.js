@@ -10,6 +10,7 @@ function winCheck(playerInput) {
     let plotC1 = document.getElementById('c1').innerText
     let plotC2 = document.getElementById('c2').innerText
     let plotC3 = document.getElementById('c3').innerText
+    
     if(plotA1 === playerInput && plotA2 === playerInput && plotA3 === playerInput) {
         youWin()
     } else if (plotB1 === playerInput && plotB2 === playerInput && plotB3 === playerInput) {
@@ -28,6 +29,8 @@ function winCheck(playerInput) {
         youWin()
     }
 }
+
+// delay added to correctly update the winning stage after you click.
 
 function youWin() {
     win = true
@@ -60,7 +63,7 @@ function youLose() {
     })
 }
 
-// init 
+// Dom bulk init 
 
 let win = false
 let turn = 0
@@ -72,9 +75,11 @@ let numSpan = document.getElementById('turnNumSpan')
 let winnerNoti = document.getElementById('winner-stage')
 let xWinUpdate = document.getElementById('xWinSpan')
 let oWinUpdate = document.getElementById('oWinSpan')
-// game functionality
-
 let divs = document.querySelectorAll(".grid-item")
+
+// game functionality
+// turn looping + wincheck and updates.
+
 const plotClick = e => {
 
     if (turn % 2 === 0) {
@@ -98,11 +103,12 @@ const plotClick = e => {
     }
     
 }
+
 divs.forEach(div => {
     div.addEventListener('click', plotClick)
 })
 
-// clear button functionality
+// clear button functionality + disable attribute 
 
 clearButton.addEventListener('click', function() {
     divs.forEach(div => {
@@ -119,7 +125,7 @@ clearButton.addEventListener('click', function() {
 })
 
 
-// playscreen
+// playscreen, wanted to see if I could figure it out. 
 
 document.getElementById('fade-in').addEventListener('click', function() {
     document.getElementById('toFade').style.display = "none"

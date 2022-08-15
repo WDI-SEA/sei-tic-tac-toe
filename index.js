@@ -6,7 +6,7 @@ let playerTurn = 0
 let X = "X"
 let O = "O"
 let clicked = false
-let playerInput = ""
+
 // a var to keep count of moves to detect cats/draw game
 // gameBoard array to keep track of player moves ['x', '', 'o', 'x', '', 'o', 'x', '', '']
 let gameBoard = ['0', '1', '2', '3', '4', '5', '6', '7', '8']

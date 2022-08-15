@@ -70,6 +70,10 @@ g[0].addEventListener('click', function(e) {
         turn = 0;
         h2.innerHTML = "Player 1's turn";
         console.log(turn);
+        h3P1streak = 0;
+        h3P2streak = 0;
+        h3P1.innerHTML = 0;
+        h3P2.innerHTML = 0;
     })
 
     if(turn % 2 === 0){
@@ -273,17 +277,23 @@ g[0].addEventListener('click', function(e) {
                                 (testArray[4] === "X" && testArray[8] === "X") || 
                                 (testArray[3] === "X" && testArray[6] === "X")) ) {
         h2.innerHTML = "Player 1 wins";
+        h3P1streak++;
+        h3P1.innerHTML = h3P1streak;
         return;
     }
     if(testArray[4] === "X" && ((testArray[1] === "X" && testArray[7] === "X") ||
                                 (testArray[3] === "X" && testArray[5] === "X") || 
                                 (testArray[2] === "X" && testArray[6] === "X")) ) {
         h2.innerHTML = "Player 1 wins";
+        h3P1streak++;
+        h3P1.innerHTML = h3P1streak;
         return;
     }
     if(testArray[8] === "X" && ((testArray[6] === "X" && testArray[7] === "X") ||
                                 (testArray[2] === "X" && testArray[5] === "X")) ) {
         h2.innerHTML = "Player 1 wins";
+        h3P1streak++;
+        h3P1.innerHTML = h3P1streak;
         return;
     }
       
@@ -291,27 +301,28 @@ g[0].addEventListener('click', function(e) {
                                 (testArray[4] === "O" && testArray[8] === "O") || 
                                 (testArray[3] === "O" && testArray[6] === "O")) ) {
         h2.innerHTML = "Player 2 wins";
+        h3P2streak++;
+        h3P2.innerHTML = h3P2streak;
         return;
     }
     if(testArray[4] === "O" && ((testArray[1] === "O" && testArray[7] === "O") ||
                                 (testArray[3] === "O" && testArray[5] === "O") || 
                                 (testArray[2] === "O" && testArray[6] === "O")) ) {
         h2.innerHTML = "Player 2 wins";
+        h3P2streak++;
+        h3P2.innerHTML = h3P2streak;
         return;
     }
     if(testArray[8] === "O" && ((testArray[6] === "O" && testArray[7] === "O") ||
                                 (testArray[2] === "O" && testArray[5] === "O")) ) {
         h2.innerHTML = "Player 2 wins";
+        h3P2streak++;
+        h3P2.innerHTML = h3P2streak;
         return;
     }
 
     if(turn === 9) {
         h2.innerHTML = "&#x1F431";
-    }
-
-    if(h2.innerHTML === "Player 1 wins") {
-        h3P1streak++;
-        h3P1.innerHTML = h3P1streak;
     }
 
 })

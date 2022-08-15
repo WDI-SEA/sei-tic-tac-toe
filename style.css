@@ -50,6 +50,10 @@ button {
     text-align: center;
 }
 
+h3 {
+    margin-top: -5%;
+    font-size: 30px;
+}
 
 .Winstreak {
     display: inline-block;
@@ -57,10 +61,4 @@ button {
     margin: 0 100px;
     color: white;
 }
-
-h3 {
-    margin-top: -5%;
-    font-size: 30px;
-}
-
 

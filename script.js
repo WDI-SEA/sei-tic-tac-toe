@@ -92,6 +92,7 @@ function markGridLocationAndUpdatePlayerTurn(gridLocation){
         }
 }
 
+// I set all win condits for each player to array but wasn't sure how to apply for efficiency
 const playerOneWinCondits = [one.innerText === playerOne && two.innerText === playerOne && three.innerText === playerOne,
  four.innerText === playerOne && five.innerText === playerOne && six.innerText === playerOne, 
  seven.innerText === playerOne && eight.innerText === playerOne && nine.innerText === playerOne, 
@@ -142,14 +143,9 @@ function tieTacToe(){
     console.log("draw")
 }
 
-        //trying to figure out how to condense this code. 
+        //trying to figure out how to condense this code with array.some()
  function gameWon(){
-    // if (playerOneWinCondits.some()){
-    //     playerOneWins()
-    // } else if (playerTwoWinCondits.some()){
-    //     playerTwoWins()
-    // }
-    //top horizontal win condition
+    // top horizontal win condition
     if (one.innerText === playerOne && two.innerText === playerOne && three.innerText === playerOne){
         playerOneWins()
 

@@ -1,6 +1,8 @@
 html, body
 {
     text-align: center;
+    font-family: 'Inter', sans-serif;    /* Consider pokemon font */
+
 }
 .board
 {
@@ -55,12 +57,12 @@ html, body
 {
     margin: 20px auto;
 }
-.option-one
+.option-one    /* src="https://e7.pngegg.com/pngimages/842/987/png-clipart-pokemon-ultra-sun-and-ultra-moon-pokemon-sun-and-moon-pokemon-let-s-go-pikachu-and-let-s-go-eevee-nintendo-3ds-pikachu.png" */
 {
     background-image: url("../img/pokemon-ultra-sun.png");    /* EDIT: fix img transparency not working */
     background-size: cover;
 }
-.option-two
+.option-two    /* src="https://www.clipartmax.com/png/middle/66-666147_pokemon-ultra-moon-symbol-by-alexalan-pokemon-ultra-pokemon-ultra-sun-logo.png" */
 {
     background-image: url("../img/pokemon-ultra-moon-by-alexalan.png");    /* EDIT: fix img transparency not working */
     background-size: cover;

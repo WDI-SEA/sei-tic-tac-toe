@@ -47,6 +47,7 @@ header{
     background-color: tan;
 }
 
+
 #btns{
     display: flex;
     justify-content: center;
@@ -86,8 +87,9 @@ header{
     text-decoration: underline;
 }
 .hidden{
-    display: ;
+    display: none;
 }
+
 #cOne{
     border-left: solid;
     border-bottom: solid;
@@ -126,4 +128,9 @@ header{
     border-top: solid;
     border-left: solid;
     border-right: solid;
+}
+
+button{
+    font-size: 20px;
+    background-color: gray;
 }

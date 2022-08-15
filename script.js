@@ -57,6 +57,17 @@ let gameBoard = ['','','','','','','','','']
 
 let gameOver = false;
 
+let startingPlayer = 'x'
+let changeStarting = () => {
+    if(startingPlayer === 'x'){
+        document.getElementById('h2').innerHTML = `O's Go First`;
+        startingPlayer = 'o'
+    } else if (startingPlayer === 'o'){
+        document.getElementById('h2').innerHTML = `X's Go First`;
+        startingPlayer = 'x'
+    }
+}
+
 let freshBoard = () => {
     gameBoard = ['','','','','','','','','']
     aOneSpace = true
@@ -77,18 +88,37 @@ let freshBoard = () => {
     aThree.innerHTML = '' 
     bThree.innerHTML = '' 
     cThree.innerHTML = '' 
-    currentPlayer = 'x'
-    document.getElementById('h2').innerHTML = `X's Go First`;
     gameOver = false
-    
+    aOne.style.color = 'black'
+    bOne.style.color = 'black'
+    cOne.style.color = 'black'
+    aTwo.style.color = 'black'
+    bTwo.style.color = 'black'
+    cTwo.style.color = 'black'
+    aThree.style.color = 'black'
+    bThree.style.color = 'black'
+    cThree.style.color = 'black'
+    document.getElementById('nextRound').classList.add('hidden')
+    document.getElementById("h2").style.color = '#afbfeb'
+    changeStarting()
+    currentPlayer = startingPlayer
 }
+
+
 
 let reset = document.getElementById('reset')
 reset.addEventListener('click', () => {
     freshBoard()
     count = 0
+    document.getElementById('xScore').innerHTML = `X's - 0`
+    document.getElementById('oScore').innerHTML = `O's - 0`
 })
 
+let nextRound = document.getElementById('nextRound')
+nextRound.addEventListener('click', () => {
+    freshBoard()
+    count = 0
+})
 // EVENT LISTENERS
     // click event listener(s) for player clicks
         // change innertext of div to X or O
@@ -116,6 +146,13 @@ let upScore = () => {
     }
 }
 
+let colorChange = () => {
+    if(currentPlayer === 'x'){
+        document.getElementById("h2").style.color = '#f93943'  
+    }else if (currentPlayer === 'o')  {
+        document.getElementById("h2").style.color = '#36827f'
+    }
+}
 
 // let gameBoard = [
 // '0','1','2',
@@ -126,41 +163,62 @@ let winConditions = () => {
         gameOver = true
         document.getElementById("h2").innerHTML = `${currentPlayer.toUpperCase()}'s Wins!`
         upScore()
-
+        document.getElementById('nextRound').classList.remove('hidden')
+        colorChange()
     }else if(currentPlayer === gameBoard[2] && currentPlayer === gameBoard[5] && currentPlayer  === gameBoard[8]){
         gameOver = true
         document.getElementById("h2").innerHTML = `${currentPlayer.toUpperCase()}'s Wins!`
         upScore()
+        document.getElementById('nextRound').classList.remove('hidden')
+        colorChange()
     }else if(currentPlayer === gameBoard[0] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[8]){
         gameOver = true
         document.getElementById("h2").innerHTML = `${currentPlayer.toUpperCase()}'s Wins!`
         upScore()
+        document.getElementById('nextRound').classList.remove('hidden')
+        colorChange()
     }else if(currentPlayer === gameBoard[0] && currentPlayer === gameBoard[3] && currentPlayer === gameBoard[6]){
         gameOver = true
         document.getElementById("h2").innerHTML = `${currentPlayer.toUpperCase()}'s Wins!`
         upScore()
+        document.getElementById('nextRound').classList.remove('hidden')
+        colorChange()
     }else if(currentPlayer === gameBoard[1] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[7]){
         gameOver = true
         document.getElementById("h2").innerHTML = `${currentPlayer.toUpperCase()}'s Wins!`
         upScore()
+        document.getElementById('nextRound').classList.remove('hidden')
+        colorChange()
     }else if(currentPlayer === gameBoard[3] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[5]){
         gameOver = true
         document.getElementById("h2").innerHTML = `${currentPlayer.toUpperCase()}'s Wins!`
         upScore()
+        document.getElementById('nextRound').classList.remove('hidden')
+        colorChange()
     }else if(currentPlayer === gameBoard[6] && currentPlayer === gameBoard[7] && currentPlayer === gameBoard[8]){
         gameOver = true
         document.getElementById("h2").innerHTML = `${currentPlayer.toUpperCase()}'s Wins!`
         upScore()
+        document.getElementById('nextRound').classList.remove('hidden')
+        colorChange()
     }else if(currentPlayer === gameBoard[6] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[2]){
         gameOver = true
         document.getElementById("h2").innerHTML = `${currentPlayer.toUpperCase()}'s Wins!`
         upScore()
+        document.getElementById('nextRound').classList.remove('hidden')
+        colorChange()
     }
 }
 
 let playerMove = (player) => {
     if(gameOver !== true){
-        player.innerHTML = `${currentPlayer}`      
+        if(currentPlayer === 'x'){
+        player.style.color = '#f93943'
+        player.innerHTML = `${currentPlayer}`    
+    }else if (currentPlayer === 'o')  {
+        player.style.color = '#36827f'
+        player.innerHTML = `${currentPlayer}` 
+    }
     }
 }
 

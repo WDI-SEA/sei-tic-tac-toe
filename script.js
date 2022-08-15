@@ -5,7 +5,7 @@
 
 let playerChoice = "O"
 let moves = 1
-const finishedGame = document.querySelector(#output)
+const finishedGame = document.querySelector('#output')
 const currentPlayer = function() {
     if (playerChoice === "O" && moves < 10) {
         playerChoice = "O"
@@ -25,14 +25,169 @@ const tieGame = function() {
     }
 }
 
-    // gameBoard array to keep track of player moves ['x', '', 'o', 'x', '', 'o', 'x', '', '']
+// gameBoard array to keep track of player moves ['x', '', 'o', 'x', '', 'o', 'x', '', '']
 
 
 
 
+const boxOne = document.querySelector('#box1')
+const boxTwo = document.querySelector('#box2')
+const boxThree = document.querySelector('#box3')
+const boxFour = document.querySelector('#box4')
+const boxFive = document.querySelector('#box5')
+const boxSix = document.querySelector('#box6')
+const boxSeven = document.querySelector('#box7')
+const boxEight = document.querySelector('#box8')
+const boxNine = document.querySelector('#box9')
+
+let winningBox = false
+
+document.querySelector("#box1").addEventListener('click', function() {
+    if (boxOne.innerText === "") {
+        document.querySelector('#box1').innerText = playerChoice
+        moves++
+
+        checkWinner()
+        if (winningBox === false) {
+            currentPlayer()
+        }
+        tieGame()
+    }
+})
+
+document.querySelector('#box2').addEventListener('click', function() {
+    if (boxTwo.innerText === "") {
+        document.querySelector('#box2').innerText = playerChoice
+        moves++
+
+        checkWinner()
+        if (winningBox === false) {
+            currentPlayer()
+        }
+        tieGame()
+    }
+})
+
+document.querySelector('#box3').addEventListener('click', function() {
+    if (boxThree.innerText === "") {
+        document.querySelector('#box3').innerText = playerChoice
+        moves++
+
+        checkWinner()
+        if (winningBox === false) {
+            currentPlayer()
+        }
+        tieGame()
+    }
+})
+
+document.querySelector('#box4').addEventListener('click', function() {
+    if (boxFour.innerText === "") {
+        document.querySelector('#box4').innerText = playerChoice
+        moves++
+
+        checkWinner()
+        if (winningBox === false) {
+            currentPlayer()
+        }
+        tieGame()
+    }
+})
 
 
-    
+document.querySelector('#box5').addEventListener('click', function() {
+    if (boxFive.innerText === "") {
+        document.querySelector('#box5').innerText = playerChoice
+        moves++
+
+        checkWinner()
+        if (winningBox === false) {
+            currentPlayer()
+        }
+        tieGame()
+    }
+})
+
+
+document.querySelector('#box6').addEventListener('click', function(){
+    if (boxSix.innerText === "") {
+        document.querySelector('#box6').innerText = playerChoice
+        moves++
+
+        checkWinner()
+        if (winningBox === false) {
+            currentPlayer()
+        }
+        tieGame()
+    }
+})
+
+
+document.querySelector('#box7').addEventListener('click', function() {
+    if (boxSeven.innerText === "") {
+        document.querySelector('#box7').innerText = playerChoice
+        moves++
+
+        checkWinner()
+        if (winningBox === false) {
+            currentPlayer()
+        }
+        tieGame()
+    }
+})
+
+
+document.querySelector('#box8').addEventListener('click', function() {
+    if (boxEight.innerText === "") {
+        document.querySelector('#box8').innerText = playerChoice
+        moves++
+
+        checkWinner()
+        if (winningBox === false) {
+            currentPlayer()
+        }
+        tieGame()
+    }
+})
+
+
+document.querySelector('#box9').addEventListener('click', function() {
+    if (boxNine.innerText === "") {
+        document.querySelector('#box9').innerText = playerChoice
+        moves++
+
+        checkWinner()
+        if (winningBox === false) {
+            currentPlayer()
+        }
+        tieGame()
+    }
+})
+
+//checking winner
+
+const checkWinner = function() {
+    if (boxOne.innerText === boxFour.innerText && boxFour.innerText === boxSeven.innerText && boxOne.innerText != "") { finishedGame.innerText = (playerChoice + " is the winner!")
+    }else if(boxTwo.innerText === boxFive.innerText && boxFive.innerText === boxEight.innerText && boxTwo.innerText != "") { finishedGame.innerText = (playerChoice + " is the winner!")
+
+     }else if(boxThree.innerText === boxSix.innerText & boxSix.innerText === boxNine.innerText && boxThree.innerText != "") {finishedGame.innerText = (playerChoice + " is the winner!") 
+
+     }else if(boxOne.innerText === boxTwo.innerText && boxTwo.innerText === boxThree.innerText && boxOne.innerText != "") {
+            finishedGame.innerText = (playerChoice + " is the winner!") 
+    }else if(boxFour.innerText === boxFive.innerText &&boxFive.innerText === boxSix.innerText && boxFour.innerText != "") {
+            finishedGame.innerText = (playerChoice + " is the winner!") 
+     }else if(boxSeven.innerText === boxEight.innerText &&boxEight.innerText === boxNine.innerText && boxSeven.innerText != "") {
+            finishedGame.innerText = (playerChoice + " is the winner!") 
+
+     }else if(boxOne.innerText === boxFive.innerText &&boxFive.innerText === boxNine.innerText && boxOne.innerText != "") {
+            finishedGame.innerText = (playerChoice + " is the winner!") 
+     }else if(boxSeven.innerText === boxFive.innerText &&boxFive.innerText === boxThree.innerText && boxSeven.innerText != "") {
+            finishedGame.innerText = (playerChoice + " is the winner!") 
+    }
+}
+
+
+
         // 2d array
         // [
         //     ['x', '', 'o'],

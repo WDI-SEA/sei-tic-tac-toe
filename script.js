@@ -1,17 +1,36 @@
 // APP STATE (variables)
-    // a variable to track whose turn it is
+// a variable to track whose turn it is
+ // a var for 'x' and a var for 'o'
 
-    const currentPlayer = document.querySelector();
-    
-    // a var for 'x' and a var for 'o'
-    const playerX = document.querySelector();
-    const playerO = document.querySelector();
 
+let playerChoice = "O"
+let moves = 1
+const finishedGame = document.querySelector(#output)
+const currentPlayer = function() {
+    if (playerChoice === "O" && moves < 10) {
+        playerChoice = "O"
+        finishedGame.innerText = "Player 1's Turn"
+        return "O"
+    }else if (playerChoice === "X" && moves < 10) {
+        playerChoice === "X"
+        finishedGame.innerText = "Player 2's Turn"
+    }
+}
+   
     // a var to keep count of moves to detect cats/draw game
 
-    const countMoves = document.querySelector();
+const tieGame = function() {
+    if (moves === 10) {
+        finishedGame.innerText = "It's a tie!"
+    }
+}
 
     // gameBoard array to keep track of player moves ['x', '', 'o', 'x', '', 'o', 'x', '', '']
+
+
+
+
+
 
     
         // 2d array

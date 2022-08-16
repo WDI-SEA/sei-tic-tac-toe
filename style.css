@@ -1,3 +1,9 @@
+
+body {
+    margin: 10% 30% ;
+    position: relative;
+    display: inline-block
+}
 section {
     position: relative;
     display: inline-block;
@@ -77,16 +83,17 @@ section {
 .turn-display {
     background-color: #adf042e4;
     color: white;
-    text-align: center;
+    display: flex;
+    justify-content: center;
     width: 600px;
-    height: 100px;
+    height: 150px;
     border-radius: 40px;
     margin: 10px;
     font-size: 1cm;
     padding: 1px;
 
 }
-input {
+button {
     width: 250px;
     height: 50px;
     border-radius: 100px 0px 100px 0px;

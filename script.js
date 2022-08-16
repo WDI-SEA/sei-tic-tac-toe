@@ -6,7 +6,7 @@ const playerTwo = "X"
 let turn = playerOne
 // a boolean for if the game is over or not -- is the game currently happening?
 let gameOver = false
-
+const displayInnerText = document.querySelector(".display-text")
 const gameBoardArr = document.getElementsByClassName("game-board")
 // display text function and conditions
 displayText();    
@@ -60,7 +60,12 @@ clicks();
 // click event to clear/reset the board
 const resetButton = document.querySelector("button")
     resetButton.addEventListener("click", function (e) {
-    gameBoardArr.innerHTML = ""
+    for (let i = 0; i < gameBoardArr.length; i++) {   
+    gameBoardArr[i].innerHTML = ""
+    }
+    displayInnerText.innerText = "Player One ( O ) is your turn!"
+    turn = playerOne
+    clicks();
     })
 
 // win/tie game logic in functions

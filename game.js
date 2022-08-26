@@ -1,8 +1,8 @@
 // take a deep breath. you can do this!
 
-// VARIABLES
 
-//not sure if I should use individual or array
+
+// VARIABLES
 let boxOne = document.getElementById("one")
 let boxTwo=  document.getElementById("two")
 let boxThree = document.getElementById("three")
@@ -12,49 +12,22 @@ let boxSix = document.getElementById("six")
 let boxSeven= document.getElementById("seven")
 let boxEight = document.getElementById("eight")
 let boxNine = document.getElementById("nine")
+let box = document.querySelectorAll(".box")
 
 const boxArray = ["boxOne", "boxTwo", "boxThree ", "boxFour ", "boxFive ","boxSix "," boxSeven", "boxEight ", "boxNine "]
-
+const gameBoard = document.getElementById("gameBoard")
 const userOne= "x"
 const userTwo= "o"
 let playerTurn = 1
-let box = document.querySelectorAll(".box")
 
 
-// Event Listeners: 
-boxOne.addEventListener("click", function ( ){
-    markBoxAsfilled (1)
-})
-boxTwo.addEventListener("click",  function ( ){
-    markBoxAsfilled (2)
-})
 
-boxThree.addEventListener("click",  function ( ){
-    markBoxAsfilled (3)
-})
-boxFour.addEventListener("click",  function ( ){
-    markBoxAsfilled (4)
-})
-boxFive.addEventListener("click",  function ( ){
-    markBoxAsfilled (5)
-})
-boxSix.addEventListener("click",  function ( ){
-    markBoxAsfilled (6)
-})
-boxSeven.addEventListener("click", function ( ){
-    markBoxAsfilled (7)
-})
-boxEight.addEventListener("click",  function ( ){
-    markBoxAsfilled (8)
-})
-boxNine.addEventListener("click",  function ( ){
-    markBoxAsfilled (9)
-})
+gameBoard.addEventListener ("click", markBoxAsfilled)
 
-// box.forEach (box => {
-//     box.addEventListener("click", chooseTurn)
-//         console.log ('box clicked')
-//     } )
+box.forEach (box => {
+    box.addEventListener("click", chooseTurn)
+        console.log ('box clicked')
+    } )
 
 
 const markBoxAsfilled= function (boxArray){
@@ -109,14 +82,42 @@ const gameOutcome =function gameLogic (){
 
 
 // reset the game
+
 let clearBoard=  function clearBoard (){
   //need to reset all inner text to " "
    document.querySelectorAll(".box").innerText =(" ")
  }
- 
- function resetGameboard() {
-document.getElementById("button").addEventListener("click", clearBoard)
-}
+ document.getElementById("button").addEventListener("click", clearBoard)
 
-addEventListener('DOMContentLoaded', (event) => {});
-onDOMContentLoaded = (event) => { };
+
+
+
+// Event Listeners: 
+// boxOne.addEventListener("click", function ( ){
+//     markBoxAsfilled (1)
+// })
+// boxTwo.addEventListener("click",  function ( ){
+//     markBoxAsfilled (2)
+// })
+
+// boxThree.addEventListener("click",  function ( ){
+//     markBoxAsfilled (3)
+// })
+// boxFour.addEventListener("click",  function ( ){
+//     markBoxAsfilled (4)
+// })
+// boxFive.addEventListener("click",  function ( ){
+//     markBoxAsfilled (5)
+// })
+// boxSix.addEventListener("click",  function ( ){
+//     markBoxAsfilled (6)
+// })
+// boxSeven.addEventListener("click", function ( ){
+//     markBoxAsfilled (7)
+// })
+// boxEight.addEventListener("click",  function ( ){
+//     markBoxAsfilled (8)
+// })
+// boxNine.addEventListener("click",  function ( ){
+//     markBoxAsfilled (9)
+// })

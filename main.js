@@ -1,6 +1,6 @@
-//  add DOm content loaded
 document.addEventListener('DOMContentLoaded', () => {
-// variables
+
+    // **** VARIABLES ****
 //  elements from DOM
 const gameBoard = document.getElementById("gameboard")
 const box = document.getElementById("box")
@@ -12,7 +12,6 @@ let playerX = []
 let playerO = []
 let turnNum = 0
 let totalMoves = 0
-
 // nested array for win options
 let winConditions =[
     ["one","two", "three"],
@@ -25,11 +24,13 @@ let winConditions =[
     ["three", "five", "seven"]
 ]
 
+// LOADS AT BEGINING OF GAME
  gameInfo.innerText = "Player X goes first"
 
-
+//  adds an event listener to the boxes and calls the playerturn fxn
 gameBoard.addEventListener("click", playerTurn)
 
+// playerTurn fxn starts game play and switches between players
 function playerTurn(Event){
    let boxCheck = Event.target
  console.log(boxCheck)
@@ -49,7 +50,7 @@ function playerTurn(Event){
             gameInfo.innerText = "Player O's turn"
             // push choice to player array
             playerX.push(boxCheck.id)
-            // keeps track of turns
+            // keep track of turns
             turnNum ++
     // changes to O turn
     } else {
@@ -58,23 +59,63 @@ function playerTurn(Event){
             gameInfo.innerText = "Player X's turn"
             playerO.push(boxCheck.id)
             turnNum ++
-    }
-
+        }
+     // if turn >4 checkForWin()
     if (turnNum >= 4){
-        checkForWin()
+        checkForWIn()
+    }
+    // if there is not a winner by 9 moves display game is tied
+    if (turnNum === 9){
+        gameInfo.innerText ="Game Tied"
+
+    }
+    }
+    }
+   
+}
+// calls playerTurn function
+playerTurn(Event)
+
+
+
+function checkForWIn (){
+//    loop through winconditions array
+    for (let i=0; i <winConditions.length; i++){
+        let winFoundX = 0
+        let winFoundO = 0
+        // loops through array in the array 
+    for (let j=0; j < winConditions[i].length; j++){
+        // check to see if playerX array created during game play matches win conditions
+        if(playerX.includes(winConditions[i][j])){
+            winFoundX ++
+            if (winFoundX ===3)
+            gameInfo.innerText=("playerX has won")
+        }
+    }
+    if (playerO.includes(winConditions[i][j])) {
+        winFoundO ++
+        if (winFoundO === 3){
+            gameInfo.innerText= ("player O has won")
+        }
     }
 }
+    }
+checkForWIn()
+  
+
+
+// uses reset button to restart game 
+function resetGame(){
+    gameBoard.removeEventListener("click", playerTurn)
+    gameInfo.innerText = "Player X goes first"
+    boxCheck.classList.remove("choiceX")
+    boxCheck.classList.remove("choiceO")
+    boxCheck.innerText = ""
+    gameBoard.addEventListener("click", playerTurn)
 }
-}
+resetGame()
+
+resetBtn.addEventListener('click', resetGame)
 
 
-
-playerTurn(Event)
-//  function checkForWIn ()
-    // sfter 4 turns runs if/else to check for win
-    // if a player wins: add win game msg and end game 
-    // at 9 moves if no winner declare a tie
-
-// function resetGame- runs when a winner is declared or a tie declared
-//    resets game board and all var back to beginning game state
 })

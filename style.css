@@ -58,3 +58,13 @@ header{
     position: relative;
     border-radius: 5px;
 }
+
+.choiceX{
+    color: yellow;
+    text-align: center;
+}
+
+.choiceO {
+    color: pink;
+    text-align: center;
+}

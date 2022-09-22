@@ -1,3 +1,19 @@
 body{
-    background-color: hotpink;
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container{
+    border: 2px solid red;
+    width: 470px;
+    
+   
+}
+
+.squares{
+    border: 2px solid rgb(27, 146, 59);
+    height: 150px;
+    width: 150px;
+    display: inline-block;
 }

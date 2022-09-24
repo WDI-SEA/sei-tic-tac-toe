@@ -1,7 +1,12 @@
  body{
     margin: 0 auto;
     text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Press Start 2P', cursive;
+    background-image: url('background-TTT.png');
+    background-size: cover;
+}
+h1{
+    color: white;
 }
 /*  
 .container{
@@ -14,19 +19,13 @@
 
 /* The divs: sequares */
 .squares{
-    border: 2px solid rgb(27, 146, 59);
+    border: 2px solid rgb(255, 255, 208);
     height: 120px;
     width: 120px;
     display: inline-block;
-    background-color: blanchedalmond;
+    background-color: rgb(0, 0, 0);
 }
 
-
-/* X, O text style: */
-#choice{
-    color: blueviolet;
-    font-size: large;
-}
 
 .container {
     width: 100vw;
@@ -40,8 +39,12 @@
 }
 
 #restartBtn{
-    border: 2px solid salmon; 
+    border: 2px solid rgb(43, 255, 0); 
     font-size: larger;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Press Start 2P', cursive;
+    padding: 10px;
+    background-color: black;
+    border-radius: 4px;
+    color: rgb(0, 255, 255);
     
 }

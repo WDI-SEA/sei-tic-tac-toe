@@ -1,7 +1,116 @@
-console.log("Hello There")
+console.log("Test JAvaScript Works!!")
 
 //Notes: organizing my thoughts hehe
 //each div should be clickable
 //when div is clickd, if odd then print X , if even print O
 //figure out all possiple winning conditions else it's a tie!
 //if odd print player turn, if even print player 2 turn
+//make a function that  returns true or false if one of the sequres are clicked. then call this function in if else statements ig..
+//------------------------------------------------------------------------------------------------------------------------------
+//Drafts, maybe i'll use them later!!
+// let squares = document.getElementsByClassName('squares')
+
+// //Adding event listener to each sequare!
+// for (let i = 0; i < 9; i++) {
+    //     squares[i].addEventListener('click', wowfunction)
+    // }
+     
+    // function wowfunction(e){
+        
+        //         console.log("wow first")
+        
+        // }
+        
+//------------------------------------------------------------------------------------------------------------------------------
+//calling all the sequares
+// let square1 = document.getElementById('square1')
+// let square2 = document.getElementById('square2')
+// let square3 = document.getElementById('square3')
+// let square4 = document.getElementById('square4')
+// let square5 = document.getElementById('square5')
+// let square6 = document.getElementById('square6')
+// let square7 = document.getElementById('square7')
+// let square8 = document.getElementById('square8')
+// let square9 = document.getElementById('square9')
+
+//adding event listener to the sequares
+// square1.addEventListener('click',  player_X)
+// square2.addEventListener('click',  player_X)
+// square3.addEventListener('click',  player_X)
+// square4.addEventListener('click',  player_X)
+// square5.addEventListener('click',  player_X)
+// square6.addEventListener('click',  player_X)
+// square7.addEventListener('click',  player_X)
+// square8.addEventListener('click',  player_X)
+// square9.addEventListener('click',  player_X)
+//------------------------------------------------------------------------------------------------------------------------------
+
+//Use method Array.form to turn it into an array!
+let allSequares = Array.from(document.querySelectorAll('.squares'))
+
+//Add event listener to every sequare in the array:
+for (let i = 0; i < allSequares.length; i++) {
+    allSequares[i].addEventListener('click', player_X)
+    // allSequares[i].addEventListener('click', player_O)
+}
+
+//The restart button:
+let restBtn = document.getElementById('restartBtn')
+
+
+    //Creating X text:
+    let X = document.createElement('h1')
+    X.innerText = 'X'
+
+    //Creating O text:
+    let O = document.createElement('h1')
+    O.innerText = 'O'
+
+
+
+
+
+//Test function 
+function player_X(e){
+
+    for (let i = 0; i <allSequares.length; i++) {
+
+        if(e.target.id === allSequares[i].id){
+
+            let tiles = allSequares[i].id
+            console.log(tiles)
+            e.target.appendChild(X)
+
+        }
+    }
+
+    }
+
+function player_O(e){
+
+    for (let i = 0; i <allSequares.length; i++) {
+
+        if(e.target.id === allSequares[i].id){
+
+            let tiles = allSequares[i].id
+            console.log(tiles)
+            e.target.appendChild(O)
+
+        }
+    }
+
+    }
+    
+    
+    // console.log(e.target.id)
+
+
+
+
+//Function on clicked to check which sequre were clicked:
+function clicked(){
+    let count = 0;
+    count++;
+    return count
+}
+

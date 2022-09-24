@@ -2,7 +2,6 @@ console.log("Test JAvaScript Works!!")
 
 //Notes: organizing my thoughts hehe
 //each div should be clickable
-//when div is clickd, if odd then print X , if even print O
 //figure out all possiple winning conditions else it's a tie!
 //if odd print player turn, if even print player 2 turn
 //make a function that  returns true or false if one of the sequres are clicked. then call this function in if else statements ig..
@@ -55,17 +54,21 @@ let restBtn = document.getElementById('restartBtn')
 //2- Add event listenrs:
 //for loop to add event listener to every sequare in the array:
 for (let i = 0; i < allSequares.length; i++) {
-    allSequares[i].addEventListener('click', player_X)
-    // allSequares[i].addEventListener('click', player_O)
+    if (i !== allSequares.indexOf(i) && i % 2 == 0) {
+        
+        allSequares[i].addEventListener('click', player_X)
+    }
+    else{
+        allSequares[i].addEventListener('click', player_O)
+
+    }
 }
 
 restBtn.addEventListener('click', resetButton)
 
+
     
 
-    //Creating O text:
-    let O = document.createElement('h1')
-    O.innerText = 'O'
 
 
 
@@ -92,7 +95,9 @@ function player_O(e){
     for (let i = 0; i <allSequares.length; i++) {
 
         if(e.target.id === allSequares[i].id){
-
+            //Creating O text:
+            let O = document.createElement('h1')
+            O.innerText = 'O'
             let tiles = allSequares[i].id
             console.log(tiles)
             e.target.appendChild(O)
@@ -113,3 +118,4 @@ function player_O(e){
     }
 
 
+    

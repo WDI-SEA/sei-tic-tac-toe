@@ -23,7 +23,7 @@ console.log("Test JAvaScript Works!!")
         
 //------------------------------------------------------------------------------------------------------------------------------
 //calling all the sequares
-// let square1 = document.getElementById('square1')
+ let square1 = document.getElementById('square1')
 // let square2 = document.getElementById('square2')
 // let square3 = document.getElementById('square3')
 // let square4 = document.getElementById('square4')
@@ -45,28 +45,27 @@ console.log("Test JAvaScript Works!!")
 // square9.addEventListener('click',  player_X)
 //------------------------------------------------------------------------------------------------------------------------------
 
+//1- getting the necessary elements: 
 //Use method Array.form to turn it into an array!
 let allSequares = Array.from(document.querySelectorAll('.squares'))
+//The restart button:
+let restBtn = document.getElementById('restartBtn')
 
-//Add event listener to every sequare in the array:
+
+//2- Add event listenrs:
+//for loop to add event listener to every sequare in the array:
 for (let i = 0; i < allSequares.length; i++) {
     allSequares[i].addEventListener('click', player_X)
     // allSequares[i].addEventListener('click', player_O)
 }
 
-//The restart button:
-let restBtn = document.getElementById('restartBtn')
+restBtn.addEventListener('click', resetButton)
 
-
-    //Creating X text:
-    let X = document.createElement('h1')
-    X.innerText = 'X'
+    
 
     //Creating O text:
     let O = document.createElement('h1')
     O.innerText = 'O'
-
-
 
 
 
@@ -76,7 +75,9 @@ function player_X(e){
     for (let i = 0; i <allSequares.length; i++) {
 
         if(e.target.id === allSequares[i].id){
-
+            //Creating X text:
+            let X = document.createElement('h1')
+            X.innerText = 'X'
             let tiles = allSequares[i].id
             console.log(tiles)
             e.target.appendChild(X)
@@ -100,17 +101,15 @@ function player_O(e){
     }
 
     }
-    
-    
-    // console.log(e.target.id)
 
 
 
 
-//Function on clicked to check which sequre were clicked:
-function clicked(){
-    let count = 0;
-    count++;
-    return count
-}
+    function resetButton(){
+    for (let i = 0; i <allSequares.length; i++) {
+        let tiles = allSequares[i]
+        tiles.innerHTML = " ";
+    }
+    }
+
 

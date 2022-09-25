@@ -46,8 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (roundWon) {
             announce(currentPLayer === 'X' ? PLAYERX_WON : PLAYERO_WON);
-            isGameActive = false;
-            return;
+            return isGameActive = false;
         }
 
         if (!board.includes(null)) announce(TIE);
@@ -70,13 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    const isValidAction = (cell) => {
-        if (cell.innerText === 'X' || cell.innerText === 'O') {
-            return false;
-        }
-        return true;
-    };
-
     const updateBoard = (index) => {
         board[index] = currentPLayer;
     }
@@ -90,13 +82,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const userAction = (cell, index) => {
 
-        if (isValidAction(cell) && isGameActive) {
+        if (isGameActive) {
             cell.innerText = currentPLayer;
             cell.classList.add(`player${currentPLayer}`);
             updateBoard(index);
             handleResultValidation();
             changePlayer();
+        } else {
+            //GAMEOVER !
         }
+
     }
 
     const resetGame = () => {

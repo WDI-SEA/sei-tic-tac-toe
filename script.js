@@ -19,6 +19,10 @@ const generateDivs = () => {
 }
 
 const addXorO = (event) => {
+    if (event.target.innerText == "X" || event.target.innerText == "O") {
+        return
+    }
+
     clickCount++
     if (disable == 0) {
         if (clickCount%2 != 0) {

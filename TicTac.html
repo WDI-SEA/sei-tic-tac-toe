@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style-type: disc;
+            border: 2px solid black;
+           
+        }
+        li {
+            border: 2px solid black;
+            width:5%;
+            display: inline-block;
+            text-align:center;
+            
+        }
+        hr{
+            position:absolute;
+            border:1px solid black;
+        }
+
+        .l1{
+            border:1px solid red;
+            width:15%;
+            visibility: hidden;
+            top:3%; 
+        }
+        .l2{
+            border:1px solid red;
+            width:15%;
+            visibility: hidden;
+            top:5%; 
+        }
+        .l3{
+            border:1px solid red;
+            width:15%;
+            visibility: hidden;
+            top:5%; 
+        }
+        .l4{
+            border:1px solid red;
+            width:15%;
+            -webkit-transform:rotate(150deg);
+            visibility: hidden;
+            top:7%;
+
+
+        }
+        .l5{
+            border:1px solid red;
+            width:15%;
+            visibility: hidden;
+            top:5%;
+
+        }
+        div {
+            width:10px;
+            height:10px;
+            background-color: darkgreen;
+        }
+         .t {
+            display:inline-block;
+        }
+    </style>
+   
+</head>
+<body>
+    <ul><hr/></ul>
+    <hr/><hr/>
+    <div class="usr1">user 1</div><div class="usr2">user 2</div>
+    <fieldset><div ><input type="radio"><p>X</p></div>
+        <div><input type="radio"><p>O</p>
+    </div></fieldset>
+    <script>
+        var l=document.querySelector("ul");
+        var r;
+        var m;
+        var n;
+        var o;
+        var p;
+        var b=true;
+        var usr="user 1"
+        var d=3;
+        for(let m=1;m<=9;m++){
+            if(m%d==0)
+            l.innerHTML+=`<li class="_${m}">${m}</li><br>`;
+            else
+            l.innerHTML+=`<li class="_${m}">${m}</li>`;
+
+            l.innerHTML+=`<hr class="l${m}"/>`
+            //alert("hello");
+        }
+        //alert(document.querySelector("._9").className)
+        document.querySelector("._1").addEventListener("click",function(){
+            document.querySelector("._1").className="_1 X";
+            alert("ok");
+            if(document.querySelector("._2").className=="_2 X"){
+                if(document.querySelector("._3").className=="_3 X"){
+                    document.querySelector(".l1").style.visibility="visible";
+                }
+            }
+            else if(document.querySelector("._4").className=="_4 X"){
+                     if(document.querySelector("._7").className=="_7 X"){
+                        document.querySelector(".l2").style.visibility="visible";
+
+                    }
+
+                }
+            else if(document.querySelector("._5").className=="_5 X"){
+                    if(document.querySelector("._9").className=="_9 X"){
+                        r=document.querySelector(".l3").style.visibility="visible";
+
+
+                    }
+
+            }
+
+
+        });
+        
+        
+        if(b){
+        r=document.querySelector("._3");
+        m=document.querySelector("._5");
+        n=document.querySelector("._7");
+        o=document.querySelector("._6");
+        p=document.querySelector("._9");
+        [r,m,n,o,p].forEach(item=>{item.addEventListener("click",function(){
+        if(usr=="user 1"){
+            if(item.className=="_3"){
+            alert("ok"+r);r.className="_3 X";
+        }
+            else if(item.className=="_5"){
+            m.className="_5 X";
+        }  
+            else if(item.className=="_7"){
+            n.className="_7 X";
+        }   else if(item.className=="_6"){
+            o.className="_6 X";
+        }
+        else if(item.className=="_9"){
+            p.className="_9 X";
+        }
+        usr="user 2";
+        document.querySelector(".user 2").style.backgroundColor="lime"; 
+    }
+    else {
+        if(item.className=="_3"){
+            alert("ok"+r);r.className="_3 O";
+        }
+            else if(item.className=="_5"){
+            m.className="_5 O";
+        }  
+            else if(item.className=="_7"){
+            n.className="_7 O";
+        }   else if(item.className=="_6"){
+            o.className="_6 O";
+        }
+        else if(item.className=="_9"){
+            p.className="_9 O";
+        }
+        usr="user 1"; 
+    }       
+             
+            if(document.querySelector("._5").className=="_5 X"){
+                if(document.querySelector("._7").className=="_7 X"){
+                    if(document.querySelector("._3").className=="_3 X"){
+                        document.querySelector(".l4").style.visibility="visible";
+                        //document.querySelectorAll("._5 ._3").style.backgroundColor="yellow";
+                        b=false;
+                }  
+                }
+            }
+            else if(document.querySelector("._6").className=="_6 X"){
+                     if(document.querySelector("._9").className=="_9 X"){
+                        if(document.querySelector("._3").className=="_3 X"){
+                            document.querySelector(".l4").style.visibility="visible";
+
+                            b=false;
+
+                    } 
+
+                    }
+
+                }
+            
+
+
+        })});}
+
+    document.querySelector("._8").addEventListener("click",function(){
+            document.querySelector("._8").className="_8 X";
+            
+            if(document.querySelector("._7").className=="_7 X"){
+                if(document.querySelector("._9").className=="_9 X"){
+                    r=document.querySelector(".l1").style.visibility="visible";
+                }
+            }
+            else if(document.querySelector("._5").className=="_5 X"){
+                     if(document.querySelector("._2").className=="_2 X"){
+                        r=document.querySelector(".l2").style.visibility="visible";
+
+                    }
+
+                }
+            
+
+        });
+
+        document.querySelector("._5").addEventListener("click",function(){
+            document.querySelector("._5").className="_5 X";
+            
+            if(document.querySelector("._7").className=="_7 X"){
+                if(document.querySelector("._9").className=="_9 X"){
+                    r=document.querySelector(".l1").style.visibility="visible";
+                }
+            }
+            
+
+        });
+
+    </script>
+</body>
+</html>

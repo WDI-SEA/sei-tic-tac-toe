@@ -1,0 +1,11 @@
+ 
+h1{
+    font-weight: 400 ;
+}
+
+th, td {
+    border: 50px solid pink;
+    border-radius: 10px ;
+
+  }
+

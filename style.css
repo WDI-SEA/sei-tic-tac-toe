@@ -1,0 +1,22 @@
+.Box{
+    background-color:black;
+    width: 69px;
+    height: 69px;
+    border: 2px solid;
+    box-shadow: 0 0 0 2px;
+    line-height: 72px;
+    font-size: 55px;
+    cursor: pointer;
+    
+}
+#XOContainer{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: blue ;
+}
+#cellContainer{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 255px;
+    margin: auto;
+}

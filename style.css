@@ -1,0 +1,65 @@
+/* Sets all elements to a zero padding and margin by defualt until changes below*/
+*{
+    padding: 0;
+    margin: 0;
+}
+.background {
+    height: 150vh;
+    padding-top: 1px;
+}
+/* Step 1 set title/header style */
+.title{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 5%;
+}
+/* Step 2 set turn indicator style */
+.turn{
+    font-size:20px;
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+/* Step 3 set the container and tile styles */
+.container{
+    color: black;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+    max-width: 300px;
+}
+.tile {
+    border: 1px solid;
+    min-width: 100px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+/* Step 4 set player colors for turn indicator */
+.playerX {
+    color: green;
+}
+
+.playerO {
+    color: lightblue;
+}
+/* Step 5 set controls/button style  */
+.controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+}
+.controls button {
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 20px;
+    margin-left: 16px;
+    cursor: pointer;
+    background-color: linen;
+}

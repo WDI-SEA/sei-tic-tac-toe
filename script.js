@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (roundWon) {
             announce(currentPLayer === 'X' ? PLAYERX_WON : PLAYERO_WON);
-            return isGameActive = false;
+            isGameActive = false;
         }
 
         if (!board.includes(null)) announce(TIE);

@@ -1,0 +1,142 @@
+body{
+    text-align: center;
+    background-color: black;
+}
+
+h1{
+    font-family: 'Titan One', cursive;
+    font-size: 60px;
+    color: white;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 0 auto;
+    width: 514px;
+}
+
+
+.item{
+    border: 10px solid white;
+    padding: 20px;
+    cursor: pointer;
+    height: 100px;
+    width: 130px;
+
+}
+
+.item:first-child{
+    border-left: none;
+    border-top: none;
+}
+
+.item:nth-child(2){
+    border-top: none;
+}
+
+.item:nth-child(3) {
+    border-top: none;
+    border-right: none;
+}
+
+.item:nth-child(4) {
+   border-left: none;
+}
+
+.item:nth-child(6) {
+    border-right: none;
+}
+
+.item:nth-child(7) {
+    border-left: none;
+    border-bottom: none;
+}
+
+.item:nth-child(8) {
+    border-bottom: none;
+}
+
+.item:nth-child(9) {
+    border-bottom: none;
+    border-right: none;
+}
+
+i{
+    font-size: 90px;  
+    color: red;
+}
+
+.player-turn-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 600px;
+    padding: 20px;
+}
+
+.player{
+    height: 30px;
+    width: 200px;
+    font-size: 40px;
+    color: black;
+}
+
+.player-turn-1{
+    font-family: 'Titan One', cursive;
+    font-size: 50px;
+    font-weight: 900;
+    color: rgb(255, 242, 3);
+}
+.player-turn-2 {
+    font-family: 'Titan One', cursive;
+    font-size: 50px;
+    font-weight: 900;
+    color: rgb(255, 3, 213);
+}
+
+.winner-banner{
+    display: absolute;
+    top: 0;
+    color: white;
+    width: 100%;
+    font-size: 25px;
+}
+
+.player2-o{
+    color: rgb(255, 3, 213);
+}
+.player1-x{
+    color: rgb(255, 242, 3);
+}
+
+.current-player{
+    text-shadow: 0 0 30px white;
+}
+
+/* .winner-shadow{
+} */
+
+h2{
+    font-family: 'Titan One', cursive;
+}
+
+.reset{
+    font-family: 'Titan One', cursive;
+    height: 100px;
+    width: 350px;
+    background-color: white;
+    color: black;
+    font-size: 40px;
+    border-radius: 20px;
+    border: 1px solid white;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.counter{  
+    font-family: 'Titan One', cursive;
+    color: white;
+    margin-top: 30px;
+    font-size: 40px;
+}

@@ -1,0 +1,87 @@
+body {
+    background-color: #282130;
+}
+
+h1 {
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 50px;
+    font-family: cursive;
+    text-align: center;
+    margin: 10px 0 10px 0;
+}
+
+.centered-container {
+    display: grid;
+    justify-content: center;
+}
+
+.container {
+    background-color: #69636e;
+    border: 5px solid #69636e;
+    height: 300px;
+    width: 300px;
+}
+
+.xo-inputs {
+    background-color: #282130;
+    border: 1px solid #69636e;
+    height: 95px;
+    width: 95px;
+    display: inline-block;
+    vertical-align: top; /* this does not allow the div to move when we add x or o in it */
+    margin: 1px 2px 2px 1px;
+
+    font-weight: bold;
+    font-size: 60px;
+    color: whitesmoke;
+    font-family: cursive;
+    text-align: center;
+}
+
+.x-player {
+    font-weight: bold;
+    font-size: 40px;
+    color: #69403e;
+    font-family: cursive;
+    text-decoration: underline;
+
+    display: inline-block;
+    margin: 5px 60px 5px 60px;
+}
+
+.o-player {
+    font-weight: bold;
+    font-size: 40px;
+    color: #69403e;
+    font-family: cursive;
+    text-decoration: underline;
+
+    display: inline-block;
+    margin: 5px 60px 5px 60px;
+}
+
+.message {
+    height: 50px;
+    background-image: url("");
+    background-size: cover;
+    border-radius: 10px;
+
+    font-weight: bold;
+    font-size: 20px;
+    color: whitesmoke;
+    font-family: cursive;
+    text-align: center;
+    padding-top: 15px;
+}
+
+#reset-button {
+    background-color: #24788f;
+    border: 2px solid #24788f;
+    padding: 2px 20px;
+    margin-top: 30px;
+
+    font-weight: bold;
+    color: whitesmoke;
+    font-family: cursive;
+}

@@ -53,12 +53,14 @@ let restBtn = document.getElementById('restartBtn')
 
 //2- Add event listenrs:
 //for loop to add event listener to every sequare in the array:
+//if even then player one turn, if odd player 2 turn
 for (let i = 0; i < allSequares.length; i++) {
-    if (i !== allSequares.indexOf(i) && i % 2 == 0) {
-        
+    if (i % 2 == 0) {
+        //player one
         allSequares[i].addEventListener('click', player_X)
     }
     else{
+        //Player two
         allSequares[i].addEventListener('click', player_O)
 
     }
@@ -67,16 +69,10 @@ for (let i = 0; i < allSequares.length; i++) {
 restBtn.addEventListener('click', resetButton)
 
 
-    
-
-
-
-
 //Test function 
 function player_X(e){
 
     for (let i = 0; i <allSequares.length; i++) {
-
         if(e.target.id === allSequares[i].id){
             //Creating X text:
             let X = document.createElement('h1')
@@ -84,16 +80,14 @@ function player_X(e){
             let tiles = allSequares[i].id
             console.log(tiles)
             e.target.appendChild(X)
-
         }
     }
 
-    }
+ }
 
 function player_O(e){
 
     for (let i = 0; i <allSequares.length; i++) {
-
         if(e.target.id === allSequares[i].id){
             //Creating O text:
             let O = document.createElement('h1')
@@ -101,21 +95,18 @@ function player_O(e){
             let tiles = allSequares[i].id
             console.log(tiles)
             e.target.appendChild(O)
-
         }
     }
 
-    }
+}
 
 
-
-
+//function to clear the tiles "sequares":
     function resetButton(){
     for (let i = 0; i <allSequares.length; i++) {
         let tiles = allSequares[i]
         tiles.innerHTML = " ";
     }
     }
-
 
     

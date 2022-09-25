@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="title-div">
+        <h1 class="title-text">Tic Tac Toe Game</h1>
+    </div>
+
+    <div class="result-div">
+        <h2 class="result-text">Result Div / Player One Won!!</h2>
+    </div>
+
+
+    <div class="game-div">
+
+        <table class="game-table">
+            <tr id="first-row">
+                <td>
+                    <div class="game-square" id="row-1-col-1-div">
+                        <!-- Row 1, Col 1 -->
+                        <!-- When div clicked then add an image -->
+                        <!-- images will be added in JavaScript using DOM -->
+                        <img class="square-img hidden" id="row1-col1-img">
+                    </div>
+                </td>
+                <td>
+                    <div class="game-square" id="row-1-col-2-div">
+                        <!-- Row 1, Col 2 -->
+                        <!-- When div clicked then add an image -->
+                        <img class="square-img hidden" id="row1-col2-img">
+                    </div>
+                </td>
+                <td>
+                    <div class="game-square" id="row-1-col-3-div">
+                        <!-- Row 1, Col 3 -->
+                        <!-- When div clicked then add an image -->
+                        <img class="square-img hidden" id="row1-col3-img">
+                    </div>
+                </td>
+            </tr>
+            <tr id="second-row">
+                <td>
+                    <div class="game-square" id="row-2-col-1-div">
+                        <!-- Row 2, Col 1 -->
+                        <!-- When div clicked then add an image -->
+                        <img class="square-img hidden" id="row2-col1-img">
+                    </div>
+                </td>
+                <td>
+                    <div class="game-square" id="row-2-col-2-div">
+                        <!-- Row 2, Col 2 -->
+                        <!-- When div clicked then add an image -->
+                        <img class="square-img hidden" id="row2-col2-img">
+                    </div>
+                </td>
+                <td>
+                    <div class="game-square" id="row-2-col-3-div">
+                        <!-- Row 2, Col 3 -->
+                        <!-- When div clicked then add an image -->
+                        <img class="square-img hidden" id="row2-col3-img">
+                    </div>
+                </td>
+            </tr>
+
+
+            <tr id="third-row">
+                <td>
+                    <div class="game-square" id="row-3-col-1-div">
+                        <!-- Row 3, Col 1 -->
+                        <!-- When div clicked then add an image -->
+                        <img class="square-img hidden" id="row3-col1-img">
+                    </div>
+                </td>
+                <td>
+                    <div class="game-square" id="row-3-col-2-div">
+                        <!-- Row 3, Col 2 -->
+                        <!-- When div clicked then add an image -->
+                        <img class="square-img hidden" id="row3-col2-img">
+                    </div>
+                </td>
+                <td>
+                    <div class="game-square" id="row-3-col-3-div">
+                        <!-- Row 3, Col 3 -->
+                        <!-- When div clicked then add an image -->
+                        <img class="square-img hidden" id="row3-col3-img">
+                    </div>
+                </td>
+            </tr>
+
+
+        </table>
+
+
+    </div>
+
+
+
+    <!-- The two players will be set first as default -->
+
+    <div class="game-status">
+        <div class="player-1-turn">
+            <h3 class="current-player">Player One Turn</h3>
+        </div>
+        <div class="player-2-turn">
+            <h3 class="no-player">Player Two Turn</h3>
+        </div>
+
+    </div>
+
+    <div class="buttons-div">
+        <!-- <button class="game-btns" id="start-game">START GAME</button> -->
+        <button class="reset-btn" id="reset-btn">RESET GAME</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

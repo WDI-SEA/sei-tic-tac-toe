@@ -56,19 +56,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function checkPlayerTurn(player, i) {
-        if (player === 1) {
-            player1.classList.add('current-player');
-            player2.classList.remove('current-player');
-            items[i].innerHTML = '<i class="fa-sharp fa-solid fa-o player2-o"></i>'; 
-            playerTurn = 0; 
-        } else {
-            player2.classList.add('current-player');
-            player1.classList.remove('current-player');
-            items[i].innerHTML = '<i class="fa-sharp fa-solid fa-xmark player1-x"></i>';
-            playerTurn = 1;
+        if (playBoard[i] === i) {
+            if (player === 1) {
+                player1.classList.add('current-player');
+                player2.classList.remove('current-player');
+                items[i].innerHTML = '<i class="fa-sharp fa-solid fa-o player2-o"></i>';
+                playerTurn = 0;
+            } else {
+                player2.classList.add('current-player');
+                player1.classList.remove('current-player');
+                items[i].innerHTML = '<i class="fa-sharp fa-solid fa-xmark player1-x"></i>';
+                playerTurn = 1;
             
+            }
         }
-       
     }
 
     reset.addEventListener('click',function restartGame() {

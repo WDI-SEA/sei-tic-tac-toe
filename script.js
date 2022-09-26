@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let winnerBanner = document.querySelector('.winner-banner');
     let reset = document.querySelector('.reset');
     let playerTurn = 0;
-    let playBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    let playBoard = ['', '', '', '', '', '', '', '', ''];
     let clickedIndexes = [];
     win = false;
     let counter1 = 0;
@@ -56,7 +56,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function checkPlayerTurn(player, i) {
-        if (playBoard[i] === i) {
+        console.log(playBoard[i]);
+        console.log(i);
+        if (playBoard[i] === '') {
             if (player === 1) {
                 player1.classList.add('current-player');
                 player2.classList.remove('current-player');
@@ -73,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     reset.addEventListener('click',function restartGame() {
-        playBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+        playBoard = ['', '', '', '', '', '', '', '', ''];
         clickedIndexes = [];
         playerTurn = 0;
         player2.classList.remove('current-player');
@@ -88,14 +90,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function winning(player) {
         if (
-        (playBoard[0] == player && playBoard[1] == player && playBoard[2] == player) ||
-        (playBoard[3] == player && playBoard[4] == player && playBoard[5] == player) ||
-        (playBoard[6] == player && playBoard[7] == player && playBoard[8] == player) ||
-        (playBoard[0] == player && playBoard[3] == player && playBoard[6] == player) ||
-        (playBoard[1] == player && playBoard[4] == player && playBoard[7] == player) ||
-        (playBoard[2] == player && playBoard[5] == player && playBoard[8] == player) ||
-        (playBoard[0] == player && playBoard[4] == player && playBoard[8] == player) ||
-        (playBoard[2] == player && playBoard[4] == player && playBoard[6] == player)
+        (playBoard[0] === player && playBoard[1] === player && playBoard[2] === player) ||
+        (playBoard[3] === player && playBoard[4] === player && playBoard[5] === player) ||
+        (playBoard[6] === player && playBoard[7] === player && playBoard[8] === player) ||
+        (playBoard[0] === player && playBoard[3] === player && playBoard[6] === player) ||
+        (playBoard[1] === player && playBoard[4] === player && playBoard[7] === player) ||
+        (playBoard[2] === player && playBoard[5] === player && playBoard[8] === player) ||
+        (playBoard[0] === player && playBoard[4] === player && playBoard[8] === player) ||
+        (playBoard[2] === player && playBoard[4] === player && playBoard[6] === player)
         ) {
             // alert(`Player ${player + 1} Wins`);
             win = true;

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const squares = Array.from(document.querySelectorAll('.cell'));
-    const displayPlayersTurn = document.querySelector('.displayPlayer');
+    const displayPlayersName = document.querySelector('.displayPlayer');
+    const displayPlayersTurn = document.querySelector('.displayPlayersTurn');
     const resetButton = document.querySelector('#resetBtn');
     const displayGameResult = document.querySelector('.displayGameResult');
 
@@ -11,11 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const PLAYERX_WON = 'PLAYERX_WON';
     const PLAYERO_WON = 'PLAYERO_WON';
-    const TIE = 'TIE !';
-
-    squares.forEach((cell, index) => {
-        cell.addEventListener('click', () => userAction(cell, index));
-    });
+    const TIE = 'DRAW !';
 
     const winingConditions = [
         [0, 1, 2],
@@ -27,6 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
         [0, 4, 8],
         [2, 4, 6]
     ];
+
+    const checkCellClicked = (clickedCell, clickedCellIndex) => {
+        board[clickedCellIndex] = currentPLayer;
+        clickedCell.innerText = currentPLayer;
+        clickedCell.classList.add(`player${currentPLayer}`);
+    }
 
     function handleResultValidation() {
         let roundWon = false;
@@ -47,10 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (roundWon) {
             announce(currentPLayer === 'X' ? PLAYERX_WON : PLAYERO_WON);
             isGameActive = false;
+            return;
         }
 
-        if (!board.includes(null)) announce(TIE);
-
+        let roundDraw = !board.includes(null);
+        if (roundDraw) {
+            announce(TIE);
+            isGameActive = false;
+            return;
+        }
     }
 
     const announce = (type) => {
@@ -63,33 +70,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
             case TIE:
                 displayGameResult.innerText = TIE;
+
         }
+
         displayGameResult.classList.remove('hide');
         resetButton.classList.remove('hide');
+        displayPlayersTurn.classList.add('hide');
 
     }
 
-    const updateBoard = (index) => {
-        board[index] = currentPLayer;
+    const updateBoard = (clickedCellIndex) => {
+        board[clickedCellIndex] = currentPLayer;
     }
 
     const changePlayer = () => {
-        displayPlayersTurn.classList.remove(`player${currentPLayer}`);
+        displayPlayersName.classList.remove(`player${currentPLayer}`);
         currentPLayer = currentPLayer === 'X' ? 'O' : 'X';
-        displayPlayersTurn.innerText = currentPLayer;
-        displayPlayersTurn.classList.add(`player${currentPLayer}`);
+        displayPlayersName.innerText = currentPLayer;
+        displayPlayersName.classList.add(`player${currentPLayer}`);
     }
 
-    const userAction = (cell, index) => {
+    const userAction = (clickedCellEvent) => {
+
+        const clickedCell = clickedCellEvent.target;
+        const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
+
+        if (board[clickedCellIndex] !== null || !isGameActive) {
+            return;
+        }
 
         if (isGameActive) {
-            cell.innerText = currentPLayer;
-            cell.classList.add(`player${currentPLayer}`);
-            updateBoard(index);
+            checkCellClicked(clickedCell, clickedCellIndex)
+            updateBoard(clickedCellIndex);
             handleResultValidation();
             changePlayer();
-        } else {
-            //GAMEOVER !
         }
 
     }
@@ -97,20 +111,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetGame = () => {
         board.fill(null);
         isGameActive = true;
+        currentPLayer = "X";
         displayGameResult.classList.add('hide');
         displayGameResult.classList.remove('blink');
         resetButton.classList.add('hide');
+        displayPlayersTurn.classList.remove('hide');
 
-        if (currentPLayer === 'O') changePlayer();
 
-        squares.forEach(cell => {
-            cell.innerText = '';
-            cell.classList.remove('playerX');
-            cell.classList.remove('playerO');
+        document.querySelectorAll('.cell').forEach((cell) => {
+
+            cell.classList.remove(`playerX`);
+            cell.classList.remove(`playerO`);
+            cell.innerHTML = '';
 
         })
     }
 
+    document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', userAction));
     resetButton.addEventListener('click', resetGame);
 });
-

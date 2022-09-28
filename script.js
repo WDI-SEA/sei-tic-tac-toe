@@ -1,48 +1,20 @@
-console.log("Test JAvaScript Works!!")
-
-//Notes: organizing my thoughts hehe
-//each div should be clickable
-//figure out all possiple winning conditions else it's a tie!
-//if odd print player turn, if even print player 2 turn
-//make a function that  returns true or false if one of the sequres are clicked. then call this function in if else statements ig..
-//------------------------------------------------------------------------------------------------------------------------------
-//Drafts, maybe i'll use them later!!
-// let squares = document.getElementsByClassName('squares')
-
-// //Adding event listener to each sequare!
-// for (let i = 0; i < 9; i++) {
-    //     squares[i].addEventListener('click', wowfunction)
-    // }
-     
-    // function wowfunction(e){
-        
-        //         console.log("wow first")
-        
-        // }
-        
 //------------------------------------------------------------------------------------------------------------------------------
 //1- initilazing the elements/variables:
 
-//This object will keep track of the players and status of the sequares "give them colors"
-let colors = {
-    square: null, //grey
-    player_X: 1, //red
-    player_O: -1 //blue
-}
-
 //The board will have only 8 winning combinations, 3 rows, 3 columns, and 2 diagonals
-let winningComination = [[0,1,2],[3,4,5],[6,7,8],
+let winningCombination = [[0,1,2],[3,4,5],[6,7,8],
                         [0,3,6],[1,4,7],[2,5,8],
                         [0,4,8],[2,4,6]]
 
 //a baord that represents the sequares:
 let board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 
-//playerTurn--> to keep track of turns either player 1 or 2, winner--> keep track of game status
-// let player_X = 1, player_O = -1, tie = "T"
+//playerTurn--> to keep track of turns either player 1 or 2
+// let player_X = 1, player_O = -1
 let pleyerTurn = 1
+//To keep track of how many sequares are clicked:
+let sequareClicked = 0
 //checks if game is running or not
-let winner = null
 let statusOfGame = 'false'
 
 //grabbing all the sequares from the html
@@ -97,7 +69,7 @@ let assignedBoared = board.map((tile, index)=>{
 
 
 //This loop will assign each sequare the proper functionality
-//First, declaring functions to alternate between players turns, then check winne/Tie
+//First, declaring functions to alternate between players turns, then check winner/Tie
 assignedBoared.forEach((element) => {
 
     //declaring functions:
@@ -120,13 +92,22 @@ assignedBoared.forEach((element) => {
             gameStatus.innerText = "Turn: Player X"
             element.style.pointerEvents = 'none'
         }
+         sequareClicked++
+         gameIsTie() //call this function to check if there is a tie 
+         winnerPlayer()// call this function to check the winner
+         
+         
     }
 
-    // let winnerPlayer = () =>{
-    //     if()
-    // }
-
-
+    //is game tied?
+    function gameIsTie() {
+        if(sequareClicked === 9){
+        gameStatus.style = "color: yellow" 
+        gameStatus.innerText = "It is a Tie! Wanna play again?"
+        console.log("game is Tied!")
+        }
+    }
+    
 
     element.addEventListener('click',currentPlayer)
 })
@@ -134,34 +115,28 @@ assignedBoared.forEach((element) => {
 
 
 
-
-
-
 //Who's the winner? 
-function winnerPlayer(finalWinner){
-    if(finalWinner === 1){
-        winner = "Player 'X' is the Winner!"
+//for loop to go through all winning combination, it will store the value of the winning combination in an array
+function winnerPlayer(){
+ for (let i of winningCombination) {
+    let [element1, element2, element3] = [assignedBoared[i[0]].innerText,
+                                          assignedBoared[i[1]].innerText, 
+                                          assignedBoared[i[2]].innerText]
+
+    if(element1 !='' && element2 !='' && element3 !='' ){
+        if(element1 ==  element2  && element2 == element3){
+            gameStatus.style = "color: yellow" 
+            gameStatus.innerText = `The winner is Player ${element1} Congrats!`
+            console.log(`The winner is Player ${element1}! Congrats!`)
+        }
     }
-    else if(finalWinner === -1){
-        winner = "Player 'O' is the Winner"
-    }
-    else if(finalWinner === null) {
-        winner = "It is a Tie!"
-    }
-    return winner
+    
+ }
 }
 
-//To assign a color(turn) to each sequare based on whoe's the player:
-// let asignColorToSequare = assignedBoared.forEach((value, index)=>{
 
-//     if (index ==) {
-        
-//     }
-// })
-
-
-
-
+//Add the restart button functionality
+//Disable the rest of the tiles when someone win!
 
 
 

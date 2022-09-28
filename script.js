@@ -11,6 +11,11 @@ let box6 = document.getElementById("box6")
 let box7 = document.getElementById("box7")
 let box8 = document.getElementById("box8")
 let box9 = document.getElementById("box9")
+let statusBox = document.querySelector("#gameStatus")
+let player1 = document.getElementById("player1")
+let player2 = document.getElementById("player2")
+let reStart = document.getElementById("reStart")
+
 
 // let xinput = "X"
 // let oinput = "O"
@@ -18,8 +23,8 @@ let box9 = document.getElementById("box9")
 // let xsTurn
 // let osTurn
 let turn = "xsTurn"
-let winner
-
+let winner =""
+player1.style.backgroundColor = "#DFBFCB"
 
 
 
@@ -32,24 +37,95 @@ let winner
 
 // }
 
-function turnTracker(id){
-    let clickedBox = document.getElementById(id)
-    if (turn == "xsTurn"){
-        clickedBox.innerHTML = "X"
-        turn = "osTurn"
+function startRestart(){
+    if(winner!=""){
+        for(let i=0; i<boxesElements.length; i++) { 
+
+            boxesElements[i].innerHTML = ""
+    }
+    statusBox.innerHTML = "XO"
+    turn = "xsTurn"
+    winner =""
     }
 
-    else if(turn == "osTurn"){
-        clickedBox.textContent = "O"
-        turn = "xsTurn"
+
+
+    else{
+        for(let i=0; i<boxesElements.length; i++) { 
+
+            boxesElements[i].addEventListener("click", turnTracker)
     }
-    checkforStatus()
+    }
 }
 
-let checkforStatus = ()=>{
-    //start checking for not null and equal texts in rows
-    // console.log("the winner is" + winner)
-    if((box1.innerHTML!="" && box2.innerHTML!="" && box3.innerHTML!="") && (box1.innerHTML == box2.innerHTML) && (box2.innerHTML == box3.innerHTML)){
+function turnTracker(id){
+    let clickedBox = document.getElementById(id)
+    if (turn == "xsTurn" && clickedBox.innerHTML=="" && winner==""){
+        clickedBox.innerHTML = "X"
+        turn = "osTurn"
+        player2.style.backgroundColor= "#DFBFCB"
+        player1.style.backgroundColor = "#CDCDCD"
+    }
+
+    else if(turn == "osTurn" && clickedBox.innerHTML=="" && winner==""){
+        clickedBox.innerHTML = "O"
+        turn = "xsTurn"
+        player1.style.backgroundColor="#DFBFCB"
+        player2.style.backgroundColor= "#CDCDCD"
+    }
+    checkIfWin()
+}
+
+let gameStatusFun = (winner)=>{
+    //return winner if we already have one
+    if(winner!=""){
+        winner = winner
+        reStart.innerHTML="Restart Game"
+        endGame(winner)
+    }
+
+    //return draw if there's no winner
+    else if(box1.innerHTML!="" &&
+    box2.innerHTML!="" &&
+    box3.innerHTML!="" &&
+    box4.innerHTML!="" &&
+    box5.innerHTML!="" &&
+    box6.innerHTML!="" &&
+    box7.innerHTML!="" &&
+    box8.innerHTML!="" &&
+    box9.innerHTML!="" &&
+    winner==""){
+        winner = "draw"
+        reStart.innerHTML="Restart Game"
+        endGame(winner)
+    }
+
+    else{
+        winner=""
+    }
+}
+
+
+
+let endGame = (winner) =>{
+    statusBox.innerHTML = `The winner is ${winner}`
+    player1.style.backgroundColor ="#CDCDCD"
+    player2.style.backgroundColor ="#CDCDCD"
+
+    // for(let i=0; i<boxesElements.length; i++) {
+    //     boxesElements[i].removeEventListener("click", turnTracker)
+
+    // }
+
+    
+    
+}
+
+
+
+let checkIfWin = ()=> {
+     //start checking for not null and equal texts in rows
+     if((box1.innerHTML!="" && box2.innerHTML!="" && box3.innerHTML!="") && (box1.innerHTML == box2.innerHTML) && (box2.innerHTML == box3.innerHTML)){
         winner = box1.innerHTML
     }
     else if((box4.innerHTML!="" && box5.innerHTML!="" && box6.innerHTML!="") && (box4.innerHTML == box5.innerHTML) && (box5.innerHTML == box6.innerHTML)){
@@ -77,12 +153,7 @@ let checkforStatus = ()=>{
     else if((box3.innerHTML!="" && box5.innerHTML!="" && box7.innerHTML!="") && (box3.innerHTML == box5.innerHTML) && (box5.innerHTML == box7.innerHTML)){
         winner = box3.innerHTML
     }
-
-    //draw --
-    else{
-        winner = "draw"
-    }
-    return winner
+    return gameStatusFun(winner)
 }
 
 
@@ -90,16 +161,11 @@ let checkforStatus = ()=>{
 //waiting for dom to load before executing code
 document.addEventListener('DOMContentLoaded', ()=>{
 //Adding an event listener to all boxes in the board through loop
-for(let i=0; i<boxesElements.length; i++) { 
+// for(let i=0; i<boxesElements.length; i++) { 
 
-    boxesElements[i].addEventListener("click", turnTracker)
-}
+//         boxesElements[i].addEventListener("click", turnTracker)
+// }
+
+reStart.addEventListener("click", startRestart)
 })
-
-
-
-
-
-
-
 

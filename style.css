@@ -1,13 +1,20 @@
 *{
     margin: 0;
     padding: 0;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background-image: url("https://i.pinimg.com/originals/ea/2f/11/ea2f115c5403f5407389a7342166e563.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+
 }
 
 .container{
-    position: absolute;
     width: 50%;
     height: 90%;
-    border: 3px solid  hotpink;
     margin-top: 1%;
     margin-left: 25%;
     margin-right: 25%;
@@ -30,52 +37,86 @@
   .board {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: repeat(3, 100%);
-    grid-template-rows: repeat(3, 100%);
-    position: absolute;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    align-self:center;
+    margin-left: 15%;
   }
   .board > div {
     padding: 20px;
-    background-color: #cdcdcd;
+    background-color: #faf9f6;
+    border: 5px solid #4d4d4d;
     border-radius: 15%;
     display: grid;
     place-items: center;
   }
 
   .boxes{
-    color: red;
+    color: #B0C3D7ed;
+    font-size: 200%;
   }
-/* 
-  .board > div {
-    font-family: sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-  } */
 
   .playersContainer{
+    z-index: -1;
     width: 100%;
-    height: 50%;
-    margin-top: 70%;
+    margin-top:2%;
   }
 
   #player1{
-    width: 50%;
+    width: 25%;
     height: 50%;
-    padding-bottom: 10%;
-    background-color: blue;
-    font-size: 400%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: #cdcdcd;
+    font-size: 200%;
     color: white;
     float: left;
     text-align: center;
+    margin-left: 24%;
+    margin-right: 0.2px ;
+    border: 5px solid #4D4D4D;
+    border-radius: 15px;
   }
 
   #player2{
-    width: 50%;
+    width: 25%;
     height: 50%;
-    padding-bottom: 10%;
-    background-color: green;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: #cdcdcd;
     float: right;
-    font-size: 400%;
+    font-size: 200%;
     color: white;
     text-align: center;
+    margin-right: 24%;
+    margin-left: 0.2px; ;
+    border: 5px solid #4d4d4d;
+    border-radius: 15px;
+  }
+
+  #gameStatus{
+    padding: 0.5%;
+    margin-top: 1%;
+    margin-right: 33%;
+    margin-left: 31%;
+    background-color: #B0C3D7ed;
+    place-items: center;
+    border: 5px solid #4d4d4d;
+    border-radius: 15px;
+    color:  #FFFFFF;
+    font-size: 200%;
+    text-align: center;
+  }
+
+  #reStart{
+    background-color: #B0C3D7ed;
+    color:  #FFFFFF;
+    width: 100%;
+    padding: 0.5%;
+    margin-top: 1%;
+    margin-right: 50%;
+    font-size: 200%;
+    border: 5px solid #4D4D4D;
+    border-radius: 15px;
+    position: relative;
   }

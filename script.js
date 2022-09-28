@@ -21,18 +21,7 @@ console.log("Test JAvaScript Works!!")
         // }
         
 //------------------------------------------------------------------------------------------------------------------------------
-//adding event listener to the sequares
-// square1.addEventListener('click',  player_X)
-// square2.addEventListener('click',  player_X)
-// square3.addEventListener('click',  player_X)
-// square4.addEventListener('click',  player_X)
-// square5.addEventListener('click',  player_X)
-// square6.addEventListener('click',  player_X)
-// square7.addEventListener('click',  player_X)
-// square8.addEventListener('click',  player_X)
-// square9.addEventListener('click',  player_X)
-//------------------------------------------------------------------------------------------------------------------------------
-//1- initilazing the constants/variables:
+//1- initilazing the elements/variables:
 
 //This object will keep track of the players and status of the sequares "give them colors"
 let colors = {
@@ -50,11 +39,13 @@ let winningComination = [[0,1,2],[3,4,5],[6,7,8],
 let board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 
 //playerTurn--> to keep track of turns either player 1 or 2, winner--> keep track of game status
-let player_X = 1, player_O = -1, tie = "T"
-let pleyerTurn = player_X
-let winner = tie
+// let player_X = 1, player_O = -1, tie = "T"
+let pleyerTurn = 1
+//checks if game is running or not
+let winner = null
+let statusOfGame = 'false'
 
-//calling all the sequares from the html
+//grabbing all the sequares from the html
 let square1 = document.getElementById('square1')
 let square2 = document.getElementById('square2')
 let square3 = document.getElementById('square3')
@@ -64,6 +55,13 @@ let square6 = document.getElementById('square6')
 let square7 = document.getElementById('square7')
 let square8 = document.getElementById('square8')
 let square9 = document.getElementById('square9')
+
+//grabbing the game status text, it will keep track of the players and winners etc..
+let gameStatus = document.getElementById("game-status")
+
+//grabbing the restart button
+let restartBtn = document.getElementById("restartBtn")
+
 
 //assign each sequare to the empty board array:
 let assignedBoared = board.map((tile, index)=>{
@@ -97,19 +95,39 @@ let assignedBoared = board.map((tile, index)=>{
     return tile
 })
 
-console.log(assignedBoared)
 
-//Who's turn is now?
-    function currentPlayer(player){
-        if(player === 1){
-            return "Player 'X'"
+//This loop will assign each sequare the proper functionality
+//First, declaring functions to alternate between players turns, then check winne/Tie
+assignedBoared.forEach((element) => {
+
+    //declaring functions:
+    //Who's turn is now?
+    let currentPlayer = () =>{
+        if(pleyerTurn === 1){
+            pleyerTurn = -1
+            element.innerText = 'X'
+            gameStatus.innerText = "Player O"
+            element.disabled = true
+
         }
-        else if(player === -1){
-            return "Player 'O'"
+        else{
+            pleyerTurn = 1
+            element.innerText = 'O'
+            gameStatus.innerText = "Player X"
+            element.disabled = true
         }
     }
 
-    // console.log(currentPlayer(pleyerTurn))
+
+
+
+    element.addEventListener('click',currentPlayer)
+})
+
+
+
+
+
 
 
 //Who's the winner? 
@@ -121,12 +139,18 @@ function winnerPlayer(finalWinner){
         winner = "Player 'O' is the Winner"
     }
     else if(finalWinner === null) {
-        winner = "T"
+        winner = "It is a Tie!"
     }
     return winner
 }
 
-assignedBoared
+//To assign a color(turn) to each sequare based on whoe's the player:
+// let asignColorToSequare = assignedBoared.forEach((value, index)=>{
+
+//     if (index ==) {
+        
+//     }
+// })
 
 
 

@@ -23,25 +23,16 @@ body {
     text-decoration: underline;
 }
 
-
-
-
-
 .result-div {
     border: 5px rgb(199, 43, 183) solid;
     background-color: violet ;
     height: 30px;
-    width: 500px;
+    width: 200px;
     margin: 0 auto 20px auto;
-
-
     text-align: center;
     display: table;
     border-radius: 30px;
 }
-
-
-
 
 .result-text {
     font-family: 'Oswald', sans-serif;
@@ -50,10 +41,8 @@ body {
     font-size: 30px;
 }
 
-
 /* div to center the tic tac toe */
 .game-div {
-    /* border: 5px red solid; */
     height: 500px;
     width: 500px;
     margin: 0 auto;
@@ -65,14 +54,9 @@ body {
     height: 148px;
     width: 148px;
     margin: 0 auto;
-    /* border: 5px rgb(48, 135, 169) solid; */
     text-align: center;
     cursor: pointer;
-
 }
-
-
-
 
 
 
@@ -88,7 +72,6 @@ body {
     height: 500px;
     width: 500px;
     text-align: center; /* NO NEED */
-    /* border-radius: 10px; */
 }
   
 /* The overall tic tac toe borders will have this color */
@@ -100,110 +83,74 @@ td {
 
 /* Select every Row last td tag (up) to remove the left border */
 tr:first-child td {
-    /* border: 5px purple solid; */
     border-top: none;
-
 }
 
 
 /* Select every Row last td tag (left) to remove the left border */
 tr:last-child td {
-    /* border: 5px green solid; */
     border-bottom: none;
-
-
 }
 
 /* Select every Row first td tag (left) to remove the left border */
 tr td:first-child {
-    /* border: 5px pink solid; */
     border-left: none;
-
 }
 
 /* Select every Row last td tag (right) to remove the right border */
 tr td:last-child {
-    /* border: 5px orange solid; */
     border-right: none;
-
 }
-
-
-
 
 .game-status {
-    border: 5px rgb(43, 176, 199) solid;
     height: 50px;
     width: 500px;
-    margin: 0 auto;
-    text-align: center;
-    
+    margin: 5px auto;
+    text-align: center;   
 }
-
 
 /* Players Turn div */
 .player-1-turn, .player-2-turn {
     display: inline-block;
     text-align: center;
     margin: 0 auto;
-
-    border: 5px rgb(170, 199, 43) solid;
     height: 40px;
     width: 237px;
-
-
-
 }
-
 
 .no-player {
-    /* border: 3px solid rgb(219, 7, 155);
-    background-color: hotpink; */
-
-
     margin: auto;
-
     vertical-align: middle;
     font-size: 30px;
+    border: 3px solid rgb(219, 7, 7);
+    background-color: rgb(180, 215, 246);
 }
-
-
 
 /* Players Turn div text */
 .current-player {
     margin: auto;
     vertical-align: middle;
     font-size: 30px;
-
     border: 3px solid rgb(219, 7, 155);
     background-color: hotpink;
-
 }
-
 
 /* Class to change the current player */
 .other-player {
     margin: auto;
     vertical-align: middle;
     font-size: 30px;
-
-
     border: 3px solid rgb(36, 35, 36);
     background-color: rgb(132, 130, 130);
     color: rgb(69, 67, 67);
-
 }
 
-
-
 .buttons-div {
-    /* border: 5px rgb(181, 18, 34) solid; */
     height: 50px;
     width: 500px;
     margin: 0 auto;
     text-align: center;
 }
-
 
 /* Reset Button Decoration */
 .reset-btn {
@@ -220,27 +167,18 @@ tr td:last-child {
     margin: 10px 40px 10px 40px;
 }
 
-
-
 /* images X and O */
-
 .square-img {
     width: 147px;
     height: 147px;
-    /* border: none; */
 }
-
-
 
 /* This class will be used to hide any element for example the image will be hidden at first */
 .hidden {
     display: none;
 }
 
-
 /* This will disable the buttons  */
 .disable {
     cursor: default;
 }
-
-

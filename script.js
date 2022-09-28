@@ -105,19 +105,26 @@ assignedBoared.forEach((element) => {
     let currentPlayer = () =>{
         if(pleyerTurn === 1){
             pleyerTurn = -1
+            element.style = "color: #ADFF2F"
             element.innerText = 'X'
-            gameStatus.innerText = "Player O"
-            element.disabled = true
+            gameStatus.style = "color: #FF1493"
+            gameStatus.innerText = "Turn: Player O"
+            element.style.pointerEvents = 'none' //To disable clicking on the same box twice!
 
         }
         else{
             pleyerTurn = 1
+            element.style = "color: #FF1493"
             element.innerText = 'O'
-            gameStatus.innerText = "Player X"
-            element.disabled = true
+            gameStatus.style = "color: #ADFF2F" 
+            gameStatus.innerText = "Turn: Player X"
+            element.style.pointerEvents = 'none'
         }
     }
 
+    // let winnerPlayer = () =>{
+    //     if()
+    // }
 
 
 

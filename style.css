@@ -1,17 +1,20 @@
-.container {
-    height: 550px;
-    border: 1px solid black;
-    width: 500px;
+.mainDiv{
     text-align: center;
+    font-family: verdana;
 }
-.display {
-    margin-top: 150px;
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 240px;
+    margin: auto;
 }
-.button {
-    height: 50px;
-    width: 50px;
-    margin: 5px;
+#grid{
+    border: 3px solid black;
+    height: 80px;
+    width: 80px;
+    font-size: 40px;
+    cursor: cell;
 }
-#top {
-    margin-top: 80px;
+h3{
+    color: red;
 }

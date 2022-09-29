@@ -6,27 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <script defer src="./script.js"></script>
-    <title>Document</title>
+    <title>Tic Tac Toe</title>
 </head>
 <body>
-    <div class="container" id="container">
-        <h1>TIC TAC TOE</h1>
-        <div class="grid">
-            <button class="button" id="top"></button>
-            <button class="button" id="top"></button>
-            <button class="button" id="top"></button>
-            <br/>
-            <button class="button" id="mid"></button>
-            <button class="button" id="mid"></button>
-            <button class="button" id="mid"></button>
-            <br/>
-            <button class="button" id="bottom"></button>
-            <button class="button" id="bottom"></button>
-            <button class="button" id="bottom"></button>
+    <div class="mainDiv">
+        <div class="header">
+            <h1 class="title">SEI TIC TAC TOE</h1>
         </div>
-        <div class="display">
-            <!-- need 2 player indicators with lights -->
-            <button class="reset">RESET</button>
+        <div class="container">
+            <div gridIndex="0" id="grid"></div>
+            <div gridIndex="1" id="grid"></div>
+            <div gridIndex="2" id="grid"></div>
+            <div gridIndex="3" id="grid"></div>
+            <div gridIndex="4" id="grid"></div>
+            <div gridIndex="5" id="grid"></div>
+            <div gridIndex="6" id="grid"></div>
+            <div gridIndex="7" id="grid"></div>
+            <div gridIndex="8" id="grid"></div>
+        </div>
+        <div class="info">
+            <h3 class="indicator"></h3>
+            <button id="reset">Reset</button>
         </div>
     </div>
 </body>

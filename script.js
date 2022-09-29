@@ -84,10 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const changePlayer = () => {
-        displayPlayersName.classList.remove(`player${currentPLayer}`);
+        displayPlayersName.classList.remove("player" + currentPLayer);
         currentPLayer = currentPLayer === 'X' ? 'O' : 'X';
         displayPlayersName.innerText = currentPLayer;
-        displayPlayersName.classList.add(`player${currentPLayer}`);
+        displayPlayersName.classList.add("player" + currentPLayer);
     }
 
     const userAction = (clickedCellEvent) => {
@@ -111,12 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetGame = () => {
         board.fill(null);
         isGameActive = true;
-        currentPLayer = "X";
         displayGameResult.classList.add('hide');
         displayGameResult.classList.remove('blink');
         resetButton.classList.add('hide');
         displayPlayersTurn.classList.remove('hide');
-
+       
+        if (currentPLayer === 'O') changePlayer();
 
         document.querySelectorAll('.cell').forEach((cell) => {
 

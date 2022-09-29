@@ -223,6 +223,10 @@ const resetGame = (event) => {
     turnsCount = 0
     stopGame = false
 
+
+    //Reset current play
+    currentPlayer = 'X'
+
     //Reset the game table
     gameTable = [
         [' ', ' ', ' '],

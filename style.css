@@ -1,17 +1,99 @@
+
+
 h1 {
-    color: rgb(201, 143, 164);
     text-align: center;
-    margin-top: 50px;
+    margin-top: 70px;
+    margin-bottom: 40px;
+    font-size: 70PX;
+    color: palevioletred;
+    
 }
+
 span {
-    color: rgb(160, 35, 79);
+    color: rgb(191, 76, 112);
 }
-body {
-    background-color: rgb(20, 18, 18);
+body{
+    background-color:rgb(211, 200, 191);
+}
+
+
+
+.borad-container {
+    background-color: palevioletred;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    width: 32%;
+    margin: 0 auto;
+}
+
+
+
+.borad {
+    background: rgb(211, 200, 191);
     display: flex;
     justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 150px;
+    width: 150px;
+
+}
+
+.bar-container {
+    text-align: center;
+   display: grid;
+   width: 30%;
+   grid-template-columns: repeat(3,1fr);
+   margin: 0 auto;
+   margin-top: 20px;
+
+}
+
+.bar-container{
+    display: flex;
+  margin-top: 25px;
+  font-size: 20px;
+  justify-content: space-around;
+  height: 30px;
+}
+
+.Player1 , .Player2 {
+color: rgb(191, 76, 112);
+
+}
+
+.wins-number2 , .wins-number1{
+    color: white;
+    margin-top: 10px;
+}
+.reset{
+    cursor: pointer;
+    border: 2px solid rgb(191, 76, 112);
+    color: plum;
+    size: 20px;
+    
 }
 
 
-
+.x,
+.o {
+  cursor: default;
   
+}
+
+.x::after {
+  content: '×';
+  font-size: 200px;
+}
+
+.o::after {
+  content: '○';
+  color: #0c0b0b;
+  font-size: 225px;
+}
+
+.won::after {
+  color: #BD022F;
+}

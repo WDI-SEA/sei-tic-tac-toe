@@ -241,6 +241,12 @@ const resetGame = (event) => {
 
     //Hide the result div
     resultDiv.classList.add('hidden')
+
+    //reset the turns div
+    player_2_turn.classList.remove('current-player')
+    player_2_turn.classList.add('other-player')
+    player_1_turn.classList.remove('other-player')
+    player_1_turn.classList.add('current-player')
 }
 
 

@@ -14,7 +14,7 @@
     text-align: center;
     color: blue ;
 }
-#cellContainer{
+#boxContainer{
     display: grid;
     grid-template-columns: repeat(3, auto);
     width: 255px;

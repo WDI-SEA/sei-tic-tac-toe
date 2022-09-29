@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,76 +6,214 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        html,
+    body {
+      height: 100%;
+      width: 100%;
+      
+    }
         ul{
-            list-style-type: disc;
+            list-style-type: none;
             border: 2px solid black;
+            width:200px;
+            height:200px;
+            padding:2px 0 0 0;
+            display:inline-block;
+            
+            
+            text-align:center;
+            position: static;
+            
+           
            
         }
         li {
-            border: 2px solid black;
-            width:5%;
+            border: 2px solid purple;
+            width:60px;
+            height:60px;
             display: inline-block;
+            z-index: 0;
+            text-align:center;
+            margin:0%;
+            position: relative;
+            
+        }
+       
+
+        .l1{
+            border:1px solid purple;
+            
+            width:180px ;
+            position:absolute;
+            left:80px;
+            transform:rotate(90deg);
+            transform-origin:50% 50%;
+            visibility: hidden;
+            top:115px;
+        }
+        .l2{
+            border:1px solid orange;
+            width:180px;
+            position:absolute;
+            left:-3%;
+            transform:rotate(90deg);
+            transform-origin:50% 50%;
+            visibility: hidden;
+            top:22%;
+
+        }
+       
+       
+        .l4{
+            border:1px solid darkgoldenrod;
+            width:200px ;
+            position:fixed;
+            left:0px;
+            transform:rotate(-45deg);
+            transform-origin:50% 50%;
+            visibility: hidden;
+            top:110px;
+
+
+        }
+        
+        .l5{
+            border:1px solid red;
+            width:14% ;
+            position:absolute;
+            
+            transform:rotate(0deg);
+            transform-origin:50% 50%;
+            visibility: hidden;
+            top:33%;
+
+        }
+        .l6{
+            border:1px solid blue;
+            width:180px ;
+            position:absolute;
+            
+            transform:rotate(0deg);
+            transform-origin:50% 50%;
+            visibility: hidden;
+            top:8%;
+            left:1.5%;
+
+        }
+        .l7{
+            border:1px solid powderblue;
+            width:14% ;
+            position:absolute;
+            
+            transform:rotate(0deg);
+            transform-origin:50% 50%;
+            visibility: hidden;
+            top:22%;
+
+        }
+        .l8{
+            border:1px solid greenyellow;
+            width:13% ;
+            position:absolute;
+            left:1.5%;
+            transform:rotate(90deg);
+            transform-origin:50% 50%;
+            visibility: hidden;
+            top:20%;
+
+        }
+        .l9{
+            
+            width:200px ;
+            border:1px solid grey;
+            position:absolute;
+            left:1%;
+            transform:rotate(-130deg);
+            transform-origin:50% 50%;
+            visibility: hidden;
+            top:20%;
+
+        }
+        
+         fieldset   {
+            
+            position:absolute;
+        }
+        div  p{
+            display:inline;
+        }
+        br {
+            position: absolute;
+            border:2px solid green;
+            width:20px;
+            height:40px;
+
+            
+        }
+        fieldset {
+            width:200px;
+            height:50px;
+            display:flex;
+            
+            
+        }
+        .X{
+            
+            width:50%;
+            height:30%;
             text-align:center;
             
         }
-        hr{
-            position:absolute;
-            border:1px solid black;
+        .O{
+            background-color: rgb(123, 255, 0);
+            width:50%;
+            height:30%;
+            text-align:center;
         }
-
-        .l1{
-            border:1px solid red;
-            width:15%;
-            visibility: hidden;
-            top:3%; 
+        hr {
+            position: absolute;
+            background-color: saddlebrown;
+            z-index: 1;
         }
-        .l2{
-            border:1px solid red;
-            width:15%;
-            visibility: hidden;
-            top:5%; 
-        }
-        .l3{
-            border:1px solid red;
-            width:15%;
-            visibility: hidden;
-            top:5%; 
-        }
-        .l4{
-            border:1px solid red;
-            width:15%;
-            -webkit-transform:rotate(150deg);
-            visibility: hidden;
-            top:7%;
-
-
-        }
-        .l5{
-            border:1px solid red;
-            width:15%;
-            visibility: hidden;
-            top:5%;
-
-        }
-        div {
-            width:10px;
-            height:10px;
-            background-color: darkgreen;
-        }
-         .t {
-            display:inline-block;
-        }
+       
+       br {
+        border: 2px solid greenyellow;
+        background-color: blue;
+        width:100px;
+       }
+       select {
+           height: 40%;
+           margin:20px;
+       }
     </style>
    
 </head>
 <body>
-    <ul><hr/></ul>
-    <hr/><hr/>
-    <div class="usr1">user 1</div><div class="usr2">user 2</div>
-    <fieldset><div ><input type="radio"><p>X</p></div>
-        <div><input type="radio"><p>O</p>
-    </div></fieldset>
+    <ul></ul>
+    
+    <!--<br/><br><br/><br><br>-->
+    <fieldset><select name="" id="i" onchange="selc()" name="drp"><option value="0">X</option><option value="1">O</option></select><br/><p class="X"> user 1</p>
+        <p class="O">user 2</p><button onclick="dsbl()">Select/Reset</button>
+    </fieldset>
     <script>
+        document.querySelector("select").value="";
+        function selc(){
+            if(document.querySelector("select").value=="0"){
+                document.querySelector(".O").style="background-color: rgb(123, 255, 0)";
+                document.querySelector(".X").style="background-color: yellow";
+                document.querySelector(".X").style.boxShadow=" 2px 2px 10px 1px #80d4ff,-2px -2px 10px 1px #80d4ff";
+            }
+            else {
+                document.querySelector(".X").style="background-color: rgb(123, 255, 0)";
+                document.querySelector(".O").style.backgroundColor="yellow";
+                document.querySelector(".X").style.boxShadow=" 2px 2px 10px 1px #80d4ff,-2px -2px 10px 1px #80d4ff";
+            }
+
+           
+
+
+           
+        }
         var l=document.querySelector("ul");
         var r;
         var m;
@@ -84,113 +223,262 @@
         var b=true;
         var usr="user 1"
         var d=3;
+        var e=true;
+        var y;
+        var w;
+        var x;
+        var z;
+        var q;
+       
         for(let m=1;m<=9;m++){
-            if(m%d==0)
-            l.innerHTML+=`<li class="_${m}">${m}</li><br>`;
-            else
+            if(m%d==0){
+            l.innerHTML+=`<li class="_${m}">${m}</li><br/>`;
+            //l.innerHTML+=`<hr class="l${m}">`
+        }
+            else{
             l.innerHTML+=`<li class="_${m}">${m}</li>`;
-
-            l.innerHTML+=`<hr class="l${m}"/>`
+            //l.innerHTML+=`<hr class="l${m}">`
+            }
+            l.innerHTML+=`<hr class="l${m}" id="line"/>`
             //alert("hello");
         }
         //alert(document.querySelector("._9").className)
-        document.querySelector("._1").addEventListener("click",function(){
-            document.querySelector("._1").className="_1 X";
-            alert("ok");
-            if(document.querySelector("._2").className=="_2 X"){
-                if(document.querySelector("._3").className=="_3 X"){
-                    document.querySelector(".l1").style.visibility="visible";
-                }
-            }
-            else if(document.querySelector("._4").className=="_4 X"){
-                     if(document.querySelector("._7").className=="_7 X"){
-                        document.querySelector(".l2").style.visibility="visible";
-
-                    }
-
-                }
-            else if(document.querySelector("._5").className=="_5 X"){
-                    if(document.querySelector("._9").className=="_9 X"){
-                        r=document.querySelector(".l3").style.visibility="visible";
-
-
-                    }
-
-            }
-
-
-        });
+        if(document.querySelector(".X").style.backgroundColor=="yellow" && document.querySelector(".X").style.boxShadow!="none"){
+           q=true;
+        }
         
         
-        if(b){
+        
+        w=document.querySelector("._1");
+        x=document.querySelector("._2");    
         r=document.querySelector("._3");
+        z=document.querySelector("._4");
         m=document.querySelector("._5");
-        n=document.querySelector("._7");
         o=document.querySelector("._6");
+        n=document.querySelector("._7");
+        y=document.querySelector("._8");
         p=document.querySelector("._9");
-        [r,m,n,o,p].forEach(item=>{item.addEventListener("click",function(){
-        if(usr=="user 1"){
-            if(item.className=="_3"){
-            alert("ok"+r);r.className="_3 X";
+        
+       
+        
+        
+        [r,m,n,o,p,w,x,y,z].forEach(item=>{item.addEventListener("click",
+        function(){
+            if(b){    
+        if(usr=="user 1"&&  item.style.backgroundColor!="rgb(123, 255, 0)"&&document.querySelector("select").value!=""&&
+        document.querySelector(".X").style.backgroundColor=="yellow" &&
+         document.querySelector(".X").style.boxShadow!="none"){
+            if(item.className!="_3O" && item.className=="_3"){
+            r.className="_3X";
+            r.style.backgroundColor="yellow";
         }
-            else if(item.className=="_5"){
-            m.className="_5 X";
+            else if(item.className!="_5O" && item.className=="_5"){
+            m.className="_5X";
+            m.style.backgroundColor="yellow";
         }  
-            else if(item.className=="_7"){
-            n.className="_7 X";
-        }   else if(item.className=="_6"){
-            o.className="_6 X";
+            else if(item.className!="_7O" && item.className=="_7"){
+            n.className="_7X";
+            n.style.backgroundColor="yellow";
+        }   
+            else if(item.className!="_6O" && item.className=="_6"){
+            o.className="_6X";
+            o.style.backgroundColor="yellow";
         }
-        else if(item.className=="_9"){
-            p.className="_9 X";
+            else if(item.className!="_9O" && item.className=="_9"){
+            p.className="_9X";
+            p.style.backgroundColor="yellow";
+        }
+            else if(item.className!="_1O" && item.className=="_1"){
+            w.className="_1X";
+            w.style.backgroundColor="yellow";
+        }
+            else if(item.className!="_2O" && item.className=="_2"){
+            x.className="_2X";
+            x.style.backgroundColor="yellow";
+        }
+            else if(item.className!="_4O" && item.className=="_4"){
+            z.className="_4X";
+            z.style.backgroundColor="yellow";
+        }
+         else if(item.className!="_8O" && item.className=="_8"){
+            y.className="_8X";
+            y.style.backgroundColor="yellow";
         }
         usr="user 2";
-        document.querySelector(".user 2").style.backgroundColor="lime"; 
+        q=false;
+        document.querySelector(".O").style.boxShadow=" 2px 2px 10px 1px #80d4ff,-2px -2px 10px 1px #80d4ff";
+        document.querySelector(".X").style.boxShadow="none";
+        //document.querySelector(".user 2").style.backgroundColor="red";
+        //e=false;
     }
-    else {
-        if(item.className=="_3"){
-            alert("ok"+r);r.className="_3 O";
+         else if (usr="user 2" &&item.style.backgroundColor!="yellow"&&document.querySelector("select").value!=""
+         ) {
+        if(item.className!="_3X" && item.className=="_3"){
+            r.className="_3O";
+            r.style="background-color:rgb(123, 255, 0)";
+
         }
-            else if(item.className=="_5"){
-            m.className="_5 O";
+            else if(item.className!="_5X" && item.className=="_5"){
+            m.className="_5O";
+            m.style="background-color:rgb(123, 255, 0)";
         }  
-            else if(item.className=="_7"){
-            n.className="_7 O";
-        }   else if(item.className=="_6"){
-            o.className="_6 O";
+            else if(item.className!="_7X" && item.className=="_7"){
+            n.className="_7O";
+            n.style="background-color:rgb(123, 255, 0)";
+        }   
+            else if(item.className!="_6X" && item.className=="_6"){
+            o.className="_6O";
+            o.style="background-color:rgb(123, 255, 0)";
         }
-        else if(item.className=="_9"){
-            p.className="_9 O";
+            else if(item.className!="_9X" && item.className=="_9"){
+            p.className="_9O";
+            p.style="background-color:rgb(123, 255, 0)";
         }
-        usr="user 1"; 
-    }       
-             
-            if(document.querySelector("._5").className=="_5 X"){
-                if(document.querySelector("._7").className=="_7 X"){
-                    if(document.querySelector("._3").className=="_3 X"){
+   
+            else if(item.className!="_1X" && item.className=="_1"){
+            w.className="_1O";
+            w.style="background-color:rgb(123, 255, 0)";
+        }
+            else if(item.className!="_2X" && item.className=="_2"){
+            x.className="_2O";
+            x.style="background-color:rgb(123, 255, 0)"
+        }
+            else if(item.className!="_4X" && item.className=="_4"){
+            z.className="_4O";
+            z.style="background-color:rgb(123, 255, 0)"
+        }
+            else if(item.className!="_8X" && item.className=="_8"){
+            y.className="_8O";
+            y.style="background-color:rgb(123, 255, 0)"
+        }
+        usr="user 1";
+        q=true;
+        document.querySelector(".O").style.boxShadow="none";
+        document.querySelector(".X").style.boxShadow=" 2px 2px 10px 1px #80d4ff,-2px -2px 10px 1px #80d4ff";
+        //document.querySelector(".X").style.boxShadow="none";
+        
+        
+        //e=false;
+           }     
+       
+       
+       
+       
+            
+            if(r.className=="_3X"&&m.className=="_5X"&&n.className=="_7X"||r.className=="_3O"&&m.className=="_5O"&&n.className=="_7O"){
+                
+               
+                
+               
                         document.querySelector(".l4").style.visibility="visible";
                         //document.querySelectorAll("._5 ._3").style.backgroundColor="yellow";
                         b=false;
-                }  
-                }
+                
             }
-            else if(document.querySelector("._6").className=="_6 X"){
-                     if(document.querySelector("._9").className=="_9 X"){
-                        if(document.querySelector("._3").className=="_3 X"){
-                            document.querySelector(".l4").style.visibility="visible";
+            else if(o.className=="_6X"&&p.className=="_9X"&&r.className=="_3X"||o.className=="_6O"&&p.className=="_9O"&&r.className=="_3O"){
+                    
+                            document.querySelector(".l1").style.visibility="visible";
 
                             b=false;
 
-                    } 
-
-                    }
-
-                }
             
+            }
 
 
-        })});}
+            if(r.className=="_1X"&&m.className=="_2X"&&n.className=="_3X"||r.className=="_1O"&&m.className=="_2O"&&n.className=="_3O"){
+                
+               
+                
+               
+                document.querySelector(".l6").style.visibility="visible";
+                //document.querySelectorAll("._5 ._3").style.backgroundColor="yellow";
+                b=false;
+        
+    }
+             else if(o.className=="_1X"&&p.className=="_4X"&&r.className=="_7X"||o.className=="_1O"&&p.className=="_4O"&&r.className=="_7O"){
+            
+                    document.querySelector(".l2").style.visibility="visible";
 
+                    b=false;
+
+
+
+    
+    }
+    
+             else if(o.className=="_1X"&&p.className=="_5X"&&r.className=="_9X"||o.className=="_1O"&&p.className=="_5O"&&r.className=="_9O"){
+            
+            document.querySelector(".l9").style.visibility="visible";
+
+            b=false;
+
+
+}
+
+if(r.className=="_7X"&&m.className=="_8X"&&n.className=="_9X"||r.className=="_7O"&&m.className=="_8O"&&n.className=="_9O"){
+                
+               
+                
+               
+                document.querySelector(".l5").style.visibility="visible";
+                //document.querySelectorAll("._5 ._3").style.backgroundColor="yellow";
+                b=false;
+        
+    }
+    else if(o.className=="_5X"&&p.className=="_8X"&&r.className=="_2X"||o.className=="_8O"&&p.className=="_5O"&&r.className=="_2O"){
+            
+                    document.querySelector(".l8").style.visibility="visible";
+
+                    b=false;
+
+    
+    }
+    if(r.className=="_4X"&&m.className=="_5X"&&n.className=="_6X"||r.className=="_4O"&&m.className=="_5O"&&n.className=="_6O"){
+                
+               
+                
+               
+                document.querySelector(".l7").style.visibility="visible";
+                //document.querySelectorAll("._5 ._3").style.backgroundColor="yellow";
+                b=false;
+        
+    }
+
+    
+        
+         
+        }})});
+function dsbl(){
+    if(document.querySelector("select").value!=""){
+    document.querySelector("#i").disabled="disable";
+    
+    }
+    else{
+        document.querySelector("#i").disabled="enable";
+        document.querySelector(".X").style.boxShadow="none";
+        document.querySelector(".O").style.boxShadow="none";
+    }
+    
+    if(document.querySelector("select").value=="0"){
+        document.querySelector(".X").style.boxShadow=" 2px 2px 10px 1px #80d4ff,-2px -2px 10px 1px #80d4ff";
+        document.querySelector(".O").style.boxShadow="none";
+    }
+    else  if(document.querySelector("select").value=="1"&&document.querySelector(".O").style.backgroundColor!="yellow"){
+        document.querySelector(".O").style.boxShadow=" 2px 2px 10px 1px #80d4ff,-2px -2px 10px 1px #80d4ff";
+        document.querySelector(".X").style.boxShadow="none";
+    }
+
+    if(document.getElementById("line").style.visibility=="visible"){
+        document.getElementById("line").style.visibility="hidden";
+        document.querySelector(".X").style.boxShadow="none";
+        document.querySelector(".O").style.boxShadow="none";
+        document.querySelector("hr").style.visibility="none";
+        document.querySelector("li").style.backgroundColor="none" 
+        }
+
+}
+
+       /* 
     document.querySelector("._8").addEventListener("click",function(){
             document.querySelector("._8").className="_8 X";
             
@@ -220,8 +508,9 @@
             }
             
 
-        });
+        });*/
 
     </script>
+
 </body>
 </html>

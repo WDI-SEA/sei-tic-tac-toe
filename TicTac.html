@@ -154,20 +154,16 @@
             width:200px;
             height:50px;
             display:flex;
-            
-            
-        }
-        .X{
-            
-            width:50%;
-            height:30%;
-            text-align:center;
+            background-color:#00001a;
             
         }
-        .O{
-            background-color: rgb(123, 255, 0);
-            width:50%;
-            height:30%;
+        
+        p{
+            background-color: black;
+            border:1px black;
+
+            width:60px;
+            height:20px;
             text-align:center;
         }
         hr {
@@ -184,6 +180,15 @@
        select {
            height: 40%;
            margin:20px;
+
+       }
+       p{
+           color:white;
+           text-shadow: 1px 1px 1px black;
+       }
+       button {
+           margin:13px;
+           height:20px;
        }
     </style>
    
@@ -260,14 +265,15 @@
         p=document.querySelector("._9");
         
        
-        
+         
         
         [r,m,n,o,p,w,x,y,z].forEach(item=>{item.addEventListener("click",
         function(){
             if(b){    
         if(usr=="user 1"&&  item.style.backgroundColor!="rgb(123, 255, 0)"&&document.querySelector("select").value!=""&&
-        document.querySelector(".X").style.backgroundColor=="yellow" &&
-         document.querySelector(".X").style.boxShadow!="none"){
+        (document.querySelector(".X").style.backgroundColor=="yellow" &&
+         document.querySelector(".X").style.boxShadow!="none")||(document.querySelector(".X").style.backgroundColor=="rgb(123, 255, 0)" &&
+         document.querySelector(".X").style.boxShadow!="none")){
             if(item.className!="_3O" && item.className=="_3"){
             r.className="_3X";
             r.style.backgroundColor="yellow";
@@ -371,6 +377,7 @@
                 
                
                         document.querySelector(".l4").style.visibility="visible";
+                        document.querySelector("select").value="";
                         //document.querySelectorAll("._5 ._3").style.backgroundColor="yellow";
                         b=false;
                 
@@ -385,17 +392,17 @@
             }
 
 
-            if(r.className=="_1X"&&m.className=="_2X"&&n.className=="_3X"||r.className=="_1O"&&m.className=="_2O"&&n.className=="_3O"){
+            if(w.className=="_1X"&&x.className=="_2X"&&r.className=="_3X"||r.className=="_3O"&&x.className=="_2O"&&w.className=="_1O"){
                 
                
                 
-               
+                
                 document.querySelector(".l6").style.visibility="visible";
                 //document.querySelectorAll("._5 ._3").style.backgroundColor="yellow";
                 b=false;
         
     }
-             else if(o.className=="_1X"&&p.className=="_4X"&&r.className=="_7X"||o.className=="_1O"&&p.className=="_4O"&&r.className=="_7O"){
+             else if(w.className=="_1X"&&z.className=="_4X"&&n.className=="_7X"||w.className=="_1O"&&z.className=="_4O"&&n.className=="_7O"){
             
                     document.querySelector(".l2").style.visibility="visible";
 
@@ -406,7 +413,7 @@
     
     }
     
-             else if(o.className=="_1X"&&p.className=="_5X"&&r.className=="_9X"||o.className=="_1O"&&p.className=="_5O"&&r.className=="_9O"){
+             else if(w.className=="_1X"&&m.className=="_5X"&&p.className=="_9X"||w.className=="_1O"&&m.className=="_5O"&&p.className=="_9O"){
             
             document.querySelector(".l9").style.visibility="visible";
 
@@ -415,7 +422,7 @@
 
 }
 
-if(r.className=="_7X"&&m.className=="_8X"&&n.className=="_9X"||r.className=="_7O"&&m.className=="_8O"&&n.className=="_9O"){
+if(n.className=="_7X"&&y.className=="_8X"&&p.className=="_9X"||n.className=="_7O"&&y.className=="_8O"&&p.className=="_9O"){
                 
                
                 
@@ -425,7 +432,7 @@ if(r.className=="_7X"&&m.className=="_8X"&&n.className=="_9X"||r.className=="_7O
                 b=false;
         
     }
-    else if(o.className=="_5X"&&p.className=="_8X"&&r.className=="_2X"||o.className=="_8O"&&p.className=="_5O"&&r.className=="_2O"){
+    else if(m.className=="_5X"&&y.className=="_8X"&&x.className=="_2X"||y.className=="_8O"&&m.className=="_5O"&&x.className=="_2O"){
             
                     document.querySelector(".l8").style.visibility="visible";
 
@@ -433,7 +440,7 @@ if(r.className=="_7X"&&m.className=="_8X"&&n.className=="_9X"||r.className=="_7O
 
     
     }
-    if(r.className=="_4X"&&m.className=="_5X"&&n.className=="_6X"||r.className=="_4O"&&m.className=="_5O"&&n.className=="_6O"){
+    if(z.className=="_4X"&&m.className=="_5X"&&o.className=="_6X"||z.className=="_4O"&&m.className=="_5O"&&o.className=="_6O"){
                 
                
                 
@@ -450,13 +457,20 @@ if(r.className=="_7X"&&m.className=="_8X"&&n.className=="_9X"||r.className=="_7O
         }})});
 function dsbl(){
     if(document.querySelector("select").value!=""){
-    document.querySelector("#i").disabled="disable";
+    document.querySelector("#i").disabled=true;
     
     }
     else{
-        document.querySelector("#i").disabled="enable";
+        document.querySelector("#i").disabled=false;
         document.querySelector(".X").style.boxShadow="none";
         document.querySelector(".O").style.boxShadow="none";
+        document.querySelector(".O").style.boxShadow="none";
+        document.querySelector(".X").style.boxShadow="none";
+        document.querySelectorAll("l").forEach((s)=>{
+            alert("");
+            s.style.backgroundColor="none";
+        });
+        
     }
     
     if(document.querySelector("select").value=="0"){

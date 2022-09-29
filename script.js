@@ -31,11 +31,14 @@ document.addEventListener('DOMContentLoaded', function () {
     game = false;
       if (e === 'x') {
         player1Div.innerHTML = ` Player 1  has won!`
-
+        wins1=wins1+1
+        winsNumber1Div.innerText = `${wins1}`
         
       
     }else {
         player2Div.innerHTML = `player 2 has won! `
+        wins2=wins2+1
+        winsNumber2Div.innerText = `${wins2}`
         
      }
       
@@ -111,13 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
  }
 
-//    if ( Win(0)){
-//      winsNumber1Div=winsNumber1Div+1
-//      winsNumber1Div.innerText = `${wins1}`
-//      }else if ( Win(1)){
-//      winsNumber2Div=winsNumber2Div+2
-//      winsNumber2Div.innerText = `${wins2}`
-//     }
+   
 
 
 

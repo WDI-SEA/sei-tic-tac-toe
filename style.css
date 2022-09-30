@@ -19,6 +19,7 @@ body {
     height: 100vh;
     justify-content: center;
     align-content: center;
+    align-items: center;
     display: grid;
     grid-template-columns: repeat(3 , auto);
    
@@ -27,5 +28,22 @@ body {
 .dash {
     width: 150px;
     height: 150px;
-    border: 1px solid red;
+    background-color: rgb(110, 185, 231);
+    border: 1px solid lightslategray;
+}
+
+.style-button {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    font-size: 25px;
+    
+}
+
+#button {
+    text-align: center;
+    justify-content: center;
+    
 }

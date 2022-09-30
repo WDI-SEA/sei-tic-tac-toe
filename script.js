@@ -19,8 +19,9 @@ function gridClick(){
     if(gridSpace[gridIndex]!= "" || !gameOn){
         return;
     } 
-    gridUpdate(this, gridIndex)
-    announceWinner()
+    gridUpdate(this, gridIndex);
+    player2();
+    announceWinner();
 }
 function gridUpdate(grid, index){
     gridSpace[index] = player1;
@@ -38,10 +39,30 @@ function announceWinner(){
         const grid1 = gridSpace[combination[0]];
         const grid2 = gridSpace[combination[1]];
         const grid3 = gridSpace[combination[2]];
-
-        if()
+        if(grid1 == "" || grid2 == "" || grid3 == ""){
+            continue;
+        }
+        if(grid1 == grid2 && grid2 == grid3){
+            firstRound = true;
+            break;
+        }
+    }
+    if(firstRound){
+        display.textContent = `Player ${player1} wings! let goo`
+        gameOn = false;
+    }
+    else if(!gridSpace.includes("")){
+        display.textContent = "You both lose:(";
+        gameOn = false;
+    }
+    else{
+        player2();
     }
 }
 function resetGrid(){
-
+    player1 = "X";
+    gridSpace = ["", "", "", "", "", "", "", "", ""];
+    display.textContent = `it's player ${player1}'s turn!`;
+    grids.forEach(grid => grid.textContent = "");
+    gameOn = true;
 }

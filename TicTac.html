@@ -419,7 +419,7 @@
                
                         document.querySelector(".l4").style.visibility="visible";
                         document.querySelector("select").value="";
-                        if(r.backgroundColor==document.querySelector(".X").backgroundColor){
+                        if(r.style.backgroundColor==document.querySelector(".X").style.backgroundColor){
                             winner="User 1"
                         }
                         else{
@@ -438,7 +438,7 @@
                 
                 document.querySelector(".l6").style.visibility="visible";
                 document.querySelector("select").value="";
-                if(w.backgroundColor==document.querySelector(".X").backgroundColor){
+                if(w.style.backgroundColor==document.querySelector(".X").style.backgroundColor){
                             winner="User 1"
                         }
                         else
@@ -453,7 +453,7 @@
                     
                     document.querySelector(".l1").style.visibility="visible";
                     document.querySelector("select").value="";
-                    if(o.backgroundColor==document.querySelector(".X").backgroundColor){
+                    if(o.style.backgroundColor==document.querySelector(".X").style.backgroundColor){
                             winner="User 1"
                         }
                         else
@@ -469,11 +469,12 @@
             
                     document.querySelector(".l2").style.visibility="visible";
                     document.querySelector("select").value="";
-                    if(z.backgroundColor==document.querySelector(".X").backgroundColor){
+                    if(z.style.backgroundColor==document.querySelector(".X").style.backgroundColor){
                             winner="User 1"
                         }
-                        else
-                        winner="User 2"
+                        else{
+                            
+                        winner="User 2"}
                         document.querySelector(".msg").innerHTML=`The winner is ${winner}`
                         document.querySelector(".msg").style.visibility="visible"
                     b=false;
@@ -487,7 +488,7 @@
             
             document.querySelector(".l9").style.visibility="visible";
             document.querySelector("select").value="";
-            if(m.backgroundColor==document.querySelector(".X").backgroundColor){
+            if(m.style.backgroundColor==document.querySelector(".X").style.backgroundColor){
                             winner="User 1"
                         }
                         else
@@ -506,7 +507,7 @@
                
                 document.querySelector(".l5").style.visibility="visible";
                 document.querySelector("select").value="";
-                if(n.backgroundColor==document.querySelector(".X").backgroundColor){
+                if(n.style.backgroundColor==document.querySelector(".X").style.backgroundColor){
                             winner="User 1"
                         }
                         else
@@ -520,7 +521,7 @@
             
                     document.querySelector(".l8").style.visibility="visible";
                     document.querySelector("select").value="";
-                    if(y.backgroundColor==document.querySelector(".X").backgroundColor){
+                    if(y.style.backgroundColor==document.querySelector(".X").style.backgroundColor){
                             winner="User 1"
                         }
                         else
@@ -538,11 +539,11 @@
                
                 document.querySelector(".l7").style.visibility="visible";
                 document.querySelector("select").value=""
-                if(z.backgroundColor==document.querySelector(".X").backgroundColor){
+                if(z.style.backgroundColor==document.querySelector(".X").style.backgroundColor){
                             winner="User 1"
                         }
-                        else
-                        winner="User 2"
+                        else { 
+                        winner="User 2"}
                         document.querySelector(".msg").innerHTML=`The winner is ${winner}`
                         document.querySelector(".msg").style.visibility="visible"
                 b=false;

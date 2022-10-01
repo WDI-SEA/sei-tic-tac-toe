@@ -48,7 +48,7 @@ function announceWinner(){
         }
     }
     if(firstRound){
-        display.textContent = `Player ${player1} wings! let goo`
+        display.textContent = `Player ${player1} wins! let goo`;
         gameOn = false;
     }
     else if(!gridSpace.includes("")){

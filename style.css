@@ -1,18 +1,19 @@
 .mainDiv{
     text-align: center;
     font-family: verdana;
+    background-color: beige;
 }
 .container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    width: 240px;
+    width: 600px;
     margin: auto;
 }
 #grid{
     border: 3px solid black;
-    height: 80px;
-    width: 80px;
-    font-size: 40px;
+    height: 200px;
+    width: 200px;
+    font-size: 150px;
     cursor: cell;
 }
 h3{

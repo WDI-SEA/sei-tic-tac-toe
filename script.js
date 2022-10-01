@@ -68,9 +68,25 @@ let assignedBoared = board.map((tile, index)=>{
 })
 
 
+//Add the restart button functionality
+function restartGame(){
+    board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+    assignedBoared.forEach((tile) => {
+    function restart(){
+
+        tile.innerText=''
+        
+    }
+
+    restartBtn.addEventListener('click',restart)
+})
+}
+
+
 //This loop will assign each sequare the proper functionality
 //First, declaring functions to alternate between players turns, then check winner/Tie
-assignedBoared.forEach((element) => {
+
+ assignedBoared.forEach((element) => {
 
     //declaring functions:
     //Who's turn is now?
@@ -95,28 +111,28 @@ assignedBoared.forEach((element) => {
          sequareClicked++
          gameIsTie() //call this function to check if there is a tie 
          winnerPlayer()// call this function to check the winner
+         restartGame()//To restart the game
          
          
     }
-
-    //is game tied?
-    function gameIsTie() {
-        if(sequareClicked === 9){
-        gameStatus.style = "color: yellow" 
-        gameStatus.innerText = "It is a Tie! Wanna play again?"
-        console.log("game is Tied!")
-        }
-    }
-    
+ 
 
     element.addEventListener('click',currentPlayer)
 })
 
 
-
+ //is game tied?
+ function gameIsTie() {
+    if(sequareClicked === 9){
+    gameStatus.style = "color: yellow" 
+    gameStatus.innerText = "It is a Tie! Wanna play again?"
+    console.log("game is Tied!")
+    }
+}
 
 //Who's the winner? 
 //for loop to go through all winning combination, it will store the value of the winning combination in an array
+let finalWinner 
 function winnerPlayer(){
  for (let i of winningCombination) {
     let [element1, element2, element3] = [assignedBoared[i[0]].innerText,
@@ -128,14 +144,16 @@ function winnerPlayer(){
             gameStatus.style = "color: yellow" 
             gameStatus.innerText = `The winner is Player ${element1} Congrats!`
             console.log(`The winner is Player ${element1}! Congrats!`)
+            assignedBoared.forEach((tile) => {
+                    tile.style.pointerEvents = 'none' 
+            })
         }
     }
-    
  }
 }
 
 
-//Add the restart button functionality
+
 //Disable the rest of the tiles when someone win!
 
 
@@ -295,6 +313,3 @@ function winnerPlayer(){
 //         tiles.innerHTML = " ";
 //     }
 //     }
-
-
-    

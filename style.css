@@ -4,21 +4,32 @@
     font-family: 'Itim', cursive;
 }
 
+body {
+    background-image: url("../img/black brick wall.jpg");
+}
 .background {
-    background-color: #12181B;
-    height: 100vh;
+    /* background-color: #04001a; */
+    height: 150vh;
     padding-top: 1px;
+}
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 2px 5px 10px;
+}
+
+p {
+    text-shadow: 2px 5px 10px;
 }
 
 .title {
-    color: white;
+    color: rgb(214, 6, 6);
     text-align: center;
     font-size: 40px;
     margin-top: 10%;
 }
 
 .display {
-    color: white;
+    color: rgb(248, 248, 248);
     font-size: 25px;
     text-align: center;
     margin-top: 1em;
@@ -31,30 +42,84 @@
 
 .container {
     margin: 0 auto;
+    padding: 10px;
     display: grid;
     grid-template-columns: 33% 33% 33%;
     grid-template-rows: 33% 33% 33%;
     max-width: 300px;
-
+    max-height: 300px;
+    border-top: 0px;
+}
+.v{
+    border-left:1px solid rgb(15, 18, 190);
+    border-right: 1px solid blue;
 }
 
+.h{
+    border-top:2px solid rgb(9, 208, 243);
+    border-bottom:1px solid rgb(231, 231, 231);
+}
+
+
+
 .tile {
-    border: 1px solid white;
-    min-width: 100px;
-    min-height: 100px;
+    border: 3px solid rgb(0, 255, 76); 
+    border-style: outset;
+    min-width: 97px; 
+    margin: 4px;
+    min-height: 97px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 50px;
+    font-size: 60px;
     cursor: pointer;
 }
 
+#tile1 {
+    border-top: 0px;
+    border-left: 0px;
+}
+
+#tile2 {
+    border-top: 0px;
+}
+
+#tile3 {
+    border-top: 0px;
+    border-right: 0px;
+}
+
+#tile4 {
+    border-left: 0px;
+}
+
+#tile6 {
+    border-right: 0px;
+}
+
+#tile7 {
+    border-bottom: 0px;
+    border-left: 0px
+}
+
+#tile8 {
+    border-bottom: 0px;
+}
+
+#tile9 {
+    border-bottom: 0PX;
+    border-right: 0px;
+}
+
+
 .playerX {
-    color: #09C372;
+    color: #c30909;
+    text-shadow: 2px 5px 10px;
 }
 
 .playerO {
-    color: #498AFB;
+    color: #1bfa39;
+    text-shadow: 2px 5px 10px;
 }
 
 .controls {
@@ -75,10 +140,30 @@
     cursor: pointer;
 }
 
-.restart {
-    background-color: #498AFB;
+
+
+
+
+.announcer {
+    margin-top: 180px;
+    padding-top: 15px;
+    width: 100vw;
+    text-align: center;
+    z-index: 10;
+    position: absolute;
+    opacity: 0.5;
+    background-color: rgb(255, 255, 255);
+    background-size: cover;
+    font-size: 60px;
+    color:rgb(0, 0, 0);
+    height: 100px;
+}
+#reset {
+    background-color: #1202f7;
+    color: #ffffff;
 }
 
-#reset {
-    background-color: #FF3860;
-}
+
+
+
+

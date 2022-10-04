@@ -7,31 +7,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <script defer src="script.js"></script>
-    <title>Tic-Tac-Toe</title>
+    <title>Tic-Tac-Toe</title> 
 </head>
 <body>
     <main class="background">
         <section class="title">
             <h1>Tic Tac Toe</h1>
-        </section>
+            <p>Have Fun!</p>
+        </section>        
+        <section class="display announcer hide"></section>
         <section class="display">
             Player <span class="display-player playerX">X</span>'s turn
         </section>
-        <section class="container">
-            <div class="tile"></div>
-            <div class="tile"></div>
-            <div class="tile"></div>
-            <div class="tile"></div>
-            <div class="tile"></div>
-            <div class="tile"></div>
-            <div class="tile"></div>
-            <div class="tile"></div>
-            <div class="tile"></div>
+        <section class="container" id="tiles">
+            <div class="tile" id="tile1"></div>
+            <div class="tile" id="tile2"></div>
+            <div class="tile" id="tile3"></div>
+            <div class="tile" id="tile4"></div>
+            <div class="tile" id="tile5"></div>
+            <div class="tile" id="tile6"></div>
+            <div class="tile" id="tile7"></div>
+            <div class="tile" id="tile8"></div>
+            <div class="tile" id="tile9"></div>
         </section>
-        <section class="display announcer hide"></section>
+
         <section class="controls">
-            <button id="reset">Reset</button>
+            <button id="reset">Restart</button>
         </section>
+        
     </main>
 </body>
 </html>

@@ -38,7 +38,7 @@ const gameBoard = ["x", "o", "x", "o", "x", "o", "x", "o", "x"]
 // Winning combination idea. If a player clicks a square its coordinates within a 2d grid (x,y) are added to a "col array stored on a player object" For this idea to work the object would have to have 3 rows, 3 cols, and the two diagonals arrays. If any of these are full, or have a non empty array then the respective player has one.
 const Player1 = new Player("Jay")
 Player1.sayHello()
-
+Player1.checkWinCondition()
 /**
  *    012
  * 0{}{}{}

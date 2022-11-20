@@ -1,0 +1,50 @@
+/* styles.css */
+
+/* just enough styling to setup the gameboard */
+
+/* DO NOT DO ANY OTHER STYLING UNTIL THE GAME LOGIC IS FINISHED */
+
+* {
+    margin: 0 auto;
+    text-align: center;
+    background-color: slategray;
+}
+
+h1 {
+    margin: 20px 0px;
+    color: lightskyblue; 
+    text-shadow: 1px 1px #000000;
+    background-image: linear-gradient(grey, black);
+    padding: 10px; 
+}
+
+#col-one {
+    display: inline-block;
+    padding: 15px; 
+}
+#col-two {
+    display: inline-block;
+    padding: 15px;
+}
+#col-three {
+    display: inline-block;
+    padding: 15px;
+    
+}
+
+#status-msg {
+    font-weight:  bolder;
+    font-size: 18px; 
+    color: lightgreen; 
+    text-shadow: 1px 1px #000000;
+    background-image: linear-gradient(grey, black);
+    padding: 10px;
+}
+
+#reset {
+    display: block;
+    text-align: center;
+    background-color: lightcoral;
+    padding: 5px;
+    
+}

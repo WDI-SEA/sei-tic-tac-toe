@@ -1,0 +1,52 @@
+<!-- your index.html -->
+<!-- (optional) header or title for the game -->
+<!-- grid of nine squares -->
+    <!-- three divs each with three divs in them (inner divs should display inline or inline block) -->
+    <!--   divs should be numbered -- this will correlate to the array indexes (this can be a number id) -->
+<!-- some kind of display for messages to the user (whose turn it is, if someone won or its a tie game) -->
+<!-- button for reset -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Tic Tac Toe</title>
+        <link rel="stylesheet" href="style.css" />
+        <h1>Let's Play Tic Tac Toe!</h1>
+        <body>
+        <div id="col-one">
+            <div id="one" class="squares">__</div>
+            <br>
+            <div id="four" class="squares">__</div>
+            <br>
+            <div id="seven" class="squares">__</div>
+            <br>
+        </div>
+        <div id="col-two">
+            <div id="two" class="squares">__</div>
+            <br>
+            <div id="five" class="squares">__</div>
+            <br>
+            <div id="eight" class="squares">__</div>
+            <br>
+        </div>
+        <div id="col-three">
+            <div id="three" class="squares">__</div>
+            <br>
+            <div id="six" class="squares">__</div>
+            <br>
+            <div id="nine" class="squares">__</div>
+            <br>
+        </div> 
+        <br>
+        <div id="status-msg">Player 1: Click on an open space!</div>
+            <br>
+            <br>
+            <button id="reset">Reset Game</button>
+
+            <script src="script.js"></script>
+        </body>
+    </head>
+
+
+</html>

@@ -1,0 +1,26 @@
+* {
+    text-align: center;
+    margin: 0 auto;
+}
+/* .rowOne, .rowTwo, .rowThree {
+    display: inline-block;
+} */
+.grid-container {
+    display: grid;
+    grid-template-rows: 100px 100px 100px;
+    grid-template-columns: 100px 100px 100px;
+    grid-gap: 10px;
+    justify-content: center;
+    text-align: center;
+}
+#divOneR1, #divTwoR1, #divThreeR1, 
+#divOneR2, #divTwoR2, #divThreeR2,
+#divOneR3, #divTwoR3, #divThreeR3 {
+    padding: 10px;
+    margin: 10px;
+    width: 40px;
+    height: 40px;
+    border: 5px solid black;
+    justify-content: center;
+    text-align: center;
+}

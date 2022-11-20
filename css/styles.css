@@ -1,0 +1,9 @@
+.box {
+    background-color: cornflowerblue;
+    border: solid 10px blue;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+    height: 50px;
+    width: 50px;
+}

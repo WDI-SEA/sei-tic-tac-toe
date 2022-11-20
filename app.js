@@ -16,6 +16,7 @@ export default class TTT {
   currentPlayer = "x"
   // A game board array will store the game board
   gameBoard = ["", "", "", "", "", "", "", "", ""]
+
   sayHello() {
     console.log(`Welcome ${this.name} you will be using the ${this.symbol}`)
   }
@@ -76,30 +77,12 @@ const btn9 = document.getElementById("button9")
 const squares = document.querySelectorAll(".square")
 
 // EVENT LISTENERS
-// square.addEventListener("click", (e) => {
-//   console.log(e.target)
-//   e.target.textContent = Game.currentPlayer
-// })
+
 squares.forEach((square) => {
   square.addEventListener("click", (e) => {
     square.textContent = Game.currentPlayer
   })
 })
-
-// btn1.addEventListener("click", (e) => {
-//   // change to active currentPlayer
-//   btn1.textContent = Game.currentPlayer
-// })
-// btn2.addEventListener("click", (e) => {
-//   btn2.textContent = Game.currentPlayer
-// })
-// btn3.addEventListener("click", (e) => {})
-// btn4.addEventListener("click", (e) => {})
-// btn5.addEventListener("click", (e) => {})
-// btn6.addEventListener("click", (e) => {})
-// btn7.addEventListener("click", (e) => {})
-// btn8.addEventListener("click", (e) => {})
-// btn9.addEventListener("click", (e) => {})
 
 // Winning combinations and ties will be stored in an array or object
 
@@ -113,3 +96,15 @@ Game.newGame()
 // A cell should not be able to be replayed once filled
 
 // An array will be populated with the game board and whichever square is clicked will be populated with either an X or an O depending on which players turn it is
+
+gameBoard.forEach((move) => {
+  counter = 9
+  if (move === "") {
+    counter -= 1
+  }
+  if (counter % 2 === 0) {
+    currentPlayer = "x"
+  } else {
+    currentPlayer = "o"
+  }
+})

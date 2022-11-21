@@ -1,3 +1,5 @@
+// VARIABLES
+
 // storing the game status
 const statusDisplay = document.querySelector('.gameStatus');
 // weston's idea
@@ -8,8 +10,6 @@ let currentPlayer = "X";
 // gameActive will pause the game once someone win or draw
 let gameActive = true;
 
-
-// VARIABLES
 // winning conditions, it will check if one of those were met if not the game will keep running
 const winningConditions = [
     [0, 1, 2],
@@ -104,11 +104,7 @@ function handlePlayerChange() {
 }
 
 // function that restart the game 
-function handleRestartGame() {
-    gameActive = true;
-    currentPlayer = "X";
-    gameState = ["", "", "", "", "", "", "", "", ""];
-    statusDisplay.innerHTML = currentPlayerTurn();
-    document.querySelectorAll('.box')
-               .forEach(box => box.innerHTML = "");
+function RestartGame() {
+    document.getElementById("reset").reset();
 }
+

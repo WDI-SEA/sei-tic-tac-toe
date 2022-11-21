@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tic Tac Toe</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+
+    <body>
+        <h1 id="whoMove">X has the move</h1>
+        <h2>click a section below:</h2>
+        <div class="container">
+            <div class="border" id="border">
+                <button class="box" id="buttonOne" onclick="rowColOneOne()"></button>
+                <button class="box" id="buttonTwo" onclick="rowColOneTwo()"></button>
+                <button class="box" id="buttonThree" onclick="rowColOneThree()"></button>
+                <button class="box" id="buttonFour" onclick="rowColTwoOne()"></button>
+                <button class="box" id="buttonFive" onclick="rowColTwoTwo()"></button>
+                <button class="box" id="buttonSix" onclick="rowColTwoThree()"></button>
+                <button class="box" id="buttonSeven" onclick="rowColThreeOne()"></button>
+                <button class="box" id="buttonEight" onclick="rowColThreeTwo()"></button>
+                <button class="box" id="buttonNine" onclick="rowColThreeThree()"></button> 
+            </div>
+            <div class="choiceBorder">
+                <div class="choice">
+                    <div class="choiceBox" id="oneBox"><p id="one">S</p></div>
+                    <div class="choiceBox" id="twoBox"><p id="two">A</p></div>
+                    <div class="choiceBox" id="threeBox"><p id="three">J</p></div>
+                    <div class="choiceBox" id="fourBox"><p id="four">K</p></div>
+                    <div class="choiceBox" id="fiveBox"><p id="five">L</p></div>
+                    <div class="choiceBox" id="sixBox"><p id="six">R</p></div>
+                    <div class="choiceBox" id="sevenBox"><p id="seven">C</p></div>
+                    <div class="choiceBox" id="eightBox"><p id="eight">G</p></div>
+                    <div class="choiceBox" id="nineBox"><p id="nine">L</p></div> 
+                </div>
+
+             </div>
+        </div>
+        <a href="againstComp.html"><button id="vs">VS Computer</button></a>
+        <button id="reset" onclick="reset()">reset</button>
+    </body>
+</html>

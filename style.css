@@ -1,0 +1,108 @@
+body {
+    text-align: center;
+}
+
+h1 {
+    margin: 25px 0 50px 0;
+    font-size: 80px;
+}
+
+h2 {
+    margin-bottom: 70px;
+}
+
+.container {
+    height: 465px;
+    width: 465px;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.border {
+    height: 475px;
+    position: absolute;
+    width: 488px;
+    background-color: black;
+    margin: 0 auto;
+    justify-content: center;
+    z-index: 11;
+}
+.box {
+    z-index: 0;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    height: 158px;
+    width: 160px;
+    border: none;
+    background-color: white;
+}
+
+.choiceBorder {
+    height: 475px;
+    width: 488px;
+    position: absolute;
+    margin: 0 auto;
+    
+}
+
+.choiceBox {
+    height: 145px;
+    position: relative;
+    width: 158px;
+    padding-bottom: 8px;
+    padding-right: 2px;
+    display: inline-block;
+    background-color: none;
+    z-index: 9;
+    border: none;
+}
+
+
+p {
+    position: absolute; 
+    padding-bottom: 10px;
+    top: -153%;
+    left: 4%;
+    transform: (-50%, -79%);
+    font-size: 200px;
+}
+
+#reset, #vs{
+    margin: 80px;
+    padding: 10px;
+}
+
+#oneBox {
+    z-index: -11
+}
+#twoBox {
+    z-index: -12
+}
+#threeBox {
+    z-index: -13
+}
+#fourBox {
+    z-index: -14
+}
+#fiveBox {
+    z-index: -15
+}
+#sixBox {
+    z-index: -16
+}
+#sevenBox {
+    z-index: -17
+}
+#eightBox {
+    z-index: -18
+}
+#eightBox {
+    z-index: -19
+}
+#nineBox {
+    z-index: -20
+}
+

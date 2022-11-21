@@ -2,16 +2,14 @@
     width: 75px;
     height: 75px;
     border: 2px solid;
-    font-size: 50px;
+    box-shadow: 0 0 0 2px;
     line-height: 75px;
-    text-align: center;
-    /* makes cursor a pointer finger */
+    font-size: 50px;
     cursor: pointer;
-
 }
 
 #gameContainer {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
 }
 
@@ -19,6 +17,5 @@
     display: grid;
     grid-template-columns: repeat(3, auto);
     width: 225px;
-    /* centers */
     margin: auto;
 }

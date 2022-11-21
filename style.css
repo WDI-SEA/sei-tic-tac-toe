@@ -1,0 +1,33 @@
+
+body{
+    background-color: black;
+}
+.container1 {
+    display: flex;
+    flex-direction: row;
+}
+.style{ 
+    margin: 20px auto;
+    background-color: rgb(32, 29, 29);
+    width: 30vw;
+    height: 15em;
+    border: 3px solid rgb(137, 130, 130);
+}
+.letter{
+    color: rgba(57, 201, 13, 0.969);
+    text-align: center;
+    margin: 105px auto ;
+}
+.btnContainer{
+    text-align:center;
+}
+button{
+    width:auto;
+    height: 30px;
+    background-color: rgba(191, 181, 181, 0.906);
+}
+
+#msg{
+    text-align: center;
+    color: rgba(57, 201, 13, 0.969);
+}

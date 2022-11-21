@@ -1,3 +1,20 @@
+/* Only the top left cell has the winning conditions right now 
+it will say X or O wins but you have to end on the top left cell
+*/   
+
+/* was trying to figure out how to not repeat myself "DRY" 
+    but couldnt figure it out
+    if i could figure out how to use querySelectorAll 
+    to reference which cell was click i think i could set
+    up a for loop to iterate the function i used for the logic
+    i use but wasnt able to figure it out   
+
+*/ 
+   
+
+
+
+
 //restart button
 restartbtn.addEventListener('click', restart)
 // restart button function
@@ -5,13 +22,17 @@ function restart(){
     location.reload()
 }
 
-// Event Listeners
+// // Event Listeners
+
+// let click = "null"
 
 // // how do i use this one?v
-const cellClick = document.querySelectorAll('.cell')
-// // how do i use this?v
-cellClick.forEach((cell) => {
-    
+// const cellClick = document.querySelectorAll('.cell')
+// // // how do i use this?v to figure out which cell was clicked 
+// cellClick.forEach((cell) => {
+//     click = cellClick
+// })
+// console.log(click)
 
 // })
 

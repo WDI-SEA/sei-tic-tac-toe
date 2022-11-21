@@ -34,16 +34,16 @@ function nextTurn(currentPlayer) {
     }
 }
 
-function freeze() {
-    gameGridArray = [first, second, third, fourth, fifth, sixth, seventh, eighth, ninth]
-    for (i=0; i < gameGridArray.length; i++) {
-    gameGridArray[i].removeEventListener('click', function(){})
-}}
+// function freeze() {
+//     gameGridArray = [first, second, third, fourth, fifth, sixth, seventh, eighth, ninth]
+//     for (i=0; i < gameGridArray.length; i++) {
+//     gameGridArray[i].removeEventListener('click', function(){})
+// }}
 
 // Main board array:
 const gridArray = ['','','','','','','','','']
 
-
+let turns = 0
 
 /////////// First box clicked: //////////////////
 first.addEventListener('click', function(e) {
@@ -56,6 +56,7 @@ first.addEventListener('click', function(e) {
         console.log(gridArray) 
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
 }
 //Player O's turn:
     else if (gameIsRunning = true && player === "Player O") {
@@ -65,20 +66,22 @@ first.addEventListener('click', function(e) {
         console.log(gridArray)
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
 } 
 
 // CHECKING FOR A WIN:
 if ((gridArray[0] === "X" && gridArray[1] === "X" && gridArray[2] === "X") || (gridArray[3] === "X" && gridArray[4] === "X" && gridArray[5] === "X") || (gridArray[6] === "X" && gridArray[7] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[3] === "X" && gridArray[6] === "X") || (gridArray[1] === "X" && gridArray[4] === "X" && gridArray[7] === "X") || (gridArray[2] === "X" && gridArray[5] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[4] === "X" && gridArray[8] === "X") || (gridArray[2] === "X" && gridArray[4] === "X" && gridArray[6] === "X")) {
     console.log("Player X wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player X, you win!"}
 
 if ((gridArray[0] === "O" && gridArray[1] === "O" && gridArray[2] === "O") || (gridArray[3] === "O" && gridArray[4] === "O" && gridArray[5] === "O") || (gridArray[6] === "O" && gridArray[7] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[3] === "O" && gridArray[6] === "O") || (gridArray[1] === "O" && gridArray[4] === "O" && gridArray[7] === "O") || (gridArray[2] === "O" && gridArray[5] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[4] === "O" && gridArray[8] === "O") || (gridArray[2] === "O" && gridArray[4] === "O" && gridArray[6] === "O")) {
     console.log("Player O wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player O, you win!"}
+if (turns === 9) {
+    message.innerText = "Cats game!"
+}
 }, {once: true})
 
 // Second box clicked:
@@ -92,6 +95,7 @@ second.addEventListener('click', function(e) {
         console.log(gridArray) 
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
     }
     //Player O's turn:
     if (gameIsRunning = true && player === "Player O") {
@@ -101,19 +105,21 @@ second.addEventListener('click', function(e) {
         console.log(gridArray)
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
     }
     // CHECKING FOR A WIN:
 if ((gridArray[0] === "X" && gridArray[1] === "X" && gridArray[2] === "X") || (gridArray[3] === "X" && gridArray[4] === "X" && gridArray[5] === "X") || (gridArray[6] === "X" && gridArray[7] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[3] === "X" && gridArray[6] === "X") || (gridArray[1] === "X" && gridArray[4] === "X" && gridArray[7] === "X") || (gridArray[2] === "X" && gridArray[5] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[4] === "X" && gridArray[8] === "X") || (gridArray[2] === "X" && gridArray[4] === "X" && gridArray[6] === "X")) {
     console.log("Player X wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player X, you win!"}
 
 if ((gridArray[0] === "O" && gridArray[1] === "O" && gridArray[2] === "O") || (gridArray[3] === "O" && gridArray[4] === "O" && gridArray[5] === "O") || (gridArray[6] === "O" && gridArray[7] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[3] === "O" && gridArray[6] === "O") || (gridArray[1] === "O" && gridArray[4] === "O" && gridArray[7] === "O") || (gridArray[2] === "O" && gridArray[5] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[4] === "O" && gridArray[8] === "O") || (gridArray[2] === "O" && gridArray[4] === "O" && gridArray[6] === "O")) {
     console.log("Player O wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player O, you win!"}
+if (turns === 9) {
+    message.innerText = "Cats game!"
+}
 }, {once: true})
 
 // Third box clicked:
@@ -127,6 +133,7 @@ third.addEventListener('click', function(e) {
         console.log(gridArray) 
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
     }
     //Player O's turn:
     else if (gameIsRunning = true && player === "Player O") {
@@ -136,20 +143,22 @@ third.addEventListener('click', function(e) {
         console.log(gridArray)
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
     }
 // CHECKING FOR A WIN:
 if ((gridArray[0] === "X" && gridArray[1] === "X" && gridArray[2] === "X") || (gridArray[3] === "X" && gridArray[4] === "X" && gridArray[5] === "X") || (gridArray[6] === "X" && gridArray[7] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[3] === "X" && gridArray[6] === "X") || (gridArray[1] === "X" && gridArray[4] === "X" && gridArray[7] === "X") || (gridArray[2] === "X" && gridArray[5] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[4] === "X" && gridArray[8] === "X") || (gridArray[2] === "X" && gridArray[4] === "X" && gridArray[6] === "X")) {
     console.log("Player X wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player X, you win!"}
 
 if ((gridArray[0] === "O" && gridArray[1] === "O" && gridArray[2] === "O") || (gridArray[3] === "O" && gridArray[4] === "O" && gridArray[5] === "O") || (gridArray[6] === "O" && gridArray[7] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[3] === "O" && gridArray[6] === "O") || (gridArray[1] === "O" && gridArray[4] === "O" && gridArray[7] === "O") || (gridArray[2] === "O" && gridArray[5] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[4] === "O" && gridArray[8] === "O") || (gridArray[2] === "O" && gridArray[4] === "O" && gridArray[6] === "O")) {
     console.log("Player O wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player O, you win!"}
-}, {once: true})
+    if (turns === 9) {
+        message.innerText = "Cats game!"
+    }
+    }, {once: true})
 
 // Fourth box clicked:
 fourth.addEventListener('click', function(e) {
@@ -162,6 +171,7 @@ fourth.addEventListener('click', function(e) {
         console.log(gridArray) 
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
     }
     //Player O's turn:
     else if (gameIsRunning = true && player === "Player O") {
@@ -171,20 +181,22 @@ fourth.addEventListener('click', function(e) {
         console.log(gridArray)
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
     }
 // CHECKING FOR A WIN:
 if ((gridArray[0] === "X" && gridArray[1] === "X" && gridArray[2] === "X") || (gridArray[3] === "X" && gridArray[4] === "X" && gridArray[5] === "X") || (gridArray[6] === "X" && gridArray[7] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[3] === "X" && gridArray[6] === "X") || (gridArray[1] === "X" && gridArray[4] === "X" && gridArray[7] === "X") || (gridArray[2] === "X" && gridArray[5] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[4] === "X" && gridArray[8] === "X") || (gridArray[2] === "X" && gridArray[4] === "X" && gridArray[6] === "X")) {
     console.log("Player X wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player X, you win!"}
 
 if ((gridArray[0] === "O" && gridArray[1] === "O" && gridArray[2] === "O") || (gridArray[3] === "O" && gridArray[4] === "O" && gridArray[5] === "O") || (gridArray[6] === "O" && gridArray[7] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[3] === "O" && gridArray[6] === "O") || (gridArray[1] === "O" && gridArray[4] === "O" && gridArray[7] === "O") || (gridArray[2] === "O" && gridArray[5] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[4] === "O" && gridArray[8] === "O") || (gridArray[2] === "O" && gridArray[4] === "O" && gridArray[6] === "O")) {
     console.log("Player O wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player O, you win!"}
-}, {once: true})
+if (turns === 9) {
+        message.innerText = "Cats game!"
+    }
+    }, {once: true})
 
 // Fifth box clicked:
 fifth.addEventListener('click', function(e) {
@@ -197,6 +209,7 @@ fifth.addEventListener('click', function(e) {
         console.log(gridArray) 
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
     }
     //Player O's turn:
     else if (gameIsRunning = true && player === "Player O") {
@@ -206,20 +219,22 @@ fifth.addEventListener('click', function(e) {
         console.log(gridArray)
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
     }
 // CHECKING FOR A WIN:
 if ((gridArray[0] === "X" && gridArray[1] === "X" && gridArray[2] === "X") || (gridArray[3] === "X" && gridArray[4] === "X" && gridArray[5] === "X") || (gridArray[6] === "X" && gridArray[7] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[3] === "X" && gridArray[6] === "X") || (gridArray[1] === "X" && gridArray[4] === "X" && gridArray[7] === "X") || (gridArray[2] === "X" && gridArray[5] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[4] === "X" && gridArray[8] === "X") || (gridArray[2] === "X" && gridArray[4] === "X" && gridArray[6] === "X")) {
     console.log("Player X wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player X, you win!"}
 
 if ((gridArray[0] === "O" && gridArray[1] === "O" && gridArray[2] === "O") || (gridArray[3] === "O" && gridArray[4] === "O" && gridArray[5] === "O") || (gridArray[6] === "O" && gridArray[7] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[3] === "O" && gridArray[6] === "O") || (gridArray[1] === "O" && gridArray[4] === "O" && gridArray[7] === "O") || (gridArray[2] === "O" && gridArray[5] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[4] === "O" && gridArray[8] === "O") || (gridArray[2] === "O" && gridArray[4] === "O" && gridArray[6] === "O")) {
     console.log("Player O wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player O, you win!"}
-}, {once: true})
+ if (turns === 9) {
+        message.innerText = "Cats game!"
+    }
+    }, {once: true})
 
 // Sixth box clicked:
 sixth.addEventListener('click', function(e) {
@@ -232,6 +247,7 @@ sixth.addEventListener('click', function(e) {
         console.log(gridArray) 
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
     }
     //Player O's turn:
     else if (gameIsRunning = true && player === "Player O") {
@@ -241,20 +257,22 @@ sixth.addEventListener('click', function(e) {
         console.log(gridArray)
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
     }
 // CHECKING FOR A WIN:
 if ((gridArray[0] === "X" && gridArray[1] === "X" && gridArray[2] === "X") || (gridArray[3] === "X" && gridArray[4] === "X" && gridArray[5] === "X") || (gridArray[6] === "X" && gridArray[7] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[3] === "X" && gridArray[6] === "X") || (gridArray[1] === "X" && gridArray[4] === "X" && gridArray[7] === "X") || (gridArray[2] === "X" && gridArray[5] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[4] === "X" && gridArray[8] === "X") || (gridArray[2] === "X" && gridArray[4] === "X" && gridArray[6] === "X")) {
     console.log("Player X wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player X, you win!"}
 
 if ((gridArray[0] === "O" && gridArray[1] === "O" && gridArray[2] === "O") || (gridArray[3] === "O" && gridArray[4] === "O" && gridArray[5] === "O") || (gridArray[6] === "O" && gridArray[7] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[3] === "O" && gridArray[6] === "O") || (gridArray[1] === "O" && gridArray[4] === "O" && gridArray[7] === "O") || (gridArray[2] === "O" && gridArray[5] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[4] === "O" && gridArray[8] === "O") || (gridArray[2] === "O" && gridArray[4] === "O" && gridArray[6] === "O")) {
     console.log("Player O wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player O, you win!"}
-}, {once: true})
+ if (turns === 9) {
+        message.innerText = "Cats game!"
+    }
+    }, {once: true})
 
 // Seventh box clicked:
 seventh.addEventListener('click', function(e) {
@@ -267,6 +285,7 @@ seventh.addEventListener('click', function(e) {
         console.log(gridArray) 
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
     }
     //Player O's turn:
     else if (gameIsRunning = true && player === "Player O") {
@@ -276,20 +295,22 @@ seventh.addEventListener('click', function(e) {
         console.log(gridArray)
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
     }
 // CHECKING FOR A WIN:
 if ((gridArray[0] === "X" && gridArray[1] === "X" && gridArray[2] === "X") || (gridArray[3] === "X" && gridArray[4] === "X" && gridArray[5] === "X") || (gridArray[6] === "X" && gridArray[7] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[3] === "X" && gridArray[6] === "X") || (gridArray[1] === "X" && gridArray[4] === "X" && gridArray[7] === "X") || (gridArray[2] === "X" && gridArray[5] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[4] === "X" && gridArray[8] === "X") || (gridArray[2] === "X" && gridArray[4] === "X" && gridArray[6] === "X")) {
     console.log("Player X wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player X, you win!"}
 
 if ((gridArray[0] === "O" && gridArray[1] === "O" && gridArray[2] === "O") || (gridArray[3] === "O" && gridArray[4] === "O" && gridArray[5] === "O") || (gridArray[6] === "O" && gridArray[7] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[3] === "O" && gridArray[6] === "O") || (gridArray[1] === "O" && gridArray[4] === "O" && gridArray[7] === "O") || (gridArray[2] === "O" && gridArray[5] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[4] === "O" && gridArray[8] === "O") || (gridArray[2] === "O" && gridArray[4] === "O" && gridArray[6] === "O")) {
     console.log("Player O wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player O, you win!"}
-}, {once: true})
+ if (turns === 9) {
+        message.innerText = "Cats game!"
+    }
+    }, {once: true})
 
 // Eighth box clicked:
 eighth.addEventListener('click', function(e) {
@@ -302,6 +323,7 @@ eighth.addEventListener('click', function(e) {
         console.log(gridArray) 
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
     }
     //Player O's turn:
     else if (gameIsRunning = true && player === "Player O") {
@@ -311,20 +333,22 @@ eighth.addEventListener('click', function(e) {
         console.log(gridArray)
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
     }
 // CHECKING FOR A WIN:
 if ((gridArray[0] === "X" && gridArray[1] === "X" && gridArray[2] === "X") || (gridArray[3] === "X" && gridArray[4] === "X" && gridArray[5] === "X") || (gridArray[6] === "X" && gridArray[7] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[3] === "X" && gridArray[6] === "X") || (gridArray[1] === "X" && gridArray[4] === "X" && gridArray[7] === "X") || (gridArray[2] === "X" && gridArray[5] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[4] === "X" && gridArray[8] === "X") || (gridArray[2] === "X" && gridArray[4] === "X" && gridArray[6] === "X")) {
     console.log("Player X wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player X, you win!"}
 
 if ((gridArray[0] === "O" && gridArray[1] === "O" && gridArray[2] === "O") || (gridArray[3] === "O" && gridArray[4] === "O" && gridArray[5] === "O") || (gridArray[6] === "O" && gridArray[7] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[3] === "O" && gridArray[6] === "O") || (gridArray[1] === "O" && gridArray[4] === "O" && gridArray[7] === "O") || (gridArray[2] === "O" && gridArray[5] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[4] === "O" && gridArray[8] === "O") || (gridArray[2] === "O" && gridArray[4] === "O" && gridArray[6] === "O")) {
     console.log("Player O wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player O, you win!"}
-}, {once: true})
+ if (turns === 9) {
+        message.innerText = "Cats game!"
+    }
+    }, {once: true})
 
 // Ninth box clicked:
 ninth.addEventListener('click', function(e) {
@@ -337,6 +361,7 @@ ninth.addEventListener('click', function(e) {
         console.log(gridArray) 
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
     }
     //Player O's turn:
     else if (gameIsRunning = true && player === "Player O") {
@@ -346,20 +371,22 @@ ninth.addEventListener('click', function(e) {
         console.log(gridArray)
         nextTurn(player)
         message.innerText = (`It's ${player}'s turn`)
+        turns++
     }
 // CHECKING FOR A WIN:
 if ((gridArray[0] === "X" && gridArray[1] === "X" && gridArray[2] === "X") || (gridArray[3] === "X" && gridArray[4] === "X" && gridArray[5] === "X") || (gridArray[6] === "X" && gridArray[7] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[3] === "X" && gridArray[6] === "X") || (gridArray[1] === "X" && gridArray[4] === "X" && gridArray[7] === "X") || (gridArray[2] === "X" && gridArray[5] === "X" && gridArray[8] === "X") || (gridArray[0] === "X" && gridArray[4] === "X" && gridArray[8] === "X") || (gridArray[2] === "X" && gridArray[4] === "X" && gridArray[6] === "X")) {
     console.log("Player X wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player X, you win!"}
 
 if ((gridArray[0] === "O" && gridArray[1] === "O" && gridArray[2] === "O") || (gridArray[3] === "O" && gridArray[4] === "O" && gridArray[5] === "O") || (gridArray[6] === "O" && gridArray[7] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[3] === "O" && gridArray[6] === "O") || (gridArray[1] === "O" && gridArray[4] === "O" && gridArray[7] === "O") || (gridArray[2] === "O" && gridArray[5] === "O" && gridArray[8] === "O") || (gridArray[0] === "O" && gridArray[4] === "O" && gridArray[8] === "O") || (gridArray[2] === "O" && gridArray[4] === "O" && gridArray[6] === "O")) {
     console.log("Player O wins!");
     gameIsRunning = false;
-    freeze()
     message.innerText = "Player O, you win!"}
-}, {once: true}) 
+ if (turns === 9) {
+        message.innerText = "Cats game!"
+    }
+    }, {once: true}) 
 
 // Reset button
 restart.addEventListener('click', function () {
@@ -368,7 +395,7 @@ restart.addEventListener('click', function () {
 
 // Cats game algorithm:
 // for (i=0; i<gridArray.length;i++) {
-//     if (i>6) {
+//     if (i>7) {
 //         message.innerText= "It's a cats game!"
 //     }
 // }

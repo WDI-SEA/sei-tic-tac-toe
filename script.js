@@ -30,10 +30,6 @@
             // alternate players if a win did not occur by changing the varaible that tracks whose turn it currently is
             // increment the turn counter to move closer to the cats condition
 
-
-
-
-// javascript
 // we need to keep track of the gameboard in javascript so might as well grab all the cells 
 //DOM selectors
 let cellOne = document.getElementById('cell1')
@@ -51,32 +47,35 @@ let displayText = document.getElementById('display')
 //empty array, index squares
 let gameArray = ['', '', '', '', '', '', '', '', '']
 
-
-
 //for loop cycles thru all squares in gameArray
 
 for(i = 0; i < gameArray.length; i++) {
     console.log(gameArray[i])
 } 
 console.log(cell)
-//event listener
+
+
 
 //Global variables
 const playerOne = 'X'
 const playerTwo = 'O'
 
-const winningFunc = [
-    ['cellOne', 'cellTwo', 'cellThree'], 
-    ['cellFour', 'cellFive', 'cellSix'], 
-    ['cellSix', 'cellSeven', 'cellEight'],
-    ['cellOne', 'cellFive', 'cellNine'],
-    ['cellThree', 'cellFive', 'cellSeven'],
-    ['cellOne', 'cellFour', 'cellSeven'],
-    ['cellTwo', 'cellFive', 'cellEight'],
-    ['cellThree', 'cellSix', 'cellNine']
-]
+// const winningFunc = [
+//     ['cellOne', 'cellTwo', 'cellThree'], 
+//     ['cellFour', 'cellFive', 'cellSix'], 
+//     ['cellSeven', 'cellEight', 'cellNine'], 
+//     ['cellOne', 'cellFive', 'cellNine'],
+//     ['cellThree', 'cellFive', 'cellSeven'],
+//     ['cellOne', 'cellFour', 'cellSeven'],
+//     ['cellTwo', 'cellFive', 'cellEight'],
+//     ['cellThree', 'cellSix', 'cellNine']
+// ]
 
-
+//event listener
+function playerClick(e) {
+    document.querySelector('#cell').innerHTML = " "
+}
+// document.querySelector('#cell').addEventListener('click', playerClick)
 
 
 //function to check for win 
@@ -103,6 +102,8 @@ if (playerOne || playerTwo === winningFunc[0]) {
 }
 
 
+
+
 //e for event
 function playerClick(e) {
     console.log(e.target)
@@ -125,7 +126,9 @@ function restart(e) {
     //reloads screen
 }
 
+
 // -hit a lot of walls, some too high to overcome 
+
 //ideas that didn't work out/ hit deadends with 
 
 // didn't work/ran out of ideas for these tries
@@ -135,8 +138,7 @@ function restart(e) {
 // if (cellOne !== '') {
 //     //something goes here
 // } else 
-
-    //xSymbol = document.body.cell.innerText = 'X' 
-    // | not sure what i was thinking here
+//xSymbol = document.body.cell.innerText = 'X' 
+// | not sure what i was thinking here
 
 

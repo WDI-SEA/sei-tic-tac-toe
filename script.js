@@ -44,7 +44,7 @@ divOne.addEventListener('click', function(e){
     } else if(divOne.innerText !=='hello' && divOne.innerText !== 'X' && divOne.innerText !== 'O') {
         //updates value of div
         divOne.innerText = "hello"
-        //tells the game to run. First, player turn is decided, then div values are checked for updates, then playertally is updated, then it checks for cats game
+        //tells the game to run. First, player turn is decided, then div values are checked for updates, then playertally is updated
         gamePlay()
     } else {
         //this means someone has clicked on a square with an X or O value already
@@ -166,28 +166,31 @@ function gamePlay() {
         // console.log("Checking gamboard 1 value", gameboard)
         // console.log("Checking gamboard 2 value", gameboardTwo)
     //We've finished the player's turn. We need to tally 
+
+    }
     playerTurnTally ++
     console.log("Player's tally ", playerTurnTally)
 
-    checkForWin()
-    console.log("Check for win ", checkForWin)
-    }
+    // checkForWin()
+    // console.log("Check for win ", checkForWin)
 
 }
 
 function checkForWin () {
     console.log("Check for win is fired")
+
     //if 4 + turns have passed, check for winners
-    // if(playerTurnTally > 4 && playerTurnTally <= 9) {
+    if(playerTurnTally > 3 && playerTurnTally <= 9) {
     
     //functions checks if all 3 divs are equal, but does not work???
     function allEqual(div1, div2, div3) {
         if(div1 == div2 && div1 == div3) {
-            console.log("checking inner text of allEqual divs", div1)
-            return div1.innerText
-        } else {
-            return "no winner"
+            console.log("checking inner text of allEqual function", div1)
+            return div1
         }
+    // } else {
+        //     return "no winner"
+        // }
     }
 
     //this consolelog has accurate output. But, my allEqual function is not working. Indexes are problem?
@@ -196,12 +199,17 @@ function checkForWin () {
 
     //sends div variables into function to check if rows of divs have equal values
     rowOneWin = allEqual(gameboardTwo[0], gameboardTwo[1], gameboardTwo[2])
-    console.log("these are gameboardTwo indexes ", gameboardTwo[0], gameboardTwo
+    console.log("these are row One values ", gameboardTwo[0], gameboardTwo
     [1], gameboardTwo[2])
     //these indexes are accurate in console log, could it be my function?
 
     rowTwoWin = allEqual(gameboardTwo[3], gameboardTwo[4], gameboardTwo[5])
+    console.log("these are row two values ", gameboardTwo[3], gameboardTwo
+    [4], gameboardTwo[5])
+
     rowThreeWin = allEqual(gameboardTwo[6], gameboardTwo[7], gameboardTwo[8])
+    console.log("these are row three values ", gameboardTwo[6], gameboardTwo
+    [7], gameboardTwo[8])
     //check if columns of divs have equal values
     vertColOne= allEqual(gameboardTwo[0], gameboardTwo[3], gameboardTwo[6])
     vertColTwo= allEqual(gameboardTwo[1], gameboardTwo[4], gameboardTwo[7])
@@ -221,7 +229,9 @@ function checkForWin () {
         vertColOne,
         vertColTwo,
         vertColThree]
-    console.log("checking if win scenarios are returning true or false", winScenarioArray)
+    console.log("checking if win scenarios are returning a div value", winScenarioArray) 
+        //they are not returning the value
+
 
     //checks through each win scenario. If one is true, it checks whether x or o won. 
     for(let i = 0; winScenarioArray.length > i; i++) {
@@ -240,32 +250,23 @@ function checkForWin () {
             //will tell event listener that it can change the inner text of the next div
             return false
             }
-
-            //Checks for cats game-- checks if there's been a winner
-        if(playerTurnTally === 9 &&  winner !== 'winner') {
-        playerTurnDiv.innerText = "Game over! It's a cat's game 🐈‍⬛";
-        }
     }
-
-        //Reset button
-        function reset(){
-            for(let i = 0; gameboard.length > i; i++) {
-                gameboard[i].innerText = " "
-                gameboardTwo[i] = " "
+         //Checks for cats game-- checks if there's been a winner
+         if(playerTurnTally === 9 &&  winner !== 'winner') {
+            playerTurnDiv.innerText = "Game over! It's a cat's game 🐈‍⬛";
+            }
+     
             }
             playerTurnTally=0
 
         }
-        resetButton = document.getElementById('reset')
-        console.log(resetButton)
-        resetButton.addEventListener('click', reset)
-
-
-
-    // } 
-    // else {
-    //     //returns false to checkForWin, allowing event listeners to keep updating their innertext
-    // return false
-    // }
+    
+    } 
+ 
 
 }
+   //Reset button
+   function reset(){
+    for(let i = 0; gameboard.length > i; i++) {
+        gameboard[i].innerText = " "
+        gameboardTwo[i] = " "

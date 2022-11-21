@@ -80,6 +80,8 @@ if ((gridArray[0] === "O" && gridArray[1] === "O" && gridArray[2] === "O") || (g
     gameIsRunning = false;
     message.innerText = "Player O, you win!"}
 
+else if (gridArray.length)
+
 // Reset button
 restart.addEventListener('click', function () {
     document.location.reload();

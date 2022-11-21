@@ -1,0 +1,27 @@
+/* changed the format of my buttons and now my whole grid is small  */
+/* changing my buttons to <input type>'s broke my box last minute */
+header {
+    text-align: center;
+    font-size: 60px;
+    padding-top: 20px;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-basis: auto;
+    justify-content: center;
+    align-items: center;
+    flex: 5;
+}
+
+.btn {
+    height: 200px;
+    width: 200px;
+}
+
+.reset {
+    text-align: center;
+
+}

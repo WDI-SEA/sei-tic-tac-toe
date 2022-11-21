@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- layout of board -->
+    <header> Welcome to Tic-Tac-Toe</header>
+    <div class='container board'>
+        <h2 id="winner">The winner is...</h2>
+        <!-- established rows as a start -->
+        <!-- original button method did not work. Needed to swap to an <input type> format -->
+        <div class="row-1 row">
+            <!-- <button type="button" class="btn1 btn" onclick="myVariable;">1</button>
+            <button type="button" class="btn2 btn" onclick="myVariable;">2</button>
+            <button type="button" class="btn3 btn" onclick="myVariable;">3</button> -->
+            <input type="button" value="1" class="btn" id='btn1' onclick="myVariable(); myfunc_3();">
+            <input type="button" value="2" class="btn" id='btn2' onclick="myVariable(); myfunc_4();">
+            <input type="button" value="3" class="btn" id='btn3' onclick="myVariable(); myfunc_5();">
+        </div>
+        <div class='row-2 row'>
+            <input type="button" value="4" class="btn" id='btn4' onclick="myVariable(); myfunc_6();">
+            <input type="button" value="5" class="btn" id='btn5' onclick="myVariable(); myfunc_7();">
+            <input type="button" value="6" class="btn" id='btn6' onclick="myVariable(); myfunc_8();">
+            <!-- <button type="button" class="btn4 id='btn1' onclick="myVariable;">4</button>
+            <button type="button" class="btn5 id='btn1' onclick="myVariable;">5</button>
+            <button type="button" class="btn6 id='btn1' onclick="myVariable;">6</button> -->
+        </div>
+        <div class='row-3 row'>
+            <input type="button" value="7" class="btn" id='btn7' onclick="myVariable(); myfunc_9();">
+            <input type="button" value="8" class="btn" id='btn8' onclick="myVariable(); myfunc_10();">
+            <input type="button" value="9" class="btn" id='btn9' onclick="myVariable(); myfunc_11();">
+            <!-- <button type="button" class="btn7 btn" onclick="myVariable;">7</button>
+            <button type="button" class="btn8 btn" onclick="myVariable;">8</button>
+            <button type="button" class="btn9 btn" onclick="myVariable;">9</button> -->
+        </div>
+        <input type='button' value='New Game' onclick='reset()' class="reset">
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

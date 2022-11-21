@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <script src="./scripts/main.js" charset="utf-8" defer></script>
+    <title>MyAwesomeTic-Tac-Toe</title>
+</head>
+
+<body>
+    <h1>Tic-Tac-Toe</h1>
+    <p id="whosTurn">It's X's turn!</p>
+    <div id="winCounter">
+        <p>X WIN:</p>
+        <p id="xWin">0</p>
+        <p>O WIN:</p>
+        <p id="oWin">0</p>
+    </div>
+    <div id="wholeCell">
+        <div id="topRow" class="container">
+            <div id="topLeft">   
+                <div class="Box" id="square1" value="0"></div>
+            </div>
+            <div id="topMiddle">
+                <div class="Box" id="square2" value="0"></div>
+            </div>
+            <div id="topRight">
+                <div class="Box" id="square3" value="0"></div>
+            </div>
+        </div>
+        <div id="middleRow" class="container">
+            <div id="middleLeft">
+                <div class="Box" id="square4" value="0"></div>
+            </div>
+            <div id="middleMiddle">
+                <div class="Box" id="square5" value="0"></div>
+            </div>
+            <div id="middleRight">
+                <div class="Box" id="square6" value="0"></div>
+            </div>
+        </div>
+        <div id="bottomRow" class="container">
+            <div id="bottomRight">
+                <div class="Box" id="square7" value="0"></div>
+            </div>
+            <div id="bottomMiddle">
+                <div class="Box" id="square8" value="0"></div>
+            </div>
+            <div id="bottomRight">
+                <div class="Box" id="square9" value="0"></div>
+            </div>
+        </div>
+    </div>
+    <div id="buttons">
+        <p id="playAgain">PLAY AGAIN</p>
+        <p id="restart">RESTART</p>
+    </div>
+</body>
+</html>

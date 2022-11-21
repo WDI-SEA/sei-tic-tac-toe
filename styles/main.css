@@ -1,0 +1,155 @@
+body {
+    font-family: 'Varela Round', sans-serif;
+}
+
+#wholeCell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    position: relative;
+    display: flex;
+    background-color: grey;
+}
+
+.Box {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    background-color: gainsboro;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 75px;
+    margin: 0 auto;
+}
+
+#whosTurn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 45px;
+}
+
+#winCounter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    gap: 20px;
+}
+
+#topRow {
+    position: relative;
+    display: flex;
+}
+
+#middleRow {
+    display: flex;
+}
+
+#bottomRow {
+    display: flex;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 75px;
+}
+
+#square1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: white;
+}
+
+#square2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: white;
+}
+
+#square3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: white;
+}
+
+#square4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: white;
+}
+
+#square5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: white;
+}
+
+#square6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: white;
+}
+
+#square7 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: white;
+}
+
+#square8 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: white;
+}
+
+#square9 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: white;
+}
+
+#playAgain {
+    background-color: rgb(126, 206, 138);
+    padding: 15px;
+    margin: 50px;
+    border: 1px solid;
+    border-color: black;
+}
+
+#restart {
+    background-color: rgb(237, 168, 168);
+    padding: 15px;
+    margin: 50px;
+    border: 1px solid;
+    border-color: black;
+}

@@ -18,9 +18,10 @@ body {
   width: 250px;
   height: 250px;
   cursor: pointer;
+  font-size: 36px;
 }
 
 .reset {
-  padding: 15px;
+  padding: 25px 35px 25px 35px;
   color: red;
 }

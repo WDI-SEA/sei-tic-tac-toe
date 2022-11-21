@@ -52,3 +52,6 @@
 //     location.reload()
 //   }
 // }
+
+// let jay = new Player()
+// jay.

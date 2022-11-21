@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+span.child {
+  display: inline; /* the default for span */
+  width: 100px;
+  height: 100px;
+  padding: 50px;
+  border: 1px solid blue;  
+}
+
+.group {
+    padding-top: 100px;
+}
+
+
+</style>
+</head>
+<h1>Tic-Tac-To</h1>
+<body>
+
+<div class="main">
+    <div class="group" id="a">
+        <span class="child" id="0"></span> <span class="child" id="1"></span> <span class="child" id="2"></span>
+    </div>
+    <div class="group" id="b">
+        <span class="child" id="3"></span> <span class="child" id="4"></span> <span class="child" id="5"></span>
+    </div>
+    <div class="group" id="c">
+        <span class="child" id="6"></span> <span class="child" id="7"></span> <span class="child" id="8"></span>
+    </div>
+</div>
+
+<script>
+    let score=[];
+
+    document.getElementById("0").addEventListener("click", displayTic);
+    document.getElementById("3").addEventListener("click", displayTic);
+    document.getElementById("6").addEventListener("click", displayTic);
+    document.getElementById("1").addEventListener("click", displayTic);
+    document.getElementById("4").addEventListener("click", displayTic);
+    document.getElementById("7").addEventListener("click", displayTic);
+    document.getElementById("2").addEventListener("click", displayTic);
+    document.getElementById("5").addEventListener("click", displayTic);
+    document.getElementById("8").addEventListener("click", displayTic);
+
+    let ticTurn = 1;
+    let ticChar = 'X';
+
+    function displayTic() {
+      let cid = this.id;
+      console.log(cid);
+
+      //change turns
+      ticTurn = ticTurn * -1;
+
+      if (ticTurn > 0) {
+        ticChar = 'X';
+      } else {
+        ticChar = 'O';
+
+      }
+
+      score[cid] = ticChar;
+      console.log(score);
+
+      
+      document.getElementById(cid).innerText = ticChar;
+    }
+    
+</script>
+</body>
+</html>
+
+

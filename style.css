@@ -1,0 +1,72 @@
+body {
+    background-color: darkolivegreen;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#title {
+    text-align: center;
+    font-size: 64px;
+    color: orange;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 3px;
+}
+
+.center {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.row {
+    background-color:cadetblue;
+    display: block;
+    width: 300px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 10px 30px 30px 10px;
+}
+
+.column {
+    background-color:darksalmon;
+    /* display: inline */
+    height: 50px;
+    width: 50px;
+    margin: 0 auto;
+}
+
+.makeRows {
+    display: inline;
+}
+
+#spot1 {
+    float: left
+}
+
+#spot3 {
+    float: right
+}
+#spot4 {
+    float: left
+}
+#spot6 {
+    float: right
+}
+#spot7 {
+    float: left
+}
+#spot9 {
+    float: right
+}
+
+
+
+#resetButton {
+    padding: 25px 50px 25px 50px
+}
+
+#turnText {
+    margin: 200px, 10px, 10px, 10px;
+}
+
+.testing {
+    display: inline
+}

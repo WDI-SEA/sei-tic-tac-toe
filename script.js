@@ -1,10 +1,33 @@
 let playerText = document.getElementById("playerText")
 let resetButton = document.getElementById("reset")
 // let winnerText = document.getElementById("winText")
-let cells = Array.from (document.getElementsByClassName("cell"))
+let cell0 = document.getElementById('0')
+let cell1 = document.getElementById('1')
+let cell2 = document.getElementById('2')
+let cell3 = document.getElementById('3')
+let cell4 = document.getElementById('4')
+let cell5 = document.getElementById('5')
+let cell6 = document.getElementById('6')
+let cell7 = document.getElementById('7')
+let cell8 = document.getElementById('8')
+
+
+let cellArray = [
+  cell0,
+  cell1,
+  cell2,
+  cell3,
+  cell4,
+  cell5,
+  cell6,
+  cell7,
+  cell8
+]
 
 
 // console.log(cells)
+
+
 
 const O = "O"
 const X = "X"
@@ -16,7 +39,7 @@ let Player = X
 // let startGame = true
 
 const startGame = () => {
-  cells.forEach(box => box.addEventListener("click", boxClicked))
+  cellArray.forEach(box => box.addEventListener("click", boxClicked))
   
 }
 // we need to keep track of the gameboard in javascript
@@ -34,8 +57,8 @@ function boxClicked(e){
         playerText = `${Player} n00b`
         let winText = playerWon()
 
-      //   winnerText.innerText = "player has won"
-      // console.log(playerWon) 
+        winnerText.innerText = "player has won"
+      console.log(playerWon) 
       // this doesnt worky :(
     }
   // variable = to if statement. equal to x, change to o text, OR ELSE change to o 
@@ -66,17 +89,18 @@ resetButton.addEventListener("click", reset)
 function reset() {
  
 
-  cells.forEach( box => {
+  cellArray.forEach( box => {
     box.innerText = ""
   })
 
 
-  Player = X
+  
+  
 }
 
 
 
-// this was a HUGE help. cut down all the bs that i was dealing with... shameless look up <3
+// this was a HUGE help. cut down all the bs that i was dealing with... 
 
 const winCon = [
   [0,1,2],
@@ -158,7 +182,7 @@ startGame()
 
 
 
-
+// old work.. 
 
 
 

@@ -198,7 +198,7 @@ function checkForWin () {
     rowOneWin = allEqual(gameboardTwo[0], gameboardTwo[1], gameboardTwo[2])
     console.log("these are gameboardTwo indexes ", gameboardTwo[0], gameboardTwo
     [1], gameboardTwo[2])
-    //these indexes are accurate in console log
+    //these indexes are accurate in console log, could it be my function?
 
     rowTwoWin = allEqual(gameboardTwo[3], gameboardTwo[4], gameboardTwo[5])
     rowThreeWin = allEqual(gameboardTwo[6], gameboardTwo[7], gameboardTwo[8])
@@ -246,6 +246,19 @@ function checkForWin () {
         playerTurnDiv.innerText = "Game over! It's a cat's game 🐈‍⬛";
         }
     }
+
+        //Reset button
+        function reset(){
+            for(let i = 0; gameboard.length > i; i++) {
+                gameboard[i].innerText = " "
+                gameboardTwo[i] = " "
+            }
+            playerTurnTally=0
+
+        }
+        resetButton = document.getElementById('reset')
+        console.log(resetButton)
+        resetButton.addEventListener('click', reset)
 
 
 

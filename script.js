@@ -1,12 +1,7 @@
 // variables
 playerTurn = null;
 playerTurnTally = 0;
-computerTurn = null;
-
-//function for computer's turn
-function computerEvent() {
-
-}
+winner= null
 
 //variables for event listeners
 divOne= document.getElementById('divOneR1')
@@ -19,6 +14,9 @@ divSeven = document.getElementById('divOneR3')
 divEight = document.getElementById('divTwoR3')
 divNine = document.getElementById('divThreeR3')
 
+//updates whose turn it is by updating innertext
+playerTurnDiv = document.getElementById('PlayerTurn')
+
 //assigns a variable the value of the innerText of a div
 divText1 = divOne.innerText
 divText2 = divTwo.innerText 
@@ -30,30 +28,31 @@ divText7 = divSeven.innerText
 divText8 = divEight.innerText
 divText9 = divNine.innerText 
 
-//array of divs gotten with id tags (used with event listeners)
+//array of divs gotten with id tags
 gameboard = [divOne, divTwo ,divThree, divFour, divFive, divSix, divSeven, divEight, divNine];
 
 //array that stores innertext values of the gameboard. Will use in checkForWin function to determine if innertext values are equal
 gameboardTwo = [divText1, divText2  ,divText3 , divText4 , divText5 , divText6 , divText7 , divText8 , divText9];
 
-//add event listeners
-//check if game is over
-//assign a value to the gameboard if it doesn't have one
-//otherwise, it's not a valid move
-//don't think I can call a separate function because specific inner text values must be updated within the function
-
 divOne.addEventListener('click', function(e){
+    //first checks if the last player won
+    console.log("this checks if win is true in EVL1 ", checkForWin())
     if(checkForWin() === true){
-        document.getElementById('PlayerTurn').innerText = "Game is over! Reset to play again."
+        playerTurnDiv.innerText = "Game is over! Reset to play again."
+
+        //checks to make sure the value of the div is not already updated
     } else if(divOne.innerText !=='hello' && divOne.innerText !== 'X' && divOne.innerText !== 'O') {
+        //updates value of div
         divOne.innerText = "hello"
+        //tells the game to run. First, player turn is decided, then div values are checked for updates, then playertally is updated, then it checks for cats game
         gamePlay()
     } else {
-        document.getElementById('PlayerTurn').innerText = "Not a valid move, please choose a square that has not already been played."
+        //this means someone has clicked on a square with an X or O value already
+        playerTurnDiv.innerText = "Not a valid move, please choose a square that has not already been played."
     }
 })
 divTwo.addEventListener('click', function(e){
-    checkForWin()
+    
     if(checkForWin() === true){
         document.getElementById('PlayerTurn').innerText = "Game is over! Reset to play again."
     } else if(divTwo.innerText !=='hello' && divTwo.innerText !== 'X' && divTwo.innerText !== 'O') {
@@ -64,7 +63,7 @@ divTwo.addEventListener('click', function(e){
     }
 })
 divThree.addEventListener('click', function(e){
-    checkForWin()
+    
     if(checkForWin() === true){
         document.getElementById('PlayerTurn').innerText = "Game is over! Reset to play again."
     } else if(divThree.innerText !=='hello' && divThree.innerText !== 'X' && divThree.innerText !== 'O') {
@@ -75,7 +74,7 @@ divThree.addEventListener('click', function(e){
     }
 })
 divFour.addEventListener('click', function(e){
-    checkForWin()
+   
     if(checkForWin() === true){
         document.getElementById('PlayerTurn').innerText = "Game is over! Reset to play again."
     } else if(divFour.innerText !=='hello' && divFour.innerText !== 'X' && divFour.innerText !== 'O') {
@@ -86,7 +85,7 @@ divFour.addEventListener('click', function(e){
     }
 })
 divFive.addEventListener('click', function(e){
-    checkForWin()
+    
     if(checkForWin() === true){
         document.getElementById('PlayerTurn').innerText = "Game is over! Reset to play again."
     } else if(divFive.innerText !=='hello' && divFive.innerText !== 'X' && divFive.innerText !== 'O') {
@@ -97,7 +96,7 @@ divFive.addEventListener('click', function(e){
     }
 })
 divSix.addEventListener('click', function(e){
-    checkForWin()
+    
     if(checkForWin() === true){
         document.getElementById('PlayerTurn').innerText = "Game is over! Reset to play again."
     } else if(divSix.innerText !=='hello' && divSix.innerText !== 'X' && divSix.innerText !== 'O') {
@@ -108,7 +107,7 @@ divSix.addEventListener('click', function(e){
     }
 })
 divSeven.addEventListener('click', function(e){
-    checkForWin()
+    
     if(checkForWin() === true){
         document.getElementById('PlayerTurn').innerText = "Game is over! Reset to play again."
     } else if(divSeven.innerText !=='hello' && divSeven.innerText !== 'X' && divSeven.innerText !== 'O') {
@@ -119,7 +118,7 @@ divSeven.addEventListener('click', function(e){
     }
 })
 divEight.addEventListener('click', function(e){
-    checkForWin()
+    
     if(checkForWin() === true){
         document.getElementById('PlayerTurn').innerText = "Game is over! Reset to play again."
     } else if(divEight.innerText !=='hello' && divEight.innerText !== 'X' && divEight.innerText !== 'O') {
@@ -130,7 +129,7 @@ divEight.addEventListener('click', function(e){
     }
 })
 divNine.addEventListener('click', function(e){
-    checkForWin()
+    
     if(checkForWin() === true){
         document.getElementById('PlayerTurn').innerText = "Game is over! Reset to play again."
     } else if(divNine.innerText !=='hello' && divNine.innerText !== 'X' && divNine.innerText !== 'O') {
@@ -141,98 +140,119 @@ divNine.addEventListener('click', function(e){
     }
 })
 
-
 //function to be called when game played
 function gamePlay() {
-        //Decides whose turn it is by even or odd
-        if (playerTurnTally % 2 === 0) {
-            playerTurn = 'O'
-            document.getElementById('PlayerTurn').innerText = "Player Two, it's your turn!"
-        } else if(playerTurnTally %2 ===1) {
-            playerTurn = 'X'
-            document.getElementById('PlayerTurn').innerText = "Player One, it's your turn!"
+    //Decides whose turn it is by even or odd
+    if (playerTurnTally % 2 === 0) {
+        playerTurn = 'O'
+        playerTurnDiv.innerText = "Player Two, it's your turn!"
+    } else if(playerTurnTally %2 ===1) {
+        playerTurn = 'X'
+        playerTurnDiv.innerText = "Player One, it's your turn!"
+    }
+
+    //updates the innertext by checking if event listener function changed the div
+    for (let i = 0; gameboard.length > i; i++) {
+        if(gameboard[i].innerText =='hello') {
+            //updates div display to X or O 
+            gameboard[i].innerText = playerTurn;
+
+            // check for updated values of gameboard's innertext
+            gameboardTwo[i] = playerTurn;
+
+            //Call a funciton to check if game is over/there is a winner
+            // checkForWin()
         }
-        //for statement to check if array was changed to 'Hello, and update with playerTurn (X or O), updates innertext of gameboard(refers to getElement.. tags, used to call EventListeners) and gameboardTwo(refers to innerText of gameboard, used to checkForWin)
-        for (let i = 0; gameboard.length > i; i++) {
-            if(gameboard[i].innerText =='hello') {
-                //updates div display to X or O 
-                gameboard[i].innerText = playerTurn;
+        // console.log("Checking gamboard 1 value", gameboard)
+        // console.log("Checking gamboard 2 value", gameboardTwo)
+    //We've finished the player's turn. We need to tally 
+    playerTurnTally ++
+    console.log("Player's tally ", playerTurnTally)
 
-                // check for updated values of gameboard's innertext
-                gameboardTwo[i] = playerTurn;
-
-                //Call a funciton to check if game is over/there is a winner
-                checkForWin()
-            }
-        }
-
-        //tallies amount of turns played
-        playerTurnTally ++
-
-        //this should check if there are too many turns played, if so, game is over
-            if(playerTurnTally === 9 && checkForWin() != true) {
-            document.getElementById('PlayerTurn').innerText = "Game over! It's a cat's game 🐈‍⬛";
-            }
-        return playerTurnTally
+    checkForWin()
+    console.log("Check for win ", checkForWin)
     }
 
-    //this function checks if there's been a winner, if there is, the game stops (event listeners are checking for player win)
-    function checkForWin () {
-        
-        //if 3 turns have passed, check for winners
-        if(playerTurnTally > 3) {
+}
 
-            //Function which defines allEqual and returns true or false if values are equal
-            function allEqual(div1, div2, div3) {
-                if(div1 === div2 && div1 === div3) {
-                    return true
-                } else{
-                    return false
-                }
-            }
-
-            //WIN SCENARIOS
-            //checks if rows/diagonals/verticals have equal values (inner text comparison from innertext array)
-            rowOneWin = allEqual(gameboardTwo[0], gameboardTwo[1], gameboardTwo[2])
-            rowTwoWin = allEqual(gameboardTwo[3], gameboardTwo[4], gameboardTwo[5])
-            rowThreeWin = allEqual(gameboardTwo[6], gameboardTwo[7], gameboardTwo[8])
-            diagonalRightWin = allEqual(gameboardTwo[0], gameboardTwo[4], gameboardTwo[8])
-            diagonalLeftWin = allEqual(gameboardTwo[2], gameboardTwo[4], gameboardTwo[6])
-            vertColOne= allEqual(gameboardTwo[0], gameboardTwo[3], gameboardTwo[6])
-            vertColTwo= allEqual(gameboardTwo[1], gameboardTwo[4], gameboardTwo[7])
-            vertColThree= allEqual(gameboardTwo[2], gameboardTwo[5], gameboardTwo[8])
-
-            //function that checks each scenario for win, then checks X or O win
-            function winner(winScenario, div) {
-                if (winScenario === true)
-                    if(div === 'O') {
-                        document.getElementById('PlayerTurn').innerText = "Game over! Player One Wins!"
-                    } else {
-                        document.getElementById('PlayerTurn').innerText = "Game over! Player Two wins!"
-                    }
-                    return true
-            }
-            winner(rowOneWin, gameboardTwo[0])
-            winner(rowTwoWin, gameboardTwo[3])
-            winner(rowThreeWin, gameboardTwo[6])
-            winner(diagonalRightWin, gameboardTwo[0])
-            winner(diagonalLeftWin , gameboardTwo[2])
-            winner(vertColOne, gameboardTwo[0])
-            winner(vertColTwo, gameboardTwo[1])
-            winner(vertColThree, gameboardTwo[2])
-    }
-    //the value of Check forWin(parent function) is set to true
-    if(winner === true) {
-        return true
-    }
- }
-
-    //Reset button
-    function reset(){
-        for(let i = 0; gameboard.length > i; i++) {
-            gameboard[i].innerText = " "
+function checkForWin () {
+    console.log("Check for win is fired")
+    //if 4 + turns have passed, check for winners
+    // if(playerTurnTally > 4 && playerTurnTally <= 9) {
+    
+    //functions checks if all 3 divs are equal, but does not work???
+    function allEqual(div1, div2, div3) {
+        if(div1 == div2 && div1 == div3) {
+            console.log("checking inner text of allEqual divs", div1)
+            return div1.innerText
+        } else {
+            return "no winner"
         }
     }
-    resetButton = document.getElementById('reset')
-    console.log(resetButton)
-    resetButton.addEventListener('click', reset)
+
+    //this consolelog has accurate output. But, my allEqual function is not working. Indexes are problem?
+    console.log("Before checking equality in Checkforwin, check values", gameboardTwo)
+    //values going in are correct
+
+    //sends div variables into function to check if rows of divs have equal values
+    rowOneWin = allEqual(gameboardTwo[0], gameboardTwo[1], gameboardTwo[2])
+    console.log("these are gameboardTwo indexes ", gameboardTwo[0], gameboardTwo
+    [1], gameboardTwo[2])
+    //these indexes are accurate in console log
+
+    rowTwoWin = allEqual(gameboardTwo[3], gameboardTwo[4], gameboardTwo[5])
+    rowThreeWin = allEqual(gameboardTwo[6], gameboardTwo[7], gameboardTwo[8])
+    //check if columns of divs have equal values
+    vertColOne= allEqual(gameboardTwo[0], gameboardTwo[3], gameboardTwo[6])
+    vertColTwo= allEqual(gameboardTwo[1], gameboardTwo[4], gameboardTwo[7])
+    vertColThree= allEqual(gameboardTwo[2], gameboardTwo[5], gameboardTwo[8])
+    //check if diagonals have equal values
+    diagonalRightWin = allEqual(gameboardTwo[0], gameboardTwo[4], gameboardTwo[8])
+    diagonalLeftWin = allEqual(gameboardTwo[2], gameboardTwo[4], gameboardTwo[6])
+
+    //now check if equality is being checked accurately
+    //will check array for returned innertext value returned from allEqual
+    winScenarioArray=[
+        rowOneWin,
+        rowTwoWin,
+        rowThreeWin,
+        diagonalRightWin,
+        diagonalLeftWin,
+        vertColOne,
+        vertColTwo,
+        vertColThree]
+    console.log("checking if win scenarios are returning true or false", winScenarioArray)
+
+    //checks through each win scenario. If one is true, it checks whether x or o won. 
+    for(let i = 0; winScenarioArray.length > i; i++) {
+        if(winScenarioArray[i] === "O"){
+            console.log("This is the win scenario ", winScenarioArray[i])
+            playerTurnDiv.innerText = "Game over! Player One Wins!"
+            //returns true to Checkforwin function. Used in event listener if statements
+            winner = 'winner'
+            return true
+        } else if(winScenarioArray[i] === "X") {
+            playerTurnDiv.innerText = "Game over! Player Two wins!"
+            //returns true to Checkforwin function. Used in event listener if statements
+            winner = 'winner'
+            return true
+        }else {
+            //will tell event listener that it can change the inner text of the next div
+            return false
+            }
+
+            //Checks for cats game-- checks if there's been a winner
+        if(playerTurnTally === 9 &&  winner !== 'winner') {
+        playerTurnDiv.innerText = "Game over! It's a cat's game 🐈‍⬛";
+        }
+    }
+
+
+
+    // } 
+    // else {
+    //     //returns false to checkForWin, allowing event listeners to keep updating their innertext
+    // return false
+    // }
+
+}

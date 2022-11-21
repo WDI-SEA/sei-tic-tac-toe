@@ -1,6 +1,14 @@
 * {
     text-align: center;
     margin: 0 auto;
+    background-color:#05445E;
+}
+h1 {
+   padding: 2%; 
+   border: 3px dotted black;
+   border-radius: 30px;
+   width: fit-content;
+   background-color: #189AB4;
 }
 .grid-container {
     display: grid;
@@ -23,4 +31,18 @@
     vertical-align: middle;
     position: relative;
     font-size: 80px;
+    background-color: #75E6DA;
+}
+button {
+    padding: 1%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #189AB4;
+    margin-top: 20px;
+}
+h2 {
+    background-color: #D4F1F4;
+    width:fit-content;
+    padding: 5px;
 }

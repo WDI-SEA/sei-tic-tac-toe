@@ -1,51 +1,26 @@
-* {
-  background-color: aliceblue;
+body {
   text-align: center;
 }
-.title {
-  margin: 150px 0 0 0;
-  font-size: 50px;
-}
-.parent {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  min-height: 100vh;
-}
-.square {
-  border: 1px solid black;
+.container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 26px;
+  max-width: 100vw;
+  height: 100vh;
+}
+
+.row {
+  display: flex;
+}
+
+.square {
+  width: 250px;
+  height: 250px;
   cursor: pointer;
 }
-.button1 {
-  grid-area: 2 / 2 / 3 / 3;
-}
-.button2 {
-  grid-area: 2 / 3 / 3 / 4;
-}
-.button3 {
-  grid-area: 2 / 4 / 3 / 5;
-}
-.button4 {
-  grid-area: 3 / 2 / 4 / 3;
-}
-.button5 {
-  grid-area: 3 / 3 / 4 / 4;
-}
-.button6 {
-  grid-area: 3 / 4 / 4 / 5;
-}
-.button7 {
-  grid-area: 4 / 2 / 5 / 3;
-}
-.button8 {
-  grid-area: 4 / 3 / 5 / 4;
-}
-.button9 {
-  grid-area: 4 / 4 / 5 / 5;
+
+.reset {
+  padding: 15px;
+  color: red;
 }

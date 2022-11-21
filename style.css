@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+    font-size: 30px;;
+ }
+ .gameGrid {
+    /* border: 3px solid;  */
+    /* height: 500px; */
+    width: 600px; 
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    margin: auto;
+}
+.square {
+    border: 3px solid;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    font-size: 200px;
+}  
+.clear {
+    position: relative;
+    left: 610px;
+    top: 320px;
+    
+}

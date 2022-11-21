@@ -1,0 +1,40 @@
+body {
+    text-align: center;
+    background-color: rgb(86, 139, 151);
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100vw;
+    height: 100vh;
+
+  }
+  
+  .row {
+    display: flex;
+
+  }
+  
+  .square {
+    width: 250px;
+    height: 250px;
+    cursor: pointer;
+    font-size: 36px;
+  }
+  
+  .reset {
+    padding: 15px;
+    color: rgb(49, 37, 34);
+  }
+  
+  h1 {
+    margin: 100px;
+    font-size: 60px;
+  }
+
+   p {
+    margin: 100px;
+    font-size: 40px;
+  } 

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script type="text/javascript" src="js/script.js" defer></script>
-    <title>Document</title>
+    <title>Tic Tac Toe</title>
 </head>
 
 <!-- Title and welcome -->
@@ -15,29 +15,29 @@
     
 <!-- Game grid of 9 squares -->
 <div id="game-grid">
-    <div class="top row">
-        <div class="box" id="first">1</div>
-        <div class="box" id="second">2</div>
-        <div class="box" id="third">3</div>
-    </div>
-    <div class="middle row">
-        <div class="box" id="fourth">4</div>
-        <div class="box" id="fifth">5</div>
-        <div class="box" id="sixth">6</div>
-    </div>
-    <div class="bottom row">
-        <div class="box" id="seventh">7</div>
-        <div class="box" id="eighth">8</div>
-        <div class="box" id="ninth">9</div>
-    </div>
+
+        <div class="box" id="first"></div>
+        <div class="box" id="second"></div>
+        <div class="box" id="third"></div>
+    
+        <div class="box" id="fourth"></div>
+        <div class="box" id="fifth"></div>
+        <div class="box" id="sixth"></div>
+  
+        <div class="box" id="seventh"></div>
+        <div class="box" id="eighth"></div>
+        <div class="box" id="ninth"></div>
+
 </div>
 
 <!-- message display -->
-<h2 id="message">Message displayed here</h2>
+<h2 id="message">2 Player Game</h2>
 
 
-<!-- reset button -->
-<button id="reset-btn">Reset</button>
+<!-- restart button -->
+<div id="restart-container">
+<button id="restart-btn" type="reset" value="Reset">Restart</button>
+</div>
 </div>
 
 </body>

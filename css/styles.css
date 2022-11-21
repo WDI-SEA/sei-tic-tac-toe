@@ -1,46 +1,73 @@
+h1, h2 {
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: saddlebrown
+}
+
 .box {
-    background-color: cornflowerblue;
-    border: solid 10px blue;
+    border: black 2px solid;
+    font-size: xx-large;
+    line-height: 60px;
     display: inline-block;
     position: relative;
     text-align: center;
-    height: 50px;
-    width: 50px;
+    margin: 0 auto;
+    height: 60px;
+    width: 60px;
 }
 
 #game-grid {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 170px;
+    margin: 50px auto;
 
 }
 
 #first {
-
+    border-top: none;
+    border-left: none;
 }
 #second {
-
+    border-top: none;
 }
 #third {
-
+    border-top: none;
+    border-right: none;
 }
 #fourth {
-
+    border-left: none;
 }
 #fifth {
-
+    
 }
 #sixth {
-
+    border-right: none;
 }
 #seventh {
-
+    border-left: none;
+    border-bottom: none;
 }
 #eighth {
-
+    border-bottom: none;
 }
 #ninth {
-
+    border-right: none;
+    border-bottom: none;
 }
 
 #message {
 
+}
+
+#restart-container {
+    position: relative;
+}
+
+#restart-btn {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 

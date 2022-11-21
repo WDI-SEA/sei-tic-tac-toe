@@ -1,12 +1,13 @@
 // storing the game status
 const statusDisplay = document.querySelector('.gameStatus');
+// weston's idea
+let gameState = ["", "", "", "", "", "", "", "", ""];
+// currentPlayer will hold whos turn is
+let currentPlayer = "X";
 // variables that check the status of the game
 // gameActive will pause the game once someone win or draw
 let gameActive = true;
-// currentPlayer will hold whos turn is
-let currentPlayer = "X";
-// weston's idea
-let gameState = ["", "", "", "", "", "", "", "", ""];
+
 
 // VARIABLES
 // winning conditions, it will check if one of those were met if not the game will keep running

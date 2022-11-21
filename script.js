@@ -257,16 +257,15 @@ function checkForWin () {
             }
      
             }
-            playerTurnTally=0
+            
 
         }
     
-    } 
- 
-
-}
    //Reset button
    function reset(){
     for(let i = 0; gameboard.length > i; i++) {
         gameboard[i].innerText = " "
         gameboardTwo[i] = " "
+        playerTurnTally=0
+    }
+}

@@ -1,0 +1,26 @@
+body {
+    text-align: center;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    width: 600px;
+    margin: 0px auto;
+}
+
+.cell{
+    width: 200px;
+    height: 200px;
+    border: 2px solid;
+    cursor: grab;
+
+}
+
+
+
+/* styles.css */
+
+/* just enough styling to setup the gameboard */
+
+/* DO NOT DO ANY OTHER STYLING UNTIL THE GAME LOGIC IS FINISHED */

@@ -1,6 +1,12 @@
 // variables
 playerTurn = null;
 playerTurnTally = 0;
+computerTurn = null;
+
+//function for computer's turn
+function computerEvent() {
+
+}
 
 //variables for event listeners
 divOne= document.getElementById('divOneR1')
@@ -24,7 +30,7 @@ divText7 = divSeven.innerText
 divText8 = divEight.innerText
 divText9 = divNine.innerText 
 
-//array of divs gotten with id tags
+//array of divs gotten with id tags (used with event listeners)
 gameboard = [divOne, divTwo ,divThree, divFour, divFive, divSix, divSeven, divEight, divNine];
 
 //array that stores innertext values of the gameboard. Will use in checkForWin function to determine if innertext values are equal
@@ -34,6 +40,7 @@ gameboardTwo = [divText1, divText2  ,divText3 , divText4 , divText5 , divText6 ,
 //check if game is over
 //assign a value to the gameboard if it doesn't have one
 //otherwise, it's not a valid move
+//don't think I can call a separate function because specific inner text values must be updated within the function
 
 divOne.addEventListener('click', function(e){
     if(checkForWin() === true){
@@ -185,67 +192,47 @@ function gamePlay() {
             }
 
             //WIN SCENARIOS
-            //checks if rows/diagonals have equal values (inner text comparison from innertext array)
+            //checks if rows/diagonals/verticals have equal values (inner text comparison from innertext array)
             rowOneWin = allEqual(gameboardTwo[0], gameboardTwo[1], gameboardTwo[2])
             rowTwoWin = allEqual(gameboardTwo[3], gameboardTwo[4], gameboardTwo[5])
             rowThreeWin = allEqual(gameboardTwo[6], gameboardTwo[7], gameboardTwo[8])
             diagonalRightWin = allEqual(gameboardTwo[0], gameboardTwo[4], gameboardTwo[8])
             diagonalLeftWin = allEqual(gameboardTwo[2], gameboardTwo[4], gameboardTwo[6])
+            vertColOne= allEqual(gameboardTwo[0], gameboardTwo[3], gameboardTwo[6])
+            vertColTwo= allEqual(gameboardTwo[1], gameboardTwo[4], gameboardTwo[7])
+            vertColThree= allEqual(gameboardTwo[2], gameboardTwo[5], gameboardTwo[8])
 
-
-            //Which scenario is true?
-                //if checks which player wins
-
-            //checks if win scenarios are true, if they are, executes an if statement checking for which one is the winner by seeing if innertext is X or O
-
-            if(rowOneWin === true) {
-                if(gameboardTwo[0] === 'O') {
-                    document.getElementById('PlayerTurn').innerText = "Game over! Player One Wins!"
-                } else {
-                    document.getElementById('PlayerTurn').innerText = "Game over! Player Two wins!"
-                }
-                return true
-            } else if (rowTwoWin === true) {
-                if(gameboardTwo[3] === 'O') {
-                    document.getElementById('PlayerTurn').innerText = "Game over! Player One Wins!"
-                } else {
-                    document.getElementById('PlayerTurn').innerText = "Game over! Player Two wins!"
-                }
-                return true
-            } else if (rowThreeWin === true) {
-                if(gameboardTwo[6] === 'O') {
-                    document.getElementById('PlayerTurn').innerText = "Game over! Player One Wins!"
-                } else {
-                    document.getElementById('PlayerTurn').innerText = "Game over! Player Two wins!"
-                }
-                return true
-            }else if ( diagonalLeftWin === true) {
-                if(gameboardTwo[2] === 'O') {
-                    document.getElementById('PlayerTurn').innerText = "Game over! Player One Wins!"
-                } else {
-                    document.getElementById('PlayerTurn').innerText = "Game over! Player Two wins!"
-                }
-                return true
-            } else if (diagonalRightWin === true) {
-                if(gameboardTwo[0] === 'O') {
-                    document.getElementById('PlayerTurn').innerText = "Game over! Player One Wins!"
-                } else {
-                    document.getElementById('PlayerTurn').innerText = "Game over! Player Two wins!"
-                }
-                return true
+            //function that checks each scenario for win, then checks X or O win
+            function winner(winScenario, div) {
+                if (winScenario === true)
+                    if(div === 'O') {
+                        document.getElementById('PlayerTurn').innerText = "Game over! Player One Wins!"
+                    } else {
+                        document.getElementById('PlayerTurn').innerText = "Game over! Player Two wins!"
+                    }
+                    return true
             }
+            winner(rowOneWin, gameboardTwo[0])
+            winner(rowTwoWin, gameboardTwo[3])
+            winner(rowThreeWin, gameboardTwo[6])
+            winner(diagonalRightWin, gameboardTwo[0])
+            winner(diagonalLeftWin , gameboardTwo[2])
+            winner(vertColOne, gameboardTwo[0])
+            winner(vertColTwo, gameboardTwo[1])
+            winner(vertColThree, gameboardTwo[2])
+    }
+    //the value of Check forWin(parent function) is set to true
+    if(winner === true) {
+        return true
+    }
+ }
 
+    //Reset button
+    function reset(){
+        for(let i = 0; gameboard.length > i; i++) {
+            gameboard[i].innerText = " "
         }
     }
-   
-
-            //need to check if div 1 - 3 are all X
-            //need to check if div 1 - 3 are all O
-            //need to check if div 4 - 6 are all X
-            //need to check if div 4 - 6 are all O
-            //need to check if div 7 - 9 are all X
-            //need to check if div 7 - 9 are all O
-            //need to check if div 1, 5, 9 are all X
-            //need to check if div 1, 5, 9 are all O
-            //need to check if div 3,5,7 are all X
-            //need to check if div 3,5,7 are all O
+    resetButton = document.getElementById('reset')
+    console.log(resetButton)
+    resetButton.addEventListener('click', reset)

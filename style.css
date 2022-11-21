@@ -1,0 +1,28 @@
+body{
+    background-color: bisque;
+}
+.inner {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    background-color:bisque;
+    margin: 0 2px;
+    padding: 0;
+    font-size: 98px;
+    text-align: center;
+    border: solid black;
+    resize: none;
+    overflow:auto;
+    
+}
+
+.outer {
+    display:table;
+    position:relative;
+    resize: none;
+
+}
+
+#turnInd{
+    font-size: 40px;
+}

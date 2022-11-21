@@ -46,6 +46,7 @@ divOne.addEventListener('click', function(e){
         divOne.innerText = "hello"
         //tells the game to run. First, player turn is decided, then div values are checked for updates, then playertally is updated
         gamePlay()
+        checkForWin()
     } else {
         //this means someone has clicked on a square with an X or O value already
         playerTurnDiv.innerText = "Not a valid move, please choose a square that has not already been played."
@@ -58,6 +59,7 @@ divTwo.addEventListener('click', function(e){
     } else if(divTwo.innerText !=='hello' && divTwo.innerText !== 'X' && divTwo.innerText !== 'O') {
         divTwo.innerText = "hello"
         gamePlay()
+        checkForWin ()
     } else {
         document.getElementById('PlayerTurn').innerText = "Not a valid move, please choose a square that has not already been played."
     }
@@ -69,6 +71,7 @@ divThree.addEventListener('click', function(e){
     } else if(divThree.innerText !=='hello' && divThree.innerText !== 'X' && divThree.innerText !== 'O') {
         divThree.innerText = "hello"
         gamePlay()
+        checkForWin()
     } else {
         document.getElementById('PlayerTurn').innerText = "Not a valid move, please choose a square that has not already been played."
     }
@@ -80,6 +83,7 @@ divFour.addEventListener('click', function(e){
     } else if(divFour.innerText !=='hello' && divFour.innerText !== 'X' && divFour.innerText !== 'O') {
         divFour.innerText = "hello"
         gamePlay()
+        checkForWin()
     } else {
         document.getElementById('PlayerTurn').innerText = "Not a valid move, please choose a square that has not already been played."
     }
@@ -91,6 +95,7 @@ divFive.addEventListener('click', function(e){
     } else if(divFive.innerText !=='hello' && divFive.innerText !== 'X' && divFive.innerText !== 'O') {
         divFive.innerText = "hello"
         gamePlay()
+        checkForWin()
     } else {
         document.getElementById('PlayerTurn').innerText = "Not a valid move, please choose a square that has not already been played."
     }
@@ -102,6 +107,7 @@ divSix.addEventListener('click', function(e){
     } else if(divSix.innerText !=='hello' && divSix.innerText !== 'X' && divSix.innerText !== 'O') {
         divSix.innerText = "hello"
         gamePlay()
+        checkForWin()
     } else {
         document.getElementById('PlayerTurn').innerText = "Not a valid move, please choose a square that has not already been played."
     }
@@ -113,6 +119,7 @@ divSeven.addEventListener('click', function(e){
     } else if(divSeven.innerText !=='hello' && divSeven.innerText !== 'X' && divSeven.innerText !== 'O') {
         divSeven.innerText = "hello"
         gamePlay()
+        checkForWin()
     } else {
         document.getElementById('PlayerTurn').innerText = "Not a valid move, please choose a square that has not already been played."
     }
@@ -124,6 +131,7 @@ divEight.addEventListener('click', function(e){
     } else if(divEight.innerText !=='hello' && divEight.innerText !== 'X' && divEight.innerText !== 'O') {
         divEight.innerText = "hello"
         gamePlay()
+        checkForWin()
     } else {
         document.getElementById('PlayerTurn').innerText = "Not a valid move, please choose a square that has not already been played."
     }
@@ -135,6 +143,7 @@ divNine.addEventListener('click', function(e){
     } else if(divNine.innerText !=='hello' && divNine.innerText !== 'X' && divNine.innerText !== 'O') {
         divNine.innerText = "hello"
         gamePlay()
+        checkForWin()
     } else {
         document.getElementById('PlayerTurn').innerText = "Not a valid move, please choose a square that has not already been played."
     }

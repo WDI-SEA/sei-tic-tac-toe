@@ -1,35 +1,3 @@
-
- // a way to index squares -- that correlates to the arrays
-    // a way to make the x's and o's stick
-    // use an array to keep track of the x's and o's on the gameboard
-    // (option 1: 1d array) ['x', '', '', '', '', '', '', '', ''] 
-    // (option 2: trickier 2d array):
-    // [
-    //     ['x', '', ''],
-    //     ['o', 'x', ''],
-    //     ['o', '', 'x']
-    // ]
-    // array[0][0] -- accessing a 2d array
-// a way to alternate players
-    // a varaible that tracks whose turn it currently is -- this would start off as 'x'
-// a varaible that tracks if the game is running or not
-    // let isRunning = true 
-// event listeners --clicking on the divs and making the x's or o's appear
-    // when a square is clicked, do the following:
-        // first check if that spot in the array is empty and that isRunning is true, if so, do the following:
-            // we make an x or o appear -- as simple as setting the inner text
-            // check if a win has occured  
-                // check all 8 win cases for 'x' and for 'o'
-                // cats games could check if all spaces are filled (verbose) OR
-                // have a varaible that increments every turn and call a cats game at 9 if no body has won
-                // if the game is won or a cats game occurs -- set isRunning to false
-                    // other ways to check out that might be good to end the game 
-                    // if game is won -- we could remove the gameboard from the DOM 
-                    // or you could fill up the array spaces
-                    // delete a class to prevent listeners from firing
-            // alternate players if a win did not occur by changing the varaible that tracks whose turn it currently is
-            // increment the turn counter to move closer to the cats condition
-
 // we need to keep track of the gameboard in javascript so might as well grab all the cells 
 //DOM selectors
 let cellOne = document.getElementById('cell1')
@@ -41,10 +9,11 @@ let cellSix = document.getElementById('cell6')
 let cellSeven = document.getElementById('cell7')
 let cellEight = document.getElementById('cell8')
 let cellNine = document.getElementById('cell9')
-let container = document.getElementById('container')
-let cell = document.querySelectorAll('cell')
+let container = document.getElementsByClassName('container')
+let cell = document.querySelectorAll('.cell')
 let displayText = document.getElementById('display')
-//empty array, index squares
+
+//empty array, index the squares
 let gameArray = ['', '', '', '', '', '', '', '', '']
 
 //for loop cycles thru all squares in gameArray
@@ -108,7 +77,8 @@ if (playerOne || playerTwo === winningFunc[0]) {
 function playerClick(e) {
     console.log(e.target)
 }
-container.addEventListener('click', playerClick)
+
+// container.addEventListener('click', playerClick)
 
 
 //figure out how to display X when click
@@ -127,18 +97,59 @@ function restart(e) {
 }
 
 
-// -hit a lot of walls, some too high to overcome 
+// -hit a lot of walls, don't think I overcame any
 
 //ideas that didn't work out/ hit deadends with 
 
 // didn't work/ran out of ideas for these tries
+
 // xSymbol = document.body.classList.innerText = 'X'
 // console.log(xSymbol)
+
 // //if cellOne is not equal to nothing (i.e occupied by X or O)
 // if (cellOne !== '') {
 //     //something goes here
 // } else 
+
 //xSymbol = document.body.cell.innerText = 'X' 
 // | not sure what i was thinking here
 
+//event listener to change text within button when clicked
+// function changeText(){
+//     document.querySelector(`#cell`).innerText = 'X'
+// }
+// cell.addEventListener('click', changeText())
+    
 
+//PSEUDO CODE
+
+ // a way to index squares -- that correlates to the arrays
+    // a way to make the x's and o's stick
+    // use an array to keep track of the x's and o's on the gameboard
+    // (option 1: 1d array) ['x', '', '', '', '', '', '', '', ''] 
+    // (option 2: trickier 2d array):
+    // [
+    //     ['x', '', ''],
+    //     ['o', 'x', ''],
+    //     ['o', '', 'x']
+    // ]
+    // array[0][0] -- accessing a 2d array
+// a way to alternate players
+    // a varaible that tracks whose turn it currently is -- this would start off as 'x'
+// a varaible that tracks if the game is running or not
+    // let isRunning = true 
+// event listeners --clicking on the divs and making the x's or o's appear
+    // when a square is clicked, do the following:
+        // first check if that spot in the array is empty and that isRunning is true, if so, do the following:
+            // we make an x or o appear -- as simple as setting the inner text
+            // check if a win has occured  
+                // check all 8 win cases for 'x' and for 'o'
+                // cats games could check if all spaces are filled (verbose) OR
+                // have a varaible that increments every turn and call a cats game at 9 if no body has won
+                // if the game is won or a cats game occurs -- set isRunning to false
+                    // other ways to check out that might be good to end the game 
+                    // if game is won -- we could remove the gameboard from the DOM 
+                    // or you could fill up the array spaces
+                    // delete a class to prevent listeners from firing
+            // alternate players if a win did not occur by changing the varaible that tracks whose turn it currently is
+            // increment the turn counter to move closer to the cats condition

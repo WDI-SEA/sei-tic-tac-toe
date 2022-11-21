@@ -3,6 +3,7 @@ const title = document.querySelector(".title")
 const result = document.querySelector(".result")
 const squares = document.querySelectorAll(".square")
 const reset = document.querySelector(".reset")
+const container = document.querySelector(".conatiner")
 
 // Global Variables
 let currentPlayer = "x"
@@ -33,16 +34,23 @@ function winTester(inputObject) {
     })
     if (counterX === 3) {
       // stop the game
+      // return X is the winner
+
       result.textContent = "X is the winner"
-      // return x is the winner
+      squares.forEach((square) => {
+        square.disabled = true
+      })
     } else if (counterO === 3) {
       // stop the game
-      result.textContent = "O is the winner"
-
       // return O is the winner
+      squares.forEach((square) => {
+        square.disabled = true
+      })
+      result.textContent = "O is the winner"
     }
   })
 }
+
 // Event listeners
 // Set squares to current player on btn click
 squares.forEach((square) => {
@@ -59,10 +67,9 @@ squares.forEach((square) => {
     moves = moves += 1
     // check for cats game
     if (moves >= 9) {
-      console.log("cats game / TIE")
+      result.textContent = "Tie <>Cats Game"
     }
-    console.log(square.id)
-    console.log(moves)
+
     // Switch
     switch (square.id) {
       case "square-1":

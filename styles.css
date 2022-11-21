@@ -1,0 +1,59 @@
+body{
+    margin: 0;
+    background-color: rgb(154, 155, 155);
+
+}
+.heading{
+    margin-bottom: 80px;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: -400px;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 1000px;
+    background-color: rgba(8, 5, 0, 0);
+    padding: 100px;
+    
+  
+}
+.tile{
+    border: 3px black solid;
+    height: 100px; 
+    width: 150px;
+    padding: 10px;
+
+
+}  
+.tileone{
+    font-size: 100px;
+}
+
+#restartButton{
+    position: absolute;
+    font-size: 3rem;
+    background-color:rgb(215, 224, 223);
+    border: 1px solid black;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(15, 15, 17);
+    font-size: 5rem;
+    margin-top: -400px;
+    margin-left: 500px;
+}
+.winning-message button:hover {
+    background-color: black;
+    color: white;
+    border-color: white;
+}
+  
+.winning-message.show {
+    display: flex;
+}
+
+    

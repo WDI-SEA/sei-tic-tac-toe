@@ -52,11 +52,11 @@ document.querySelectorAll('.box').forEach(box => box.addEventListener('click', h
 
 document.querySelector('.reset').addEventListener('click', handleRestartGame);
 // grabbing the data-cell-index (took forever to realize it returns a string so I had to convert it to integer)
-// also it will check if the cell has been clicked or the game is paused, if so the click will be ignored
+// also it will check if the cell has been clicked, if so the click will be ignored
 function handleBoxClick(clickedBoxEvent) {
     const clickedBox = clickedBoxEvent.target;
     const clickedBoxIndex = parseInt(
-        clickedBox.getAttribute('data-cell-index')
+        clickedBox.getAttribute('data-box-index')
       );
       if (gameState[clickedBoxIndex] !== "" || !gameActive) {
         return;

@@ -58,10 +58,13 @@ squares.forEach((square) => {
 
   square.addEventListener("click", (e) => {
     // If player is even then currentPlayer = x else currentPlayer= 'o'
+
     if (moves % 2 === 0) {
       currentPlayer = "x"
+      result.textContent = `O it is your turn`
     } else {
       currentPlayer = "o"
+      result.textContent = `X it is your turn`
     }
     // Adding +1 to moves
     moves = moves += 1

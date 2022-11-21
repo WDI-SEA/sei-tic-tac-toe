@@ -19,7 +19,7 @@ body {
 }
 .title {
   color: var(--timberwolf);
-  font-size: 50px;
+  font-size: 75px;
 }
 .row {
   display: flex;

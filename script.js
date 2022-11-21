@@ -7,12 +7,28 @@ let gameActive = true;
 let currentPlayer = "X";
 // weston's idea
 let gameState = ["", "", "", "", "", "", "", "", ""];
+
+// VARIABLES
+// winning conditions, it will check if one of those were met if not the game will keep running
+const winningConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+];
 // messages for the user during the game like draw message
-const winningMessage = () => `Player ${currentPlayer} has won!`;
-const drawMessage = () => `Game ended in a draw!`;
+const winningMessage = () => `Player ${currentPlayer} won!`;
+const drawMessage = () => `Draw! Try again!`;
 const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
 
 statusDisplay.innerHTML = currentPlayerTurn();
+
+// FUNCTIONS 
+
 function handleBoxPlayed() {
 
 }
@@ -29,6 +45,7 @@ function handleRestartGame() {
 
 }
 
+// DOM AND FUNCTIONS
 // event listeners for the cells and reset button
 document.querySelectorAll('.box').forEach(box => box.addEventListener('click', handleBoxClick));
 
@@ -50,18 +67,6 @@ function handleBoxPlayed(clickedBox, clickedBoxIndex) {
     gameState[clickedBoxIndex] = currentPlayer;
     clickedBox.innerHTML = currentPlayer;
 }
-
-// winning conditions, it will check if one of those were met if not the game will keep running
-const winningConditions = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-];
 function handleResultValidation() {
     let roundWon = false;
     for (let i = 0; i <= 7; i++) {
@@ -96,7 +101,8 @@ function handlePlayerChange() {
     currentPlayer = currentPlayer === "X" ? "O" : "X";
     statusDisplay.innerHTML = currentPlayerTurn();
 }
-   // function that restart the game 
+
+// function that restart the game 
 function handleRestartGame() {
     gameActive = true;
     currentPlayer = "X";

@@ -1,51 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="with=device-with, initial-scale=1.0" />
     <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div id="gameContainer">
-        <h1>Tic Tac Toe</h1>
-        <div id="cellContainer">
-            <!-- attribute of cellIndex -->
-            <div cellIndex="0" class="cell"></div>
-            <div cellIndex="1" class="cell"></div>
-            <div cellIndex="2" class="cell"></div>
-            <div cellIndex="3" class="cell"></div>
-            <div cellIndex="4" class="cell"></div>
-            <div cellIndex="5" class="cell"></div>
-            <div cellIndex="6" class="cell"></div>
-            <div cellIndex="7" class="cell"></div>
-            <div cellIndex="8" class="cell"></div>
-        </div>
-        <h2 id="statusText"></h2>
-        <button id="restartBtn">Restart</button>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="gameBoard">
+      <h1>Tic Tac Toe</h1>
+      <div class="board" id="cellContainer">
+        <!-- attribute of i -->
+        <div data-cell="0" class="cell"></div>
+        <div data-cell="1" class="cell"></div>
+        <div data-cell="2" class="cell"></div>
+        <div data-cell="3" class="cell"></div>
+        <div data-cell="4" class="cell"></div>
+        <div data-cell="5" class="cell"></div>
+        <div data-cell="6" class="cell"></div>
+        <div data-cell="7" class="cell"></div>
+        <div data-cell="8" class="cell"></div>
+      </div>
+      <h2 id="textOutput"></h2>
+      <button id="resetBtn">Reset</button>
     </div>
-    <script src="index.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
 
+<!-- <button i="reset" onclick="reset()"></button>  -->
 
-
-<!-- <button id="reset" onclick="reset()"></button>  -->
-
-
-
-
-
-    <!-- <div class="top">
+<!-- <div class="top">
         <div class="toplt">1</div>
-        <div class="topmid">2</div>
+        <div class="topmi">2</div>
         <div class="toprt">3</div>
       </div>
-     <div class="middle">
-        <div class="midlt">4</div>
-        <div class="midmid">5</div>
-        <div class="midrt">6</div>
+     <div class="midle">
+        <div class="milt">4</div>
+        <div class="mimi">5</div>
+        <div class="mirt">6</div>
       </div>
 
 <div class="bottom"

@@ -19,10 +19,11 @@ const resetBtn = document.querySelector('#resetBtn')
 // console.log(xo.innerText)
 
 
-const xo = ['x', 'o', 'x', 'o', 'x', 'o', 'o', 'x', 'o']
+const xo = ['o', 'x', 'o', 'x', 'o', 'x', 'o', 'x', 'o']
 
-startBtn.addEventListener('click', () => {
+let started = startBtn.addEventListener('click', () => {
   console.log(xo)  
+  tie.innerText = 'Player 1'
 
   box1.addEventListener('click', () => {
     tie.innerText ='Player 1'
@@ -36,7 +37,7 @@ startBtn.addEventListener('click', () => {
       const tie = document.createTextNode('Tie!!!!!')
       newDiv.appendChild(tie)
     
-    }
+    } else win()
 
     // return ans
   }, {once : true})
@@ -56,7 +57,7 @@ startBtn.addEventListener('click', () => {
       const tie = document.createTextNode('Tie!!!!!')
       newDiv.appendChild(tie)
     
-    }
+    } else win()
 
   }, {once : true})
   box3.addEventListener('click', () => {
@@ -75,7 +76,7 @@ startBtn.addEventListener('click', () => {
       const tie = document.createTextNode('Tie!!!!!')
       newDiv.appendChild(tie)
     
-    }
+    } else win()
 
   }, {once : true})
   box4.addEventListener('click', () => {
@@ -89,7 +90,7 @@ startBtn.addEventListener('click', () => {
       const tie = document.createTextNode('Tie!!!!!')
       newDiv.appendChild(tie)
     
-    }
+    } else win()
 
   }, {once : true})
   box5.addEventListener('click', () => {
@@ -108,7 +109,7 @@ startBtn.addEventListener('click', () => {
       const tie = document.createTextNode('Tie!!!!!')
       newDiv.appendChild(tie)
     
-    }
+    } else win()
 
   }, {once : true})
   box6.addEventListener('click', () => {
@@ -127,7 +128,7 @@ startBtn.addEventListener('click', () => {
       const tie = document.createTextNode('Tie!!!!!')
       newDiv.appendChild(tie)
     
-    }
+    } else win()
 
   }, {once : true})
   box7.addEventListener('click', () => {
@@ -146,7 +147,7 @@ startBtn.addEventListener('click', () => {
       const tie = document.createTextNode('Tie!!!!!')
       newDiv.appendChild(tie)
     
-    }
+    } else win()
 
   }, {once : true})
   box8.addEventListener('click', () => {
@@ -165,7 +166,7 @@ startBtn.addEventListener('click', () => {
       const tie = document.createTextNode('Tie!!!!!')
       newDiv.appendChild(tie)
     
-    }
+    } else win()
 
   }, {once : true})
   box9.addEventListener('click', () => {
@@ -185,7 +186,7 @@ startBtn.addEventListener('click', () => {
       const tie = document.createTextNode('Tie!!!!!')
       newDiv.appendChild(tie)
     
-    }
+    } else win()
     
   }, {once : true})
   
@@ -193,6 +194,14 @@ startBtn.addEventListener('click', () => {
   
 })
 
+
+const win = () => {
+  if ( (box1.innerText, box2.innerText, box3.innerText === 'x') || 
+  (box1.innerText, box4.innerText, box7.innerText === 'x')) {
+    tie.innerText = 'you win!'
+    // startBtn.removeEventListener()
+  }
+}
 
 
 
@@ -209,6 +218,8 @@ resetBtn.addEventListener('click', () => {
   box8.innerText = 'x/o'
   box9.innerText = 'x/o'
   
+  // xo = ['o', 'x', 'o', 'x', 'o', 'x', 'o', 'x', 'o']
+  console.log(xo)
   if (xo.length === 0) xo.push('o', 'x', 'o', 'x', 'o', 'x', 'o', 'x', 'o')
   else if (xo.length === 1) xo.push('o', 'x', 'o', 'x', 'o', 'x', 'o', 'x')
   else if (xo.length === 2) xo.push('o', 'x', 'o', 'x', 'o', 'x', 'o')
@@ -217,38 +228,8 @@ resetBtn.addEventListener('click', () => {
   else if (xo.length === 5) xo.push('o', 'x', 'o', 'x')
   else if (xo.length === 6) xo.push('o', 'x', 'o')
   else if (xo.length === 7) xo.push('o', 'x')
-  else if (xo.length === 8) {
-    xo.push('o') 
-    console.log(xo)
-  } 
-  console.log(xo)
+  else if (xo.length === 8) xo.push('o') 
 })
-
-// let arr = ['o', 'x', 'o', 'x', 'o', 'x', 'o', 'x', 'o']
-// console.log(arr.length)
-// console.log(arr.length % 2 === 0)
-// arr.shift()
-// console.log(arr.length)
-// console.log(arr.length % 2 === 0)
-// arr.shift()
-// console.log(arr.length)
-// console.log(arr.length % 2 === 0)
-// arr.shift()
-// console.log(arr.length)
-// console.log(arr.length % 2 === 0)
-// arr.shift()
-// console.log(arr.length)
-// console.log(arr.length % 2 === 0)
-// arr.shift()
-// console.log(arr.length)
-// console.log(arr.length % 2 === 0)
-// arr.shift()
-// console.log(arr.length)
-// console.log(arr.length % 2 === 0)
-// arr.shift()
-// console.log(arr.length)
-// console.log(arr.length % 2 === 0)
-// arr.shift()
-// console.log(arr.length)
-// console.log(arr.length % 2 === 0)
-// arr.shift()
+// let arr = []
+// console.log(arr.push('o', 'x', 'o', 'x', 'o', 'x', 'o', 'x', 'o'))
+// console.log(arr)

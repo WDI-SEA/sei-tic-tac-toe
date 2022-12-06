@@ -1,0 +1,43 @@
+div {
+    height: 100px;
+    width: 100px;
+    text-align:center;
+}
+
+#box1, #box2, #box3, #box4, #box5, #box6, #box7, #box8, #box9 { 
+    font-size: 60px;
+    height: 100px;
+    width: 100px;
+    background-color: rgb(115, 243, 143);
+    text-align:center;
+}
+
+#holder {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: auto;
+}
+
+p {
+    text-align: center;
+}
+
+#box4, #box5, #box6 {
+    border-bottom: black 5px solid;
+    border-top: 5px solid black;
+}
+
+#box2, #box5, #box8 {
+    border-left: 5px solid black;
+    border-right: 5px solid black;
+}
+
+
+#tie { 
+    background-color: red;
+    position: absolute;
+    font-size: 100px;
+    width: 100%;
+    height: 80%;
+    
+}

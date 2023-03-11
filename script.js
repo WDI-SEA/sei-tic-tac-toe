@@ -9,17 +9,21 @@ const addListener = (element) => {
 };
 
 const clickSquare = (square) => {
-  // checkIfTaken();
+  claimSquare(square);
   // checkForWin();
   // checkForDraw();
-  claimSquare(square);
-  playerOneTurn = !playerOneTurn;
 };
 
 let claimSquare = (square) => {
-  playerOneTurn
-    ? (square.style.backgroundColor = "pink")
-    : (square.style.backgroundColor = "blue");
+  if (!square.classList.contains("locked")) {
+    playerOneTurn
+      ? (square.style.backgroundColor = "pink")
+      : (square.style.backgroundColor = "blue");
+    square.classList.add("locked");
+    playerOneTurn = !playerOneTurn;
+  } else {
+    alert("PH Sorry -- that square's taken!");
+  }
 };
 
 // create board tiles and add listeners

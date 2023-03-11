@@ -57,15 +57,33 @@ function handleMove(move) {
     }
   }
     // check win
-
+    function checkWin(player) {
+        // rows
+        if ((board[0] === player && board[1] === player && board[2] === player) ||
+            (board[3] === player && board[4] === player && board[5] === player) ||
+            (board[6] === player && board[7] === player && board[8] === player)) {
+          return true;
+        }
+        
+        // columns
+        if ((board[0] === player && board[3] === player && board[6] === player) ||
+            (board[1] === player && board[4] === player && board[7] === player) ||
+            (board[2] === player && board[5] === player && board[8] === player)) {
+          return true;
+        }
+        
+        // diagonals
+        if ((board[0] === player && board[4] === player && board[8] === player) ||
+            (board[2] === player && board[4] === player && board[6] === player)) {
+          return true;
+        }
+        
+        // if no win, return false
+        return false;
+      }
     //index of array
     //update board
     //check for win
     //check for cats game
     //disable board
     //switch to other player
-
-
-    ====
-
-    

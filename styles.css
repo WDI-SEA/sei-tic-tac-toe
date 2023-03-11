@@ -1,0 +1,188 @@
+/* * {
+    font-family: sans;
+} */
+
+.game-title {
+    display: flex;
+    border: 3px solid black;
+    justify-content: center;
+    align-content: center;
+    width: 80%;
+    margin: 3vh auto;
+}
+h1 {
+    font-size: 2em;
+    border: 3px solid gray;
+    margin: 0;
+}
+
+.game-header {
+    border: 3px solid rgba(88, 0, 221, 0.835);
+    display: flex;
+    width: 80%;
+    margin: 0 auto 3vh;
+}
+
+.players-container {
+    display: flex;
+    width: 33%;
+    height: 100%;
+    border: 3px solid rgb(100, 65, 0);
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin-right: 2em;
+}
+.player-one, .player-two {
+    display: block;
+    width: 30vw;
+    height: 5vw;
+    border: 3px solid rgb(5, 131, 248);
+    flex-wrap: wrap;
+    margin-top: 1em;
+    align-content: center;
+    justify-content: center;
+}
+.player-one-container, .player-two-container {
+    width: 100%;
+    height: 100%;
+    border: 3px solid yellow;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+}
+
+.player-one-name, .player-two-name {
+    width: 100%;
+    height: 100%;
+    border: none;
+    text-align: left;
+}
+.game-start-container {
+    display: flex;
+    width: 33%;
+    border: 3px solid orange;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+.game-start-button, .player-vs-player {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 50%;
+    border: 3px solid orangered;
+}
+.player-vs-player {
+    margin: 0;
+    padding: 0;
+}
+.player-turn-display-container {
+    display: block;
+    width: 33%;
+    border: 3px solid rgb(100, 65, 0);
+    align-content: flex-start;
+    margin-left: 2em;
+}
+.player-turn-display {
+    height: 100%;
+    border: 3px solid rgb(19, 223, 50);
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+ .game-play {
+    display: grid; 
+    grid-area: auto;
+    row-gap: 0;
+    width: 80%;
+    height: 60vh;
+    border: 3px solid burlywood;
+    margin: 0 auto 3vh;
+
+}
+.optionOne, .optionTwo, .optionThree, .optionFour, .optionFive, .optionSix, .optionSeven, .optionEight, .optionNine {
+    border: 3px solid gray;
+    background-color: lightgray;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.optionOne {
+    grid-column: 1;
+    grid-row: 1;
+} 
+.optionTwo {
+    grid-column: 2;
+    grid-row: 1;
+}
+.optionThree {
+    grid-column: 3;
+    grid-row: 1;
+} 
+.optionFour {
+    grid-column: 1;
+    grid-row: 2;
+} 
+.optionFive {
+    grid-column: 2;
+    grid-row: 2;
+}
+.optionSix {
+    grid-column: 3;
+    grid-row: 2;
+}
+.optionSeven {
+    grid-column: 1;
+    grid-row: 3;
+} .optionEight {
+    grid-column: 2;
+    grid-row: 3;
+} 
+.optionNine {
+    grid-column: 3;
+    grid-row: 3;
+}
+.game-play > div > p {
+    margin: 0;
+    padding: 0;
+    display: block;
+    font-size: 2em;
+}
+.game-footer {
+    width: 80%;
+    margin: 0 auto 3vh;
+    border: 3px solid rgba(88, 0, 221, 0.835);
+    display: flex;
+    margin-top: 2em;
+    align-items: center;
+}
+.gameResult {
+    display: flex;
+    width: 67%;
+    height: 100%;
+    border: 3px solid rgb(100, 65, 0);
+    align-content: flex-start;
+}
+.gameResultContent {
+    text-align: center;
+    font-size: 2em;
+    width: 100%;
+}
+.gameReset {
+    display: flex;
+    position: relative;
+    width: 33%;
+    height: 100%;
+    border: 3px solid rgb(5, 189, 57);
+    align-content: flex-end;
+    align-items: center;
+}
+.gameResultButton {
+    display: block;
+    text-align: center;
+    font-size: 2em;
+    width: 100%;
+    border: 3px solid rgba(255, 145, 0, 0.445);
+
+}

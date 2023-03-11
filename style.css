@@ -1,0 +1,11 @@
+body {
+    background-color: aqua;
+}
+.board {
+    display: flex;
+}
+
+.griditem {
+    display:flex;
+
+}

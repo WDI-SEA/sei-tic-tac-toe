@@ -1,0 +1,56 @@
+<h1>Inspiration</h1>
+https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dreamstime.com%2Fblue-tic-tac-toe-icon-design-cool-mini-game-illustration-vector-blue-tic-tac-toe-icon-design-cool-mini-game-illustration-vector-image168677553&psig=AOvVaw3INX_6ZnEBqxEyyZ6jbamm&ust=1678586014829000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCOjnh6vi0v0CFQAAAAAdAAAAABAJ
+
+Preparation
+make a simple mockup/wireframe of your TTT board
+think of all the html elements you will need to structure the document (TTT board, message area, page title)
+visually draw out everything out
+review phase
+look over lessons this week that you need to review
+read the gitbook
+review the code lessons/labs
+do some googling
+start writing code and do not panic
+copy our psuedocode into your files
+Psuedocode
+html
+<!-- your index.html -->
+<!-- header for page -->
+<!-- grid of nine squares -->
+<!-- some kind of area for a message to the player -->
+<!-- button rest -->
+css
+/* styles.css */
+/* just enough styling to get a gird and setup the gameboard */
+/* DO NOT DO ANY OTHER STYLING UNTIL YOU ARE FINISHED */
+javascript
+// script.js
+
+// APP STATE (varaibles)
+    // players choices (a vritual representation of the gameboard)
+        // use an array (1d array approach) ['x', '', '', '', '', '', '', 'o', '']
+        // 2d array approach
+        // [
+        //     ['x', '', ''],
+        //     ['', '', ''],
+        //     ['', 'o', '']
+        // ]
+    // whose turn it is (is it x or o)
+    // a boolean value that tells you if the game is currently running
+    // (optional) a turn counter that is used to detect cats games when it reaches 9
+    // (bonus) -- how many times each player has won
+
+// EVENT LISTENERS
+    // a click on the reset button
+    // event listener for when you click on the gameboard
+        // when a square is clicked we should do the following:
+        // set the innertext of the square that got clicked on of whose turn it currently it
+        // prevent repeat clicks -- check the gameboard array or check the innertext
+        // set the move into the gameboard array 
+        // check if there is a winner
+            // if someone has won, end the game and updated the message for who has won
+                // think about all the conditions to win the game and check for all of them
+            // check for cats game
+                // if every square is an x or an o and no one has won   
+                // or count turns    
+            // if no one has won, let gameplay continue (switch turns)

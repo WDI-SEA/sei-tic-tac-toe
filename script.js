@@ -26,10 +26,11 @@ const board = document.getElementsByClassName('board')
 const result = document.getElementsByClassName('result') 
 const reset = document.getElementsByClassName('reset')
 
-// array
-let gameBoard = [1,2,3,4,5,6,7,8,9]
+// array for empty board
+let gameBoard = [' ',' ',' ',' ',' ',' ',' ',' ',' ',]
 
-//event listener to grid
+//event listener to grid to check if there is a click
+board.addEventListener('click', function())
     //check if cell is empty
     //index of array
     //update board

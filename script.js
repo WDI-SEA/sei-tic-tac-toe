@@ -1,15 +1,12 @@
-const squares = document.querySelectorAll(".square");
+// establish initial game conditions
 let playerOneTurn = true;
 
+// establish helper functions
 const addListener = (element) => {
   element.addEventListener("click", () => {
     clickSquare(element);
   });
 };
-
-squares.forEach((square) => {
-  addListener(square);
-});
 
 const clickSquare = (square) => {
   // checkIfTaken();
@@ -24,3 +21,11 @@ let claimSquare = (square) => {
     ? (square.style.backgroundColor = "pink")
     : (square.style.backgroundColor = "blue");
 };
+
+// create board tiles and add listeners
+for (let i = 0; i < 9; i++) {
+  const newDiv = document.createElement("div");
+  newDiv.setAttribute("class", "square");
+  document.querySelector(".gameBoard").appendChild(newDiv);
+  addListener(newDiv);
+}

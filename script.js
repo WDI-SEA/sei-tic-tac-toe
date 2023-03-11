@@ -1,5 +1,6 @@
 // establish initial game conditions
 let playerOneTurn = true;
+let winnerExists = false;
 
 // establish helper functions
 const addListener = (element) => {
@@ -11,7 +12,9 @@ const addListener = (element) => {
 const clickSquare = (square) => {
   tryToClaimSquare(square);
   // checkForWin();
-  // checkForDraw();
+  if (winnerExists == false) {
+    checkForDraw();
+  }
 };
 
 const tryToClaimSquare = (square) => {
@@ -28,6 +31,13 @@ const claimSquare = (square) => {
     : (square.style.backgroundColor = "lightblue") && (square.innerText = "O");
   square.classList.add("locked");
   playerOneTurn = !playerOneTurn;
+};
+
+const checkForDraw = () => {
+  let squares = document.querySelectorAll(".locked");
+  if (squares.length === 9) {
+    alert("PH Draw game!");
+  }
 };
 
 // create board tiles and add listeners

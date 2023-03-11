@@ -11,14 +11,8 @@ This week we have been learning about writing functions, working with loops, and
 
 We will be making a Tic Tac Toe game using all of these concepts.
 
-## Getting Started
-
-* Before you even start working with JavaScript, construct the gameboard. The gameboard page should include the 3x3 grid (of divs), and at minimum a reset button. Using `id` and/or `class` on clickable elements will help you wire this up in JavaScript afterwards.
-* The JavaScript portion will be next
-  * Select elements and attach functions via event listeners
-  * You will also need a variable to keep track of moves. This will be used to indicate whether or not to draw an `X` or an `O`
-
 ## Requirements
+
 * A user should be able to click on different squares to make a move.
 * Every click will alternate between marking an `X` and `O`
 * Upon marking of an individual cell, use JavaScript to add an `X` or `O` to the cell, according to whose turn it is.
@@ -32,7 +26,7 @@ We will be making a Tic Tac Toe game using all of these concepts.
 
 **Have Fun** - The best way to learn is by playing with code. Let creativity guide you and try some experiments with JS and CSS and see what you can do.
 
-## Bonuses
+### Bonuses
 
 * Implement your reset button without refreshing the whole page
 * Track player's wins over time
@@ -40,9 +34,16 @@ We will be making a Tic Tac Toe game using all of these concepts.
 * Make your computer seem more human by adding a short time delay between your turn and the computer's turn.
 * Style it up! Get creative, or even make a theme!
 
-## Super Duper Bonus
+### Super Duper Bonus
 
 * Add an AI that can beat you every time with the mini-max algorithm.
+
+## How to Get Started
+
+* Before you even start working with JavaScript, construct the gameboard. The gameboard page should include the 3x3 grid (of divs), and at minimum a reset button. Using `id` and/or `class` on clickable elements will help you wire this up in JavaScript afterwards.
+* The JavaScript portion will be next
+  * Select elements and attach functions via event listeners
+  * You will also need a variable to keep track of moves. This will be used to indicate whether or not to draw an `X` or an `O`
 
 ---
 

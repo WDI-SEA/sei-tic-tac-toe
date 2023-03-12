@@ -2,6 +2,7 @@
 // get from html
 const result = document.getElementsByClassName("result");
 const resetButton = document.getElementsByClassName("reset");
+const newButton = document.getElementsByClassName("new");
 
 //GAME
 // array for empty gameBoard
@@ -147,6 +148,35 @@ function gameReset() {
   });
   // change message back to RESULT
   document.querySelector(".result").innerText = "X Starts";
+  // change gameOver
+  gameOver = false;
+}
+
+// NEW
+// event listener for the reset button
+newButton[0].addEventListener("click", gameNew);
+
+// function to reset the game
+function gameNew() {
+  // reset the gameBoard
+  gameBoard = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
+  // set the current player to player1
+  currentPlayer = player1;
+  // reset the board
+  document.querySelectorAll(".grid-item").forEach(function (item, index) {
+    item.innerText = gameBoard[index];
+  });
+  // change message back to RESULT
+  document.querySelector(".result").innerText = "X Starts";
+
+  // score reset
+  player1Wins = 0;
+  player2Wins = 0;
+
+  // reset display
+  document.querySelector(".xWins").innerText = "Player X: " + player1Wins + " wins";
+  document.querySelector(".oWins").innerText = "Player O: " + player2Wins + " wins";
+
   // change gameOver
   gameOver = false;
 }

@@ -13,6 +13,10 @@ let gameOver = false;
 let player1 = "X";
 let player2 = "O";
 
+// TRACK WINS
+let player1Wins = 0;
+let player2Wins = 0;
+
 // CURRENT PLAYER
 // current player - it always starts with player 1
 let currentPlayer = player1;
@@ -37,10 +41,13 @@ function handleMove(move) {
 
     // check if the current player has won
     if (checkWin(currentPlayer)) {
-      document.querySelector(".result").innerText = currentPlayer + " wins!" + " 🎉";
-      gameOver = true;
-      // // reset the gameBoard
-      // gameBoard = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+        if (currentPlayer === player1) {
+          player1Wins++;
+        } else {
+          player2Wins++;
+        }
+        document.querySelector(".result").innerText = currentPlayer + " wins!" + " 🎉";
+        gameOver = true
     } else if (checkTie()) {
         document.querySelector(".result").innerText = "It's a tie" + " 🙀";
         gameOver = true;        

@@ -15,9 +15,11 @@ table{
 margin-left:auto;
 margin-right:auto;
 border: 1px solid black;
+
 }
 tr{
     border: 1px solid black;
+    background-color: white;
 }
 td{
     border: 1px solid black;
@@ -25,9 +27,38 @@ td{
     width: 200px;
     height: 150px;
     text-align: center;
+    background-color: white;
 }
 h1{
     text-align: center;
+    color: white;
+     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 
 }
+h2{
+    text-align: center;
+    color: white;
+     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
 
+#winnerAnnouncement{
+    text-align: center;
+    font-size: 5em;
+    color: white;
+     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+body{
+    background-image: url(https://external-preview.redd.it/72dZamiQ6CUrDBwHNEnjEjKEBtV-9Nz2ltWsaTdT0uM.jpg?auto=webp&s=67e456443af2fa42ec511966969f10e179a75f4e);
+}
+#scoreX{
+   text-align: center;
+    color: white;
+     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; 
+     font-size: 4em;
+}
+#scoreO{
+   text-align: center;
+    color: white;
+     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; 
+     font-size: 4em;
+}

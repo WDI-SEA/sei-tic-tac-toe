@@ -30,29 +30,45 @@
                 // or count turns    
             // if no one has won, let gameplay continue (switch turns)
 
-
-
-
-let resetButton = document.querySelector('resetButton');
+let table = document.querySelector('table');
+let xScore = document.querySelector('#scoreX');
+let oScore = document.querySelector('#scoreO');
+let winner = document.querySelector('#winnerAnnouncement');
+let textP = document.querySelector('#currPlayer');
+let resetButton = document.querySelector('#resetButton');
 let board = ['','','','','','','','','']
 let currentPlayer ='X';
+let gameFinished = false;
 
-function checkForWinner() {
-    const winningCombos = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6]
-    ];
-}
 
 function pickThePlayer(){
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    textP.innerText = `Current Player: ${currentPlayer}`;
+    
 }
+    function checkForWinner(player){
+    if(board[0] == player && board[1] == player && board[2] == player){
+    return true;
+    
+        }else if(board[3] == player && board[4] == player && board[5] == player){
+            return true;
+        }else if(board[6] == player && board[7] == player && board[8] == player){
+            return true;
+        }else if(board[0] == player && board[3] == player && board[6] == player){
+            return true;
+        }else if(board[1] == player && board[4] == player && board[7] == player){
+            return true;
+        }else if(board[2] == player && board[5] == player && board[8] == player){
+            return true;
+        }else if(board[0] == player && board[4] == player && board[8] == player){
+            return true;
+        }else if(board[2] == player && board[4] == player && board[6] == player){
+            return true;
+    }
+
+    }
+    
+
 
 
 function clearBoard(){
@@ -67,6 +83,9 @@ function clearBoard(){
     console.log(spot.innerText);
     //bring it back to original player
     currentPlayer='X';
+    textP.innerHTML = 'Current Player: X';
+    winner.innerHTML = "";    
+
     }
 }
 
@@ -75,8 +94,12 @@ for (let i = 0; i < 9; i++) {
     //goes through all the spots and adds them to the function
     let spot = document.querySelector(`#spot${i+1}`);
     //adds on click event to all the spots
-    spot.addEventListener('click', function() {
+    spot.addEventListener('click', function clickHandler() {
         //if the spot is empty on click
+        console.log(gameFinished);
+        if(gameFinished){
+            return;
+        };
       if (board[i] === '') {
         //changes the array
         board[i] = currentPlayer;
@@ -85,8 +108,34 @@ for (let i = 0; i < 9; i++) {
         //executed with the players symbol
         pickThePlayer();
         console.log(board);
+        
+        if(checkForWinner('X')){
+            gameFinished = true;
+            winner.innerHTML = "THE X PLAYER HAS WON THIS ROUND!";
+            for (let i = 0; i < 9; i++) {
+              let spot = document.querySelector(`#spot${i+1}`);
+              spot.removeEventListener('click', clickHandler);
+              
+
+            }
+
+            
+        }
+    
+        if(checkForWinner('O')){
+            gameFinished = true;
+            winner.innerHTML = "THE O PLAYER HAS WON THIS ROUND!";
+            for (let i = 0; i < 9; i++) {
+              let spot = document.querySelector(`#spot${i+1}`);
+              spot.removeEventListener('click', clickHandler);
+              
+            }
+
+        }
+        
       }
     });
+
   }
 
 

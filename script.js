@@ -7,7 +7,14 @@ const addListener = (element) => {
 
 const clickSquare = (square) => {
   tryToClaimSquare(square);
-  checkForWin();
+
+  // broken because playerOneTurn flips before win check.
+  // Probably need to refactor how I'm managing "player turn"
+  // state in addition to finishing game end logic.
+  if (checkForWin(playerOneTurn ? "X" : "O")) {
+    alert(playerOneTurn ? "PH p1 win" : "PH p2 win");
+  }
+
   if (winnerExists === false) {
     checkForDraw();
   }
@@ -29,23 +36,10 @@ const claimSquare = (square) => {
   playerOneTurn = !playerOneTurn;
 };
 
-const checkForWin = () => {
-  winLines.forEach((line) => {
-    let lineText = "";
-    line.forEach((square) => {
-      lineText += square.textContent;
-    });
-    if (lineText === "XXX") {
-      winGame(1);
-    }
-    if (lineText === "OOO") {
-      winGame(2);
-    }
+const checkForWin = (playerSymbol) => {
+  return winLines.some((line) => {
+    return line.every((square) => square.textContent === playerSymbol);
   });
-};
-
-const winGame = (playerNumber) => {
-  alert(`PH Player ${playerNumber} wins!`);
 };
 
 const checkForDraw = () => {
@@ -70,7 +64,7 @@ domSquares.forEach((square) => {
   squaresArray.push(square);
 });
 
-// establish initial game conditions/perameters
+// establish initial game conditions
 let playerOneTurn = true;
 let winnerExists = false;
 let winLines = [

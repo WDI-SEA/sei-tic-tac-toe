@@ -43,8 +43,10 @@ function handleMove(move) {
     if (checkWin(currentPlayer)) {
         if (currentPlayer === player1) {
           player1Wins++;
+          document.querySelector(".xWins").innerText = "Player X: " + player1Wins + " wins"; 
         } else {
           player2Wins++;
+          document.querySelector(".oWins").innerText = "Player O: " + player2Wins + " wins";
         }
         document.querySelector(".result").innerText = currentPlayer + " wins!" + " 🎉";
         gameOver = true

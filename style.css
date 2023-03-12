@@ -1,12 +1,19 @@
 * {
 
 }
+
 body {
     background-color: aqua;
     text-align: center;
     font-family: 'Work Sans', sans-serif;
     font-weight: 900;
 }
+
+h1 {
+    font-size: 4rem
+}
+
+
 .board {
     display: grid;
     grid-template-columns: 25vh 25vh 25vh;
@@ -31,7 +38,7 @@ body {
 }
 
 .result {
-    margin: 1rem 0rem 2rem 0rem;
+    margin: 1rem 0rem 1rem 0rem;
     font-size: xx-large;
 }
 
@@ -58,6 +65,20 @@ body {
     margin-bottom: 0px;
 }
 
-.creator {
-    font-size: smaller;
+.rule {
+    display: flex;
+}
+
+.rulelist {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+
+.score {
+    font-size: 1rem;
+
+    border-color: black;
+    border-style: dotted;
+
 }

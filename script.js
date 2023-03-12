@@ -1,8 +1,8 @@
 // TIC TAC TOE
 // get from html
 const result = document.getElementsByClassName("result");
-const resetButton = document.getElementsByClassName("reset");
-const newButton = document.getElementsByClassName("new");
+const newButton2 = document.getElementsByClassName("reset");
+const resetButton = document.getElementsByClassName("new");
 
 //GAME
 // array for empty gameBoard
@@ -132,12 +132,12 @@ function checkTie() {
   return true;
 }
 
-// RESET
+// NEW
 // event listener for the reset button
-resetButton[0].addEventListener("click", gameReset);
+newButton2[0].addEventListener("click", gameNew);
 
 // function to reset the game
-function gameReset() {
+function gameNew() {
   // reset the gameBoard
   gameBoard = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
   // set the current player to player1
@@ -152,12 +152,12 @@ function gameReset() {
   gameOver = false;
 }
 
-// NEW
+// RESET
 // event listener for the reset button
-newButton[0].addEventListener("click", gameNew);
+resetButton[0].addEventListener("click", gameReset);
 
 // function to reset the game
-function gameNew() {
+function gameReset() {
   // reset the gameBoard
   gameBoard = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
   // set the current player to player1

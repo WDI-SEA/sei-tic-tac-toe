@@ -9,25 +9,33 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap');
       </style>
-    <title>
-        <h1>TIC TAC TOE</h1>
-    </title>
+    <title>TIC TAC TOE</title>
 </head>
 <body>
     <h1 class="game">TIC TAC TOE</h1>
     <!-- Player1 will always start first will need to add display to show who's turn is it-->
-    <div class="creator">Brought to you by: Juan Cabrera</div>
+    <div class = "rules">RULES FOR TIC-TAC-TOE</div>
+    <ul>
+        <li class="rulelist">The game is played on a grid that's 3 squares by 3 squares.</li>
+        
+        <li class="rulelist">You are X, your friend or you is O. Players take turns putting their marks in empty squares.</li>
+        
+        <li class="rulelist">The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.</li>
+        
+        <li class="rulelist">If no player has 3 marks in a row, the game ends in a tie.</li>
+    </ul>
     <div class="buttons">
     <!-- Don't need the start button yet  -->
     <!-- <button class="start">START GAME</button> -->
-    <button class="new">NEW GAME</button>
+    <button class="new">NEW SCORE</button>
     <button class="reset">RESET GAME</button>
     </div>
     <!-- Tracking wins -->
-    <div class="score"> Score Display
+    <div class="score"> 
+        <h2 class=display>Score Display</h1>
         <p class="xWins">Player X: 0 wins</p>
         <p class="oWins">Player O: 0 wins</p>
-        </div>
+    </div>
     <!-- <div>TIMER could be a cool thing to add</div> -->
     <div class="result">X Starts</div>
     <div class="board">

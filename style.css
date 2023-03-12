@@ -1,0 +1,135 @@
+.game-board {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row1 {
+    display: flex;
+}
+
+.row2 {
+    display: flex;
+}
+
+.row3 {
+    display: flex;
+}
+.box1 {
+    display: flex;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+}
+.box2 {
+    display: flex;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+}
+
+.box3 {
+    display: flex;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+}
+
+.box4 {
+    display: flex;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+}
+
+.box5 {
+    display: flex;
+    border: 1px solid black;
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+}
+
+.box6 {
+    display: flex;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+}
+
+.box7 {
+    display: flex;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+}
+
+.box8 {
+    display: flex;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+}
+
+.box9 {
+    display: flex;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+}
+
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 35px;
+  }
+  .button {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+ 
+  
+  

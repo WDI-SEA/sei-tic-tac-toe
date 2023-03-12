@@ -15,56 +15,55 @@
     <div class="players-container">
         <div class="player-one-container">
             <label for="player-one-name">
-                <input class="player-one-name" type="text" placeholder="Player One Name">
+                <input required id="playerOneName" class="player-one-name" type="text" placeholder="Player One Name">
             </label>
         </div>
         <div class="player-two-container">
             <label for="player-two-name">
-                <input class="player-two-name" type="text" placeholder="Player Two Name">
+                <input required id="playerTwoName" class="player-two-name" type="text" placeholder="Player Two Name">
             </label>
         </div>
     </div>
     <div class="game-start-container">
-        <button class="game-start-button"></button>
-        <p class="player-vs-player"></p>
+        <input type="submit" id="gameStartButton" class="game-start-button" value="Start Game"></input>
     </div>
     <div class="player-turn-display-container">
-        <p class="player-turn-display"></p>
+        <p id="playerTurnDisplay" class="playerTurnDisplay"></p>
     </div>
     </section>
     <section id="gamePlay" class="game-play">
-        <div class="optionOne" id="optionOne" value="1">
-            <p class="optionOneContent" id="optionOneContent">optionOne</p>
+        <div class="optionOne" id="optionOne">
+            <p class="optionOneContent" id="optionOneContent"> </p>
         </div>
         <div class="optionTwo" id="optionTwo">
-            <p class="optionTwoContent" id="optionTwoContent">optionTwo</p>
+            <p class="optionTwoContent" id="optionTwoContent"> </p>
         </div>
         <div class="optionThree" id="optionThree">
-            <p class="optionThreeContent" id="optionThreeContent">optionThree</p>
+            <p class="optionThreeContent" id="optionThreeContent"> </p>
         </div>
         <div class="optionFour" id="optionFour">
-            <p class="optionFourContent" id="optionFourContent">optionFour</p>
+            <p class="optionFourContent" id="optionFourContent"> </p>
         </div>
         <div class="optionFive" id="optionFive">
-            <p class="optionFiveContent" id="optionFiveContent">optionFive</p>
+            <p class="optionFiveContent" id="optionFiveContent"> </p>
         </div>
         <div class="optionSix" id="optionSix">
-            <p class="optionSixContent" id="optionSixContent">optionSix</p>
+            <p class="optionSixContent" id="optionSixContent"> </p>
         </div>
         <div class="optionSeven" id="optionSeven">
-            <p class="optionSevenContent" id="optionSevenContent">optionSeven</p>
+            <p class="optionSevenContent" id="optionSevenContent"> </p>
         </div>
         <div class="optionEight" id="optionEight">
-            <p class="optionEightContent" id="optionEightContent">optionEight</p>
+            <p class="optionEightContent" id="optionEightContent"> </p>
         </div>
         <div class="optionNine" id="optionNine">
-            <p class="optionNineContent" id="optionNineContent">optionNine</p>
+            <p class="optionNineContent" id="optionNineContent"> </p>
         </div>
 
     </section>
     <section class="game-footer">
         <div class="gameResult" id="gameResult">
-            <p class="gameResultContent" id="gameResultContent">Game Result</p>
+            <p class="gameResultContent" id="gameResultContent"></p>
         </div>
         <div class="gameReset" id="gameReset">
             <button class="gameResultButton" id="gameResultButton">Play again!</button>

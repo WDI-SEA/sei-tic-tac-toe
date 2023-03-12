@@ -1,0 +1,33 @@
+/* styles.css */
+/* just enough styling to get a gird and setup the gameboard */
+/* DO NOT DO ANY OTHER STYLING UNTIL YOU ARE FINISHED */
+.tictactoe{
+display: grid;
+}
+#resetButton{
+background-color: red;
+margin: 0 auto;
+padding: 15px 25px 15px 25px;
+font-size: 3em;
+
+}
+table{
+margin-left:auto;
+margin-right:auto;
+border: 1px solid black;
+}
+tr{
+    border: 1px solid black;
+}
+td{
+    border: 1px solid black;
+    font-size: 100px;
+    width: 200px;
+    height: 150px;
+    text-align: center;
+}
+h1{
+    text-align: center;
+
+}
+

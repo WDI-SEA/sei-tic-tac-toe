@@ -1,0 +1,117 @@
+* {
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameboard {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 300px;
+    background-color: black;
+    justify-content: space-between;
+    align-items:baseline;
+
+}
+
+.middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75vw;
+}
+
+.players {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.wins {
+    display: flex;
+    flex-direction: row;
+}
+
+#p2Turn {
+    display: none;
+}
+
+.winner {
+    display: none;
+}
+
+.top-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.center-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.bottom-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.top {
+  background-color: red;
+  height: 90px;
+  width: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+.top p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+
+.center {
+    background-color: red;
+    height: 90px;
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+.bottom {
+    background-color: red;
+    height: 90px;
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}

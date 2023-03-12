@@ -58,41 +58,7 @@ h1 {
     color:hsl(348, 96%, 48%)
 }
 
-.one {
-    border-bottom: .5rem solid rgb(0, 0, 0);
-    border-right: .5rem solid rgb(0, 0, 0);
-}
 
-.two {
-    border-bottom: .5rem solid rgb(0, 0, 0);
-}
-
-.three {
-    border-bottom: .5rem solid rgb(0, 0, 0);
-    border-left: .5rem solid rgb(0, 0, 0);
-}
-
-.four {
-    border-bottom: .5rem solid rgb(0, 0, 0);
-    border-right: .5rem solid rgb(0, 0, 0);
-}
-
-.five {
-    border-bottom: .5rem solid rgb(0, 0, 0);
-}
-
-.six {
-    border-bottom: .5rem solid rgb(0, 0, 0);
-    border-left: .5rem solid rgb(0, 0, 0);
-}
-
-.seven {
-    border-right: .5rem solid rgb(0, 0, 0);
-}
-
-.nine {
-    border-left: .5rem solid rgb(0, 0, 0);
-}
 /* styling for the restart button */
 
 .refresh {
@@ -101,6 +67,8 @@ h1 {
     width: 12rem;
     font-family: "Tilt Warp";
 }
+
+/* adjust for smaller screen sizes */
 
 @media screen and (max-width: 615px) {
     .gameboard {
@@ -114,5 +82,13 @@ h1 {
         width: 10rem;
         height: 10rem; 
         font-size: 7rem;
+    }
+
+    .prompter p {
+        font-size: 1rem;
+    }
+
+    body {
+        background-image: none;
     }
 }

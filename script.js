@@ -1,44 +1,26 @@
-console.log('All good')
-
 // ******************* VARIABLES FOR HTML ELEMENTS *******************
 
 // Variables for p elements in prompter
 const gameBoard = document.querySelector(".gameboard")
-console.log(gameBoard)
 const xo = document.querySelector('#xo');
-console.log(xo);
 const prompts = document.querySelector('#prompts');
-console.log(prompts);
-const tiles = document.querySelector(".tiles")
-console.log(tiles)
 
 //variables forn game board
 const tile1 = document.querySelector("#tile1");
-console.log(tile1);
 const tile2 = document.querySelector("#tile2");
-console.log(tile2);
 const tile3 = document.querySelector("#tile3");
-console.log(tile3);
 const tile4 = document.querySelector("#tile4");
-console.log(tile4);
 const tile5 = document.querySelector("#tile5");
-console.log(tile5);
 const tile6 = document.querySelector("#tile6");
-console.log(tile6);
 const tile7 = document.querySelector("#tile7");
-console.log(tile7);
 const tile8 = document.querySelector("#tile8");
-console.log(tile8);
 const tile9 = document.querySelector("#tile9");
-console.log(tile9);
 
 // variable for restart button
 
 const restart = document.querySelector('#restart');
-console.log(restart);
 
 // ******************* GAME VARIABLES *******************
-
 
 // Default Empty Array 
 let tileArray = [[],[],[],[],[],[],[],[]];
@@ -134,11 +116,9 @@ tile1.addEventListener('click', function(){
         tileArray[3].push('o')
         tileArray[6].push('o')
     }
-    console.log(tileArray)
     tile1.disabled = true
     checkForWinner(tileArray)
     turn --
-    console.log(winner)
 })
 
 tile2.addEventListener('click', function(){
@@ -151,11 +131,9 @@ tile2.addEventListener('click', function(){
         tileArray[0].push('o')
         tileArray[4].push('o')
     }
-    console.log(tileArray)
     tile2.disabled = true
     checkForWinner(tileArray)
     turn --
-    console.log(winner)
 })
 
 tile3.addEventListener('click', function(){
@@ -170,11 +148,9 @@ tile3.addEventListener('click', function(){
         tileArray[5].push('o')
         tileArray[7].push('o')
     }
-    console.log(tileArray)
     tile3.disabled = true
     checkForWinner(tileArray)
     turn --
-    console.log(winner)
 })
 
 tile4.addEventListener('click', function(){
@@ -191,7 +167,6 @@ tile4.addEventListener('click', function(){
     tile4.disabled = true
     checkForWinner(tileArray)
     turn --
-    console.log(winner)
 })
 
 tile5.addEventListener('click', function(){
@@ -208,11 +183,9 @@ tile5.addEventListener('click', function(){
         tileArray[6].push('o')
         tileArray[7].push('o')
     }
-    console.log(tileArray)
     tile5.disabled = true
     checkForWinner(tileArray)
     turn --
-    console.log(winner)
 })
 
 tile6.addEventListener('click', function(){
@@ -225,11 +198,9 @@ tile6.addEventListener('click', function(){
         tileArray[1].push('o')
         tileArray[5].push('o')
     }
-    console.log(tileArray)
     tile6.disabled = true
     checkForWinner(tileArray)
     turn --
-    console.log(winner)
 })
 
 tile7.addEventListener('click', function(){
@@ -244,11 +215,9 @@ tile7.addEventListener('click', function(){
         tileArray[3].push('o')
         tileArray[7].push('o')
     }
-    console.log(tileArray)
     tile7.disabled = true
     checkForWinner(tileArray)
     turn --
-    console.log(winner)
 })
 
 tile8.addEventListener('click', function(){
@@ -261,11 +230,9 @@ tile8.addEventListener('click', function(){
         tileArray[2].push('o')
         tileArray[4].push('o')
     }
-    console.log(tileArray)
     tile8.disabled = true
     checkForWinner(tileArray)
     turn --
-    console.log(winner)
 })
 
 tile9.addEventListener('click', function(){
@@ -280,10 +247,8 @@ tile9.addEventListener('click', function(){
         tileArray[5].push('o')
         tileArray[6].push('o')
     }
-    console.log(tileArray)
     tile9.disabled = true
     checkForWinner(tileArray)
     turn --
-    console.log(winner)
 })
 

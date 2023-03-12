@@ -1,0 +1,66 @@
+    <!-- // Preparation
+* make a simple mockup/wirefram of your TTT board
+    * think of all the html elements you will need to structure the document (TTT board, message area, page title
+    * visually draw everything out (divs/main containers)
+* review phase
+    * look over lessons from this week that you need to review
+    * read the gitbook for the lessons you need to review
+    * review the code form lessons/labs
+    * do some googling 
+* start writing code & do not panic
+    * it's okay for you to write code you'll have to throw out later
+* copy our pseudocode into your files
+
+    // Psuedocode
+
+    # html
+your index.html
+< header for page>
+< grid of nine squares>
+< some kind of area for a message to the player>
+< button for reset> -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TicTackToe</title>
+        <link rel="stylesheet" href="style.css">
+        <script defer src="script.js"></script>
+    </head>
+    <body>
+        <div class="total-card">
+            <div class="title-card">
+                <h1>Tic-Tack-Toe</h1>
+            </div>
+            <div class="game-board">
+                <span>
+                    <div class="squares" id="a1"></div>
+                    <br>
+                    <div class="squares" id="a2"></div>
+                    <br>
+                    <div class="squares" id="a3"></div>
+                </span>
+                <span>
+                    <div class="squares" id="b1"></div>
+                    <br>
+                    <div class="squares" id="b2"></div>
+                    <br>
+                    <div class="squares" id="b3"></div>
+                </span>
+                <span>
+                    <div class="squares" id="c1"></div>
+                    <br>
+                    <div class="squares" id="c2"></div>
+                    <br>
+                    <div class="squares" id="c3"></div>
+                </span>
+            </div>
+            <div class="btn-card">
+                <p class="messages">Player 1 is X's. Click a square.</p>
+                <br>
+                <button class="btn-reset">RESET GAME</button>
+            </div>
+        </div>
+        
+    </body>
+</html>

@@ -37,12 +37,12 @@ function handleMove(move) {
 
     // check if the current player has won
     if (checkWin(currentPlayer)) {
-      document.querySelector(".result").innerText = currentPlayer + " wins!";
+      document.querySelector(".result").innerText = currentPlayer + " wins!" + " 🎉";
       gameOver = true;
       // // reset the gameBoard
       // gameBoard = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
     } else if (checkTie()) {
-        document.querySelector(".result").innerText = "It's a tie";
+        document.querySelector(".result").innerText = "It's a tie" + " 🙀";
         gameOver = true;        
     } else {
       // switch to the other player

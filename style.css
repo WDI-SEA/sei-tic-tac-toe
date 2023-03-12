@@ -44,3 +44,11 @@ body {
     cursor: pointer;
     transition: all 0.2s ease;
 }
+
+.title {
+    margin-bottom: 0px;
+}
+
+.creator {
+    font-size: smaller;
+}

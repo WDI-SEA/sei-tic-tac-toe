@@ -49,20 +49,15 @@ const checkForDraw = () => {
   }
 };
 
-// create board tiles and add listeners
+// create board tiles, add listeners, create array of DOM nodes
+let squaresArray = [];
 for (let i = 0; i < 9; i++) {
   const newDiv = document.createElement("div");
   newDiv.setAttribute("class", "square");
   document.querySelector(".gameBoard").appendChild(newDiv);
   addListener(newDiv);
+  squaresArray.push(newDiv);
 }
-
-// create array of board squares for use with array methods
-let domSquares = document.querySelectorAll(".square");
-let squaresArray = [];
-domSquares.forEach((square) => {
-  squaresArray.push(square);
-});
 
 // establish initial game conditions
 let playerOneTurn = true;

@@ -1,17 +1,28 @@
 body {
     background-color: aqua;
+    text-align: center;
 }
 .board {
     display: grid;
-    grid-template-columns: auto auto auto;
-    padding: 10px;
+    grid-template-columns: 25vh 25vh 25vh;
+    grid-template-rows: 25vh 25vh 25vh;
+    justify-content: center;
 }
 
 .grid-item {
     display:flex;
     background-color: rgba(255, 255, 255, 0.8);
     border: 9px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
+    justify-content: center;
+    flex-direction: column;
     font-size: 30px;
     text-align: center;
+}
+
+.buttons {
+    padding: 3vh;
+}
+
+.result {
+    padding:1vh
 }

@@ -1,0 +1,118 @@
+body {
+    font-family: "Tilt Warp";
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(https://media1.giphy.com/media/ctaOVneRRXhBrQPwdW/giphy.gif);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position-x: -10%;
+    background-position-y: 75%;
+    background-color: rgb(0, 0, 0);
+}
+
+
+/* Styling for the header div */
+h1 {
+    font-size: 3rem;
+    margin-bottom: .5rem;
+    text-align: center;
+    color: rgb(251, 251, 251);
+}
+
+
+/* styling for the prompter*/
+.prompter {
+    display: inline-flex;
+}
+
+.prompter p {
+    padding: .25rem;
+    font-size: 2rem;
+    color: rgb(240, 5, 52);
+}
+
+
+/* Styling for the game board */
+.gameboard {
+    display: flex;
+    flex-wrap: wrap;
+    width: 36rem;
+    
+}
+
+.tiles {
+    width: 12rem;
+    height: 12rem; 
+    border: none;
+    font-size: 10rem;
+    font-family: "Tilt Warp";
+    background:rgba(255, 255, 255, 0%);
+    background-image: url(https://i.pinimg.com/originals/7c/0e/f9/7c0ef98a17bcb92bf2abfaab2a3a84cb.gif);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.tiles:disabled {
+    color:hsl(348, 96%, 48%)
+}
+
+.one {
+    border-bottom: .5rem solid rgb(0, 0, 0);
+    border-right: .5rem solid rgb(0, 0, 0);
+}
+
+.two {
+    border-bottom: .5rem solid rgb(0, 0, 0);
+}
+
+.three {
+    border-bottom: .5rem solid rgb(0, 0, 0);
+    border-left: .5rem solid rgb(0, 0, 0);
+}
+
+.four {
+    border-bottom: .5rem solid rgb(0, 0, 0);
+    border-right: .5rem solid rgb(0, 0, 0);
+}
+
+.five {
+    border-bottom: .5rem solid rgb(0, 0, 0);
+}
+
+.six {
+    border-bottom: .5rem solid rgb(0, 0, 0);
+    border-left: .5rem solid rgb(0, 0, 0);
+}
+
+.seven {
+    border-right: .5rem solid rgb(0, 0, 0);
+}
+
+.nine {
+    border-left: .5rem solid rgb(0, 0, 0);
+}
+/* styling for the restart button */
+
+.refresh {
+    margin-top: 1rem;
+    height: 2rem;
+    width: 12rem;
+    font-family: "Tilt Warp";
+}
+
+@media screen and (max-width: 615px) {
+    .gameboard {
+        display: flex;
+        flex-wrap: wrap;
+        width: 30rem;
+        
+    }
+    
+    .tiles {
+        width: 10rem;
+        height: 10rem; 
+        font-size: 7rem;
+    }
+}

@@ -1,10 +1,8 @@
 // establish helper functions
 const clickSquare = (square) => {
   tryToClaimSquare(square);
-  if (checkForWin("X")) {
-    winGame("one");
-  } else if (checkForWin("O")) {
-    winGame("two");
+  if (checkForWin("X") || checkForWin("O")) {
+    winGame();
   }
   if (winnerExists === false) {
     checkForDraw();
@@ -15,7 +13,9 @@ const tryToClaimSquare = (square) => {
   if (!square.classList.contains("locked")) {
     claimSquare(square);
   } else {
-    alert("PH Sorry -- that square's taken!");
+    playerNumber = playerOneTurn ? "one" : "two";
+    turnDisplay.firstElementChild.textContent = `Sorry player ${playerNumber}, 
+    that square is taken! Pick another one.`;
   }
 };
 
@@ -38,15 +38,22 @@ const checkForWin = (playerSymbol) => {
   });
 };
 
-const winGame = (player) => {
-  alert(`Player ${player} wins!`);
+const winGame = () => {
+  // following line may look backwards -- note that
+  // turn does change one more time after the
+  // winning move, so if player one wins, it will be
+  // player two's turn at conclusion of the game.
+  playerNumber = playerOneTurn ? "two" : "one";
+  turnDisplay.firstElementChild.textContent = `Player ${playerNumber} takes the win!
+  Press the reset button to play again.`;
   winnerExists = true;
 };
 
 const checkForDraw = () => {
   let squares = document.querySelectorAll(".locked");
   if (squares.length === 9) {
-    alert("PH Draw game!");
+    turnDisplay.firstElementChild.textContent = `Ah dang...it's a draw.  
+    Press the reset button to play again.`;
   }
 };
 
@@ -58,6 +65,7 @@ const resetGame = () => {
     square.textContent = "";
     square.style.backgroundColor = "hsl(200, 20%, 30%)";
   });
+  turnDisplay.firstElementChild.textContent = `Player one, your turn!`;
 };
 
 // create board tiles, add listeners, create array of DOM nodes

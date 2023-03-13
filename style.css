@@ -1,0 +1,81 @@
+h1 {
+    text-align: center;
+}
+.box1 {
+    line-height: 10vw;
+    width: 10vw;
+    border: 2px black solid;
+    text-align: center;
+}
+.box2 {
+    line-height: 10vw;
+    width: 10vw;
+    border: 2px black solid;
+}
+.box3 {
+    line-height: 10vw;
+    width: 10vw;
+    border: 2px black solid;
+}
+.box4 {
+    line-height: 10vw;
+    width: 10vw;
+    border: 2px black solid;
+}
+.box5 {
+    line-height: 10vw;
+    width: 10vw;
+    border: 2px black solid;
+}
+.box6 {
+    line-height: 10vw;
+    width: 10vw;
+    border: 2px black solid;
+}
+.box7 {
+    line-height: 10vw;
+    width: 10vw;
+    border: 2px black solid;
+}
+.box8 {
+    line-height: 10vw;
+    width: 10vw;
+    border: 2px black solid;
+}
+.box9 {
+    line-height: 10vw;
+    width: 10vw;
+    border: 2px black solid;
+}
+.flex-row1 {
+    display: flex;
+    justify-content: center;
+}
+.flex-row2{
+    display: flex;
+    justify-content: center;
+}
+.flex-row3{
+    display: flex;
+    justify-content: center;
+}
+.messageflex {
+    display: flex;
+    justify-content: center;
+}
+.message-box{
+    border: 5px hotpink solid;
+    width: 25vw;
+    }
+.button {
+    display: flex;
+    justify-content: center;
+}
+.board {
+    margin: 78px 0px 20px 0px;
+}
+
+.answer {
+   background-color: hotpink;
+
+}

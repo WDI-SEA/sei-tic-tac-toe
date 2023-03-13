@@ -29,7 +29,9 @@ const claimSquare = (square) => {
 };
 
 const promptNextPlayer = (playerNumber) => {
-  turnDisplay.firstElementChild.textContent = `Player ${playerNumber}, your turn!`;
+  let randNum = Math.floor(Math.random() * exhortations.length);
+  let randExhort = exhortations[randNum];
+  turnDisplay.firstElementChild.textContent = `Player ${playerNumber}, ${randExhort}`;
 };
 
 const checkForWin = (playerSymbol) => {
@@ -101,4 +103,14 @@ let winLines = [
   [squaresArray[2], squaresArray[5], squaresArray[8]],
   [squaresArray[0], squaresArray[4], squaresArray[8]],
   [squaresArray[2], squaresArray[4], squaresArray[6]],
+];
+
+let exhortations = [
+  "show us what you got!",
+  "don't give up!",
+  "make this move count!",
+  "are you gonna take that?!",
+  "you've trained for this!",
+  "demonstrate excellence!",
+  "I believe in you!",
 ];

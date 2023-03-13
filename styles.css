@@ -1,0 +1,23 @@
+h1 {
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 120px 120px 120px;
+    padding: 7rem;
+    margin-left: 250px;
+    
+    
+}
+.grid-item {
+    border: solid 3px;
+    padding-bottom: 35%; 
+   
+}
+#resetButton { 
+    margin-left: 520px;
+}
+.gameResults {
+    text-align: center;
+}

@@ -1,0 +1,70 @@
+/*just enough styling to get grid and set up game board*/
+/*Make it beautiful after*/
+* {
+    text-align: center;
+    
+}
+@font-face {
+    font-family:'Rampart One', monospace;
+    src: url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+}
+body {
+    background-color: black;
+}
+h1 {
+    color: white;
+    /*font-family:'Rampart One', cursive;
+    font-family: monospace;*/
+}
+
+.grid-container {
+    display: grid;
+    width: 500px;
+    height: 500px;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-evenly;
+    border: 5px, rgb(188, 35, 35), solid;
+    background: rgb(223, 197, 158);
+    margin: auto; 
+    cursor: pointer;
+    
+}
+.square {
+    width: auto;
+    height: auto;
+}
+#s0{
+    background-color: aqua;
+    text-align: match-parent;
+}
+#s1{
+    background-color: crimson;
+}
+#s2{
+    background-color: goldenrod;
+}
+#s3 {
+    background-color: blueviolet;
+}
+#s4 {
+    background-color: greenyellow;
+}
+#s5 {
+    background-color: deeppink;
+}
+#s6 {
+    background-color: blue;
+}
+#s7 {
+    background-color: orange;
+}
+#s8 {
+    background-color: indigo;
+}
+.player-score{
+
+}
+button {
+
+}
+ 

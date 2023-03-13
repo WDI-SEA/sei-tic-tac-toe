@@ -1,0 +1,25 @@
+/* styles.css */
+/* just enough styling to get a gird and setup the gameboard */
+/* DO NOT DO ANY OTHER STYLING UNTIL YOU ARE FINISHED */
+h1 {
+    color: black;
+    text-align: center;
+}
+button {
+    display: block;
+    margin: 10px;
+    
+}
+.grid-container {
+    display: inline-grid;
+    color: goldenrod;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px;
+    text-align: center;
+    padding: 10px;
+    background-color: maroon;
+}
+.grid-item {
+    border: 1px solid black;
+    background-color: rgb(189, 126, 126);
+}

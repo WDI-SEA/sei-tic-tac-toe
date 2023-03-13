@@ -1,20 +1,19 @@
 // establish helper functions
 const addListener = (element) => {
   element.addEventListener("click", () => {
-    clickSquare(element);
+    if (winnerExists === false) {
+      clickSquare(element);
+    }
   });
 };
 
 const clickSquare = (square) => {
   tryToClaimSquare(square);
-
-  // broken because playerOneTurn flips before win check.
-  // Probably need to refactor how I'm managing "player turn"
-  // state in addition to finishing game end logic.
-  if (checkForWin(playerOneTurn ? "X" : "O")) {
-    alert(playerOneTurn ? "PH p1 win" : "PH p2 win");
+  if (checkForWin("X")) {
+    winGame("one");
+  } else if (checkForWin("O")) {
+    winGame("two");
   }
-
   if (winnerExists === false) {
     checkForDraw();
   }
@@ -40,6 +39,11 @@ const checkForWin = (playerSymbol) => {
   return winLines.some((line) => {
     return line.every((square) => square.textContent === playerSymbol);
   });
+};
+
+const winGame = (player) => {
+  alert(`Player ${player} wins!`);
+  winnerExists = true;
 };
 
 const checkForDraw = () => {

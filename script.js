@@ -49,44 +49,16 @@ let compChoiceArray = []
 
 //function to give the computer a choice and picks a random tile
 const computerOptions = (array) => {
-    if (optionSelector.value === 'computer' && whoseTurn === 'X') {
-        for (i = 0 ; i < array.length ; i++) {
-            if (array[i].disabled !== true) {
+    for (i = 0 ; i < array.length ; i++) {
+        if (array[i].disabled !== true) {
                 compChoiceArray.push(array[i])
-            }
         }
-        let compMove = compChoiceArray[Math.floor(Math.random() * compChoiceArray.length)]
-        console.log(compMove)
-        compMove.disabled = true
-        compMove.innerHTML = "o"
-        compChoiceArray = []
-        turn--
-        updateTurn()
-        console.log(turn)
     }
+    let compMove = compChoiceArray[Math.floor(Math.random() * compChoiceArray.length)]
+    compMove.click()
 }
-
-
-// Function  for computer to make a choice
-
-const compPick = () => {
-    let randomNum = Math.floor(Math.random()* compChoiceArray.length)
-    console.log(randomNum)
-}
-
 
 //  Function to to update turn
-gameBoard.addEventListener('click', function(){
-   if (whoseTurn === 'X'){
-       whoseTurn = 'O'
-       xo.innerHTML = "O"
-    } else if (whoseTurn === 'O') {
-        whoseTurn = 'X'
-        xo.innerHTML = "X"
-    }
-    optionSelector.disabled = true
-})
-
 const updateTurn = () => {
     if (whoseTurn === 'X'){
         whoseTurn = 'O'
@@ -98,7 +70,7 @@ const updateTurn = () => {
 }
 
 // this function checks for a winner and disables the tiles if there is winner
-// updated this function to also update win count and score display
+// updated this function to also update win count and score display 
 
 const checkForWinner = (arrays) => {
     for (let i = 0 ; i < arrays.length; i++) {
@@ -119,6 +91,8 @@ const checkForWinner = (arrays) => {
           }
         }
       }
+      //updates turn and then disables tiles if there is a winner
+      updateTurn()
       if (winner !== '') {
         tile1.disabled = true
         tile2.disabled = true
@@ -194,8 +168,9 @@ tile1.addEventListener('click', function(){
     tile1.disabled = true
     checkForWinner(tileArray)
     turn --
+    if (optionSelector.value === 'computer' && whoseTurn === 'O'){
     setTimeout(computerOptions(buttonArray), 3000)
-    
+    }
 })
 
 tile2.addEventListener('click', function(){
@@ -211,7 +186,9 @@ tile2.addEventListener('click', function(){
     tile2.disabled = true
     checkForWinner(tileArray)
     turn --
-    setTimeout(computerOptions(buttonArray), 3000)
+    if (optionSelector.value === 'computer' && whoseTurn === 'O'){
+        setTimeout(computerOptions(buttonArray), 3000)
+        }
 })
 
 tile3.addEventListener('click', function(){
@@ -229,7 +206,9 @@ tile3.addEventListener('click', function(){
     tile3.disabled = true
     checkForWinner(tileArray)
     turn --
-    setTimeout(computerOptions(buttonArray), 3000)
+    if (optionSelector.value === 'computer' && whoseTurn === 'O'){
+        setTimeout(computerOptions(buttonArray), 3000)
+        }
 })
 
 tile4.addEventListener('click', function(){
@@ -245,7 +224,9 @@ tile4.addEventListener('click', function(){
     tile4.disabled = true
     checkForWinner(tileArray)
     turn --
-    setTimeout(computerOptions(buttonArray), 3000)
+    if (optionSelector.value === 'computer' && whoseTurn === 'O'){
+        setTimeout(computerOptions(buttonArray), 3000)
+        }
 })
 
 tile5.addEventListener('click', function(){
@@ -265,7 +246,9 @@ tile5.addEventListener('click', function(){
     tile5.disabled = true
     checkForWinner(tileArray)
     turn --
-    setTimeout(computerOptions(buttonArray), 30000)
+    if (optionSelector.value === 'computer' && whoseTurn === 'O'){
+        setTimeout(computerOptions(buttonArray), 3000)
+        }
 })
 
 tile6.addEventListener('click', function(){
@@ -281,9 +264,10 @@ tile6.addEventListener('click', function(){
     tile6.disabled = true
     checkForWinner(tileArray)
     turn --
-    setTimeout(computerOptions(buttonArray), 3000)
-})
-
+    if (optionSelector.value === 'computer' && whoseTurn === 'O'){
+        setTimeout(computerOptions(buttonArray), 3000)
+        }
+})   
 tile7.addEventListener('click', function(){
     if(whoseTurn === 'X') {
         tile7.innerHTML = 'x'
@@ -299,7 +283,9 @@ tile7.addEventListener('click', function(){
     tile7.disabled = true
     checkForWinner(tileArray)
     turn --
-    setTimeout(computerOptions(buttonArray), 3000)
+    if (optionSelector.value === 'computer' && whoseTurn === 'O'){
+        setTimeout(computerOptions(buttonArray), 3000)
+        }
 })
 
 tile8.addEventListener('click', function(){
@@ -315,7 +301,9 @@ tile8.addEventListener('click', function(){
     tile8.disabled = true
     checkForWinner(tileArray)
     turn --
-    setTimeout(computerOptions(buttonArray), 3000)
+    if (optionSelector.value === 'computer' && whoseTurn === 'O'){
+        setTimeout(computerOptions(buttonArray), 3000)
+        }
 })
 
 tile9.addEventListener('click', function(){
@@ -333,6 +321,8 @@ tile9.addEventListener('click', function(){
     tile9.disabled = true
     checkForWinner(tileArray)
     turn --
-    setTimeout(computerOptions(buttonArray), 3000)
+    if (optionSelector.value === 'computer' && whoseTurn === 'O'){
+        setTimeout(computerOptions(buttonArray), 3000)
+        }
 })
 

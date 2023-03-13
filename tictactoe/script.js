@@ -122,7 +122,6 @@ for (let i = 0; i < 9; i++) {
             winner.innerText = "THE X PLAYER HAS WON THIS ROUND!";
             // mySpan.classList.add('.recolor');
             xScore.innerHTML = `Player <span style="color: red">X</span>: ${++xScoreCount}`;
-            //ask why its ++ first here
         }
     
         if(checkForWinner('O')){

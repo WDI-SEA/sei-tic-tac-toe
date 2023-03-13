@@ -1,11 +1,16 @@
-* {
-}
-
 body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgb(18, 20, 29);
+    color: hotpink;
+    font-family: 'Bungee Outline', cursive;
+    text-shadow:  1px 1px 10px hotpink;
+}
+
+.ttt {
+    font-size: 50px;
 }
 
 .gameboard {
@@ -31,11 +36,43 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 25px;
+    /* color: aqua; */
 }
 
-.wins {
+.player-2 {
+    /* background-color: goldenrod; */
+    border-width: 3px;
+    border-color: aqua;
+    border-radius: 10px;
+}
+
+.players h2 {
+    font-family: 'Bungee Outline', cursive;
+    font-size: 45px;
+}
+
+.player-1 {
+    color: lime;
+    /* text-shadow: 2px 2px 10px lime; */
+    text-shadow: 1px 1px 10px lime;
+}
+
+.player-2 {
+    color: aqua;
+    /* text-shadow: 2px 2px 10px aqua; */
+    text-shadow: 1px 1px 10px aqua;
+}
+
+.winsDiv {
     display: flex;
     flex-direction: row;
+}
+
+.total {
+    /* margin: 0 5px; */
+    padding: 0px 5px;
 }
 
 #p2Turn {
@@ -43,6 +80,10 @@ body {
 }
 
 .winner {
+    display: none;
+}
+
+.catsGame {
     display: none;
 }
 
@@ -68,7 +109,7 @@ body {
 }
 
 .top {
-  background-color: red;
+  background-color: rgb(18, 20, 29);
   height: 90px;
   width: 90px;
   display: flex;
@@ -85,7 +126,7 @@ body {
 
 
 .center {
-    background-color: red;
+    background-color: rgb(18, 20, 29);
     height: 90px;
     width: 90px;
     display: flex;
@@ -101,7 +142,7 @@ body {
 }
 
 .bottom {
-    background-color: red;
+    background-color: rgb(18, 20, 29);
     height: 90px;
     width: 90px;
     display: flex;
@@ -114,4 +155,21 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 50px;
+}
+
+/* .buttonDiv {
+    margin: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.clearButton {
+    font-family: 'Bungee Outline', sans-serif;
+    background-color: rgb(18, 20, 29);
+    color: hotpink;
+    height: 60px;
+    /* width: 300px; */
+    font-size: 50px;
+    text-shadow: 1px, 1px, 10px, hotpink;
 }

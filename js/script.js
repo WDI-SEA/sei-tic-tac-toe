@@ -23,7 +23,10 @@ const p1Winner = document.querySelector("#p1Winner")
 const p2Winner = document.querySelector("#p2Winner")
 const p1Wins = document.querySelector("#p1Wins")
 const p2Wins = document.querySelector("#p2Wins")
-
+const player1 = document.querySelector("#player1")
+const player2 = document.querySelector("#player2")
+const p1Cat = document.querySelector("#p1CatsGame")
+const p2Cat = document.querySelector("#p2CatsGame")
 
 // Declare an array that will be used to hold values for the game
 let gameboard = ["","","","","","","","",""]
@@ -40,6 +43,16 @@ let activeGame = true;
 // Declare variables to hold the total amount of wins for each player 
 let p1TotalWins = 0
 let p2TotalWins = 0
+
+const coloring = function(cell, target) {
+    if (cell === "x") {
+    target.style.color = "lime"
+    target.style.textShadow = "2px 2px 10px lime"
+    } else if (cell === "o") {
+        target.style.color = "aqua"
+        target.style.textShadow = "2px 2px 10px aqua"
+    }
+}
 
 const turnCounter = function() {
     if (turn === "x") {
@@ -86,23 +99,28 @@ const isCellBlankandGameActive = function (target) {
 }
 
 const winner = function(win) {
-    if (win = "x") {
+    if (win === "x") {
         p1Turn.style.display = "none"
         p2Turn.style.display = "none"
         p1Winner.style.display = "block"
         p1TotalWins ++
+        console.log("x wins")
         printTotalWins()
-    } else if (win = "o") {
+    } else if (win === "o") {
         p1Turn.style.display = "none"
         p2Turn.style.display = "none"
         p2Winner.style.display = "block"
         p2TotalWins ++
-        printTotalWins
+        console.log("o wins")
+        printTotalWins ()
     }
 }
 
 const catsgame = function () {
-    console.log("Cat's game! No winners here.")
+    p1Turn.style.display = "none"
+    p2Turn.style.display = "none"
+    p1Cat.style.display = "block"
+    p2Cat.style.display = "block"
 }
 
 const checkWinner = function () {
@@ -133,7 +151,7 @@ const checkWinner = function () {
     }
     // check bottom row for winner
     else if (gameboard[6] !== "" && gameboard[6] === gameboard[7] && gameboard[6] === gameboard[8]){
-        winner(gameboard[3])
+        winner(gameboard[6])
         activeGame = false;
     } 
     // check diagonal top-left to bottom-right
@@ -143,7 +161,7 @@ const checkWinner = function () {
     } 
     // check diagonal top-right to bottom-left
     else if (gameboard[2] !== "" && gameboard[2] === gameboard[4] && gameboard[2] === gameboard[6]){
-        winner(gameboard[0])
+        winner(gameboard[2])
         activeGame = false;
     } else if (totalTurns === 9) {
         catsgame()
@@ -156,6 +174,7 @@ topLeftDiv.addEventListener("click", function() {
         gameboard[0] = turn
         turnCounter()
         checkWinner()
+        coloring(gameboard[0],topLeftDiv)
     } else {
         console.log("Occupied")
     }
@@ -168,6 +187,7 @@ topCenterDiv.addEventListener("click", function() {
         gameboard[1] = turn
         turnCounter()
         checkWinner()
+        coloring(gameboard[1],topCenterDiv)
     } else {
         console.log("Occupied")
     }
@@ -180,6 +200,7 @@ topRightDiv.addEventListener("click", function() {
         gameboard[2] = turn
         turnCounter()
         checkWinner()
+        coloring(gameboard[2],topRightDiv)
     } else {
         console.log("Occupied")
     }
@@ -192,6 +213,7 @@ centerLeftDiv.addEventListener("click", function() {
         gameboard[3] = turn
         turnCounter()
         checkWinner()
+        coloring(gameboard[3],centerLeftDiv)
     } else {
         console.log("Occupied")
     }
@@ -204,6 +226,7 @@ centerCenterDiv.addEventListener("click", function() {
         gameboard[4] = turn
         turnCounter()
         checkWinner()
+        coloring(gameboard[4],centerCenterDiv)
     } else {
         console.log("Occupied")
     }
@@ -216,6 +239,7 @@ centerRightDiv.addEventListener("click", function() {
         gameboard[5] = turn
         turnCounter()
         checkWinner()
+        coloring(gameboard[5],centerRightDiv)
     } else {
         console.log("Occupied")
     }
@@ -228,6 +252,7 @@ bottomLeftDiv.addEventListener("click", function() {
         gameboard[6] = turn
         turnCounter()
         checkWinner()
+        coloring(gameboard[6],bottomLeftDiv)
     } else {
         console.log("Occupied")
     }
@@ -240,6 +265,7 @@ bottomCenterDiv.addEventListener("click", function() {
         gameboard[7] = turn
         turnCounter()
         checkWinner()
+        coloring(gameboard[7],bottomCenterDiv)
     } else {
         console.log("Occupied")
     }
@@ -252,13 +278,14 @@ bottomRightDiv.addEventListener("click", function() {
         gameboard[8] = turn
         turnCounter()
         checkWinner()
+        coloring(gameboard[8],bottomRightDiv)
     } else {
         console.log("Occupied")
     }
     printGameBoard ()
 })
 
-
+// Clear button resets the game board
 clearButton.addEventListener("click", function() {
     clearGameBoard()
     printGameBoard()
@@ -269,4 +296,6 @@ clearButton.addEventListener("click", function() {
     p2Turn.style.display = "none"
     p1Winner.style.display = "none"
     p2Winner.style.display = "none"
+    p1Cat.style.display = "none"
+    p2Cat.style.display = "none"
 })

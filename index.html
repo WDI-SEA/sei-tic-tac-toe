@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <script defer src="script.js"></script>
+    <body>
+       
+        <h1>Tick Tac Toe</h1>
+        <!-- creating a grid container and giving each sell an ID -->
+        <div class="grid-container">
+            <div class="grid-item" id='0' onmousedown="play(this)"></div>
+            <div class="grid-item" id='1' onmousedown="play(this)"></div>
+            <div class="grid-item" id='2' onmousedown="play(this)"></div>
+            <div class="grid-item" id='3' onmousedown="play(this)"></div>
+            <div class="grid-item" id='4' onmousedown="play(this)"></div>
+            <div class="grid-item" id='5' onmousedown="play(this)"></div>
+            <div class="grid-item" id='6' onmousedown="play(this)"></div>
+            <div class="grid-item" id='7' onmousedown="play(this)"></div>
+            <div class="grid-item" id='8' onmousedown="play(this)"></div>
+          </div>
+    </body>
+    <button onclick="startOver()">Clear</button>
+
+</html>
+
+<!-- I first used onclick for the grid-container but it was giving me a lot of bugs so I serched MDN for something similar to try and I found onmousedown -->

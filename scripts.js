@@ -12,15 +12,15 @@ let playerTwo = "O"
 //     console.log(gridSquare)
 //}
 gridSquare.addEventListener("click", function () {
-    if (turn % 2 === 0) {
+    if (playerOne % 2 === 0) {
         gridSquare.innerText = "O"
-    } else if (turn %2 !== 0) {
+    } else if (playerTwo %2 !== 0) {
         gridSquare.innerText = "X"
     
         console.log("x" || "O")
     };
 })
-reset.addEventListener("click",function restartGame() {
+resetButton.addEventListener("click",function restartGame() {
     gridSquare = [" "," "," "," "," "," "," "," "," "]
 })
 
@@ -36,3 +36,4 @@ const winningCombos = [
     [0, 4, 8],
     [2, 4, 6],
   ];
+

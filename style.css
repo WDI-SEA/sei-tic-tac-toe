@@ -18,8 +18,9 @@ body {
 .gameBoard {
   display: flex;
   flex-wrap: wrap;
-  width: 600px;
-  height: 600px;
+  width: 602px;
+  height: 602px;
+  border: 1px solid white;
 }
 
 .square {

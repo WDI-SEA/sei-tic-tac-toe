@@ -1,23 +1,54 @@
-/* * {
-    font-family: sans;
-} */
+* {
+ font-family: 'Permanent Marker', cursive, sans;
+ letter-spacing: .2rem;
+} 
 
 .game-title {
     display: flex;
-    border: 3px solid black;
+    /* border: 3px solid black; */
     justify-content: center;
     align-content: center;
     width: 80%;
     margin: 3vh auto;
+    /* border-bottom: 5px solid gray;
+    border-radius: 10px; */
 }
 h1 {
-    font-size: 2em;
-    border: 3px solid gray;
+    font-size: 3em;
+    /* border: 3px solid gray; */
     margin: 0;
+    border-bottom: 5px solid gray;
+    /* border-radius: 18px; */
 }
 
+.upper-header {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+.Enter-player-names-title {
+    display: block;
+    /* border: 3px solid blue; */
+    width: 30%;
+    border-bottom: 3px solid gray;
+}
+.game-modes-title {
+    display: block;
+    /* border: 3px solid orange; */
+    margin: 0 auto;
+    width: 30%;
+    text-align: center;
+    border-bottom: 3px solid gray;
+}
+.game-status-title {
+    display: block;
+    /* border: 3px solid green; */
+    width: 30%;
+    text-align: right;
+    border-bottom: 3px solid gray;
+}
 .game-header {
-    border: 3px solid rgba(88, 0, 221, 0.835);
+    /* border: 3px solid rgba(88, 0, 221, 0.835); */
     display: flex;
     width: 80%;
     margin: 0 auto 3vh;
@@ -27,7 +58,7 @@ h1 {
     display: flex;
     width: 30%;
     /* height: 100%; */
-    border: 3px solid rgb(100, 65, 0);
+    /* border: 3px solid rgb(100, 65, 0); */
     flex-wrap: wrap;
     align-content: flex-start;
 }
@@ -46,23 +77,34 @@ h1 {
 .player-one-container, .player-two-container {
     width: 100%;
     height: 50%;
-    border: 2px solid yellow;
+    /* border: 2px solid gray; */
     align-content: center;
     justify-content: center;
     display: flex;
+    /* background-color: orange; */
+    border-radius: 10px;
+    
 }
-
 .player-one-name, .player-two-name {
     width: 100%;
-    height: 50%;
-    border: none;
+    height: 80%;
     text-align: left;
+}
+.player-one-name {
+    border: none;
+    /* border-bottom: 2px solid gray; */
+}
+.player-two-name {
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
 }
 .game-start-container {
     display: flex;
     width: 30%;
-    border: 3px solid orange;
-    margin: 0 auto;
+    /* border: 3px solid orange; */
+    margin: .5vh auto 0;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -70,44 +112,61 @@ h1 {
     display: block;
     position: relative;
     height: 20%;
-    border: 3px solid orangered;
+    /* border: 3px solid orangered; */
+}
+.game-start-button:hover {
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: black;
 }
 .game-start-button {
     display: block;
     position: relative;
     width: 100%;
-    height: 30%;
-    border: 3px solid orangered;
+    height: 40%;
+    margin: .2vh 0;
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 10px;
+    color: gray;
+    /* border: 3px solid blue; */
 }
 .player-turn-display-container {
     display: block;
     width: 30%;
-    border: 3px solid rgb(100, 65, 0);
+    /* border: 3px solid rgb(100, 65, 0); */
     align-content: flex-start;
 }
 .playerTurnDisplay {
     height: 100%;
-    border: 3px solid rgb(19, 223, 50);
+    /* border: 3px solid rgb(19, 223, 50); */
     position: relative;
     margin: 0;
     padding: 0;
 }
+
 .playerOneTurnDisplay {
     height: 100%;
-    border: 3px solid rgb(19, 223, 50);
+    /* border: 3px solid rgb(19, 223, 50); */
     position: relative;
     margin: 0;
     padding: 0;
-    background-color:rgb(248, 228, 5);
+    color: rgb(18, 5, 158);
+    background-color: whitesmoke;
+    text-align: center;
+    border-radius: 4px;
 }
 
 .playerTwoTurnDisplay {
     height: 100%;
-    border: 3px solid rgb(19, 223, 50);
+    /* border: 3px solid rgb(19, 223, 50); */
     position: relative;
     margin: 0;
     padding: 0;
-    background-color:rgb(5, 131, 248);
+    color: rgb(0, 142, 17);
+    background-color: whitesmoke;
+    text-align: center;
+    border-radius: 4px;
 }
 
  .game-play {
@@ -116,94 +175,148 @@ h1 {
     row-gap: 0;
     width: 80%;
     height: 60vh;
-    border: 3px solid burlywood;
+    /* border: 3px solid burlywood; */
     margin: 0 auto 3vh;
-
 }
 .optionOne, .optionTwo, .optionThree, .optionFour, .optionFive, .optionSix, .optionSeven, .optionEight, .optionNine {
-    border: 3px solid gray;
-    background-color: lightgray;
+    /* border: 3px solid gray; */
     height: 100%;
     width: 100%;
     align-items: center;
     justify-content: center;
     display: flex;
+    font-size: 5em;
 }
 .optionOne {
     grid-column: 1;
     grid-row: 1;
+    border-bottom: 5px solid gray;
+    border-right: 5px solid gray;
+    border-top: none;
+    border-left: none;
+    background-color: whitesmoke;
 } 
 .optionTwo {
     grid-column: 2;
     grid-row: 1;
+    border-bottom: 5px solid gray;
+    border-right: 5px solid gray;
+    border-top: none;
+    border-left: 5px solid gray;
+    background-color: whitesmoke;
 }
 .optionThree {
     grid-column: 3;
     grid-row: 1;
+    border-bottom: none;
+    border-right: none;
+    border-top: none;
+    border-left: 5px solid gray;
+    background-color: whitesmoke;
 } 
 .optionFour {
     grid-column: 1;
     grid-row: 2;
+    border-bottom: none;
+    border-right: none;
+    border-top: 5px solid gray;
+    border-left: none;
+    background-color: whitesmoke;
 } 
 .optionFive {
     grid-column: 2;
     grid-row: 2;
+    border-bottom: none;
+    border-right: none;
+    border-top: 5px solid gray;
+    border-left: 5px solid gray;
+    background-color: whitesmoke;
 }
 .optionSix {
     grid-column: 3;
     grid-row: 2;
+    border-bottom: none;
+    border-right: none;
+    border-top: 5px solid gray;
+    border-left: 5px solid gray;
+    background-color: whitesmoke;
 }
 .optionSeven {
     grid-column: 1;
     grid-row: 3;
-} .optionEight {
+    border-bottom: none;
+    border-right: 5px solid gray;
+    border-top: 5px solid gray;
+    border-left: none;
+    background-color: whitesmoke;
+} 
+.optionEight {
     grid-column: 2;
     grid-row: 3;
+    border-bottom: none;
+    border-right: 5px solid gray;
+    border-top: 5px solid gray;
+    border-left: 5px solid gray;
+    background-color: whitesmoke;
 } 
 .optionNine {
     grid-column: 3;
     grid-row: 3;
+    border-bottom: none;
+    border-right: none;
+    border-top: 5px solid gray;
+    border-left: 5px solid gray;
+    background-color: whitesmoke;
 }
 .game-play > div > p {
     margin: 0;
     padding: 0;
     display: block;
     font-size: 2em;
+    position: absolute;
 }
 .game-footer {
     width: 80%;
     margin: 0 auto 3vh;
-    border: 3px solid rgba(88, 0, 221, 0.835);
     display: flex;
     margin-top: 2em;
     align-items: center;
 }
 .gameResult {
+ box-sizing: border-box;
     display: flex;
     width: 67%;
-    height: 100%;
-    border: 3px solid rgb(100, 65, 0);
+    height: 40%;
+    border: 3px solid gray;
+    border-radius: 10px;
     align-content: flex-start;
 }
 .gameResultContent {
     text-align: center;
-    font-size: 2em;
+    font-size: 3em;
     width: 100%;
 }
 .gameReset {
+    box-sizing: border-box;
     display: flex;
     position: relative;
     width: 33%;
     height: 100%;
-    border: 3px solid rgb(5, 189, 57);
+    /* border: 3px solid rgb(5, 189, 57); */
     align-content: flex-end;
-    align-items: center;
+    align-items: top;
+    padding: 3px;
 }
 .gameResultButton {
     display: block;
     text-align: center;
     font-size: 2em;
     width: 100%;
-    border: 3px solid rgba(255, 145, 0, 0.445);
-
+    border: 3px solid black;
+    border-radius: 10px;
+}
+.gameResultButton:hover {
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: black;
 }

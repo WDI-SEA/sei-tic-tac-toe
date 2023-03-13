@@ -13,41 +13,54 @@ let playerTwoName = document.getElementById("playerTwoName");
 
 // GAME PLAY: COMPUTER
 function computerRandomNum () {
+    if (gameOn === true) {
     // maxValue = computerGrid.length;
     computerRandomSelectValue = Math.floor(Math.random() * (9) + 1);
     console.log(computerRandomSelectValue);
     document.getElementById("playerTurnDisplay").innerText = "Computer thinking...";
-    let computerThinking = setTimeout(computerSelect, 2000);
+    let computerThinking = setTimeout(computerSelect, 1000);
+    } else {
+        console.log("the game is over.")
+    }
 }
 
 function computerSelect () {
     if (computerRandomSelectValue === 1 && computerGrid.includes(1) === true) {
         gridOneFunction();
         computerWinCheck ();
+        gridOne.removeEventListener("click", gridOneFunction);
     } else if (computerRandomSelectValue === 2 && computerGrid.includes(2) === true) {
         gridTwoFunction();
         computerWinCheck ();
+        gridTwo.removeEventListener("click", gridTwoFunction);
     } else if (computerRandomSelectValue === 3 && computerGrid.includes(3) === true) {
         gridThreeFunction();
         computerWinCheck ();
+        gridThree.removeEventListener("click", gridThreeFunction);
     } else if (computerRandomSelectValue === 4 && computerGrid.includes(4) === true) {
         gridFourFunction();
         computerWinCheck ();
+        gridFour.removeEventListener("click", gridFourFunction);
     } else if (computerRandomSelectValue === 5 && computerGrid.includes(5) === true) {
         gridFiveFunction();
         computerWinCheck ();
+        gridFive.removeEventListener("click", gridFiveFunction);
     } else if (computerRandomSelectValue === 6  && computerGrid.includes(6) === true) {
         gridSixFunction();
         computerWinCheck ();
+        gridSix.removeEventListener("click", gridSixFunction);
     } else if (computerRandomSelectValue === 7 && computerGrid.includes(7) === true) {
         gridSevenFunction();
         computerWinCheck ();
+        gridSeven.removeEventListener("click", gridSevenFunction);
     } else if (computerRandomSelectValue === 8 && computerGrid.includes(8) === true) {
         gridEightFunction();
         computerWinCheck ();
+        gridEight.removeEventListener("click", gridEightFunction);
     } else if (computerRandomSelectValue === 9 && computerGrid.includes(9) === true) {
         gridNineFunction();
         computerWinCheck ();
+        gridNine.removeEventListener("click", gridNineFunction);
     } else if (computerGrid.length === 0) {
         console.log("No more moves for Computer to make.")
     }
@@ -55,6 +68,17 @@ function computerSelect () {
         console.log("computerRandom Num function rerun.");
         computerRandomNum ();
     } 
+}
+
+// GAMEBOARD 
+const gameBoard = document.getElementById("gamePlay");
+gameBoard.addEventListener("click", gameReady);
+function gameReady () {
+    if (gameOn === null) {
+        alert("Select game mode!");
+    } else {
+        console.log("the game can be played now.");
+    }
 }
 
 // GAME START PLAYER vs PLAYER BUTTON
@@ -152,8 +176,6 @@ let gridSix = document.getElementById("optionSix");
 let gridSeven = document.getElementById("optionSeven");
 let gridEight = document.getElementById("optionEight");
 let gridNine = document.getElementById("optionNine");
-// GAMEBOARD 
-const gameBoard = document.getElementById("gamePlay");
 
 // GAME WINNING OPTIONS
 const winGameOptOne = [1, 2, 3];
@@ -167,7 +189,7 @@ const winGameOptEight = [3, 5, 7];
 
 // GRID FUNCTIONS
 function gridOneFunction(){ 
-    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true) {
+    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player one selected grid one.");
     gridOneValue = 1;
     playerOneGrid.push(gridOneValue);
@@ -175,7 +197,7 @@ function gridOneFunction(){
     document.getElementById("optionOneContent").innerText = "X";
     document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
     document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player two selected grid one.");
     gridOneValue = 1;
     playerTwoGrid.push(gridOneValue);
@@ -184,7 +206,7 @@ function gridOneFunction(){
     document.getElementById("optionOneContent").innerText = "O";
     document.getElementById("playerTurnDisplay").className = "playerOneTurnDisplay";
     document.getElementById("playerTurnDisplay").innerText = "It's " + playerOneName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true && gameOn === true) {
         gridOneValue = 1;
         playerOneGrid.push(gridOneValue);
         gameDraw.push(gridOneValue);
@@ -194,7 +216,7 @@ function gridOneFunction(){
         document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
         document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
         computerRandomNum ();
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true && gameOn === true) {
         gridOneValue = 1;
         playerTwoGrid.push(gridOneValue);
         playerOneGrid.push(null);
@@ -209,7 +231,7 @@ function gridOneFunction(){
     }
 }
 function gridTwoFunction(){
-    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true) {
+    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player one selected grid two.");
     gridTwoValue = 2;
     playerOneGrid.push(gridTwoValue);
@@ -217,7 +239,7 @@ function gridTwoFunction(){
     document.getElementById("optionTwoContent").innerText = "X";
     document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
     document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player two selected grid two.");
     gridTwoValue = 2;
     playerTwoGrid.push(gridTwoValue);
@@ -226,7 +248,7 @@ function gridTwoFunction(){
     document.getElementById("optionTwoContent").innerText = "O";
     document.getElementById("playerTurnDisplay").className = "playerOneTurnDisplay";
     document.getElementById("playerTurnDisplay").innerText = "It's " + playerOneName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true && gameOn === true) {
         gridTwoValue = 2;
         playerOneGrid.push(gridTwoValue);
         gameDraw.push(gridTwoValue);
@@ -236,7 +258,7 @@ function gridTwoFunction(){
         document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
         document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
         computerRandomNum ();
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true && gameOn === true) {
         gridTwoValue = 2;
         playerTwoGrid.push(gridTwoValue);
         playerOneGrid.push(null);
@@ -251,7 +273,7 @@ function gridTwoFunction(){
     }
 }
 function gridThreeFunction(){
-    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true) {
+    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player one selected grid three.");
     gridThreeValue = 3;
     playerOneGrid.push(gridThreeValue);
@@ -259,7 +281,7 @@ function gridThreeFunction(){
     document.getElementById("optionThreeContent").innerText = "X"; 
     document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
     document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player two selected grid three.");
     gridThreeValue = 3;
     playerTwoGrid.push(gridThreeValue);
@@ -268,7 +290,7 @@ function gridThreeFunction(){
     document.getElementById("optionThreeContent").innerText = "O";
     document.getElementById("playerTurnDisplay").className = "playerOneTurnDisplay";
     document.getElementById("playerTurnDisplay").innerText = "It's " + playerOneName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true && gameOn === true) {
         gridThreeValue = 3;
         playerOneGrid.push(gridThreeValue);
         gameDraw.push(gridThreeValue);
@@ -278,7 +300,7 @@ function gridThreeFunction(){
         document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
         document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
         computerRandomNum ();
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true && gameOn === true) {
         gridThreeValue = 3;
         playerTwoGrid.push(gridThreeValue);
         playerOneGrid.push(null);
@@ -293,7 +315,7 @@ function gridThreeFunction(){
     }
 }
 function gridFourFunction(){
-    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true) {
+    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player one selected grid four.");
     gridFourValue = 4;
     playerOneGrid.push(gridFourValue);
@@ -301,7 +323,7 @@ function gridFourFunction(){
     document.getElementById("optionFourContent").innerText = "X";
     document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
     document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player two selected grid four.");
     gridFourValue = 4;
     playerTwoGrid.push(gridFourValue);
@@ -310,7 +332,7 @@ function gridFourFunction(){
     document.getElementById("optionFourContent").innerText = "O";
     document.getElementById("playerTurnDisplay").className = "playerOneTurnDisplay";
     document.getElementById("playerTurnDisplay").innerText = "It's " + playerOneName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true && gameOn === true) {
         gridFourValue = 4;
         playerOneGrid.push(gridFourValue);
         gameDraw.push(gridFourValue);
@@ -320,7 +342,7 @@ function gridFourFunction(){
         document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
         document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
         computerRandomNum ();
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true && gameOn === true) {
         gridFourValue = 4;
         playerTwoGrid.push(gridFourValue);
         gameDraw.push(gridFourValue);
@@ -336,7 +358,7 @@ function gridFourFunction(){
 
 }
 function gridFiveFunction(){
-    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true) {
+    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player one selected grid five.");
     gridFiveValue = 5;
     playerOneGrid.push(gridFiveValue);
@@ -344,7 +366,7 @@ function gridFiveFunction(){
     document.getElementById("optionFiveContent").innerText = "X";
     document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
     document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player two selected grid five.");
     gridFiveValue = 5;
     playerTwoGrid.push(gridFiveValue);
@@ -353,7 +375,7 @@ function gridFiveFunction(){
     document.getElementById("optionFiveContent").innerText = "O";
     document.getElementById("playerTurnDisplay").className = "playerOneTurnDisplay";
     document.getElementById("playerTurnDisplay").innerText = "It's " + playerOneName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true && gameOn === true) {
         gridFiveValue = 5;
         playerOneGrid.push(gridFiveValue);
         gameDraw.push(gridFiveValue);
@@ -363,7 +385,7 @@ function gridFiveFunction(){
         document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
         document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
         computerRandomNum ();
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true && gameOn === true) {
         gridFiveValue = 5;
         playerTwoGrid.push(gridFiveValue);
         playerOneGrid.push(null);
@@ -378,7 +400,7 @@ function gridFiveFunction(){
     }
 }
 function gridSixFunction(){
-    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true) {
+    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player one selected grid six.");
     gridSixValue = 6;
     playerOneGrid.push(gridSixValue);
@@ -386,7 +408,7 @@ function gridSixFunction(){
     document.getElementById("optionSixContent").innerText = "X"; 
     document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
     document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player two selected grid six.");
     gridSixValue = 6;
     playerTwoGrid.push(gridSixValue);
@@ -397,7 +419,7 @@ function gridSixFunction(){
     document.getElementById("optionSixContent").innerText = "O";
     document.getElementById("playerTurnDisplay").className = "playerOneTurnDisplay";
     document.getElementById("playerTurnDisplay").innerText = "It's " + playerOneName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true && gameOn === true) {
         gridSixValue = 6;
         playerOneGrid.push(gridSixValue);
         gameDraw.push(gridSixValue);
@@ -407,7 +429,7 @@ function gridSixFunction(){
         document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
         document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
         computerRandomNum ();
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true && gameOn === true) {
         gridSixValue = 6;
         playerTwoGrid.push(gridSixValue);
         playerOneGrid.push(null);
@@ -422,7 +444,7 @@ function gridSixFunction(){
     }
 }
 function gridSevenFunction(){
-    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true) {
+    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player one selected grid seven.");
         gridSevenValue = 7;
         playerOneGrid.push(gridSevenValue);
@@ -430,7 +452,7 @@ function gridSevenFunction(){
         document.getElementById("optionSevenContent").innerText = "X";
         document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
         document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player two selected grid seven.");
         gridSevenValue = 7;
         playerTwoGrid.push(gridSevenValue);
@@ -439,7 +461,7 @@ function gridSevenFunction(){
         document.getElementById("optionSevenContent").innerText = "O";
         document.getElementById("playerTurnDisplay").className = "playerOneTurnDisplay";
         document.getElementById("playerTurnDisplay").innerText = "It's " + playerOneName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true && gameOn === true) {
         gridSevenValue = 7;
         playerOneGrid.push(gridSevenValue);
         gameDraw.push(gridSevenValue);
@@ -449,7 +471,7 @@ function gridSevenFunction(){
         document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
         document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
         computerRandomNum ();
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true && gameOn === true) {
         gridSevenValue = 7;
         playerTwoGrid.push(gridSevenValue);
         playerOneGrid.push(null);
@@ -464,7 +486,7 @@ function gridSevenFunction(){
     }
 }
 function gridEightFunction(){
-    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true) {
+    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player one selected grid eight.");
     gridEightValue = 8;
     playerOneGrid.push(gridEightValue);
@@ -472,7 +494,7 @@ function gridEightFunction(){
     document.getElementById("optionEightContent").innerText = "X";
     document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
     document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player two selected grid eight.");
     gridEightValue = 8;
     playerTwoGrid.push(gridEightValue);
@@ -481,7 +503,7 @@ function gridEightFunction(){
     document.getElementById("optionEightContent").innerText = "O";
     document.getElementById("playerTurnDisplay").className = "playerOneTurnDisplay";
     document.getElementById("playerTurnDisplay").innerText = "It's " + playerOneName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true && gameOn === true) {
         gridEightValue = 8;
         playerOneGrid.push(gridEightValue);
         gameDraw.push(gridEightValue);
@@ -491,7 +513,7 @@ function gridEightFunction(){
         document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
         document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
         computerRandomNum ();
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true && gameOn === true) {
         gridEightValue = 8;
         playerTwoGrid.push(gridEightValue);
         gameDraw.push(gridEightValue);
@@ -506,7 +528,7 @@ function gridEightFunction(){
         }
 }
 function gridNineFunction(){
-    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true) {
+    if (playerOneGrid.length % 2 === 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player one selected grid nine.");
     gridNineValue = 9;
     playerOneGrid.push(gridNineValue);
@@ -514,7 +536,7 @@ function gridNineFunction(){
     document.getElementById("optionNineContent").innerText = "X";
     document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
     document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsPlayer === true && gameOn === true) {
     // console.log("Player two selected grid nine.");
     gridNineValue = 9;
     playerTwoGrid.push(gridNineValue);
@@ -523,7 +545,7 @@ function gridNineFunction(){
     document.getElementById("optionNineContent").innerText = "O";
     document.getElementById("playerTurnDisplay").className = "playerOneTurnDisplay";
     document.getElementById("playerTurnDisplay").innerText = "It's " + playerOneName.value +"'s turn!";
-    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 === 0 && gameVsComp === true && gameOn === true) {
         gridNineValue = 9;
         playerOneGrid.push(gridNineValue);
         gameDraw.push(gridNineValue);
@@ -533,7 +555,7 @@ function gridNineFunction(){
         document.getElementById("playerTurnDisplay").className = "playerTwoTurnDisplay";
         document.getElementById("playerTurnDisplay").innerText = "It's " + playerTwoName.value +"'s turn!";
         computerRandomNum ();
-    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true) {
+    } else if (playerOneGrid.length % 2 !== 0 && gameVsComp === true && gameOn === true) {
         gridNineValue = 9;
         playerTwoGrid.push(gridNineValue);
         playerOneGrid.push(null);
@@ -646,8 +668,6 @@ if (playerOneGrid.includes(1) === winGameOptOne.includes(1) && playerOneGrid.inc
     playerOneWinner ();
 } else {
 }})
-
-
 } else {
  alert("Select a game mode!")
 }}
@@ -728,7 +748,6 @@ function computerWinner () {
     gameOn=false;
     document.getElementById("playerTurnDisplay").innerText = "The " + playerTwoName.value + " isn't even real. You can win this time " + playerOneName.value +"!";
     document.getElementById("gameResultButton").innerText = "Play again!";
-
 }
 //GAME RESULT: DRAW
 

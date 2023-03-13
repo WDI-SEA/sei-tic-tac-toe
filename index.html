@@ -6,26 +6,34 @@
     <title>Andrew's Tic-Tac-Toe Game</title>
     <link rel="stylesheet" href="./styles.css">
     <script defer type="text/javascript" src="./script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="game-title">
         <h1>Tic-Tac-Toe</h1>
     </header>
+    <div class="upper-header">
+        <div class="Enter-player-names-title">Enter Player Names</div>
+        <div class="game-modes-title">Game Modes</div>
+        <div class="game-status-title">Game status</div>
+    </div>
     <section class="game-header">
     <div class="players-container">
         <div class="player-one-container">
-            <label for="player-one-name">
-                <input required id="playerOneName" class="player-one-name" type="text" placeholder="Player One Name">
+            <label class="player-one-name" for="player-one-name">
+                <input required id="playerOneName" class="player-one-name" type="text" placeholder="Player one">
             </label>
         </div>
         <div class="player-two-container">
-            <label for="player-two-name">
-                <input required id="playerTwoName" class="player-two-name" type="text" placeholder="Player Two Name">
+            <label class="player-two-name" for="player-two-name">
+                <input required id="playerTwoName" class="player-two-name" type="text" placeholder="Player two">
             </label>
         </div>
     </div>
     <div class="game-start-container">
-        <div class="Game-modes">Game Modes</div>
+        <div class="Game-modes"></div>
         <input type="submit" id="gameStartButton" class="game-start-button" value="Player versus Player">
         <input type="submit" id="playComputer" class="game-start-button" value="Player vs Computer">
     </div>

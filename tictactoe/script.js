@@ -39,6 +39,9 @@ let resetButton = document.querySelector('#resetButton');
 let board = ['','','','','','','','','']
 let currentPlayer ='X';
 let gameFinished = false;
+let filledSpots = 0;
+xScoreCount = 0;
+oScoreCount = 0;
 
 
 function pickThePlayer(){
@@ -73,7 +76,8 @@ function pickThePlayer(){
 
 function clearBoard(){
     for (let i=0; i < 9; i++){
-        //goes through all the spots and selects them       
+        //goes through all the spots and selects them    
+    gameFinished = false;
     let spot = document.querySelector(`#spot${i+1}`);
     //clear array
     board[i] ='';
@@ -84,8 +88,8 @@ function clearBoard(){
     //bring it back to original player
     currentPlayer='X';
     textP.innerHTML = 'Current Player: X';
-    winner.innerHTML = "";    
-
+    winner.innerHTML = "";   
+    filledSpots = 0; 
     }
 }
 
@@ -105,34 +109,30 @@ for (let i = 0; i < 9; i++) {
         board[i] = currentPlayer;
         //change it to the current player symbol
         spot.innerText = currentPlayer;
+        //this is to check for a tie
+        filledSpots++;
         //executed with the players symbol
         pickThePlayer();
         console.log(board);
         
         if(checkForWinner('X')){
             gameFinished = true;
-            winner.innerHTML = "THE X PLAYER HAS WON THIS ROUND!";
-            for (let i = 0; i < 9; i++) {
-              let spot = document.querySelector(`#spot${i+1}`);
-              spot.removeEventListener('click', clickHandler);
-              
-
-            }
-
-            
+            winner.innerText = "THE X PLAYER HAS WON THIS ROUND!";
+            xScore.innerText += `${++xScoreCount}`
+            //ask why its ++ first here
         }
     
         if(checkForWinner('O')){
             gameFinished = true;
-            winner.innerHTML = "THE O PLAYER HAS WON THIS ROUND!";
-            for (let i = 0; i < 9; i++) {
-              let spot = document.querySelector(`#spot${i+1}`);
-              spot.removeEventListener('click', clickHandler);
-              
-            }
+            winner.innerText = "THE O PLAYER HAS WON THIS ROUND!";
+            oScore.innerText += `${++oScoreCount}`
 
         }
-        
+        if(filledSpots === 9 && !gameFinished){
+            gameFinished = true;
+            winner.innerText = "ITS A TIE!";
+
+        }
       }
     });
 

@@ -1,5 +1,5 @@
 // establish helper functions
-const addListener = (element) => {
+const addSquareListener = (element) => {
   element.addEventListener("click", () => {
     if (winnerExists === false) {
       clickSquare(element);
@@ -53,15 +53,20 @@ const checkForDraw = () => {
   }
 };
 
+const resetGame = () => {
+  console.log("hi");
+};
+
 // create board tiles, add listeners, create array of DOM nodes
 let squaresArray = [];
 for (let i = 0; i < 9; i++) {
   const newDiv = document.createElement("div");
   newDiv.setAttribute("class", "square");
   document.querySelector(".gameBoard").appendChild(newDiv);
-  addListener(newDiv);
+  addSquareListener(newDiv);
   squaresArray.push(newDiv);
 }
+document.querySelector("button").addEventListener("click", resetGame);
 
 // establish initial game conditions
 let playerOneTurn = true;

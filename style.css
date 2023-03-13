@@ -1,14 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Noto+Serif&display=swap");
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: darkslategrey;
+  background-color: #01151e;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.title h1 {
+  color: #cdd6db;
+  font-family: "Noto Serif";
+}
 .gameBoard {
   display: flex;
   flex-wrap: wrap;
@@ -17,12 +23,33 @@ body {
 }
 
 .square {
-  background-color: darkred;
+  /* background-color: #044261; */
+  background-color: hsl(200, 20%, 30%);
+  color: #cdd6db;
   width: 200px;
   height: 200px;
   border: 1px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Montserrat", serif;
   font-size: 120px;
+  font-weight: bold;
+}
+
+.turnDisplay h1 {
+  margin: 20px 0 10px 0;
+  color: #cdd6db;
+  font-family: "Noto Serif";
+}
+
+.scoreDisplay h1 {
+  margin: 10px 0;
+  color: #cdd6db;
+  font-family: "Noto Serif";
+}
+
+.playerOneScore,
+.playerTwoScore {
+  display: inline;
 }

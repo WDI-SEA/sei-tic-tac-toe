@@ -21,8 +21,8 @@ const tryToClaimSquare = (square) => {
 
 const claimSquare = (square) => {
   playerOneTurn
-    ? (square.style.backgroundColor = "pink") && (square.innerText = "X")
-    : (square.style.backgroundColor = "lightblue") && (square.innerText = "O");
+    ? (square.style.backgroundColor = "#066ea1") && (square.innerText = "X")
+    : (square.style.backgroundColor = "#5a3c77") && (square.innerText = "O");
   square.classList.add("locked");
   playerOneTurn = !playerOneTurn;
 };
@@ -51,7 +51,7 @@ const resetGame = () => {
   squaresArray.forEach((square) => {
     square.classList.remove("locked");
     square.textContent = "";
-    square.style.backgroundColor = "darkred";
+    square.style.backgroundColor = "hsl(200, 20%, 30%)";
   });
 };
 

@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+h1 {
+  margin: 0;
+}
+
 body {
   background-color: #01151e;
   display: flex;
@@ -14,6 +18,7 @@ body {
 .title h1 {
   color: #cdd6db;
   font-family: "Noto Serif";
+  margin: 20px 0;
 }
 .gameBoard {
   display: flex;
@@ -24,7 +29,6 @@ body {
 }
 
 .square {
-  /* background-color: #044261; */
   background-color: hsl(200, 20%, 30%);
   color: #cdd6db;
   width: 200px;
@@ -39,13 +43,13 @@ body {
 }
 
 .turnDisplay h1 {
-  margin: 20px 0 10px 0;
+  margin-top: 20px;
   color: #cdd6db;
   font-family: "Noto Serif";
 }
 
 .scoreDisplay h1 {
-  margin: 10px 0;
+  margin-top: 10px;
   color: #cdd6db;
   font-family: "Noto Serif";
 }
@@ -53,4 +57,10 @@ body {
 .playerOneScore,
 .playerTwoScore {
   display: inline;
+}
+
+button {
+  font-size: 24px;
+  margin-top: 20px;
+  padding: 4px 10px;
 }

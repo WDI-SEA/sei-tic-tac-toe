@@ -40,8 +40,10 @@ let board = ['','','','','','','','','']
 let currentPlayer ='X';
 let gameFinished = false;
 let filledSpots = 0;
+// let mySpan = document.querySelector('.spanner');
 xScoreCount = 0;
 oScoreCount = 0;
+textP.innerHTML = 'Current Player: X';
 
 
 function pickThePlayer(){
@@ -118,14 +120,16 @@ for (let i = 0; i < 9; i++) {
         if(checkForWinner('X')){
             gameFinished = true;
             winner.innerText = "THE X PLAYER HAS WON THIS ROUND!";
-            xScore.innerText += `${++xScoreCount}`
+            // mySpan.classList.add('.recolor');
+            xScore.innerHTML = `Player <span style="color: red">X</span>: ${++xScoreCount}`;
             //ask why its ++ first here
         }
     
         if(checkForWinner('O')){
             gameFinished = true;
             winner.innerText = "THE O PLAYER HAS WON THIS ROUND!";
-            oScore.innerText += `${++oScoreCount}`
+            oScore.innerHTML = `Player <span style="color: red">O</span>: ${++oScoreCount}`;
+            // mySpan.classList.add('.recolor');
 
         }
         if(filledSpots === 9 && !gameFinished){

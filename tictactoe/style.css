@@ -33,6 +33,8 @@ h1{
     text-align: center;
     color: white;
      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+     color:red;
+     font-size: 3em;
 
 }
 h2{
@@ -48,20 +50,18 @@ h2{
      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 body{
-    background-image: url(https://external-preview.redd.it/72dZamiQ6CUrDBwHNEnjEjKEBtV-9Nz2ltWsaTdT0uM.jpg?auto=webp&s=67e456443af2fa42ec511966969f10e179a75f4e);
+    background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e2b1cd80-45c1-44f8-a444-1d49a14f00ea/d51nam3-845ed871-3a32-48c4-ae20-7e237d48e6c9.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2UyYjFjZDgwLTQ1YzEtNDRmOC1hNDQ0LTFkNDlhMTRmMDBlYVwvZDUxbmFtMy04NDVlZDg3MS0zYTMyLTQ4YzQtYWUyMC03ZTIzN2Q0OGU2YzkuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.fiDmE2zex92RLkY9Fn7eED67a8l1a90j7pmIDh6yQ6U);
 }
-#scoreX{
-   text-align: center;
+
+.scoreCard{
+    text-align: center;
     color: white;
      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; 
      font-size: 4em;
 }
-#scoreO{
-   text-align: center;
-    color: white;
-     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; 
-     font-size: 4em;
+.recolor{
+    color: red ;
 }
-#recolor{
-    color: red;
+p{
+    display: inline;
 }

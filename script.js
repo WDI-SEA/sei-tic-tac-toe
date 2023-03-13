@@ -25,6 +25,11 @@ const claimSquare = (square) => {
     : (square.style.backgroundColor = "#5a3c77") && (square.innerText = "O");
   square.classList.add("locked");
   playerOneTurn = !playerOneTurn;
+  promptNextPlayer(playerOneTurn ? "one" : "two");
+};
+
+const promptNextPlayer = (playerNumber) => {
+  turnDisplay.firstElementChild.textContent = `Player ${playerNumber}, your turn!`;
 };
 
 const checkForWin = (playerSymbol) => {
@@ -78,6 +83,7 @@ document.querySelector("button").addEventListener("click", resetGame);
 // establish initial game conditions
 let playerOneTurn = true;
 let winnerExists = false;
+let turnDisplay = document.querySelector(".turnDisplay");
 let winLines = [
   [squaresArray[0], squaresArray[1], squaresArray[2]],
   [squaresArray[3], squaresArray[4], squaresArray[5]],

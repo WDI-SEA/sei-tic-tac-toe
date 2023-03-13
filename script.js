@@ -42,14 +42,18 @@ const checkForWin = (playerSymbol) => {
 
 const winGame = () => {
   // following line may look backwards -- note that
-  // turn does change one more time after the
+  // turn does alternate one more time after the
   // winning move, so if player one wins, it will be
   // player two's turn at conclusion of the game.
   playerNumber = playerOneTurn ? "two" : "one";
   turnDisplay.firstElementChild.textContent = `Player ${playerNumber} takes the win!
   Press the reset button to play again.`;
   winnerExists = true;
+  playerNumber = playerOneTurn ? updateScore(2) : updateScore(1);
 };
+
+const updateScore = (num) =>
+  (scores[num - 1].textContent = parseInt(scores[num - 1].textContent) + 1);
 
 const checkForDraw = () => {
   let squares = document.querySelectorAll(".locked");
@@ -94,6 +98,10 @@ document.querySelector("button").addEventListener("click", resetGame);
 let playerOneTurn = true;
 let winnerExists = false;
 let turnDisplay = document.querySelector(".turnDisplay");
+let scores = [
+  document.querySelector(".playerOneScore"),
+  document.querySelector(".playerTwoScore"),
+];
 let winLines = [
   [squaresArray[0], squaresArray[1], squaresArray[2]],
   [squaresArray[3], squaresArray[4], squaresArray[5]],

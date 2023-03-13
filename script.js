@@ -9,6 +9,22 @@ const clickSquare = (square) => {
   }
 };
 
+// NYI: this piece works as desired, but need to fully
+// integrate with the rest of the code and give player
+// a button to choose to play vs. AI
+const aiTurn = () => {
+  let openSquares = [];
+  squaresArray.forEach((square) => {
+    if (!square.classList.contains("locked")) {
+      openSquares.push(square);
+    }
+  });
+  let randNum = Math.floor(Math.random() * openSquares.length);
+  setTimeout(() => {
+    claimSquare(openSquares[randNum]);
+  }, 1500);
+};
+
 const tryToClaimSquare = (square) => {
   if (!square.classList.contains("locked")) {
     claimSquare(square);

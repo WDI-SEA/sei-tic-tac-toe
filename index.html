@@ -13,25 +13,30 @@
         </div>
         <!-- Game Prompter -->
         <div class="prompter">
-            <p>Bonjour mon amour</p>
-            <p id="xo">X</p>
-            <p id="prompts">make your choice</p>
+            <p>Bonjour mon amour. It is <span id="xo">X</span>'s turn!</p>
+            <p id="prompts"></p>
+            <p>X: <span class="score" id="score_x">0</span> O: <span class="score" id="score_o">0</span></p>
+            <select id="optionSelector">
+                <option value="2player"><p>2 Players</p></option>
+                <option value="computer"><p>Player VS Computer</p></option>
+            </select>
         </div>
         <!-- Gameboard -->
         <div class="gameboard">
-            <button class="tiles" id="tile1"><p></p></button>
-            <button class="tiles" id="tile2"><p></p></button>
-            <button class="tiles" id="tile3"><p></p></button>
-            <button class="tiles" id="tile4"><p></p></button>
-            <button class="tiles" id="tile5"><p></p></button>
-            <button class="tiles" id="tile6"><p></p></button>
-            <button class="tiles" id="tile7"><p></p></button>
-            <button class="tiles" id="tile8"><p></p></button>
-            <button class="tiles" id="tile9"><p></p></button>
+            <button class="tiles" id="tile1"></button>
+            <button class="tiles" id="tile2"></button>
+            <button class="tiles" id="tile3"></button>
+            <button class="tiles" id="tile4"></button>
+            <button class="tiles" id="tile5"></button>
+            <button class="tiles" id="tile6"></button>
+            <button class="tiles" id="tile7"></button>
+            <button class="tiles" id="tile8"></button>
+            <button class="tiles" id="tile9"></button>
         </div>
         <!-- Refresh Button -->
         <div>
             <button class="refresh" id="restart">Restart</button>
+            <button class="refresh" id="resetScore">Reset Score</button>
         </div>
     </body>
 </html>

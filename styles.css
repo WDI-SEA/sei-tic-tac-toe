@@ -23,15 +23,27 @@ h1 {
 
 /* styling for the prompter*/
 .prompter {
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .prompter p {
     padding: .25rem;
     font-size: 2rem;
     color: rgb(240, 5, 52);
+    height:2.5rem;
+    margin: 0;
+    text-align: center;
 }
 
+span {
+    color: rgb(251, 251, 251)
+}
+
+.score {
+    margin: 0rem 2rem;
+} 
 
 /* Styling for the game board */
 .gameboard {
@@ -61,7 +73,7 @@ h1 {
 
 /* styling for the restart button */
 
-.refresh {
+.refresh, select {
     margin-top: 1rem;
     height: 2rem;
     width: 12rem;

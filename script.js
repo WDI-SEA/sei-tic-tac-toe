@@ -42,18 +42,21 @@ function handleMove(move) {
 
     // check if the current player has won
     if (checkWin(currentPlayer)) {
-        if (currentPlayer === player1) {
-          player1Wins++;
-          document.querySelector(".xWins").innerText = "Player X: " + player1Wins + " wins"; 
-        } else {
-          player2Wins++;
-          document.querySelector(".oWins").innerText = "Player O: " + player2Wins + " wins";
-        }
-        document.querySelector(".result").innerText = currentPlayer + " wins!" + " 🎉";
-        gameOver = true
+      if (currentPlayer === player1) {
+        player1Wins++;
+        document.querySelector(".xWins").innerText =
+          "Player X: " + player1Wins + " wins";
+      } else {
+        player2Wins++;
+        document.querySelector(".oWins").innerText =
+          "Player O: " + player2Wins + " wins";
+      }
+      document.querySelector(".result").innerText =
+        currentPlayer + " wins!" + " 🎉";
+      gameOver = true;
     } else if (checkTie()) {
-        document.querySelector(".result").innerText = "It's a tie" + " 🙀";
-        gameOver = true;        
+      document.querySelector(".result").innerText = "It's a tie" + " 🙀";
+      gameOver = true;
     } else {
       // switch to the other player
       switchPlayer();
@@ -73,54 +76,45 @@ document.querySelectorAll(".grid-item").forEach(function (item) {
   });
 });
 
-// CHECK IF THERE IS A WINNER
-// check win
-function checkWin(player) {
-  // rows
-  if (
-    (gameBoard[0] === player &&
-      gameBoard[1] === player &&
-      gameBoard[2] === player) ||
-    (gameBoard[3] === player &&
-      gameBoard[4] === player &&
-      gameBoard[5] === player) ||
-    (gameBoard[6] === player &&
-      gameBoard[7] === player &&
-      gameBoard[8] === player)
-  ) {
-    return true;
-  }
+// WINNINGCOMBOS
+const winningCombos = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+];
 
-  // columns
-  if (
-    (gameBoard[0] === player &&
-      gameBoard[3] === player &&
-      gameBoard[6] === player) ||
-    (gameBoard[1] === player &&
-      gameBoard[4] === player &&
-      gameBoard[7] === player) ||
-    (gameBoard[2] === player &&
-      gameBoard[5] === player &&
-      gameBoard[8] === player)
-  ) {
-    return true;
+// CHECKWIN USING ARRAYS
+// loop will check each square
+const checkWin = function () {
+  // this loops through each array in winningCombos
+  for (let i = 0; i < winningCombos.length; i++) {
+    // new variable to run against true/false (this is assuming the player is a winner)
+    let foundWinner = true;
+    // this will go over each indice in the winningcombos
+    for (let j = 0; j < winningCombos[i].length; j++) {
+      // this will create what a winning combo looks like
+      const gameboardIndex = winningCombos[i][j];
+      // this will check the winningcombos against the player
+      if (gameBoard[gameboardIndex] !== currentPlayer) {
+        // this will make the winner as false
+        foundWinner = false;
+        //this stops the j loop from continuing
+        break;
+      }
+    }
+    // if the winningcombos match find it as true
+    if (foundWinner) {
+      return true;
+    }
   }
-
-  // diagonals
-  if (
-    (gameBoard[0] === player &&
-      gameBoard[4] === player &&
-      gameBoard[8] === player) ||
-    (gameBoard[2] === player &&
-      gameBoard[4] === player &&
-      gameBoard[6] === player)
-  ) {
-    return true;
-  }
-
-  // if no win, return false
   return false;
-}
+};
+// loop that checks winningCombos
 
 // CHECK IF THERE IS A TIE
 function checkTie() {
@@ -174,8 +168,10 @@ function gameReset() {
   player2Wins = 0;
 
   // reset display
-  document.querySelector(".xWins").innerText = "Player X: " + player1Wins + " wins";
-  document.querySelector(".oWins").innerText = "Player O: " + player2Wins + " wins";
+  document.querySelector(".xWins").innerText =
+    "Player X: " + player1Wins + " wins";
+  document.querySelector(".oWins").innerText =
+    "Player O: " + player2Wins + " wins";
 
   // change gameOver
   gameOver = false;

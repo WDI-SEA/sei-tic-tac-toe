@@ -178,7 +178,7 @@ function gameReset() {
 }
 
 const computerBtn = document.querySelector(".computer")
-console.log(computerBtn)
+
 computerBtn.addEventListener("click", function() {
   // call the compMove function to make the computer play in player 2 place
   compMove();
@@ -186,11 +186,38 @@ computerBtn.addEventListener("click", function() {
 
 // COMPUTER
 
-let compChoiceArray = [];
-
-// define the compMove function to make the computer play in player 2 place
 function compMove() {
-  // randomly choose a move that is not already taken
+  // check if the computer can win in the next move
+  for (let i = 0; i < winningCombos.length; i++) {
+    let combo = winningCombos[i];
+    if (gameBoard[combo[0]] === "O" && gameBoard[combo[1]] === "O" && gameBoard[combo[2]] === " ") {
+      handleMove(combo[2], "O");
+      return;
+    } else if (gameBoard[combo[0]] === "O" && gameBoard[combo[1]] === " " && gameBoard[combo[2]] === "O") {
+      handleMove(combo[1], "O");
+      return;
+    } else if (gameBoard[combo[0]] === " " && gameBoard[combo[1]] === "O" && gameBoard[combo[2]] === "O") {
+      handleMove(combo[0], "O");
+      return;
+    }
+  }
+
+  // check if the player can win in the next move and block them
+  for (let i = 0; i < winningCombos.length; i++) {
+    let combo = winningCombos[i];
+    if (gameBoard[combo[0]] === "X" && gameBoard[combo[1]] === "X" && gameBoard[combo[2]] === " ") {
+      handleMove(combo[2], "O");
+      return;
+    } else if (gameBoard[combo[0]] === "X" && gameBoard[combo[1]] === " " && gameBoard[combo[2]] === "X") {
+      handleMove(combo[1], "O");
+      return;
+    } else if (gameBoard[combo[0]] === " " && gameBoard[combo[1]] === "X" && gameBoard[combo[2]] === "X") {
+      handleMove(combo[0], "O");
+      return;
+    }
+  }
+
+  // if there is no immediate threat or opportunity, randomly choose a move that is not already taken
   let validMoves = [];
   for (let i = 0; i < gameBoard.length; i++) {
     if (gameBoard[i] === " ") {
@@ -201,19 +228,28 @@ function compMove() {
   let computerMove = validMoves[randomIndex];
 
   // call the handleMove function with the computer's move
-  handleMove(computerMove);
-  document.querySelectorAll(".grid-item").forEach(function (item, index) {
-    item.innerText = gameBoard[index];
-  });
+  handleMove(computerMove, "O");
+
+    // show the computer's move in the game board
+    const gameBoardItem = document.querySelector(`.grid-item[data-index="${computerMove}"]`);
+    if (gameBoardItem) {
+      gameBoardItem.textContent = "O";
+    }
 }
 
-document.querySelectorAll(".grid-item").forEach(function (item) {
-  item.addEventListener("click", function (event) {
-    //event.target.id - 1 is for indice
-    handleMove(parseInt(event.target.id) - 1);
-    // update the display with the new gameBoard
-    document.querySelectorAll(".grid-item").forEach(function (item, index) {
-      item.innerText = gameBoard[index];
-    });
-  });
-});
+
+//   document.querySelectorAll(".grid-item").forEach(function (item, index) {
+//     item.innerText = gameBoard[index];
+//   });
+
+
+// document.querySelectorAll(".grid-item").forEach(function (item) {
+//   item.addEventListener("click", function (event) {
+//     //event.target.id - 1 is for indice
+//     handleMove(parseInt(event.target.id) - 1);
+//     // update the display with the new gameBoard
+//     document.querySelectorAll(".grid-item").forEach(function (item, index) {
+//       item.innerText = gameBoard[index];
+//     });
+//   });
+// });

@@ -1,8 +1,8 @@
 // TIC TAC TOE
 // get from html
 const result = document.getElementsByClassName("result");
-const newButton2 = document.getElementsByClassName("reset");
-const resetButton = document.getElementsByClassName("new");
+const resetButton = document.getElementsByClassName("reset");
+const newButton = document.getElementsByClassName("new");
 
 //GAME
 // array for empty gameBoard
@@ -128,7 +128,7 @@ function checkTie() {
 
 // NEW
 // event listener for the reset button
-newButton2[0].addEventListener("click", gameNew);
+resetButton[0].addEventListener("click", gameNew);
 
 // function to reset the game
 function gameNew() {
@@ -148,7 +148,7 @@ function gameNew() {
 
 // RESET
 // event listener for the reset button
-resetButton[0].addEventListener("click", gameReset);
+newButton[0].addEventListener("click", gameReset);
 
 // function to reset the game
 function gameReset() {
@@ -176,3 +176,44 @@ function gameReset() {
   // change gameOver
   gameOver = false;
 }
+
+const computerBtn = document.querySelector(".computer")
+console.log(computerBtn)
+computerBtn.addEventListener("click", function() {
+  // call the compMove function to make the computer play in player 2 place
+  compMove();
+});
+
+// COMPUTER
+
+let compChoiceArray = [];
+
+// define the compMove function to make the computer play in player 2 place
+function compMove() {
+  // randomly choose a move that is not already taken
+  let validMoves = [];
+  for (let i = 0; i < gameBoard.length; i++) {
+    if (gameBoard[i] === " ") {
+      validMoves.push(i);
+    }
+  }
+  let randomIndex = Math.floor(Math.random() * validMoves.length);
+  let computerMove = validMoves[randomIndex];
+
+  // call the handleMove function with the computer's move
+  handleMove(computerMove);
+  document.querySelectorAll(".grid-item").forEach(function (item, index) {
+    item.innerText = gameBoard[index];
+  });
+}
+
+document.querySelectorAll(".grid-item").forEach(function (item) {
+  item.addEventListener("click", function (event) {
+    //event.target.id - 1 is for indice
+    handleMove(parseInt(event.target.id) - 1);
+    // update the display with the new gameBoard
+    document.querySelectorAll(".grid-item").forEach(function (item, index) {
+      item.innerText = gameBoard[index];
+    });
+  });
+});

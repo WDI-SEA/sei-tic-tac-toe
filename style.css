@@ -19,6 +19,7 @@ h1 {
     grid-template-columns: 15vh 15vh 15vh;
     grid-template-rows: 15vh 15vh 15vh;
     justify-content: center;
+    padding-bottom: 5rem;
 }
 
 .grid-item {
@@ -33,8 +34,21 @@ h1 {
 
 .buttons {
     margin: 1rem 0rem 0rem 0rem;
-    padding: 3vh;
+    padding: 3vh 0 0 0;
     
+}
+.computerbutton {
+    margin: 0rem 0rem 0rem 0rem;
+    padding: 3vh;
+}
+.computer {
+    font-family: 'Work Sans', sans-serif; 
+    border-radius: 5%;
+    box-shadow: 0 2px 4px darkslategray;
+    padding: 3px 5px 3px 5px;
+    border: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .result {

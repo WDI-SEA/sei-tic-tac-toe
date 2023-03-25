@@ -60,9 +60,19 @@ function handleMove(move) {
     } else {
       // switch to the other player
       switchPlayer();
+            // if the current player is the computer, make a move
+            computerBtn.addEventListener("click", function() {
+              // call the compMove function to make the computer play in next turn
+              // compMove(); THIS IS PROBABLY CAUSING COMPMOVE TO GO TWICE
+            });
     }
   }
-}
+      
+          // update the display with the new gameBoard
+          // updateBoardDisplay();
+ }
+
+
 // CLICK ON PAGE
 //event listener to grid to check if there is a click
 document.querySelectorAll(".grid-item").forEach(function (item) {
@@ -177,14 +187,21 @@ function gameReset() {
   gameOver = false;
 }
 
+// UPDATE BOARD
+// function to update the display with the current state of the game board
+function updateBoardDisplay() {
+  document.querySelectorAll(".grid-item").forEach(function (item, index) {
+    item.innerText = gameBoard[index];
+  });
+}
+
+// COMPUTER
 const computerBtn = document.querySelector(".computer")
 
 computerBtn.addEventListener("click", function() {
-  // call the compMove function to make the computer play in player 2 place
+  // call the compMove function to make the computer play in next turn
   compMove();
 });
-
-// COMPUTER
 
 function compMove() {
   // check if the computer can win in the next move
@@ -192,12 +209,15 @@ function compMove() {
     let combo = winningCombos[i];
     if (gameBoard[combo[0]] === "O" && gameBoard[combo[1]] === "O" && gameBoard[combo[2]] === " ") {
       handleMove(combo[2], "O");
+      updateBoardDisplay()
       return;
     } else if (gameBoard[combo[0]] === "O" && gameBoard[combo[1]] === " " && gameBoard[combo[2]] === "O") {
       handleMove(combo[1], "O");
+      updateBoardDisplay()
       return;
     } else if (gameBoard[combo[0]] === " " && gameBoard[combo[1]] === "O" && gameBoard[combo[2]] === "O") {
       handleMove(combo[0], "O");
+      updateBoardDisplay()
       return;
     }
   }
@@ -207,12 +227,15 @@ function compMove() {
     let combo = winningCombos[i];
     if (gameBoard[combo[0]] === "X" && gameBoard[combo[1]] === "X" && gameBoard[combo[2]] === " ") {
       handleMove(combo[2], "O");
+      updateBoardDisplay()
       return;
     } else if (gameBoard[combo[0]] === "X" && gameBoard[combo[1]] === " " && gameBoard[combo[2]] === "X") {
       handleMove(combo[1], "O");
+      updateBoardDisplay()
       return;
     } else if (gameBoard[combo[0]] === " " && gameBoard[combo[1]] === "X" && gameBoard[combo[2]] === "X") {
       handleMove(combo[0], "O");
+      updateBoardDisplay()
       return;
     }
   }
@@ -225,31 +248,44 @@ function compMove() {
     }
   }
   let randomIndex = Math.floor(Math.random() * validMoves.length);
-  let computerMove = validMoves[randomIndex];
+  let compMove = validMoves[randomIndex];
 
   // call the handleMove function with the computer's move
-  handleMove(computerMove, "O");
-
-    // show the computer's move in the game board
-    const gameBoardItem = document.querySelector(`.grid-item[data-index="${computerMove}"]`);
-    if (gameBoardItem) {
-      gameBoardItem.textContent = "O";
-    }
+  handleMove(compMove);
+  updateBoardDisplay()
 }
 
+document.querySelectorAll(".grid-item").forEach(function (item) {
+  item.addEventListener("click", function(event) {
+    handleMove(parseInt(event.target.id) -1)
+    updateBoardDisplay()
+  })
+})
+//   document.querySelectorAll(".grid-item").forEach(function (item) {
+//     // item.addEventListener("click", function (event) {
+//     //   //event.target.id - 1 is for indice
+//     //   handleMove(parseInt(event.target.id) - 1);
+//     //   // update the display with the new gameBoard
+//       document.querySelectorAll(".grid-item").forEach(function (item, index) {
+//         item.innerText = gameBoard[index];
+//       });
+//     });
+//   // });
+// }
 
-//   document.querySelectorAll(".grid-item").forEach(function (item, index) {
-//     item.innerText = gameBoard[index];
-//   });
-
+// // show the computer's move in the game board
+// if (document.querySelector('.grid-item[data-index="' + parseInt(compMove) + '"]')) {
+//   document.querySelector('.grid-item[data-index="' + parseInt(compMove) + '"]').textContent = "O";
+// }
+// }
 
 // document.querySelectorAll(".grid-item").forEach(function (item) {
-//   item.addEventListener("click", function (event) {
-//     //event.target.id - 1 is for indice
-//     handleMove(parseInt(event.target.id) - 1);
-//     // update the display with the new gameBoard
+//   // item.addEventListener("click", function (event) {
+//   //   //event.target.id - 1 is for indice
+//   //   handleMove(parseInt(event.target.id) - 1);
+//   //   // update the display with the new gameBoard
 //     document.querySelectorAll(".grid-item").forEach(function (item, index) {
 //       item.innerText = gameBoard[index];
 //     });
 //   });
-// });
+// // });

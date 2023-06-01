@@ -1,54 +1,55 @@
 
+# Tic-Tac-Toe
 
-![General Assembly Logo](http://i.imgur.com/ke8USTq.png)
+The Tic Tac Toe Game is a classic game implemented using HTML, CSS, and vanilla JavaScript. This game allows two players to take turns marking X and O on a 3x3 grid. The objective is to get three marks in a row, either horizontally, vertically, or diagonally, while preventing the opponent from doing the same. The game includes features such as click-to-play functionality, turn tracking, win detection, draw detection, computer move, and a reset button.
 
-# Tic Tac Toe
+To play the Tic Tac Toe Game, follow these steps:
 
-## Objectives
+```
+1. Clone the repository or download the ZIP file.
+2. Extract the files to a directory of your choice.
+3. Open the index.html file in your preferred web browser.
+```
 
-* Build a tic tac toe game in HTML, CSS, and vanilla JavaScript
-* Use best practices when writing code
+Since the game is built entirely with HTML, CSS, and JavaScript, you can run it directly in your web browser without any additional setup.
 
-This week we have been learning about writing functions, working with loops, and writing conditionals. We also learned about HTML, CSS, and the DOM.
 
-We will be making a Tic Tac Toe game using all of these concepts.
+## How to Play
+1. When the game loads, you will see a 3x3 grid representing the Tic Tac Toe board.
+2. The first player to start is X, and their turn is indicated at the top of the game board.
+3. To make a move, click on any empty cell in the grid.
+4. The cell will be marked with an X or O, depending on the current player's turn.
+5. Players will alternate turns, and the game will automatically update the turn indicator.
+6. Once a player gets three of their marks in a row horizontally, vertically, or diagonally, the game will display a message declaring the winner.
+7. If all cells are filled, and there is no winner, the game will declare a draw.
+8. To start a new game, click the reset button, and the game board will be cleared.
+## Features
 
-## Requirements
+- Click-to-play functionality.
+- Alternating turns between X and O.
+- Preventing replay of marked cells.
+- Preventing further clicks on remaining empty cells after the game ends.
+- Reset button to clear the board and start a new game.
+- Message display indicating the current player's turn.
+- Win detection to declare a winner.
+- Draw detection to declare a tie.
+- Computer move that first takes defense and then offense
+## Screenshots
 
-* A user should be able to click on different squares to make a move.
-* Every click will alternate between marking an `X` and `O`
-* Upon marking of an individual cell, use JavaScript to add an `X` or `O` to the cell, according to whose turn it is.
-* A cell should not be able to be replayed once marked.
-* You should not be able to click remaining empty cells after the game is over.
-* Add a reset button that will clear the contents of the board.
-* Display a message to indicate which turn is about to be played.
-* Detect draw conditions (ties/cat's game) 
-* Detect winner: Stop game and declare the winner if one player ends up getting three in a row. 
-  * Hint: Determine a set of winning combinations. Check those combinations on the board contents after every move.
+![Rules and Scores](./rulesandscore.png)
+![Board](./board.png)
 
-**Have Fun** - The best way to learn is by playing with code. Let creativity guide you and try some experiments with JS and CSS and see what you can do.
 
-### Bonuses
+## Tech Stack
 
-* Implement your reset button without refreshing the whole page
-* Track player's wins over time
-* Add a simple AI to support one player vs computer mode. In this case, "simple" just means having the computer pick a random empty square.
-* Make your computer seem more human by adding a short time delay between your turn and the computer's turn.
-* Style it up! Get creative, or even make a theme!
+**Client:** HTML, CSS, JavaScript
 
-### Super Duper Bonus
+## Authors
 
-* Add an AI that can beat you every time with the mini-max algorithm.
+- [@juanedcabrera](https://www.github.com/juanedcabrera)
 
-## How to Get Started
 
-* Before you even start working with JavaScript, construct the gameboard. The gameboard page should include the 3x3 grid (of divs), and at minimum a reset button. Using `id` and/or `class` on clickable elements will help you wire this up in JavaScript afterwards.
-* The JavaScript portion will be next
-  * Select elements and attach functions via event listeners
-  * You will also need a variable to keep track of moves. This will be used to indicate whether or not to draw an `X` or an `O`
+## License
 
----
+[MIT](https://choosealicense.com/licenses/mit/)
 
-## Licensing
-1. All content is licensed under a CC-BY-NC-SA 4.0 license.
-2. All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.

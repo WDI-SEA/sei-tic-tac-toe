@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo Play', sans-serif;
+    font-family: 'Lobster', cursive;
+    font-family: 'Londrina Shadow', cursive;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://w0.peakpx.com/wallpaper/641/1007/HD-wallpaper-xoxo-cute-girl-girly-pink-xo.jpg");
+    background-position: right;
+}
+
+header {
+    font-size: 6vmin;
+}
+
+h1 {
+    margin-top: 35px;
+    font-size: 4vmin;
+    /* border: 2px solid white;
+    padding: 5px;
+    background-color: white;
+    color: rgb(210, 187, 158);
+    border-radius: 10%; */
+}
+
+table {
+    display: table;
+    table-layout: fixed;
+    margin-top: 30px;
+    width: 400px;
+    height: 400px;
+    position: relative;
+}
+
+/* .toprow {
+        width: 300px;
+        height: 75px;
+        position:relative;
+    }
+    
+.middlerow {
+
+        width:300px;
+        height: 75px;
+        position:relative;
+    }
+    
+.bottomrow {
+        width:300px;
+        height: 75px;
+        position:relative;
+    }
+     */
+
+
+/* Top Row*/
+#c0r2 {
+    border-right: .4vmin solid white;
+    border-bottom: .4vmin solid white;
+
+}
+#c1r2 {
+    border-right: .4vmin solid white;
+    border-bottom: .4vmin solid white;
+}
+#c2r2 {
+    border-bottom: .4vmin solid white;
+}
+
+/* Middle Row */
+#c0r1 {
+    border-right: .4vmin solid white;
+    border-bottom: .4vmin solid white;
+}
+#c1r1 {
+    border-right: .4vmin solid white;
+    border-bottom: .4vmin solid white;
+}
+#c2r1 {
+    border-bottom: .4vmin solid white;
+}
+
+/* Bottom Row*/
+#c0r0 {
+    border-right: .4vmin solid white;
+    
+}
+#c1r0 {
+    border-right: .4vmin solid white;
+}
+
+button {
+    margin-top: 4vmin;
+    padding: 1.5vmin;
+    font-size: 2vmin;
+    border-radius: 1vmin;
+    border: 0.1vmin solid grey;
+}
+
+button:hover {
+    color: white;
+    background-color: rgb(188, 185, 185);
+    transform: scale(1.1);
+    transition: transform 150ms ease-in;
+}

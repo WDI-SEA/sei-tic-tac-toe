@@ -5,10 +5,10 @@
     /*----- state variables -----*/
 
 // Decide State Variables for Game:
-// 1. Keep track of who's turn it is (turn: playerOne (1)/playerTwo (-1))
+// 1. Keep track of who's turn it is (turn: Player One (1)/ Player Two (-1))
 // 2. Track board state (board: 2D array)
 //       null -> no player
-//       playerOne/playerTwo -> player at that cell   
+//       Player One (1) / Player Two (-1) -> player at that cell   
 // 3. Variable for winner (winner: yes or no)
 //      null -> no winner / in play
 //      playerOne/playerTwo -> winner

@@ -26,6 +26,9 @@ h1 {
 
 .cell {
     transform: scale(0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cell:hover {

@@ -1,4 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: blue;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 10vmin);
+    grid-template-rows: repeat(3, 10vmin);
+    gap: 1vmin;
+    margin-top: -2vmin;
+}
+
+#board > div {
+    border: 0.1vmin solid lightgray;
+}
+
+button {
+    margin-top: 4vmin;
+    padding: 2vmin;
+    font-size: 2vmin;
+    border-radius: 4vmin;
+    border: 0.1vmin solid gray;
+    border-color: darkgray;
+    color: gray;
+}
+
+button:hover {
     color: white;
+    background-color: darkgray;
 }

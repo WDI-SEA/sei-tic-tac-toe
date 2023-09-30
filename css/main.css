@@ -24,11 +24,20 @@ h1 {
     font-size: 3vmin;
 }
 
+.cell {
+    transform: scale(0.7);
+}
+
+.cell:hover {
+    transform: scale(0.9);
+    transition: transform 150ms ease-in;
+}
+
 #board {
     display: grid;
     grid-template-columns: repeat(3, 10vmin);
     grid-template-rows: repeat(3, 10vmin);
-    gap: 1vmin;
+    gap: .2vmin;
     margin-top: 2vmin;
 }
 

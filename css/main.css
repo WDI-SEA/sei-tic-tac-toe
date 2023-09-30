@@ -5,10 +5,23 @@
 body {
     height: 100vh;
     margin: 0;
+    font-family: 'Audiowide', cursive;
+    font-family: 'Open Sans', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+header {
+    font-size: 4vmin;
+    color: darkgray;
+    letter-spacing: 1vmin;
+}
+
+h1 {
+    color: gray;
+    font-size: 3vmin;
 }
 
 #board {
@@ -16,7 +29,7 @@ body {
     grid-template-columns: repeat(3, 10vmin);
     grid-template-rows: repeat(3, 10vmin);
     gap: 1vmin;
-    margin-top: -2vmin;
+    margin-top: 2vmin;
 }
 
 #board > div {

@@ -1,10 +1,15 @@
 	/*----- constants -----*/
-    const COLORS = {
-        '0': 'white',
-        '1': 'black',
-        '-1': 'red'
-    };
+    // const COLORS = {
+    //     '0': 'white',
+    //     '1': 'black',
+    //     '-1': 'red'
+    // };
 
+    const VALUE = {
+        '0': ' ',
+        '1': 'X',
+        '-1': 'O'
+    };
 
     /*----- state variables -----*/
 
@@ -140,7 +145,8 @@ function renderBoard() {
         columnArr.forEach(function(cellValue, rowIdx) {
             const cellId = `c${columnIdx}r${rowIdx}`;    
             const cellEl = document.getElementById(cellId);
-            cellEl.style.backgroundColor = COLORS[cellValue]; 
+//           cellEl.style.backgroundColor = COLORS[cellValue]; 
+            cellEl.innerText = VALUE[cellValue];
         });
     });
 }
@@ -150,10 +156,12 @@ function renderMessage() {
         messageEl.innerText = "It's a tie!!!";
     } else if (winner) {
         //message for winner
-        messageEl.innerHTML = `<span style="color: ${COLORS[winner]}">${COLORS[winner].toUpperCase()}</span> wins!`;        
+        // messageEl.innerHTML = `<span style="color: ${COLORS[winner]}">${COLORS[winner].toUpperCase()}</span> wins!`;        
+        messageEl.innerHTML = `<span style="color: ${VALUE[winner]}">${VALUE[winner].toUpperCase()}</span> wins!`;        
     } else {
         //message when game is in play
-        messageEl.innerHTML = `It's your turn, <span style="color: ${COLORS[turn]}">${COLORS[turn].toUpperCase()}</span>.`;
+        // messageEl.innerHTML = `It's your turn, <span style="color: ${COLORS[turn]}">${COLORS[turn].toUpperCase()}</span>.`;
+        messageEl.innerHTML = `It's your turn, <span style="color: ${VALUE[turn]}">${VALUE[turn].toUpperCase()}</span>.`;
     }
 }
 
@@ -164,7 +172,8 @@ function renderControls() {
         columnArr.forEach(function(cellValue, rowIdx) {
             const cellId = `c${columnIdx}r${rowIdx}`;    
             const cellEl = document.getElementById(cellId);
-            cellEl.style.backgroundColor = COLORS[cellValue]; 
+            // cellEl.style.backgroundColor = COLORS[cellValue]; 
+            cellEl.style.backgroundColor = VALUE[cellValue]; 
         });
     });
 }

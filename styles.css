@@ -50,10 +50,19 @@ button {
 button:hover {
     color: white;
     background-color: dimgray;
+    transform: scale(1.1);
+    transition: transform 158ms ease-in;
+    cursor: pointer;
 }
 
 div {
     font-size: 20vmin;
     text-align: center;
     line-height: 22.5vmin;  
+}
+
+div:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 158ms ease-in;
 }

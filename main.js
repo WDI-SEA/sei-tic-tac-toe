@@ -5,6 +5,10 @@ const MARKERS = {
 '-1': 'O',
 };
 
+const WINCOUNT = {
+    '1': 0,  // Player X wins
+    '-1': 0  // Player O wins
+};
 /*----- state variables -----*/
 let board;  // array of 7 column arrays
 let turn;  // 1 or -1
@@ -59,6 +63,9 @@ function inputMarker(evt) {
 function checkWin(colIdx, rowIdx) {
     if (checkVerticalWin(colIdx, rowIdx) || checkHorizontalWin(colIdx, rowIdx) || checkDiagonalWin(colIdx, rowIdx)) {
         winner = board[colIdx][rowIdx];
+        if (winner !== null) {
+            WINCOUNT[winner]++;  // Increment the win count for the winning player
+        }
     }
 }
 
@@ -105,8 +112,8 @@ function renderBoard() {
 
 function renderMessage() {
     if (winner) {
-        messageEl.innerHTML = `<span style="color: ${MARKERS[winner]}">${MARKERS[winner]}</span> Wins!`;
+        messageEl.innerHTML = `${MARKERS[winner]} Wins! || 🙅‍♀️: ${WINCOUNT['1']} - 🙆‍♂️: ${WINCOUNT['-1']}`;
     } else {
-        messageEl.innerHTML = `<span style="color: ${MARKERS[turn]}">${MARKERS[turn]}'s Turn</span>`;
+        messageEl.innerHTML = `${MARKERS[turn]}'s Turn`;
     }
 }

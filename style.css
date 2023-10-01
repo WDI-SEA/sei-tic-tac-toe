@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* viewport units - vh (viewport height), vw (v width), vmin */
+    height: 100vh;
+    margin: 0;
+    /* Setting body font applies to most things except buttons */
+    font-family: 'Roboto Condensed', sans-serif;
+    /* Turn the body into a flexbox */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    /* Sets font to 4% of whatever is on the page */
+    font-size: 4vmin;
+    color: darkmagenta;
+    letter-spacing: 1vmin;
+}
+
+h1 {
+    color: hotpink;
+    font-size: 3vmin;
+}
+
+
+#board {
+    display: grid;
+    /* set the width of the 3 columns */
+    grid-template-columns: repeat(3, 10vmin);
+    /* set the width of the 3 rows */
+    grid-template-rows: repeat(3, 10vmin);
+    /* add gap between columns */
+    gap: 0vmin;
+}
+#board > div#c1r1 {
+    border: 0.3vmin solid darkmagenta;
+}
+#board > div#c1r2 {
+    border-left: 0.3vmin solid darkmagenta;
+    border-right: 0.3vmin solid darkmagenta;
+
+}
+#board > div#c0r1 {
+    border-top: 0.3vmin solid darkmagenta;
+    border-bottom: 0.3vmin solid darkmagenta;
+
+}
+#board > div#c2r1 {
+    border-top: 0.3vmin solid darkmagenta;
+    border-bottom: 0.3vmin solid darkmagenta;
+}
+#board > div#c1r0 {
+    border-left: 0.3vmin solid darkmagenta;
+    border-right: 0.3vmin solid darkmagenta;
+}
+
+
+button {
+    margin: 4vmin;
+    padding: 2vmin;
+    font-size: 2vmin;
+    border-radius: 4vmin;
+    border: 0.1vmin solid darkmagenta;
+    background-color: hotpink;
+    color: white;
+}
+
+button:hover {
+    color: white;
+    background-color: darkmagenta;
+}

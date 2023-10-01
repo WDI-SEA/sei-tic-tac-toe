@@ -1,11 +1,11 @@
 * {
     box-sizing: border-box;
+    font-family: 'Rubik Mono One', sans-serif;
 }
 
 body {
     height: 100vh;
     margin: 0;
-    font-family: 'Open Sans', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,22 +13,16 @@ body {
 }
 
 header {
-    font-size: 4vmin;
-    color: darkgrey;
+    font-size: 5vmin;
+    color: darkviolet;
     letter-spacing: 1vmin;
 
 }
 
 h1 {
-    color: grey;
+    color: dimgray;
     font-size: 3vmin;
-}
-
-#markers {
-    display: grid;
-    grid-template-columns: repeat(7, 10vmin);
-    gap: 1vmin;
-    margin-top: 1.5vmin;
+    margin-top: 1vmin;
 }
 
 #board {
@@ -55,11 +49,11 @@ button {
 
 button:hover {
     color: white;
-    background-color: darkgray;
+    background-color: dimgray;
 }
 
 div {
     font-size: 20vmin;
     text-align: center;
-    line-height: 19.4vmin;  
+    line-height: 22.5vmin;  
 }

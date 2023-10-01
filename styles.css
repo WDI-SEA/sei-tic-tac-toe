@@ -33,8 +33,8 @@ h1 {
 
 #board {
     display: grid;
-    grid-template-columns: repeat(3, 10vmin);  
-    grid-template-rows: repeat(3, 10vmin);
+    grid-template-columns: repeat(3, 20vmin);  
+    grid-template-rows: repeat(3, 20vmin);
     gap: 1vmin;
     margin-top: 1vmin;
 }
@@ -48,7 +48,7 @@ button {
     margin-top: 4vmin;
     padding: 2vmin;
     font-size: 2cmin;
-    border-radius: 4vmin;
+    border-radius: 2vmin;
     border: 0.1vmin solid grey;
     color: grey;
 }
@@ -59,7 +59,7 @@ button:hover {
 }
 
 div {
-    font-size: 10vmin;
+    font-size: 20vmin;
     text-align: center;
-    line-height: 9.5vmin;
+    line-height: 19.4vmin;  
 }

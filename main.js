@@ -97,7 +97,7 @@ board.forEach(function(colArr, colIdx) {
     colArr.forEach(function(cellVal, rowIdx) {
     const cellId = `c${colIdx}r${rowIdx}`;
     const cellEl = document.getElementById(cellId);
-    cellEl.innerHTML = cellVal === 1 ? 'X' : cellVal === -1 ? 'O' : ''; // Display 'X' for 1 and 'O' for -1
+    cellEl.innerHTML = cellVal === 1 ? '🙅‍♀️' : cellVal === -1 ? '🙆‍♂️' : ''; // Display 'X' for 1 and 'O' for -1
     });
 });
 }

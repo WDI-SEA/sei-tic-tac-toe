@@ -92,14 +92,15 @@ function render() {
 }
 
 function renderBoard() {
-board.forEach(function(colArr, colIdx) {
-    // Iterate over the cells in the cur column (colArr)
-    colArr.forEach(function(cellVal, rowIdx) {
-    const cellId = `c${colIdx}r${rowIdx}`;
-    const cellEl = document.getElementById(cellId);
-    cellEl.innerHTML = cellVal === 1 ? '🙅‍♀️' : cellVal === -1 ? '🙆‍♂️' : ''; // Display 'X' for 1 and 'O' for -1
+    board.forEach(function(colArr, colIdx) {
+        // Iterate over the cells in the cur column (colArr)
+        colArr.forEach(function(cellVal, rowIdx) {
+        const cellId = `c${colIdx}r${rowIdx}`;
+        const cellEl = document.getElementById(cellId);
+        // Display '🙅‍♀️' for 1 and '🙆‍♂️' for -1
+        cellEl.innerHTML = cellVal === 1 ? '🙅‍♀️' : cellVal === -1 ? '🙆‍♂️' : ''
+        });
     });
-});
 }
 
 function renderMessage() {
@@ -109,7 +110,3 @@ function renderMessage() {
         messageEl.innerHTML = `<span style="color: ${MARKERS[turn]}">${MARKERS[turn]}'s Turn</span>`;
     }
 }
-
-// function renderControls() {
-//     playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
-// }

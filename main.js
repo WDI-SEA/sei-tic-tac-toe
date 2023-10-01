@@ -111,7 +111,7 @@ function renderBoard() {
 
 function renderMessage() {
     if (winner) {
-        messageEl.innerHTML = `${MARKERS[winner]} Wins! || 🙅‍♀️: ${WINCOUNT['1']} - 🙆‍♂️: ${WINCOUNT['-1']}`;
+        messageEl.innerHTML = `${MARKERS[winner]} Wins! 🙅‍♀️: ${WINCOUNT['1']} 🙆‍♂️: ${WINCOUNT['-1']}`;
     } else {
         messageEl.innerHTML = `${MARKERS[turn]}'s Turn`;
     }

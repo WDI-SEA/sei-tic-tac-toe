@@ -44,12 +44,12 @@ button {
     font-size: 2cmin;
     border-radius: 2vmin;
     border: 0.1vmin solid dimgrey;
-    color: dimgrey;
+    color: dimgray;;
 }
 
 button:hover {
     color: white;
-    background-color: dimgray;
+    background-color: darkviolet;
     cursor: pointer;
 }
 

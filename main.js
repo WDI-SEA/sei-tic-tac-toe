@@ -21,7 +21,6 @@ const divEls = document.querySelectorAll('div');
 divEls.forEach(div => {
     div.addEventListener('click', inputMarker);
 });
-
 playAgainBtn.addEventListener('click', init);
 
 /*----- functions -----*/
@@ -29,7 +28,6 @@ init();
 
 // Initialize all state, then call render()
 function init() {
-
 
 // To visualize the board's mapping to the DOM,
 // rotate the board array 90 degrees counter-clockwise
@@ -91,9 +89,6 @@ function checkDiagonalWin(colIdx, rowIdx) {
 function render() {
     renderBoard();
     renderMessage();
-
-    // Hide/show UI elements (controls)
-    // renderControls();
 }
 
 function renderBoard() {

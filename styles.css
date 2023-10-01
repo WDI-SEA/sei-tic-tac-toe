@@ -71,3 +71,9 @@ button:hover {
     color: white;
     background-color: darkgray;
 }
+
+div {
+    font-size: 10vmin;
+    text-align: center;
+    line-height: 9.5vmin;
+}

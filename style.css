@@ -24,7 +24,7 @@ header {
 
 h1 {
     margin-top: 35px;
-    font-size: 4vmin;
+    font-size: 5vmin;
     /* border: 2px solid white;
     padding: 5px;
     background-color: white;
@@ -41,6 +41,10 @@ table {
     position: relative;
 }
 
+table:hover {
+    cursor: pointer;
+}
+
 /* .toprow {
         width: 300px;
         height: 75px;
@@ -53,13 +57,14 @@ table {
         height: 75px;
         position:relative;
     }
-    
-.bottomrow {
+    */
+
+    .bottomrow {
         width:300px;
-        height: 75px;
+        height: 125px;
         position:relative;
     }
-     */
+     
 
 
 /* Top Row*/
@@ -111,4 +116,5 @@ button:hover {
     background-color: rgb(188, 185, 185);
     transform: scale(1.1);
     transition: transform 150ms ease-in;
+    cursor: pointer;
 }

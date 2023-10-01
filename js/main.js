@@ -62,6 +62,7 @@ function init() {
     turn = 1;
     winner = null;
     render();
+    
 }
     
 //   4.2) Render those state variables to the page:
@@ -82,6 +83,8 @@ function renderTable() {
             const cellId = `c${colIdx}r${rowIdx}`;
             const cellEl = document.getElementById(cellId);
             cellEl.style.backgroundColor = colors[cellVal];
+            //console.log(cellEl);
+            cellEl.addEventListener('click', makeChoice);
         });
     });
 }
@@ -110,13 +113,33 @@ function renderMessage() {
 
 //Event Listeners:
 
-document.querySelector('table').addEventListener('click', makeChoice)
+//document.querySelector('table').addEventListener('click', makeChoice)
 resetBtn.addEventListener('click', init);
 
 // 5) Handle a player clicking a square:
+
+function makeChoice (evt) {
+    evt.preventDefault();
+    //store the selection and change the turn
+    const cellIdx = table.indexOf(evt.target);
+    //make it so that a cell cant be chosen twice
+    //if (cellIdx !== 0){return;}
+    
+   
+            
+        
+    console.log(evt.target);
+//render()
+}   
+
+
 //   5.1) Obtain the index of the square that was clicked by either:
 //     5.1.1) "Extracting" the index from an id assigned to the element in the HTML, or
+
+
 //     5.1.2) Looping through the cached square elements using a for loop and breaking out when the current square element equals the event object's target.
+
+
 //   5.2) If the board has a value at the index, immediately return because that square is already taken.
 //   5.3) If winner is not null, immediately return because the game is over.
 //   5.4) Update the board array at the index with the value of turn.

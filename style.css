@@ -1,0 +1,41 @@
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 10vmin);
+    grid-template-rows: repeat(3, 10vmin);
+    gap: 3vmin;
+    /* margin-top: -2vmin; */
+}
+
+#board > div {
+    margin: auto;
+    padding: 3vmin;
+    width: 5vmin;
+    height: 5vmin;
+    background-color: gray;
+    text-align: center;
+}
+#board >div:hover {
+    background-color: lightgray;
+}
+
+#board > div.x {
+    background-color: red;
+}
+
+#board > div.o {
+    background-color: blue;
+}
+
+h1 {
+    margin: 1vmin auto;
+}

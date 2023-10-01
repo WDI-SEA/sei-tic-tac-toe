@@ -50,8 +50,6 @@ button {
 button:hover {
     color: white;
     background-color: dimgray;
-    transform: scale(1.1);
-    transition: transform 158ms ease-in;
     cursor: pointer;
 }
 

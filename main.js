@@ -1,10 +1,9 @@
 /*----- constants -----*/
 const MARKERS = {
-'0': null,
-'1': 'X',
-'-1': 'O',
+    '0': null,
+    '1': 'X',
+    '-1': 'O',
 };
-
 const WINCOUNT = {
     '1': 0,  // Player X wins
     '-1': 0  // Player O wins
@@ -100,7 +99,7 @@ function render() {
 
 function renderBoard() {
     board.forEach(function(colArr, colIdx) {
-        // Iterate over the cells in the cur column (colArr)
+        // Iterate over the cells in the current column (colArr)
         colArr.forEach(function(cellVal, rowIdx) {
         const cellId = `c${colIdx}r${rowIdx}`;
         const cellEl = document.getElementById(cellId);

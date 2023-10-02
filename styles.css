@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Rubik Mono One', sans-serif;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    font-size: 5vmin;
+    color: darkviolet;
+    letter-spacing: 1vmin;
+
+}
+
+h1 {
+    color: dimgray;
+    font-size: 3vmin;
+    margin-top: 1vmin;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 20vmin);  
+    grid-template-rows: repeat(3, 20vmin);
+    gap: 1vmin;
+    margin-top: 1vmin;
+}
+
+#board > div {
+    border-radius: 10%;
+    border: 0.1vmin solid grey;
+}
+
+button {
+    margin-top: 4vmin;
+    padding: 2vmin;
+    font-size: 2cmin;
+    border-radius: 2vmin;
+    border: 0.1vmin solid dimgrey;
+    color: dimgray;;
+}
+
+button:hover {
+    color: white;
+    background-color: darkviolet;
+    cursor: pointer;
+}
+
+div {
+    font-size: 20vmin;
+    text-align: center;
+    line-height: 22.5vmin;  
+}
+
+div:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 158ms ease-in;
+}

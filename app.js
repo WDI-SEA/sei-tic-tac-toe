@@ -63,6 +63,13 @@ function handleClick(e) {
         const col = parseInt(evt.target.id.charAt(1));
 
         turn = turn * -1;
+        if (turn === -1) {
+          playerTurnDisplay.style.color = "red";
+          playerTurnDisplay.innerHTML = "RED'S";
+        } else if (turn === 1) {
+          playerTurnDisplay.style.color = "green";
+          playerTurnDisplay.innerHTML = "GREEN'S";
+        }
         board[row][col] = turn;
         console.log(evt.target.id);
         let clickedSquare = evt.target.id;
@@ -74,6 +81,7 @@ function handleClick(e) {
         checkDiaganolWinner();
         isThereAWinner();
         winCounter();
+        checkTie();
       }
 
       //   const squareId = cell.id;
@@ -135,9 +143,11 @@ function isThereAWinner() {
   if (winner === 1) {
     message.innerHTML = "RED WINS";
     message.style.fontSize = "15px";
+    message.style.color = "red";
   } else if (winner === -1) {
     message.innerHTML = "GREEN WINS";
     message.style.fontSize = "15px";
+    message.style.color = "green";
   }
 }
 

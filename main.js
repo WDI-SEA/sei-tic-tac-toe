@@ -2,9 +2,9 @@ console.log("hello, world!");
 /*----- constants -----*/
     const MOVES = {
         // UPDATE - NOT A COLOR LOOK UP, BUT LETTER(X OR O)
-        '0' : 'white',
-        '1' : 'pink',
-        '-1': 'purple'
+        '0' : ' ',
+        '1' : 'X',
+        '-1': 'O'
     };
 
 
@@ -33,8 +33,8 @@ console.log("hello, world!");
     function init(){
         //initializing the let board var; rotate 90 deg counterclockwise to visualize the board in the DOM
         board = [
-            [" ", " ", "o"], // col 0
-            [" ", "x", " "], // col 1
+            [" ", " ", " "], // col 0
+            [" ", " ", " "], // col 1
             [" ", " ", " "], // col 2
         ]; 
         console.log(board)
@@ -58,28 +58,11 @@ console.log("hello, world!");
             let rowIdx = -1;
             colArr.forEach(function(rowArr){
                 rowIdx += 1;
-                console.log(`col row index ${colIdx}${rowIdx}`)
                 cellId = `c${colIdx}r${rowIdx}`
-                console.log(`cellid is ${cellId}`)
                 const cellEl = document.getElementById(cellId);
                 cellEl.innerText = board[colIdx][rowIdx];
             })
         })
-
-
-        // let colIdx = -1;
-        // board.forEach(function(colArr) {
-        //     colIdx += 1;
-        //     let rowIdx = -1;
-        //     colArr.forEach(function(row){
-        //         console.log(row)
-        //         rowIdx += 1;
-        //         cellId = `c${colIdx}r${rowIdx}`
-        //         console.log(`cellid is ${cellId}`)
-        //         const cellEl = document.getElementById(cellId);
-        //         cellEl.innerText = board[colIdx][rowIdx];
-        //     })
-        // })
     }
 
     function renderMessage(){
@@ -99,24 +82,15 @@ console.log("hello, world!");
 
     //In response to user interaction, update all impacted state then call render()
     function handleFillSquare(e){
-        colIdx = 1
-        rowIdx = 1
-        // console.log(board[1])
-        // board[colIdx][rowIdx] = "x";
+        const clickedSq = e.target.id;
+        colIdx = clickedSq.substr(1,1)
+        rowIdx = clickedSq.substr(3,3)
+        console.log(colIdx)
+        console.log(rowIdx)
+        board[colIdx][rowIdx] = MOVES[turn];
         turn *= -1;
+        winner = getWinner(colIdx, rowIdx)
         render();
-
-        // console.log(e.target.id)
-        // const colIdx = substr(e.target.id);
-        // // Guards...
-        // if (colIdx === -1) return;
-        // const colArr = board[colIdx];
-        // //Find the first index of the first 0 in colArr -- change
-        // const rowIdx = colArr.indexOf(0)
-        // colArr[rowIdx] = turn;
-        // turn *= -1;
-        // winner = getWinner(colIdx, rowIdx)
-        // render();
     };
 
     // Check for the winner in board state and return null if no winner

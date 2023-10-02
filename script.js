@@ -6,14 +6,16 @@ const colours = { // can sub in pictures later instead of colours
 };
 
 const players = {
-    '1': 'Mario',
-    '2': 'Luigi'
+    '1': ['<span style="color: rgb(228,0,15);">Mario</span>', 0],
+    '2': ['<span style="color: rgb(76,187,23);">Luigi</span>', 0]
 };
 // variables
 let board; // 3x3 board
 let player; // 1 - player1, 2 - player 2, 0 - blank space
 let winner; // 0 - no winners, 1 - player1 wins, 2 - player2 wins, 3 - tie
 let gameCount = 0; // count games completed
+let marioWins = 0;
+let luigiWins = 0;
 // cache
 const replay = document.getElementById('replay');
 const gameMessage = document.getElementById('message');
@@ -50,6 +52,14 @@ function render() {
     renderGameCount();
     renderBoard();
     renderMessage();
+    renderWins();
+}
+
+function renderWins() {
+    const mario = document.getElementById('mario');
+    const luigi = document.getElementById('luigi');
+    mario.innerHTML = `${players['1'][0]}'s wins: ${players['1'][1]}`;
+    luigi.innerHTML = `${players['2'][0]}'s wins: ${players['2'][1]}`;
 }
 
 function renderGameCount() {
@@ -75,14 +85,15 @@ function renderBoard() {
 
 function renderMessage() {
     while (winner === 0) {
-        gameMessage.innerHTML = `${players[player]}'s Turn!`;
+        gameMessage.innerHTML = `${players[player][0]}'s Turn!`;
         return;
     }
     if (winner === 3) {
         gameMessage.innerHTML = 'Tie!';
         replay.classList.remove('hide');
     } else if (winner === 1 || winner === 2) {
-        gameMessage.innerHTML = `${players[winner]} Wins!`;
+        gameMessage.innerHTML = `${players[winner][0]} Wins!`;
+        players[winner][1] ++;
         replay.classList.remove('hide');
     }
 }

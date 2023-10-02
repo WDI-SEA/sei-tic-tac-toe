@@ -63,7 +63,13 @@ button.hide {
     visibility: hidden;
 }
 
-#mario{
+#mario {
+    font-size: 2vmin;
+    margin-bottom: 1vmin;
+    margin-top: 0;
+}
+
+#luigi {
     font-size: 2vmin;
     margin-bottom: 1vmin;
     margin-top: 0;

@@ -11,7 +11,8 @@ const WINCOUNT = {
 /*----- state variables -----*/
 let board;  // array of 7 column arrays
 let turn;  // 1 or -1
-let winner;  // null = no winner; 1 or -1 = winner; 'T' = Tie
+let winner;
+let tieGame;
 let numRows = 3;
 let numCols = 3;
 
@@ -55,6 +56,7 @@ function inputMarker(evt) {
 
     board[colIdx][rowIdx] = turn;
     turn *= -1;
+    tieGame = catsGame();
     checkWin(colIdx, rowIdx);
     render();
 }
@@ -66,6 +68,17 @@ function checkWin(colIdx, rowIdx) {
             WINCOUNT[winner]++;  // Increment the win count for the winning player
         }
     }
+}
+
+function catsGame() {
+    for (let i = 0; i < numCols; i++) {
+        for (let j = 0; j < numRows; j++) {
+            if (board[i][j] === 0) {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 function checkVerticalWin(colIdx, rowIdx) {
@@ -112,6 +125,8 @@ function renderBoard() {
 function renderMessage() {
     if (winner) {
         messageEl.innerHTML = `${MARKERS[winner]} Wins! 🙅‍♀️: ${WINCOUNT['1']} 🙆‍♂️: ${WINCOUNT['-1']}`;
+    } else if (tieGame){ 
+        messageEl.innerHTML = "Cat's game! It's a tie. 🐱";
     } else {
         messageEl.innerHTML = `${MARKERS[turn]}'s Turn`;
     }

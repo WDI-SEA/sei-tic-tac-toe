@@ -25,7 +25,7 @@ header {
     padding: 3vmin;
     width: 5vmin;
     height: 5vmin;
-    background-color: gray;
+    background-color: green;
     text-align: center;
 }
 #board >div:hover {
@@ -42,4 +42,8 @@ header {
 
 h1 {
     margin: 1vmin auto;
+}
+
+button.hide {
+    visibility: hidden;
 }

@@ -34,6 +34,7 @@ function startGame() {
     turnCount = 0;
     winner = 0;
     player = goFirst();
+    replay.classList.add('hide');
     render();
 }
 
@@ -69,6 +70,7 @@ function renderMessage() {
         gameMessage.innerHTML = 'Tie!';
     } else if (winner === 1 || winner === 2) {
         gameMessage.innerHTML = `Player ${winner} Wins!`;
+        replay.classList.remove('hide');
     }
 }
 
@@ -102,17 +104,16 @@ function handlePlay(event){
 }
 
 function getWinner(row, col, numberOfRows, numberOfColumns) {
-    const horizontalWin = checkHorizontals(row, col);
-    const verticalWin = checkVerticals(row, col);
-    //const diagonalNorthEastWin = checkDiagonals(row, col, numberOfRows, numberOfColumns, 0, 0);
-    //const diagonalNorthWestWin = checkDiagonals(row, col, numberOfRows, numberOfColumns, 1, -1);
-    return;
+    checkHorizontals(row, col, numberOfRows, numberOfColumns);
+    checkVerticals(row, col, numberOfRows, numberOfColumns);
+    checkDiagonals(row, col, numberOfRows, 1);
+    checkDiagonals(row, col, numberOfRows, -1);
 }
 
-function checkHorizontals(row, col) {
-    for (let i = 0; i < Object.keys(board).length; i++) {
+function checkHorizontals(row, col, nOR, nOC) {
+    for (let i = 0; i < nOR; i++) {
         let winCount = 0;
-        for (let j = 0; j < board[`r${i}`].length; j++) {
+        for (let j = 0; j < nOC; j++) {
             if (board[`r${i}`][j] === board[`${row}`][col]) {
                 winCount ++;
             }
@@ -123,10 +124,10 @@ function checkHorizontals(row, col) {
     }
 }
 
-function checkVerticals(row, col) {
-    for (let i = 0; i < Object.keys(board).length; i++) {
+function checkVerticals(row, col, nOR, nOC) {
+    for (let i = 0; i < nOR; i++) {
         let winCount = 0;
-        for (let j = 0; j < board[`r${i}`].length; j++) {
+        for (let j = 0; j < nOC; j++) {
             if (board[`r${j}`][i] === board[`${row}`][col]) {
                 winCount ++;
             }
@@ -137,20 +138,20 @@ function checkVerticals(row, col) {
     }
 }
 
-function checkDiagonals(row, col, numberOfRows, numberOfColumns, addOne, minusOne) {
+function checkDiagonals(row, col, nOR, columnOffset) {
     let i = 0
     let j = 0
-    if (minusOne != 0) j = 2;
+    if (columnOffset != 1) j = 2;
     let winCount = 0;
-    while ( i < numberOfRows && j < numberOfColumns){
+    while ( i < nOR){
         if (board[`r${i}`][j] === board[`${row}`][col]) {
             winCount ++;
         }
         if (winCount >= 3) {
             return winner = board[`${row}`][col];
         }
-        i + addOne;
-        j + minusOne;
+        i ++;
+        j += (1 * columnOffset);
     }
 }
 

@@ -54,6 +54,7 @@
         //Iterate through the board's array to determine what displays on the board
         board.forEach(function(colArr){
             let colIdx = board.indexOf(colArr)
+            // Get the index of each elem; can't use indexOf bc elems are not unique
             let rowIdx = -1;
             colArr.forEach(function(rowArr){
                 rowIdx += 1;
@@ -110,7 +111,22 @@
         return checkVerticalWin(colIdx, rowIdx) ||
         checkHorizontalWin(colIdx, rowIdx) ||
         checkDiagonalWinNESW(colIdx, rowIdx) ||
-        checkDiagonalWinNWSE(colIdx, rowIdx);
+        checkDiagonalWinNWSE(colIdx, rowIdx) ||
+        checkTie();
+    }
+
+    function checkTie () {
+        let filledSpaces = 0;
+        // Nexted forEach not working; using for loop
+        for (col in board){
+            for (row in board[col]){
+                if (board[col][row] !== " "){
+                    filledSpaces += 1;
+                }
+            }
+        }
+        console.log(filledSpaces)
+        return filledSpaces === 9 ? "T" : null;
     }
 
     function checkDiagonalWinNESW (colIdx,rowIdx){
@@ -123,7 +139,7 @@
                 neswIdx++;
             }
         })
-        return matchCount === 3 ? lastMove : null;
+        return matchCount === 9 ? lastMove : null;
     }
 
     function checkDiagonalWinNWSE (colIdx,rowIdx){

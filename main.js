@@ -112,6 +112,7 @@
         checkHorizontalWin(colIdx, rowIdx) ||
         checkDiagonalWinNESW(colIdx, rowIdx) ||
         checkDiagonalWinNWSE(colIdx, rowIdx) ||
+        // Check for full board if there isn't a winner yet
         checkTie();
     }
 

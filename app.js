@@ -58,6 +58,11 @@ function init() {
 function handleClick(e) {
   boardCells.forEach((cell) => {
     cell.addEventListener("click", (evt) => {
+      if (winner !== null) {
+        // If there's a winner, return early and do not allow further moves
+        return;
+      }
+
       if (!evt.target.style.borderColor) {
         const row = parseInt(evt.target.id.charAt(3));
         const col = parseInt(evt.target.id.charAt(1));
@@ -79,9 +84,8 @@ function handleClick(e) {
         checkRowWinner();
         checkColWinner();
         checkDiaganolWinner();
-        isThereAWinner();
-        winCounter();
         checkTie();
+        isThereAWinner();
       }
 
       //   const squareId = cell.id;
@@ -138,6 +142,23 @@ function checkDiaganolWinner() {
     return (winner = -1);
   }
 }
+function checkTie() {
+  if (winner === null) {
+    let isTie = true;
+
+    board.forEach((cellArr) => {
+      cellArr.forEach((cell) => {
+        if (cell === 0) {
+          isTie = false;
+        }
+      });
+    });
+
+    if (isTie) {
+      winner = "T";
+    }
+  }
+}
 
 function isThereAWinner() {
   if (winner === 1) {
@@ -148,6 +169,10 @@ function isThereAWinner() {
     message.innerHTML = "GREEN WINS";
     message.style.fontSize = "15px";
     message.style.color = "green";
+  } else if (winner === "T") {
+    message.innerHTML = "ITS A TIE!";
+    message.style.fontSize = "15px";
+    message.style.color = "blue";
   }
 }
 

@@ -1,11 +1,15 @@
 body {
     height: 100vh;
     margin: 0;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+header {
+    font-size: 5vmin;
 }
 
 #board {

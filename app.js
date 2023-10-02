@@ -48,6 +48,8 @@ function init() {
   ];
   turn = 1;
   winner = null;
+  playerTurnDisplay.innerHTML = "GREEN'S";
+  playerTurnDisplay.style.color = "green";
 
   // Clear the border colors of the cells
   boardCells.forEach((cell) => {

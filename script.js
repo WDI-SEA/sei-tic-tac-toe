@@ -39,6 +39,13 @@ function startGame() {
     winner = 0;
     player = goFirst();
     replay.classList.add('hide');
+    for (let i = 0; i < Object.keys(board).length; i++) {
+        for (let j = 0; j < board[`r${i}`].length; j++) {
+            const cellId = `c${j}r${i}`;
+            const cellElement = document.getElementById(cellId);
+            cellElement.classList.add('active');
+        }
+    }
     render();
 }
 

@@ -64,6 +64,8 @@ function handleClick(e) {
         evt.target.style.borderColor = turn === 1 ? "red" : "green";
         console.log(board);
         checkRowWinner();
+        checkColWinner();
+        checkDiaganolWinner();
       }
 
       //   const squareId = cell.id;
@@ -79,14 +81,36 @@ function checkRowWinner() {
       total += cell;
       return total;
     });
-    if (total === 3 || total === -3) {
-      console.log("winner");
+    if (total === 3) {
+      console.log("RED WINS");
+    } else if (total === -3) {
+      console.log("GREEN WINS");
+    }
+  }
+}
+function checkColWinner() {
+  for (let i = 0; i < board.length; i++) {
+    let total = board[0][i] + board[1][i] + board[2][i];
+    if (total === 3) {
+      console.log("RED WINS");
+    } else if (total === -3) {
+      console.log("GREEN WINS");
     }
   }
 }
 
-function checkColWinner() {
-    
+function checkDiaganolWinner() {
+  if (
+    board[0][0] + board[1][1] + board[2][2] === 3 ||
+    board[0][2] + board[1][1] + board[2][0] === 3
+  ) {
+    console.log("RED WINS");
+  } else if (
+    board[0][0] + board[1][1] + board[2][2] === -3 ||
+    board[0][2] + board[1][1] + board[2][0] === -3
+  ) {
+    console.log("GREEN WINS");
+  }
 }
 // 5) Handle a player clicking a square:
 //   5.1) Obtain the index of the square that was clicked by either:

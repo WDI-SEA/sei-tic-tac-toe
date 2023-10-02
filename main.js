@@ -59,7 +59,10 @@
                 rowIdx += 1;
                 cellId = `c${colIdx}r${rowIdx}`
                 const cellEl = document.getElementById(cellId);
+                cellEl.style.textAlign = "center";
+                cellEl.style.lineHeight = "10vmin";
                 cellEl.innerText = board[colIdx][rowIdx];
+
             })
         })
     }
@@ -102,9 +105,8 @@
 
     // Check for the winner in board state and return null if no winner
     // Return 1/-1 if a player won, or T if tie
-    // RETURNING THE WRONG COLOR WINNER
     function getWinner(colIdx, rowIdx) {
-        // Pass in the last play and where to begin counting to checkVW
+        // Pass in the last play to the check functions
         return checkVerticalWin(colIdx, rowIdx) ||
         checkHorizontalWin(colIdx, rowIdx) ||
         checkDiagonalWinNESW(colIdx, rowIdx) ||
@@ -114,34 +116,26 @@
     function checkDiagonalWinNESW (colIdx,rowIdx){
         let lastMove = board[colIdx][rowIdx]
         let matchCount = 0;
-        let neswIdx = 2;
-        while (neswIdx >= 0){
-            if (board[neswIdx][neswIdx] === lastMove){
+        let neswIdx = 0;
+        board.forEach(function(col){
+            if (col[neswIdx] === lastMove){
                 matchCount++;
-                neswIdx--;
-            } else {
-                return null;
+                neswIdx++;
             }
-        }
+        })
         return matchCount === 3 ? lastMove : null;
     }
 
     function checkDiagonalWinNWSE (colIdx,rowIdx){
         let lastMove = board[colIdx][rowIdx]
-        console.log(lastMove)
         let matchCount = 0;
-        let nwseIdx = 0;
-        console.log(board[nwseIdx][nwseIdx])
-        while (nwseIdx <=2){
-            console.log("in the while loop")
-            if (board[nwseIdx][nwseIdx] === lastMove){
-                console.log("its a match")
+        let nwseIdx = 2;
+        board.forEach(function(col){
+            if (col[nwseIdx] === lastMove){
                 matchCount++;
-                nwseIdx++;
-            } else {
-                return null;
+                nwseIdx -= 1;
             }
-        }
+        })
         return matchCount === 3 ? lastMove : null;
     }
 
@@ -167,31 +161,6 @@
             }
         })
         return matchCount === 3 ? lastMove : null;
-    }
-
-    function countAdjacent(colIdx, rowIdx, colOffset, rowOffset) {
-        // Shortcut var to play val's
-        const player = board[colIdx][rowIdx]
-        // Track count of adjacent cells with the same player val
-        let count = 0;
-        // Initialize colIdx and rowIdx locally with new values
-        colIdx += colOffset;
-        rowIdx += rowOffset;
-        // Create while loop to count
-        while (
-            // Ensure coldIdx is within bounds of the board array
-            board[colIdx] !== undefined &&
-            // Ensure rowIdx is within bounds of the board array
-            board[rowIdx] !== undefined &&
-            // cannot use board[colIdx][rowIdx] to check bc it returns error, not undefined if not existant
-            board[colIdx][rowIdx] === player
-        ) {
-            // If it meets all conditions, increment count
-            count++;
-            colIdx += colOffset;
-            rowIdx += rowOffset;
-        }
-        return count;
     }
 
     init();

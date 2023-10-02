@@ -1,15 +1,22 @@
 body {
     height: 100vh;
     margin: 0;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Super Mario 256', sans-serif;
+    color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgb(78, 197, 248);
+    background-image: url(local/cloud.svg);
+    background-position: 50% 27%;
+    background-repeat: no-repeat;
+    background-size: 130vmin;
 }
 
 header {
-    font-size: 5vmin;
+    font-size: 8vmin;
+    margin-top: 10vmin;
 }
 
 #board {
@@ -22,28 +29,42 @@ header {
 
 #board > div {
     margin: auto;
-    padding: 3vmin;
-    width: 5vmin;
-    height: 5vmin;
-    background-color: green;
+    padding: 0;
+    width: 10vmin;
+    height: 10vmin;
+    border: 1vmin transparent solid;
     text-align: center;
 }
-#board >div:hover {
-    background-color: lightgray;
-}
-
-#board > div.x {
-    background-color: red;
-}
-
-#board > div.o {
-    background-color: blue;
+#board >div.active:hover {
+    border: rgba(76, 76, 76, 0.397) 1vmin solid;
+    border-radius: 1vmin;
 }
 
 h1 {
     margin: 1vmin auto;
+    font-size: 5vmin;
+}
+
+h2 {
+    font-size: 4vmin;
+    margin-bottom: .5vmin;
+}
+
+button {
+    size: 6vmin;
+    background-color: rgb(78, 197, 248);
+    font-family: 'Super Mario 256', sans-serif;
+    font-size: 2vmin;
+    padding: 1.5vmin;
+    border-radius: 1vmin;
 }
 
 button.hide {
     visibility: hidden;
+}
+
+#mario{
+    font-size: 2vmin;
+    margin-bottom: 1vmin;
+    margin-top: 0;
 }

@@ -1,13 +1,13 @@
 // constants 
 const colours = { // can sub in pictures later instead of colours
-    '0': 'gray',
-    '1': 'red',
-    '2': 'blue'
+    '0': 'https://mario.wiki.gallery/images/thumb/7/7f/Question_Block_-_Nintendo_JP_website.png/1200px-Question_Block_-_Nintendo_JP_website.png',
+    '1': 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/318ab411192999.560f386fd4c56.jpg',
+    '2': 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/79648a11192999.560f387135961.jpg'
 };
 
 const players = {
-    '1': 'X',
-    '2': 'O'
+    '1': 'Mario',
+    '2': 'Luigi'
 };
 // variables
 let board; // 3x3 board
@@ -27,6 +27,7 @@ replay.addEventListener('click', startGame);
 startGame();
 
 function startGame() {
+    // made them KV objects, because I love pain
     board = {
         'r0': [0, 0, 0],
         'r1': [0, 0, 0],
@@ -61,7 +62,12 @@ function renderBoard() {
             const cellId = `c${j}r${i}`;
             const cellElement = document.getElementById(cellId);
             const cellValue = board[`r${i}`][j]
-            cellElement.style.backgroundColor = colours[cellValue];
+            //cellElement.style.backgroundColor = colours[cellValue]; 
+            console.log(`url("${colours[cellValue]}");`)
+            cellElement.style.backgroundImage = `url("${colours[cellValue]}")`;
+            cellElement.style.backgroundRepeat = `no-repeat`;
+            cellElement.style.backgroundSize = `auto 100%`;
+            cellElement.style.backgroundPosition = `center center`;
         }
     }
 }
@@ -69,13 +75,14 @@ function renderBoard() {
 
 function renderMessage() {
     while (winner === 0) {
-        gameMessage.innerHTML = `Player ${player}'s Turn!`;
+        gameMessage.innerHTML = `${players[player]}'s Turn!`;
         return;
     }
     if (winner === 3) {
         gameMessage.innerHTML = 'Tie!';
+        replay.classList.remove('hide');
     } else if (winner === 1 || winner === 2) {
-        gameMessage.innerHTML = `Player ${winner} Wins!`;
+        gameMessage.innerHTML = `${players[winner]} Wins!`;
         replay.classList.remove('hide');
     }
 }
@@ -83,9 +90,9 @@ function renderMessage() {
 function handlePlay(event){
     // easier to access for later loops
     const numberOfRows = Object.keys(board).length;
-    console.log("🚀 ~ file: script.js:78 ~ handlePlay ~ numberOfRows:", numberOfRows)
+    // console.log("🚀 ~ file: script.js:78 ~ handlePlay ~ numberOfRows:", numberOfRows)
     const numberOfColumns = board[Object.keys(board)[0]].length;
-    console.log("🚀 ~ file: script.js:80 ~ handlePlay ~ numberOfColumns:", numberOfColumns)
+    // console.log("🚀 ~ file: script.js:80 ~ handlePlay ~ numberOfColumns:", numberOfColumns)
     // set rowIndex to the index ( [0] or [1] or [2] ) of the clicked item (div)
     // guard against misclick, the below code will return -1 if you clicked on not the div. also prevent input if game won or tied
     const columnIndex = boardOptions.indexOf(event.target);
@@ -101,6 +108,7 @@ function handlePlay(event){
     if (board[`${row}`][col] === 0) {
         board[`${row}`][col] = player;
         player = player == 1 ? 2 : 1;
+        event.target.classList.remove('active');
         //console.log('player after = ' + player)
     }
     
@@ -110,6 +118,7 @@ function handlePlay(event){
 }
 
 function getWinner(row, col, numberOfRows, numberOfColumns) {
+    checkTie(numberOfRows);
     checkHorizontals(row, col, numberOfRows, numberOfColumns);
     checkVerticals(row, col, numberOfRows, numberOfColumns);
     checkDiagonals(row, col, numberOfRows, 1);
@@ -159,6 +168,16 @@ function checkDiagonals(row, col, nOR, columnOffset) {
         i ++;
         j += (1 * columnOffset);
     }
+}
+
+function checkTie(nOR) {
+    let noSpots = 0;
+    for (let i = 0; i < nOR; i++) {
+        if (board[`r${i}`].some((element) => element == 0) == false) {
+            noSpots++;
+        }
+    }
+    if (noSpots == 3) winner = 3;
 }
 
 // function countAdjacents(row, col, rowOffset, colOffset) {

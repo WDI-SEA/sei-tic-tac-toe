@@ -53,20 +53,41 @@ function handleClick(e) {
   boardCells.forEach((cell) => {
     cell.addEventListener("click", (evt) => {
       if (!evt.target.style.borderColor) {
-        turn = turn * -1;
+        const row = parseInt(evt.target.id.charAt(3));
+        const col = parseInt(evt.target.id.charAt(1));
 
+        turn = turn * -1;
+        board[row][col] = turn;
         console.log(evt.target.id);
         let clickedSquare = evt.target.id;
         console.log(clickedSquare);
         evt.target.style.borderColor = turn === 1 ? "red" : "green";
-
-        console.log(turn);
+        console.log(board);
+        checkRowWinner();
       }
+
+      //   const squareId = cell.id;
+      //   console.log(`Square ${squareId} was clicked.`);
     });
   });
 }
 handleClick();
+function checkRowWinner() {
+  let total = 0;
+  for (let i = 0; i < board.length; i++) {
+    board[i].forEach((cell) => {
+      total += cell;
+      return total;
+    });
+    if (total === 3 || total === -3) {
+      console.log("winner");
+    }
+  }
+}
 
+function checkColWinner() {
+    
+}
 // 5) Handle a player clicking a square:
 //   5.1) Obtain the index of the square that was clicked by either:
 //     5.1.1) "Extracting" the index from an id assigned to the element in the HTML, or

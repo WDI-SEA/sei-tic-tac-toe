@@ -21,4 +21,7 @@ body {
 
 #field > div{
     border: 0.1vmin solid black;
+    text-align: center;
+    font-size: 8vmin;
+    line-height: 10vmin;
 }

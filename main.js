@@ -126,7 +126,7 @@ function renderMessage() {
     if (winner) {
         messageEl.innerHTML = `${MARKERS[winner]} Wins! 🙅‍♀️: ${WINCOUNT['1']} 🙆‍♂️: ${WINCOUNT['-1']}`;
     } else if (tieGame){ 
-        messageEl.innerHTML = "Cat's game! It's a tie. 🐱";
+        messageEl.innerHTML = "🐱 It's a tie! 🐱";
     } else {
         messageEl.innerHTML = `${MARKERS[turn]}'s Turn`;
     }

@@ -13,11 +13,12 @@ const players = {
 let board; // 3x3 board
 let player; // 1 - player1, 2 - player 2, 0 - blank space
 let winner; // 0 - no winners, 1 - player1 wins, 2 - player2 wins, 3 - tie
-let turnCount; // count turns, determine if tie at 9 turns after checking for winner
+let gameCount = 0; // count games completed
 // cache
 const replay = document.getElementById('replay');
 const gameMessage = document.getElementById('message');
 const boardOptions = [... document.querySelectorAll('#board > div')];
+const gameCounter = document.getElementById('gameCounter');
 // event listeners
 document.getElementById('board').addEventListener('click', handlePlay);
 replay.addEventListener('click', startGame);
@@ -31,7 +32,7 @@ function startGame() {
         'r1': [0, 0, 0],
         'r2': [0, 0, 0]
     }
-    turnCount = 0;
+    gameCount ++;
     winner = 0;
     player = goFirst();
     replay.classList.add('hide');
@@ -45,8 +46,13 @@ function goFirst(){
 }
 
 function render() { 
+    renderGameCount();
     renderBoard();
-    renderMessage()
+    renderMessage();
+}
+
+function renderGameCount() {
+    gameCounter.innerHTML = `Game ${gameCount}`;
 }
 
 function renderBoard() {

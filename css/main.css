@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: #d5bbb1;
+    font-family: 'Edu SA Beginner', cursive, Sans-Serif;
+    text-shadow: .5vmin .5vmin #2e2e2e;
+    background-color: #bfa5a5;
+    background-image: linear-gradient(#bfa5a5, #5f5252);
+    /* I assume it's good practice to leave a fallback background color in
+    case a browser has an issue with the gradient. */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+h1 {
+    position: absolute;
+    text-align: center;
+    font-size: 8vmin;
+    margin: 3.5vmin;
+}
+
+div {
+    display: grid;
+    grid-template-columns: repeat(3, 25vmin);
+    grid-template-rows: repeat(3, 25vmin);
+    justify-content: center;
+    align-self: center;
+}
+
+button {
+    margin: .7vmin;
+    font-size: 16vmin;
+    border-color: #2e2e2e;
+    border-width: .5vmin;
+    border-radius: 15%;
+    font-family: 'Edu SA Beginner', cursive;
+    color: #ff6464;
+    text-shadow: .3vmin .3vmin #2e2e2e;
+    background-color: #ece8d7;
+    background-image: linear-gradient(to right, #ece8d7, #cac8b9);
+}
+
+button:hover {
+    background-color: #c4c1b3;
+    background-image: linear-gradient(to right, #ddd9c9, #a5a394);
+    
+}
+
+#playAgainDiv {
+    text-align: center;
+    display: flex;
+}
+
+#playAgainButton {
+    visibility: hidden;
+    color: #bfa5a5;
+    font-size: 4.5vmin;
+    padding: 1vmin;
+    position: relative;
+}
+
+#headerDiv {
+    display: flex;
+    margin-bottom: 15vmin;
+    margin-top: -3vmin;
+}
+
+h2 {
+    font-size: 8vmin;
+    text-align: left;
+    color: #ff6464;
+    margin-top: -1vmin;
+}
+
+#xScoreEl {
+    color: #ff6464;
+    margin: 8vmin;
+}
+
+#oScoreEl {
+    color: #40bfc1;
+    margin: 8vmin
+}

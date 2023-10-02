@@ -1,4 +1,3 @@
-console.log("hello, world!");
 /*----- constants -----*/
     const MOVES = {
         // UPDATE - NOT A COLOR LOOK UP, BUT LETTER(X OR O)
@@ -37,7 +36,6 @@ console.log("hello, world!");
             [" ", " ", " "], // col 1
             [" ", " ", " "], // col 2
         ]; 
-        console.log(board)
         //game begins with Player 1
         turn = 1;
         winner = null;
@@ -49,6 +47,7 @@ console.log("hello, world!");
         renderBoard();
         // Display a message if there's a winner
         renderMessage();
+        renderControls();
     }
 
     function renderBoard(){
@@ -71,7 +70,7 @@ console.log("hello, world!");
         }
         // Declare winner if truthy, but not T (tie)
         else if (winner) {
-            messageEl.innerHTML = `${MOVES[winner].toUpperCase()} won!`;
+            messageEl.innerHTML = `${winner} won!`;
         }
         // Someone's turn
         else {
@@ -80,17 +79,25 @@ console.log("hello, world!");
         }
     }
 
+    function renderControls(){
+        // Hide Play Again if Winner isn't truthy (tie or winner)
+        playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
+        //Iterate over the marker elems to hide triangles for full cols
+    }
+
     //In response to user interaction, update all impacted state then call render()
     function handleFillSquare(e){
         const clickedSq = e.target.id;
         colIdx = clickedSq.substr(1,1)
         rowIdx = clickedSq.substr(3,3)
-        console.log(colIdx)
-        console.log(rowIdx)
-        board[colIdx][rowIdx] = MOVES[turn];
-        turn *= -1;
-        winner = getWinner(colIdx, rowIdx)
-        render();
+        if (board[colIdx][rowIdx] === " ") {
+            board[colIdx][rowIdx] = MOVES[turn];
+            turn *= -1;
+            winner = getWinner(colIdx, rowIdx)
+            render();
+        } else {
+            messageEl.innerText = "That spot is taken! Try again."
+        }
     };
 
     // Check for the winner in board state and return null if no winner
@@ -105,27 +112,61 @@ console.log("hello, world!");
     }
 
     function checkDiagonalWinNESW (colIdx,rowIdx){
-        let adjCountNE = countAdjacent(colIdx, rowIdx, 1, 1);
-        let adjCountSW = countAdjacent(colIdx, rowIdx, -1, -1);
-        return (adjCountNE + adjCountSW) >= 3 ? board[colIdx][rowIdx] : null;
+        let lastMove = board[colIdx][rowIdx]
+        let matchCount = 0;
+        let neswIdx = 2;
+        while (neswIdx >= 0){
+            if (board[neswIdx][neswIdx] === lastMove){
+                matchCount++;
+                neswIdx--;
+            } else {
+                return null;
+            }
+        }
+        return matchCount === 3 ? lastMove : null;
     }
 
     function checkDiagonalWinNWSE (colIdx,rowIdx){
-        let adjCountNW = countAdjacent(colIdx, rowIdx, 1, -1);
-        let adjCountSE = countAdjacent(colIdx, rowIdx, -1, 1);
-        return (adjCountNW + adjCountSE) >= 3 ? board[colIdx][rowIdx] : null;
+        let lastMove = board[colIdx][rowIdx]
+        console.log(lastMove)
+        let matchCount = 0;
+        let nwseIdx = 0;
+        console.log(board[nwseIdx][nwseIdx])
+        while (nwseIdx <=2){
+            console.log("in the while loop")
+            if (board[nwseIdx][nwseIdx] === lastMove){
+                console.log("its a match")
+                matchCount++;
+                nwseIdx++;
+            } else {
+                return null;
+            }
+        }
+        return matchCount === 3 ? lastMove : null;
     }
 
     // Check for horizontal win
     function checkHorizontalWin (colIdx, rowIdx) {
-        let adjCountLeft = countAdjacent(colIdx, rowIdx, -1, 0);
-        let adjCountRight = countAdjacent(colIdx, rowIdx, 1, 0);
-        return (adjCountLeft + adjCountRight) >= 3 ? board[colIdx][rowIdx] : null;
+        let lastMove = board[colIdx][rowIdx]
+        let matchCount = 0;
+        board.forEach(function(col){
+            if (col[rowIdx] === lastMove){
+                matchCount++;
+            }
+        })
+        return matchCount === 3 ? lastMove : null;
     }
 
     // Check for vertical win (count the # of same elem in the col below last play)
     function checkVerticalWin(colIdx, rowIdx){
-        return countAdjacent(colIdx, rowIdx, 0, -1) === 3 ? board[colIdx][rowIdx] : null;
+        let lastMove = board[colIdx][rowIdx]
+        let matchCount = 0;
+        board[colIdx].forEach(function(rowEl){
+            if (rowEl === lastMove){
+                matchCount++;
+            }
+        })
+        return matchCount === 3 ? lastMove : null;
     }
 
     function countAdjacent(colIdx, rowIdx, colOffset, rowOffset) {

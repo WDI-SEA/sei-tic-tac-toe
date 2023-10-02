@@ -131,3 +131,4 @@ function renderMessage() {
         messageEl.innerHTML = `${MARKERS[turn]}'s Turn`;
     }
 }
+

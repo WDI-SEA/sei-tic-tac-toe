@@ -13,24 +13,26 @@ const PLAYERS = {
 
 let board; // array of 7 column arrays
 let turn = 0; // 1 or -1
-let winner; // null = no winner; 1 or -1 = winner; 'T' = Tie
+let winner = 0; // null = no winner; 1 or -1 = winner; 'T' = Tie
+let redWins = 0;
+let greenWins = 0;
 
 /*----- cached elements  -----*/
 //DOM ELEMENTS
 const message = document.getElementById("message");
 const playerTurnDisplay = document.getElementById("player-id");
 const boardCells = document.querySelectorAll(".cells");
-
+const resetButton = document.getElementById("reset-button");
+const redCounter = document.getElementById("redWins");
+const greenCounter = document.getElementById("greenWins");
 /*----- event listeners -----*/
-
+resetButton.addEventListener("click", function () {
+  init();
+  message.style.display = "none";
+});
 /*----- functions -----*/
 init();
 
-function render() {
-  renderBoard();
-  renderControls();
-  render();
-}
 // 3) Store elements on the page that will be accessed in code more than once in variables to make code more concise, readable and performant.
 
 // 4) Upon loading the app should:
@@ -39,15 +41,19 @@ function render() {
 //   4.3) Wait for the user to click a square
 function init() {
   //turn 90deg counterclock to visualize
-  (board = [
+  board = [
     [0, 0, 0],
     [0, 0, 0],
     [0, 0, 0],
-  ]),
-    (turn = 1);
+  ];
+  turn = 1;
   winner = null;
-}
 
+  // Clear the border colors of the cells
+  boardCells.forEach((cell) => {
+    cell.style.borderColor = "";
+  });
+}
 //handles click and changes colors
 function handleClick(e) {
   boardCells.forEach((cell) => {
@@ -66,6 +72,8 @@ function handleClick(e) {
         checkRowWinner();
         checkColWinner();
         checkDiaganolWinner();
+        isThereAWinner();
+        winCounter();
       }
 
       //   const squareId = cell.id;
@@ -74,27 +82,35 @@ function handleClick(e) {
   });
 }
 handleClick();
+
 function checkRowWinner() {
-  let total = 0;
   for (let i = 0; i < board.length; i++) {
+    let total = 0;
+
     board[i].forEach((cell) => {
       total += cell;
-      return total;
     });
+
     if (total === 3) {
       console.log("RED WINS");
+      return (winner = 1);
+      console.log(winner);
     } else if (total === -3) {
       console.log("GREEN WINS");
+      return (winner = -1);
     }
   }
 }
+
 function checkColWinner() {
   for (let i = 0; i < board.length; i++) {
     let total = board[0][i] + board[1][i] + board[2][i];
     if (total === 3) {
       console.log("RED WINS");
+      return (winner = 1);
     } else if (total === -3) {
       console.log("GREEN WINS");
+      return (winner = -1);
     }
   }
 }
@@ -105,13 +121,26 @@ function checkDiaganolWinner() {
     board[0][2] + board[1][1] + board[2][0] === 3
   ) {
     console.log("RED WINS");
+    return (winner = 1);
   } else if (
     board[0][0] + board[1][1] + board[2][2] === -3 ||
     board[0][2] + board[1][1] + board[2][0] === -3
   ) {
     console.log("GREEN WINS");
+    return (winner = -1);
   }
 }
+
+function isThereAWinner() {
+  if (winner === 1) {
+    message.innerHTML = "RED WINS";
+    message.style.fontSize = "15px";
+  } else if (winner === -1) {
+    message.innerHTML = "GREEN WINS";
+    message.style.fontSize = "15px";
+  }
+}
+
 // 5) Handle a player clicking a square:
 //   5.1) Obtain the index of the square that was clicked by either:
 //     5.1.1) "Extracting" the index from an id assigned to the element in the HTML, or

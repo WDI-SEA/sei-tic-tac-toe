@@ -1,0 +1,55 @@
+#main-game-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ;
+}
+
+#board {
+  display: inline-grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2px;
+  row-gap: 2px;
+}
+#board > div {
+  text-align: center;
+  border: 80px solid black;
+  opacity: 0.2;
+}
+
+#board > div:hover {
+  transform: scale(1.1);
+}
+
+#btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  color: white;
+  font-size: 2rem;
+  border-radius: 10%;
+  background-color: black;
+  opacity: 0.2;
+}
+button:hover {
+  color: white;
+  font-size: 2rem;
+  border-radius: 10%;
+  background-color: black;
+  opacity: 0.9;
+}
+
+h2 {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+#player-id {
+  color: green;
+}

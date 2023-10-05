@@ -96,7 +96,7 @@ function pickSpot(evt){
     turn *= -1;
 
     //winner = getWinner(rowIdx,colIdx);
-    //isWinner();
+    isWinner();
     render();
 }
 
@@ -110,35 +110,34 @@ function isWinner(){
         }
     }
 }
-function vertWin(){
+function horzWin(){
     for(let i=0; i<3;i++){
-        for(let j=0;j<3;j++){
-            if((borad[i][j]&&borad[i][j]&&borad[i][j] === 1)){
+            if((borad[i][0]=== 1&&borad[i][1]=== 1&&borad[i][2] === 1)){
                 winner = 1;
                 return true;
             }
-            else if((borad[i][j]&&borad[i][j]&&borad[i][j] === -1)){
+            else if((borad[i][0]=== -1&&borad[i][1]=== -1&&borad[i][2] === -1)){
                 winner = -1;
                 return true;
             }
             else{
                 return false;
             }
-        }
     }
 }
 
-function horzWin(){
+function vertWin(){
     for(let i=0; i<3;i++){
-        for(let j=0;j<3;j++){
-            if((borad[j][i]&&borad[j][i]&&borad[j][i] === 1)){
-                winner = 1;
-                return true;
-            }
-            else if((borad[j][i]&&borad[j][i]&&borad[j][i] === -1)){
-                winner = -1;
-                return true;
-            }
+        if((borad[0][i]=== 1&&borad[1][i]=== 1&&borad[2][i] === 1)){
+            winner = 1;
+            return true;
+        }
+        else if((borad[0][i]=== -1&&borad[1][i]=== -1&&borad[2][i] === -1)){
+            winner = -1;
+            return true;
+        }
+        else{
+            return false;
         }
     }
 }

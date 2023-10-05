@@ -1,14 +1,14 @@
 /*----- constants -----*/
 const COLORS = {
     "0": "white",
-    "1": "Blue",
-    "2": "Red"
+    "1": "royalblue",
+    "-1": "tomato"
 }
 
 /*----- state variables -----*/
 let borad;
-let turn = 1; //1 blue or 2 red
-let winner; // null = no winner; 1 o 2 = winner; tie = T
+let turn = 1; //1 blue or -1 red
+let winner; // null = no winner; 1 o -1 = winner; tie = T
 let playerOne;
 let playerTwo;
 
@@ -17,22 +17,23 @@ const intructionsEl = document.getElementById("intructions");
 const resetBtnEl = document.getElementById("reset");
 /*----- event listeners -----*/
 document.getElementById("field").addEventListener("click", pickSpot);
+resetBtnEl.addEventListener("click",init);
 
 /*----- functions -----*/
 function init(){
     borad =
-[
-[0,0,0],
-[0,0,0],
-[0,0,0],
-];
+    [
+    [0,0,0],
+    [0,0,0],
+    [0,0,0],
+    ];
 //set players turn
 winner = null;
 render();
 }
 
 function render(){
-    clearBoard();
+    renderBoard();
     renderMessage();
     renderControls()
     pickPlayer();
@@ -43,7 +44,7 @@ function renderMessage(){
         intructionsEl.innerText = "It's a Tie";
     }
     else if(winner === 1) {
-        intructionsEl.innerHTML = `<span style="color: ${COLORS[winner]};">${COLORS[winner].toUpperCase()}'s} Wins</span>`
+        intructionsEl.innerHTML = `<span style="color: ${COLORS[winner]};">${COLORS[winner].toUpperCase()}'s WINS!</span>`
     } 
     else {
         intructionsEl.innerHTML = `<span style="color: ${COLORS[turn]};">${COLORS[turn].toUpperCase()}'s Turn</span>`
@@ -57,7 +58,7 @@ function renderControls(){
     resetBtnEl.style.visibility = winner ? "visible": "hidden";
 }
 
-function clearBoard(){
+function renderBoard(){
     borad.forEach(function(colArr, colInx) {
         colArr.forEach(function(cellVal,rowIdx) {
             const cellId = `r${rowIdx}c${colInx}`;
@@ -71,21 +72,32 @@ function pickSpot(evt){
     console.dir(evt.target.id);
 
     if(evt.target.id==="field" || winner) return;
-    let row =[parseInt(evt.target.id.charAt(1),10)]
-    let col =[parseInt(evt.target.id.charAt(3),10)]
+    let col =[parseInt(evt.target.id.charAt(1),10)]
+    let row =[parseInt(evt.target.id.charAt(3),10)]
     borad[row][col] = turn;
 
     let marker = document.createElement('p');
     if(turn===1){
         marker.innerHTML = "<strong>O</strong>"
         marker.setAttribute("class",`p${turn}`)
+        evt.target.append(marker);
         //append too
     }
-    else if(turn === 2){
+    else if(turn === -1){
         marker.innerHTML = "<strong>X</strong>"
         marker.setAttribute("class",`p${turn}`)
+        evt.target.append(marker);
         //append to
     }
-    turn = 
+    turn *= -1;
+
+    winner = getWinner();
+
     render();
 }
+
+function getWinner(){
+
+}
+
+init();

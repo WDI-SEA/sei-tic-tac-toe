@@ -56,12 +56,18 @@ button:hover{
     border-color: purple;
 }
 
+.p0{
+    background-color: white;
+    margin: 0;
+}
 .p1{
     background-color: royalblue;
     color: black;
+    margin: 0;
 }
 
-.p2{
+.p-1{
     background-color: tomato;
     color: black;
+    margin: 0;
 }

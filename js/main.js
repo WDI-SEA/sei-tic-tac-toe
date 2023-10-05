@@ -95,22 +95,88 @@ function pickSpot(evt){
     }
     turn *= -1;
 
-    winner = getWinner(rowIdx,colIdx);
-
+    //winner = getWinner(rowIdx,colIdx);
+    isWinner();
     render();
 }
 
 function getWinner(){
     return checkVerticalWin(rowIdx,colIdx);
 }
-
-function checkVerticalWin(rowIdx,colIdx){
-    return countAdjacent(rowIdx,colIdx, 0, -1) === 2 ? borad[rowIdx,colIdx] : null;
+function isWinner(){
+    if((vertWin() === false)){
+        if((horzWin() === false)){
+            diagWin();
+        }
+    }
+}
+function vertWin(){
+    for(let i=0; i<3;i++){
+        for(let j=0;j<3;j++){
+            if((borad[i][j]&&borad[i][j]&&borad[i][j] === 1)){
+                winner = 1;
+                return true;
+            }
+            else if((borad[i][j]&&borad[i][j]&&borad[i][j] === -1)){
+                winner = -1;
+                return ture;
+            }
+            else{
+                return false;
+            }
+        }
+    }
 }
 
-function countAdjacent(rowIdx,colIdx, rowOffset, colOffset){
-    const players = borad[rowIdx][colIdx];
-    console.log(players)
+function horzWin(){
+    for(let i=0; i<3;i++){
+        for(let j=0;j<3;j++){
+            if((borad[j][i]&&borad[j][i]&&borad[j][i] === 1)){
+                winner = 1;
+                return true;
+            }
+            else if((borad[j][i]&&borad[j][i]&&borad[j][i] === -1)){
+                winner = -1;
+                return true;
+            }
+        }
+    }
 }
+
+function diagWin(){
+    if((borad[0][0]&&borad[1][1]&&borad[2][2] === 1)){
+        winner = 1;
+        return true;
+    }
+    else if((borad[0][0]&&borad[1][1]&&borad[2][2] === -1)){
+        winner = -1;
+        return ture;
+    }
+    else if((borad[0][2]&&borad[1][1]&&borad[2][0] === 1)){
+        winner = 1;
+        return true;
+    }
+    else if((borad[0][2]&&borad[1][1]&&borad[2][0] === -1)){
+        winner = -1;
+        return ture;
+    }
+    // else{
+    //     return false;
+    // }
+}
+
+// function checkVerticalWin(rowIdx,colIdx){
+//     return countAdjacent(rowIdx,colIdx, 0, -1) === 2 ? borad[rowIdx,colIdx] : null;
+// }
+
+// function countAdjacent(rowIdx,colIdx, rowOffset, colOffset){
+//     const players = borad[rowIdx][colIdx];
+//     let count = 0;
+
+//     while(){
+
+//     }
+//     console.log(players)
+// }
 
 init();

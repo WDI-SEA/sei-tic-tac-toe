@@ -79,10 +79,12 @@ function pickSpot(evt){
     if(turn===1){
         marker.innerHTML = "<strong>O</strong>"
         marker.setAttribute("class",`p${turn}`)
+        //append too
     }
     else if(turn === 2){
         marker.innerHTML = "<strong>X</strong>"
         marker.setAttribute("class",`p${turn}`)
+        //append to
     }
     turn = 
     render();

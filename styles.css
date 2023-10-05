@@ -3,39 +3,49 @@
 }
 
 body {
-  /* viewport units - vmin (smallest between vh & vw)*/
-  height: 100vh;
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: Helvetica;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #0095ff;
 }
 
-#container {
-  display: grid;
-  grid-template-columns: repeat(3, 10vmin);
-  grid-template-rows: repeat(3, 10vmin);
-}
-
-#container > div {
-  border: 0.1vmin solid grey;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-button {
-  margin-top: 4vmin;
-  padding: 2vmin;
-  font-size: 2vmin;
-  border: 0.1vmin solid grey;
-  color: grey;
+.cell{
+  width: 75px;
+  height: 75px;
+  border: 2px solid;
+  box-shadow: 0 0 0 2px;
+  line-height: 75px;
+  font-size: 50px;
   cursor: pointer;
 }
 
-.x {display: none;}
 
-.o {display: none;}
+#gameContainer{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+#cellContainer{
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 225px;
+  margin: auto;
+}
+
+button {
+  padding: 10px 30px;
+  margin-top: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #000;
+  color: #fff;
+  text-transform: uppercase;
+}

@@ -7,7 +7,7 @@ const COLORS = {
 
 /*----- state variables -----*/
 let borad;
-let turn; //1 blue or 2 red
+let turn = 1; //1 blue or 2 red
 let winner; // null = no winner; 1 o 2 = winner; tie = T
 let playerOne;
 let playerTwo;
@@ -68,16 +68,22 @@ function clearBoard(){
 }
 
 function pickSpot(evt){
-    //console.log(parseInt(evt.target.id.charAt(3),10));
-    borad[parseInt(evt.target.id.charAt(1),10)][parseInt(evt.target.id.charAt(3),10)] = turn;
+    console.dir(evt.target.id);
+
+    if(evt.target.id==="field" || winner) return;
+    let row =[parseInt(evt.target.id.charAt(1),10)]
+    let col =[parseInt(evt.target.id.charAt(3),10)]
+    borad[row][col] = turn;
+
     let marker = document.createElement('p');
     if(turn===1){
-    marker.innerHTML = "<strong>O</strong>"
-    marker.setAttribute("class",`p${turn}`)
+        marker.innerHTML = "<strong>O</strong>"
+        marker.setAttribute("class",`p${turn}`)
     }
-    else{
-    marker.innerHTML = "<strong>X</strong>"
+    else if(turn === 2){
+        marker.innerHTML = "<strong>X</strong>"
+        marker.setAttribute("class",`p${turn}`)
     }
-
+    turn = 
     render();
 }

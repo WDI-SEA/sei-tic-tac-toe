@@ -57,9 +57,11 @@ button:hover{
 }
 
 .p1{
-    color: blue;
+    background-color: royalblue;
+    color: black;
 }
 
 .p2{
-    color: red;
+    background-color: tomato;
+    color: black;
 }

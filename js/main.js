@@ -7,7 +7,7 @@ const COLORS = {
 
 /*----- state variables -----*/
 let borad;
-let turn; //1 blue or -1 red
+let turn = 1; //1 blue or -1 red
 let winner; // null = no winner; 1 o -1 = winner; tie = T
 let playerOne;
 let playerTwo;
@@ -18,7 +18,7 @@ const resetBtnEl = document.getElementById("reset");
 /*----- event listeners -----*/
 document.getElementById("field").addEventListener("click", pickSpot);
 resetBtnEl.addEventListener("click",init);
-document.getElementById("pickPlayer").addEventListener("click",charSelect);
+//document.getElementById("pickPlayer").addEventListener("click",charSelect);
 
 /*----- functions -----*/
 function init(){
@@ -31,7 +31,7 @@ function init(){
 //set players turn
 winner = null;
 //need code to wait till button is clicked
-charSelect();
+//charSelect();
 render();
 }
 
@@ -45,7 +45,7 @@ function renderMessage(){
     if(winner==="T"){
         intructionsEl.innerText = "It's a Tie";
     }
-    else if(winner === 1) {
+    else if(winner === 1||winner === -1) {
         intructionsEl.innerHTML = `<span style="color: ${COLORS[winner]};">${COLORS[winner].toUpperCase()}'s WINS!</span>`
     } 
     else {
@@ -119,7 +119,7 @@ function vertWin(){
             }
             else if((borad[i][j]&&borad[i][j]&&borad[i][j] === -1)){
                 winner = -1;
-                return ture;
+                return true;
             }
             else{
                 return false;
@@ -150,7 +150,7 @@ function diagWin(){
     }
     else if((borad[0][0]&&borad[1][1]&&borad[2][2] === -1)){
         winner = -1;
-        return ture;
+        return true;
     }
     else if((borad[0][2]&&borad[1][1]&&borad[2][0] === 1)){
         winner = 1;
@@ -158,7 +158,7 @@ function diagWin(){
     }
     else if((borad[0][2]&&borad[1][1]&&borad[2][0] === -1)){
         winner = -1;
-        return ture;
+        return true;
     }
     // else{
     //     return false;

@@ -64,6 +64,10 @@ function renderBoard(){
             const cellId = `r${rowIdx}c${colInx}`;
             const cellEl = document.getElementById(cellId);
             cellEl.style.backgroundColor = COLORS[cellVal];
+            if(cellEl.firstChild){
+                cellEl.removeAttribute(backgroundColor);
+                //cellEl.removeChild(cellEl.firstChild)
+            }
         });
     });
 }
@@ -78,15 +82,15 @@ function pickSpot(evt){
 
     let marker = document.createElement('p');
     if(turn===1){
-        marker.innerHTML = "<strong>O</strong>"
+        //marker.innerHTML = "<strong>O</strong>"
         marker.setAttribute("class",`p${turn}`)
-        evt.target.append(marker);
+        //evt.target.append(marker);
         //append too
     }
     else if(turn === -1){
-        marker.innerHTML = "<strong>X</strong>"
+        //marker.innerHTML = "<strong>X</strong>"
         marker.setAttribute("class",`p${turn}`)
-        evt.target.append(marker);
+        //evt.target.append(marker);
         //append to
     }
     turn *= -1;

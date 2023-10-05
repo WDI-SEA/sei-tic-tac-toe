@@ -59,9 +59,9 @@ function renderControls(){
 }
 
 function renderBoard(){
-    borad.forEach(function(colArr, colInx) {
+    borad.forEach(function(colArr, colIdx) {
         colArr.forEach(function(cellVal,rowIdx) {
-            const cellId = `r${rowIdx}c${colInx}`;
+            const cellId = `r${rowIdx}c${colIdx}`;
             const cellEl = document.getElementById(cellId);
             cellEl.style.backgroundColor = COLORS[cellVal];
             if(cellEl.firstChild){
@@ -84,24 +84,33 @@ function pickSpot(evt){
     if(turn===1){
         //marker.innerHTML = "<strong>O</strong>"
         marker.setAttribute("class",`p${turn}`)
+        //append to
         //evt.target.append(marker);
-        //append too
     }
     else if(turn === -1){
         //marker.innerHTML = "<strong>X</strong>"
         marker.setAttribute("class",`p${turn}`)
-        //evt.target.append(marker);
         //append to
+        //evt.target.append(marker);
     }
     turn *= -1;
 
-    winner = getWinner();
+    winner = getWinner(rowIdx,colIdx);
 
     render();
 }
 
 function getWinner(){
+    return checkVerticalWin(rowIdx,colIdx);
+}
 
+function checkVerticalWin(rowIdx,colIdx){
+    return countAdjacent(rowIdx,colIdx, 0, -1) === 2 ? borad[rowIdx,colIdx] : null;
+}
+
+function countAdjacent(rowIdx,colIdx, rowOffset, colOffset){
+    const players = borad[rowIdx][colIdx];
+    console.log(players)
 }
 
 init();

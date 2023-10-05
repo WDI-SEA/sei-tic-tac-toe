@@ -22,5 +22,5 @@ function pickPlayer(){
 }
 
 function clearBoard(){
-
+    
 }

@@ -7,7 +7,7 @@ const COLORS = {
 
 /*----- state variables -----*/
 let borad;
-let turn = 1; //1 blue or -1 red
+let turn; //1 blue or -1 red
 let winner; // null = no winner; 1 o -1 = winner; tie = T
 let playerOne;
 let playerTwo;
@@ -18,6 +18,7 @@ const resetBtnEl = document.getElementById("reset");
 /*----- event listeners -----*/
 document.getElementById("field").addEventListener("click", pickSpot);
 resetBtnEl.addEventListener("click",init);
+document.getElementById("pickPlayer").addEventListener("click",charSelect);
 
 /*----- functions -----*/
 function init(){
@@ -29,6 +30,8 @@ function init(){
     ];
 //set players turn
 winner = null;
+//need code to wait till button is clicked
+charSelect();
 render();
 }
 
@@ -36,7 +39,6 @@ function render(){
     renderBoard();
     renderMessage();
     renderControls()
-    pickPlayer();
 }
 
 function renderMessage(){
@@ -51,9 +53,7 @@ function renderMessage(){
     }
 }
 
-function pickPlayer(){
 
-}
 function renderControls(){
     resetBtnEl.style.visibility = winner ? "visible": "hidden";
 }
@@ -73,7 +73,7 @@ function renderBoard(){
 }
 
 function pickSpot(evt){
-    console.dir(evt.target.id);
+    //console.dir(evt.target.id);
 
     if(evt.target.id==="field" || winner) return;
     let col =[parseInt(evt.target.id.charAt(1),10)]
@@ -96,7 +96,7 @@ function pickSpot(evt){
     turn *= -1;
 
     //winner = getWinner(rowIdx,colIdx);
-    isWinner();
+    //isWinner();
     render();
 }
 
@@ -164,6 +164,21 @@ function diagWin(){
     //     return false;
     // }
 }
+
+function charSelect(evt){
+    if(evt.target.id==="field"){
+        return;
+    }
+    else if(evt.target.id==="x"){
+        turn = -1;
+        document.getElementById("pickPlayer").style.visibility = winner ? "visible": "hidden";
+    }
+    else if(evt.target.id==="o"){
+        turn = 1;
+        document.getElementById("pickPlayer").style.visibility = winner ? "visible": "hidden";
+    }
+}
+
 
 // function checkVerticalWin(rowIdx,colIdx){
 //     return countAdjacent(rowIdx,colIdx, 0, -1) === 2 ? borad[rowIdx,colIdx] : null;

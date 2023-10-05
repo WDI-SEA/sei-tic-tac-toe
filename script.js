@@ -39,7 +39,6 @@ function init () {
 
 //Visualize all state in the DOM
 function render(){
-    // console.log('render')
 	renderBoard()
 	renderMessage()
 	renderControls()
@@ -48,7 +47,6 @@ function render(){
 function renderBoard(){
 	board.forEach(function(colArr, colIdx){
 		colArr.forEach(function(cellVal, rowIdx){
-			//console.log(colIdx, rowIdx, cellVal)
 			const cellId = `c${colIdx}r${rowIdx}`
 			const cellEl = document.getElementById(cellId)
 			cellEl.innerText = MARKERS[cellVal]
@@ -74,34 +72,35 @@ function renderControls(){
 
 //Update board in response to user action
 function handleClick(event){
-
+	if(winner){return}
     const cellEl = event.target
-    const colIdx = cellEl.id[1]
-    const rowIdx = cellEl.id[3]
+    const colIdx = parseFloat(cellEl.id[1])
+    const rowIdx = parseFloat(cellEl.id[3])
 
     cellEl.innerText = MARKERS[turn]
-    board[colIdx][rowIdx] = turn
 
-    console.log(board[colIdx][rowIdx])
+    board[colIdx][rowIdx] = turn
 	turn *= -1 
-    // console.log(turn)
-    
 	winner = getWinner(colIdx, rowIdx)
+	
 	render()
 }
 
 function getWinner(colIdx, rowIdx){
-    console.log('getWinner')
-	return checkVerticalWin(colIdx, rowIdx) ||
+	const result = checkVerticalWin(colIdx, rowIdx) ||
 	checkHorizontalWin(colIdx, rowIdx) ||
 	checkDiagonalNWSEWin(colIdx, rowIdx) ||
 	checkDiagonalNESWWin(colIdx, rowIdx)
+	console.log(result)
+	return(result)
 }
 
 function checkVerticalWin(colIdx, rowIdx){
-	const adjacentCountDown = countAdjacent(colIdx, rowIdx, 0, -1) === 2 ? board[colIdx][rowIdx] : null
-	const adjacentCountUp = countAdjacent(colIdx, rowIdx, 0, 1) === 2 ? board[colIdx][rowIdx] : null
-    return (adjacentCountDown + adjacentCountUp) === 2 ? board[colIdx][rowIdx] : null
+	const adjacentCountDown = countAdjacent(colIdx, rowIdx, 0, -1)
+	const adjacentCountUp = countAdjacent(colIdx, rowIdx, 0, 1)
+    const result = (adjacentCountDown + adjacentCountUp) === 2 ? board[colIdx][rowIdx] : null
+
+	return(result)
 }
 
 function checkHorizontalWin(colIdx, rowIdx){
@@ -125,8 +124,8 @@ function checkDiagonalNESWWin(colIdx, rowIdx){
 function countAdjacent(colIdx, rowIdx, colOffset, rowOffset){
 	const player = board[colIdx][rowIdx]
 	let count = 0;
-	colIdx += colOffset;
-	rowIdx += rowOffset;
+	colIdx += colOffset //parseFloat(colIdx) + parseFloat(colOffset)
+	rowIdx += rowOffset //parseFloat(rowIdx) + parseFloat(rowOffset)
 
 	while(
 		board[colIdx] !== undefined && //colIdx >= 0 && colIdx <= 6 //Ensure that we stay on the board (within bounds)
@@ -137,9 +136,7 @@ function countAdjacent(colIdx, rowIdx, colOffset, rowOffset){
 		colIdx += colOffset
 		rowIdx += rowOffset
 	}
-
 	return(count)
-	// console.log(player)
 }
 
 init()

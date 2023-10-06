@@ -2,7 +2,10 @@
 const COLORS = {
     "0": "white",
     "1": "royalblue",
-    "-1": "tomato"
+    "-1": "tomato",
+    "3": "purple",
+    "x": "red",
+    "o": "blue"
 }
 
 /*----- state variables -----*/
@@ -59,8 +62,8 @@ function renderControls(){
 }
 
 function renderBoard(){
-    borad.forEach(function(colArr, colIdx) {
-        colArr.forEach(function(cellVal,rowIdx) {
+    borad.forEach(function(colArr, rowIdx) {
+        colArr.forEach(function(cellVal,colIdx) {
             const cellId = `r${rowIdx}c${colIdx}`;
             const cellEl = document.getElementById(cellId);
             cellEl.style.backgroundColor = COLORS[cellVal];
@@ -75,10 +78,11 @@ function renderBoard(){
 function pickSpot(evt){
     //console.dir(evt.target.id);
 
-    if(evt.target.id==="field" || winner) return;
-    let col =[parseInt(evt.target.id.charAt(1),10)]
-    let row =[parseInt(evt.target.id.charAt(3),10)]
+    if(evt.target.id==="field" || winner || evt.target.style.backgroundColor!=="white") return;
+    let row =[parseInt(evt.target.id.charAt(1),10)]
+    let col =[parseInt(evt.target.id.charAt(3),10)]
     borad[row][col] = turn;
+    //console.log(`this ths the borard arry${borad}\nthis is the row int: ${row}\nhere is the column int: ${col}\nthis is the new value:${borad[row][col]}`);
 
     let marker = document.createElement('p');
     if(turn===1){
@@ -106,62 +110,70 @@ function getWinner(){
 function isWinner(){
     if((vertWin() === false)){
         if((horzWin() === false)){
-            diagWin();
+            if(diagWin()===false){
+                if(!isTie(borad, 0)){
+                    winner = "T";
+                    return;
+                }
+            }
         }
     }
 }
+function isTie(arr, search) {
+    return arr.some(row => row.includes(search));
+}
 function horzWin(){
     for(let i=0; i<3;i++){
-            if((borad[i][0]=== 1&&borad[i][1]=== 1&&borad[i][2] === 1)){
+            if(borad[i][0]=== 1&&borad[i][1]=== 1&&borad[i][2]=== 1){
                 winner = 1;
+                //console.log("blue hor win");
                 return true;
             }
-            else if((borad[i][0]=== -1&&borad[i][1]=== -1&&borad[i][2] === -1)){
+            else if(borad[i][0]=== -1&&borad[i][1]=== -1&&borad[i][2]=== -1){
                 winner = -1;
+                //console.log("red hor win");
                 return true;
-            }
-            else{
-                return false;
             }
     }
+    return false;
 }
 
 function vertWin(){
     for(let i=0; i<3;i++){
-        if((borad[0][i]=== 1&&borad[1][i]=== 1&&borad[2][i] === 1)){
+        if(borad[0][i]=== 1&&borad[1][i]=== 1&&borad[2][i] === 1){
             winner = 1;
+            //console.log("blue vertical win");
             return true;
         }
-        else if((borad[0][i]=== -1&&borad[1][i]=== -1&&borad[2][i] === -1)){
+        else if(borad[0][i]=== -1&&borad[1][i]=== -1&&borad[2][i] === -1){
             winner = -1;
+            //console.log("blue vertical win");
             return true;
-        }
-        else{
-            return false;
         }
     }
+    return false;
 }
 
 function diagWin(){
-    if((borad[0][0]&&borad[1][1]&&borad[2][2] === 1)){
+    if((borad[0][0]=== 1&&borad[1][1]=== 1&&borad[2][2] === 1)){
         winner = 1;
         return true;
     }
-    else if((borad[0][0]&&borad[1][1]&&borad[2][2] === -1)){
+    else if((borad[0][0]=== -1&&borad[1][1]=== -1&&borad[2][2] === -1)){
         winner = -1;
         return true;
     }
-    else if((borad[0][2]&&borad[1][1]&&borad[2][0] === 1)){
+    else if((borad[0][2]=== 1&&borad[1][1]=== 1&&borad[2][0] === 1)){
         winner = 1;
         return true;
     }
-    else if((borad[0][2]&&borad[1][1]&&borad[2][0] === -1)){
+    else if((borad[0][2]=== -1&&borad[1][1]=== -1&&borad[2][0] === -1)){
         winner = -1;
         return true;
     }
-    // else{
-    //     return false;
-    // }
+    else {
+        return false;
+    }
 }
 
 function charSelect(evt){

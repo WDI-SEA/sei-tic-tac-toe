@@ -165,6 +165,7 @@ function renderMessage() {
     }
 }
 
+
 function renderControls() {
     resetButton.style.visibility = winner ? 'visible' : 'hidden';
     board.forEach(function (columnArr, columnIdx) {
